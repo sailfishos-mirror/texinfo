@@ -20,7 +20,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C3
     {Ref to the anchor:\\n}
-    *1 @ref C1 things_before_setfilename_no_element.texi:l6
+    *@ref C1 things_before_setfilename_no_element.texi:l6
      *brace_arg C1
      |EXTRA
      |node_content:{An anchor}
@@ -30,7 +30,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C3
     {Ref to the anchor in footnote:\\n}
-    *2 @ref C1 things_before_setfilename_no_element.texi:l9
+    *@ref C1 things_before_setfilename_no_element.texi:l9
      *brace_arg C1
      |EXTRA
      |node_content:{Anchor in footnote}
@@ -39,14 +39,14 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     {.\\n}
    {empty_line:\\n}
    *paragraph C2
-    *3 @footnote C1 things_before_setfilename_no_element.texi:l11
+    *@footnote C1 things_before_setfilename_no_element.texi:l11
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C6
       *paragraph C1
        {In footnote.\\n}
       {empty_line:\\n}
-      *4 @anchor C1 things_before_setfilename_no_element.texi:l13
+      *1 @anchor C1 things_before_setfilename_no_element.texi:l13
       |EXTRA
       |is_target:{1}
       |normalized:{Anchor-in-footnote}
@@ -56,7 +56,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
       {empty_line:\\n}
       *paragraph C3
        {Ref to main text anchor\\n}
-       *5 @ref C1 things_before_setfilename_no_element.texi:l16
+       *@ref C1 things_before_setfilename_no_element.texi:l16
         *brace_arg C1
         |EXTRA
         |node_content:{An anchor}
@@ -65,7 +65,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
        {\\n}
     {\\n}
    {empty_line:\\n}
-   *6 @float C3 things_before_setfilename_no_element.texi:l19
+   *2 @float C3 things_before_setfilename_no_element.texi:l19
    |INFO
    |spaces_before_argument:
     |{ }
@@ -100,7 +100,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C3
     {Ref to float\\n}
-    *7 @ref C1 things_before_setfilename_no_element.texi:l24
+    *@ref C1 things_before_setfilename_no_element.texi:l24
      *brace_arg C1
      |EXTRA
      |node_content:{float anchor}
@@ -108,12 +108,12 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
       {float anchor}
     {.\\n}
    {empty_line:\\n}
-   *8 @float C6 things_before_setfilename_no_element.texi:l26
+   *3 @float C6 things_before_setfilename_no_element.texi:l26
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E9]
+   |caption:[E4]
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{2}
@@ -132,9 +132,9 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *paragraph C1
      {In float\\n}
     {empty_line:\\n}
-    *9 @caption C1 things_before_setfilename_no_element.texi:l29
+    *4 @caption C1 things_before_setfilename_no_element.texi:l29
     |EXTRA
-    |float:[E8]
+    |float:[E3]
      *brace_command_context C1
       *paragraph C1
        {ta caption}
@@ -156,7 +156,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
-   *10 @menu C3 things_before_setfilename_no_element.texi:l34
+   *5 @menu C3 things_before_setfilename_no_element.texi:l34
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -239,7 +239,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *11 @ref C1 things_before_setfilename_no_element.texi:l47
+   *@ref C1 things_before_setfilename_no_element.texi:l47
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -249,7 +249,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *12 @ref C1 things_before_setfilename_no_element.texi:l50
+   *@ref C1 things_before_setfilename_no_element.texi:l50
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

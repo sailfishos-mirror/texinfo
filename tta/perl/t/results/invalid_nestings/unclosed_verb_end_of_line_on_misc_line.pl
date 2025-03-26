@@ -14,7 +14,7 @@ $result_tree_text{'unclosed_verb_end_of_line_on_misc_line'} = '*document_root C1
   |text_arg:{name }
    *line_arg C2
     {name }
-    *0 @verb C1 l1
+    *@verb C1 l1
     |INFO
     |delimiter:{}
      *brace_container C1

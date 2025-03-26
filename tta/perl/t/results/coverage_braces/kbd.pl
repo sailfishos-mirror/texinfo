@@ -8,27 +8,27 @@ $result_tree_text{'kbd'} = '*document_root C1
  *before_node_section C13
   *paragraph C3
    {kbd: }
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      {in kbd}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {kbd in code: }
-   *1 @code C1 l3
+   *@code C1 l3
     *brace_container C2
      {in first }
-     *2 @kbd C1 l3
+     *@kbd C1 l3
       *brace_container C1
        {in nested kbd}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {kbd in kbd: }
-   *3 @kbd C1 l5
+   *@kbd C1 l5
     *brace_container C2
      {in top kbd }
-     *4 @kbd C1 l5
+     *@kbd C1 l5
       *brace_container C1
        {in nested kbd}
    {.\\n}
@@ -38,7 +38,7 @@ $result_tree_text{'kbd'} = '*document_root C1
    *@@
    {example:\\n}
   {empty_line:\\n}
-  *5 @example C3 l9
+  *@example C3 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'kbd'} = '*document_root C1
      |{ \\n}
    *preformatted C3
     {in example\\n}
-    *6 @code C1 l11
+    *@code C1 l11
      *brace_container C1
       {in example in kbd}
     {.\\n}
@@ -67,7 +67,7 @@ $result_tree_text{'kbd'} = '*document_root C1
    *@@
    {format:\\n}
   {empty_line:\\n}
-  *7 @format C3 l16
+  *@format C3 l16
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'kbd'} = '*document_root C1
      |{ \\n}
    *preformatted C3
     {in format\\n}
-    *8 @code C1 l18
+    *@code C1 l18
      *brace_container C1
       {in format in kbd}
     {.\\n}

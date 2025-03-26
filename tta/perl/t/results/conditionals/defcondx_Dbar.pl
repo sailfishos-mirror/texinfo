@@ -36,7 +36,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     |{\\n}
     {deffnx inside conditional}
   {empty_line:\\n}
-  *1 @deffn C5 defxcond.texi:l10
+  *@deffn C5 defxcond.texi:l10
   |INFO
   |spaces_before_argument:
    |{ }

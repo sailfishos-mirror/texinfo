@@ -14,7 +14,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -36,11 +36,11 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     |node_content:{One@asis{::}node@comma{} with entries.}
     |normalized:{One_003a_003anode_002c-with-entries_002e}
      {One}
-     *2 @asis C1 l4
+     *@asis C1 l4
       *brace_container C1
        {::}
      {node}
-     *3 @comma C1 l4
+     *@comma C1 l4
       *brace_container
      { with entries.}
     {menu_entry_separator:::}
@@ -70,14 +70,14 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C14 l8 {One@asis{::}node@comma{} with entries.}
+ *2 @node C14 l8 {One@asis{::}node@comma{} with entries.}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E0]
- |node_directions:D[next->E8|prev->E0|up->E0]
+ |menu_directions:D[next->E3|up->E0]
+ |node_directions:D[next->E3|prev->E0|up->E0]
  |normalized:{One_003a_003anode_002c-with-entries_002e}
   *arguments_line C1
    *line_arg C5
@@ -85,11 +85,11 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {One}
-    *5 @asis C1 l8
+    *@asis C1 l8
      *brace_container C1
       {::}
     {node}
-    *6 @comma C1 l8
+    *@comma C1 l8
      *brace_container
     { with entries.}
   {empty_line:\\n}
@@ -99,7 +99,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -112,7 +112,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -125,7 +125,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     |{\\n}
     {b:c}
   {empty_line:\\n}
-  *7 @example C3 l14
+  *@example C3 l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -159,7 +159,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -172,7 +172,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -185,7 +185,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E2]
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -196,15 +196,15 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   *paragraph C1
    {node one\\n}
   {empty_line:\\n}
- *8 @node C4 l24 {Concept Index}
+ *3 @node C4 l24 {Concept Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[prev->E4|up->E0]
- |node_directions:D[prev->E4|up->E0]
+ |menu_directions:D[prev->E2|up->E0]
+ |node_directions:D[prev->E2|up->E0]
  |normalized:{Concept-Index}
   *arguments_line C1
    *line_arg C1

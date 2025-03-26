@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'nested_macros'} = '*document_root C1
  *before_node_section C1
-  *0 @macro C8 l1
+  *@macro C8 l1
   |EXTRA
   |macro_name:{truc}
   |misc_args:A{arg|ex}

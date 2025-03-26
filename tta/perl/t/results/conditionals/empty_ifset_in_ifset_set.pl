@@ -25,7 +25,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
      >|spaces_after_argument:
       >|{\\n}
       >{notset}
-  *0 @verbatim C3 l5
+  *@verbatim C3 l5
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
    >*@end C1 l8

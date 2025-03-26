@@ -16,36 +16,36 @@ $result_tree_text{'at_commands_in_node'} = '*document_root C2
   *arguments_line C1
    *line_arg C14
     {A }
-    *1 @sc C1 l1
+    *@sc C1 l1
      *brace_container C1
       {sc}
     { node }
-    *2 @" C1 l1
+    *@" C1 l1
      *following_arg C1
       {i}
     { }
-    *3 @" C1 l1
+    *@" C1 l1
      *brace_container C1
-      *4 @dotless C1 l1
+      *@dotless C1 l1
        *brace_container C1
         {i}
     { }
-    *5 @` C1 l1
+    *@` C1 l1
      *brace_container C1
-      *6 @= C1 l1
+      *@= C1 l1
        *following_arg C1
         {E}
     { }
-    *7 @l C1 l1
+    *@l C1 l1
      *brace_container
     { }
-    *8 @, C1 l1
+    *@, C1 l1
      *brace_container C1
-      *9 @\' C1 l1
+      *@\' C1 l1
        *following_arg C1
         {C}
     { }
-    *10 @exclamdown C1 l1
+    *@exclamdown C1 l1
      *brace_container
 ';
 

@@ -144,14 +144,14 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
     |{\\n}
     {on}
   *paragraph C4
-   *6 @xref C1 l22
+   *@xref C1 l22
     *brace_arg C1
     |EXTRA
     |node_content:{node before}
     |normalized:{node-before}
      {node before}
    {.\\n}
-   *7 @xref C1 l23
+   *@xref C1 l23
     *brace_arg C1
     |EXTRA
     |node_content:{after}
@@ -172,14 +172,14 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
     |{\\n}
     {off}
   *paragraph C4
-   *8 @xref C1 l26
+   *@xref C1 l26
     *brace_arg C1
     |EXTRA
     |node_content:{node before}
     |normalized:{node-before}
      {node before}
    {.\\n}
-   *9 @xref C1 l27
+   *@xref C1 l27
     *brace_arg C1
     |EXTRA
     |node_content:{after}

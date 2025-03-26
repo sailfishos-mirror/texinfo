@@ -43,7 +43,7 @@ $result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*documen
   {empty_line:\\n}
   *paragraph C3
    {ref to ref }
-   *2 @ref C1 l6
+   *@ref C1 l6
     *brace_arg C1
     |EXTRA
     |node_content:{ref}

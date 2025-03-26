@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_no_argument'} = '*document_root C1
  *before_node_section C1
-  *0 @macro C1 l1
+  *@macro C1 l1
   |EXTRA
   |invalid_syntax:{1}
    *arguments_line C1

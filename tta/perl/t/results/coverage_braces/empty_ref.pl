@@ -8,23 +8,23 @@ $result_tree_text{'empty_ref'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *paragraph C9
-   *0 @ref C1 l2
+   *@ref C1 l2
     *brace_arg
    { }
-   *1 @xref C3 l2
+   *@xref C3 l2
     *brace_arg
     *brace_arg
     *brace_arg C1
      {something}
    {. }
-   *2 @inforef C1 l2
+   *@inforef C1 l2
     *brace_arg
     |INFO
     |spaces_before_argument:
      |{ }
    {\\n}
    { }
-   *3 @inforef C2 l3
+   *@inforef C2 l3
     *brace_arg
     |INFO
     |spaces_before_argument:

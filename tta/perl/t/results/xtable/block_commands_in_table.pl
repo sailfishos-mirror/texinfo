@@ -78,7 +78,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 @table C7 l7
+  *@table C7 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @emph l7
+     *@emph l7
    *table_entry C2
     *table_term C2
      *@item C1 l8
@@ -125,7 +125,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        |{\\n}
        {example}
     *table_definition C1
-     *6 @example C3 l14
+     *@example C3 l14
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -173,7 +173,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        |{\\n}
        {quotation}
     *table_definition C2
-     *7 @quotation C3 l23
+     *@quotation C3 l23
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -206,7 +206,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        {quotation after a blank line}
     *table_definition C2
      {empty_line:\\n}
-     *8 @quotation C3 l29
+     *@quotation C3 l29
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -237,7 +237,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |{\\n}
      {table}
   {empty_line:\\n}
-  *9 @vtable C3 l34
+  *@vtable C3 l34
   |INFO
   |spaces_before_argument:
    |{ }
@@ -246,7 +246,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *10 @strong l34
+     *@strong l34
    *table_entry C2
     *table_term C4
      *@item C1 l35
@@ -304,7 +304,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
      {vtable}
-  *11 @vtable C3 l42
+  *@vtable C3 l42
   |INFO
   |spaces_before_argument:
    |{ }
@@ -313,7 +313,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *12 @r l42
+     *@r l42
    *table_entry C2
     *table_term C3
      *@item C1 l43
@@ -361,7 +361,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C1
    {Something.\\n}
-  *13 @table C4 l52
+  *@table C4 l52
   |INFO
   |spaces_before_argument:
    |{ }
@@ -370,7 +370,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *14 @emph l52
+     *@emph l52
    *table_entry C2
     *table_term C1
      *@item C1 l53

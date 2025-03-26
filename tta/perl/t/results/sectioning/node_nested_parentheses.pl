@@ -62,7 +62,7 @@ $result_tree_text{'node_nested_parentheses'} = '*document_root C2
     |node_content:{close)}
     |normalized:{close_0029}
      {(}
-     *2 @code C1 l6
+     *@code C1 l6
       *brace_container C1
        {open(}
      {)}
@@ -79,7 +79,7 @@ $result_tree_text{'node_nested_parentheses'} = '*document_root C2
     |node_content:{(@code{)))} error}
     |normalized:{_0028_0029_0029_0029-error}
      {(}
-     *3 @code C1 l7
+     *@code C1 l7
       *brace_container C1
        {)))}
      { error}

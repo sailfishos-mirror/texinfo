@@ -8,7 +8,7 @@ $result_tree_text{'verb'} = '*document_root C1
  *before_node_section C8
   *preamble_before_content
   *paragraph C2
-   *0 @verb C1 l1
+   *@verb C1 l1
    |INFO
    |delimiter:{!}
     *brace_container C1
@@ -16,7 +16,7 @@ $result_tree_text{'verb'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @verb C1 l3
+   *@verb C1 l3
    |INFO
    |delimiter:{!}
     *brace_container C1
@@ -24,7 +24,7 @@ $result_tree_text{'verb'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @verb C1 l5
+   *@verb C1 l5
    |INFO
    |delimiter:{!}
     *brace_container C2
@@ -33,7 +33,7 @@ $result_tree_text{'verb'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @verb C1 l8
+   *@verb C1 l8
    |INFO
    |delimiter:{%}
     *brace_container C1

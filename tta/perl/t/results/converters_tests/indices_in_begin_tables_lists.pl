@@ -33,7 +33,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E39]
+ |section_childs:EC[E3|E5]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -56,7 +56,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E38|prev->E0|up->E0]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -71,10 +71,10 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E39|up->E1]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E39|prev->E1|up->E1]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 @itemize C4 indices_in_begin_tables_lists.texi:l9
+  *@itemize C4 indices_in_begin_tables_lists.texi:l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @minus indices_in_begin_tables_lists.texi:l9
+     *@minus indices_in_begin_tables_lists.texi:l9
    *before_item C2
     *@c C1
      {rawline_arg: comment in itemize\\n}
@@ -126,7 +126,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *6 @itemize C5 indices_in_begin_tables_lists.texi:l15
+  *@itemize C5 indices_in_begin_tables_lists.texi:l15
   |INFO
   |spaces_before_argument:
    |{ }
@@ -135,7 +135,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @bullet indices_in_begin_tables_lists.texi:l15
+     *@bullet indices_in_begin_tables_lists.texi:l15
    *before_item C1
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l16
     |INFO
@@ -189,13 +189,13 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *8 @itemize C4 indices_in_begin_tables_lists.texi:l22
+  *@itemize C4 indices_in_begin_tables_lists.texi:l22
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *9 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *before_item C2
@@ -234,7 +234,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *10 @enumerate C4 indices_in_begin_tables_lists.texi:l29
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l29
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -264,7 +264,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *11 @enumerate C4 indices_in_begin_tables_lists.texi:l35
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l35
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -306,7 +306,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *12 @enumerate C4 indices_in_begin_tables_lists.texi:l42
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l42
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -347,7 +347,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *13 @enumerate C4 indices_in_begin_tables_lists.texi:l48
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l48
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -388,7 +388,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *14 @enumerate C4 indices_in_begin_tables_lists.texi:l54
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l54
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -430,7 +430,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *15 @enumerate C4 indices_in_begin_tables_lists.texi:l60
+  *@enumerate C4 indices_in_begin_tables_lists.texi:l60
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -498,7 +498,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *16 @vtable C3 indices_in_begin_tables_lists.texi:l68
+  *@vtable C3 indices_in_begin_tables_lists.texi:l68
   |INFO
   |spaces_before_argument:
    |{ }
@@ -507,7 +507,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *17 @code indices_in_begin_tables_lists.texi:l68
+     *@code indices_in_begin_tables_lists.texi:l68
    *table_entry C2
     *table_term C2
      *@c C1
@@ -539,7 +539,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *18 @vtable C3 indices_in_begin_tables_lists.texi:l74
+  *@vtable C3 indices_in_begin_tables_lists.texi:l74
   |INFO
   |spaces_before_argument:
    |{ }
@@ -548,7 +548,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *19 @asis indices_in_begin_tables_lists.texi:l74
+     *@asis indices_in_begin_tables_lists.texi:l74
    *table_entry C2
     *table_term C3
      *@item C1 indices_in_begin_tables_lists.texi:l75
@@ -593,7 +593,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *20 @ftable C4 indices_in_begin_tables_lists.texi:l81
+  *@ftable C4 indices_in_begin_tables_lists.texi:l81
   |INFO
   |spaces_before_argument:
    |{ }
@@ -602,7 +602,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *21 @var indices_in_begin_tables_lists.texi:l81
+     *@var indices_in_begin_tables_lists.texi:l81
    *table_entry C2
     *table_term C3
      *@item C1 indices_in_begin_tables_lists.texi:l82
@@ -697,7 +697,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *22 @table C3 indices_in_begin_tables_lists.texi:l97
+  *@table C3 indices_in_begin_tables_lists.texi:l97
   |INFO
   |spaces_before_argument:
    |{ }
@@ -706,7 +706,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *23 @code indices_in_begin_tables_lists.texi:l97
+     *@code indices_in_begin_tables_lists.texi:l97
    *table_entry C2
     *table_term C3
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l98
@@ -748,7 +748,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *24 @table C4 indices_in_begin_tables_lists.texi:l104
+  *@table C4 indices_in_begin_tables_lists.texi:l104
   |INFO
   |spaces_before_argument:
    |{ }
@@ -757,7 +757,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *25 @code indices_in_begin_tables_lists.texi:l104
+     *@code indices_in_begin_tables_lists.texi:l104
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l105
     |INFO
@@ -797,7 +797,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *26 @table C3 indices_in_begin_tables_lists.texi:l110
+  *@table C3 indices_in_begin_tables_lists.texi:l110
   |INFO
   |spaces_before_argument:
    |{ }
@@ -806,7 +806,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *27 @samp indices_in_begin_tables_lists.texi:l110
+     *@samp indices_in_begin_tables_lists.texi:l110
    *table_entry C2
     *table_term C3
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l111
@@ -848,7 +848,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *28 @table C4 indices_in_begin_tables_lists.texi:l117
+  *@table C4 indices_in_begin_tables_lists.texi:l117
   |INFO
   |spaces_before_argument:
    |{ }
@@ -857,7 +857,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *29 @samp indices_in_begin_tables_lists.texi:l117
+     *@samp indices_in_begin_tables_lists.texi:l117
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l118
     |INFO
@@ -897,7 +897,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *30 @table C4 indices_in_begin_tables_lists.texi:l123
+  *@table C4 indices_in_begin_tables_lists.texi:l123
   |INFO
   |spaces_before_argument:
    |{ }
@@ -906,7 +906,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *31 @samp indices_in_begin_tables_lists.texi:l123
+     *@samp indices_in_begin_tables_lists.texi:l123
    *before_item C3
     {empty_line:\\n}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l125
@@ -946,7 +946,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *32 @table C4 indices_in_begin_tables_lists.texi:l130
+  *@table C4 indices_in_begin_tables_lists.texi:l130
   |INFO
   |spaces_before_argument:
    |{ }
@@ -955,7 +955,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *33 @samp indices_in_begin_tables_lists.texi:l130
+     *@samp indices_in_begin_tables_lists.texi:l130
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l131
     |INFO
@@ -994,7 +994,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *34 @table C4 indices_in_begin_tables_lists.texi:l136
+  *@table C4 indices_in_begin_tables_lists.texi:l136
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1003,7 +1003,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *35 @samp indices_in_begin_tables_lists.texi:l136
+     *@samp indices_in_begin_tables_lists.texi:l136
    *before_item C1
     {empty_line:\\n}
    *table_entry C1
@@ -1042,7 +1042,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
-  *36 @table C3 indices_in_begin_tables_lists.texi:l142
+  *@table C3 indices_in_begin_tables_lists.texi:l142
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1051,7 +1051,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *37 @samp indices_in_begin_tables_lists.texi:l142
+     *@samp indices_in_begin_tables_lists.texi:l142
    *table_entry C1
     *table_term C5
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l143
@@ -1116,13 +1116,13 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
- *38 @node C1 indices_in_begin_tables_lists.texi:l150 {printindex}
+ *4 @node C1 indices_in_begin_tables_lists.texi:l150 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E39]
- |associated_title_command:[E39]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -1133,13 +1133,13 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {printindex}
- *39 @chapter C8 indices_in_begin_tables_lists.texi:l151 {printindex}
+ *5 @chapter C8 indices_in_begin_tables_lists.texi:l151 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E38]
- |associated_node:[E38]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}

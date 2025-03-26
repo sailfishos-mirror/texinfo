@@ -7,16 +7,16 @@ use utf8;
 $result_tree_text{'command_brace_no_arg_punctuation'} = '*document_root C1
  *before_node_section C1
   *paragraph C8
-   *0 @TeX C1 l1
+   *@TeX C1 l1
     *brace_container
    {. And }
-   *1 @LaTeX C1 l1
+   *@LaTeX C1 l1
     *brace_container
    {. }
-   *2 @copyright C1 l1
+   *@copyright C1 l1
     *brace_container
    {. }
-   *3 @registeredsymbol C1 l1
+   *@registeredsymbol C1 l1
     *brace_container
    {. End.\\n}
 ';

@@ -124,7 +124,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
     {chapter}
   {empty_line:\\n}
   *paragraph C2
-   *5 @xref C1 l14
+   *@xref C1 l14
     *brace_arg C1
     |EXTRA
     |node_content:{chap}
@@ -146,7 +146,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
     {on}
   {empty_line:\\n}
   *paragraph C2
-   *6 @xref C1 l18
+   *@xref C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{chap}

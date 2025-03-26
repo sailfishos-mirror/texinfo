@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'spaces_no_brace_after_braced_command'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @code l1
+   *@code l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

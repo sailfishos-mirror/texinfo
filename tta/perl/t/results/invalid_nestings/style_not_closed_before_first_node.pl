@@ -7,11 +7,11 @@ use utf8;
 $result_tree_text{'style_not_closed_before_first_node'} = '*document_root C2
  *before_node_section C1
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C2
      {in code\\n}
      {empty_line:\\n}
- *1 @node C2 l3 {Top}
+ *0 @node C2 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

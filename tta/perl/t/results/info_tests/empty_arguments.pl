@@ -8,14 +8,14 @@ $result_tree_text{'empty_arguments'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *paragraph C6
-   *0 @strong C1 l2
+   *@strong C1 l2
     *brace_container
    {\\n}
-   *1 @uref C2 l3
+   *@uref C2 l3
     *brace_arg
     *brace_arg
    {\\n}
-   *2 @abbr C2 l4
+   *@abbr C2 l4
     *brace_arg C1
      {a}
     *brace_arg

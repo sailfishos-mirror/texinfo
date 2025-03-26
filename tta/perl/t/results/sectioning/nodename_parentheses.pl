@@ -30,7 +30,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E6|E10]
+ |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -147,7 +147,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|prev->E3|up->E0]
- |node_directions:D[next->E9|prev->E3|up->E0]
+ |node_directions:D[next->E7|prev->E3|up->E0]
  |normalized:{Other-node}
   *arguments_line C1
    *line_arg C1
@@ -162,10 +162,10 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |EXTRA
  |associated_anchor_command:[E5]
  |associated_node:[E5]
- |section_directions:D[next->E10|prev->E4|up->E1]
+ |section_directions:D[next->E8|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E10|prev->E4|up->E1]
+ |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -175,7 +175,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   {empty_line:\\n}
   *paragraph C3
    {Dummy link to }
-   *7 @ref C1 l18
+   *@ref C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{Node (with parentheses)}
@@ -185,7 +185,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   {empty_line:\\n}
   *paragraph C3
    {Dummy link to }
-   *8 @ref C1 l20
+   *@ref C1 l20
     *brace_arg C4
     |EXTRA
     |manual_content:{manual}
@@ -196,13 +196,13 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
      {node}
    {.\\n}
   {empty_line:\\n}
- *9 @node C1 l22 {(manual)node}
+ *7 @node C1 l22 {(manual)node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
- |associated_title_command:[E10]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E0]
  |normalized:{_0028manual_0029node}
@@ -212,13 +212,13 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {(manual)node}
- *10 @chapter C7 l23 {(manual)node}
+ *8 @chapter C7 l23 {(manual)node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
- |associated_node:[E9]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
  |section_directions:D[prev->E6|up->E1]
  |section_level:{1}
  |section_number:{3}
@@ -233,7 +233,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   *paragraph C1
    {Dummy section with (manual)node node syntax.\\n}
   {empty_line:\\n}
-  *11 @anchor C1 l27
+  *9 @anchor C1 l27
   |EXTRA
   |is_target:{1}
   |normalized:{_0028manual_0029anchor}

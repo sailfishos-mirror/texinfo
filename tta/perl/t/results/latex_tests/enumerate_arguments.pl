@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'enumerate_arguments'} = '*document_root C1
  *before_node_section C13
   *preamble_before_content
-  *0 @enumerate C4 l1
+  *@enumerate C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *1 @enumerate C4 l6
+  *@enumerate C4 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -79,7 +79,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *2 @enumerate C4 l11
+  *@enumerate C4 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -115,7 +115,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *3 @enumerate C4 l16
+  *@enumerate C4 l16
   |INFO
   |spaces_before_argument:
    |{ }
@@ -151,7 +151,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *4 @enumerate C4 l21
+  *@enumerate C4 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -187,7 +187,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *5 @enumerate C4 l26
+  *@enumerate C4 l26
   |INFO
   |spaces_before_argument:
    |{ }

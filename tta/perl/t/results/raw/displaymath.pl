@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'displaymath'} = '*document_root C1
  *before_node_section C5
-  *0 @displaymath C7 l1
+  *@displaymath C7 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {before\\n}
-  *1 @displaymath C7 l6
+  *@displaymath C7 l6
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -7,16 +7,16 @@ use utf8;
 $result_tree_text{'not_i_j_in_dotless'} = '*document_root C1
  *before_node_section C1
   *paragraph C4
-   *0 @dotless C1 l1
+   *@dotless C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
     *following_arg C1
      {a}
    { bc, }
-   *1 @^ C1 l1
+   *@^ C1 l1
     *brace_container C1
-     *2 @dotless C1 l1
+     *@dotless C1 l1
       *brace_container C1
        {q}
    {.}

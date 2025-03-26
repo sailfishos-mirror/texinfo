@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_in_table'} = '*document_root C2
  *before_node_section C1
-  *0 @table C2 l1
+  *@table C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -29,7 +29,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
        {Before}
     *table_definition C1
      {empty_line:\\n}
- *2 @section C5 l4 {Subsection}
+ *0 @section C5 l4 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

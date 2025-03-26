@@ -53,7 +53,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      *@ 
-     *0 @verb C1 l4
+     *@verb C1 l4
      |INFO
      |delimiter:{:}
       *brace_container C1

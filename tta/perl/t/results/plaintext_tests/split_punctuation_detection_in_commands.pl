@@ -8,20 +8,20 @@ $result_tree_text{'split_punctuation_detection_in_commands'} = '*document_root C
  *before_node_section C1
   *paragraph C8
    {Before }
-   *0 @asis C1 l1
+   *@asis C1 l1
     *brace_container C1
      {B}
-   *1 @asis C1 l1
+   *@asis C1 l1
     *brace_container C1
      {)}
-   *2 @asis C1 l1
+   *@asis C1 l1
     *brace_container C1
      {.}
    {]]? Afte}
-   *3 @strong C1 l1
+   *@strong C1 l1
     *brace_container C1
      {R}
-   *4 @emph C1 l1
+   *@emph C1 l1
     *brace_container C1
      {"!}
    {\'? Last}

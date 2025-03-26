@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'comment_first_on_itemize_line'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'comment_first_on_itemize_line'} = '*document_root C1
     |comment_at_end:
      |*@c C1
       |{rawline_arg: comment on itemize line\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C2 l2

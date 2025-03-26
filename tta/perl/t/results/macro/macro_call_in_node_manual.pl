@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
  *before_node_section C13
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{openbrace}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{openbracetext}
   |misc_args:A{}
@@ -44,7 +44,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C3 l9
+  *@macro C3 l9
   |EXTRA
   |macro_name:{manualnameend}
   |misc_args:A{}
@@ -63,7 +63,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *3 @macro C3 l13
+  *@macro C3 l13
   |EXTRA
   |macro_name:{manualnameendbrace}
   |misc_args:A{}
@@ -82,7 +82,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *4 @macro C3 l17
+  *@macro C3 l17
   |EXTRA
   |macro_name:{manualnameendbracespace}
   |misc_args:A{}
@@ -101,7 +101,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *5 @macro C3 l21
+  *@macro C3 l21
   |EXTRA
   |macro_name:{manualnameendbracespacetext}
   |misc_args:A{}
@@ -120,7 +120,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *6 @menu C10 l25
+  *0 @menu C10 l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -253,7 +253,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      {begin}
      >SOURCEMARKS
      >macro_expansion<end;7><p:5>
-     *7 @code C1 l31
+     *@code C1 l31
      >SOURCEMARKS
      >macro_expansion<start;8>
       >*macro_call C1

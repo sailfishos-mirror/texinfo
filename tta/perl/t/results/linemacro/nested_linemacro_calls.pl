@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{inside}
   |misc_args:A{a|b}
@@ -25,7 +25,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @linemacro C4 l5
+  *@linemacro C4 l5
   |EXTRA
   |macro_name:{outside}
   |misc_args:A{one|two|three}
@@ -45,7 +45,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *2 @defblock C4 l10
+  *@defblock C4 l10
    *arguments_line C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>

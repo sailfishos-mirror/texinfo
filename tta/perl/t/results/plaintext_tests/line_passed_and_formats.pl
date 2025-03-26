@@ -12,7 +12,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E29]
+ |menus:EC[E1]
  |node_directions:D[next->MISSING: (menu_entry_node)[C4]]
  |normalized:{Top}
   *arguments_line C1
@@ -22,7 +22,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @quotation C4 l3
+  *@quotation C4 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      {special}
    *paragraph C1
     {Quotation special.\\n}
-   *2 @quotation C3 l5
+   *@quotation C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *3 @quotation C4 l11
+  *@quotation C4 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *paragraph C1
     {quotation  text\\n}
-   *4 @example C3 l13
+   *@example C3 l13
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *5 @example C4 l18
+  *@example C4 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *preformatted C1
     { In  example.\\n}
-   *6 @quotation C3 l20
+   *@quotation C3 l20
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -144,7 +144,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {example}
   {empty_line:\\n}
-  *7 @example C3 l25
+  *@example C3 l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     |spaces_after_argument:
      |{\\n}
      {example}
-  *8 @example C3 l28
+  *@example C3 l28
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -183,7 +183,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {example}
   {empty_line:\\n}
-  *9 @quotation C3 l32
+  *@quotation C3 l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -202,7 +202,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     |spaces_after_argument:
      |{\\n}
      {quotation}
-  *10 @quotation C3 l35
+  *@quotation C3 l35
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -222,7 +222,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *11 @quotation C5 l39
+  *@quotation C5 l39
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -230,7 +230,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{ \\n}
    *paragraph C1
     {Quotation\\n}
-   *12 @quotation C3 l41
+   *@quotation C3 l41
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -263,7 +263,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *13 @example C5 l47
+  *@example C5 l47
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -271,7 +271,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *preformatted C1
     {In  example.\\n}
-   *14 @quotation C3 l49
+   *@quotation C3 l49
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -304,7 +304,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
      {example}
   {empty_line:\\n}
-  *15 @quotation C5 l55
+  *@quotation C5 l55
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -312,7 +312,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *paragraph C1
     {quotation  text\\n}
-   *16 @example C3 l57
+   *@example C3 l57
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -347,7 +347,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Before quotation\\n}
-  *17 @quotation C3 l64
+  *@quotation C3 l64
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -371,7 +371,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Before example\\n}
-  *18 @example C3 l70
+  *@example C3 l70
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -395,7 +395,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Before quotation and empty line\\n}
-  *19 @quotation C5 l76
+  *@quotation C5 l76
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -421,7 +421,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Before example and empty line\\n}
-  *20 @example C3 l84
+  *@example C3 l84
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -450,14 +450,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Quotation empty out, spaces inside\\n}
-  *21 @quotation C5 l94
+  *@quotation C5 l94
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *22 @quotation C5 l96
+   *@quotation C5 l96
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -493,14 +493,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Quotation empty out, no spaces inside\\n}
-  *23 @quotation C5 l105
+  *@quotation C5 l105
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *24 @quotation C3 l107
+   *@quotation C3 l107
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -534,7 +534,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Example empty out, spaces inside\\n}
-  *25 @example C5 l114
+  *@example C5 l114
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -542,7 +542,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *preformatted C1
     {empty_line:\\n}
-   *26 @example C3 l116
+   *@example C3 l116
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -579,7 +579,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {Example empty out, no spaces inside\\n}
-  *27 @example C5 l125
+  *@example C5 l125
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -587,7 +587,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      |{\\n}
    *preformatted C1
     {empty_line:\\n}
-   *28 @example C3 l127
+   *@example C3 l127
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -622,7 +622,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {menu\\n}
-  *29 @menu C3 l134
+  *1 @menu C3 l134
    *arguments_line C1
     *block_line_arg
     |INFO

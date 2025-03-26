@@ -19,7 +19,7 @@ $result_tree_text{'titlepage_and_setchapternewpage_on'} = '*document_root C1
      |{\\n}
      {on}
    {empty_line:\\n}
-   *0 @titlepage C3 l3
+   *@titlepage C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO

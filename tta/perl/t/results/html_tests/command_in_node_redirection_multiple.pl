@@ -41,11 +41,11 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {t }
-    *2 @r C1 l2
+    *@r C1 l2
      *brace_container C1
       {in r}
   {empty_line:\\n}
-  *3 @anchor C1 l4
+  *2 @anchor C1 l4
   |EXTRA
   |is_target:{1}
   |normalized:{yyyy}
@@ -53,36 +53,36 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
     {yyyy}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *4 @anchor C1 l6
+  *3 @anchor C1 l6
   |EXTRA
   |is_target:{1}
   |normalized:{gg}
    *brace_arg C1
-    *5 @sansserif C1 l6
+    *@sansserif C1 l6
      *brace_container C1
       {gg}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *6 @anchor C1 l8
+  *4 @anchor C1 l8
   |EXTRA
   |is_target:{1}
   |normalized:{ancher}
    *brace_arg C1
-    *7 @r C1 l8
+    *@r C1 l8
      *brace_container C1
       {ancher}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *8 @anchor C1 l10
+  *5 @anchor C1 l10
   |EXTRA
   |is_target:{1}
   |normalized:{ll-jj}
    *brace_arg C3
-    *9 @sansserif C1 l10
+    *@sansserif C1 l10
      *brace_container C1
       {ll}
     { }
-    *10 @r C1 l10
+    *@r C1 l10
      *brace_container C1
       {jj}
   {spaces_after_close_brace:\\n}

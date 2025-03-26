@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'flushright_example_nested'} = '*document_root C1
  *before_node_section C3
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @flushright C3 l2
+   *@flushright C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -44,13 +44,13 @@ $result_tree_text{'flushright_example_nested'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @flushright C3 l8
+  *@flushright C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *3 @example C3 l9
+   *@example C3 l9
     *arguments_line C1
      *block_line_arg
      |INFO

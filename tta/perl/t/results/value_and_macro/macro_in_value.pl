@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_value'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C5 l1
+  *@macro C5 l1
   |EXTRA
   |macro_name:{ab}
   |misc_args:A{}

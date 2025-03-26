@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
  *before_node_section C3
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet C1 l1
+     *@bullet C1 l1
       *brace_container
    *@item C2 l2
    |EXTRA
@@ -35,7 +35,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *2 @itemize C3 l5
+  *@itemize C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @minus C1 l5
+     *@minus C1 l5
       *brace_container
    *@item C2 l6
    |EXTRA

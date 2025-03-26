@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
  *before_node_section C16
   *paragraph C2
-   *0 @ringaccent C1 l1
+   *@ringaccent C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{    }
@@ -16,7 +16,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @ringaccent C1 l3
+   *@ringaccent C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -25,7 +25,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @ringaccent C1 l6
+   *@ringaccent C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -34,7 +34,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @ringaccent C1 l9
+   *@ringaccent C1 l9
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n  }
@@ -43,7 +43,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @^ C1 l12
+   *@^ C1 l12
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *5 @^ C1 l14
+   *@^ C1 l14
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -61,7 +61,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *6 @^ C1 l17
+   *@^ C1 l17
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n }
@@ -70,7 +70,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *7 @^ C1 l20
+   *@^ C1 l20
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

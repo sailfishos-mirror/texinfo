@@ -23,7 +23,7 @@ $result_tree_text{'set_form_feed'} = '*document_root C1
    {rawline_arg:}
   {empty_line:\\n}
   *paragraph C2
-   *0 @code C1 l5
+   *@code C1 l5
     *brace_container C1
      {a\\a\\f\\\\. . }
      >SOURCEMARKS

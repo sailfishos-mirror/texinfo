@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{emptystring}
   |misc_args:A{}
@@ -26,7 +26,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @menu C3 l6
+  *0 @menu C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
       >|command_name:{emptystring}
        >*brace_arg
      >macro_expansion<end;2><p:3>
-     *2 @b C1 l7
+     *@b C1 l7
      >SOURCEMARKS
      >macro_expansion<start;4>
       >*macro_call C1

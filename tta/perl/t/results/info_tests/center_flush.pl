@@ -16,7 +16,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
     |{\\n}
     {centered}
   {empty_line:\\n}
-  *0 @flushleft C10 l3
+  *@flushleft C10 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C4
     {Now anchor\\n}
-    *1 @anchor C1 l14
+    *0 @anchor C1 l14
     |EXTRA
     |is_target:{1}
     |normalized:{anchor-in-flushleft}
@@ -56,7 +56,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
      |{\\n}
      {flushleft}
   {empty_line:\\n}
-  *2 @flushright C10 l18
+  *@flushright C10 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C8
     {Now anchor\\n}
-    *3 @anchor C1 l29
+    *1 @anchor C1 l29
     |EXTRA
     |is_target:{1}
     |normalized:{anchor-in-flushright}
@@ -85,7 +85,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {spaces_after_close_brace:\\n}
     {after anchor\\n}
     {Second anchor in text }
-    *4 @anchor C1 l31
+    *2 @anchor C1 l31
     |EXTRA
     |is_target:{1}
     |normalized:{second-anchor-in-flushright}

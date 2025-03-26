@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @deffn C1 l2
+  *@deffn C1 l2
   |INFO
   |spaces_before_argument:
    |{ }

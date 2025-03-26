@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'bad_tab_nesting'} = '*document_root C1
  *before_node_section C1
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'bad_tab_nesting'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C2
        {truc\\n}
-       *1 @code C1 l3
+       *@code C1 l3
         *brace_container
      *@tab C2 l3
      |EXTRA

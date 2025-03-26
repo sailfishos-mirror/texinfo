@@ -43,20 +43,20 @@ $result_tree_text{'text_css_info_in_init'} = '*document_root C3
     {top}
   {empty_line:\\n}
   *paragraph C2
-   *2 @sansserif C1 l4
+   *@sansserif C1 l4
     *brace_container C1
      {SSSSSSSSSSs ssss}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @code C1 l6
+   *@code C1 l6
     *brace_container C1
-     *4 @r C1 l6
+     *@r C1 l6
       *brace_container C1
        {in r in code}
    {\\n}
   {empty_line:\\n}
-  *5 @titlefont C1 l8
+  *@titlefont C1 l8
   |EXTRA
   |global_command_number:{1}
    *brace_container C1

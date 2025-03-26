@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'table_command_comment'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'table_command_comment'} = '*document_root C1
     |comment_at_end:
      |*@c C1
       |{rawline_arg: in comment\\n}
-     *1 @code l1
+     *@code l1
    *table_entry C1
     *table_term C1
      *@item C1 l2

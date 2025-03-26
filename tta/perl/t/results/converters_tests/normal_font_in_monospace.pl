@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'normal_font_in_monospace'} = '*document_root C1
  *before_node_section C3
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,10 +14,10 @@ $result_tree_text{'normal_font_in_monospace'} = '*document_root C1
      |{\\n}
    *preformatted C3
     {in example }
-    *1 @r C1 l2
+    *@r C1 l2
      *brace_container C2
       {in r---now }
-      *2 @code C1 l2
+      *@code C1 l2
        *brace_container C1
         {in co---de}
     {\\n}
@@ -34,13 +34,13 @@ $result_tree_text{'normal_font_in_monospace'} = '*document_root C1
      {example}
   {empty_line:\\n}
   *paragraph C2
-   *3 @command C1 l5
+   *@command C1 l5
     *brace_container C2
      {in command---c }
-     *4 @r C1 l5
+     *@r C1 l5
       *brace_container C2
        {in r---r }
-       *5 @file C1 l5
+       *@file C1 l5
         *brace_container C1
          {in file---}
    {.\\n}

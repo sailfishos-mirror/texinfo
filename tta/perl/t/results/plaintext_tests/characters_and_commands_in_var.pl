@@ -7,25 +7,25 @@ use utf8;
 $result_tree_text{'characters_and_commands_in_var'} = '*document_root C1
  *before_node_section C7
   *paragraph C8
-   *0 @var C1 l1
+   *@var C1 l1
     *brace_container C1
      {aaa}
    {. }
-   *1 @var C1 l1
+   *@var C1 l1
     *brace_container C1
      {dlksfjf ) }
    {. }
-   *2 @var C1 l1
+   *@var C1 l1
     *brace_container C1
      {(fdfdsfsd}
    {. }
-   *3 @var C1 l1
+   *@var C1 l1
     *brace_container C1
      {sqdq,qdsdsq}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @var C1 l3
+   *@var C1 l3
     *brace_container C3
      {somethingf  }
      *@c C1
@@ -34,28 +34,28 @@ $result_tree_text{'characters_and_commands_in_var'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *5 @var C1 l6
+   *@var C1 l6
     *brace_container C8
      {AA}
-     *6 @, C1 l6
+     *@, C1 l6
       *following_arg C1
        {c}
      { }
-     *7 @u C1 l6
+     *@u C1 l6
       *brace_container C1
        {r}
      { }
-     *8 @` C1 l6
+     *@` C1 l6
       *following_arg C1
        {e}
      { }
-     *9 @aa C1 l6
+     *@aa C1 l6
       *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {AAA}
-   *10 @footnote C1 l8
+   *@footnote C1 l8
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -63,7 +63,7 @@ $result_tree_text{'characters_and_commands_in_var'} = '*document_root C1
       {jdhfmqsdf\\n}
       {dsf\\n}
       {ds }
-      *11 @var C1 l10
+      *@var C1 l10
        *brace_container C1
         {rrrr , azeeaz}
       {\\n}

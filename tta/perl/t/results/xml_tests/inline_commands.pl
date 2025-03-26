@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inline_commands'} = '*document_root C1
  *before_node_section C5
   *paragraph C4
-   *0 @inlineraw C2 l1
+   *@inlineraw C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{xml}
@@ -19,7 +19,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
      |{ }
      {<sc>xml inlineraw</sc>}
    {\\n}
-   *1 @inlineraw C2 l2
+   *@inlineraw C2 l2
    |EXTRA
    |format:{html}
     *brace_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C4
-   *2 @inlinefmt C2 l4
+   *@inlinefmt C2 l4
    |EXTRA
    |expand_index:{1}
    |format:{xml}
@@ -39,12 +39,12 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *3 @env C1 l4
+     *@env C1 l4
       *brace_container C1
        {inlinefmt}
      {, xml}
    {\\n}
-   *4 @inlinefmt C2 l5
+   *@inlinefmt C2 l5
    |EXTRA
    |format:{html}
     *brace_arg C1
@@ -54,7 +54,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C4
-   *5 @inlinefmtifelse C3 l7
+   *@inlinefmtifelse C3 l7
    |EXTRA
    |expand_index:{1}
    |format:{xml}
@@ -65,13 +65,13 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {xml }
-     *6 @code C1 l7
+     *@code C1 l7
       *brace_container C1
        {inlinefmtifelse}
     *elided_brace_command_arg C1
      {raw: else xml}
    {\\n}
-   *7 @inlinefmtifelse C3 l8
+   *@inlinefmtifelse C3 l8
    |EXTRA
    |expand_index:{2}
    |format:{html}

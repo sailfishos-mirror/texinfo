@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'long_item'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'long_item'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @emph l1
+     *@emph l1
    *table_entry C2
     *table_term C2
      *@item C1 l2

@@ -81,25 +81,25 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C8
    {Text }
-   *4 @w C1 l7
+   *@w C1 l7
     *brace_container C2
-     *5 @code C1 l7
+     *@code C1 l7
       *brace_container C1
        {code in w}
      { text}
    {.\\n}
-   *6 @hyphenation C1 l8
+   *@hyphenation C1 l8
    |EXTRA
    |global_command_number:{1}
     *brace_arg C2
-     *7 @code C1 l8
+     *@code C1 l8
       *brace_container C1
        {code in hyphenation}
      { text}
    {spaces_after_close_brace:\\n}
-   *8 @key C1 l9
+   *@key C1 l9
     *brace_container C2
-     *9 @code C1 l9
+     *@code C1 l9
       *brace_container C1
        {code in key}
      { text}
@@ -119,9 +119,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
      |{\\n}
      {ii}
      {spaces_at_end: }
-     *10 @sortas C1 l10
+     *@sortas C1 l10
       *brace_arg C2
-       *11 @code C1 l10
+       *@code C1 l10
         *brace_container C1
          {code in sortas}
        { text}
@@ -130,9 +130,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    {rawline_arg: no warning for @ref in @w\\n}
   *paragraph C8
    {Text }
-   *12 @w C1 l13
+   *@w C1 l13
     *brace_container C2
-     *13 @ref C2 l13
+     *@ref C2 l13
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -145,11 +145,11 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {cross in w}
      { text}
    {.\\n}
-   *14 @hyphenation C1 l14
+   *@hyphenation C1 l14
    |EXTRA
    |global_command_number:{2}
     *brace_arg C2
-     *15 @ref C2 l14
+     *@ref C2 l14
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -162,9 +162,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {cross in hyphenation}
      { text}
    {spaces_after_close_brace:\\n}
-   *16 @key C1 l15
+   *@key C1 l15
     *brace_container C2
-     *17 @ref C2 l15
+     *@ref C2 l15
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -192,9 +192,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
      |{\\n}
      {ii}
      {spaces_at_end: }
-     *18 @sortas C1 l16
+     *@sortas C1 l16
       *brace_arg C2
-       *19 @ref C2 l16
+       *@ref C2 l16
         *brace_arg C1
         |EXTRA
         |node_content:{Top}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
  *before_node_section C3
-  *0 @quotation C3 l1
+  *@quotation C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *1 @quotation C3 l5
+  *@quotation C3 l5
   |INFO
   |spaces_before_argument:
    |{ }

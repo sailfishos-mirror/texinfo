@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'example_empty_arguments'} = '*document_root C1
  *before_node_section C5
-  *0 @example C3 l1
+  *@example C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *1 @example C3 l5
+  *@example C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @example C3 l9
+  *@example C3 l9
   |INFO
   |spaces_before_argument:
    |{ }

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
  *before_node_section C3
-  *0 @rmacro C3 l1
+  *@rmacro C3 l1
   |EXTRA
   |macro_name:{cat}
   |misc_args:A{a|b}

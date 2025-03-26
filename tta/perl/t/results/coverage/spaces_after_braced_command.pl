@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
  *before_node_section C10
   *paragraph C2
-   *0 @code C1 l1
+   *@code C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @samp C1 l3
+   *@samp C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -25,7 +25,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @AA C1 l6
+   *@AA C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n }
@@ -33,7 +33,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @email C2 l9
+   *@email C2 l9
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -49,7 +49,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @TeX l13
+   *@TeX l13
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}

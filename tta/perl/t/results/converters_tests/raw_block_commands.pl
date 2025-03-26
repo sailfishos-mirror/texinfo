@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'raw_block_commands'} = '*document_root C1
  *before_node_section C10
   {empty_line:\\n}
-  *0 @html C3 l2
+  *@html C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
      {html}
   {empty_line:\\n}
-  *1 @xml C3 l6
+  *@xml C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
      {xml}
   {empty_line:\\n}
-  *2 @docbook C3 l10
+  *@docbook C3 l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
      {docbook}
   {empty_line:\\n}
-  *3 @tex C3 l14
+  *@tex C3 l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
    *rawpreformatted C3
     {$\\underline{a < b }
-    *4 @code C1 l15
+    *@code C1 l15
      *brace_container C2
       {tex \\hbox}
       *balanced_braces C1 l15
@@ -93,7 +93,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
      {tex}
   {empty_line:\\n}
-  *5 @latex C3 l18
+  *@latex C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'raw_block_commands'} = '*document_root C1
      |{\\n}
    *rawpreformatted C3
     {$\\frac{a < b }
-    *6 @code C1 l19
+    *@code C1 l19
      *brace_container C2
       {tex \\hbox}
       *balanced_braces C1 l19

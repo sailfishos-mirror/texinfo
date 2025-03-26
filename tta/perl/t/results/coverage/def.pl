@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'def'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @deffn C3 l2
+  *@deffn C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'def'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C3 l6
+  *@deffn C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -119,7 +119,7 @@ $result_tree_text{'def'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *2 @deffn C17 l11
+  *@deffn C17 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*7 @var C1
+      |*@var C1
        |*brace_container C1
         |{i}
    |index_entry:I{fn,3}
@@ -144,7 +144,7 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *3 @var C1 l11
+       *@var C1 l11
         *brace_container C1
          {i}
      {spaces: }
@@ -280,7 +280,7 @@ $result_tree_text{'def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*8 @b C1
+      |*@b C1
        |*brace_container C1
         |{id ule}
    |index_entry:I{fn,8}
@@ -295,7 +295,7 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *4 @b C1 l16
+       *@b C1 l16
         *brace_container C1
          {id ule}
      {spaces: }
@@ -311,10 +311,10 @@ $result_tree_text{'def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*9 @b C1
+      |*@b C1
        |*brace_container C3
         |{id }
-        |*10 @samp C1
+        |*@samp C1
          |*brace_container C1
           |{i}
         |{ ule}
@@ -330,10 +330,10 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *5 @b C1 l17
+       *@b C1 l17
         *brace_container C3
          {id }
-         *6 @samp C1 l17
+         *@samp C1 l17
           *brace_container C1
            {i}
          { ule}

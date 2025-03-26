@@ -8,7 +8,7 @@ $result_tree_text{'image_in_paragraph'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {Para. }
-   *0 @image C5 l1
+   *@image C5 l1
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1

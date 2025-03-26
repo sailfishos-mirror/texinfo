@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
  *before_node_section C44
   {empty_line:\\n}
-  *0 @html C3 l2
+  *@html C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Block commands on a line\\n}
-   *1 @html C3 l7
+   *@html C3 l7
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -53,7 +53,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
-   *2 @html C3 l13
+   *@html C3 l13
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
-   *3 @html C3 l18
+   *@html C3 l18
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -98,7 +98,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
-   *4 @html C3 l22
+   *@html C3 l22
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -121,7 +121,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
-   *5 @html C3 l27
+   *@html C3 l27
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -141,7 +141,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
       |{\\n}
       {html. A symbol after the closing command.}
   {empty_line:\\n}
-  *6 @tex C3 l31
+  *@tex C3 l31
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Block commands on a line\\n}
-   *7 @tex C3 l36
+   *@tex C3 l36
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -186,7 +186,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
-   *8 @tex C3 l41
+   *@tex C3 l41
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -209,7 +209,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
-   *9 @tex C3 l46
+   *@tex C3 l46
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -231,7 +231,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
-   *10 @tex C3 l50
+   *@tex C3 l50
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -254,7 +254,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
-   *11 @tex C3 l55
+   *@tex C3 l55
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -274,7 +274,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
       |{\\n}
       {tex. A symbol after the closing command.}
   {empty_line:\\n}
-  *12 @verbatim C3 l59
+  *@verbatim C3 l59
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -295,7 +295,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Block commands on a line\\n}
-  *13 @verbatim C3 l64
+  *@verbatim C3 l64
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -318,7 +318,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Before the opening command }
-  *14 @verbatim C3 l69
+  *@verbatim C3 l69
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -341,7 +341,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Before the opening command }
-  *15 @verbatim C3 l74
+  *@verbatim C3 l74
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -362,7 +362,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Before the opening command }
-  *16 @verbatim C3 l78
+  *@verbatim C3 l78
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -385,7 +385,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Before the opening command }
-  *17 @verbatim C3 l83
+  *@verbatim C3 l83
    *arguments_line C1
     *block_line_arg
     |INFO

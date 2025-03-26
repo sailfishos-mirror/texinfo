@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'math_leading_trailing_spaces'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @math C1 l1
+   *@math C1 l1
    |INFO
    |spaces_before_argument:
     |{ }

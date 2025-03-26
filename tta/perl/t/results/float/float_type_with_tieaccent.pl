@@ -20,17 +20,17 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
    *arguments_line C2
     *block_line_arg C6
      {A }
-     *1 @tieaccent C1 l1
+     *@tieaccent C1 l1
       *brace_container C1
        {1a}
      { }
-     *2 @tieaccent C1 l1
+     *@tieaccent C1 l1
       *brace_container C1
        {第H}
      { }
-     *3 @tieaccent C1 l1
+     *@tieaccent C1 l1
       *brace_container C2
-       *4 @^ C1 l1
+       *@^ C1 l1
         *following_arg C1
          {e}
        {一 and text}
@@ -67,17 +67,17 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {A }
-    *5 @tieaccent C1 l5
+    *@tieaccent C1 l5
      *brace_container C1
       {1a}
     { }
-    *6 @tieaccent C1 l5
+    *@tieaccent C1 l5
      *brace_container C1
       {第H}
     { }
-    *7 @tieaccent C1 l5
+    *@tieaccent C1 l5
      *brace_container C2
-      *8 @^ C1 l5
+      *@^ C1 l5
        *following_arg C1
         {e}
       {一 and text}

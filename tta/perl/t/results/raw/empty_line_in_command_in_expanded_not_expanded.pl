@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @tex C3 l2
+  *@tex C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -33,14 +33,14 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
      |{\\n}
      {tex}
   {empty_line:\\n}
-  *1 @html C3 l12
+  *@html C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *rawpreformatted C5
-    *2 @anchor C1 l15
+    *0 @anchor C1 l15
     |EXTRA
     |is_target:{1}
     |normalized:{ha-hb}
@@ -50,7 +50,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
       {hb}
     {.\\n}
     {empty_line:\\n}
-    *3 @code C1 l17
+    *@code C1 l17
      *brace_container C3
       {hv\\n}
       {empty_line:\\n}

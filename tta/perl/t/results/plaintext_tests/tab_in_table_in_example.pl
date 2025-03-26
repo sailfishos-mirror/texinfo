@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @table C4 l2
+   *@table C4 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *2 @code l2
+      *@code l2
     *before_item C1
      *preformatted C2
       {ignorable_spaces_after_command: }

@@ -24,10 +24,10 @@ $result_tree_text{'punctuation_commands'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {Enddots}
-   *0 @enddots C1 l4
+   *@enddots C1 l4
     *brace_container
    { Enddots}
-   *1 @enddots C1 l4
+   *@enddots C1 l4
     *brace_container
    {  GBBB.\\n}
   {empty_line:\\n}
@@ -42,7 +42,7 @@ $result_tree_text{'punctuation_commands'} = '*document_root C1
    *@?
    {\\n}
    {Enddots}
-   *2 @enddots C1 l9
+   *@enddots C1 l9
     *brace_container
    {\\n}
    {End.\\n}
@@ -59,7 +59,7 @@ $result_tree_text{'punctuation_commands'} = '*document_root C1
    *@?
    {\\n}
    {Enddots}
-   *3 @enddots C1 l16
+   *@enddots C1 l16
     *brace_container
    {\\n}
    {End.\\n}

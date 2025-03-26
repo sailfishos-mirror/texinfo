@@ -41,13 +41,13 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @documentdescription C3 l4
+  *@documentdescription C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *3 @menu C3 l5
+   *2 @menu C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO

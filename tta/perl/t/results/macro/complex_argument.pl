@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'complex_argument'} = '*document_root C1
  *before_node_section C16
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{macrotwo}
   |misc_args:A{arg}
@@ -25,7 +25,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C6 l5
+  *@macro C6 l5
   |EXTRA
   |macro_name:{macrofour}
   |misc_args:A{}
@@ -47,7 +47,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C4 l12
+  *@macro C4 l12
   |EXTRA
   |macro_name:{macrothree}
   |misc_args:A{text|arg}
@@ -75,7 +75,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     >*brace_arg C1
      >{@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
   *paragraph C11
-   *3 @verb C1 l38:@macrothree
+   *@verb C1 l38:@macrothree
    |INFO
    |delimiter:{%}
     *brace_container C1
@@ -125,7 +125,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    {4\\n}
    >SOURCEMARKS
    >macro_expansion<end;3><p:1>
-  *4 @verbatim C3 l38:@macrothree
+  *@verbatim C3 l38:@macrothree
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -143,7 +143,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {verbatim}
-  *5 @ignore C3 l38:@macrothree
+  *@ignore C3 l38:@macrothree
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -161,7 +161,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {ignore}
-  *6 @macro C3 l38:@macrothree
+  *@macro C3 l38:@macrothree
   |EXTRA
   |macro_name:{macroseven}
   |misc_args:A{truc}
@@ -247,7 +247,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     >|command_name:{macroseven}
      >*brace_arg C1
       >{aaa}
-   *7 @emph C1 l41:@macroseven
+   *@emph C1 l41:@macroseven
    >SOURCEMARKS
    >macro_expansion<end;5>
     *brace_container C1

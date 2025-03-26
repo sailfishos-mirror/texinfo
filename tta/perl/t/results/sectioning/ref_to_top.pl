@@ -43,7 +43,7 @@ $result_tree_text{'ref_to_top'} = '*document_root C3
     {top}
   {empty_line:\\n}
   *paragraph C2
-   *2 @xref C1 l5
+   *@xref C1 l5
     *brace_arg C1
     |EXTRA
     |node_content:{TOP}

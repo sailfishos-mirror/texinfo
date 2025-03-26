@@ -49,10 +49,10 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *2 @w C1 l4
+    *@w C1 l4
      *brace_container
   {empty_line:\\n}
-  *3 @ftable C3 l6
+  *@ftable C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @code l6
+     *@code l6
    *table_entry C1
     *table_term C1
      *@item C1 l7
@@ -75,7 +75,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *5 @w C1 l7
+       *@w C1 l7
         *brace_container
    *@end C1 l8
    |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *6 @defun C3 l10
+  *@defun C3 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |def_index_element:
     |*def_name C1
      |*bracketed_arg C1
-      |*9 @w C1
+      |*@w C1
        |*brace_container
    |element_node:[E1]
    |index_entry:I{fn,3}
@@ -116,7 +116,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      (i){spaces: }
      *def_name C1
       *bracketed_arg C1 l10
-       *7 @w C1 l10
+       *@w C1 l10
         *brace_container
      {spaces: }
      *def_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |def_index_element:
     |*def_name C1
      |*bracketed_arg C1
-      |*10 @w C1
+      |*@w C1
        |*brace_container
    |element_node:[E1]
    |index_entry:I{fn,4}
@@ -150,7 +150,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      (i){spaces: }
      *def_name C1
       *bracketed_arg C1 l11
-       *8 @w C1 l11
+       *@w C1 l11
         *brace_container
      {spaces: }
      *def_arg C1

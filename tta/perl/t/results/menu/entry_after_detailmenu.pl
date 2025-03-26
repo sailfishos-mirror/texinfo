@@ -13,7 +13,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -28,7 +28,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @detailmenu C3 l4
+   *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1
@@ -77,7 +77,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    *menu_comment C1
     *preformatted C1
      {after_menu_description_line:\\n}
-   *3 @detailmenu C3 l12
+   *@detailmenu C3 l12
    |EXTRA
    |global_command_number:{2}
     *arguments_line C1
@@ -130,14 +130,14 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 l18 {chap first}
+ *2 @node C1 l18 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
- |node_directions:D[next->E5|prev->E0|up->E0]
+ |menu_directions:D[next->E3|up->E0]
+ |node_directions:D[next->E3|prev->E0|up->E0]
  |normalized:{chap-first}
   *arguments_line C1
    *line_arg C1
@@ -145,14 +145,14 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {chap first}
- *5 @node C1 l19 {second}
+ *3 @node C1 l19 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E4|up->E0]
- |node_directions:D[prev->E4|up->E0]
+ |menu_directions:D[prev->E2|up->E0]
+ |node_directions:D[prev->E2|up->E0]
  |normalized:{second}
   *arguments_line C1
    *line_arg C1

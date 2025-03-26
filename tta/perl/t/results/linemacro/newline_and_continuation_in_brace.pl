@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @linemacro C3 l2
+  *@linemacro C3 l2
   |EXTRA
   |macro_name:{mylinecommand}
   |misc_args:A{first|second|rest}
@@ -26,7 +26,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @defblock C3 l6
+  *@defblock C3 l6
    *arguments_line C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>
@@ -61,7 +61,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
     |*def_name C1
      |*def_line_arg C3
       |{a}
-      |*3 @code C1
+      |*@code C1
        |*brace_container C1
         |{b c}
       |{d}
@@ -77,7 +77,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
      *def_name C1
       *def_line_arg C3
        {a}
-       *2 @code C1 l9:@mylinecommand
+       *@code C1 l9:@mylinecommand
         *brace_container C1
          {b c}
        {d}

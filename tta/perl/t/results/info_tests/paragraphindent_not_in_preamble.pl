@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'paragraphindent_not_in_preamble'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C5 l1
+   *@copying C5 l1
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -30,13 +30,13 @@ $result_tree_text{'paragraphindent_not_in_preamble'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *1 @node C1 l7 {Top}
+ *0 @node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
- |associated_title_command:[E2]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -45,18 +45,18 @@ $result_tree_text{'paragraphindent_not_in_preamble'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C10 l8 {test @@paragraphindent effect in preamble}
+ *1 @top C10 l8 {test @@paragraphindent effect in preamble}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
- |associated_node:[E1]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C3

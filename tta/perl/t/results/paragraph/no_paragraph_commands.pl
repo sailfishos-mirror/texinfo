@@ -8,13 +8,13 @@ $result_tree_text{'no_paragraph_commands'} = '*document_root C1
  *before_node_section C6
   *@*
   {\\n}
-  *0 @titlefont C1 l2
+  *@titlefont C1 l2
   |EXTRA
   |global_command_number:{1}
    *brace_container C1
     {title font}
   {\\n}
-  *1 @image C5 l3
+  *@image C5 l3
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1

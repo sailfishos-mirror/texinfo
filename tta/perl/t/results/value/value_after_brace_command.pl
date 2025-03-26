@@ -18,7 +18,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
    {rawline_arg:@unknown}
   {empty_line:\\n}
   *paragraph C12
-   *0 @ringaccent C1 l4
+   *@ringaccent C1 l4
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
     *brace_container C1
      {a}
    {\\n}
-   *1 @ringaccent l5
+   *@ringaccent l5
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
    >SOURCEMARKS
    >value_expansion<end;2>
    {\\n}
-   *2 @^ C1 l6
+   *@^ C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
     *brace_container C1
      {a}
    {\\n}
-   *3 @^ l7
+   *@^ l7
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
    >SOURCEMARKS
    >value_expansion<end;4>
    {\\n}
-   *4 @code C1 l8
+   *@code C1 l8
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
     *brace_container C1
      {a}
    {\\n}
-   *5 @code l9
+   *@code l9
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

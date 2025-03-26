@@ -22,7 +22,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
     {Top}
   {empty_line:\\n}
   *paragraph C10
-   *1 @xref C1 l4
+   *@xref C1 l4
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -32,7 +32,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
      {)}
      {in xref}
    {. }
-   *2 @xref C1 l4
+   *@xref C1 l4
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -42,9 +42,9 @@ $result_tree_text{'xref_test'} = '*document_root C2
      {)}
      {bad xref}
    { after xref.\\n}
-   *3 @code C1 l5
+   *@code C1 l5
     *brace_container C1
-     *4 @xref C1 l5
+     *@xref C1 l5
       *brace_arg C4
       |EXTRA
       |manual_content:{m}
@@ -54,7 +54,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
        {)}
        {bad nested xref}
    {.\\n}
-   *5 @xref C2 l6
+   *@xref C2 l6
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -69,7 +69,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
      |{ }
      {name}
    { ! after xref and dot inside.\\n}
-   *6 @xref C1 l7
+   *@xref C1 l7
     *brace_arg C4
     |EXTRA
     |manual_content:{m}

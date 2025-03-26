@@ -8,7 +8,7 @@ $result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {A }
-   *0 @inlineraw C2 l1
+   *@inlineraw C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}
@@ -20,11 +20,11 @@ $result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
      |{ }
      {plaintext ``\\n}
      {empty_line:\\n}
-     *1 @lbracechar C1 l3
+     *@lbracechar C1 l3
       *brace_container
      { }
    { a.  Now html\\n}
-   *2 @inlineraw C2 l4
+   *@inlineraw C2 l4
    |EXTRA
    |expand_index:{1}
    |format:{html}
@@ -37,7 +37,7 @@ $result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
      {in \\n}
      {empty_line:\\n}
      {<i>}
-     *3 @acronym C1 l6
+     *@acronym C1 l6
       *brace_arg C1
        {HTML}
      {</i>}

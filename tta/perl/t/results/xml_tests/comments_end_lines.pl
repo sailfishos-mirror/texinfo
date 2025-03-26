@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'comments_end_lines'} = '*document_root C1
  *before_node_section C19
-  *0 @itemize C3 l1
+  *@itemize C3 l1
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C2 l2
@@ -36,7 +36,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{  }
      {itemize}
   {empty_line:\\n}
-  *2 @enumerate C2 l5
+  *@enumerate C2 l5
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -59,7 +59,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {enumerate}
   {empty_line:\\n}
-  *3 @table C3 l8
+  *@table C3 l8
   |INFO
   |spaces_before_argument:
    |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @asis l8
+     *@asis l8
    *table_entry C1
     *table_term C1
      *@item C1 l9
@@ -95,7 +95,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {table}
   {empty_line:\\n}
-  *5 @quotation C3 l12
+  *@quotation C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -118,7 +118,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {quotation}
   {empty_line:\\n}
-  *6 @group C3 l16
+  *@group C3 l16
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -141,7 +141,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {group}
   {empty_line:\\n}
-  *7 @example C3 l20
+  *@example C3 l20
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -164,7 +164,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {example}
   {empty_line:\\n}
-  *8 @multitable C3 l24
+  *@multitable C3 l24
   |INFO
   |spaces_before_argument:
    |{ }
@@ -214,7 +214,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {multitable}
   {empty_line:\\n}
-  *9 @float C3 l28
+  *0 @float C3 l28
   |INFO
   |spaces_before_argument:
    |{ }
@@ -249,7 +249,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{  }
      {float}
   {empty_line:\\n}
-  *10 @flushright C3 l32
+  *@flushright C3 l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -272,7 +272,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {flushright}
   {empty_line:\\n}
-  *11 @raggedright C3 l36
+  *@raggedright C3 l36
    *arguments_line C1
     *block_line_arg
     |INFO

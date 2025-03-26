@@ -7,34 +7,34 @@ use utf8;
 $result_tree_text{'commands_in_abbr'} = '*document_root C1
  *before_node_section C3
   *paragraph C2
-   *0 @abbr C2 l1
+   *@abbr C2 l1
     *brace_arg C1
      {A}
     *brace_arg C2
     |INFO
     |spaces_before_argument:
      |{ }
-     *1 @b C1 l1
+     *@b C1 l1
       *brace_container C1
        {abbr}
      { -- b}
    {.\\n}
   {empty_line:\\n}
-  *2 @example C3 l3
+  *@example C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *3 @abbr C2 l4
+    *@abbr C2 l4
      *brace_arg C1
       {A}
      *brace_arg C2
      |INFO
      |spaces_before_argument:
       |{ }
-      *4 @b C1 l4
+      *@b C1 l4
        *brace_container C1
         {abbr}
       { -- b}

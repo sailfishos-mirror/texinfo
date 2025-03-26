@@ -35,7 +35,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E6]
+ |section_childs:EC[E3|E5]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -74,10 +74,10 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E6|up->E1]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -103,8 +103,8 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |normalized:{appendix}
@@ -113,11 +113,11 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @code C1 l11
+    *@code C1 l11
      *brace_container C1
       {append}
     {ix}
- *6 @appendix C3 l12 {App}
+ *5 @appendix C3 l12 {App}
  |INFO
  |spaces_before_argument:
   |{ }

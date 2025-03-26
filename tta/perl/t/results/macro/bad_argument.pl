@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'bad_argument'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |invalid_syntax:{1}
    *arguments_line C1
@@ -24,7 +24,7 @@ $result_tree_text{'bad_argument'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @rmacro C3 l5
+  *@rmacro C3 l5
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{abar}
@@ -44,7 +44,7 @@ $result_tree_text{'bad_argument'} = '*document_root C1
      |{\\n}
      {rmacro}
   {empty_line:\\n}
-  *2 @macro C3 l9
+  *@macro C3 l9
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{aftername}
@@ -64,7 +64,7 @@ $result_tree_text{'bad_argument'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *3 @macro C3 l13
+  *@macro C3 l13
   |EXTRA
   |invalid_syntax:{1}
    *arguments_line C1

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'uref_in_ref'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @ref C5 l1
+   *@ref C5 l1
     *brace_arg C4
     |EXTRA
     |manual_content:{file}
@@ -21,7 +21,7 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {cross ref with uref }
-     *1 @uref C2 l1
+     *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index.html}
       *brace_arg C1
@@ -31,7 +31,7 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {title with uref2 }
-     *2 @uref C2 l1
+     *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index2.html}
       *brace_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {info file with uref3 }
-     *3 @uref C2 l1
+     *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index3.html}
       *brace_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {printed manual with uref4 }
-     *4 @uref C2 l1
+     *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index4.html}
       *brace_arg C1

@@ -94,7 +94,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
     {Chap}
   {empty_line:\\n}
   *paragraph C2
-   *5 @pxref C1 l9
+   *@pxref C1 l9
     *brace_arg C1
     |EXTRA
     |node_content:{before Top}

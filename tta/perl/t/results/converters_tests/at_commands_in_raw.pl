@@ -14,7 +14,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -29,14 +29,14 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @macro C3 l4
+  *@macro C3 l4
   |EXTRA
   |macro_name:{othermacro}
   |misc_args:A{}
@@ -63,13 +63,13 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
      |{\\n}
      {macro}
   {empty_line:\\n}
- *3 @node C1 l8 {chap}
+ *2 @node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -80,13 +80,13 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C36 l9 {Chapter}
+ *3 @chapter C36 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -98,7 +98,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *5 @html C3 l11
+  *@html C3 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -106,14 +106,14 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
      |{\\n}
    *rawpreformatted C5
     {<b>in b}
-    *6 @footnote C1 l12
+    *@footnote C1 l12
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1
       *paragraph C1
        {in footnote}
     {.</b>\\n}
-    *7 @anchor C1 l13
+    *4 @anchor C1 l13
     |EXTRA
     |is_target:{1}
     |normalized:{anchor-in-html}
@@ -132,10 +132,10 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
      |{\\n}
      {html}
   *paragraph C3
-   *8 @kbd C1 l15
+   *@kbd C1 l15
     *brace_container C1
      {in kbd before tex}
-   *9 @footnote C1 l15
+   *@footnote C1 l15
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C1
@@ -143,7 +143,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
       {second footnote}
    {.\\n}
   {empty_line:\\n}
-  *10 @tex C3 l17
+  *@tex C3 l17
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -207,20 +207,20 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
-  *11 @value C1
+  *@value C1
    *brace_container C1
     {flag}
   *paragraph C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *12 @kbd C1 l67
+   *@kbd C1 l67
     *brace_container C1
      {in kbd after tex}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *13 @xref C1 l69
+   *@xref C1 l69
     *brace_arg C1
     |EXTRA
     |node_content:{anchor in html}
@@ -229,7 +229,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
-   *14 @ref C1 l71
+   *@ref C1 l71
     *brace_arg C1
     |EXTRA
     |node_content:{anchor in tex}
@@ -242,7 +242,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:[E2]
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
@@ -293,7 +293,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     {Figs}
   {empty_line:\\n}
   *paragraph C2
-   *15 @acronym C1 l81
+   *@acronym C1 l81
     *brace_arg C1
      {FF}
    {.\\n}

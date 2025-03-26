@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'table'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @table C3 l2
+  *@table C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l2
+     *@asis l2
    *table_entry C2
     *table_term C2
      *@item C1 l3
@@ -53,7 +53,7 @@ $result_tree_text{'table'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *2 @vtable C4 l9
+  *@vtable C4 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'table'} = '*document_root C1
     |comment_at_end:
      |*@c C1
       |{rawline_arg: samp\\n}
-     *3 @samp l9
+     *@samp l9
    *before_item C3
     *@c C1
      {rawline_arg: after vtable\\n}
@@ -136,7 +136,7 @@ $result_tree_text{'table'} = '*document_root C1
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *4 @table C3 l20
+  *@table C3 l20
   |INFO
   |spaces_before_argument:
    |{ }
@@ -145,7 +145,7 @@ $result_tree_text{'table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @strong l20
+     *@strong l20
    *table_entry C1
     *table_term C1
      *@item C1 l21

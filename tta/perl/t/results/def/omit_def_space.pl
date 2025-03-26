@@ -42,7 +42,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    {rawline_arg:txidefnamenospace}
    {rawline_arg:}
   {empty_line:\\n}
-  *2 @defun C4 l7
+  *@defun C4 l7
   |INFO
   |spaces_before_argument:
    |{ }

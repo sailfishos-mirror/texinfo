@@ -11,25 +11,25 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *0 @b C1 l3
+   *@b C1 l3
     *brace_container C1
      {aaa}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @dotless C1 l5
+   *@dotless C1 l5
     *brace_container C1
      {i}
    { also dotless i.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @U C1 l7
+   *@U C1 l7
     *brace_arg C1
      {0075}
    { also U+0075.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @email C1 l9
+   *@email C1 l9
     *brace_arg C1
      {m1}
    { email.\\n}
@@ -46,7 +46,7 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
     |{\\n}
     {foo,\\,//}
   *paragraph C2
-   *4 definfoenclose_command@foo C1 l12
+   *definfoenclose_command@foo C1 l12
    |INFO
    |command_name:{foo}
    |EXTRA
@@ -58,7 +58,7 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
    { should work at the beginning of a new paragraph.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *5 @footnote C1 l14
+   *@footnote C1 l14
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1

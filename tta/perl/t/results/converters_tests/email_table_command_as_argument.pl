@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @email l1
+     *@email l1
    *table_entry C2
     *table_term C1
      *@item C1 l2

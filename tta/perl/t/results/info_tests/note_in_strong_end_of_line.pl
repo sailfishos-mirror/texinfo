@@ -22,14 +22,14 @@ $result_tree_text{'note_in_strong_end_of_line'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv }
-   *1 @strong C1 l3
+   *@strong C1 l3
     *brace_container C1
      {note a}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv }
-   *2 @strong C1 l5
+   *@strong C1 l5
     *brace_container C2
      {note\\n}
      {a}

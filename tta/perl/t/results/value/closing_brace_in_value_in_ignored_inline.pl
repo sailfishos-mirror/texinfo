@@ -13,7 +13,7 @@ $result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root 
    {rawline_arg:}}
   {empty_line:\\n}
   *paragraph C3
-   *0 @inlinefmt C2 l3
+   *@inlinefmt C2 l3
    |EXTRA
    |expand_index:{1}
    |format:{html}
@@ -35,7 +35,7 @@ $result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root 
    {machin\\n}
   {empty_line:\\n}
   *paragraph C1
-   *1 @inlinefmt C2 l7
+   *@inlinefmt C2 l7
    |EXTRA
    |format:{tex}
     *brace_arg C1

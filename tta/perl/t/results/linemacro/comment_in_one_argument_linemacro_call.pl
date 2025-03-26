@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a}
@@ -36,7 +36,7 @@ $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
      >|{ }
      >*line_arg C1
       >{@code{something @comment in} out}
-   *1 @code C1 l5:@lm
+   *@code C1 l5:@lm
     *brace_container C2
      {something }
      >SOURCEMARKS

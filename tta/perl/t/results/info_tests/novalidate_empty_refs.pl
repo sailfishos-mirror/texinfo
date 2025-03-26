@@ -25,23 +25,23 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
     {Top}
   {empty_line:\\n}
   *paragraph C4
-   *1 @xref C1 l6
+   *@xref C1 l6
     *brace_arg C1
     |EXTRA
     |node_content:{@:}
      *@:
    {.\\n}
-   *2 @xref C1 l7
+   *@xref C1 l7
     *brace_arg C1
     |EXTRA
     |node_content:{@asis{ }}
     |normalized:{-}
-     *3 @asis C1 l7
+     *@asis C1 l7
       *brace_container C1
        { }
    {.\\n}
   {empty_line:\\n}
- *4 @node C1 l9 {@
+ *1 @node C1 l9 {@
 }
  |INFO
  |spaces_before_argument:
@@ -49,7 +49,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
   *arguments_line C1
    *line_arg C1
     *@\\n
- *5 @node C1 l10 {@:}
+ *2 @node C1 l10 {@:}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     *@:
- *6 @node C1 l11 {@asis{ }}
+ *3 @node C1 l11 {@asis{ }}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @asis C1 l11
+    *@asis C1 l11
      *brace_container C1
       { }
 ';

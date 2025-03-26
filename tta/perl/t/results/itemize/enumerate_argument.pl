@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'enumerate_argument'} = '*document_root C1
  *before_node_section C7
-  *0 @enumerate C2 l1
+  *@enumerate C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'enumerate_argument'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *1 @enumerate C2 l4
+  *@enumerate C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'enumerate_argument'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *2 @enumerate C2 l7
+  *@enumerate C2 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'enumerate_argument'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *3 @enumerate C2 l10
+  *@enumerate C2 l10
   |INFO
   |spaces_before_argument:
    |{ }

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'double_titlepage_not_closed'} = '*document_root C1
  *before_node_section C1
-  *0 @titlepage C6 l1
+  *@titlepage C6 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -17,7 +17,7 @@ $result_tree_text{'double_titlepage_not_closed'} = '*document_root C1
     {This is in title page\\n}
    {empty_line:\\n}
    {empty_line:\\n}
-   *1 @titlepage C3 l6
+   *@titlepage C3 l6
     *arguments_line C1
      *block_line_arg
      |INFO

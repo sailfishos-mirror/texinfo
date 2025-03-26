@@ -12,7 +12,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E6]
+  |caption:[E1]
   |float_number:{1}
   |float_type:{entrée}
   |global_command_number:{1}
@@ -21,7 +21,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
    *arguments_line C2
     *block_line_arg C3
      {entr}
-     *1 @\' C1 l1
+     *@\' C1 l1
       *following_arg C1
        {e}
      {e}
@@ -32,36 +32,36 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {premi}
-     *2 @` C1 l1
+     *@` C1 l1
       *following_arg C1
        {e}
      {re entr}
-     *3 @\' C1 l1
+     *@\' C1 l1
       *following_arg C1
        {e}
      {e}
    {empty_line:\\n}
    *paragraph C5
     {Ceci est notre premi}
-    *4 @` C1 l3
+    *@` C1 l3
      *following_arg C1
       {e}
     {re entr}
-    *5 @\' C1 l3
+    *@\' C1 l3
      *following_arg C1
       {e}
     {e.\\n}
-   *6 @caption C1 l4
+   *1 @caption C1 l4
    |EXTRA
    |float:[E0]
     *brace_command_context C1
      *paragraph C5
       {La premi}
-      *7 @` C1 l4
+      *@` C1 l4
        *following_arg C1
         {e}
       {re entr}
-      *8 @\' C1 l4
+      *@\' C1 l4
        *following_arg C1
         {e}
       {e est importante}
@@ -92,7 +92,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {entr}
-    *9 @\' C1 l9
+    *@\' C1 l9
      *following_arg C1
       {e}
     {e}

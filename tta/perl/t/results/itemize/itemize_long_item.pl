@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'itemize_long_item'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C8 l1
+  *@itemize C8 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
    |EXTRA
    |item_number:{2}
     {ignorable_spaces_after_command:\\n}
-    *1 @example C3 l4
+    *@example C3 l4
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
    |item_number:{4}
     {ignorable_spaces_after_command:\\n}
     {empty_line:\\n}
-    *2 @example C3 l14
+    *@example C3 l14
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
    |EXTRA
    |item_number:{5}
     {ignorable_spaces_after_command:\\n}
-    *3 @quotation C3 l18
+    *@quotation C3 l18
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -107,7 +107,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
    |item_number:{6}
     {ignorable_spaces_after_command:\\n}
     {empty_line:\\n}
-    *4 @quotation C3 l24
+    *@quotation C3 l24
      *arguments_line C1
       *block_line_arg
       |INFO

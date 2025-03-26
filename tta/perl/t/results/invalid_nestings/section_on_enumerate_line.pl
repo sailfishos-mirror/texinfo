@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
  *before_node_section C1
-  *0 @enumerate C1 l1
+  *@enumerate C1 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -18,20 +18,20 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
     |spaces_after_argument:
      |{ }
      {something}
- *1 @section C3 l1 {first}
+ *0 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3]
+ |section_directions:D[next->E1]
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1|E3]
+  ||section_childs:EC[E0|E1]
   ||section_level:{1}
- |toplevel_directions:D[next->E3]
+ |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -39,7 +39,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
     |{\\n}
     {first}
   {empty_line:\\n}
-  *2 @enumerate C1 l3
+  *@enumerate C1 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -51,15 +51,15 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
     |spaces_after_argument:
      |{ }
      {4}
- *3 @section C1 l3 {second}
+ *1 @section C1 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1]
+ |section_directions:D[prev->E0]
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[prev->E1]
+ |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO

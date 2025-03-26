@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_first_parenthesis_source_mark'} = '*document_root C1
  *before_node_section C4
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{vvv}
   |misc_args:A{}
@@ -25,12 +25,12 @@ $result_tree_text{'protect_first_parenthesis_source_mark'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @anchor C1 l5
+  *0 @anchor C1 l5
   |EXTRA
   |is_target:{1}
   |normalized:{_0028some-text_0029-aa_002c_002c}
    *brace_arg C2
-    *2 @asis C1
+    *@asis C1
      *brace_container C1
       {(}
       >SOURCEMARKS

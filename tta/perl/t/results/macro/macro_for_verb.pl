@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_for_verb'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{verbopen}
   |misc_args:A{}
@@ -32,7 +32,7 @@ $result_tree_text{'macro_for_verb'} = '*document_root C1
    >|command_name:{verbopen}
     >*brace_arg
   *paragraph C2
-   *1 @verb C1 l5:@verbopen
+   *@verb C1 l5:@verbopen
    |INFO
    |delimiter:{@}
     *brace_container C4

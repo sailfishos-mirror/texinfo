@@ -27,7 +27,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @detailmenu C3 l4
+   *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1

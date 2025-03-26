@@ -6,14 +6,14 @@ use utf8;
 
 $result_tree_text{'raw_in_example'} = '*document_root C1
  *before_node_section C4
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C1
-    *1 @html C3 l2
+    *@html C3 l2
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @example C3 l7
+  *@example C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
      |{\\n}
    *preformatted C5
     {empty_line:\\n}
-    *3 @html C3 l9
+    *@html C3 l9
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
        |{\\n}
        {html}
     {empty_line:\\n}
-    *4 @tex C3 l15
+    *@tex C3 l15
      *arguments_line C1
       *block_line_arg
       |INFO

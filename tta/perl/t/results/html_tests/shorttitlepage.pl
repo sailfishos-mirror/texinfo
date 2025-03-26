@@ -17,21 +17,21 @@ $result_tree_text{'shorttitlepage'} = '*document_root C3
     |{\\n}
     *@@
     {title }
-    *0 @sc C1 l2
+    *@sc C1 l2
      *brace_container C1
       {html}
     { }
-    *1 @code C1 l2
+    *@code C1 l2
      *brace_container C1
       {test}
   {empty_line:\\n}
- *2 @node C1 l4 {Top}
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -40,18 +40,18 @@ $result_tree_text{'shorttitlepage'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C5 l5 {Top of @@title @sc{html} @code{test}}
+ *1 @top C5 l5 {Top of @@title @sc{html} @code{test}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C6
@@ -61,11 +61,11 @@ $result_tree_text{'shorttitlepage'} = '*document_root C3
     {Top of }
     *@@
     {title }
-    *4 @sc C1 l5
+    *@sc C1 l5
      *brace_container C1
       {html}
     { }
-    *5 @code C1 l5
+    *@code C1 l5
      *brace_container C1
       {test}
   {empty_line:\\n}

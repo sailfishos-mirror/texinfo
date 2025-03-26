@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'no_brace_space_end_line'} = '*document_root C1
  *before_node_section C3
   *paragraph C2
-   *0 @code C1 l1
+   *@code C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -16,12 +16,12 @@ $result_tree_text{'no_brace_space_end_line'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C4
-   *1 @TeX l3
+   *@TeX l3
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
    {text\\n}
-   *2 @code l5
+   *@code l5
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}

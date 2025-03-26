@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_deftype'} = '*document_root C1
  *before_node_section C7
-  *0 @deftypefun C3 l1
+  *@deftypefun C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
      |{\\n}
      {deftypefun}
   {empty_line:\\n}
-  *1 @defun C3 l5
+  *@defun C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -119,7 +119,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
      |{\\n}
      {defun}
   {empty_line:\\n}
-  *2 @deftypemethod C3 l9
+  *@deftypemethod C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -195,7 +195,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
      |{\\n}
      {deftypemethod}
   {empty_line:\\n}
-  *3 @defmethod C3 l13
+  *@defmethod C3 l13
   |INFO
   |spaces_before_argument:
    |{ }

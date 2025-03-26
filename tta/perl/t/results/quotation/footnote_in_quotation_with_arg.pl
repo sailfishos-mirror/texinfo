@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C3 l1
+  *@quotation C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -18,7 +18,7 @@ $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
      {lean}
    *paragraph C3
     {A}
-    *1 @footnote C1 l2
+    *@footnote C1 l2
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1

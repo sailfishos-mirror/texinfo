@@ -138,7 +138,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   {empty_line:\\n}
   *paragraph C3
    {Text}
-   *6 @footnote C1 l15
+   *@footnote C1 l15
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1

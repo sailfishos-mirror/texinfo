@@ -99,12 +99,12 @@ $result_tree_text{'nodedescription'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @emph C1 l9
+    *@emph C1 l9
      *brace_container C1
       {first description}
     { of chapter}
   {empty_line:\\n}
-  *7 @nodedescription C1 l11
+  *6 @nodedescription C1 l11
   |INFO
   |spaces_before_argument:
    |{ }

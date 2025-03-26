@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_imbricated_with_beginning_command_name'} = '*document_root C1
  *before_node_section C2
-  *0 @macro C5 l1
+  *@macro C5 l1
   |EXTRA
   |macro_name:{foo}
   |misc_args:A{}

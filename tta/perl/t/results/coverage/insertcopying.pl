@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'insertcopying'} = '*document_root C1
  *before_node_section C5
-  *0 @copying C5 l1
+  *@copying C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -15,7 +15,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
    *paragraph C1
     {License.\\n}
    {empty_line:\\n}
-   *1 @quotation C3 l4
+   *@quotation C3 l4
     *arguments_line C1
      *block_line_arg
      |INFO

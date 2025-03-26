@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{inlinefirstarg}
   |misc_args:A{}
@@ -27,7 +27,7 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Toto }
-   *1 @inlinefmtifelse C3 l5
+   *@inlinefmtifelse C3 l5
    |EXTRA
    |expand_index:{2}
    |format:{tex}

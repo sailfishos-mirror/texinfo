@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
-   *0 @titlepage C5 l1
+   *@titlepage C5 l1
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
     {empty_line:\\n}
-    *1 @anchor C1 l3
+    *0 @anchor C1 l3
     |EXTRA
     |is_target:{1}
     |normalized:{in-titlepage}
@@ -35,34 +35,34 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *2 @top C1 l6 {top}
+ *1 @top C1 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {top}
- *3 @node C2 l7 {Top}
+ *2 @node C2 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E5]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -71,30 +71,30 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
     |{\\n}
     {Top}
   {empty_line:\\n}
- *4 @chapter C1 l9 {Chapter}
+ *3 @chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
- |section_directions:D[up->E2]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E2|up->E2]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *5 @node C3 l10 {nchap}
+ *4 @node C3 l10 {nchap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3]
+ |node_directions:D[prev->E2]
  |normalized:{nchap}
   *arguments_line C1
    *line_arg C1
@@ -104,7 +104,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
     {nchap}
   {empty_line:\\n}
   *paragraph C2
-   *6 @xref C1 l12
+   *@xref C1 l12
     *brace_arg C1
     |EXTRA
     |node_content:{in titlepage}

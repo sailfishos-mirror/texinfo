@@ -8,14 +8,14 @@ $result_tree_text{'transparent_text'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {AA}
-   *0 @footnote C1 l1
+   *@footnote C1 l1
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C1
       {in footnote}
    {). B (}
-   *1 @emph C1 l1
+   *@emph C1 l1
     *brace_container C1
      {C}
    {). D.\\n}

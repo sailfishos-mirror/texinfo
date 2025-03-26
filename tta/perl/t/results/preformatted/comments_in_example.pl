@@ -8,7 +8,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
  *before_node_section C8
   *paragraph C1
    {Example with comments 2 lines\\n}
-  *0 @example C3 l2
+  *@example C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Example with comments 1 line\\n}
-  *1 @example C3 l8
+  *@example C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Example with newline after comment\\n}
-  *2 @example C3 l13
+  *@example C3 l13
    *arguments_line C1
     *block_line_arg
     |INFO

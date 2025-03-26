@@ -102,7 +102,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E8|E12|E15|E17]
+ |section_childs:EC[E4|E6|E8|E10|E12]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -210,8 +210,8 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E7|up->E0]
- |node_directions:D[next->E7|prev->E0|up->E0]
+ |menu_directions:D[next->E5|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{chapter-ja}
   *arguments_line C1
    *line_arg C1
@@ -226,10 +226,10 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E8|up->E1]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -239,14 +239,14 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   {empty_line:\\n}
   *paragraph C3
    {In japanese. }
-   *5 @xref C1 l27
+   *@xref C1 l27
     *brace_arg C1
     |EXTRA
     |node_content:{chapter ja}
     |normalized:{chapter-ja}
      {chapter ja}
    {.\\n}
-  *6 @defivar C2 l28
+  *@defivar C2 l28
   |INFO
   |spaces_before_argument:
    |{ }
@@ -323,16 +323,16 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {en}
- *7 @node C1 l32 {chapter en}
+ *5 @node C1 l32 {chapter en}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
- |menu_directions:D[next->E11|prev->E3|up->E0]
- |node_directions:D[next->E11|prev->E3|up->E0]
+ |menu_directions:D[next->E7|prev->E3|up->E0]
+ |node_directions:D[next->E7|prev->E3|up->E0]
  |normalized:{chapter-en}
   *arguments_line C1
    *line_arg C1
@@ -340,17 +340,17 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter en}
- *8 @chapter C6 l33 {en}
+ *6 @chapter C6 l33 {en}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_directions:D[next->E12|prev->E4|up->E1]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
+ |section_directions:D[next->E8|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E12|prev->E4|up->E1]
+ |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -360,14 +360,14 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   {empty_line:\\n}
   *paragraph C3
    {In english. }
-   *9 @xref C1 l35
+   *@xref C1 l35
     *brace_arg C1
     |EXTRA
     |node_content:{chapter ja}
     |normalized:{chapter-ja}
      {chapter ja}
    {.\\n}
-  *10 @defivar C2 l36
+  *@defivar C2 l36
   |INFO
   |spaces_before_argument:
    |{ }
@@ -393,7 +393,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{en}
-   |element_node:[E7]
+   |element_node:[E5]
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -444,16 +444,16 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {fr_FR}
- *11 @node C1 l40 {chapter fr_FR}
+ *7 @node C1 l40 {chapter fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
- |associated_title_command:[E12]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
- |menu_directions:D[next->E14|prev->E7|up->E0]
- |node_directions:D[next->E14|prev->E7|up->E0]
+ |menu_directions:D[next->E9|prev->E5|up->E0]
+ |node_directions:D[next->E9|prev->E5|up->E0]
  |normalized:{chapter-fr_005fFR}
   *arguments_line C1
    *line_arg C1
@@ -461,17 +461,17 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter fr_FR}
- *12 @chapter C5 l41 {fr_FR}
+ *8 @chapter C5 l41 {fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
- |associated_node:[E11]
- |section_directions:D[next->E15|prev->E8|up->E1]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
+ |section_directions:D[next->E10|prev->E6|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E15|prev->E8|up->E1]
+ |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -479,7 +479,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
     |{\\n}
     {fr_FR}
   {empty_line:\\n}
-  *13 @defivar C2 l43
+  *@defivar C2 l43
   |INFO
   |spaces_before_argument:
    |{ }
@@ -505,7 +505,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{fr_FR}
-   |element_node:[E11]
+   |element_node:[E7]
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -556,16 +556,16 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {de}
- *14 @node C1 l47 {chapter de}
+ *9 @node C1 l47 {chapter de}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
- |associated_title_command:[E15]
+ |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
- |menu_directions:D[next->E16|prev->E11|up->E0]
- |node_directions:D[next->E16|prev->E11|up->E0]
+ |menu_directions:D[next->E11|prev->E7|up->E0]
+ |node_directions:D[next->E11|prev->E7|up->E0]
  |normalized:{chapter-de}
   *arguments_line C1
    *line_arg C1
@@ -573,17 +573,17 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter de}
- *15 @chapter C3 l48 {de}
+ *10 @chapter C3 l48 {de}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E14]
- |associated_node:[E14]
- |section_directions:D[next->E17|prev->E12|up->E1]
+ |associated_anchor_command:[E9]
+ |associated_node:[E9]
+ |section_directions:D[next->E12|prev->E8|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E17|prev->E12|up->E1]
+ |toplevel_directions:D[next->E12|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -603,16 +603,16 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {pt_BR}
- *16 @node C1 l51 {chapter pt_BR}
+ *11 @node C1 l51 {chapter pt_BR}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E17]
- |associated_title_command:[E17]
+ |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
- |menu_directions:D[prev->E14|up->E0]
- |node_directions:D[prev->E14|up->E0]
+ |menu_directions:D[prev->E9|up->E0]
+ |node_directions:D[prev->E9|up->E0]
  |normalized:{chapter-pt_005fBR}
   *arguments_line C1
    *line_arg C1
@@ -620,17 +620,17 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter pt_BR}
- *17 @chapter C3 l52 {pt_bR}
+ *12 @chapter C3 l52 {pt_bR}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E16]
- |associated_node:[E16]
- |section_directions:D[prev->E15|up->E1]
+ |associated_anchor_command:[E11]
+ |associated_node:[E11]
+ |section_directions:D[prev->E10|up->E1]
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E15|up->E1]
+ |toplevel_directions:D[prev->E10|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -640,7 +640,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   {empty_line:\\n}
   *paragraph C3
    {In brazilian. }
-   *18 @xref C1 l54
+   *@xref C1 l54
     *brace_arg C1
     |EXTRA
     |node_content:{chapter ja}

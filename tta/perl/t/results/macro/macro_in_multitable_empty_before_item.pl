@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{emptymacro}
   |misc_args:A{}
@@ -24,7 +24,7 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @multitable C4 l4
+  *@multitable C4 l4
   |INFO
   |spaces_before_argument:
    |{ }

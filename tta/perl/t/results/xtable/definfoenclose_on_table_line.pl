@@ -18,7 +18,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
     |{\\n}
     {phi,:,:}
   {empty_line:\\n}
-  *0 @table C3 l3
+  *@table C3 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 definfoenclose_command@phi l3
+     *definfoenclose_command@phi l3
      |INFO
      |command_name:{phi}
      |EXTRA

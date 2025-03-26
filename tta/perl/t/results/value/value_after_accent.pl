@@ -12,7 +12,7 @@ $result_tree_text{'value_after_accent'} = '*document_root C1
    {rawline_arg:a_letter}
    {rawline_arg:a}
   *paragraph C3
-   *0 @ringaccent C1 l2
+   *@ringaccent C1 l2
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'value_after_accent'} = '*document_root C1
     *following_arg C1
      {a}
    {\\n}
-   *1 @~ C1 l3
+   *@~ C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
     |{}

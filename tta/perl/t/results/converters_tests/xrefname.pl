@@ -139,7 +139,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
     {off}
   {empty_line:\\n}
   *paragraph C2
-   *7 @xref C1 l15
+   *@xref C1 l15
     *brace_arg C1
     |EXTRA
     |node_content:{ntiti}
@@ -162,7 +162,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
   {empty_line:\\n}
   *paragraph C3
    {xrefautomaticsectiontitle on }
-   *8 @ref C1 l19
+   *@ref C1 l19
     *brace_arg C1
     |EXTRA
     |node_content:{ntiti}

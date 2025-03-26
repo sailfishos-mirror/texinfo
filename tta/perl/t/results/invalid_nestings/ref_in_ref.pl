@@ -20,12 +20,12 @@ $result_tree_text{'ref_in_ref'} = '*document_root C2
     |{\\n}
     {first}
   *paragraph C1
-   *1 @ref C1 l2
+   *@ref C1 l2
     *brace_arg C1
     |EXTRA
     |node_content:{@ref{first}}
     |normalized:{first}
-     *2 @ref C1 l2
+     *@ref C1 l2
       *brace_arg C1
       |EXTRA
       |node_content:{first}

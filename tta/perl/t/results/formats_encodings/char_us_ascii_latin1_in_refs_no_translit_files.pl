@@ -326,35 +326,35 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {ç}
   {empty_line:\\n}
   *paragraph C10
-   *13 @ref C1 char_us_ascii_latin1_in_refs.texi:l33
+   *@ref C1 char_us_ascii_latin1_in_refs.texi:l33
     *brace_arg C1
     |EXTRA
     |node_content:{ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
     |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
      {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
    {\\n}
-   *14 @ref C1 char_us_ascii_latin1_in_refs.texi:l34
+   *@ref C1 char_us_ascii_latin1_in_refs.texi:l34
     *brace_arg C1
     |EXTRA
     |node_content:{é}
     |normalized:{_00e9}
      {é}
    {\\n}
-   *15 @ref C1 char_us_ascii_latin1_in_refs.texi:l35
+   *@ref C1 char_us_ascii_latin1_in_refs.texi:l35
     *brace_arg C1
     |EXTRA
     |node_content:{à è ù}
     |normalized:{_00e0-_00e8-_00f9}
      {à è ù}
    {\\n}
-   *16 @ref C1 char_us_ascii_latin1_in_refs.texi:l36
+   *@ref C1 char_us_ascii_latin1_in_refs.texi:l36
     *brace_arg C1
     |EXTRA
     |node_content:{â ê î ô û Â Ê Î Ô Û}
     |normalized:{_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db}
      {â ê î ô û Â Ê Î Ô Û}
    {\\n}
-   *17 @ref C1 char_us_ascii_latin1_in_refs.texi:l37
+   *@ref C1 char_us_ascii_latin1_in_refs.texi:l37
     *brace_arg C1
     |EXTRA
     |node_content:{ç}

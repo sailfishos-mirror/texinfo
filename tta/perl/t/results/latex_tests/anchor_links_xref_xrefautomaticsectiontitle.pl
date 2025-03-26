@@ -160,28 +160,28 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
     |{\\n}
     {on}
   *paragraph C8
-   *10 @xref C1 l24
+   *@xref C1 l24
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node before}
     |normalized:{anch_003a-in-node-before}
      {anch: in node before}
    {.\\n}
-   *11 @xref C1 l25
+   *@xref C1 l25
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node top}
     |normalized:{anch_003a-in-node-top}
      {anch: in node top}
    {.\\n}
-   *12 @xref C1 l26
+   *@xref C1 l26
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node after}
     |normalized:{anch_003a-in-node-after}
      {anch: in node after}
    {.\\n}
-   *13 @xref C1 l27
+   *@xref C1 l27
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in chap}
@@ -202,28 +202,28 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
     |{\\n}
     {off}
   *paragraph C8
-   *14 @xref C1 l30
+   *@xref C1 l30
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node before}
     |normalized:{anch_003a-in-node-before}
      {anch: in node before}
    {.\\n}
-   *15 @xref C1 l31
+   *@xref C1 l31
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node top}
     |normalized:{anch_003a-in-node-top}
      {anch: in node top}
    {.\\n}
-   *16 @xref C1 l32
+   *@xref C1 l32
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in node after}
     |normalized:{anch_003a-in-node-after}
      {anch: in node after}
    {.\\n}
-   *17 @xref C1 l33
+   *@xref C1 l33
     *brace_arg C1
     |EXTRA
     |node_content:{anch: in chap}

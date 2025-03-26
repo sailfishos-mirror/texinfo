@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'on_block_command_line'} = '*document_root C1
  *before_node_section C3
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -18,14 +18,14 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      *bracketed_arg C1 l1
-      *1 @anchor C1 l1
+      *0 @anchor C1 l1
       |EXTRA
       |is_target:{1}
       |normalized:{in-anchor}
        *brace_arg C1
         {in anchor}
      { }
-     *2 @titlefont C1 l1
+     *@titlefont C1 l1
      |EXTRA
      |global_command_number:{1}
       *brace_container C1
@@ -38,7 +38,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
      |EXTRA
      |cell_number:{1}
       {ignorable_spaces_after_command: }
-      *3 @titlefont C1 l2
+      *@titlefont C1 l2
       |EXTRA
       |global_command_number:{2}
        *brace_container C1
@@ -56,7 +56,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *4 @quotation C2 l5
+  *@quotation C2 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -64,19 +64,19 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     *block_line_arg C8
      *@indent l5
      {ignorable_spaces_after_command: }
-     *5 @titlefont C1 l5
+     *@titlefont C1 l5
      |EXTRA
      |global_command_number:{3}
       *brace_container C1
        {in titlefont}
      { }
-     *6 @anchor C1 l5
+     *1 @anchor C1 l5
      |EXTRA
      |is_target:{1}
      |normalized:{in-quotation-anchor}
       *brace_arg C1
        {in quotation anchor}
-     *7 @footnote C1 l5
+     *@footnote C1 l5
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C1

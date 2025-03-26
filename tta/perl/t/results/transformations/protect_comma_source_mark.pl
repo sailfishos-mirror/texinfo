@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_comma_source_mark'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{vvv}
   |misc_args:A{}
@@ -39,26 +39,26 @@ $result_tree_text{'protect_comma_source_mark'} = '*document_root C1
     >|INFO
     >|command_name:{vvv}
      >*brace_arg
-   *1 @comma C1
+   *@comma C1
     *brace_container
-   *2 @comma C1
+   *@comma C1
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container
-   *3 @comma C1
+   *@comma C1
    >SOURCEMARKS
    >value_expansion<start;1>{,,}
     >*@value C1
      >*brace_container C1
       >{punct}
     *brace_container
-   *4 @comma C1
+   *@comma C1
     *brace_container
-   *5 @comma C1
+   *@comma C1
    >SOURCEMARKS
    >value_expansion<end;1>
     *brace_container
-   *6 @comma C1
+   *@comma C1
     *brace_container
    { and after.\\n}
 ';

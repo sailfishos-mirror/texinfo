@@ -257,7 +257,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @defivar C2 l24
+  *@defivar C2 l24
   |INFO
   |spaces_before_argument:
    |{ }

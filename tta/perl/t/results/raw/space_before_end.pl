@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'space_before_end'} = '*document_root C1
  *before_node_section C5
-  *0 @tex C3 l1
+  *@tex C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
      |{\\n}
      {tex}
   {empty_line:\\n}
-  *1 @verbatim C4 l5
+  *@verbatim C4 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
      |{\\n}
      {verbatim}
   {empty_line:\\n}
-  *2 @html C4 l9
+  *@html C4 l9
    *arguments_line C1
     *block_line_arg
     |INFO

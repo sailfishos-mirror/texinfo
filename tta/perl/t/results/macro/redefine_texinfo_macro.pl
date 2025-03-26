@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{code}
   |misc_args:A{arg}
@@ -33,7 +33,7 @@ $result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
     >*brace_arg C1
      >{code}
   *paragraph C2
-   *1 @emph C1 l5:@code
+   *@emph C1 l5:@code
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container C1

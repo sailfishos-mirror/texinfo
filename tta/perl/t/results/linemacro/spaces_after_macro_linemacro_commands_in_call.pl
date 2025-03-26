@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_root C1
  *before_node_section C10
-  *0 @linemacro C5 l1
+  *@linemacro C5 l1
   |EXTRA
   |macro_name:{mylinecommand}
   |misc_args:A{first|second|rest}
@@ -27,7 +27,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @macro C3 l7
+  *@macro C3 l7
   |EXTRA
   |macro_name:{mymac}
   |misc_args:A{arg1}
@@ -46,7 +46,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @linemacro C3 l11
+  *@linemacro C3 l11
   |EXTRA
   |macro_name:{mylinemac}
   |misc_args:A{name|rest}
@@ -84,7 +84,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
     >|spaces_before_argument:
      >|{ }
      >{@mymac {bb}}
-  *3 @defblock C3 l15:@mylinecommand
+  *@defblock C3 l15:@mylinecommand
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -103,7 +103,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
      ||spaces_after_argument:
       ||{\\n}
       |{}
-      |*6 @samp C1
+      |*@samp C1
        |*brace_container C1
         |{arg1}
    |original_def_cmdname:{defline}
@@ -125,7 +125,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
         >|command_name:{mymac}
          >*line_arg C1
           >{} A aa B @mymac {bb}}
-       *4 @samp C1 l15:@mymac
+       *@samp C1 l15:@mymac
        >SOURCEMARKS
        >macro_expansion<end;1>
         *brace_container C1
@@ -163,7 +163,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
     >|spaces_before_argument:
      >|{ }
      >{{other} and remaining}
-  *5 @defblock C3 l17:@mylinecommand
+  *@defblock C3 l17:@mylinecommand
    *arguments_line C1
     *block_line_arg
     |INFO

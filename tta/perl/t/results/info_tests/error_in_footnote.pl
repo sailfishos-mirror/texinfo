@@ -52,23 +52,23 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
     *brace_command_context C1
      *paragraph C8
       {Caption. }
-      *3 @TeX l8
+      *@TeX l8
       {. \\n}
       {In caption }
-      *4 @strong C1 l9
+      *@strong C1 l9
        *brace_container C1
         {note caption}
       {.  \\n}
       {Now footnote}
-      *5 @footnote C1 l10
+      *@footnote C1 l10
       |EXTRA
       |global_command_number:{1}
        *brace_command_context C1
         *paragraph C5
-         *6 @LaTeX l10
+         *@LaTeX l10
          {. \\n}
          {and strong }
-         *7 @strong C1 l11
+         *@strong C1 l11
           *brace_container C1
            {Note footnote}
          {.}

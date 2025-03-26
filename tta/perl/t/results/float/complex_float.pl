@@ -16,7 +16,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
- |node_directions:D[next->E53]
+ |node_directions:D[next->E7]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,14 +31,14 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E54]
+ |section_childs:EC[E8]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E54]
+ |toplevel_directions:D[next->E8]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -97,14 +97,14 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E21]
+  |caption:[E4]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{text-with-a-lot-of-features}
-  |shortcaption:[E42]
+  |shortcaption:[E6]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -117,7 +117,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {text with a lot of features}
    *paragraph C3
     {An example of float }
-    *4 @enddots C1 l13
+    *@enddots C1 l13
      *brace_container
     {\\n}
    {empty_line:\\n}
@@ -175,7 +175,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {empty_line:\\n}
    *paragraph C1
     {A table.\\n}
-   *5 @table C3 l33
+   *@table C3 l33
    |INFO
    |spaces_before_argument:
     |{ }
@@ -184,7 +184,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *6 @emph l33
+      *@emph l33
     *table_entry C2
      *table_term C1
       *@item C1 l34
@@ -213,7 +213,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {empty_line:\\n}
    *paragraph C1
     {An itemize.\\n}
-   *7 @itemize C3 l39
+   *@itemize C3 l39
    |INFO
    |spaces_before_argument:
     |{ }
@@ -222,7 +222,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *8 @minus l39
+      *@minus l39
     *@item C2 l40
     |EXTRA
     |item_number:{1}
@@ -244,7 +244,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {empty_line:\\n}
    *paragraph C6
     {A ref.\\n}
-    *9 @xref C2 l45
+    *@xref C2 l45
      *brace_arg C1
      |EXTRA
      |node_content:{Top}
@@ -254,7 +254,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {xref Text with features}
     {.\\n}
     {A footnote.\\n}
-    *10 @footnote C1 l47
+    *@footnote C1 l47
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1
@@ -263,31 +263,31 @@ $result_tree_text{'complex_float'} = '*document_root C5
     {.\\n}
    {empty_line:\\n}
    *paragraph C17
-    *11 @TeX C1 l49
+    *@TeX C1 l49
      *brace_container
     { and }
-    *12 @emph C1 l49
+    *@emph C1 l49
      *brace_container C2
-      *13 @b C1 l49
+      *@b C1 l49
        *brace_container C3
         {t}
-        *14 @\' C1 l49
+        *@\' C1 l49
          *following_arg C1
           {e}
-        *15 @^ C1 l49
+        *@^ C1 l49
          *brace_container C1
-          *16 @dotless C1 l49
+          *@dotless C1 l49
            *brace_container C1
             {i}
-      *17 @url C1 l49
+      *@url C1 l49
        *brace_arg C1
         {an_url}
     { }
-    *18 @sc C1 l49
+    *@sc C1 l49
      *brace_container C1
       {and}
     { }
-    *19 @verb C1 l49
+    *@verb C1 l49
     |INFO
     |delimiter:{!}
      *brace_container C1
@@ -300,11 +300,11 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *@!
     *@@
     { }
-    *20 @AE C1 l49
+    *@AE C1 l49
      *brace_container
     {.\\n}
    {empty_line:\\n}
-   *21 @caption C1 l51
+   *4 @caption C1 l51
    |INFO
    |spaces_before_argument:
     |{ }
@@ -313,11 +313,11 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}
-      *22 @enddots C1 l51
+      *@enddots C1 l51
        *brace_container
       {\\n}
       {An example.\\n}
-     *23 @example C3 l53
+     *@example C3 l53
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -337,7 +337,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {example}
      {empty_line:\\n}
-     *24 @anchor C1 l57
+     *5 @anchor C1 l57
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption}
@@ -347,7 +347,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {A table.\\n}
-     *25 @table C3 l60
+     *@table C3 l60
      |INFO
      |spaces_before_argument:
       |{ }
@@ -356,7 +356,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *26 @emph l60
+        *@emph l60
       *table_entry C2
        *table_term C1
         *@item C1 l61
@@ -385,7 +385,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {A multitable.\\n}
-     *27 @multitable C3 l66
+     *@multitable C3 l66
      |INFO
      |spaces_before_argument:
       |{ }
@@ -461,7 +461,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {An itemize.\\n}
-     *28 @itemize C3 l74
+     *@itemize C3 l74
      |INFO
      |spaces_before_argument:
       |{ }
@@ -470,7 +470,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *29 @minus l74
+        *@minus l74
       *@item C2 l75
       |EXTRA
       |item_number:{1}
@@ -492,7 +492,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C6
       {A ref.\\n}
-      *30 @xref C2 l80
+      *@xref C2 l80
        *brace_arg C1
        |EXTRA
        |node_content:{Top}
@@ -502,7 +502,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         {xref Text with features caption}
       {.\\n}
       {A footnote.\\n}
-      *31 @footnote C1 l82
+      *@footnote C1 l82
       |EXTRA
       |global_command_number:{2}
        *brace_command_context C1
@@ -511,31 +511,31 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {.\\n}
      {empty_line:\\n}
      *paragraph C17
-      *32 @TeX C1 l84
+      *@TeX C1 l84
        *brace_container
       { and }
-      *33 @emph C1 l84
+      *@emph C1 l84
        *brace_container C2
-        *34 @b C1 l84
+        *@b C1 l84
          *brace_container C3
           {t}
-          *35 @\' C1 l84
+          *@\' C1 l84
            *following_arg C1
             {e}
-          *36 @^ C1 l84
+          *@^ C1 l84
            *brace_container C1
-            *37 @dotless C1 l84
+            *@dotless C1 l84
              *brace_container C1
               {i}
-        *38 @url C1 l84
+        *@url C1 l84
          *brace_arg C1
           {an_url}
       { }
-      *39 @sc C1 l84
+      *@sc C1 l84
        *brace_container C1
         {and}
       { }
-      *40 @verb C1 l84
+      *@verb C1 l84
       |INFO
       |delimiter:{!}
        *brace_container C1
@@ -548,41 +548,41 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@!
       *@@
       { }
-      *41 @AE C1 l84
+      *@AE C1 l84
        *brace_container
       {.\\n}
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
-   *42 @shortcaption C1 l87
+   *6 @shortcaption C1 l87
    |EXTRA
    |float:[E3]
     *brace_command_context C1
      *paragraph C17
-      *43 @TeX C1 l87
+      *@TeX C1 l87
        *brace_container
       { and }
-      *44 @emph C1 l87
+      *@emph C1 l87
        *brace_container C2
-        *45 @b C1 l87
+        *@b C1 l87
          *brace_container C3
           {t}
-          *46 @\' C1 l87
+          *@\' C1 l87
            *following_arg C1
             {e}
-          *47 @^ C1 l87
+          *@^ C1 l87
            *brace_container C1
-            *48 @dotless C1 l87
+            *@dotless C1 l87
              *brace_container C1
               {i}
-        *49 @url C1 l87
+        *@url C1 l87
          *brace_arg C1
           {an_url}
       { }
-      *50 @sc C1 l87
+      *@sc C1 l87
        *brace_container C1
         {and}
       { }
-      *51 @verb C1 l87
+      *@verb C1 l87
       |INFO
       |delimiter:{!}
        *brace_container C1
@@ -595,7 +595,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@!
       *@@
       { }
-      *52 @AE C1 l87
+      *@AE C1 l87
        *brace_container
       {.}
    {spaces_after_close_brace:\\n}
@@ -612,13 +612,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
- *53 @node C1 l91 {chapter}
+ *7 @node C1 l91 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E54]
- |associated_title_command:[E54]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -629,13 +629,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *54 @chapter C6 l92 {A chapter}
+ *8 @chapter C6 l92 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E53]
- |associated_node:[E53]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -647,14 +647,14 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |{\\n}
     {A chapter}
   {empty_line:\\n}
-  *55 @float C8 l94
+  *9 @float C8 l94
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E56]
+  |caption:[E10]
   |float_number:{1.1}
-  |float_section:[E54]
+  |float_section:[E8]
   |float_type:{Text}
   |global_command_number:{2}
   |is_target:{1}
@@ -673,20 +673,20 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *paragraph C1
     {Float text of a float with a lot of features.\\n}
    {empty_line:\\n}
-   *56 @caption C1 l98
+   *10 @caption C1 l98
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |float:[E55]
+   |float:[E9]
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}
-      *57 @enddots C1 l98
+      *@enddots C1 l98
        *brace_container
       { 2\\n}
       {An example 2.\\n}
-     *58 @example C3 l100
+     *@example C3 l100
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -708,7 +708,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {A table 2.\\n}
-     *59 @table C3 l105
+     *@table C3 l105
      |INFO
      |spaces_before_argument:
       |{ }
@@ -717,7 +717,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *60 @emph l105
+        *@emph l105
       *table_entry C2
        *table_term C1
         *@item C1 l106
@@ -746,7 +746,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {A multitable 2.\\n}
-     *61 @multitable C3 l111
+     *@multitable C3 l111
      |INFO
      |spaces_before_argument:
       |{ }
@@ -812,7 +812,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E53]
+      |element_node:[E7]
       |index_entry:I{cp,3}
        *line_arg C1
        |INFO
@@ -822,7 +822,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C1
       {An itemize 2.\\n}
-     *62 @itemize C3 l119
+     *@itemize C3 l119
      |INFO
      |spaces_before_argument:
       |{ }
@@ -831,7 +831,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *63 @minus l119
+        *@minus l119
       *@item C2 l120
       |EXTRA
       |item_number:{1}
@@ -851,7 +851,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {itemize}
      {empty_line:\\n}
-     *64 @anchor C1 l124
+     *11 @anchor C1 l124
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption-2}
@@ -861,7 +861,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C6
       {A ref 2.\\n}
-      *65 @xref C2 l127
+      *@xref C2 l127
        *brace_arg C1
        |EXTRA
        |node_content:{Top}
@@ -871,7 +871,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         {xref Text with features caption}
       {.\\n}
       {A footnote 2.\\n}
-      *66 @footnote C1 l129
+      *@footnote C1 l129
       |EXTRA
       |global_command_number:{3}
        *brace_command_context C1
@@ -880,31 +880,31 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {.\\n}
      {empty_line:\\n}
      *paragraph C17
-      *67 @TeX C1 l131
+      *@TeX C1 l131
        *brace_container
       { and }
-      *68 @emph C1 l131
+      *@emph C1 l131
        *brace_container C2
-        *69 @b C1 l131
+        *@b C1 l131
          *brace_container C3
           {t}
-          *70 @\' C1 l131
+          *@\' C1 l131
            *following_arg C1
             {e}
-          *71 @^ C1 l131
+          *@^ C1 l131
            *brace_container C1
-            *72 @dotless C1 l131
+            *@dotless C1 l131
              *brace_container C1
               {i}
-        *73 @url C1 l131
+        *@url C1 l131
          *brace_arg C1
           {an_url}
       { }
-      *74 @sc C1 l131
+      *@sc C1 l131
        *brace_container C1
         {and}
       { }
-      *75 @verb C1 l131
+      *@verb C1 l131
       |INFO
       |delimiter:{!}
        *brace_container C1
@@ -917,7 +917,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@!
       *@@
       { }
-      *76 @AE C1 l131
+      *@AE C1 l131
        *brace_container
       {.\\n}
    {spaces_after_close_brace:\\n}
@@ -935,7 +935,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {float}
   {empty_line:\\n}
   *paragraph C2
-   *77 @xref C1 l136
+   *@xref C1 l136
     *brace_arg C1
     |EXTRA
     |node_content:{text with a lot of features}

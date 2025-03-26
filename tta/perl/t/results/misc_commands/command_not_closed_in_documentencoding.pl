@@ -13,7 +13,7 @@ $result_tree_text{'command_not_closed_in_documentencoding'} = '*document_root C1
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    *0 @strong l1
+    *@strong l1
 ';
 
 

@@ -8,7 +8,7 @@ $result_tree_text{'expanded_tex'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n}
-   *0 @tex C3 l2
+   *@tex C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO

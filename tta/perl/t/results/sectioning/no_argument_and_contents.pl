@@ -46,7 +46,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *2 @asis C1 l5
+    *@asis C1 l5
      *brace_container
   {empty_line:\\n}
 ';

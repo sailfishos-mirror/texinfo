@@ -8,7 +8,7 @@ $result_tree_text{'no_use_iso'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {AA }
-   *0 @^ C1 l1
+   *@^ C1 l1
     *following_arg C1
      {e}
    { --- -- \'` \'\' ``}

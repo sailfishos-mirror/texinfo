@@ -23,7 +23,7 @@ $result_tree_text{'glossary'} = '*document_root C5
      |{\\n}
      {glossary}
    {empty_line:\\n}
-   *0 @macro C3 glossary.texi:l5
+   *@macro C3 glossary.texi:l5
    |EXTRA
    |macro_name:{glossarytext}
    |misc_args:A{}
@@ -42,7 +42,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *1 @macro C5 glossary.texi:l9
+   *@macro C5 glossary.texi:l9
    |EXTRA
    |macro_name:{glossary}
    |misc_args:A{}
@@ -63,7 +63,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *2 @macro C19 glossary.texi:l15
+   *@macro C19 glossary.texi:l15
    |EXTRA
    |macro_name:{gentry}
    |misc_args:A{id|name|text}
@@ -98,16 +98,16 @@ $result_tree_text{'glossary'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
- *3 @node C1 glossary.texi:l35 {Top}
+ *0 @node C1 glossary.texi:l35 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E5]
- |node_directions:D[next->E12]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -115,21 +115,21 @@ $result_tree_text{'glossary'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C6 glossary.texi:l36 {Top}
+ *1 @top C6 glossary.texi:l36 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
- |section_childs:EC[E13]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E4]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E13]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -137,7 +137,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *5 @menu C3 glossary.texi:l38
+  *2 @menu C3 glossary.texi:l38
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -192,7 +192,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       >|INFO
       >|spaces_after_argument:
        >|{\\n}
-   *6 @ref C2 glossary.texi:l42:@gentry
+   *@ref C2 glossary.texi:l42:@gentry
     *brace_arg C1
     |EXTRA
     |node_content:{id1}
@@ -237,7 +237,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |INFO
    |arg_line:{ expandglossary\\n}
     {rawline_arg:expandglossary}
-   *7 @macro C8 glossary.texi:l42:@gentry
+   *@macro C8 glossary.texi:l42:@gentry
    |EXTRA
    |macro_name:{expandglossary}
    |misc_args:A{glossary}
@@ -273,7 +273,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |INFO
    |arg_line:{ glossarytext\\n}
     {rawline_arg:glossarytext}
-   *8 @macro C5 glossary.texi:l42:@expandglossary
+   *@macro C5 glossary.texi:l42:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}
    |misc_args:A{}
@@ -322,7 +322,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       >|INFO
       >|spaces_after_argument:
        >|{\\n}
-   *9 @ref C2 glossary.texi:l43:@gentry
+   *@ref C2 glossary.texi:l43:@gentry
     *brace_arg C1
     |EXTRA
     |node_content:{id2}
@@ -367,7 +367,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |INFO
    |arg_line:{ expandglossary\\n}
     {rawline_arg:expandglossary}
-   *10 @macro C8 glossary.texi:l43:@gentry
+   *@macro C8 glossary.texi:l43:@gentry
    |EXTRA
    |macro_name:{expandglossary}
    |misc_args:A{glossary}
@@ -403,7 +403,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |INFO
    |arg_line:{ glossarytext\\n}
     {rawline_arg:glossarytext}
-   *11 @macro C5 glossary.texi:l43:@expandglossary
+   *@macro C5 glossary.texi:l43:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}
    |misc_args:A{}
@@ -429,16 +429,16 @@ $result_tree_text{'glossary'} = '*document_root C5
       >macro_expansion<end;4><p:5>
    { is quite specific\\n}
   {empty_line:\\n}
- *12 @node C1 glossary.texi:l45 {glossary}
+ *3 @node C1 glossary.texi:l45 {glossary}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E13]
- |associated_title_command:[E13]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[up->E3]
- |node_directions:D[prev->E3|up->E3]
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{glossary}
   *arguments_line C1
    *line_arg C1
@@ -446,17 +446,17 @@ $result_tree_text{'glossary'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {glossary}
- *13 @chapter C6 glossary.texi:l46 {glossary}
+ *4 @chapter C6 glossary.texi:l46 {glossary}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
- |associated_node:[E12]
- |section_directions:D[up->E4]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E4|up->E4]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -479,7 +479,7 @@ $result_tree_text{'glossary'} = '*document_root C5
   >SOURCEMARKS
   >macro_expansion<end;5>
    {name2 }
-   *14 @anchor C1 glossary.texi:l47:@glossarytext
+   *5 @anchor C1 glossary.texi:l47:@glossarytext
    |EXTRA
    |is_target:{1}
    |normalized:{id2}

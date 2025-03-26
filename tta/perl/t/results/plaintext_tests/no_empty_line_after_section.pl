@@ -35,7 +35,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E2|E4]
+ |section_childs:EC[E2|E3]
  |section_directions:D[up->E0]
  |section_level:{1}
  |section_number:{1}
@@ -58,7 +58,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|up->E1]
+ |section_directions:D[next->E3|up->E1]
  |section_level:{2}
  |section_number:{1.1}
   *arguments_line C1
@@ -68,7 +68,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
     |{\\n}
     {sec}
   *paragraph C2
-   *3 @uref C1 l11
+   *@uref C1 l11
     *brace_arg C1
      {url}
    { A.\\n}
@@ -84,7 +84,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {3}
- *4 @section C5 l14 {after sp}
+ *3 @section C5 l14 {after sp}
  |INFO
  |spaces_before_argument:
   |{ }

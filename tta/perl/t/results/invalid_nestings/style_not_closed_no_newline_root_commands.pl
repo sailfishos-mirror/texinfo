@@ -15,7 +15,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
- |node_directions:D[next->E4]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -30,14 +30,14 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E5]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -75,16 +75,16 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
      {menu}
   {empty_line:\\n}
   *paragraph C1
-   *3 @code C1 l8
+   *@code C1 l8
     *brace_container C1
      {not closed\\n}
- *4 @node C1 l9 {chapter}
+ *3 @node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -95,13 +95,13 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *5 @chapter C3 l10 {chapter}
+ *4 @chapter C3 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -114,7 +114,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
     {chapter}
   {empty_line:\\n}
   *paragraph C1
-   *6 @code C1 l12
+   *@code C1 l12
     *brace_container C1
      {still not closed\\n}
  *@bye C1

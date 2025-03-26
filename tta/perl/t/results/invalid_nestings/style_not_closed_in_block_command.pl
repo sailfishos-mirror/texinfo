@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'style_not_closed_in_block_command'} = '*document_root C1
  *before_node_section C1
-  *0 @cartouche C3 l1
+  *@cartouche C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'style_not_closed_in_block_command'} = '*document_root C1
      |{\\n}
    *paragraph C2
     {cartouche }
-    *1 @code C1 l2
+    *@code C1 l2
      *brace_container C1
       {in code \\n}
    *@end C1 l3

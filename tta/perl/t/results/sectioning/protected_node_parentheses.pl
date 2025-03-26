@@ -55,7 +55,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
     |EXTRA
     |node_content:{@asis{(}manual) name}
     |normalized:{_0028manual_0029-name}
-     *3 @asis C1 l6
+     *@asis C1 l6
       *brace_container C1
        {(}
      {manual) name}
@@ -75,7 +75,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C6 l9 {@asis{(}manual) name}
+ *3 @node C6 l9 {@asis{(}manual) name}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,29 +89,29 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @asis C1 l9
+    *@asis C1 l9
      *brace_container C1
       {(}
     {manual) name}
   {empty_line:\\n}
-  *6 @anchor C1 l11
+  *4 @anchor C1 l11
   |EXTRA
   |is_target:{1}
   |normalized:{_0028manual2_0029-name2}
    *brace_arg C2
-    *7 @asis C1 l11
+    *@asis C1 l11
      *brace_container C1
       {(}
     {manual2) name2}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *8 @ref C1 l13
+   *@ref C1 l13
     *brace_arg C2
     |EXTRA
     |node_content:{@asis{(}manual2) name2}
     |normalized:{_0028manual2_0029-name2}
-     *9 @asis C1 l13
+     *@asis C1 l13
       *brace_container C1
        {(}
      {manual2) name2}

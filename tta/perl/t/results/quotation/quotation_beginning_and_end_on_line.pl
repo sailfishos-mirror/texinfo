@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'quotation_beginning_and_end_on_line'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C2 l1
+  *@quotation C2 l1
   |INFO
   |spaces_before_argument:
    |{ }

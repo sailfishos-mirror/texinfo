@@ -42,7 +42,7 @@ This: [U0]
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
-  *2 @titlefont C1 l6
+  *@titlefont C1 l6
   |EXTRA
   |global_command_number:{1}
    *brace_container C1

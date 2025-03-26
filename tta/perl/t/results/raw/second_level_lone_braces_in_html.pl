@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
  *before_node_section C3
-  *0 @html C3 l1
+  *@html C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
      |{\\n}
    *rawpreformatted C3
     {{a}
-    *1 @code C1 l2
+    *@code C1 l2
      *brace_container C1
       *balanced_braces C2 l2
        {{\\n}
@@ -32,7 +32,7 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
      |{\\n}
      {html}
   {empty_line:\\n}
-  *2 @html C3 l6
+  *@html C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
      |{\\n}
    *rawpreformatted C3
     {{b}
-    *3 @code C1 l7
+    *@code C1 l7
      *brace_container C3
       {\\n}
       *balanced_braces C1 l8

@@ -90,7 +90,7 @@ $result_tree_text{'anchor_before_top'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C2
-   *5 @pxref C1 l10
+   *@pxref C1 l10
     *brace_arg C1
     |EXTRA
     |node_content:{a before Top}

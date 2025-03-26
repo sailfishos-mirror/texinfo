@@ -7,18 +7,18 @@ use utf8;
 $result_tree_text{'email_possibilities'} = '*document_root C1
  *before_node_section C1
   *paragraph C6
-   *0 @email C2 l1
+   *@email C2 l1
     *brace_arg C1
      {--a}
     *brace_arg C1
      {--b}
    {\\n}
-   *1 @email C2 l2
+   *@email C2 l2
     *brace_arg
     *brace_arg C1
      {--b}
    {\\n}
-   *2 @email C1 l3
+   *@email C1 l3
     *brace_arg C1
      {--a}
    {\\n}

@@ -19,7 +19,7 @@ $result_tree_text{'simple'} = '*document_root C1
     >*@value C1
      >*brace_container C1
       >{a-_5b}
-   *0 @b C1 l3
+   *@b C1 l3
    >SOURCEMARKS
    >value_expansion<end;1>
     *brace_container C1

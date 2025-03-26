@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'star_at_command_formatting'} = '*document_root C1
  *before_node_section C10
-  *0 @macro C14 l1
+  *@macro C14 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{}
@@ -74,11 +74,11 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    *@ 
    {text\\n}
    {Followed by empty asis and a space }
-   *1 @asis C1 l16:@mymacro
+   *@asis C1 l16:@mymacro
     *brace_container
    { \\n}
    {Followed by asis with space and a space }
-   *2 @asis C1 l16:@mymacro
+   *@asis C1 l16:@mymacro
     *brace_container C1
      { }
    { \\n}
@@ -86,7 +86,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    *@@
    {asis: }
    *@*
-   *3 @asis C1 l16:@mymacro
+   *@asis C1 l16:@mymacro
     *brace_container
    { \\n}
    {And now with * asis with space }
@@ -94,7 +94,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    {asis: }
    *@*
    { }
-   *4 @asis C1 l16:@mymacro
+   *@asis C1 l16:@mymacro
     *brace_container C1
      { }
    {\\n}
@@ -102,7 +102,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<end;1><p:13>
   {empty_line:\\n}
-  *5 @example C3 l18
+  *@example C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -146,11 +146,11 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *@ 
     {text\\n}
     {Followed by empty asis and a space }
-    *6 @asis C1 l20:@mymacro
+    *@asis C1 l20:@mymacro
      *brace_container
     { \\n}
     {Followed by asis with space and a space }
-    *7 @asis C1 l20:@mymacro
+    *@asis C1 l20:@mymacro
      *brace_container C1
       { }
     { \\n}
@@ -158,7 +158,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *@@
     {asis: }
     *@*
-    *8 @asis C1 l20:@mymacro
+    *@asis C1 l20:@mymacro
      *brace_container
     { \\n}
     {And now with * asis with space }
@@ -166,7 +166,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     {asis: }
     *@*
     { }
-    *9 @asis C1 l20:@mymacro
+    *@asis C1 l20:@mymacro
      *brace_container C1
       { }
     {\\n}
@@ -185,7 +185,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *10 @quotation C5 l23
+  *@quotation C5 l23
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -230,11 +230,11 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *@ 
     {text\\n}
     {Followed by empty asis and a space }
-    *11 @asis C1 l25:@mymacro
+    *@asis C1 l25:@mymacro
      *brace_container
     { \\n}
     {Followed by asis with space and a space }
-    *12 @asis C1 l25:@mymacro
+    *@asis C1 l25:@mymacro
      *brace_container C1
       { }
     { \\n}
@@ -242,7 +242,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *@@
     {asis: }
     *@*
-    *13 @asis C1 l25:@mymacro
+    *@asis C1 l25:@mymacro
      *brace_container
     { \\n}
     {And now with * asis with space }
@@ -250,7 +250,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     {asis: }
     *@*
     { }
-    *14 @asis C1 l25:@mymacro
+    *@asis C1 l25:@mymacro
      *brace_container C1
       { }
     {\\n}

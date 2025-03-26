@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'ampchar'} = '*document_root C1
  *before_node_section C2
-  *0 @defop C2 l1
+  *@defop C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
      {delimiter:(}
      *def_arg C1
       *def_line_arg C1
-       *1 @code C1 l1
+       *@code C1 l1
         *brace_container C2
          {const std::vector<int>}
          *@&
@@ -72,7 +72,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
    {& }
    *@&
    { }
-   *2 @ampchar C1 l3
+   *@ampchar C1 l3
     *brace_container
    { }
    *@{

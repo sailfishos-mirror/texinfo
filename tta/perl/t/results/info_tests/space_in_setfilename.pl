@@ -15,14 +15,14 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
     *@ 
-    *0 @verb C1 l1
+    *@verb C1 l1
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw: name }
     *@ 
   {empty_line:\\n}
- *1 @node C1 l3 {Top}
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

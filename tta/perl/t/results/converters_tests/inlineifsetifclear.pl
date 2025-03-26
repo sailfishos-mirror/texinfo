@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlineifsetifclear'} = '*document_root C1
  *before_node_section C9
   *paragraph C2
-   *0 @inlineifclear C2 l1
+   *@inlineifclear C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{aaa}
@@ -21,7 +21,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @inlineifset C2 l3
+   *@inlineifset C2 l3
    |EXTRA
    |format:{aaa}
     *brace_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    {rawline_arg:}
   {empty_line:\\n}
   *paragraph C2
-   *2 @inlineifclear C2 l7
+   *@inlineifclear C2 l7
    |EXTRA
    |format:{aaa}
     *brace_arg C1
@@ -47,7 +47,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @inlineifset C2 l9
+   *@inlineifset C2 l9
    |EXTRA
    |expand_index:{1}
    |format:{aaa}

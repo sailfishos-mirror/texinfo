@@ -39,7 +39,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     *menu_entry_description C2
      *preformatted C1
       {text\\n}
-     *2 @table C3 l5
+     *@table C3 l5
      |INFO
      |spaces_before_argument:
       |{ }
@@ -48,7 +48,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *3 @asis l5
+        *@asis l5
       *table_entry C2
        *table_term C1
         *@item C1 l6
@@ -89,7 +89,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     *menu_entry_description C2
      *preformatted C1
       {\\n}
-     *4 @verbatim C4 l11
+     *@verbatim C4 l11
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     *menu_entry_description C1
      *preformatted C3
       {%\\n}
-      *5 @html C3 l16
+      *@html C3 l16
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -152,7 +152,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     {menu_entry_separator::: }
     *menu_entry_description C1
      *preformatted C2
-      *6 @acronym C1 l21
+      *@acronym C1 l21
        *brace_arg C2
         {description\\n}
         {* acronym::}
@@ -160,7 +160,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
    *menu_comment C3
     *preformatted C1
      {after_menu_description_line:\\n}
-    *7 @example C3 l24
+    *@example C3 l24
      *arguments_line C1
       *block_line_arg
       |INFO

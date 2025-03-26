@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'inline_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
      |{\\n}
    *preformatted C9
     {A }
-    *1 @inlineraw C2 l2
+    *@inlineraw C2 l2
     |EXTRA
     |expand_index:{1}
     |format:{plaintext}
@@ -27,11 +27,11 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
       {plaintext \\n}
       {empty_line:\\n}
       {`` }
-      *2 @lbracechar C1 l4
+      *@lbracechar C1 l4
        *brace_container
       { }
     { a.\\n}
-    *3 @inlinefmt C2 l5
+    *@inlinefmt C2 l5
     |EXTRA
     |expand_index:{1}
     |format:{plaintext}
@@ -45,7 +45,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     {.\\n}
     {empty_line:\\n}
     {  Now html\\n}
-    *4 @inlineraw C2 l8
+    *@inlineraw C2 l8
     |EXTRA
     |expand_index:{1}
     |format:{html}
@@ -57,7 +57,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
       |{ \\n}
       {empty_line:\\n}
       {in <i>}
-      *5 @acronym C1 l10
+      *@acronym C1 l10
        *brace_arg C1
         {HTML}
       {</i>}

@@ -79,7 +79,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 @itemize C4 l7
+  *@itemize C4 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @minus l7
+     *@minus l7
    *before_item C2
     *@c C1
      {rawline_arg: comment in itemize\\n}
@@ -123,7 +123,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *6 @itemize C5 l13
+  *@itemize C5 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -132,7 +132,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @bullet l13
+     *@bullet l13
    *before_item C1
     *index_entry_command@cindex C1 l14
     |INFO
@@ -186,13 +186,13 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *8 @itemize C4 l20
+  *@itemize C4 l20
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *9 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *before_item C2

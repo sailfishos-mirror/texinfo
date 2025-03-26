@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'verb_with_brace_in_macro_call'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{mycommand}
   |misc_args:A{a|b|c}
@@ -41,7 +41,7 @@ $result_tree_text{'verb_with_brace_in_macro_call'} = '*document_root C1
      >|{ }
      >{verb :}
   *paragraph C1
-   *1 @verb C1 l6:@mycommand
+   *@verb C1 l6:@mycommand
    |INFO
    |delimiter:{:}
     *brace_container C3

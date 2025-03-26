@@ -22,7 +22,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
     {Top}
   {empty_line:\\n}
   *paragraph C6
-   *1 @ref C1 l4
+   *@ref C1 l4
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -32,7 +32,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      {)}
      {in ref followed by comma}
    {, \\n}
-   *2 @ref C1 l5
+   *@ref C1 l5
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -42,9 +42,9 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      {)}
      {in ref not followed by comma}
    { after ref.\\n}
-   *3 @code C1 l6
+   *@code C1 l6
     *brace_container C1
-     *4 @ref C1 l6
+     *@ref C1 l6
       *brace_arg C4
       |EXTRA
       |manual_content:{m}
@@ -57,7 +57,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C8
-   *5 @ref C2 l9
+   *@ref C2 l9
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -72,7 +72,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      |{ }
      {name}
    {,\\n}
-   *6 @ref C2 l10
+   *@ref C2 l10
     *brace_arg C4
     |EXTRA
     |manual_content:{m}
@@ -87,9 +87,9 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      |{ }
      {name}
    { after ref.\\n}
-   *7 @code C1 l11
+   *@code C1 l11
     *brace_container C1
-     *8 @ref C2 l11
+     *@ref C2 l11
       *brace_arg C4
       |EXTRA
       |manual_content:{m}
@@ -104,7 +104,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
        |{ }
        {name}
    {.\\n}
-   *9 @ref C2 l12
+   *@ref C2 l12
     *brace_arg C4
     |EXTRA
     |manual_content:{m}

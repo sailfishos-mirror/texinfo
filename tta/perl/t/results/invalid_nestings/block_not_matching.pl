@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'block_not_matching'} = '*document_root C1
  *before_node_section C15
-  *0 @quotation C2 l1
+  *@quotation C2 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -15,7 +15,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
    *paragraph C1
     {A quotation\\n}
   {empty_line:\\n}
-  *1 @deffn C2 l5
+  *@deffn C2 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *paragraph C1
      {Text\\n}
   {empty_line:\\n}
-  *2 @table C2 l9
+  *@table C2 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @asis l9
+     *@asis l9
    *table_entry C2
     *table_term C1
      *@item C1 l10
@@ -72,7 +72,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
      *paragraph C1
       {line\\n}
   {empty_line:\\n}
-  *4 @table C2 l14
+  *@table C2 l14
   |INFO
   |spaces_before_argument:
    |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @emph l14
+     *@emph l14
    *table_entry C2
     *table_term C1
      *@item C1 l15
@@ -94,7 +94,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
        |{\\n}
        {ref}
     *table_definition C1
-     *6 @example C2 l16
+     *@example C2 l16
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -103,7 +103,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
       *preformatted C1
        {example\\n}
   {empty_line:\\n}
-  *7 @group C2 l21
+  *@group C2 l21
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -112,7 +112,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
    *paragraph C1
     {in group\\n}
   {empty_line:\\n}
-  *8 @group C2 l25
+  *@group C2 l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -121,7 +121,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
    *paragraph C1
     {in group 2\\n}
   {empty_line:\\n}
-  *9 @cartouche C2 l29
+  *@cartouche C2 l29
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -130,7 +130,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
    *paragraph C1
     {cartouche\\n}
   {empty_line:\\n}
-  *10 @cartouche C2 l33
+  *@cartouche C2 l33
    *arguments_line C1
     *block_line_arg
     |INFO

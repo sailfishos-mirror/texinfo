@@ -13,25 +13,25 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {In title }
-     *0 @sc C1 l1
+     *@sc C1 l1
       *brace_container C1
        {my string}
      { NEXT}
    {empty_line:\\n}
   *paragraph C2
-   *1 @sc C1 l3
+   *@sc C1 l3
     *brace_container C1
      {in sc}
    {. OUT.\\n}
   {empty_line:\\n}
-  *2 @example C3 l5
+  *@example C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *3 @sc C1 l6
+    *@sc C1 l6
      *brace_container C1
       {small case in example}
     { MORE text.\\n}

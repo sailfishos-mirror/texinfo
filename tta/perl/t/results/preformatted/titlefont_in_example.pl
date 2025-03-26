@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'titlefont_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C4 l1
+  *@example C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @titlefont C1 l2
+   *@titlefont C1 l2
    |EXTRA
    |global_command_number:{1}
     *brace_container C1

@@ -8,7 +8,7 @@ $result_tree_text{'noindent_after_smallexample'} = '*document_root C1
  *before_node_section C5
   *paragraph C1
    {To obtain.\\n}
-  *0 @smallexample C3 l2
+  *@smallexample C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO

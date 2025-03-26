@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
  *before_node_section C3
-  *0 @deffn C3 l1
+  *@deffn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
      |{ \\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C3 l6
+  *@deffn C3 l6
   |INFO
   |spaces_before_argument:
    |{ }

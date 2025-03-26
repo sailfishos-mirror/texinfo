@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'table_in_itemize'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C5 l1
+  *@itemize C5 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet l1
+     *@bullet l1
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
    |EXTRA
    |item_number:{2}
     {ignorable_spaces_after_command:\\n}
-    *2 @table C4 l4
+    *@table C4 l4
     |INFO
     |spaces_before_argument:
      |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *3 @asis l4
+       *@asis l4
      *table_entry C2
       *table_term C1
        *@item C1 l5

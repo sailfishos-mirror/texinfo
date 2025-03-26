@@ -8,7 +8,7 @@ $result_tree_text{'test_tie'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
-   *0 @tie C1 l1
+   *@tie C1 l1
     *brace_container
    {BBBBBBBBBBB\\n}
 ';

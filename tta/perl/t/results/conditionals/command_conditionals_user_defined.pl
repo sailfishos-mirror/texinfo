@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'command_conditionals_user_defined'} = '*document_root C1
  *before_node_section C15
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{truc}
   |misc_args:A{}

@@ -24,18 +24,18 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {empty_line:\\n}
    {empty_line:\\n}
   *paragraph C2
-   *0 @email C1 g_f:l68
+   *@email C1 g_f:l68
     *brace_arg C1
      {before top}
    {.\\n}
   {empty_line:\\n}
- *1 @node C1 g_f:l70 {Top}
+ *0 @node C1 g_f:l70 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
+ |node_directions:D[next->E1]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -43,13 +43,13 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @node C55 g_f:l71 {chap}
+ *1 @node C55 g_f:l71 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {# 10 25 209\\n}
    {# 1 2\\n}
   {empty_line:\\n}
-  *3 @verbatim C4 g_f:l48
+  *@verbatim C4 g_f:l48
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      |{\\n}
      {verbatim}
   {empty_line:\\n}
-  *4 @macro C3 g_f:l53
+  *@macro C3 g_f:l53
   |EXTRA
   |macro_name:{macr}
   |misc_args:A{}
@@ -102,7 +102,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      {macro}
   {empty_line:\\n}
   *paragraph C2
-   *5 @email C1 g_f:l57
+   *@email C1 g_f:l57
     *brace_arg C1
      {after lacro def}
    {\\n}
@@ -118,12 +118,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    >macro_expansion<end;1><p:12>
   {empty_line:\\n}
   *paragraph C2
-   *6 @email C1 g_f:l61
+   *@email C1 g_f:l61
     *brace_arg C1
      {after macro call}
    {.\\n}
   {empty_line:\\n}
-  *7 @macro C4 g_f:l63
+  *@macro C4 g_f:l63
   |EXTRA
   |macro_name:{macrtwo}
   |misc_args:A{}
@@ -144,7 +144,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      {macro}
   {empty_line:\\n}
   *paragraph C2
-   *8 @email C1 g_f:l68
+   *@email C1 g_f:l68
     *brace_arg C1
      {after macrotwo def}
    {\\n}
@@ -162,7 +162,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    >macro_expansion<end;2><p:14>
   {empty_line:\\n}
   *paragraph C2
-   *9 @email C1 g_f:l72
+   *@email C1 g_f:l72
     *brace_arg C1
      {after macrotwo call}
    {. \\n}
@@ -183,7 +183,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @email C1 inc:l10
+   *@email C1 inc:l10
     *brace_arg C1
      {in}
    {\\n}
@@ -191,13 +191,13 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   >SOURCEMARKS
   >include<end;1><p:1>
   *paragraph C2
-   *11 @email C1 g_f:l75
+   *@email C1 g_f:l75
     *brace_arg C1
      {after inc}
    {. \\n}
   {empty_line:\\n}
   *paragraph C2
-   *12 @verb C1 g_f:l77
+   *@verb C1 g_f:l77
    |INFO
    |delimiter:{:}
     *brace_container C2
@@ -206,14 +206,14 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *13 @email C1 g_f:l81
+   *@email C1 g_f:l81
     *brace_arg C1
      {after verb}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {a}
-   *14 @footnote C1 g_f:l83
+   *@footnote C1 g_f:l83
    |INFO
    |spaces_before_argument:
     |{\\n}
@@ -226,7 +226,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *paragraph C3
    {a}
-   *15 @footnote C1 footnote:l28
+   *@footnote C1 footnote:l28
    |INFO
    |spaces_before_argument:
     |{\\n}
@@ -240,7 +240,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *16 @email C2 footnote2:l40
+   *@email C2 footnote2:l40
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -256,7 +256,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *17 @email C2 email2:l64
+   *@email C2 email2:l64
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -272,7 +272,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *18 @email C2 email2:l69
+   *@email C2 email2:l69
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -288,7 +288,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C1
-   *19 @email C1 email12:l64
+   *@email C1 email12:l64
     *brace_arg C1
     |INFO
     |spaces_before_argument:

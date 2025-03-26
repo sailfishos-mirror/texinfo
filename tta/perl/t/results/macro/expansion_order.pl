@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'expansion_order'} = '*document_root C1
  *before_node_section C6
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{bidule}
   |misc_args:A{arg}
@@ -25,7 +25,7 @@ $result_tree_text{'expansion_order'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C4 l5
+  *@macro C4 l5
   |EXTRA
   |macro_name:{machin}
   |misc_args:A{}

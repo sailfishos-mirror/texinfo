@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_quotation'} = '*document_root C1
  *before_node_section C7
-  *0 @quotation C2 l1
+  *@quotation C2 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -24,7 +24,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *1 @quotation C2 l4
+  *@quotation C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *2 @quotation C2 l7
+  *@quotation C2 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @asis C1 l7
+     *@asis C1 l7
       *brace_container
    *@end C1 l8
    |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *4 @quotation C2 l10
+  *@quotation C2 l10
   |INFO
   |spaces_before_argument:
    |{ }

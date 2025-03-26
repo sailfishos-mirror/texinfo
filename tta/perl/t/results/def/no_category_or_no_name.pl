@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'no_category_or_no_name'} = '*document_root C1
  *before_node_section C5
-  *0 @deffn C3 l1
+  *@deffn C3 l1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -30,7 +30,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C3 l5
+  *@deffn C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -60,7 +60,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *2 @deffn C5 l9
+  *@deffn C5 l9
   |INFO
   |spaces_before_argument:
    |{ }

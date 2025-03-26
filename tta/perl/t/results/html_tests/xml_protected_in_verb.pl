@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
  *before_node_section C5
-  *0 @verbatim C3 l1
+  *@verbatim C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
      {verbatim}
   {empty_line:\\n}
   *paragraph C2
-   *1 @verb C1 l5
+   *@verb C1 l5
    |INFO
    |delimiter:{.}
     *brace_container C1

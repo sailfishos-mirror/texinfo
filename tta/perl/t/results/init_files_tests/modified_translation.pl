@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'modified_translation'} = '*document_root C1
  *before_node_section C10
   *paragraph C2
-   *0 @error C1 l1
+   *@error C1 l1
     *brace_container
    {.\\n}
   {empty_line:\\n}
@@ -26,7 +26,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {fr }
-   *1 @error C1 l5
+   *@error C1 l5
     *brace_container
    {.\\n}
   {empty_line:\\n}
@@ -45,7 +45,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {pt }
-   *2 @error C1 l9
+   *@error C1 l9
     *brace_container
    {.\\n}
   {empty_line:\\n}

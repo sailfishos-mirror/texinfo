@@ -43,7 +43,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {top! After punc}
   {empty_line:\\n}
-  *2 @table C3 l5
+  *@table C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @asis l5
+     *@asis l5
    *table_entry C1
     *table_term C1
      *@item C1 l6
@@ -76,7 +76,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      |{\\n}
      {table}
   {empty_line:\\n}
-  *4 @quotation C4 l9
+  *@quotation C4 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *5 @float C5 l14
+  *2 @float C5 l14
   |INFO
   |spaces_before_argument:
    |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{float-label_0021-After-punc}
-  |shortcaption:[E6]
+  |shortcaption:[E3]
    *arguments_line C2
     *block_line_arg C1
      {float type! After punc}
@@ -133,9 +133,9 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      {float label! After punc}
    *paragraph C1
     {In float\\n}
-   *6 @shortcaption C1 l16
+   *3 @shortcaption C1 l16
    |EXTRA
-   |float:[E5]
+   |float:[E2]
     *brace_command_context C1
      *paragraph C1
       {shortcaption! After punc}
@@ -152,12 +152,12 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      |{\\n}
      {float}
   {empty_line:\\n}
-  *7 @float C5 l19
+  *4 @float C5 l19
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E8]
+  |caption:[E5]
   |float_number:{2}
   |float_section:[E1]
   |float_type:{float type! After punc}
@@ -176,9 +176,9 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      {label with caption}
    *paragraph C1
     {In float with caption.\\n}
-   *8 @caption C1 l21
+   *5 @caption C1 l21
    |EXTRA
-   |float:[E7]
+   |float:[E4]
     *brace_command_context C1
      *paragraph C1
       {caption! After punc}
@@ -222,7 +222,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {index! After punc}
   {empty_line:\\n}
-  *9 @heading C1 l28
+  *6 @heading C1 l28
   |INFO
   |spaces_before_argument:
    |{ }
@@ -234,7 +234,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {heading! After punc}
   {empty_line:\\n}
-  *10 @titlefont C1 l30
+  *@titlefont C1 l30
   |EXTRA
   |global_command_number:{1}
    *brace_container C1

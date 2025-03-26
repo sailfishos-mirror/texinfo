@@ -41,16 +41,16 @@ $result_tree_text{'command_in_node_redirection_same_command'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {t }
-    *2 @r C1 l2
+    *@r C1 l2
      *brace_container C1
       {in r}
   {empty_line:\\n}
-  *3 @anchor C1 l4
+  *2 @anchor C1 l4
   |EXTRA
   |is_target:{1}
   |normalized:{ancher}
    *brace_arg C1
-    *4 @r C1 l4
+    *@r C1 l4
      *brace_container C1
       {ancher}
   {spaces_after_close_brace:\\n}

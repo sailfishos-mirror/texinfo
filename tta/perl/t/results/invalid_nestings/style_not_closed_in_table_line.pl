@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
  *before_node_section C1
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -31,7 +31,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
      *paragraph C3
       {line\\n}
       {line }
-      *2 @code C1 l4
+      *@code C1 l4
        *brace_container C1
         {in code }
    *table_entry C1

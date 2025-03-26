@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'headitem_itemx_in_itemize'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C3 l1
+  *@itemize C3 l1
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C5 l2

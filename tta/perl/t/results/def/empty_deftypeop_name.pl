@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
  *before_node_section C1
-  *0 @deftypeop C2 l1
+  *@deftypeop C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -21,21 +21,21 @@ $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
      *def_category C1
       *def_line_arg C2
        {Command}
-       *1 @code C1 l1
+       *@code C1 l1
         *brace_container C1
          {com}
      {spaces: }
      *def_class C1
       *bracketed_arg C2 l1
        {Window}
-       *2 @code C1 l1
+       *@code C1 l1
         *brace_container C1
          {int}
      {spaces: }
      *def_type C1
       *def_line_arg C2
        {expose}
-       *3 @var C1 l1
+       *@var C1 l1
         *brace_container C1
          {exp}
    *@end C1 l2

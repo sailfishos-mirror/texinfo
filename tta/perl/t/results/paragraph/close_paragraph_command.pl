@@ -8,7 +8,7 @@ $result_tree_text{'close_paragraph_command'} = '*document_root C1
  *before_node_section C7
   *paragraph C1
    {para }
-  *0 @titlefont C1 l1
+  *@titlefont C1 l1
   |EXTRA
   |global_command_number:{1}
    *brace_container C1

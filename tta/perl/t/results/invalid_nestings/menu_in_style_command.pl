@@ -12,7 +12,7 @@ $result_tree_text{'menu_in_style_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
+ |menus:EC[E1]
  |normalized:{first}
   *arguments_line C1
    *line_arg C1
@@ -22,10 +22,10 @@ $result_tree_text{'menu_in_style_command'} = '*document_root C2
     {first}
   {empty_line:\\n}
   *paragraph C1
-   *1 @code C1 l3
+   *@code C1 l3
     *brace_container C1
      {\\n}
-  *2 @menu C3 l4
+  *1 @menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO

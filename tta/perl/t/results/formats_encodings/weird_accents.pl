@@ -94,49 +94,49 @@ $result_tree_text{'weird_accents'} = '*document_root C5
     {Chapter}
   {empty_line:\\n}
   *paragraph C2
-   *4 @= C1 l9
+   *@= C1 l9
     *brace_container C1
-     *5 @~ C1 l9
+     *@~ C1 l9
       *brace_container C1
-       *6 @dotless C1 l9
+       *@dotless C1 l9
         *brace_container C1
          {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *7 @= C1 l11
+   *@= C1 l11
     *brace_container C1
-     *8 @, C1 l11
+     *@, C1 l11
       *brace_container C1
-       *9 @~ C1 l11
+       *@~ C1 l11
         *brace_container C1
          {n}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @= C1 l13
+   *@= C1 l13
     *brace_container C1
-     *11 @ubaraccent C1 l13
+     *@ubaraccent C1 l13
       *brace_container C1
        {a}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *12 @^ C1 l15
+   *@^ C1 l15
     *brace_container C1
-     *13 @udotaccent C1 l15
+     *@udotaccent C1 l15
       *brace_container C1
-       *14 @` C1 l15
+       *@` C1 l15
         *following_arg C1
          {r}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *15 @= C1 l17
+   *@= C1 l17
     *brace_container C1
-     *16 @\' C1 l17
+     *@\' C1 l17
       *brace_container C1
-       *17 @` C1 l17
+       *@` C1 l17
         *brace_container C1
          {r}
    {\\n}

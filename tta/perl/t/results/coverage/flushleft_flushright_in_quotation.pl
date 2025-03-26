@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @quotation C5 l2
+  *@quotation C5 l2
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @flushleft C4 l3
+   *@flushleft C4 l3
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
       |{\\n}
       {flushleft}
    {empty_line:\\n}
-   *2 @flushright C4 l7
+   *@flushright C4 l7
     *arguments_line C1
      *block_line_arg
      |INFO

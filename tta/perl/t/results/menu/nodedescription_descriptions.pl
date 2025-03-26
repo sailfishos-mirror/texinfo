@@ -30,7 +30,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E11|E14|E17|E20|E23|E26]
+ |section_childs:EC[E4|E7|E10|E13|E16|E19|E22]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -157,9 +157,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E10|up->E0]
+ |menu_directions:D[next->E6|up->E0]
  |node_description:[E5]
- |node_directions:D[next->E10|prev->E0|up->E0]
+ |node_directions:D[next->E6|prev->E0|up->E0]
  |normalized:{toto}
   *arguments_line C1
    *line_arg C1
@@ -174,10 +174,10 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E11|up->E1]
+ |section_directions:D[next->E7|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E11|prev->E1|up->E1]
+ |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -196,20 +196,20 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {toto is there:: and the }
-    *6 @emph C1 l18
+    *@emph C1 l18
      *brace_container C1
       {is a description}
-    *7 @w C1 l18
+    *@w C1 l18
      *brace_container C1
       {slightly long}
     { and }
-    *8 @verb C1 l18
+    *@verb C1 l18
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:vv somewhat}
     { }
-    *9 @ringaccent C1 l18
+    *@ringaccent C1 l18
     |INFO
     |spaces_after_cmd_before_arg:
      |{ }
@@ -217,17 +217,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
       {a}
     {nexpected}
   {empty_line:\\n}
- *10 @node C1 l20 {titi}
+ *6 @node C1 l20 {titi}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
- |associated_title_command:[E11]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
- |menu_directions:D[next->E13|prev->E3|up->E0]
- |node_description:[E12]
- |node_directions:D[next->E13|prev->E3|up->E0]
+ |menu_directions:D[next->E9|prev->E3|up->E0]
+ |node_description:[E8]
+ |node_directions:D[next->E9|prev->E3|up->E0]
  |normalized:{titi}
   *arguments_line C1
    *line_arg C1
@@ -235,17 +235,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {titi}
- *11 @chapter C4 l21 {Titi}
+ *7 @chapter C4 l21 {Titi}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
- |associated_node:[E10]
- |section_directions:D[next->E14|prev->E4|up->E1]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[next->E10|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E14|prev->E4|up->E1]
+ |toplevel_directions:D[next->E10|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -253,29 +253,29 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Titi}
   {empty_line:\\n}
-  *12 @nodedescription C1 l23
+  *8 @nodedescription C1 l23
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E10]
+  |element_node:[E6]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {this describes titi}
   {empty_line:\\n}
- *13 @node C1 l25 {other}
+ *9 @node C1 l25 {other}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
- |associated_title_command:[E14]
+ |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
- |menu_directions:D[next->E16|prev->E10|up->E0]
- |node_description:[E15]
- |node_directions:D[next->E16|prev->E10|up->E0]
+ |menu_directions:D[next->E12|prev->E6|up->E0]
+ |node_description:[E11]
+ |node_directions:D[next->E12|prev->E6|up->E0]
  |normalized:{other}
   *arguments_line C1
    *line_arg C1
@@ -283,17 +283,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {other}
- *14 @chapter C4 l26 {Other}
+ *10 @chapter C4 l26 {Other}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
- |associated_node:[E13]
- |section_directions:D[next->E17|prev->E11|up->E1]
+ |associated_anchor_command:[E9]
+ |associated_node:[E9]
+ |section_directions:D[next->E13|prev->E7|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E17|prev->E11|up->E1]
+ |toplevel_directions:D[next->E13|prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -301,29 +301,29 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Other}
   {empty_line:\\n}
-  *15 @nodedescription C1 l28
+  *11 @nodedescription C1 l28
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E13]
+  |element_node:[E9]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {other comes here}
   {empty_line:\\n}
- *16 @node C1 l30 {last}
+ *12 @node C1 l30 {last}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E17]
- |associated_title_command:[E17]
+ |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
- |menu_directions:D[next->E19|prev->E13|up->E0]
- |node_description:[E18]
- |node_directions:D[next->E19|prev->E13|up->E0]
+ |menu_directions:D[next->E15|prev->E9|up->E0]
+ |node_description:[E14]
+ |node_directions:D[next->E15|prev->E9|up->E0]
  |normalized:{last}
   *arguments_line C1
    *line_arg C1
@@ -331,17 +331,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {last}
- *17 @chapter C4 l31 {Last}
+ *13 @chapter C4 l31 {Last}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E16]
- |associated_node:[E16]
- |section_directions:D[next->E20|prev->E14|up->E1]
+ |associated_anchor_command:[E12]
+ |associated_node:[E12]
+ |section_directions:D[next->E16|prev->E10|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E20|prev->E14|up->E1]
+ |toplevel_directions:D[next->E16|prev->E10|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -349,29 +349,29 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Last}
   {empty_line:\\n}
-  *18 @nodedescription C1 l33
+  *14 @nodedescription C1 l33
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E16]
+  |element_node:[E12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {we are last}
   {empty_line:\\n}
- *19 @node C1 l35 {a somewhat long node without description nor following space}
+ *15 @node C1 l35 {a somewhat long node without description nor following space}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E20]
- |associated_title_command:[E20]
+ |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
- |menu_directions:D[next->E22|prev->E16|up->E0]
- |node_description:[E21]
- |node_directions:D[next->E22|prev->E16|up->E0]
+ |menu_directions:D[next->E18|prev->E12|up->E0]
+ |node_description:[E17]
+ |node_directions:D[next->E18|prev->E12|up->E0]
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
    *line_arg C1
@@ -379,17 +379,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {a somewhat long node without description nor following space}
- *20 @chapter C4 l36 {Somewhat long}
+ *16 @chapter C4 l36 {Somewhat long}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E19]
- |associated_node:[E19]
- |section_directions:D[next->E23|prev->E17|up->E1]
+ |associated_anchor_command:[E15]
+ |associated_node:[E15]
+ |section_directions:D[next->E19|prev->E13|up->E1]
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E23|prev->E17|up->E1]
+ |toplevel_directions:D[next->E19|prev->E13|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -397,29 +397,29 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Somewhat long}
   {empty_line:\\n}
-  *21 @nodedescription C1 l38
+  *17 @nodedescription C1 l38
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E19]
+  |element_node:[E15]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {not as long as the node}
   {empty_line:\\n}
- *22 @node C1 l40 {a very long node without description with very little space left for}
+ *18 @node C1 l40 {a very long node without description with very little space left for}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E23]
- |associated_title_command:[E23]
+ |associated_section:[E19]
+ |associated_title_command:[E19]
  |is_target:{1}
- |menu_directions:D[next->E25|prev->E19|up->E0]
- |node_description:[E24]
- |node_directions:D[next->E25|prev->E19|up->E0]
+ |menu_directions:D[next->E21|prev->E15|up->E0]
+ |node_description:[E20]
+ |node_directions:D[next->E21|prev->E15|up->E0]
  |normalized:{a-very-long-node-without-description-with-very-little-space-left-for}
   *arguments_line C1
    *line_arg C1
@@ -427,17 +427,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {a very long node without description with very little space left for}
- *23 @chapter C4 l41 {Very long}
+ *19 @chapter C4 l41 {Very long}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E22]
- |associated_node:[E22]
- |section_directions:D[next->E26|prev->E20|up->E1]
+ |associated_anchor_command:[E18]
+ |associated_node:[E18]
+ |section_directions:D[next->E22|prev->E16|up->E1]
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[next->E26|prev->E20|up->E1]
+ |toplevel_directions:D[next->E22|prev->E16|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -445,29 +445,29 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Very long}
   {empty_line:\\n}
-  *24 @nodedescription C1 l43
+  *20 @nodedescription C1 l43
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E18]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {starting the desciption with a somewhat long word}
   {empty_line:\\n}
- *25 @node C1 l45 {very very long node extending past the max columns and without description}
+ *21 @node C1 l45 {very very long node extending past the max columns and without description}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E26]
- |associated_title_command:[E26]
+ |associated_section:[E22]
+ |associated_title_command:[E22]
  |is_target:{1}
- |menu_directions:D[prev->E22|up->E0]
- |node_description:[E27]
- |node_directions:D[prev->E22|up->E0]
+ |menu_directions:D[prev->E18|up->E0]
+ |node_description:[E23]
+ |node_directions:D[prev->E18|up->E0]
  |normalized:{very-very-long-node-extending-past-the-max-columns-and-without-description}
   *arguments_line C1
    *line_arg C1
@@ -475,17 +475,17 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {very very long node extending past the max columns and without description}
- *26 @chapter C3 l46 {Past max columns}
+ *22 @chapter C3 l46 {Past max columns}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E25]
- |associated_node:[E25]
- |section_directions:D[prev->E23|up->E1]
+ |associated_anchor_command:[E21]
+ |associated_node:[E21]
+ |section_directions:D[prev->E19|up->E1]
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[prev->E23|up->E1]
+ |toplevel_directions:D[prev->E19|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -493,12 +493,12 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {Past max columns}
   {empty_line:\\n}
-  *27 @nodedescription C1 l48
+  *23 @nodedescription C1 l48
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E25]
+  |element_node:[E21]
    *line_arg C1
    |INFO
    |spaces_after_argument:

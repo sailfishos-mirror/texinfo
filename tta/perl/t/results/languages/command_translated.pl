@@ -28,7 +28,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -43,35 +43,35 @@ $result_tree_text{'command_translated'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E6]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
     |{\\n}
     {top }
-    *2 @error C1 l4
+    *@error C1 l4
      *brace_container
   {empty_line:\\n}
   *paragraph C2
-   *3 @error C1 l6
+   *@error C1 l6
     *brace_container
    {\\n}
   {empty_line:\\n}
- *4 @node C1 l8 {chapter @error{}}
+ *2 @node C1 l8 {chapter @error{}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chapter-error_002d_002d_003e}
@@ -81,15 +81,15 @@ $result_tree_text{'command_translated'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter }
-    *5 @error C1 l8
+    *@error C1 l8
      *brace_container
- *6 @chapter C1 l9 {Chapter}
+ *3 @chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}

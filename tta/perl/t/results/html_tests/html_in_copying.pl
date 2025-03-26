@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'html_in_copying'} = '*document_root C3
  *before_node_section C3
   {empty_line:\\n}
-  *0 @copying C5 l2
+  *@copying C5 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -16,7 +16,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
    *paragraph C1
     {Copying\\n}
    {empty_line:\\n}
-   *1 @html C3 l5
+   *@html C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -47,13 +47,13 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *2 @node C1 l10 {Top}
+ *0 @node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -62,18 +62,18 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l11 {top}
+ *1 @top C2 l11 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1

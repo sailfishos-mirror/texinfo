@@ -24,7 +24,7 @@ $result_tree_text{'east_asian_in_w'} = '*document_root C1
   *paragraph C4
    {This option overrides an include file name section and aaaaa aaaa\\n}
    {(}
-   *0 @w C1 east_asian_in_w.texi:l4
+   *@w C1 east_asian_in_w.texi:l4
     *brace_container C1
      {包含文字}
    {).\\n}

@@ -20,7 +20,7 @@ $result_tree_text{'image_text_encoded'} = '*document_root C1
     |{\\n}
     {utf-8}
   {empty_line:\\n}
-  *0 @image C1 l3
+  *@image C1 l3
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1

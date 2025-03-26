@@ -8,7 +8,7 @@ $result_tree_text{'text_before_after'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
    {before }
-   *0 @macro C3 l1
+   *@macro C3 l1
    |EXTRA
    |macro_name:{mymacro}
    |misc_args:A{}

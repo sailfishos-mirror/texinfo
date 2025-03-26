@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a}

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
  *before_node_section C16
   {empty_line:\\n}
-  *0 @macro C10 l2
+  *@macro C10 l2
   |EXTRA
   |macro_name:{conditionals}
   |misc_args:A{}

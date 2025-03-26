@@ -20,7 +20,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E5]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |EXTRA
     |node_content:{@\'a}
     |normalized:{_00e1}
-     *2 @\' C1 node_footnote.texi:l8
+     *@\' C1 node_footnote.texi:l8
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -54,7 +54,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |EXTRA
     |node_content:{@^a}
     |normalized:{_00e2}
-     *3 @^ C1 node_footnote.texi:l9
+     *@^ C1 node_footnote.texi:l9
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -78,7 +78,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |EXTRA
     |node_content:{@`a}
     |normalized:{_00e0}
-     *4 @` C1 node_footnote.texi:l11
+     *@` C1 node_footnote.texi:l11
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -97,89 +97,89 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C4 node_footnote.texi:l14 {@\'a}
+ *2 @node C4 node_footnote.texi:l14 {@\'a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E10|up->E0]
- |node_directions:D[next->E10|prev->E0|up->E0]
+ |menu_directions:D[next->E3|up->E0]
+ |node_directions:D[next->E3|prev->E0|up->E0]
  |normalized:{_00e1}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @\' C1 node_footnote.texi:l14
+    *@\' C1 node_footnote.texi:l14
      *following_arg C1
       {a}
   {empty_line:\\n}
   *paragraph C6
    {node }
-   *7 @\' C1 node_footnote.texi:l16
+   *@\' C1 node_footnote.texi:l16
     *following_arg C1
      {a}
    {,\\n}
    {Footnote 1}
-   *8 @footnote C1 node_footnote.texi:l17
+   *@footnote C1 node_footnote.texi:l17
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C2
       {foot 1 }
-      *9 @\' C1 node_footnote.texi:l17
+      *@\' C1 node_footnote.texi:l17
        *following_arg C1
         {a}
    {.\\n}
   {empty_line:\\n}
- *10 @node C4 node_footnote.texi:l19 {@^a}
+ *3 @node C4 node_footnote.texi:l19 {@^a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E15|prev->E5|up->E0]
- |node_directions:D[next->E15|prev->E5|up->E0]
+ |menu_directions:D[next->E4|prev->E2|up->E0]
+ |node_directions:D[next->E4|prev->E2|up->E0]
  |normalized:{_00e2}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *11 @^ C1 node_footnote.texi:l19
+    *@^ C1 node_footnote.texi:l19
      *following_arg C1
       {a}
   {empty_line:\\n}
   *paragraph C6
    {node }
-   *12 @^ C1 node_footnote.texi:l21
+   *@^ C1 node_footnote.texi:l21
     *following_arg C1
      {a}
    {,\\n}
    {Footnote 2}
-   *13 @footnote C1 node_footnote.texi:l22
+   *@footnote C1 node_footnote.texi:l22
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C1
      *paragraph C2
       {foot 2 }
-      *14 @^ C1 node_footnote.texi:l22
+      *@^ C1 node_footnote.texi:l22
        *following_arg C1
         {a}
    {.\\n}
   {empty_line:\\n}
- *15 @node C1 node_footnote.texi:l24 {chapter}
+ *4 @node C1 node_footnote.texi:l24 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E16]
- |associated_title_command:[E16]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |menu_directions:D[next->E19|prev->E10|up->E0]
- |menus:EC[E17]
- |node_directions:D[next->E19|prev->E10|up->E0]
+ |menu_directions:D[next->E7|prev->E3|up->E0]
+ |menus:EC[E6]
+ |node_directions:D[next->E7|prev->E3|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -187,19 +187,19 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *16 @chapter C4 node_footnote.texi:l25 {chapter}
+ *5 @chapter C4 node_footnote.texi:l25 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
- |associated_node:[E15]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E16]
+  ||section_childs:EC[E5]
   ||section_level:{0}
   *arguments_line C1
    *line_arg C1
@@ -208,7 +208,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |{\\n}
     {chapter}
   {empty_line:\\n}
-  *17 @menu C3 node_footnote.texi:l27
+  *6 @menu C3 node_footnote.texi:l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -220,7 +220,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |EXTRA
     |node_content:{@`a}
     |normalized:{_00e0}
-     *18 @` C1 node_footnote.texi:l28
+     *@` C1 node_footnote.texi:l28
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -239,38 +239,38 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *19 @node C4 node_footnote.texi:l31 {@`a}
+ *7 @node C4 node_footnote.texi:l31 {@`a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E15|up->E15]
- |node_directions:D[prev->E15|up->E15]
+ |menu_directions:D[prev->E4|up->E4]
+ |node_directions:D[prev->E4|up->E4]
  |normalized:{_00e0}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *20 @` C1 node_footnote.texi:l31
+    *@` C1 node_footnote.texi:l31
      *following_arg C1
       {a}
   {empty_line:\\n}
   *paragraph C6
    {node }
-   *21 @` C1 node_footnote.texi:l33
+   *@` C1 node_footnote.texi:l33
     *following_arg C1
      {a}
    {,\\n}
    {Footnote 3}
-   *22 @footnote C1 node_footnote.texi:l34
+   *@footnote C1 node_footnote.texi:l34
    |EXTRA
    |global_command_number:{3}
     *brace_command_context C1
      *paragraph C2
       {foot 3 }
-      *23 @` C1 node_footnote.texi:l34
+      *@` C1 node_footnote.texi:l34
        *following_arg C1
         {a}
    {.\\n}

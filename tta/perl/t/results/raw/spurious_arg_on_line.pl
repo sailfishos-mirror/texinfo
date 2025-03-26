@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @tex C3 l2
+  *@tex C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
      |{\\n}
      {tex}
   {empty_line:\\n}
-  *1 @verbatim C3 l6
+  *@verbatim C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
      |{\\n}
      {verbatim}
   {empty_line:\\n}
-  *2 @html C3 l10
+  *@html C3 l10
   |INFO
   |spaces_before_argument:
    |{ }

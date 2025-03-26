@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @strong l1
+     *@strong l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -31,13 +31,13 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
      {empty_line:\\n}
      *paragraph C1
       {In item, nested itemize\\n}
-     *2 @itemize C3 l5
+     *@itemize C3 l5
       *arguments_line C1
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *3 @bullet
+        *@bullet
         |INFO
         |inserted:{1}
       *before_item C1
@@ -62,7 +62,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
         |{\\n}
         {itemize}
      {empty_line:\\n}
-     *4 @enumerate C3 l9
+     *@enumerate C3 l9
      |EXTRA
      |enumerate_specification:{1}
       *arguments_line C1

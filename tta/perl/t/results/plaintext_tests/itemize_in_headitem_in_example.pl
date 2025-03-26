@@ -6,19 +6,19 @@ use utf8;
 
 $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C10 l1
+  *@example C10 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @itemize C3 l2
+   *@itemize C3 l2
     *arguments_line C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *2 @bullet
+      *@bullet
       |INFO
       |inserted:{1}
     *before_item C1
@@ -38,13 +38,13 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *3 @itemize C3 l6
+   *@itemize C3 l6
     *arguments_line C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *4 @bullet
+      *@bullet
       |INFO
       |inserted:{1}
     *@item C2 l7
@@ -69,13 +69,13 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *5 @itemize C4 l11
+   *@itemize C4 l11
     *arguments_line C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *6 @bullet
+      *@bullet
       |INFO
       |inserted:{1}
     *before_item C1
@@ -101,13 +101,13 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *7 @itemize C4 l16
+   *@itemize C4 l16
     *arguments_line C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *8 @bullet
+      *@bullet
       |INFO
       |inserted:{1}
     *@item C2 l17

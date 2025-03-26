@@ -80,15 +80,15 @@ $result_tree_text{'reference_for_formatting_customizations'} = '*document_root C
     {Chap}
   {empty_line:\\n}
   *paragraph C8
-   *4 @AA C1 formatting_customizations_input.texi:l7
+   *@AA C1 formatting_customizations_input.texi:l7
     *brace_container
    { }
-   *5 @equiv C1 formatting_customizations_input.texi:l7
+   *@equiv C1 formatting_customizations_input.texi:l7
     *brace_container
    { }
    *@@
    { }
-   *6 @copyright C1 formatting_customizations_input.texi:l7
+   *@copyright C1 formatting_customizations_input.texi:l7
     *brace_container
    {\\n}
   {empty_line:\\n}

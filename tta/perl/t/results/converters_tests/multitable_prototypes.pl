@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'multitable_prototypes'} = '*document_root C1
  *before_node_section C2
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{  }
@@ -28,12 +28,12 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
      { }
      *bracketed_arg C3 l1
       {j }
-      *1 @code C1 l1
+      *@code C1 l1
        *brace_container C1
         {some code}
       { }
      { }
-     *2 @var C1 l1
+     *@var C1 l1
       *brace_container C1
        {cmd}
      {gg hh j}
@@ -59,7 +59,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C3
        {k }
-       *3 @samp C1 l4
+       *@samp C1 l4
         *brace_container C1
          {same samp}
        {\\n}

@@ -7,22 +7,22 @@ use utf8;
 $result_tree_text{'uref_url'} = '*document_root C1
  *before_node_section C1
   *paragraph C18
-   *0 @uref C2 l1
+   *@uref C2 l1
     *brace_arg C1
      {--a}
     *brace_arg C1
      {--b}
    {\\n}
-   *1 @uref C1 l2
+   *@uref C1 l2
     *brace_arg C1
      {--c}
    {\\n}
-   *2 @uref C2 l3
+   *@uref C2 l3
     *brace_arg
     *brace_arg C1
      {--d}
    {\\n}
-   *3 @uref C3 l4
+   *@uref C3 l4
     *brace_arg C1
      {--e}
     *brace_arg C1
@@ -30,33 +30,33 @@ $result_tree_text{'uref_url'} = '*document_root C1
     *brace_arg C1
      {--g}
    {\\n}
-   *4 @uref C3 l5
+   *@uref C3 l5
     *brace_arg
     *brace_arg C1
      {--h}
     *brace_arg C1
      {--i}
    {\\n}
-   *5 @uref C3 l6
+   *@uref C3 l6
     *brace_arg C1
      {--j}
     *brace_arg
     *brace_arg C1
      {--k}
    {\\n}
-   *6 @uref C3 l7
+   *@uref C3 l7
     *brace_arg
     *brace_arg
     *brace_arg C1
      {--l}
    {\\n}
-   *7 @url C2 l8
+   *@url C2 l8
     *brace_arg C1
      {--m}
     *brace_arg C1
      {--n}
    {\\n}
-   *8 @url C3 l9
+   *@url C3 l9
     *brace_arg C1
      {--o}
     *brace_arg C1

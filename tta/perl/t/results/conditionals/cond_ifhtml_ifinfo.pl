@@ -13,7 +13,7 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
    *@c C1
     {rawline_arg: test conditions\\n}
    {empty_line:\\n}
-   *0 @html C3 cond.texi:l5
+   *@html C3 cond.texi:l5
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -78,15 +78,15 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
       >|{\\n}
       >{ifnothtml}
   {empty_line:\\n}
- *1 @node C1 cond.texi:l17 {Top}
+ *0 @node C1 cond.texi:l17 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
- |associated_title_command:[E2]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -94,18 +94,18 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 cond.texi:l18 {conditionals}
+ *1 @top C2 cond.texi:l18 {conditionals}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
- |associated_node:[E1]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
@@ -114,13 +114,13 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
     |{\\n}
     {conditionals}
   {empty_line:\\n}
- *3 @node C12 cond.texi:l20 {chap}
+ *2 @node C12 cond.texi:l20 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -176,7 +176,7 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
       >{ifnotinfo}
   {empty_line:\\n}
   {empty_line:\\n}
-  *4 @tex C3 cond.texi:l32
+  *@tex C3 cond.texi:l32
    *arguments_line C1
     *block_line_arg
     |INFO

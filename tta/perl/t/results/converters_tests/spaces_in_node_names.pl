@@ -13,7 +13,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
     |node_content:{b@verb{:  :}}
     |normalized:{b-}
      {b}
-     *2 @verb C1 l5
+     *@verb C1 l5
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -81,14 +81,14 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C2 l9 {chap@ @ }
+ *2 @node C2 l9 {chap@ @ }
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E4|up->E0]
- |node_directions:D[next->E4|prev->E0|up->E0]
+ |menu_directions:D[next->E3|up->E0]
+ |node_directions:D[next->E3|prev->E0|up->E0]
  |normalized:{chap-}
   *arguments_line C1
    *line_arg C3
@@ -99,14 +99,14 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
     *@ 
     *@ 
   {empty_line:\\n}
- *4 @node C2 l11 {b@verb{:  :}}
+ *3 @node C2 l11 {b@verb{:  :}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|prev->E3|up->E0]
- |node_directions:D[next->E6|prev->E3|up->E0]
+ |menu_directions:D[next->E4|prev->E2|up->E0]
+ |node_directions:D[next->E4|prev->E2|up->E0]
  |normalized:{b-}
   *arguments_line C1
    *line_arg C2
@@ -114,20 +114,20 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {b}
-    *5 @verb C1 l11
+    *@verb C1 l11
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:  }
   {empty_line:\\n}
- *6 @node C7 l13 {c@w{  }}
+ *4 @node C7 l13 {c@w{  }}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E4|up->E0]
- |node_directions:D[prev->E4|up->E0]
+ |menu_directions:D[prev->E3|up->E0]
+ |node_directions:D[prev->E3|up->E0]
  |normalized:{c-}
   *arguments_line C1
    *line_arg C2
@@ -135,12 +135,12 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {c}
-    *7 @w C1 l13
+    *@w C1 l13
      *brace_container C1
       {  }
   {empty_line:\\n}
   *paragraph C2
-   *8 @ref C1 l15
+   *@ref C1 l15
     *brace_arg C3
     |EXTRA
     |node_content:{chap@ @ }
@@ -151,13 +151,13 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *9 @ref C1 l17
+   *@ref C1 l17
     *brace_arg C2
     |EXTRA
     |node_content:{b@verb{:  :}}
     |normalized:{b-}
      {b}
-     *10 @verb C1 l17
+     *@verb C1 l17
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -165,13 +165,13 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *11 @ref C1 l19
+   *@ref C1 l19
     *brace_arg C2
     |EXTRA
     |node_content:{c@w{  }}
     |normalized:{c-}
      {c}
-     *12 @w C1 l19
+     *@w C1 l19
       *brace_container C1
        {  }
    {\\n}

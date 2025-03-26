@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
  *before_node_section C25
-  *0 @verbatim C3 l1
+  *@verbatim C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Text before\\n}
-  *1 @verbatim C3 l6
+  *@verbatim C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   *paragraph C1
    {Text after\\n}
   {empty_line:\\n}
-  *2 @quotation C4 l11
+  *@quotation C4 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      |{\\n}
    *paragraph C1
     {In quotation\\n}
-   *3 @verbatim C4 l13
+   *@verbatim C4 l13
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Before\\n}
-  *4 @verbatim C3 l20
+  *@verbatim C3 l20
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -123,7 +123,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     |{\\n}
     {verb.txt}
   {empty_line:\\n}
-  *5 @quotation C4 l27
+  *@quotation C4 l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -172,7 +172,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   *paragraph C1
    {After\\n}
   {empty_line:\\n}
-  *6 @example C5 l36
+  *@example C5 l36
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -181,7 +181,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *preformatted C2
     {In example\\n}
     {empty_line:\\n}
-   *7 @verbatim C4 l39
+   *@verbatim C4 l39
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -214,7 +214,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *8 @quotation C6 l46
+  *@quotation C6 l46
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -223,7 +223,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *paragraph C1
     {In quotation with spaces\\n}
    {empty_line:\\n}
-   *9 @verbatim C4 l49
+   *@verbatim C4 l49
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -255,7 +255,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *10 @quotation C6 l56
+  *@quotation C6 l56
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -264,7 +264,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *paragraph C1
     {In quotation \\n}
    {empty_line:\\n}
-   *11 @verbatim C3 l59
+   *@verbatim C3 l59
     *arguments_line C1
      *block_line_arg
      |INFO

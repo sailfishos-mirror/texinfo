@@ -8,10 +8,10 @@ $result_tree_text{'nested'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {type the characters }
-   *0 @kbd C1 l1
+   *@kbd C1 l1
     *brace_container C2
      {l o g o u t }
-     *1 @key C1 l1
+     *@key C1 l1
       *brace_container C1
        {RET}
    {.}

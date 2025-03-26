@@ -13,7 +13,7 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E3]
+ |menus:EC[E1]
  |node_directions:D[next->E0]
  |normalized:{Top}
   *arguments_line C1
@@ -24,14 +24,14 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
     {ToP}
   {empty_line:\\n}
   *paragraph C4
-   *1 @xref C1 l3
+   *@xref C1 l3
     *brace_arg C1
     |EXTRA
     |node_content:{TOP}
     |normalized:{Top}
      {TOP}
    {. }
-   *2 @xref C1 l3
+   *@xref C1 l3
     *brace_arg C1
     |EXTRA
     |node_content:{tOP}
@@ -39,7 +39,7 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
      {tOP}
    {.\\n}
   {empty_line:\\n}
-  *3 @menu C3 l5
+  *1 @menu C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO

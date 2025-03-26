@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'ignored_macro_definition'} = '*document_root C1
  *before_node_section C6
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{}
@@ -27,7 +27,7 @@ $result_tree_text{'ignored_macro_definition'} = '*document_root C1
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @inlinefmt C2 l6
+   *@inlinefmt C2 l6
    |EXTRA
    |format:{tex}
     *brace_arg C1

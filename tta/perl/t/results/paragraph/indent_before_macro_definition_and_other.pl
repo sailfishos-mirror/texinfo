@@ -20,7 +20,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {someone}
-  *0 @image C1 l4
+  *@image C1 l4
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -28,7 +28,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   {\\n}
   *@vskip C1
    {rawline_arg: 0pt plus 1filll\\n}
-  *1 @html C3 l6
+  *@html C3 l6
   >SOURCEMARKS
   >ignored_conditional_block<1>
    >*@ifnothtml C3 l9
@@ -78,7 +78,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {on}
-  *2 @anchor C1 l13
+  *0 @anchor C1 l13
   |EXTRA
   |is_target:{1}
   |normalized:{spot}
@@ -97,7 +97,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {ei}
-  *3 @macro C3 l15
+  *@macro C3 l15
   |EXTRA
   |macro_name:{aaa}
   |misc_args:A{g}

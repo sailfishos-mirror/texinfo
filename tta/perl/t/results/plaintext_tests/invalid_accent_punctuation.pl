@@ -8,7 +8,7 @@ $result_tree_text{'invalid_accent_punctuation'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {a. }
-   *0 @^ l1
+   *@^ l1
    *@@
 ';
 

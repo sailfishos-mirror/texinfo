@@ -10,7 +10,7 @@ $result_tree_text{'indent_with_command_after_without_space'} = '*document_root C
   *paragraph C2
   |EXTRA
   |indent:{1}
-   *0 @AA C1 l1
+   *@AA C1 l1
     *brace_container
    { b\\n}
 ';

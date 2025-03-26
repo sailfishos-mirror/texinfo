@@ -16,16 +16,16 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
   {spaces_after_close_brace:\\n}
   *paragraph C3
    {Text. }
-   *1 @errormsg C1 l3
+   *@errormsg C1 l3
     *brace_arg C3
-     *2 @anchor C1 l3
+     *1 @anchor C1 l3
      |EXTRA
      |is_target:{1}
      |normalized:{in-anchor}
       *brace_arg C1
        {in anchor}
      {spaces_after_close_brace: }
-     *3 @ref C1 l3
+     *@ref C1 l3
       *brace_arg C1
       |EXTRA
       |node_content:{in ref}
@@ -33,12 +33,12 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
        {in ref}
    {\\n}
   {empty_line:\\n}
-  *4 @errormsg C1 l5
+  *@errormsg C1 l5
    *brace_arg
    |INFO
    |spaces_before_argument:
     |{\\n}
-  *5 @table C3 l6
+  *@table C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *6 @asis l6
+     *@asis l6
    *table_entry C1
     *table_term C1
      *@item C1 l7

@@ -15,8 +15,8 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E4]
- |node_directions:D[next->E5]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,14 +31,14 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E6]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {A}
-   *2 @footnote C1 l4
+   *@footnote C1 l4
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C3
@@ -61,7 +61,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {B}
-   *3 @footnote C1 l8
+   *@footnote C1 l8
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C3
@@ -72,7 +72,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
       {para2}
    {\\n}
   {empty_line:\\n}
-  *4 @menu C3 l12
+  *2 @menu C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -101,13 +101,13 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l16 {chapter}
+ *3 @node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -118,13 +118,13 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C6 l17 {chapter}
+ *4 @chapter C6 l17 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -138,7 +138,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {C}
-   *7 @footnote C1 l19
+   *@footnote C1 l19
    |EXTRA
    |global_command_number:{3}
     *brace_command_context C3
@@ -151,7 +151,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {D}
-   *8 @footnote C1 l23
+   *@footnote C1 l23
    |EXTRA
    |global_command_number:{4}
     *brace_command_context C3

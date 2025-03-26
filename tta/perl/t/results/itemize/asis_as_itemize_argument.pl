@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *@item C2 l2
    |EXTRA
    |item_number:{1}

@@ -20,13 +20,13 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
      |{\\n}
      {fr}
    {empty_line:\\n}
-   *0 @copying C3 l3
+   *@copying C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
-    *1 @defivar C3 l4
+    *@defivar C3 l4
     |INFO
     |spaces_before_argument:
      |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
          {b}
      *def_item C1
       *paragraph C2
-       *2 @error C1 l5
+       *@error C1 l5
         *brace_container
        {\\n}
      *@end C1 l6
@@ -107,15 +107,15 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *3 @node C1 l9 {Top}
+ *0 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E5]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -123,21 +123,21 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C2 l10 {top}
+ *1 @top C2 l10 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
- |section_childs:EC[E6]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E4]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -145,16 +145,16 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *5 @node C1 l12 {chap}
+ *2 @node C1 l12 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E3|up->E3]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -162,17 +162,17 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *6 @chapter C15 l13 {Chap}
+ *3 @chapter C15 l13 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
- |section_directions:D[up->E4]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E4|up->E4]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -180,7 +180,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *7 @defivar C3 l15
+  *@defivar C3 l15
   |INFO
   |spaces_before_argument:
    |{ }
@@ -206,7 +206,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |*def_line_arg C1
        |{fr}
    |documentlanguage:{fr}
-   |element_node:[E5]
+   |element_node:[E2]
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -235,7 +235,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
        {CCC}
    *def_item C1
     *paragraph C2
-     *8 @error C1 l16
+     *@error C1 l16
       *brace_container
      {\\n}
    *@end C1 l17
@@ -281,7 +281,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     |{\\n}
     {hr}
   {empty_line:\\n}
-  *9 @defivar C3 l25
+  *@defivar C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -307,7 +307,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |*def_line_arg C1
        |{hr}
    |documentlanguage:{hr}
-   |element_node:[E5]
+   |element_node:[E2]
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -336,7 +336,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
        {CCC}
    *def_item C1
     *paragraph C2
-     *10 @error C1 l26
+     *@error C1 l26
       *brace_container
      {\\n}
    *@end C1 l27

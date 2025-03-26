@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'nested_itemize'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
-  *0 @itemize C5 l1
+  *@itemize C5 l1
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *before_item C1
@@ -31,13 +31,13 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C1
      {First level item\\n}
-    *2 @itemize C5 l4
+    *@itemize C5 l4
      *arguments_line C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *3 @bullet
+       *@bullet
        |INFO
        |inserted:{1}
      *before_item C1
@@ -55,13 +55,13 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C1
        {Second level item\\n}
-      *4 @itemize C5 l7
+      *@itemize C5 l7
        *arguments_line C1
         *block_line_arg C1
         |INFO
         |spaces_after_argument:
          |{\\n}
-         *5 @bullet
+         *@bullet
          |INFO
          |inserted:{1}
        *before_item C1
@@ -79,13 +79,13 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
         {ignorable_spaces_after_command: }
         *paragraph C1
          {Third level item\\n}
-        *6 @itemize C5 l10
+        *@itemize C5 l10
          *arguments_line C1
           *block_line_arg C1
           |INFO
           |spaces_after_argument:
            |{\\n}
-           *7 @bullet
+           *@bullet
            |INFO
            |inserted:{1}
          *before_item C1

@@ -16,7 +16,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
  |normalized:{a}
   *arguments_line C2
    *line_arg C1
-    *1 @ref C4 l1
+    *@ref C4 l1
      *brace_arg C1
      |EXTRA
      |node_content:{a}
@@ -45,7 +45,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
    |node_content:{@anchor{in anchor}@footnote{footnote} @exdent exdent\\n}
    |normalized:{-}
     {(}
-    *2 @pxref C1 l1
+    *@pxref C1 l1
      *brace_arg C4
      |EXTRA
      |manual_content:{somemanual}
@@ -56,13 +56,13 @@ $result_tree_text{'on_node_line'} = '*document_root C2
       {Top}
     {)}
     { }
-    *3 @anchor C1 l1
+    *1 @anchor C1 l1
     |EXTRA
     |is_target:{1}
     |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
-    *4 @footnote C1 l1
+    *@footnote C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1

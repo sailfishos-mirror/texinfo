@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'formats_titles'} = '*document_root C1
  *before_node_section C9
-  *0 @itemize C4 l1
+  *@itemize C4 l1
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *before_item C1
@@ -36,7 +36,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *2 @enumerate C4 l6
+  *@enumerate C4 l6
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -65,7 +65,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *3 @table C4 l11
+  *@table C4 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @emph l11
+     *@emph l11
    *before_item C1
     *paragraph C1
      {before first table\\n}
@@ -101,7 +101,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *5 @vtable C4 l16
+  *@vtable C4 l16
   |INFO
   |spaces_before_argument:
    |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *6 @asis l16
+     *@asis l16
    *before_item C1
     *paragraph C1
      {before first vtable\\n}
@@ -139,7 +139,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *7 @multitable C4 l21
+  *@multitable C4 l21
   |INFO
   |spaces_before_argument:
    |{ }

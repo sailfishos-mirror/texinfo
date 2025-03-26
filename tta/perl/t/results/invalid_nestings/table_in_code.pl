@@ -7,11 +7,11 @@ use utf8;
 $result_tree_text{'table_in_code'} = '*document_root C1
  *before_node_section C3
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C2
      {\\n}
      {in code\\n}
-  *1 @table C3 l3
+  *@table C3 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -20,7 +20,7 @@ $result_tree_text{'table_in_code'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *2 @emph l3
+     *@emph l3
    *table_entry C2
     *table_term C1
      *@item C1 l4

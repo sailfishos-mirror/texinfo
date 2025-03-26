@@ -7,10 +7,10 @@ use utf8;
 $result_tree_text{'uref_with_commands_characters'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @uref C2 l1
+   *@uref C2 l1
     *brace_arg C9
      {http://my-host.com/~}
-     *1 @strong C1 l1
+     *@strong C1 l1
       *brace_container C1
        {toto}
      {%5Cs\'q"a&e?b}
@@ -25,9 +25,9 @@ $result_tree_text{'uref_with_commands_characters'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {see that }
-     *2 @strong C1 l1
+     *@strong C1 l1
       *brace_container C1
-       *3 @LaTeX C1 l1
+       *@LaTeX C1 l1
         *brace_container
    {\\n}
 ';

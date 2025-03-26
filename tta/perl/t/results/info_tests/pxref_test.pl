@@ -22,7 +22,7 @@ $result_tree_text{'pxref_test'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C9
    {Hey (}
-   *1 @pxref C1 l3
+   *@pxref C1 l3
     *brace_arg C5
     |EXTRA
     |manual_content:{m}
@@ -33,7 +33,7 @@ $result_tree_text{'pxref_test'} = '*document_root C2
      { }
      {in pxref}
    {) and continue (}
-   *2 @pxref C2 l3
+   *@pxref C2 l3
     *brace_arg C5
     |EXTRA
     |manual_content:{m}
@@ -49,7 +49,7 @@ $result_tree_text{'pxref_test'} = '*document_root C2
      |{ }
      {name}
    {) and end.\\n}
-   *3 @pxref C1 l4
+   *@pxref C1 l4
     *brace_arg C5
     |EXTRA
     |manual_content:{m}
@@ -60,7 +60,7 @@ $result_tree_text{'pxref_test'} = '*document_root C2
      { }
      {n}
    {. }
-   *4 @pxref C2 l4
+   *@pxref C2 l4
     *brace_arg C5
     |EXTRA
     |manual_content:{m}

@@ -43,7 +43,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     {chapter}
   {empty_line:\\n}
   *paragraph C56
-   *2 @code C1 l4
+   *@code C1 l4
     *brace_container C5
      *@@
      {ref}
@@ -51,7 +51,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name}
      *@}
    { }
-   *3 @ref C2 l4
+   *@ref C2 l4
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -60,7 +60,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {cross ref name}
    {\\n}
-   *4 @code C1 l5
+   *@code C1 l5
     *brace_container C5
      *@@
      {ref}
@@ -68,7 +68,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,title}
      *@}
    { }
-   *5 @ref C3 l5
+   *@ref C3 l5
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -78,7 +78,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {title}
    {\\n}
-   *6 @code C1 l6
+   *@code C1 l6
     *brace_container C5
      *@@
      {ref}
@@ -86,7 +86,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,,file name}
      *@}
    { }
-   *7 @ref C4 l6
+   *@ref C4 l6
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -96,7 +96,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *8 @code C1 l7
+   *@code C1 l7
     *brace_container C5
      *@@
      {ref}
@@ -104,7 +104,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,,,manual}
      *@}
    { }
-   *9 @ref C5 l7
+   *@ref C5 l7
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -115,7 +115,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *10 @code C1 l8
+   *@code C1 l8
     *brace_container C5
      *@@
      {ref}
@@ -123,7 +123,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,title,}
      *@}
    { }
-   *11 @ref C4 l8
+   *@ref C4 l8
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -135,7 +135,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {title}
     *brace_arg
    {\\n}
-   *12 @code C1 l9
+   *@code C1 l9
     *brace_container C5
      *@@
      {ref}
@@ -143,7 +143,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,,file name}
      *@}
    { }
-   *13 @ref C4 l9
+   *@ref C4 l9
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -154,7 +154,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *14 @code C1 l10
+   *@code C1 l10
     *brace_container C5
      *@@
      {ref}
@@ -162,7 +162,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,,,manual}
      *@}
    { }
-   *15 @ref C5 l10
+   *@ref C5 l10
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -174,7 +174,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *16 @code C1 l11
+   *@code C1 l11
     *brace_container C5
      *@@
      {ref}
@@ -182,7 +182,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,title,file name}
      *@}
    { }
-   *17 @ref C4 l11
+   *@ref C4 l11
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -194,7 +194,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *18 @code C1 l12
+   *@code C1 l12
     *brace_container C5
      *@@
      {ref}
@@ -202,7 +202,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,title,,manual}
      *@}
    { }
-   *19 @ref C5 l12
+   *@ref C5 l12
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -215,7 +215,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *20 @code C1 l13
+   *@code C1 l13
     *brace_container C5
      *@@
      {ref}
@@ -223,7 +223,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,cross ref name,title, file name, manual}
      *@}
    { }
-   *21 @ref C5 l13
+   *@ref C5 l13
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -243,7 +243,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {manual}
    {\\n}
-   *22 @code C1 l14
+   *@code C1 l14
     *brace_container C5
      *@@
      {ref}
@@ -251,7 +251,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,title,file name}
      *@}
    { }
-   *23 @ref C4 l14
+   *@ref C4 l14
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -262,7 +262,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *24 @code C1 l15
+   *@code C1 l15
     *brace_container C5
      *@@
      {ref}
@@ -270,7 +270,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,title,,manual}
      *@}
    { }
-   *25 @ref C5 l15
+   *@ref C5 l15
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -282,7 +282,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *26 @code C1 l16
+   *@code C1 l16
     *brace_container C5
      *@@
      {ref}
@@ -290,7 +290,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,title, file name, manual}
      *@}
    { }
-   *27 @ref C5 l16
+   *@ref C5 l16
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -309,7 +309,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {manual}
    {\\n}
-   *28 @code C1 l17
+   *@code C1 l17
     *brace_container C5
      *@@
      {ref}
@@ -317,7 +317,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,,file name,manual}
      *@}
    { }
-   *29 @ref C5 l17
+   *@ref C5 l17
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -331,7 +331,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *paragraph C56
-   *30 @code C1 l19
+   *@code C1 l19
     *brace_container C5
      *@@
      {ref}
@@ -339,7 +339,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name}
      *@}
    { }
-   *31 @ref C2 l19
+   *@ref C2 l19
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -351,7 +351,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {cross ref name}
    {\\n}
-   *32 @code C1 l20
+   *@code C1 l20
     *brace_container C5
      *@@
      {ref}
@@ -359,7 +359,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,title}
      *@}
    { }
-   *33 @ref C3 l20
+   *@ref C3 l20
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -372,7 +372,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {title}
    {\\n}
-   *34 @code C1 l21
+   *@code C1 l21
     *brace_container C5
      *@@
      {ref}
@@ -380,7 +380,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,,file name}
      *@}
    { }
-   *35 @ref C4 l21
+   *@ref C4 l21
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -394,7 +394,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *36 @code C1 l22
+   *@code C1 l22
     *brace_container C5
      *@@
      {ref}
@@ -402,7 +402,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,,,manual}
      *@}
    { }
-   *37 @ref C5 l22
+   *@ref C5 l22
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -417,7 +417,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *38 @code C1 l23
+   *@code C1 l23
     *brace_container C5
      *@@
      {ref}
@@ -425,7 +425,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,title,}
      *@}
    { }
-   *39 @ref C4 l23
+   *@ref C4 l23
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -440,7 +440,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {title}
     *brace_arg
    {\\n}
-   *40 @code C1 l24
+   *@code C1 l24
     *brace_container C5
      *@@
      {ref}
@@ -448,7 +448,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,,file name}
      *@}
    { }
-   *41 @ref C4 l24
+   *@ref C4 l24
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -463,7 +463,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *42 @code C1 l25
+   *@code C1 l25
     *brace_container C5
      *@@
      {ref}
@@ -471,7 +471,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,,,manual}
      *@}
    { }
-   *43 @ref C5 l25
+   *@ref C5 l25
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -487,7 +487,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *44 @code C1 l26
+   *@code C1 l26
     *brace_container C5
      *@@
      {ref}
@@ -495,7 +495,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,title,file name}
      *@}
    { }
-   *45 @ref C4 l26
+   *@ref C4 l26
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -511,7 +511,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *46 @code C1 l27
+   *@code C1 l27
     *brace_container C5
      *@@
      {ref}
@@ -519,7 +519,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,title,,manual}
      *@}
    { }
-   *47 @ref C5 l27
+   *@ref C5 l27
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -536,7 +536,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *48 @code C1 l28
+   *@code C1 l28
     *brace_container C5
      *@@
      {ref}
@@ -544,7 +544,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,cross ref name,title, file name, manual}
      *@}
    { }
-   *49 @ref C5 l28
+   *@ref C5 l28
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -568,7 +568,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {manual}
    {\\n}
-   *50 @code C1 l29
+   *@code C1 l29
     *brace_container C5
      *@@
      {ref}
@@ -576,7 +576,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,title,file name}
      *@}
    { }
-   *51 @ref C4 l29
+   *@ref C4 l29
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -591,7 +591,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {file name}
    {\\n}
-   *52 @code C1 l30
+   *@code C1 l30
     *brace_container C5
      *@@
      {ref}
@@ -599,7 +599,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,title,,manual}
      *@}
    { }
-   *53 @ref C5 l30
+   *@ref C5 l30
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -615,7 +615,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
      {manual}
    {\\n}
-   *54 @code C1 l31
+   *@code C1 l31
     *brace_container C5
      *@@
      {ref}
@@ -623,7 +623,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,title, file name, manual}
      *@}
    { }
-   *55 @ref C5 l31
+   *@ref C5 l31
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -646,7 +646,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {manual}
    {\\n}
-   *56 @code C1 l32
+   *@code C1 l32
     *brace_container C5
      *@@
      {ref}
@@ -654,7 +654,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {(pman)anode,,,file name,manual}
      *@}
    { }
-   *57 @ref C5 l32
+   *@ref C5 l32
     *brace_arg C4
     |EXTRA
     |manual_content:{pman}
@@ -672,7 +672,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *paragraph C16
-   *58 @code C1 l34
+   *@code C1 l34
     *brace_container C5
      *@@
      {inforef}
@@ -680,7 +680,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter, cross ref name, file name}
      *@}
    { }
-   *59 @inforef C3 l34
+   *@inforef C3 l34
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -696,7 +696,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {file name}
    {\\n}
-   *60 @code C1 l35
+   *@code C1 l35
     *brace_container C5
      *@@
      {inforef}
@@ -704,14 +704,14 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter}
      *@}
    { }
-   *61 @inforef C1 l35
+   *@inforef C1 l35
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
     |normalized:{chapter}
      {chapter}
    {\\n}
-   *62 @code C1 l36
+   *@code C1 l36
     *brace_container C5
      *@@
      {inforef}
@@ -719,7 +719,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter, cross ref name}
      *@}
    { }
-   *63 @inforef C2 l36
+   *@inforef C2 l36
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -731,7 +731,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      |{ }
      {cross ref name}
    {\\n}
-   *64 @code C1 l37
+   *@code C1 l37
     *brace_container C5
      *@@
      {inforef}
@@ -739,7 +739,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
      {chapter,,file name}
      *@}
    { }
-   *65 @inforef C3 l37
+   *@inforef C3 l37
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'wrong_command'} = '*document_root C1
  *before_node_section C1
-  *0 @multitable C2 l1
+  *@multitable C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'wrong_command'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{ \\n}
-       *1 @b C1 l1
+       *@b C1 l1
         *brace_container C1
          {3.4}
    *@end C1 l2

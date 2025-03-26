@@ -50,7 +50,7 @@ $result_tree_text{'direntry_dircategory_after_first_node'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Cat}
-  *2 @direntry C3 l5
+  *@direntry C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO

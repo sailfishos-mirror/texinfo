@@ -7,28 +7,28 @@ use utf8;
 $result_tree_text{'commands_in_math'} = '*document_root C1
  *before_node_section C8
   {empty_line:\\n}
-  *0 @displaymath C15 l2
+  *@displaymath C15 l2
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @strong C1 l3
+   *@strong C1 l3
     *brace_container C1
      {``simple-double--three---four----\'\'}
    { }
-   *2 @w C1 l3
+   *@w C1 l3
     *brace_container C1
      {aa}
    {\\n}
    {`}
-   *3 @w C1 l4
+   *@w C1 l4
     *brace_container
    {`simple-double-}
-   *4 @w C1 l4
+   *@w C1 l4
     *brace_container
    {-three---four----\'}
-   *5 @w C1 l4
+   *@w C1 l4
     *brace_container
    {\'}
    *@*
@@ -45,117 +45,117 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
      |{\\n}
      {displaymath}
   {empty_line:\\n}
-  *6 @displaymath C81 l7
+  *@displaymath C81 l7
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *7 @" C1 l8
+   *@" C1 l8
     *following_arg C1
      {u}
    { }
-   *8 @" C1 l8
+   *@" C1 l8
     *brace_container C1
      {U}
    { }
-   *9 @~ C1 l8
+   *@~ C1 l8
     *following_arg C1
      {n}
    { }
-   *10 @^ C1 l8
+   *@^ C1 l8
     *following_arg C1
      {a}
    { }
-   *11 @\' C1 l8
+   *@\' C1 l8
     *following_arg C1
      {e}
    { }
-   *12 @= C1 l8
+   *@= C1 l8
     *following_arg C1
      {o}
    { }
-   *13 @` C1 l8
+   *@` C1 l8
     *following_arg C1
      {i}
    { }
-   *14 @\' C1 l8
+   *@\' C1 l8
     *brace_container C1
      {e}
    { }
-   *15 @dotless C1 l8
+   *@dotless C1 l8
     *brace_container C1
      {i}
    { }
-   *16 @dotless C1 l8
+   *@dotless C1 l8
     *brace_container C1
      {j}
    { }
-   *17 @` C1 l8
+   *@` C1 l8
     *brace_container C1
-     *18 @= C1 l8
+     *@= C1 l8
       *following_arg C1
        {E}
    {\\n}
-   *19 @l C1 l9
+   *@l C1 l9
     *brace_container
    { }
-   *20 @, C1 l9
+   *@, C1 l9
     *brace_container C1
-     *21 @\' C1 l9
+     *@\' C1 l9
       *following_arg C1
        {C}
    { }
-   *22 @, C1 l9
+   *@, C1 l9
     *brace_container C1
-     *23 @\' C1 l9
+     *@\' C1 l9
       *following_arg C1
        {C}
    { }
-   *24 @, C1 l9
+   *@, C1 l9
     *following_arg C1
      {c}
    { }
-   *25 @H C1 l9
+   *@H C1 l9
     *brace_container C1
      {a}
    { }
-   *26 @dotaccent C1 l9
+   *@dotaccent C1 l9
     *brace_container C1
      {a}
    { }
-   *27 @ringaccent C1 l9
+   *@ringaccent C1 l9
     *brace_container C1
      {a}
    { }
-   *28 @tieaccent C1 l9
+   *@tieaccent C1 l9
     *brace_container C1
      {a}
    {\\n}
-   *29 @u C1 l10
+   *@u C1 l10
     *brace_container C1
      {a}
    { }
-   *30 @ubaraccent C1 l10
+   *@ubaraccent C1 l10
     *brace_container C1
      {a}
    { }
-   *31 @udotaccent C1 l10
+   *@udotaccent C1 l10
     *brace_container C1
      {a}
    { }
-   *32 @v C1 l10
+   *@v C1 l10
     *brace_container C1
      {a}
    { }
-   *33 @ogonek C1 l10
+   *@ogonek C1 l10
     *brace_container C1
      {a}
    { a}
-   *34 @sup C1 l10
+   *@sup C1 l10
     *brace_container C1
      {h}
-   *35 @sub C1 l10
+   *@sub C1 l10
     *brace_container C1
      {l}
    {\\n}
@@ -185,7 +185,7 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
    { }
    *@/
    {\\n}
-   *36 @today C1 l13
+   *@today C1 l13
     *brace_container
    {\\n}
    *@end C1 l14
@@ -200,124 +200,124 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
      |{\\n}
      {displaymath}
   {empty_line:\\n}
-  *37 @displaymath C76 l16
+  *@displaymath C76 l16
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *38 @click C1 l17
+   *@click C1 l17
    |EXTRA
    |clickstyle:{arrow}
     *brace_container
    {\\n}
-   *39 @U C1 l18
+   *@U C1 l18
     *brace_arg C1
      {0075}
    {\\n}
-   *40 @TeX C1 l19
+   *@TeX C1 l19
     *brace_container
    { }
-   *41 @LaTeX C1 l19
+   *@LaTeX C1 l19
     *brace_container
    { }
-   *42 @bullet C1 l19
+   *@bullet C1 l19
     *brace_container
    { }
-   *43 @copyright C1 l19
+   *@copyright C1 l19
     *brace_container
    { }
-   *44 @dots C1 l19
+   *@dots C1 l19
     *brace_container
    { }
-   *45 @enddots C1 l19
+   *@enddots C1 l19
     *brace_container
    { }
-   *46 @equiv C1 l19
+   *@equiv C1 l19
     *brace_container
    {\\n}
-   *47 @error C1 l20
+   *@error C1 l20
     *brace_container
    { }
-   *48 @expansion C1 l20
+   *@expansion C1 l20
     *brace_container
    { }
-   *49 @minus C1 l20
+   *@minus C1 l20
     *brace_container
    { }
-   *50 @point C1 l20
+   *@point C1 l20
     *brace_container
    { }
-   *51 @print C1 l20
+   *@print C1 l20
     *brace_container
    { }
-   *52 @result C1 l20
+   *@result C1 l20
     *brace_container
    {\\n}
-   *53 @aa C1 l21
+   *@aa C1 l21
     *brace_container
    { }
-   *54 @AA C1 l21
+   *@AA C1 l21
     *brace_container
    { }
-   *55 @ae C1 l21
+   *@ae C1 l21
     *brace_container
    { }
-   *56 @oe C1 l21
+   *@oe C1 l21
     *brace_container
    { }
-   *57 @AE C1 l21
+   *@AE C1 l21
     *brace_container
    { }
-   *58 @OE C1 l21
+   *@OE C1 l21
     *brace_container
    { }
-   *59 @o C1 l21
+   *@o C1 l21
     *brace_container
    { }
-   *60 @O C1 l21
+   *@O C1 l21
     *brace_container
    { }
-   *61 @ss C1 l21
+   *@ss C1 l21
     *brace_container
    { }
-   *62 @l C1 l21
+   *@l C1 l21
     *brace_container
    { }
-   *63 @L C1 l21
+   *@L C1 l21
     *brace_container
    { }
-   *64 @DH C1 l21
+   *@DH C1 l21
     *brace_container
    {\\n}
-   *65 @TH C1 l22
+   *@TH C1 l22
     *brace_container
    { }
-   *66 @dh C1 l22
+   *@dh C1 l22
     *brace_container
    { }
-   *67 @th C1 l22
+   *@th C1 l22
     *brace_container
    { }
-   *68 @exclamdown C1 l22
+   *@exclamdown C1 l22
     *brace_container
    { }
-   *69 @questiondown C1 l22
+   *@questiondown C1 l22
     *brace_container
    { }
-   *70 @pounds C1 l22
+   *@pounds C1 l22
     *brace_container
    {\\n}
-   *71 @registeredsymbol C1 l23
+   *@registeredsymbol C1 l23
     *brace_container
    { }
-   *72 @ordf C1 l23
+   *@ordf C1 l23
     *brace_container
    { }
-   *73 @ordm C1 l23
+   *@ordm C1 l23
     *brace_container
    { }
-   *74 @comma C1 l23
+   *@comma C1 l23
     *brace_container
    { \\n}
    *@end C1 l24
@@ -332,61 +332,61 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
      |{\\n}
      {displaymath}
   {empty_line:\\n}
-  *75 @displaymath C36 l26
+  *@displaymath C36 l26
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *76 @quotedblleft C1 l27
+   *@quotedblleft C1 l27
     *brace_container
    { }
-   *77 @quotedblright C1 l27
+   *@quotedblright C1 l27
     *brace_container
    {\\n}
-   *78 @quoteleft C1 l28
+   *@quoteleft C1 l28
     *brace_container
    { }
-   *79 @quoteright C1 l28
+   *@quoteright C1 l28
     *brace_container
    { }
-   *80 @quotedblbase C1 l28
+   *@quotedblbase C1 l28
     *brace_container
    { }
-   *81 @quotesinglbase C1 l28
+   *@quotesinglbase C1 l28
     *brace_container
    { }
-   *82 @guillemetleft C1 l28
+   *@guillemetleft C1 l28
     *brace_container
    {\\n}
-   *83 @guillemetright C1 l29
+   *@guillemetright C1 l29
     *brace_container
    { }
-   *84 @guillemotleft C1 l29
+   *@guillemotleft C1 l29
     *brace_container
    { }
-   *85 @guillemotright C1 l29
+   *@guillemotright C1 l29
     *brace_container
    { }
-   *86 @guilsinglleft C1 l29
+   *@guilsinglleft C1 l29
     *brace_container
    {\\n}
-   *87 @guilsinglright C1 l30
+   *@guilsinglright C1 l30
     *brace_container
    { }
-   *88 @textdegree C1 l30
+   *@textdegree C1 l30
     *brace_container
    { }
-   *89 @euro C1 l30
+   *@euro C1 l30
     *brace_container
    { }
-   *90 @arrow C1 l30
+   *@arrow C1 l30
     *brace_container
    { }
-   *91 @leq C1 l30
+   *@leq C1 l30
     *brace_container
    { }
-   *92 @geq C1 l30
+   *@geq C1 l30
     *brace_container
    {\\n}
    *@end C1 l31

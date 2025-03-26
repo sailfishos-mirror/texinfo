@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'example_multi_class'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
   |INFO
   |spaces_before_argument:
    |{ }

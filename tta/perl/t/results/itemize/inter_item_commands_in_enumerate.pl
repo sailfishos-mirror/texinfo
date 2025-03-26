@@ -79,7 +79,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 @enumerate C4 l7
+  *@enumerate C4 l7
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -109,7 +109,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *5 @enumerate C4 l13
+  *@enumerate C4 l13
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -151,7 +151,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *6 @enumerate C4 l20
+  *@enumerate C4 l20
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -192,7 +192,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *7 @enumerate C4 l26
+  *@enumerate C4 l26
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -233,7 +233,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *8 @enumerate C4 l32
+  *@enumerate C4 l32
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -275,7 +275,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *9 @enumerate C4 l38
+  *@enumerate C4 l38
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1

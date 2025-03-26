@@ -22,7 +22,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      |{\\n}
      {references_to_top_no_top_output.info}
    {empty_line:\\n}
-   *0 @copying C3 l4
+   *@copying C3 l4
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       |{\\n}
     *paragraph C3
      {Copying\\n}
-     *1 @anchor C1 l6
+     *0 @anchor C1 l6
      |EXTRA
      |is_target:{1}
      |normalized:{a-in-copying}
@@ -51,15 +51,15 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l9 {Top}
+ *1 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
- |node_directions:D[next->E12]
+ |node_directions:D[next->E10]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -67,21 +67,21 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C19 l10 {top}
+ *2 @top C19 l10 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
- |section_childs:EC[E13]
+ |associated_anchor_command:[E1]
+ |associated_node:[E1]
+ |section_childs:EC[E11]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E2]
   ||section_level:{-1}
- |toplevel_directions:D[next->E13]
+ |toplevel_directions:D[next->E11]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   *paragraph C1
    {Begin Top\\n}
   {empty_line:\\n}
-  *4 @anchor C1 l14
+  *3 @anchor C1 l14
   |EXTRA
   |is_target:{1}
   |normalized:{a-in-top}
@@ -102,7 +102,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Paragraph }
-   *5 @anchor C1 l16
+   *4 @anchor C1 l16
    |EXTRA
    |is_target:{1}
    |normalized:{a-in-paragraph-in-top}
@@ -111,13 +111,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *6 @footnote C1 l18
+   *@footnote C1 l18
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C2
       {in footnote }
-      *7 @anchor C1 l18
+      *5 @anchor C1 l18
       |EXTRA
       |is_target:{1}
       |normalized:{a-in-footnote}
@@ -130,14 +130,14 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *8 @float C5 l22
+  *6 @float C5 l22
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E10]
+  |caption:[E8]
   |float_number:{1}
-  |float_section:[E3]
+  |float_section:[E2]
   |float_type:{list}
   |global_command_number:{1}
   |is_target:{1}
@@ -154,20 +154,20 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      {My Flist}
    *paragraph C3
     {In Flist\\n}
-    *9 @anchor C1 l24
+    *7 @anchor C1 l24
     |EXTRA
     |is_target:{1}
     |normalized:{a-in-float}
      *brace_arg C1
       {a in float}
     {.\\n}
-   *10 @caption C1 l25
+   *8 @caption C1 l25
    |EXTRA
-   |float:[E8]
+   |float:[E6]
     *brace_command_context C1
      *paragraph C2
       {Caption Flist. }
-      *11 @anchor C1 l25
+      *9 @anchor C1 l25
       |EXTRA
       |is_target:{1}
       |normalized:{a-in-caption}
@@ -192,7 +192,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:[E1]
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -203,16 +203,16 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   *paragraph C1
    {End of Top\\n}
   {empty_line:\\n}
- *12 @node C1 l32 {chapter}
+ *10 @node C1 l32 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E13]
- |associated_title_command:[E13]
+ |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E2|up->E2]
+ |node_directions:D[prev->E1|up->E1]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -220,17 +220,17 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *13 @chapter C11 l33 {Chap}
+ *11 @chapter C11 l33 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
- |associated_node:[E12]
- |section_directions:D[up->E3]
+ |associated_anchor_command:[E10]
+ |associated_node:[E10]
+ |section_directions:D[up->E2]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E3|up->E3]
+ |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -239,42 +239,42 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C12
-   *14 @pxref C1 l35
+   *@pxref C1 l35
     *brace_arg C1
     |EXTRA
     |node_content:{a in copying}
     |normalized:{a-in-copying}
      {a in copying}
    {.\\n}
-   *15 @pxref C1 l36
+   *@pxref C1 l36
     *brace_arg C1
     |EXTRA
     |node_content:{a in top}
     |normalized:{a-in-top}
      {a in top}
    {\\n}
-   *16 @pxref C1 l37
+   *@pxref C1 l37
     *brace_arg C1
     |EXTRA
     |node_content:{a in footnote}
     |normalized:{a-in-footnote}
      {a in footnote}
    {\\n}
-   *17 @pxref C1 l38
+   *@pxref C1 l38
     *brace_arg C1
     |EXTRA
     |node_content:{a in float}
     |normalized:{a-in-float}
      {a in float}
    {\\n}
-   *18 @pxref C1 l39
+   *@pxref C1 l39
     *brace_arg C1
     |EXTRA
     |node_content:{a in caption}
     |normalized:{a-in-caption}
      {a in caption}
    {\\n}
-   *19 @pxref C1 l40
+   *@pxref C1 l40
     *brace_arg C1
     |EXTRA
     |node_content:{a in paragraph in top}
@@ -288,7 +288,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E12]
+  |element_node:[E10]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -309,14 +309,14 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *20 @float C5 l46
+  *12 @float C5 l46
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E21]
+  |caption:[E13]
   |float_number:{1.1}
-  |float_section:[E13]
+  |float_section:[E11]
   |float_type:{list}
   |global_command_number:{2}
   |is_target:{1}
@@ -333,9 +333,9 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      {Main Flist}
    *paragraph C1
     {In Main\\n}
-   *21 @caption C1 l48
+   *13 @caption C1 l48
    |EXTRA
-   |float:[E20]
+   |float:[E12]
     *brace_command_context C1
      *paragraph C1
       {Caption Main}

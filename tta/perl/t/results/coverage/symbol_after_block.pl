@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'symbol_after_block'} = '*document_root C1
  *before_node_section C39
-  *0 @html C3 l1
+  *@html C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {html. On the line.}
   {empty_line:\\n}
-  *1 @html C3 l5
+  *@html C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Verbatim:\\n}
   {empty_line:\\n}
-  *2 @verbatim C3 l11
+  *@verbatim C3 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {verbatim;}
   {empty_line:\\n}
-  *3 @verbatim C3 l15
+  *@verbatim C3 l15
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Table:\\n}
   {empty_line:\\n}
-  *4 @table C3 l21
+  *@table C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @emph l21
+     *@emph l21
    *table_entry C2
     *table_term C1
      *@item C1 l22
@@ -129,7 +129,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {table+}
   {empty_line:\\n}
-  *6 @table C3 l26
+  *@table C3 l26
   |INFO
   |spaces_before_argument:
    |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @emph l26
+     *@emph l26
    *table_entry C2
     *table_term C1
      *@item C1 l27
@@ -169,7 +169,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Itemize:\\n}
   {empty_line:\\n}
-  *8 @itemize C3 l33
+  *@itemize C3 l33
   |INFO
   |spaces_before_argument:
    |{ }
@@ -178,7 +178,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *9 @bullet l33
+     *@bullet l33
    *@item C2 l34
    |EXTRA
    |item_number:{1}
@@ -197,7 +197,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {itemize\'\'}
   {empty_line:\\n}
-  *10 @itemize C3 l37
+  *@itemize C3 l37
   |INFO
   |spaces_before_argument:
    |{ }
@@ -206,7 +206,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *11 @bullet l37
+     *@bullet l37
    *@item C2 l38
    |EXTRA
    |item_number:{1}
@@ -229,7 +229,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Multitable:\\n}
   {empty_line:\\n}
-  *12 @multitable C4 l43
+  *@multitable C4 l43
   |INFO
   |spaces_before_argument:
    |{ }
@@ -292,7 +292,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {multitable^}
   {empty_line:\\n}
-  *13 @multitable C4 l48
+  *@multitable C4 l48
   |INFO
   |spaces_before_argument:
    |{ }
@@ -359,7 +359,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Flushleft:\\n}
   {empty_line:\\n}
-  *14 @flushleft C3 l55
+  *@flushleft C3 l55
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -379,7 +379,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {flushleft!}
   {empty_line:\\n}
-  *15 @flushleft C3 l59
+  *@flushleft C3 l59
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -403,7 +403,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Copying:\\n}
   {empty_line:\\n}
-  *16 @copying C3 l65
+  *@copying C3 l65
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -423,7 +423,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {copying*}
   {empty_line:\\n}
-  *17 @copying C3 l69
+  *@copying C3 l69
    *arguments_line C1
     *block_line_arg
     |INFO

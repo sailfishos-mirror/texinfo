@@ -7,23 +7,23 @@ use utf8;
 $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
  *before_node_section C1
   *paragraph C30
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      { in code }
    { }
-   *1 @slanted C1 l1
+   *@slanted C1 l1
     *brace_container C1
      { in slanted }
    { }
-   *2 @var C1 l1
+   *@var C1 l1
     *brace_container C1
      { var }
    { }
-   *3 @sub C1 l1
+   *@sub C1 l1
     *brace_container C1
      { sub }
    {\\n}
-   *4 @hyphenation C1 l2
+   *@hyphenation C1 l2
    |EXTRA
    |global_command_number:{1}
     *brace_arg C1
@@ -34,11 +34,11 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
      |{ }
      {a-b c-d}
    {spaces_after_close_brace:\\n}
-   *5 @indicateurl C1 l3
+   *@indicateurl C1 l3
     *brace_container C1
      { http://example.com }
    { }
-   *6 @U C1 l3
+   *@U C1 l3
     *brace_arg C1
     |INFO
     |spaces_after_argument:
@@ -47,37 +47,37 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
      |{ }
      {1234}
    { }
-   *7 @w C1 l3
+   *@w C1 l3
     *brace_container C1
      { w }
    { }
-   *8 @verb C1 l3
+   *@verb C1 l3
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw: verb }
    {.\\n}
-   *9 @^ C1 l4
+   *@^ C1 l4
     *brace_container C1
      { e }
    { }
-   *10 @ringaccent C1 l4
+   *@ringaccent C1 l4
     *brace_container C1
      { a }
    { }
-   *11 @dotless C1 l4
+   *@dotless C1 l4
     *brace_container C1
      { i }
    { }
-   *12 @tieaccent C1 l4
+   *@tieaccent C1 l4
     *brace_container C1
      { bb }
    {\\n}
-   *13 @aa C1 l5
+   *@aa C1 l5
     *brace_container C1
      { i }
    { }
-   *14 @enddots C1 l5
+   *@enddots C1 l5
     *brace_container C1
      { ei }
    {\\n}

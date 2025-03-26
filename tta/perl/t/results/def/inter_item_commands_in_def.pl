@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C7 l1
+  *@deffn C7 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*4 @var C1
+      |*@var C1
        |*brace_container C1
         |{i}
    |index_entry:I{fn,1}
@@ -31,7 +31,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *1 @var C1 l1
+       *@var C1 l1
         *brace_container C1
          {i}
      {spaces: }
@@ -100,10 +100,10 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*5 @b C1
+      |*@b C1
        |*brace_container C3
         |{id }
-        |*6 @samp C1
+        |*@samp C1
          |*brace_container C1
           |{i}
         |{ ule}
@@ -119,10 +119,10 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *2 @b C1 l6
+       *@b C1 l6
         *brace_container C3
          {id }
-         *3 @samp C1 l6
+         *@samp C1 l6
           *brace_container C1
            {i}
          { ule}

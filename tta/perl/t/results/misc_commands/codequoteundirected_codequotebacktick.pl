@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C8
-   *0 @macro C8 l1
+   *@macro C8 l1
    |EXTRA
    |macro_name:{quotes}
    |misc_args:A{}
@@ -31,7 +31,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *1 @macro C19 l10
+   *@macro C19 l10
    |EXTRA
    |macro_name:{allquotes}
    |misc_args:A{}
@@ -66,7 +66,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *2 @copying C13 l30
+   *@copying C13 l30
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -85,52 +85,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       >|INFO
       >|command_name:{quotes}
        >*brace_arg
-     *3 @quotedblleft C1 l31:@quotes
+     *@quotedblleft C1 l31:@quotes
       *brace_container
      { }
      *@*
      {\\n}
      {code: }
-     *4 @code C1 l31:@quotes
+     *@code C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *5 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {asis: }
-     *6 @asis C1 l31:@quotes
+     *@asis C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *7 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {strong: }
-     *8 @strong C1 l31:@quotes
+     *@strong C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *9 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {kbd: }
-     *10 @kbd C1 l31:@quotes
+     *@kbd C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *11 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {samp: }
-     *12 @samp C1 l31:@quotes
+     *@samp C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *13 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
@@ -138,7 +138,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >macro_expansion<end;2>
      {\\n}
     {empty_line:\\n}
-    *14 @example C3 l31:@allquotes
+    *@example C3 l31:@allquotes
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -182,52 +182,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       >|INFO
       >|command_name:{quotes}
        >*brace_arg
-     *15 @quotedblleft C1 l31:@quotes
+     *@quotedblleft C1 l31:@quotes
       *brace_container
      { }
      *@*
      {\\n}
      {code: }
-     *16 @code C1 l31:@quotes
+     *@code C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *17 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {asis: }
-     *18 @asis C1 l31:@quotes
+     *@asis C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *19 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {strong: }
-     *20 @strong C1 l31:@quotes
+     *@strong C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *21 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {kbd: }
-     *22 @kbd C1 l31:@quotes
+     *@kbd C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *23 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {samp: }
-     *24 @samp C1 l31:@quotes
+     *@samp C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *25 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
@@ -235,7 +235,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >macro_expansion<end;3>
      {\\n}
     {empty_line:\\n}
-    *26 @example C3 l31:@allquotes
+    *@example C3 l31:@allquotes
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -289,52 +289,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       >|INFO
       >|command_name:{quotes}
        >*brace_arg
-     *27 @quotedblleft C1 l31:@quotes
+     *@quotedblleft C1 l31:@quotes
       *brace_container
      { }
      *@*
      {\\n}
      {code: }
-     *28 @code C1 l31:@quotes
+     *@code C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *29 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {asis: }
-     *30 @asis C1 l31:@quotes
+     *@asis C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *31 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {strong: }
-     *32 @strong C1 l31:@quotes
+     *@strong C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *33 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {kbd: }
-     *34 @kbd C1 l31:@quotes
+     *@kbd C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *35 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
      {\\n}
      {samp: }
-     *36 @samp C1 l31:@quotes
+     *@samp C1 l31:@quotes
       *brace_container C2
        {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-       *37 @quotedblleft C1 l31:@quotes
+       *@quotedblleft C1 l31:@quotes
         *brace_container
      { }
      *@*
@@ -353,7 +353,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      |spaces_after_argument:
       |{\\n}
       {copying}
-   *38 @titlepage C4 l33
+   *@titlepage C4 l33
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -378,15 +378,15 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       {titlepage}
    {empty_line:\\n}
    {empty_line:\\n}
- *39 @node C1 l39 {Top}
+ *0 @node C1 l39 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E40]
- |associated_title_command:[E40]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E41]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -394,21 +394,21 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    |spaces_after_argument:
     |{ \\n}
     {Top}
- *40 @top C2 l40 {test quotes}
+ *1 @top C2 l40 {test quotes}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E39]
- |associated_node:[E39]
- |section_childs:EC[E42]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E40]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E42]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -416,15 +416,15 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     |{\\n}
     {test quotes}
   {empty_line:\\n}
- *41 @node C1 l42 {chap}
+ *2 @node C1 l42 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E42]
- |associated_title_command:[E42]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[prev->E39|up->E39]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -432,17 +432,17 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *42 @chapter C16 l43 {Chapter}
+ *3 @chapter C16 l43 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E41]
- |associated_node:[E41]
- |section_directions:D[up->E40]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E40|up->E40]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -463,52 +463,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >|INFO
     >|command_name:{quotes}
      >*brace_arg
-   *43 @quotedblleft C1 l45:@quotes
+   *@quotedblleft C1 l45:@quotes
     *brace_container
    { }
    *@*
    {\\n}
    {code: }
-   *44 @code C1 l45:@quotes
+   *@code C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *45 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {asis: }
-   *46 @asis C1 l45:@quotes
+   *@asis C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *47 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {strong: }
-   *48 @strong C1 l45:@quotes
+   *@strong C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *49 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {kbd: }
-   *50 @kbd C1 l45:@quotes
+   *@kbd C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *51 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {samp: }
-   *52 @samp C1 l45:@quotes
+   *@samp C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *53 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
@@ -516,7 +516,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >macro_expansion<end;6>
    {\\n}
   {empty_line:\\n}
-  *54 @example C3 l45:@allquotes
+  *@example C3 l45:@allquotes
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -560,52 +560,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >|INFO
     >|command_name:{quotes}
      >*brace_arg
-   *55 @quotedblleft C1 l45:@quotes
+   *@quotedblleft C1 l45:@quotes
     *brace_container
    { }
    *@*
    {\\n}
    {code: }
-   *56 @code C1 l45:@quotes
+   *@code C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *57 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {asis: }
-   *58 @asis C1 l45:@quotes
+   *@asis C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *59 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {strong: }
-   *60 @strong C1 l45:@quotes
+   *@strong C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *61 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {kbd: }
-   *62 @kbd C1 l45:@quotes
+   *@kbd C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *63 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {samp: }
-   *64 @samp C1 l45:@quotes
+   *@samp C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *65 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
@@ -613,7 +613,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >macro_expansion<end;7>
    {\\n}
   {empty_line:\\n}
-  *66 @example C3 l45:@allquotes
+  *@example C3 l45:@allquotes
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -667,52 +667,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >|INFO
     >|command_name:{quotes}
      >*brace_arg
-   *67 @quotedblleft C1 l45:@quotes
+   *@quotedblleft C1 l45:@quotes
     *brace_container
    { }
    *@*
    {\\n}
    {code: }
-   *68 @code C1 l45:@quotes
+   *@code C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *69 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {asis: }
-   *70 @asis C1 l45:@quotes
+   *@asis C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *71 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {strong: }
-   *72 @strong C1 l45:@quotes
+   *@strong C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *73 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {kbd: }
-   *74 @kbd C1 l45:@quotes
+   *@kbd C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *75 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
    {\\n}
    {samp: }
-   *76 @samp C1 l45:@quotes
+   *@samp C1 l45:@quotes
     *brace_container C2
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-     *77 @quotedblleft C1 l45:@quotes
+     *@quotedblleft C1 l45:@quotes
       *brace_container
    { }
    *@*
@@ -721,7 +721,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >macro_expansion<end;5>
    {\\n}
   {empty_line:\\n}
-  *78 @example C7 l47
+  *@example C7 l47
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -740,52 +740,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >|INFO
      >|command_name:{quotes}
       >*brace_arg
-    *79 @quotedblleft C1 l48:@quotes
+    *@quotedblleft C1 l48:@quotes
      *brace_container
     { }
     *@*
     {\\n}
     {code: }
-    *80 @code C1 l48:@quotes
+    *@code C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *81 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {asis: }
-    *82 @asis C1 l48:@quotes
+    *@asis C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *83 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {strong: }
-    *84 @strong C1 l48:@quotes
+    *@strong C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *85 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {kbd: }
-    *86 @kbd C1 l48:@quotes
+    *@kbd C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *87 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {samp: }
-    *88 @samp C1 l48:@quotes
+    *@samp C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *89 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
@@ -793,7 +793,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >macro_expansion<end;10>
     {\\n}
     {empty_line:\\n}
-   *90 @example C3 l48:@allquotes
+   *@example C3 l48:@allquotes
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -837,52 +837,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >|INFO
      >|command_name:{quotes}
       >*brace_arg
-    *91 @quotedblleft C1 l48:@quotes
+    *@quotedblleft C1 l48:@quotes
      *brace_container
     { }
     *@*
     {\\n}
     {code: }
-    *92 @code C1 l48:@quotes
+    *@code C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *93 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {asis: }
-    *94 @asis C1 l48:@quotes
+    *@asis C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *95 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {strong: }
-    *96 @strong C1 l48:@quotes
+    *@strong C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *97 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {kbd: }
-    *98 @kbd C1 l48:@quotes
+    *@kbd C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *99 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {samp: }
-    *100 @samp C1 l48:@quotes
+    *@samp C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *101 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
@@ -890,7 +890,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >macro_expansion<end;11>
     {\\n}
     {empty_line:\\n}
-   *102 @example C3 l48:@allquotes
+   *@example C3 l48:@allquotes
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -944,52 +944,52 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >|INFO
      >|command_name:{quotes}
       >*brace_arg
-    *103 @quotedblleft C1 l48:@quotes
+    *@quotedblleft C1 l48:@quotes
      *brace_container
     { }
     *@*
     {\\n}
     {code: }
-    *104 @code C1 l48:@quotes
+    *@code C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *105 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {asis: }
-    *106 @asis C1 l48:@quotes
+    *@asis C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *107 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {strong: }
-    *108 @strong C1 l48:@quotes
+    *@strong C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *109 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {kbd: }
-    *110 @kbd C1 l48:@quotes
+    *@kbd C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *111 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*
     {\\n}
     {samp: }
-    *112 @samp C1 l48:@quotes
+    *@samp C1 l48:@quotes
      *brace_container C2
       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
-      *113 @quotedblleft C1 l48:@quotes
+      *@quotedblleft C1 l48:@quotes
        *brace_container
     { }
     *@*

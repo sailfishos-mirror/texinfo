@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
-  *0 @smallformat C3 l1
+  *@smallformat C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @verbatim C3 l2
+   *@verbatim C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO

@@ -103,7 +103,7 @@ $result_tree_text{'seeentry_no_braces'} = '*document_root C5
    *line_arg C3
     {aa}
     {spaces_at_end: }
-    *4 @seeentry l9
+    *@seeentry l9
 ';
 
 

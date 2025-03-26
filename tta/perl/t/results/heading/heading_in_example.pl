@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'heading_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @heading C1 l2
+   *0 @heading C1 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
      {in example }
      *@@
      { }
-     *2 @emph C1 l2
+     *@emph C1 l2
       *brace_container C1
        {heading}
    *@end C1 l3

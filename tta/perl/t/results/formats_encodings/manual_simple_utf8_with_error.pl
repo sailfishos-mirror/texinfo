@@ -96,7 +96,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
     |{\\n}
     {Chapitré}
   {empty_line:\\n}
-  *5 @value C1
+  *@value C1
    *brace_container C1
     {non_connùe}
   {\\n}

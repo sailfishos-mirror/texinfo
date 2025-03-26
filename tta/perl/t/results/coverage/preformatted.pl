@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'preformatted'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @example C3 l2
+  *@example C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -29,13 +29,13 @@ $result_tree_text{'preformatted'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *1 @format C3 l8
+  *@format C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @vtable C3 l9
+   *@vtable C3 l9
    |INFO
    |spaces_before_argument:
     |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *3 @code l9
+      *@code l9
     *table_entry C2
      *table_term C1
       *@item C1 l10

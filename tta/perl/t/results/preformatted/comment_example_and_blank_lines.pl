@@ -9,7 +9,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
   *paragraph C1
    {Para.\\n}
   {empty_line:\\n}
-  *0 @example C3 l3
+  *@example C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
   *paragraph C1
    {Para.\\n}
   {empty_line:\\n}
-  *1 @example C3 l9
+  *@example C3 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
   *paragraph C1
    {Para.\\n}
   {empty_line:\\n}
-  *2 @example C3 l14
+  *@example C3 l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
   *paragraph C1
    {Para.\\n}
   {empty_line:\\n}
-  *3 @example C3 l20
+  *@example C3 l20
    *arguments_line C1
     *block_line_arg
     |INFO

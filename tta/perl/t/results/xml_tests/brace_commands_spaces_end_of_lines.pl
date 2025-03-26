@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
  *before_node_section C17
-  *0 @image C1 l1
+  *@image C1 l1
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -16,7 +16,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
     {a}
   {\\n}
   {empty_line:\\n}
-  *1 @image C1 l4
+  *@image C1 l4
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -26,7 +26,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
     {a}
   {\\n}
   {empty_line:\\n}
-  *2 @image C2 l7
+  *@image C2 l7
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
     {b}
   {\\n}
   {empty_line:\\n}
-  *3 @image C2 l10
+  *@image C2 l10
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -50,7 +50,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
     {b}
   {\\n}
   {empty_line:\\n}
-  *4 @image C2 l13
+  *@image C2 l13
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
     { b}
   {\\n}
   {empty_line:\\n}
-  *5 @image C2 l16
+  *@image C2 l16
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1

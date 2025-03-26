@@ -79,7 +79,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     {Chapter}
   {empty_line:\\n}
   *paragraph C40
-   *4 @code C1 l7
+   *@code C1 l7
     *brace_container C5
      *@@
      {image}
@@ -87,13 +87,13 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile}
      *@}
    { }
-   *5 @image C1 l7
+   *@image C1 l7
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {f--ile}
    {\\n}
-   *6 @code C1 l8
+   *@code C1 l8
     *brace_container C5
      *@@
      {image}
@@ -101,7 +101,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile,l--i}
      *@}
    { }
-   *7 @image C2 l8
+   *@image C2 l8
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -109,7 +109,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {l--i}
    {\\n}
-   *8 @code C1 l9
+   *@code C1 l9
     *brace_container C5
      *@@
      {image}
@@ -117,7 +117,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile,,l--e}
      *@}
    { }
-   *9 @image C3 l9
+   *@image C3 l9
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -126,7 +126,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {l--e}
    {\\n}
-   *10 @code C1 l10
+   *@code C1 l10
     *brace_container C5
      *@@
      {image}
@@ -134,7 +134,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile,,,alt}
      *@}
    { }
-   *11 @image C4 l10
+   *@image C4 l10
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -144,7 +144,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {alt}
    {\\n}
-   *12 @code C1 l11
+   *@code C1 l11
     *brace_container C5
      *@@
      {image}
@@ -152,7 +152,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile,,,,e-d-xt}
      *@}
    { }
-   *13 @image C5 l11
+   *@image C5 l11
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -163,7 +163,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {e--xt}
    {\\n}
-   *14 @code C1 l12
+   *@code C1 l12
     *brace_container C5
      *@@
      {image}
@@ -171,7 +171,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f--ile,aze,az,alt,e--xt}
      *@}
    { }
-   *15 @image C5 l12
+   *@image C5 l12
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -185,14 +185,14 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {e--xt}
    {\\n}
-   *16 @code C1 l13
+   *@code C1 l13
     *brace_container C4
      *@@
      {image}
      *@{
      {f--ile,aze,az,alt,}
    { }
-   *17 @image C5 l13
+   *@image C5 l13
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -205,7 +205,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {alt}
     *brace_arg
    {\\n}
-   *18 @code C1 l14
+   *@code C1 l14
     *brace_container C5
      *@@
      {image}
@@ -213,7 +213,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      {f-ile,aze,,a--lt}
      *@}
    { }
-   *19 @image C4 l14
+   *@image C4 l14
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -224,7 +224,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {a--lt}
    {\\n}
-   *20 @code C1 l15
+   *@code C1 l15
     *brace_container C20
      *@@
      {image}
@@ -247,11 +247,11 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *@@
      *@}
    { }
-   *21 @image C5 l15
+   *@image C5 l15
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C3
-     *22 @file C1 l15
+     *@file C1 l15
       *brace_container C1
        {f--ile}
      *@@
@@ -263,33 +263,33 @@ $result_tree_text{'image_formatting'} = '*document_root C5
     *brace_arg C1
      {alt}
     *brace_arg C3
-     *23 @file C1 l15
+     *@file C1 l15
       *brace_container C1
        {file ext}
      { e--xt}
      *@}
    {\\n}
-   *24 @image C1 l16
+   *@image C1 l16
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {image}
    { }
-   *25 @image C1 l16
+   *@image C1 l16
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {image}
    {\\n}
   {empty_line:\\n}
-  *26 @example C3 l18
+  *@example C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C36
-    *27 @code C1 l19
+    *@code C1 l19
      *brace_container C5
       *@@
       {image}
@@ -297,13 +297,13 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile}
       *@}
     { }
-    *28 @image C1 l19
+    *@image C1 l19
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {f--ile}
     {\\n}
-    *29 @code C1 l20
+    *@code C1 l20
      *brace_container C5
       *@@
       {image}
@@ -311,7 +311,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile,l--i}
       *@}
     { }
-    *30 @image C2 l20
+    *@image C2 l20
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -319,7 +319,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {l--i}
     {\\n}
-    *31 @code C1 l21
+    *@code C1 l21
      *brace_container C5
       *@@
       {image}
@@ -327,7 +327,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile,,l--e}
       *@}
     { }
-    *32 @image C3 l21
+    *@image C3 l21
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -336,7 +336,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {l--e}
     {\\n}
-    *33 @code C1 l22
+    *@code C1 l22
      *brace_container C5
       *@@
       {image}
@@ -344,7 +344,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile,,,alt}
       *@}
     { }
-    *34 @image C4 l22
+    *@image C4 l22
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -354,7 +354,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {alt}
     {\\n}
-    *35 @code C1 l23
+    *@code C1 l23
      *brace_container C5
       *@@
       {image}
@@ -362,7 +362,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile,,,,e-d-xt}
       *@}
     { }
-    *36 @image C5 l23
+    *@image C5 l23
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -373,7 +373,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {e--xt}
     {\\n}
-    *37 @code C1 l24
+    *@code C1 l24
      *brace_container C5
       *@@
       {image}
@@ -381,7 +381,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f--ile,aze,az,alt,e--xt}
       *@}
     { }
-    *38 @image C5 l24
+    *@image C5 l24
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -395,7 +395,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {e--xt}
     {\\n}
-    *39 @code C1 l25
+    *@code C1 l25
      *brace_container C5
       *@@
       {image}
@@ -403,7 +403,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       {f-ile,aze,,a--lt}
       *@}
     { }
-    *40 @image C4 l25
+    *@image C4 l25
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -414,7 +414,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {a--lt}
     {\\n}
-    *41 @code C1 l26
+    *@code C1 l26
      *brace_container C20
       *@@
       {image}
@@ -437,11 +437,11 @@ $result_tree_text{'image_formatting'} = '*document_root C5
       *@@
       *@}
     { }
-    *42 @image C5 l26
+    *@image C5 l26
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C3
-      *43 @file C1 l26
+      *@file C1 l26
        *brace_container C1
         {f--ile}
       *@@
@@ -453,19 +453,19 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      *brace_arg C1
       {alt}
      *brace_arg C3
-      *44 @file C1 l26
+      *@file C1 l26
        *brace_container C1
         {file ext}
       { e--xt}
       *@}
     {\\n}
-    *45 @image C1 l27
+    *@image C1 l27
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {image}
     { }
-    *46 @image C1 l27
+    *@image C1 l27
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -483,7 +483,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
      |{\\n}
      {example}
   {empty_line:\\n}
-  *47 @image C4 l30
+  *@image C4 l30
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -496,7 +496,7 @@ $result_tree_text{'image_formatting'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {in para\\n}
-   *48 @image C4 l33
+   *@image C4 l33
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1

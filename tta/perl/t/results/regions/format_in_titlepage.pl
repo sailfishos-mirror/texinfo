@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'format_in_titlepage'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
-   *0 @titlepage C5 l1
+   *@titlepage C5 l1
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
     {empty_line:\\n}
-    *1 @format C3 l3
+    *@format C3 l3
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -46,13 +46,13 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *2 @node C1 l9 {Top}
+ *0 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E1]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -60,13 +60,13 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @node C2 l10 {chap}
+ *1 @node C2 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

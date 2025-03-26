@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_early_commands'} = '*document_root C4
  *before_node_section C13
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{begin-file}
   |misc_args:A{}
@@ -24,7 +24,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     |spaces_after_argument:
      |{\\n}
      {macro}
-  *1 @macro C3 l4
+  *@macro C3 l4
   |EXTRA
   |macro_name:{end-file-name}
   |misc_args:A{ext}
@@ -70,7 +70,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
        >{info}
     >macro_expansion<end;2><p:31>
   {empty_line:\\n}
-  *2 @macro C3 l10
+  *@macro C3 l10
   |EXTRA
   |macro_name:{latin1}
   |misc_args:A{}
@@ -89,7 +89,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *3 @macro C3 l14
+  *@macro C3 l14
   |EXTRA
   |macro_name:{documentencoding-command}
   |misc_args:A{}
@@ -136,7 +136,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >SOURCEMARKS
     >macro_expansion<end;4><p:10>
   {empty_line:\\n}
-  *4 @macro C4 l20
+  *@macro C4 l20
   |EXTRA
   |macro_name:{multiinclude}
   |misc_args:A{}
@@ -156,15 +156,15 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
      |{\\n}
      {macro}
   {empty_line:\\n}
- *5 @node C1 l25 {Top}
+ *0 @node C1 l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E7]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -172,18 +172,18 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @top C2 l26 {top}
+ *1 @top C2 l26 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E6]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
@@ -192,13 +192,13 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *7 @node C8 l28 {chap}
+ *2 @node C8 l28 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -225,7 +225,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >|spaces_after_argument:
      >|{\\n}
      >{macro_included.texi}
-  *8 @macro C3 macro_included.texi:l1
+  *@macro C3 macro_included.texi:l1
   |EXTRA
   |macro_name:{themacro}
   |misc_args:A{}

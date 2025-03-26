@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{closebrace}
   |misc_args:A{}
@@ -26,7 +26,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
      {macro}
   {empty_line:\\n}
   *paragraph C3
-   *1 @inlinefmt C2 l5
+   *@inlinefmt C2 l5
    |EXTRA
    |expand_index:{1}
    |format:{html}
@@ -49,7 +49,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
    {machin\\n}
   {empty_line:\\n}
   *paragraph C1
-   *2 @inlinefmt C2 l9
+   *@inlinefmt C2 l9
    |EXTRA
    |format:{tex}
     *brace_arg C1

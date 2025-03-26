@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'titlefont_no_braces'} = '*document_root C1
  *before_node_section C1
-  *0 @titlefont l1
+  *@titlefont l1
 ';
 
 

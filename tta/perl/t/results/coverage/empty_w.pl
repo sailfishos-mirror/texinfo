@@ -7,10 +7,10 @@ use utf8;
 $result_tree_text{'empty_w'} = '*document_root C1
  *before_node_section C1
   *paragraph C4
-   *0 @w C1 l1
+   *@w C1 l1
     *brace_container
    { }
-   *1 @w C1 l1
+   *@w C1 l1
     *brace_container C1
      {a b}
    {.}

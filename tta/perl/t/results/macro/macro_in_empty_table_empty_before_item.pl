@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{emptymacro}
   |misc_args:A{}
@@ -24,7 +24,7 @@ $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @table C3 l4
+  *@table C3 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *2 @code l4
+     *@code l4
    *before_item
    >SOURCEMARKS
    >macro_expansion<start;1>

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'quote_dash_in_display'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @display C3 l2
+  *@display C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO

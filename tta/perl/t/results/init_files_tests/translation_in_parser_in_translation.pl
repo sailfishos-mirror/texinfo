@@ -92,7 +92,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *4 @deftypeop C3 l9
+  *@deftypeop C3 l9
   |INFO
   |spaces_before_argument:
    |{ }

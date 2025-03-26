@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'indicateurl_end_lines'} = '*document_root C1
  *before_node_section C4
   *paragraph C2
-   *0 @indicateurl C1 l1
+   *@indicateurl C1 l1
     *brace_container C2
      {http://begin\\n}
      {continue on other line}
    {\\n}
   {empty_line:\\n}
   *paragraph C1
-   *1 @indicateurl C1 l4
+   *@indicateurl C1 l4
     *brace_container C2
      {http://begin2\\n}
      {empty_line:\\n}

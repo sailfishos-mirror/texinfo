@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  *before_node_section C1
-  *0 @multitable C1 l1
+  *@multitable C1 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -14,20 +14,20 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   |max_columns:{0}
    *arguments_line C1
     *block_line_arg
- *1 @section C3 l1 {first}
+ *0 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4]
+ |section_directions:D[next->E1]
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1|E4|E6]
+  ||section_childs:EC[E0|E1|E2]
   ||section_level:{1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
     |{\\n}
     {first}
   {empty_line:\\n}
-  *2 @multitable C1 l3
+  *@multitable C1 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -46,18 +46,18 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
     |INFO
     |spaces_after_argument:
      |{ }
-     *3 @code C1 l3
+     *@code C1 l3
       *brace_container C1
        {this}
- *4 @section C3 l3 {second}
+ *1 @section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|prev->E1]
+ |section_directions:D[next->E2|prev->E0]
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1]
+ |toplevel_directions:D[next->E2|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -65,7 +65,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
     |{\\n}
     {second}
   {empty_line:\\n}
-  *5 @multitable C1 l5
+  *@multitable C1 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -81,15 +81,15 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
      { }
      *bracketed_arg C1 l5
       {bbb}
- *6 @section C1 l5 {third}
+ *2 @section C1 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4]
+ |section_directions:D[prev->E1]
  |section_level:{2}
  |section_number:{3}
- |toplevel_directions:D[prev->E4]
+ |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

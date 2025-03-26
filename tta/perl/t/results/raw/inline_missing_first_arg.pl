@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
  *before_node_section C1
   *paragraph C4
-   *0 @inlinefmt C2 l1
+   *@inlinefmt C2 l1
     *brace_arg
     |INFO
     |spaces_before_argument:
@@ -15,7 +15,7 @@ $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: aaa}
    {. }
-   *1 @inlineraw C2 l1
+   *@inlineraw C2 l1
     *brace_arg
     *elided_brace_command_arg C1
      {raw: bbb}

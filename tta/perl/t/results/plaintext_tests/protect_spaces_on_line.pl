@@ -9,16 +9,16 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {Before samp. }
-   *0 @samp C1 l2
+   *@samp C1 l2
     *brace_container C1
      {a}
    {. after samp, w }
-   *1 @w C1 l2
+   *@w C1 l2
     *brace_container C1
      {in   w. after dot}
    {  afterw\\n}
   {empty_line:\\n}
-  *2 @quotation C3 l4
+  *@quotation C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -33,11 +33,11 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {before samp. }
-     *3 @samp C1 l5
+     *@samp C1 l5
       *brace_container C1
        {a}
      {. after samp, w }
-     *4 @w C1 l5
+     *@w C1 l5
       *brace_container C1
        {in   w. after dot}
      {  afterw}

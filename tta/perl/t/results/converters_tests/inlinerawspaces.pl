@@ -8,7 +8,7 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {A }
-   *0 @inlineraw C2 l1
+   *@inlineraw C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}
@@ -24,11 +24,11 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {plaintext `` }
-     *1 @lbracechar C1 l1
+     *@lbracechar C1 l1
       *brace_container
      { }
    { a.  Now html\\n}
-   *2 @inlineraw C2 l2
+   *@inlineraw C2 l2
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {in <i>}
-     *3 @acronym C1 l2
+     *@acronym C1 l2
       *brace_arg C1
        {HTML}
      {</i>}

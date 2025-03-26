@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
  *before_node_section C8
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{othermacro}
   |misc_args:A{}
@@ -26,7 +26,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C7 l6
+  *@macro C7 l6
   |EXTRA
   |macro_name:{redefineothermacro}
   |misc_args:A{arg}
@@ -60,7 +60,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
   |INFO
   |arg_line:{ othermacro\\n}
    {rawline_arg:othermacro}
-  *2 @macro C3 l14:@redefineothermacro
+  *@macro C3 l14:@redefineothermacro
   |EXTRA
   |macro_name:{othermacro}
   |misc_args:A{}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_on_itemize_line'} = '*document_root C5
  *before_node_section C1
-  *0 @itemize C1 l1
+  *@itemize C1 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,22 +15,22 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{ }
-     *1 @minus C1 l1
+     *@minus C1 l1
       *brace_container
- *2 @section C3 l1 {first}
+ *0 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5]
+ |section_directions:D[next->E1]
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2|E5|E8|E11]
+  ||section_childs:EC[E0|E1|E2|E3]
   ||section_level:{1}
- |toplevel_directions:D[next->E5]
+ |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
     |{\\n}
     {first}
   {empty_line:\\n}
-  *3 @itemize C1 l3
+  *@itemize C1 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -47,18 +47,18 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{ }
-     *4 @minus C1 l3
+     *@minus C1 l3
       *brace_container
      { aa}
- *5 @section C3 l3 {second}
+ *1 @section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E2]
+ |section_directions:D[next->E2|prev->E0]
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[next->E8|prev->E2]
+ |toplevel_directions:D[next->E2|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -66,24 +66,24 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
     |{\\n}
     {second}
   {empty_line:\\n}
-  *6 @itemize C1 l5
+  *@itemize C1 l5
   |INFO
   |spaces_before_argument:
    |{ }
    *arguments_line C1
     *block_line_arg C1
-     *7 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
- *8 @section C3 l5 {third}
+ *2 @section C3 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E11|prev->E5]
+ |section_directions:D[next->E3|prev->E1]
  |section_level:{2}
  |section_number:{3}
- |toplevel_directions:D[next->E11|prev->E5]
+ |toplevel_directions:D[next->E3|prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -91,25 +91,25 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
     |{\\n}
     {third}
   {empty_line:\\n}
-  *9 @itemize C1 l7
+  *@itemize C1 l7
   |INFO
   |spaces_before_argument:
    |{ }
    *arguments_line C1
     *block_line_arg C1
-     *10 @ringaccent l7
+     *@ringaccent l7
      |INFO
      |spaces_after_cmd_before_arg:
       |{ }
- *11 @section C1 l7 {fourth}
+ *3 @section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E8]
+ |section_directions:D[prev->E2]
  |section_level:{2}
  |section_number:{4}
- |toplevel_directions:D[prev->E8]
+ |toplevel_directions:D[prev->E2]
   *arguments_line C1
    *line_arg C1
    |INFO

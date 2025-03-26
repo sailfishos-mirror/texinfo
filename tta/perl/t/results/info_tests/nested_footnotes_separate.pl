@@ -33,7 +33,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {F}
-   *1 @footnote C1 l4
+   *@footnote C1 l4
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C3
@@ -42,7 +42,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
      {empty_line:\\n}
      *paragraph C3
       {V}
-      *2 @footnote C1 l6
+      *@footnote C1 l6
       |EXTRA
       |global_command_number:{1}
        *brace_command_context C1

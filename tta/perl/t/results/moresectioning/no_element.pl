@@ -40,7 +40,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor:\\n}
-   *1 @ref C1 l8
+   *@ref C1 l8
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -50,7 +50,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor in footnote:\\n}
-   *2 @ref C1 l11
+   *@ref C1 l11
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}
@@ -59,14 +59,14 @@ $result_tree_text{'no_element'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @footnote C1 l13
+   *@footnote C1 l13
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C6
      *paragraph C1
       {In footnote.\\n}
      {empty_line:\\n}
-     *4 @anchor C1 l15
+     *1 @anchor C1 l15
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-footnote}
@@ -76,7 +76,7 @@ $result_tree_text{'no_element'} = '*document_root C1
      {empty_line:\\n}
      *paragraph C3
       {Ref to main text anchor\\n}
-      *5 @ref C1 l18
+      *@ref C1 l18
        *brace_arg C1
        |EXTRA
        |node_content:{An anchor}
@@ -85,7 +85,7 @@ $result_tree_text{'no_element'} = '*document_root C1
       {\\n}
    {\\n}
   {empty_line:\\n}
-  *6 @float C3 l21
+  *2 @float C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Ref to float\\n}
-   *7 @ref C1 l26
+   *@ref C1 l26
     *brace_arg C1
     |EXTRA
     |node_content:{float anchor}
@@ -128,7 +128,7 @@ $result_tree_text{'no_element'} = '*document_root C1
      {float anchor}
    {.\\n}
   {empty_line:\\n}
-  *8 @menu C3 l28
+  *3 @menu C3 l28
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{simple}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{endbrace}
   |misc_args:A{arg}
@@ -44,7 +44,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @multitable C3 l9
+  *@multitable C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
      { }
      *bracketed_arg C3 l9
       {k }
-      *3 @emph C1 l9
+      *@emph C1 l9
        *brace_container C1
         {s}
       {nab}
@@ -100,7 +100,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
        >|command_name:{endbrace}
         >*brace_arg C1
          >{@code{l}}
-      *4 @code C1 l9:@endbrace
+      *@code C1 l9:@endbrace
        *brace_container C1
         {l}
       {d}

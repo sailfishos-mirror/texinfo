@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'w_argument'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C4 l1
+  *@itemize C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,14 +15,14 @@ $result_tree_text{'w_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @w C1 l1
+     *@w C1 l1
       *brace_container
    *@item C2 l2
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C2
-     *2 @option C1 l2
+     *@option C1 l2
       *brace_container C1
        {--build=}
      { platform on which the program is compiled,\\n}
@@ -31,7 +31,7 @@ $result_tree_text{'w_argument'} = '*document_root C1
    |item_number:{2}
     {ignorable_spaces_after_command: }
     *paragraph C2
-     *3 @option C1 l3
+     *@option C1 l3
       *brace_container C1
        {--target=}
      { target platform on which the program is processed.\\n}

@@ -26,7 +26,7 @@ $result_tree_text{'bad_line'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {garbage-on-line =cmd }
-    *0 @code C1 l4
+    *@code C1 l4
      *brace_container C1
       {in code}
 ';

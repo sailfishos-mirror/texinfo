@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'commands_in_email'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @email C1 l1
+   *@email C1 l1
     *brace_arg C4
      {endots }
-     *1 @enddots C1 l1
+     *@enddots C1 l1
       *brace_container
      { }
-     *2 @code C1 l1
+     *@code C1 l1
       *brace_container C1
        {in code}
 ';

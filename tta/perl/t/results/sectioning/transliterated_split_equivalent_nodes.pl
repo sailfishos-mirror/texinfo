@@ -20,7 +20,7 @@ NodeForward: [U1]
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -41,7 +41,7 @@ NodeForward: [U1]
     |EXTRA
     |node_content:{@~a}
     |normalized:{_00e3}
-     *2 @~ C1 l4
+     *@~ C1 l4
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -65,7 +65,7 @@ NodeForward: [U1]
     |EXTRA
     |node_content:{@^a}
     |normalized:{_00e2}
-     *3 @^ C1 l6
+     *@^ C1 l6
       *following_arg C1
        {a}
     {menu_entry_separator:::}
@@ -84,7 +84,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit[E4]
+U1 unit[E2]
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -95,48 +95,48 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *4 @node C1 l9 {@~a}
+ *2 @node C1 l9 {@~a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |menu_directions:D[next->E8|up->E0]
- |node_directions:D[next->E8|prev->E0|up->E0]
+ |menu_directions:D[next->E4|up->E0]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{_00e3}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @~ C1 l9
+    *@~ C1 l9
      *following_arg C1
       {a}
- *6 @unnumbered C2 l10 {@~a}
+ *3 @unnumbered C2 l10 {@~a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_level:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E6]
+  ||section_childs:EC[E3]
   ||section_level:{0}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @~ C1 l10
+    *@~ C1 l10
      *following_arg C1
       {a}
   {empty_line:\\n}
-U2 unit[E8]
+U2 unit[E4]
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -148,14 +148,14 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
- *8 @node C2 l12 {n}
+ *4 @node C2 l12 {n}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E4|up->E0]
- |node_directions:D[next->E9|prev->E4|up->E0]
+ |menu_directions:D[next->E5|prev->E2|up->E0]
+ |node_directions:D[next->E5|prev->E2|up->E0]
  |normalized:{n}
   *arguments_line C1
    *line_arg C1
@@ -164,7 +164,7 @@ NodeBack: [U1]
     |{\\n}
     {n}
   {empty_line:\\n}
-U3 unit[E9]
+U3 unit[E5]
 unit_directions:D[prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -173,21 +173,21 @@ FastBack: [U1]
 NodePrev: [U2]
 NodeUp: [U0]
 NodeBack: [U2]
- *9 @node C1 l14 {@^a}
+ *5 @node C1 l14 {@^a}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E8|up->E0]
- |node_directions:D[prev->E8|up->E0]
+ |menu_directions:D[prev->E4|up->E0]
+ |node_directions:D[prev->E4|up->E0]
  |normalized:{_00e2}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *10 @^ C1 l14
+    *@^ C1 l14
      *following_arg C1
       {a}
 ';

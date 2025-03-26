@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'image_link_prefix'} = '*document_root C1
  *before_node_section C1
-  *0 @image C1 l1
+  *@image C1 l1
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1

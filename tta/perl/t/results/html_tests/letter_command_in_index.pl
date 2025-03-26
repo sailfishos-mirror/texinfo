@@ -91,7 +91,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @TH C1 l7
+    *@TH C1 l7
      *brace_container
   {empty_line:\\n}
   *index_entry_command@cindex C1 l9
@@ -106,7 +106,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @l C1 l9
+    *@l C1 l9
      *brace_container
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
@@ -121,7 +121,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @^ C1 l11
+    *@^ C1 l11
      *following_arg C1
       {e}
   {empty_line:\\n}

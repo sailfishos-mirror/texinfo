@@ -24,7 +24,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Cap-1}
   *arguments_line C1
    *line_arg C1
@@ -39,15 +39,15 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_directions:D[next->E4]
+ |section_directions:D[next->E3]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1|E4]
+  ||section_childs:EC[E1|E3]
   ||section_level:{0}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
   *@c C1
    {rawline_arg: needed to have Node 1 referenced\\n}
   *paragraph C2
-   *2 @xref C1 l6
+   *@xref C1 l6
     *brace_arg C1
     |EXTRA
     |node_content:{Node 1}
@@ -66,13 +66,13 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
      {Node 1}
    {\\n}
   {empty_line:\\n}
- *3 @node C1 l8 {Cap 2}
+ *2 @node C1 l8 {Cap 2}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |normalized:{Cap-2}
@@ -82,13 +82,13 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Cap 2}
- *4 @chapter C2 l9 {Chapter Two}
+ *3 @chapter C2 l9 {Chapter Two}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[prev->E1]
  |section_level:{1}
  |section_number:{2}
@@ -100,12 +100,12 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
     |{\\n}
     {Chapter Two}
   {empty_line:\\n}
- *5 @node C2 l11 {Node 1}
+ *4 @node C2 l11 {Node 1}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
+ |associated_title_command:[E5]
  |is_target:{1}
  |normalized:{Node-1}
   *arguments_line C1
@@ -114,12 +114,12 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Node 1}
-  *6 @heading C1 l12
+  *5 @heading C1 l12
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E5]
+  |associated_anchor_command:[E4]
   |global_command_number:{1}
    *line_arg C1
    |INFO

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'symbol_after_command'} = '*document_root C1
  *before_node_section C3
-  *0 @table C9 l1
+  *@table C9 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'symbol_after_command'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *table_entry C1
     *table_term C1
      *@item C1 l2

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C2 l1
+  *@quotation C2 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -25,7 +25,7 @@ $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root 
      |spaces_after_argument:
       |{\\n}
       {: }
-      *1 @code C1 l3
+      *@code C1 l3
        *brace_container C1
         {in c}
 ';

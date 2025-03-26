@@ -68,7 +68,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E6]
+ |section_childs:EC[E5]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -85,8 +85,8 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[up->E2]
  |normalized:{s_00e8c}
@@ -96,11 +96,11 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {s}
-    *5 @` C1 l7
+    *@` C1 l7
      *brace_container C1
       {e}
     {c}
- *6 @section C4 l8 {g}
+ *5 @section C4 l8 {g}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -117,12 +117,12 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
     |{\\n}
     {g}
   {empty_line:\\n}
-  *7 @anchor C1 l10
+  *6 @anchor C1 l10
   |EXTRA
   |is_target:{1}
   |normalized:{_00e2bc}
    *brace_arg C2
-    *8 @^ C1 l10
+    *@^ C1 l10
      *brace_container C1
       {a}
     {bc}

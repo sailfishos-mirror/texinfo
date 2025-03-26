@@ -361,7 +361,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% references.\\n}
    {empty_line:\\n}
-   *0 @macro C3 my-bib-macros.texi:l162
+   *@macro C3 my-bib-macros.texi:l162
    |EXTRA
    |macro_name:{mybibsetrefnode}
    |misc_args:A{node}
@@ -385,7 +385,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% and calls to @mybibcite{}\\n}
    {empty_line:\\n}
-   *1 @macro C3 my-bib-macros.texi:l169
+   *@macro C3 my-bib-macros.texi:l169
    |EXTRA
    |macro_name:{mybibnode}
    |misc_args:A{}
@@ -409,7 +409,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% table.\\n}
    {empty_line:\\n}
-   *2 @macro C7 my-bib-macros.texi:l176
+   *@macro C7 my-bib-macros.texi:l176
    |EXTRA
    |macro_name:{mybibusetable}
    |misc_args:A{node}
@@ -437,7 +437,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% list.\\n}
    {empty_line:\\n}
-   *3 @macro C7 my-bib-macros.texi:l187
+   *@macro C7 my-bib-macros.texi:l187
    |EXTRA
    |macro_name:{mybibuselist}
    |misc_args:A{node}
@@ -464,7 +464,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% @mybibcite{REF} : Cites the cross reference REF.\\n}
    {empty_line:\\n}
-   *4 @macro C10 my-bib-macros.texi:l198
+   *@macro C10 my-bib-macros.texi:l198
    |EXTRA
    |macro_name:{mybibcite}
    |misc_args:A{ref}
@@ -490,7 +490,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *5 @macro C3 my-bib-macros.texi:l209
+   *@macro C3 my-bib-macros.texi:l209
    |EXTRA
    |macro_name:{mybibmakeref}
    |misc_args:A{node|ref}
@@ -512,7 +512,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@c C1
     {rawline_arg: %% @mybibcite{REF} : Creates a cross referenced citation REF.\\n}
    {empty_line:\\n}
-   *6 @macro C16 my-bib-macros.texi:l215
+   *@macro C16 my-bib-macros.texi:l215
    |EXTRA
    |macro_name:{mybibitem}
    |misc_args:A{ref}
@@ -600,16 +600,16 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@comment C1
     {rawline_arg: %**end of header\\n}
    {empty_line:\\n}
- *7 @node C1 bib-example.texi:l30 {Top}
+ *0 @node C1 bib-example.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E9]
- |node_directions:D[next->E10]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -617,21 +617,21 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *8 @top C4 bib-example.texi:l31 {Top}
+ *1 @top C4 bib-example.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_childs:EC[E11|E14]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4|E6]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E8]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E11]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -639,7 +639,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *9 @menu C5 bib-example.texi:l33
+  *2 @menu C5 bib-example.texi:l33
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -694,16 +694,16 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @node C1 bib-example.texi:l39 {Introduction}
+ *3 @node C1 bib-example.texi:l39 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
- |associated_title_command:[E11]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E13|up->E7]
- |node_directions:D[next->E13|prev->E7|up->E7]
+ |menu_directions:D[next->E5|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{Introduction}
   *arguments_line C1
    *line_arg C1
@@ -711,17 +711,17 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *11 @chapter C4 bib-example.texi:l40 {Introduction}
+ *4 @chapter C4 bib-example.texi:l40 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
- |associated_node:[E10]
- |section_directions:D[next->E14|up->E8]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E14|prev->E8|up->E8]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -789,7 +789,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >|spaces_before_argument:
       >|{ }
       >{LaTeX2e}
-   *12 @ref C2 bib-example.texi:l43:@mybibmakeref
+   *@ref C2 bib-example.texi:l43:@mybibmakeref
     *brace_arg C1
     |EXTRA
     |node_content:{References}
@@ -831,7 +831,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {, isn\'t\\n}
    {currently supported in Texinfo.\\n}
   {empty_line:\\n}
- *13 @node C1 bib-example.texi:l46 {References}
+ *5 @node C1 bib-example.texi:l46 {References}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -846,11 +846,11 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |>*brace_container C1
      |>{mybibrefnode}
  |EXTRA
- |associated_section:[E14]
- |associated_title_command:[E14]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
- |menu_directions:D[prev->E10|up->E7]
- |node_directions:D[prev->E10|up->E7]
+ |menu_directions:D[prev->E3|up->E0]
+ |node_directions:D[prev->E3|up->E0]
  |normalized:{References}
   *arguments_line C1
    *line_arg C1
@@ -861,17 +861,17 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >SOURCEMARKS
     >value_expansion<end;3><p:10>
     >macro_expansion<end;7><p:10>
- *14 @chapter C4 bib-example.texi:l47 {References}
+ *6 @chapter C4 bib-example.texi:l47 {References}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
- |associated_node:[E13]
- |section_directions:D[prev->E11|up->E8]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
+ |section_directions:D[prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E11|up->E8]
+ |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -879,7 +879,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |{\\n}
     {References}
   {empty_line:\\n}
-  *15 @itemize C4 bib-example.texi:l49
+  *@itemize C4 bib-example.texi:l49
   |INFO
   |spaces_before_argument:
    |{ }
@@ -888,7 +888,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *16 @w C1 bib-example.texi:l49
+     *@w C1 bib-example.texi:l49
       *brace_container
    *before_item C1
     {empty_line:\\n}
@@ -939,7 +939,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command:\\n}
-    *17 @anchor C1 bib-example.texi:l51:@mybibitem
+    *7 @anchor C1 bib-example.texi:l51:@mybibitem
     |EXTRA
     |is_target:{1}
     |normalized:{LaTeX2e}

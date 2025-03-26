@@ -37,7 +37,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E6|E11|E14]
+ |section_childs:EC[E3|E5|E9|E11]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -60,7 +60,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -75,10 +75,10 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E6|up->E1]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -87,7 +87,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     {chap}
   {empty_line:\\n}
   *paragraph C2
-   *4 @error C1 l10
+   *@error C1 l10
     *brace_container
    {.\\n}
   {empty_line:\\n}
@@ -103,15 +103,15 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {fr}
- *5 @node C1 l13 {Chapter fr}
+ *4 @node C1 l13 {Chapter fr}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[next->E10|prev->E2|up->E0]
+ |node_directions:D[next->E8|prev->E2|up->E0]
  |normalized:{Chapter-fr}
   *arguments_line C1
    *line_arg C1
@@ -119,18 +119,18 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Chapter fr}
- *6 @chapter C4 l14 {chap fr}
+ *5 @chapter C4 l14 {chap fr}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
- |section_childs:EC[E9]
- |section_directions:D[next->E11|prev->E3|up->E1]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_childs:EC[E7]
+ |section_directions:D[next->E9|prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E11|prev->E3|up->E1]
+ |toplevel_directions:D[next->E9|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,19 +139,19 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     {chap fr}
   {empty_line:\\n}
   *paragraph C2
-   *7 @error C1 l16
+   *@error C1 l16
     *brace_container
    {.\\n}
   {empty_line:\\n}
- *8 @node C1 l18 {section fr}
+ *6 @node C1 l18 {section fr}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
- |node_directions:D[up->E5]
+ |node_directions:D[up->E4]
  |normalized:{section-fr}
   *arguments_line C1
    *line_arg C1
@@ -159,14 +159,14 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {section fr}
- *9 @section C3 l19 {sec fr}
+ *7 @section C3 l19 {sec fr}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[up->E6]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[up->E5]
  |section_level:{2}
  |section_number:{2.1}
   *arguments_line C1
@@ -188,15 +188,15 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {de}
- *10 @node C1 l22 {Chapter de}
+ *8 @node C1 l22 {Chapter de}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
- |associated_title_command:[E11]
+ |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
- |node_directions:D[next->E13|prev->E5|up->E0]
+ |node_directions:D[next->E10|prev->E4|up->E0]
  |normalized:{Chapter-de}
   *arguments_line C1
    *line_arg C1
@@ -204,17 +204,17 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Chapter de}
- *11 @chapter C4 l23 {chap de}
+ *9 @chapter C4 l23 {chap de}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
- |associated_node:[E10]
- |section_directions:D[next->E14|prev->E6|up->E1]
+ |associated_anchor_command:[E8]
+ |associated_node:[E8]
+ |section_directions:D[next->E11|prev->E5|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E14|prev->E6|up->E1]
+ |toplevel_directions:D[next->E11|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -223,19 +223,19 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     {chap de}
   {empty_line:\\n}
   *paragraph C2
-   *12 @error C1 l25
+   *@error C1 l25
     *brace_container
    {.\\n}
   {empty_line:\\n}
- *13 @node C1 l27 {Last chapter}
+ *10 @node C1 l27 {Last chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
- |associated_title_command:[E14]
+ |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
- |node_directions:D[prev->E10|up->E0]
+ |node_directions:D[prev->E8|up->E0]
  |normalized:{Last-chapter}
   *arguments_line C1
    *line_arg C1
@@ -243,17 +243,17 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Last chapter}
- *14 @chapter C2 l28 {Last Chapter}
+ *11 @chapter C2 l28 {Last Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
- |associated_node:[E13]
- |section_directions:D[prev->E11|up->E1]
+ |associated_anchor_command:[E10]
+ |associated_node:[E10]
+ |section_directions:D[prev->E9|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E11|up->E1]
+ |toplevel_directions:D[prev->E9|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

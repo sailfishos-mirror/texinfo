@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'command_in_end_expanded_raw_in_command'} = '*document_root C1
  *before_node_section C1
-  *0 @tex C2 l1
+  *@tex C2 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'command_in_end_expanded_raw_in_command'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *1 @code C1 l3
+      *@code C1 l3
        *brace_container C1
         {tex}
 ';

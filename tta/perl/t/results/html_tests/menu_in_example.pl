@@ -20,13 +20,13 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @example C3 l3
+  *@example C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @menu C6 l4
+   *1 @menu C6 l4
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
      *menu_entry_description C2
       *preformatted C1
        {\\n}
-      *3 @cartouche C3 l6
+      *@cartouche C3 l6
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
     *menu_comment C3
      *preformatted C1
       {after_menu_description_line:\\n}
-     *4 @cartouche C3 l10
+     *@cartouche C3 l10
       *arguments_line C1
        *block_line_arg
        |INFO

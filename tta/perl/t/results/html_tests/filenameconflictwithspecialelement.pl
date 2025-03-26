@@ -15,7 +15,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -30,14 +30,14 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
     {top}
   {empty_line:\\n}
   *paragraph C2
-   *2 @footnote C1 l4
+   *@footnote C1 l4
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -54,13 +54,13 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
       {a footnote}
    {\\n}
   {empty_line:\\n}
- *3 @node C1 l6 {chap}
+ *2 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chap}
@@ -70,13 +70,13 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C7 l7 {chap}
+ *3 @chapter C7 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -91,7 +91,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
   *paragraph C1
    {Need 2 elements for separate footnotes.\\n}
   {empty_line:\\n}
-  *5 @anchor C1 l11
+  *4 @anchor C1 l11
   |EXTRA
   |is_target:{1}
   |normalized:{filenameconflictwithspecialelement-fot}

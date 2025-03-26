@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'end_of_lines_protected_in_footnote'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @footnote C1 l1
+   *@footnote C1 l1
    |INFO
    |spaces_before_argument:
     |{\\n}
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
-     *1 @deffn C3 l2
+     *@deffn C3 l2
      |INFO
      |spaces_before_argument:
       |{ }

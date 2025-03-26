@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'misc_raw_comments'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @html C3 l2
+  *@html C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
       |{rawline_arg: comment no space\\n}
      {html}
   {empty_line:\\n}
-  *1 @tex C2 l5
+  *@tex C2 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
      |{    }
      {tex}
   {empty_line:\\n}
-  *2 @verbatim C4 l8
+  *@verbatim C4 l8
    *arguments_line C1
     *block_line_arg
     |INFO

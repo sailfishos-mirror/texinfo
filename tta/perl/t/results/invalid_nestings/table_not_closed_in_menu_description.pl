@@ -24,7 +24,7 @@ $result_tree_text{'table_not_closed_in_menu_description'} = '*document_root C1
     *menu_entry_description C2
      *preformatted C1
       {text }
-     *1 @table C2 l2
+     *@table C2 l2
      |INFO
      |spaces_before_argument:
       |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'table_not_closed_in_menu_description'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *2 @asis l2
+        *@asis l2
       *table_entry C2
        *table_term C1
         *@item C1 l3

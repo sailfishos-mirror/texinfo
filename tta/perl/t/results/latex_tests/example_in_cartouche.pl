@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'example_in_cartouche'} = '*document_root C1
  *before_node_section C4
   *preamble_before_content
-  *0 @cartouche C5 l1
+  *@cartouche C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -30,13 +30,13 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
      |{\\n}
      {cartouche}
   {empty_line:\\n}
-  *1 @cartouche C3 l7
+  *@cartouche C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @example C3 l8
+   *@example C3 l8
     *arguments_line C1
      *block_line_arg
      |INFO

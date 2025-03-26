@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'exdent_and_commands'} = '*document_root C1
  *before_node_section C3
-  *0 @quotation C7 l1
+  *@quotation C7 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *1 @example C7 l9
+  *@example C7 l9
    *arguments_line C1
     *block_line_arg
     |INFO

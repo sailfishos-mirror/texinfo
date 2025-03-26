@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
  *before_node_section C12
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{expand}
   |misc_args:A{}
@@ -40,7 +40,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {A }
-    *1 @ringaccent l5:@expand
+    *@ringaccent l5:@expand
     |INFO
     |spaces_after_cmd_before_arg:
      |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   *paragraph C1
    {a\\n}
   {empty_line:\\n}
-  *2 @macro C3 l8
+  *@macro C3 l8
   |EXTRA
   |macro_name:{nospace}
   |misc_args:A{}
@@ -84,7 +84,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {B }
-    *3 @ringaccent l12:@nospace
+    *@ringaccent l12:@nospace
     |INFO
     |spaces_after_cmd_before_arg:
      |{}

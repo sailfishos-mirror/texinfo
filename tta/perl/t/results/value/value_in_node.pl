@@ -249,7 +249,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     {Node 1}
   {empty_line:\\n}
   *paragraph C2
-   *7 @xref C1 l21
+   *@xref C1 l21
     *brace_arg C1
     |EXTRA
     |node_content:{Node 1}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'exdent_and_formats'} = '*document_root C1
  *before_node_section C34
-  *0 @example C5 l1
+  *@example C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
    *preformatted C8
     { Example   Hoho. }
-    *1 @TeX C1 l2
+    *@TeX C1 l2
      *brace_container
     { . }
     *@*
@@ -46,7 +46,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      {example}
   {empty_line:\\n}
   {empty_line:\\n}
-  *2 @example C6 l9
+  *@example C6 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
   *paragraph C1
    {Para1.\\n}
   {empty_line:\\n}
-  *3 @quotation C3 l18
+  *@quotation C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -119,7 +119,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
   *paragraph C1
    {Last para.\\n}
   {empty_line:\\n}
-  *4 @quotation C3 l29
+  *@quotation C3 l29
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -140,7 +140,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *5 @quotation C5 l34
+  *@quotation C5 l34
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *6 @example C4 l40
+  *@example C4 l40
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -171,7 +171,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
    *preformatted C1
     {Example   Hoho.\\n}
-   *7 @example C4 l42
+   *@example C4 l42
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -211,7 +211,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *8 @quotation C3 l48
+  *@quotation C3 l48
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -238,7 +238,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *9 @quotation C4 l52
+  *@quotation C4 l52
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -267,7 +267,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *10 @quotation C4 l57
+  *@quotation C4 l57
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -296,7 +296,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *11 @quotation C4 l62
+  *@quotation C4 l62
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -332,7 +332,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *12 @quotation C4 l67
+  *@quotation C4 l67
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -368,7 +368,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *13 @quotation C4 l72
+  *@quotation C4 l72
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -397,7 +397,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *14 @quotation C4 l77
+  *@quotation C4 l77
    *arguments_line C1
     *block_line_arg
     |INFO

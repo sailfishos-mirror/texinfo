@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'accent_argument'} = '*document_root C1
  *before_node_section C5
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @~ C1 l1
+     *@~ C1 l1
       *following_arg C1
        {e}
    *@item C2 l2
@@ -36,7 +36,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *2 @itemize C3 l5
+  *@itemize C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @~ C1 l5
+     *@~ C1 l5
       *brace_container C1
        {e}
    *@item C2 l6
@@ -66,7 +66,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *4 @itemize C3 l9
+  *@itemize C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -75,7 +75,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @ringaccent C1 l9
+     *@ringaccent C1 l9
      |INFO
      |spaces_after_cmd_before_arg:
       |{ }

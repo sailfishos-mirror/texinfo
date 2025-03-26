@@ -38,7 +38,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
   {empty_line:\\n}
   *paragraph C3
    {a}
-   *2 @footnote C1 l4
+   *@footnote C1 l4
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1

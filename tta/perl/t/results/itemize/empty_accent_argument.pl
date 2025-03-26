@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_accent_argument'} = '*document_root C1
  *before_node_section C7
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     |comment_at_end:
      |*@comment C1
       |{rawline_arg:\\n}
-     *1 @~ l1
+     *@~ l1
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *2 @itemize C3 l5
+  *@itemize C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @~ l5
+     *@~ l5
    *@item C2 l6
    |EXTRA
    |item_number:{1}
@@ -63,7 +63,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *4 @itemize C3 l9
+  *@itemize C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @~ C1 l9
+     *@~ C1 l9
       *brace_container
    *@item C2 l10
    |EXTRA
@@ -92,7 +92,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *6 @itemize C3 l13
+  *@itemize C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{ \\n}
-     *7 @~ l13
+     *@~ l13
    *@item C2 l14
    |EXTRA
    |item_number:{1}

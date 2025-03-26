@@ -18,7 +18,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
     |{\\n}
     {lang=lisp}
   {empty_line:\\n}
-  *0 @lisp C2 l3
+  *@lisp C2 l3
   |INFO
   |alias_of:{lang}
    *arguments_line C1

@@ -16,19 +16,19 @@ $result_tree_text{'center'} = '*document_root C1
     |{\\n}
     *@indent l1
     {ignorable_spaces_after_command: }
-    *0 @titlefont C1 l1
+    *@titlefont C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_container C1
       {in titlefont}
     { }
-    *1 @anchor C1 l1
+    *0 @anchor C1 l1
     |EXTRA
     |is_target:{1}
     |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
-    *2 @footnote C1 l1
+    *@footnote C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1
@@ -59,7 +59,7 @@ $result_tree_text{'center'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *line_arg C1
-    *3 @quotation C1 l5
+    *@quotation C1 l5
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'center'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *line_arg C1
-    *4 @code C1 l11
+    *@code C1 l11
      *brace_container C1
       {in code in center\\n}
   {empty_line:\\n}
@@ -100,7 +100,7 @@ $result_tree_text{'center'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *line_arg C2
-    *5 @code C1 l15
+    *@code C1 l15
      *brace_container C1
       {in code in center }
     *@center C1 l15
@@ -116,7 +116,7 @@ $result_tree_text{'center'} = '*document_root C1
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C1
-   *6 @code C1 l19
+   *@code C1 l19
     *brace_container
   *@center C1 l19
   |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'center'} = '*document_root C1
     |{\\n}
     {in center in code}
   {empty_line:\\n}
-  *7 @table C3 l21
+  *@table C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -137,7 +137,7 @@ $result_tree_text{'center'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *8 @asis l21
+     *@asis l21
    *before_item C1
     *@center C1 l22
     |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'center'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *9 @table C3 l25
+  *@table C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'center'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *10 @emph l25
+     *@emph l25
    *table_entry C2
     *table_term C1
      *@item C1 l26
@@ -225,7 +225,7 @@ $result_tree_text{'center'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *line_arg C2
-    *11 @samp C1 l33
+    *@samp C1 l33
      *brace_container C1
       {something }
     *@center C1 l33
@@ -244,7 +244,7 @@ $result_tree_text{'center'} = '*document_root C1
    |{ }
    *line_arg C3
     {after first center }
-    *12 @samp C1 l35
+    *@samp C1 l35
      *brace_container
     *@center C1 l35
     |INFO
@@ -259,7 +259,7 @@ $result_tree_text{'center'} = '*document_root C1
   *paragraph C1
    {End of samp\\n}
   {empty_line:\\n}
-  *13 @multitable C3 l39
+  *@multitable C3 l39
   |INFO
   |spaces_before_argument:
    |{ }
@@ -331,7 +331,7 @@ $result_tree_text{'center'} = '*document_root C1
    |{ }
    *line_arg C2
     {before the table }
-    *14 @table C1 l45
+    *@table C1 l45
     |INFO
     |spaces_before_argument:
      |{ }
@@ -340,7 +340,7 @@ $result_tree_text{'center'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *15 @asis l45
+       *@asis l45
   {ignorable_spaces_after_command: }
   *paragraph C2
    {item in center\\n}

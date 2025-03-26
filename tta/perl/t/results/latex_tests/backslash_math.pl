@@ -8,12 +8,12 @@ $result_tree_text{'backslash_math'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
   *paragraph C2
-   *0 @math C1 l1
+   *@math C1 l1
     *brace_command_context C5
      {a }
      *@\\
      { b }
-     *1 @backslashchar C1 l1
+     *@backslashchar C1 l1
       *brace_container
      { c}
    {.\\n}

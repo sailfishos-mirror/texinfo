@@ -16,7 +16,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor:\\n}
-   *1 @ref C1 l4
+   *@ref C1 l4
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -26,7 +26,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor in footnote:\\n}
-   *2 @ref C1 l7
+   *@ref C1 l7
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}
@@ -35,14 +35,14 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @footnote C1 l9
+   *@footnote C1 l9
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C6
      *paragraph C1
       {In footnote.\\n}
      {empty_line:\\n}
-     *4 @anchor C1 l11
+     *1 @anchor C1 l11
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-footnote}
@@ -52,7 +52,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
      {empty_line:\\n}
      *paragraph C3
       {Ref to main text anchor\\n}
-      *5 @ref C1 l14
+      *@ref C1 l14
        *brace_arg C1
        |EXTRA
        |node_content:{An anchor}
@@ -61,7 +61,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
       {\\n}
    {\\n}
   {empty_line:\\n}
-  *6 @float C3 l17
+  *2 @float C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *paragraph C3
    {Ref to float\\n}
-   *7 @ref C1 l22
+   *@ref C1 l22
     *brace_arg C1
     |EXTRA
     |node_content:{float anchor}
@@ -104,7 +104,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
      {float anchor}
    {.\\n}
   {empty_line:\\n}
-  *8 @menu C3 l24
+  *3 @menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -146,7 +146,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *9 @section C5 l30 {section}
+ *4 @section C5 l30 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E9]
+  ||section_childs:EC[E4]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1
@@ -167,7 +167,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *10 @ref C1 l33
+   *@ref C1 l33
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -177,7 +177,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *11 @ref C1 l36
+   *@ref C1 l36
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

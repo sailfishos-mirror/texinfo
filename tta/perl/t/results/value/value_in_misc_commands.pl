@@ -300,7 +300,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      {phoo,//,\\\\}
   {empty_line:\\n}
   *paragraph C2
-   *4 definfoenclose_command@phoo C1 l39
+   *definfoenclose_command@phoo C1 l39
    |INFO
    |command_name:{phoo}
    |EXTRA
@@ -348,7 +348,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;11><p:3>
   {empty_line:\\n}
   *paragraph C2
-   *5 definfoenclose_command@phi C1 l45
+   *definfoenclose_command@phi C1 l45
    |INFO
    |command_name:{phi}
    |EXTRA
@@ -375,7 +375,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*brace_container C1
      >{strong_macro}
   *paragraph C2
-   *6 @strong C1 l50
+   *@strong C1 l50
    |INFO
    |spaces_after_cmd_before_arg:
     |{}
@@ -415,7 +415,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*brace_container C1
      >{strong_macro}
   *paragraph C2
-   *7 definfoenclose_command@strong C1 l54
+   *definfoenclose_command@strong C1 l54
    |INFO
    |command_name:{strong}
    |spaces_after_cmd_before_arg:
@@ -430,7 +430,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *8 @kbd C1 l56
+   *@kbd C1 l56
     *brace_container C1
      {something before kbdinputstyle}
    {\\n}
@@ -461,21 +461,21 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;16><p:4>
   {empty_line:\\n}
   *paragraph C2
-   *9 @kbd C1 l61
+   *@kbd C1 l61
    |EXTRA
    |code:{1}
     *brace_container C1
      {truc}
    {\\n}
   {empty_line:\\n}
-  *10 @example C3 l63
+  *@example C3 l63
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *11 @kbd C1 l64
+    *@kbd C1 l64
     |EXTRA
     |code:{1}
      *brace_container C1

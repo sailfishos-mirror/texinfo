@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
  *before_node_section C3
-  *0 @html C3 l1
+  *@html C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -28,7 +28,7 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
       |{rawline_arg: Hafter end\\n}
      {html}
   {empty_line:\\n}
-  *1 @tex C3 l5
+  *@tex C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'empty_accent'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @` C1 l1
+   *@` C1 l1
     *brace_container
    {\\n}
 ';

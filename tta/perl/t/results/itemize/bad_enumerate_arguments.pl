@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
  *before_node_section C9
-  *0 @enumerate C2 l1
+  *@enumerate C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *1 @enumerate C2 l4
+  *@enumerate C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *2 @enumerate C2 l7
+  *@enumerate C2 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @code C1 l7
+     *@code C1 l7
       *brace_container C1
        {a}
    *@end C1 l8
@@ -80,7 +80,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *4 @enumerate C2 l10
+  *@enumerate C2 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *5 @enumerate C2 l13
+  *@enumerate C2 l13
   |INFO
   |spaces_before_argument:
    |{ }

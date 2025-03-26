@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'nested_indentedblock'} = '*document_root C1
  *before_node_section C3
-  *0 @example C4 l1
+  *@example C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      |{\\n}
    *preformatted C1
     {in example\\n}
-   *1 @indentedblock C3 l3
+   *@indentedblock C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @indentedblock C5 l8
+  *@indentedblock C5 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -54,7 +54,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
    {spaces_before_paragraph:   }
    *paragraph C1
     {v  v  v``a\\n}
-   *3 @example C3 l10
+   *@example C3 l10
     *arguments_line C1
      *block_line_arg
      |INFO

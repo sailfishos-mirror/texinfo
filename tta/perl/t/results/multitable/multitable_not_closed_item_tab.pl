@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'multitable_not_closed_item_tab'} = '*document_root C1
  *before_node_section C1
-  *0 @multitable C2 l1
+  *@multitable C2 l1
   |INFO
   |spaces_before_argument:
    |{ }

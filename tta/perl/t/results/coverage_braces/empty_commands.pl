@@ -6,36 +6,36 @@ use utf8;
 
 $result_tree_text{'empty_commands'} = '*document_root C1
  *before_node_section C4
-  *0 @titlefont C1 l1
+  *@titlefont C1 l1
   |EXTRA
   |global_command_number:{1}
    *brace_container
   {\\n}
   {empty_line:\\n}
   *paragraph C15
-   *1 @uref C1 l3
+   *@uref C1 l3
     *brace_arg
    { }
-   *2 @abbr C1 l3
+   *@abbr C1 l3
     *brace_arg
    { }
-   *3 @email C1 l3
+   *@email C1 l3
     *brace_arg
    { }
-   *4 @code C1 l3
+   *@code C1 l3
     *brace_container
-   *5 @footnote C1 l3
+   *@footnote C1 l3
    |EXTRA
    |global_command_number:{1}
     *brace_command_context
    { }
-   *6 @~ C1 l3
+   *@~ C1 l3
     *brace_container
    { }
-   *7 @dotless C1 l3
+   *@dotless C1 l3
     *brace_container
    { }
-   *8 @verb C1 l3
+   *@verb C1 l3
    |INFO
    |delimiter:{;}
     *brace_container

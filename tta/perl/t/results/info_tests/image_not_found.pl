@@ -19,7 +19,7 @@ $result_tree_text{'image_not_found'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
     {Top}
-  *1 @image C1 l2
+  *@image C1 l2
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1

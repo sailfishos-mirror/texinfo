@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C6 l1
+  *@linemacro C6 l1
   |EXTRA
   |macro_name:{mycommand}
   |misc_args:A{a|b|c|d}
@@ -28,7 +28,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @defblock C4 l8
+  *@defblock C4 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -62,14 +62,14 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
         >|{ }
         >{other {j}}
      {second }
-     *2 @verb C1 l9:@mycommand
+     *@verb C1 l9:@mycommand
      |INFO
      |delimiter:{:}
       *brace_container C1
        {raw: in verb }
      {\\n}
      {third A }
-     *3 @verb C1 l9:@mycommand
+     *@verb C1 l9:@mycommand
      |INFO
      |delimiter:{|}
       *brace_container C1

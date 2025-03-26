@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'def_defx_mismatch'} = '*document_root C1
  *before_node_section C1
-  *0 @defun C4 l1
+  *@defun C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -39,13 +39,13 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *1 @var C1 l1
+       *@var C1 l1
         *brace_container C1
          {arg}
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *2 @dots C1 l1
+       *@dots C1 l1
         *brace_container
    *@deffnx C1 l2
    |INFO

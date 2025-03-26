@@ -101,11 +101,11 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @" C1 l10
+    *@" C1 l10
      *following_arg C1
       {a}
     { }
-    *5 @" C1 l10
+    *@" C1 l10
      *brace_container C1
       {o}
   *index_entry_command@cindex C1 l11
@@ -177,7 +177,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @^ C1 l15
+    *@^ C1 l15
      *following_arg C1
       {i}
   {empty_line:\\n}
@@ -191,7 +191,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
    *line_arg C9
-    *7 @math C1 l17
+    *@math C1 l17
      *brace_command_context C3
       {a!"}
       *@@
@@ -199,11 +199,11 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     { "!}
     *@@
     { }
-    *8 @" C1 l17
+    *@" C1 l17
      *following_arg C1
       {a}
     { }
-    *9 @" C1 l17
+    *@" C1 l17
      *brace_container C1
       {o}
     {ignorable_spaces_before_command: }
@@ -218,14 +218,14 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *10 @sortas C1 l17
+      *@sortas C1 l17
        *brace_arg C3
         {a!"}
         *@@
         {b}
       {spaces_after_close_brace: }
       {sub}
-      *11 @math C1 l17
+      *@math C1 l17
        *brace_command_context C3
         {a!"}
         *@@
@@ -233,17 +233,17 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
       { sub "!}
       *@@
       { }
-      *12 @" C1 l17
+      *@" C1 l17
        *following_arg C1
         {a}
       { }
-      *13 @" C1 l17
+      *@" C1 l17
        *brace_container C1
         {o}
       {spaces_at_end: }
-      *14 @seealso C1 l17
+      *@seealso C1 l17
        *brace_arg C7
-        *15 @math C1 l17
+        *@math C1 l17
          *brace_command_context C3
           {a!"}
           *@@
@@ -251,11 +251,11 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
         { "!}
         *@@
         { }
-        *16 @" C1 l17
+        *@" C1 l17
          *following_arg C1
           {a}
         { }
-        *17 @" C1 l17
+        *@" C1 l17
          *brace_container C1
           {o}
   *index_entry_command@cindex C1 l18
@@ -288,7 +288,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     |{\\n}
     {totocmd}
     {spaces_at_end: }
-    *18 @sortas C1 l19
+    *@sortas C1 l19
      *brace_arg C1
       {\\cmd}
   {empty_line:\\n}
@@ -313,7 +313,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{ }
     {\\some\\command for }
-    *19 @file C1 l23
+    *@file C1 l23
      *brace_container C1
       {file}
   {empty_line:\\n}
@@ -330,11 +330,11 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {the }
-    *20 @r C1 l25
+    *@r C1 l25
      *brace_container C1
       {person}
     { index }
-    *21 @file C1 l25
+    *@file C1 l25
      *brace_container C1
       {aa}
   {empty_line:\\n}

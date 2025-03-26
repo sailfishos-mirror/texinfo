@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{phoo}
   |misc_args:A{arg}
@@ -38,7 +38,7 @@ $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
     {phoo,;,:}
   {empty_line:\\n}
   *paragraph C2
-   *1 definfoenclose_command@phoo C1 l7
+   *definfoenclose_command@phoo C1 l7
    |INFO
    |command_name:{phoo}
    |EXTRA

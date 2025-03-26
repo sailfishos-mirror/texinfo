@@ -17,7 +17,7 @@ $result_tree_text{'heading_commands_in_documentlanguage'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *0 @code C1 l1
+    *@code C1 l1
      *brace_container C2
       {aaa }
       *@thischapter

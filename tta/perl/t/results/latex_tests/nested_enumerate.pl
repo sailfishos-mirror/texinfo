@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'nested_enumerate'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
-  *0 @enumerate C5 l1
+  *@enumerate C5 l1
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -30,7 +30,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C1
      {First level item\\n}
-    *1 @enumerate C5 l4
+    *@enumerate C5 l4
     |EXTRA
     |enumerate_specification:{1}
      *arguments_line C1
@@ -53,7 +53,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C1
        {Second level item\\n}
-      *2 @enumerate C5 l7
+      *@enumerate C5 l7
       |EXTRA
       |enumerate_specification:{1}
        *arguments_line C1
@@ -76,7 +76,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
         {ignorable_spaces_after_command: }
         *paragraph C1
          {Third level item\\n}
-        *3 @enumerate C5 l10
+        *@enumerate C5 l10
         |EXTRA
         |enumerate_specification:{1}
          *arguments_line C1

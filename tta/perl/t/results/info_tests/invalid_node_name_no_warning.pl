@@ -14,7 +14,7 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E6]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
-     *2 @asis C1 l5
+     *@asis C1 l5
       *brace_container C1
        {truc:}
     {menu_entry_separator:: }
@@ -40,7 +40,7 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
     |EXTRA
     |node_content:{@asis{nodename. a}\\n}
     |normalized:{nodename_002e-a}
-     *3 @asis C1 l5
+     *@asis C1 l5
       *brace_container C1
        {nodename. a}
      {space_at_end_menu_node:\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
     |node_content:{node@comma{}comma}
     |normalized:{node_002ccomma}
      {node}
-     *4 @comma C1 l6
+     *@comma C1 l6
       *brace_container
      {comma}
     {menu_entry_separator:, }
@@ -67,7 +67,7 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
     |EXTRA
     |node_content:{@asis{bidule:}}
     |normalized:{bidule_003a}
-     *5 @asis C1 l7
+     *@asis C1 l7
       *brace_container C1
        {bidule:}
     {menu_entry_separator:::}
@@ -86,32 +86,32 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C2 l10 {@asis{nodename. a}}
+ *2 @node C2 l10 {@asis{nodename. a}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E0]
- |node_directions:D[next->E8|prev->E0|up->E0]
+ |menu_directions:D[next->E3|up->E0]
+ |node_directions:D[next->E3|prev->E0|up->E0]
  |normalized:{nodename_002e-a}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @asis C1 l10
+    *@asis C1 l10
      *brace_container C1
       {nodename. a}
   {empty_line:\\n}
- *8 @node C2 l12 {node@comma{}comma}
+ *3 @node C2 l12 {node@comma{}comma}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E10|prev->E6|up->E0]
- |node_directions:D[next->E10|prev->E6|up->E0]
+ |menu_directions:D[next->E4|prev->E2|up->E0]
+ |node_directions:D[next->E4|prev->E2|up->E0]
  |normalized:{node_002ccomma}
   *arguments_line C1
    *line_arg C3
@@ -119,52 +119,52 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {node}
-    *9 @comma C1 l12
+    *@comma C1 l12
      *brace_container
     {comma}
   {empty_line:\\n}
- *10 @node C3 l14 {@asis{bidule:}}
+ *4 @node C3 l14 {@asis{bidule:}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E8|up->E0]
- |node_directions:D[prev->E8|up->E0]
+ |menu_directions:D[prev->E3|up->E0]
+ |node_directions:D[prev->E3|up->E0]
  |normalized:{bidule_003a}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *11 @asis C1 l14
+    *@asis C1 l14
      *brace_container C1
       {bidule:}
   {empty_line:\\n}
   *paragraph C6
-   *12 @ref C2 l16
+   *@ref C2 l16
     *brace_arg C1
     |EXTRA
     |node_content:{@asis{nodename. a}}
     |normalized:{nodename_002e-a}
-     *13 @asis C1 l16
+     *@asis C1 l16
       *brace_container C1
        {nodename. a}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *14 @asis C1 l16
+     *@asis C1 l16
       *brace_container C1
        {truc:}
    {. }
-   *15 @ref C2 l16
+   *@ref C2 l16
     *brace_arg C3
     |EXTRA
     |node_content:{node@comma{}comma}
     |normalized:{node_002ccomma}
      {node}
-     *16 @comma C1 l16
+     *@comma C1 l16
       *brace_container
      {comma}
     *brace_arg C1
@@ -173,12 +173,12 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
      |{ }
      {machin}
    {.\\n}
-   *17 @ref C1 l17
+   *@ref C1 l17
     *brace_arg C1
     |EXTRA
     |node_content:{@asis{bidule:}}
     |normalized:{bidule_003a}
-     *18 @asis C1 l17
+     *@asis C1 l17
       *brace_container C1
        {bidule:}
    {.\\n}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
  *before_node_section C3
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @code l1
+     *@code l1
    *table_entry C1
     *table_term C1
      *@item C1 l2
@@ -52,7 +52,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *2 @table C4 l6
+  *@table C4 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @code l6
+     *@code l6
    *table_entry C1
     *table_term C1
      *@item C1 l7

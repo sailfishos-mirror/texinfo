@@ -19,7 +19,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
- |node_directions:D[next->E33]
+ |node_directions:D[next->E6]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -34,14 +34,14 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E34]
+ |section_childs:EC[E7]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E34]
+ |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -91,13 +91,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     {Testing distant nodes}
   {empty_line:\\n}
   *paragraph C5
-   *4 @verb C1 test_refs.texi:l12
+   *@verb C1 test_refs.texi:l12
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw: a  node }
    { }
-   *5 @ref C4 test_refs.texi:l12
+   *@ref C4 test_refs.texi:l12
     *brace_arg C1
     |INFO
     |spaces_after_argument:
@@ -116,7 +116,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {manual}
    *@*
    {\\n}
-  *6 @example C3 test_refs.texi:l13
+  *@example C3 test_refs.texi:l13
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -138,13 +138,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C4
-   *7 @verb C1 test_refs.texi:l18
+   *@verb C1 test_refs.texi:l18
    |INFO
    |delimiter:{;}
     *brace_container C1
      {raw::}
    { }
-   *8 @ref C4 test_refs.texi:l18
+   *@ref C4 test_refs.texi:l18
     *brace_arg C1
     |EXTRA
     |node_content:{:}
@@ -154,7 +154,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     *brace_arg C1
      {manual}
    {\\n}
-  *9 @example C3 test_refs.texi:l19
+  *@example C3 test_refs.texi:l19
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -176,13 +176,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C5
-   *10 @verb C1 test_refs.texi:l24
+   *@verb C1 test_refs.texi:l24
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:Top}
    { }
-   *11 @ref C4 test_refs.texi:l24
+   *@ref C4 test_refs.texi:l24
     *brace_arg C1
     |INFO
     |spaces_after_argument:
@@ -201,7 +201,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {manual}
    *@*
    { \\n}
-  *12 @example C3 test_refs.texi:l25
+  *@example C3 test_refs.texi:l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -223,13 +223,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C4
-   *13 @verb C1 test_refs.texi:l30
+   *@verb C1 test_refs.texi:l30
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:(mtexinfo)Cross References}
    { }
-   *14 @ref C1 test_refs.texi:l30
+   *@ref C1 test_refs.texi:l30
     *brace_arg C4
     |EXTRA
     |manual_content:{mtexinfo}
@@ -239,7 +239,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {)}
      {Cross References}
    {\\n}
-  *15 @example C3 test_refs.texi:l31
+  *@example C3 test_refs.texi:l31
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -260,7 +260,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
-  *16 @subheading C1 test_refs.texi:l36
+  *4 @subheading C1 test_refs.texi:l36
   |INFO
   |spaces_before_argument:
    |{ }
@@ -273,13 +273,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     {Testing manual name}
   {empty_line:\\n}
   *paragraph C5
-   *17 @verb C1 test_refs.texi:l38
+   *@verb C1 test_refs.texi:l38
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:../manual/doc.texi}
    { }
-   *18 @ref C4 test_refs.texi:l38
+   *@ref C4 test_refs.texi:l38
     *brace_arg C1
     |EXTRA
     |node_content:{node}
@@ -293,7 +293,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {../manual/doc}
    *@*
    {\\n}
-  *19 @example C3 test_refs.texi:l39
+  *@example C3 test_refs.texi:l39
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -314,7 +314,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
-  *20 @subheading C1 test_refs.texi:l44
+  *5 @subheading C1 test_refs.texi:l44
   |INFO
   |spaces_before_argument:
    |{ }
@@ -327,20 +327,20 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     {Testing local nodes}
   {empty_line:\\n}
   *paragraph C4
-   *21 @verb C1 test_refs.texi:l46
+   *@verb C1 test_refs.texi:l46
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:!_"#$%&\'()*+-.}
    { }
-   *22 @ref C1 test_refs.texi:l46
+   *@ref C1 test_refs.texi:l46
     *brace_arg C1
     |EXTRA
     |node_content:{!_"#$%&\'()*+-.}
     |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
      {!_"#$%&\'()*+-.}
    {\\n}
-  *23 @example C3 test_refs.texi:l47
+  *@example C3 test_refs.texi:l47
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -361,13 +361,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C5
-   *24 @verb C1 test_refs.texi:l51
+   *@verb C1 test_refs.texi:l51
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:/;<=>?[\\]^_`|~}
    { }
-   *25 @ref C1 test_refs.texi:l51
+   *@ref C1 test_refs.texi:l51
     *brace_arg C1
     |EXTRA
     |node_content:{/;<=>?[\\]^_`|~}
@@ -375,7 +375,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {/;<=>?[\\]^_`|~}
    *@*
    {\\n}
-  *26 @example C3 test_refs.texi:l52
+  *@example C3 test_refs.texi:l52
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -396,13 +396,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C4
-   *27 @verb C1 test_refs.texi:l56
+   *@verb C1 test_refs.texi:l56
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:Top}
    { }
-   *28 @ref C1 test_refs.texi:l56
+   *@ref C1 test_refs.texi:l56
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -412,7 +412,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     |normalized:{Top}
      {Top}
    {\\n}
-  *29 @example C3 test_refs.texi:l57
+  *@example C3 test_refs.texi:l57
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -433,13 +433,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C4
-   *30 @verb C1 test_refs.texi:l61
+   *@verb C1 test_refs.texi:l61
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw: local   node}
    { }
-   *31 @ref C1 test_refs.texi:l61
+   *@ref C1 test_refs.texi:l61
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -449,7 +449,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     |normalized:{local-node}
      {local   node}
    {\\n}
-  *32 @example C3 test_refs.texi:l62
+  *@example C3 test_refs.texi:l62
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -469,17 +469,17 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *33 @node C1 test_refs.texi:l66 {other nodes}
+ *6 @node C1 test_refs.texi:l66 {other nodes}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E34]
- |associated_title_command:[E34]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E39]
- |node_directions:D[next->E40|prev->E0|up->E0]
+ |menus:EC[E8]
+ |node_directions:D[next->E9|prev->E0|up->E0]
  |normalized:{other-nodes}
   *arguments_line C4
    *line_arg C1
@@ -510,13 +510,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *34 @chapter C9 test_refs.texi:l67 {Chapter with nodes}
+ *7 @chapter C9 test_refs.texi:l67 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E33]
- |associated_node:[E33]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -528,7 +528,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     |{\\n}
     {Chapter with nodes}
   {empty_line:\\n}
-  *35 @example C3 test_refs.texi:l69
+  *@example C3 test_refs.texi:l69
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -549,13 +549,13 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      {example}
   {empty_line:\\n}
   *paragraph C4
-   *36 @verb C1 test_refs.texi:l73
+   *@verb C1 test_refs.texi:l73
    |INFO
    |delimiter:{:}
     *brace_container C1
      {raw:Top}
    { }
-   *37 @ref C1 test_refs.texi:l73
+   *@ref C1 test_refs.texi:l73
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -565,7 +565,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
     |normalized:{Top}
      {Top}
    {\\n}
-  *38 @example C3 test_refs.texi:l74
+  *@example C3 test_refs.texi:l74
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -585,7 +585,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
-  *39 @menu C5 test_refs.texi:l78
+  *8 @menu C5 test_refs.texi:l78
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -636,14 +636,14 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *40 @node C3 test_refs.texi:l84 {!_"#$%&\'()*+-.}
+ *9 @node C3 test_refs.texi:l84 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E42|up->E33]
- |node_directions:D[next->E42|prev->E33|up->E33]
+ |menu_directions:D[next->E10|up->E6]
+ |node_directions:D[next->E10|prev->E6|up->E6]
  |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
   *arguments_line C4
    *line_arg C1
@@ -674,7 +674,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
    |node_content:{other nodes}
    |normalized:{other-nodes}
     {other nodes}
-  *41 @example C3 test_refs.texi:l85
+  *@example C3 test_refs.texi:l85
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -694,14 +694,14 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *42 @node C3 test_refs.texi:l89 {/;<=>?[\\]^_`|~}
+ *10 @node C3 test_refs.texi:l89 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E44|prev->E40|up->E33]
- |node_directions:D[next->E44|prev->E40|up->E33]
+ |menu_directions:D[next->E11|prev->E9|up->E6]
+ |node_directions:D[next->E11|prev->E9|up->E6]
  |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
   *arguments_line C4
    *line_arg C1
@@ -726,7 +726,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
    |node_content:{other nodes}
    |normalized:{other-nodes}
     {other nodes}
-  *43 @example C3 test_refs.texi:l90
+  *@example C3 test_refs.texi:l90
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -746,14 +746,14 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *44 @node C3 test_refs.texi:l94 {local   node}
+ *11 @node C3 test_refs.texi:l94 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E42|up->E33]
- |node_directions:D[prev->E42|up->E33]
+ |menu_directions:D[prev->E10|up->E6]
+ |node_directions:D[prev->E10|up->E6]
  |normalized:{local-node}
   *arguments_line C4
    *line_arg C1
@@ -772,7 +772,7 @@ $result_tree_text{'htmlxref_only_mono_nodes'} = '*document_root C9
    |node_content:{other nodes}
    |normalized:{other-nodes}
     {other nodes}
-  *45 @example C3 test_refs.texi:l95
+  *@example C3 test_refs.texi:l95
    *arguments_line C1
     *block_line_arg
     |INFO

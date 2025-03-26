@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'test_image'} = '*document_root C3
  *before_node_section C4
-  *0 @macro C5 l1
+  *@macro C5 l1
   |EXTRA
   |macro_name:{files-char}
   |misc_args:A{}
@@ -27,7 +27,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @copying C5 l7
+  *@copying C5 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      >|INFO
      >|command_name:{files-char}
       >*brace_arg
-    *2 @image C5 l9:@files-char
+    *@image C5 l9:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C11
@@ -58,7 +58,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *3 @verb C1 l9:@files-char
+      *@verb C1 l9:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -77,7 +77,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *4 @verb C1 l9:@files-char
+      *@verb C1 l9:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -86,7 +86,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    {empty_line:\\n}
    *paragraph C3
     {In text }
-    *5 @image C5 l9:@files-char
+    *@image C5 l9:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C11
@@ -103,7 +103,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *6 @verb C1 l9:@files-char
+      *@verb C1 l9:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -122,11 +122,11 @@ $result_tree_text{'test_image'} = '*document_root C3
      |spaces_before_argument:
       |{ }
       {alt }
-      *7 @b C1 l9:@files-char
+      *@b C1 l9:@files-char
        *brace_container C5
-        *8 @^ C1 l9:@files-char
+        *@^ C1 l9:@files-char
          *brace_container C1
-          *9 @dotless C1 l9:@files-char
+          *@dotless C1 l9:@files-char
            *brace_container C1
             {i}
         {--le}
@@ -137,7 +137,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@*
       {<"%}
       *@@
-      *10 @verb C1 l9:@files-char
+      *@verb C1 l9:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -153,7 +153,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *11 @verb C1 l9:@files-char
+      *@verb C1 l9:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -173,13 +173,13 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *12 @node C1 l12 {Top}
+ *0 @node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13]
+ |node_directions:D[next->E1]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -187,13 +187,13 @@ $result_tree_text{'test_image'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *13 @node C16 l13 {chapter}
+ *1 @node C16 l13 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E12]
+ |node_directions:D[prev->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -208,7 +208,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    >|INFO
    >|command_name:{files-char}
     >*brace_arg
-  *14 @image C5 l15:@files-char
+  *@image C5 l15:@files-char
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C11
@@ -225,7 +225,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@@
     {<"%}
     *@@
-    *15 @verb C1 l15:@files-char
+    *@verb C1 l15:@files-char
     |INFO
     |delimiter:{:}
      *brace_container C1
@@ -244,7 +244,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@@
     {<"%}
     *@@
-    *16 @verb C1 l15:@files-char
+    *@verb C1 l15:@files-char
     |INFO
     |delimiter:{:}
      *brace_container C1
@@ -253,7 +253,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {In text }
-   *17 @image C5 l15:@files-char
+   *@image C5 l15:@files-char
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C11
@@ -270,7 +270,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@@
      {<"%}
      *@@
-     *18 @verb C1 l15:@files-char
+     *@verb C1 l15:@files-char
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -289,11 +289,11 @@ $result_tree_text{'test_image'} = '*document_root C3
     |spaces_before_argument:
      |{ }
      {alt }
-     *19 @b C1 l15:@files-char
+     *@b C1 l15:@files-char
       *brace_container C5
-       *20 @^ C1 l15:@files-char
+       *@^ C1 l15:@files-char
         *brace_container C1
-         *21 @dotless C1 l15:@files-char
+         *@dotless C1 l15:@files-char
           *brace_container C1
            {i}
        {--le}
@@ -304,7 +304,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@*
      {<"%}
      *@@
-     *22 @verb C1 l15:@files-char
+     *@verb C1 l15:@files-char
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -320,7 +320,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@@
      {<"%}
      *@@
-     *23 @verb C1 l15:@files-char
+     *@verb C1 l15:@files-char
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -336,7 +336,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *24 @example C3 l20
+  *@example C3 l20
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -350,7 +350,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      >|INFO
      >|command_name:{files-char}
       >*brace_arg
-    *25 @image C5 l21:@files-char
+    *@image C5 l21:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C11
@@ -367,7 +367,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *26 @verb C1 l21:@files-char
+      *@verb C1 l21:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -386,7 +386,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *27 @verb C1 l21:@files-char
+      *@verb C1 l21:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -394,7 +394,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     {\\n}
     {empty_line:\\n}
     {In text }
-    *28 @image C5 l21:@files-char
+    *@image C5 l21:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C11
@@ -411,7 +411,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *29 @verb C1 l21:@files-char
+      *@verb C1 l21:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -430,11 +430,11 @@ $result_tree_text{'test_image'} = '*document_root C3
      |spaces_before_argument:
       |{ }
       {alt }
-      *30 @b C1 l21:@files-char
+      *@b C1 l21:@files-char
        *brace_container C5
-        *31 @^ C1 l21:@files-char
+        *@^ C1 l21:@files-char
          *brace_container C1
-          *32 @dotless C1 l21:@files-char
+          *@dotless C1 l21:@files-char
            *brace_container C1
             {i}
         {--le}
@@ -445,7 +445,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@*
       {<"%}
       *@@
-      *33 @verb C1 l21:@files-char
+      *@verb C1 l21:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -461,7 +461,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *34 @verb C1 l21:@files-char
+      *@verb C1 l21:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -481,12 +481,12 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{\\n}
      {example}
   {empty_line:\\n}
-  *35 @float C9 l24
+  *2 @float C9 l24
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E46]
+  |caption:[E3]
   |float_number:{1}
   |float_type:{Image}
   |global_command_number:{1}
@@ -508,7 +508,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     |spaces_before_argument:
      |{ }
      {Image with commands}
-   *36 @image C5 l25:@files-char
+   *@image C5 l25:@files-char
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C11
@@ -525,7 +525,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@@
      {<"%}
      *@@
-     *37 @verb C1 l25:@files-char
+     *@verb C1 l25:@files-char
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -544,7 +544,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@@
      {<"%}
      *@@
-     *38 @verb C1 l25:@files-char
+     *@verb C1 l25:@files-char
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -553,7 +553,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    {empty_line:\\n}
    *paragraph C3
     {In text }
-    *39 @image C5 l25:@files-char
+    *@image C5 l25:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C11
@@ -570,7 +570,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *40 @verb C1 l25:@files-char
+      *@verb C1 l25:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -589,11 +589,11 @@ $result_tree_text{'test_image'} = '*document_root C3
      |spaces_before_argument:
       |{ }
       {alt }
-      *41 @b C1 l25:@files-char
+      *@b C1 l25:@files-char
        *brace_container C5
-        *42 @^ C1 l25:@files-char
+        *@^ C1 l25:@files-char
          *brace_container C1
-          *43 @dotless C1 l25:@files-char
+          *@dotless C1 l25:@files-char
            *brace_container C1
             {i}
         {--le}
@@ -604,7 +604,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@*
       {<"%}
       *@@
-      *44 @verb C1 l25:@files-char
+      *@verb C1 l25:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -620,7 +620,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@@
       {<"%}
       *@@
-      *45 @verb C1 l25:@files-char
+      *@verb C1 l25:@files-char
       |INFO
       |delimiter:{:}
        *brace_container C1
@@ -629,9 +629,9 @@ $result_tree_text{'test_image'} = '*document_root C3
     >SOURCEMARKS
     >macro_expansion<end;4><p:1>
    {empty_line:\\n}
-   *46 @caption C1 l27
+   *3 @caption C1 l27
    |EXTRA
-   |float:[E35]
+   |float:[E2]
     *brace_command_context C5
      {}
      >SOURCEMARKS
@@ -640,7 +640,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       >|INFO
       >|command_name:{files-char}
        >*brace_arg
-     *47 @image C5 l27:@files-char
+     *@image C5 l27:@files-char
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C11
@@ -657,7 +657,7 @@ $result_tree_text{'test_image'} = '*document_root C3
        *@@
        {<"%}
        *@@
-       *48 @verb C1 l27:@files-char
+       *@verb C1 l27:@files-char
        |INFO
        |delimiter:{:}
         *brace_container C1
@@ -676,7 +676,7 @@ $result_tree_text{'test_image'} = '*document_root C3
        *@@
        {<"%}
        *@@
-       *49 @verb C1 l27:@files-char
+       *@verb C1 l27:@files-char
        |INFO
        |delimiter:{:}
         *brace_container C1
@@ -685,7 +685,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      {empty_line:\\n}
      *paragraph C3
       {In text }
-      *50 @image C5 l27:@files-char
+      *@image C5 l27:@files-char
       |EXTRA
       |input_encoding_name:{utf-8}
        *brace_arg C11
@@ -702,7 +702,7 @@ $result_tree_text{'test_image'} = '*document_root C3
         *@@
         {<"%}
         *@@
-        *51 @verb C1 l27:@files-char
+        *@verb C1 l27:@files-char
         |INFO
         |delimiter:{:}
          *brace_container C1
@@ -721,11 +721,11 @@ $result_tree_text{'test_image'} = '*document_root C3
        |spaces_before_argument:
         |{ }
         {alt }
-        *52 @b C1 l27:@files-char
+        *@b C1 l27:@files-char
          *brace_container C5
-          *53 @^ C1 l27:@files-char
+          *@^ C1 l27:@files-char
            *brace_container C1
-            *54 @dotless C1 l27:@files-char
+            *@dotless C1 l27:@files-char
              *brace_container C1
               {i}
           {--le}
@@ -736,7 +736,7 @@ $result_tree_text{'test_image'} = '*document_root C3
         *@*
         {<"%}
         *@@
-        *55 @verb C1 l27:@files-char
+        *@verb C1 l27:@files-char
         |INFO
         |delimiter:{:}
          *brace_container C1
@@ -752,7 +752,7 @@ $result_tree_text{'test_image'} = '*document_root C3
         *@@
         {<"%}
         *@@
-        *56 @verb C1 l27:@files-char
+        *@verb C1 l27:@files-char
         |INFO
         |delimiter:{:}
          *brace_container C1

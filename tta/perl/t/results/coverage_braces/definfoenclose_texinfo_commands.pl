@@ -52,7 +52,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
     {quotation,q,e}
   {empty_line:\\n}
   *paragraph C2
-   *0 @verb C1 l6
+   *@verb C1 l6
    |INFO
    |delimiter:{*}
     *brace_container C1
@@ -60,10 +60,10 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C4
-   *1 @TeX C1 l8
+   *@TeX C1 l8
     *brace_container
    {. }
-   *2 definfoenclose_command@strong C1 l8
+   *definfoenclose_command@strong C1 l8
    |INFO
    |command_name:{strong}
    |EXTRA
@@ -73,7 +73,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
      {in strong}
    {.\\n}
   {empty_line:\\n}
-  *3 @quotation C3 l10
+  *@quotation C3 l10
   |INFO
   |spaces_before_argument:
    |{ }

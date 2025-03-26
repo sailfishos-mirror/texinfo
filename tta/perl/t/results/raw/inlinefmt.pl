@@ -8,7 +8,7 @@ $result_tree_text{'inlinefmt'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {A }
-   *0 @inlinefmt C2 l1
+   *@inlinefmt C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}
@@ -19,11 +19,11 @@ $result_tree_text{'inlinefmt'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {plaintext `` }
-     *1 @lbracechar C1 l1
+     *@lbracechar C1 l1
       *brace_container
      { }
    { a.  Now html\\n}
-   *2 @inlinefmt C2 l2
+   *@inlinefmt C2 l2
    |EXTRA
    |expand_index:{1}
    |format:{html}
@@ -34,7 +34,7 @@ $result_tree_text{'inlinefmt'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {in <i>}
-     *3 @acronym C1 l2
+     *@acronym C1 l2
       *brace_arg C1
        {HTML}
      {</i>}

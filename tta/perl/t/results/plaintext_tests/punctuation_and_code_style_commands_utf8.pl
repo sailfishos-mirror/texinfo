@@ -20,51 +20,51 @@ $result_tree_text{'punctuation_and_code_style_commands_utf8'} = '*document_root 
     |{\\n}
     {utf-8}
   *paragraph C18
-   *0 @command C1 l2
+   *@command C1 l2
     *brace_container C1
      {aaa}
    {. }
-   *1 @code C1 l2
+   *@code C1 l2
     *brace_container C1
-     *2 @~ C1 l2
+     *@~ C1 l2
       *following_arg C1
        {e}
    {. }
-   *3 @samp C1 l2
+   *@samp C1 l2
     *brace_container C1
-     *4 @aa C1 l2
+     *@aa C1 l2
       *brace_container
    {.\\n}
-   *5 @command C1 l3
+   *@command C1 l3
     *brace_container C1
      {AAA}
    {. }
-   *6 @code C1 l3
+   *@code C1 l3
     *brace_container C1
-     *7 @~ C1 l3
+     *@~ C1 l3
       *following_arg C1
        {E}
    {. }
-   *8 @samp C1 l3
+   *@samp C1 l3
     *brace_container C1
-     *9 @AA C1 l3
+     *@AA C1 l3
       *brace_container
    {.\\n}
-   *10 @command C1 l4
+   *@command C1 l4
     *brace_container C1
      {double AAA}
    {.  }
-   *11 @code C1 l4
+   *@code C1 l4
     *brace_container C2
      {double }
-     *12 @~ C1 l4
+     *@~ C1 l4
       *following_arg C1
        {E}
    {. }
-   *13 @samp C1 l4
+   *@samp C1 l4
     *brace_container C2
      {double }
-     *14 @AA C1 l4
+     *@AA C1 l4
       *brace_container
    {.  End.\\n}
 ';

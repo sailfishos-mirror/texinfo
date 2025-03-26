@@ -29,7 +29,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E9]
+ |section_childs:EC[E3|E7]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -52,7 +52,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_directions:D[next->E6|prev->E0|up->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -67,10 +67,10 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E9|up->E1]
+ |section_directions:D[next->E7|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
+ |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -78,7 +78,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *4 @vtable C6 l7
+  *@vtable C6 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @code l7
+     *@code l7
    *before_item C1
     {empty_line:\\n}
    *table_entry C2
@@ -103,7 +103,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *6 @anchor C1 l9
+       *4 @anchor C1 l9
        |EXTRA
        |is_target:{1}
        |normalized:{label1}
@@ -127,7 +127,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *7 @anchor C1 l12
+       *5 @anchor C1 l12
        |EXTRA
        |is_target:{1}
        |normalized:{label2}
@@ -167,13 +167,13 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      |{\\n}
      {vtable}
   {empty_line:\\n}
- *8 @node C1 l19 {Idx}
+ *6 @node C1 l19 {Idx}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -184,13 +184,13 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Idx}
- *9 @chapter C5 l20 {Idx}
+ *7 @chapter C5 l20 {Idx}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -216,7 +216,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
     {vr}
   {empty_line:\\n}
   *paragraph C2
-   *10 @xref C1 l24
+   *@xref C1 l24
     *brace_arg C1
     |EXTRA
     |node_content:{label1}

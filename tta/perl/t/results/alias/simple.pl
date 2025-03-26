@@ -35,7 +35,7 @@ $result_tree_text{'simple'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Should be code: }
-   *0 @code C1 l5
+   *@code C1 l5
    |INFO
    |alias_of:{myalias}
     *brace_container C1
@@ -44,7 +44,7 @@ $result_tree_text{'simple'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Should be verb: }
-   *1 @verb C1 l7
+   *@verb C1 l7
    |INFO
    |alias_of:{o-theralias}
    |delimiter:{!}

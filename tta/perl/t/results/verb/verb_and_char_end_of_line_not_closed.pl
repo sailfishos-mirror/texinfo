@@ -8,7 +8,7 @@ $result_tree_text{'verb_and_char_end_of_line_not_closed'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
    {verb, not  closed }
-   *0 @verb C1 l1
+   *@verb C1 l1
    |INFO
    |delimiter:{*}
     *brace_container C3

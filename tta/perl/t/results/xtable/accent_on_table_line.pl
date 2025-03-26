@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'accent_on_table_line'} = '*document_root C1
  *before_node_section C13
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,10 +15,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *2 @~ l1
+     *@~ l1
    *table_entry C1
     *table_term C1
      *@item C1 l2
@@ -41,7 +41,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       |spaces_after_argument:
        |{\\n}
        {no at-command }
-       *3 @code C1 l3
+       *@code C1 l3
         *brace_container C1
          {code}
    *@end C1 l4
@@ -56,7 +56,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *4 @table C4 l6
+  *@table C4 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -65,10 +65,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *6 @~ C1 l6
+     *@~ C1 l6
       *brace_container
    *table_entry C1
     *table_term C1
@@ -92,7 +92,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       |spaces_after_argument:
        |{\\n}
        {no at-command }
-       *7 @code C1 l8
+       *@code C1 l8
         *brace_container C1
          {code acc brace}
    *@end C1 l9
@@ -107,7 +107,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *8 @table C3 l11
+  *@table C3 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -117,10 +117,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |comment_at_end:
      |*@comment C1
       |{rawline_arg:\\n}
-     *9 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *10 @~ l11
+     *@~ l11
    *table_entry C1
     *table_term C1
      *@item C1 l12
@@ -144,7 +144,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *11 @table C3 l15
+  *@table C3 l15
   |INFO
   |spaces_before_argument:
    |{ }
@@ -153,10 +153,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{ \\n}
-     *12 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *13 @~ l15
+     *@~ l15
    *table_entry C1
     *table_term C1
      *@item C1 l16
@@ -180,7 +180,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *14 @table C3 l19
+  *@table C3 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -189,10 +189,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *15 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *16 @ringaccent l19
+     *@ringaccent l19
    *table_entry C1
     *table_term C1
      *@item C1 l20
@@ -216,7 +216,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *17 @table C3 l23
+  *@table C3 l23
   |INFO
   |spaces_before_argument:
    |{ }
@@ -225,10 +225,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *18 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *19 @ringaccent C1 l23
+     *@ringaccent C1 l23
       *brace_container
    *table_entry C1
     *table_term C1
@@ -253,7 +253,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *20 @table C3 l27
+  *@table C3 l27
   |INFO
   |spaces_before_argument:
    |{ }
@@ -262,10 +262,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *21 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *22 @ringaccent C1 l27
+     *@ringaccent C1 l27
       *brace_container C1
        {a}
    *table_entry C1

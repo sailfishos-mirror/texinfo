@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'texinfo_command_alias_indirect'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mystrong}
   |misc_args:A{arg}

@@ -17,11 +17,11 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E6]
- |node_directions:D[next->E7]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C4
    *line_arg C1
@@ -41,14 +41,14 @@ NodeForward: [U1]
    |EXTRA
    |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
    |normalized:{GNU-manuals}
-    *1 @acronym C2 l1
+    *@acronym C2 l1
      *brace_arg C1
       {GNU}
      *brace_arg C2
      |INFO
      |spaces_before_argument:
       |{ }
-      *2 @acronym C1 l1
+      *@acronym C1 l1
        *brace_arg C1
         {GNU}
       {\'s Not Unix}
@@ -62,19 +62,19 @@ NodeForward: [U1]
    |EXTRA
    |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
    |normalized:{GNU-manuals}
-    *3 @acronym C2 l1
+    *@acronym C2 l1
      *brace_arg C1
       {GNU}
      *brace_arg C2
      |INFO
      |spaces_before_argument:
       |{ }
-      *4 @acronym C1 l1
+      *@acronym C1 l1
        *brace_arg C1
         {GNU}
       {\'s Not Unix}
     { manuals}
- *5 @top C4 l2 {internal top node up}
+ *1 @top C4 l2 {internal top node up}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ NodeForward: [U1]
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
@@ -94,7 +94,7 @@ NodeForward: [U1]
     |{\\n}
     {internal top node up}
   {empty_line:\\n}
-  *6 @menu C3 l4
+  *2 @menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -123,7 +123,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit[E7]
+U1 unit[E3]
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -131,7 +131,7 @@ Back: [U0]
 FastBack: [U0]
 NodePrev: [U0]
 NodeBack: [U0]
- *7 @node C1 l8 {chap}
+ *3 @node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -164,14 +164,14 @@ NodeBack: [U0]
    |EXTRA
    |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
    |normalized:{GNU-manuals}
-    *8 @acronym C2 l8
+    *@acronym C2 l8
      *brace_arg C1
       {GNU}
      *brace_arg C2
      |INFO
      |spaces_before_argument:
       |{ }
-      *9 @acronym C1 l8
+      *@acronym C1 l8
        *brace_arg C1
         {GNU}
       {\'s Not Unix}

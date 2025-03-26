@@ -6,32 +6,32 @@ use utf8;
 
 $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
    *arguments_line C3
     *block_line_arg C13
      {some  thing }
-     *1 @^ C1 l1
+     *@^ C1 l1
       *following_arg C1
        {e}
      { }
-     *2 @TeX C1 l1
+     *@TeX C1 l1
       *brace_container
      { }
-     *3 @exclamdown C1 l1
+     *@exclamdown C1 l1
       *brace_container
      { }
-     *4 @code C1 l1
+     *@code C1 l1
       *brace_container C1
        {---}
      { }
-     *5 @enddots C1 l1
+     *@enddots C1 l1
       *brace_container
      { !_- _---_ < " & }
      *@ 
-     *6 @comma C1 l1
+     *@comma C1 l1
       *brace_container
     *block_line_arg C1
      *@@

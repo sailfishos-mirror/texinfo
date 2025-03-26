@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_end_call_in_ignored_inlinefmt'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{startfmt}
   |misc_args:A{}
@@ -33,7 +33,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmt'} = '*document_root C1
     >|INFO
     >|command_name:{startfmt}
      >*brace_arg
-   *1 @inlinefmt C2 l5:@startfmt
+   *@inlinefmt C2 l5:@startfmt
    |EXTRA
    |format:{tex}
     *brace_arg C1

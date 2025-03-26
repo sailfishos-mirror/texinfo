@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C6 l1
+  *@macro C6 l1
   |EXTRA
   |macro_name:{truc}
   |misc_args:A{}
@@ -36,7 +36,7 @@ $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
     >|INFO
     >|command_name:{truc}
      >*brace_arg
-   *1 @macro C3 l8:@truc
+   *@macro C3 l8:@truc
    |EXTRA
    |macro_name:{bidule}
    |misc_args:A{}

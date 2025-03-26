@@ -21,7 +21,7 @@ $result_tree_text{'footnote_in_ref'} = '*document_root C2
     {first}
   {empty_line:\\n}
   *paragraph C1
-   *1 @xref C2 l3
+   *@xref C2 l3
     *brace_arg C1
      {first}
     *brace_arg C3
@@ -29,7 +29,7 @@ $result_tree_text{'footnote_in_ref'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {Text}
-     *2 @footnote C1 l3
+     *@footnote C1 l3
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C3

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
  *before_node_section C40
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     |comment_at_end:
      |*@c C1
       |{rawline_arg: comm\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C2 l2
@@ -37,7 +37,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *2 @itemize C3 l5
+  *@itemize C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *3 @itemize C3 l9
+  *@itemize C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
      |{ }
-     *4 @bullet l9
+     *@bullet l9
    *@item C2 l10
    |EXTRA
    |item_number:{1}
@@ -99,7 +99,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *5 @itemize C3 l13
+  *@itemize C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -111,7 +111,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
      |{ }
-     *6 @bullet C1 l13
+     *@bullet C1 l13
       *brace_container
    *@item C2 l14
    |EXTRA
@@ -131,7 +131,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *7 @enumerate C3 l17
+  *@enumerate C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -161,7 +161,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *8 @enumerate C3 l21
+  *@enumerate C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -194,7 +194,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *9 @table C3 l25
+  *@table C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -206,7 +206,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
       |{rawline_arg: table\\n}
     |spaces_after_argument:
      |{ }
-     *10 @asis l25
+     *@asis l25
    *table_entry C1
     *table_term C1
      *@item C1 l26
@@ -230,7 +230,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *11 @quotation C3 l29
+  *@quotation C3 l29
   |INFO
   |spaces_before_argument:
    |{ }
@@ -254,7 +254,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *12 @quotation C3 l33
+  *@quotation C3 l33
   |INFO
   |spaces_before_argument:
    |{ }
@@ -281,7 +281,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *13 @group C3 l37
+  *@group C3 l37
   |INFO
   |spaces_before_argument:
    |{ }
@@ -305,7 +305,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {group}
   {empty_line:\\n}
-  *14 @example C3 l41
+  *@example C3 l41
   |INFO
   |spaces_before_argument:
    |{ }
@@ -329,14 +329,14 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *15 @example C3 l45
+  *@example C3 l45
   |INFO
   |spaces_before_argument:
    |{ }
    *arguments_line C2
     *block_line_arg C3
      {in }
-     *16 @code C1 l45
+     *@code C1 l45
       *brace_container C1
        {first}
      { arg}
@@ -364,7 +364,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *17 @example C3 l49
+  *@example C3 l49
   |INFO
   |spaces_before_argument:
    |{ }
@@ -400,7 +400,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *18 @example C3 l53
+  *@example C3 l53
   |INFO
   |spaces_before_argument:
    |{ }
@@ -438,7 +438,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *19 @display C3 l57
+  *@display C3 l57
   |INFO
   |spaces_before_argument:
    |{ }
@@ -462,7 +462,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {display}
   {empty_line:\\n}
-  *20 @multitable C3 l61
+  *@multitable C3 l61
   |INFO
   |spaces_before_argument:
    |{ }
@@ -512,7 +512,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *21 @multitable C3 l65
+  *@multitable C3 l65
   |INFO
   |spaces_before_argument:
    |{ }
@@ -559,7 +559,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *22 @float C3 l69
+  *0 @float C3 l69
   |INFO
   |spaces_before_argument:
    |{ }
@@ -594,7 +594,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *23 @flushright C3 l73
+  *@flushright C3 l73
   |INFO
   |spaces_before_argument:
    |{ }
@@ -618,7 +618,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {flushright}
   {empty_line:\\n}
-  *24 @raggedright C3 l77
+  *@raggedright C3 l77
   |INFO
   |spaces_before_argument:
    |{ }

@@ -92,169 +92,169 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
     {chapter}
   {empty_line:\\n}
   *paragraph C12
-   *4 @code C1 l9
+   *@code C1 l9
     *brace_container C1
      {c--ode}
    {, }
-   *5 @dfn C1 l9
+   *@dfn C1 l9
     *brace_container C1
      {d--fn}
    {, }
-   *6 @var C1 l9
+   *@var C1 l9
     *brace_container C1
      {v--ar}
    {, }
-   *7 @strong C1 l9
+   *@strong C1 l9
     *brace_container C1
      {s--trong}
    {, }
-   *8 @kbd C1 l9
+   *@kbd C1 l9
     *brace_container C1
      {k--bd}
    {, }
-   *9 @samp C1 l9
+   *@samp C1 l9
     *brace_container C1
      {s--amp}
    {.\\n}
   {empty_line:\\n}
   *paragraph C12
-   *10 @code C1 l11
+   *@code C1 l11
     *brace_container C1
-     *11 @dfn C1 l11
+     *@dfn C1 l11
       *brace_container C1
        {d--fn in code}
    {\\n}
-   *12 @var C1 l12
+   *@var C1 l12
     *brace_container C1
-     *13 @code C1 l12
+     *@code C1 l12
       *brace_container C1
        {c--ode in var}
    {\\n}
-   *14 @code C1 l13
+   *@code C1 l13
     *brace_container C1
-     *15 @var C1 l13
+     *@var C1 l13
       *brace_container C1
        {v--ar in code}
    {\\n}
-   *16 @strong C1 l14
+   *@strong C1 l14
     *brace_container C1
-     *17 @kbd C1 l14
+     *@kbd C1 l14
       *brace_container C1
        {k--bd in strong}
    {\\n}
-   *18 @samp C1 l15
+   *@samp C1 l15
     *brace_container C1
-     *19 @strong C1 l15
+     *@strong C1 l15
       *brace_container C1
        {s--trong in samp}
    {\\n}
-   *20 @strong C1 l16
+   *@strong C1 l16
     *brace_container C1
-     *21 @samp C1 l16
+     *@samp C1 l16
       *brace_container C1
        {s--amp in strong}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *22 @cite C1 l18
+   *@cite C1 l18
     *brace_container C1
      {c--ite}
    {\\n}
   {empty_line:\\n}
   *paragraph C4
-   *23 @code C1 l20
+   *@code C1 l20
     *brace_container C1
-     *24 @cite C1 l20
+     *@cite C1 l20
       *brace_container C1
        {c--ite in code}
    {\\n}
-   *25 @cite C1 l21
+   *@cite C1 l21
     *brace_container C1
-     *26 @code C1 l21
+     *@code C1 l21
       *brace_container C1
        {c--ode in cite}
    {\\n}
   {empty_line:\\n}
   *paragraph C8
-   *27 @code C1 l23
+   *@code C1 l23
     *brace_container C1
      {c--ode}
    { }
-   *28 @slanted C1 l23
+   *@slanted C1 l23
     *brace_container C1
      {s--lanted}
    { }
-   *29 @b C1 l23
+   *@b C1 l23
     *brace_container C1
      {b--}
    { }
-   *30 @t C1 l23
+   *@t C1 l23
     *brace_container C1
      {t--}
    {\\n}
   {empty_line:\\n}
   *paragraph C16
-   *31 @code C1 l25
+   *@code C1 l25
     *brace_container C1
-     *32 @slanted C1 l25
+     *@slanted C1 l25
       *brace_container C1
        {s--lanted in code}
    {\\n}
-   *33 @slanted C1 l26
+   *@slanted C1 l26
     *brace_container C1
-     *34 @code C1 l26
+     *@code C1 l26
       *brace_container C1
        {c--ode in slanted}
    {\\n}
-   *35 @b C1 l27
+   *@b C1 l27
     *brace_container C1
-     *36 @slanted C1 l27
+     *@slanted C1 l27
       *brace_container C1
        {s--lanted in b}
    {\\n}
-   *37 @slanted C1 l28
+   *@slanted C1 l28
     *brace_container C1
-     *38 @b C1 l28
+     *@b C1 l28
       *brace_container C1
        {b-- in slanted}
    {\\n}
-   *39 @t C1 l29
+   *@t C1 l29
     *brace_container C1
-     *40 @slanted C1 l29
+     *@slanted C1 l29
       *brace_container C1
        {s--lanted in t}
    {\\n}
-   *41 @slanted C1 l30
+   *@slanted C1 l30
     *brace_container C1
-     *42 @t C1 l30
+     *@t C1 l30
       *brace_container C1
        {t-- in slanted}
    {\\n}
-   *43 @t C1 l31
+   *@t C1 l31
     *brace_container C1
-     *44 @var C1 l31
+     *@var C1 l31
       *brace_container C1
        {v--ar in t}
    {\\n}
-   *45 @var C1 l32
+   *@var C1 l32
     *brace_container C1
-     *46 @t C1 l32
+     *@t C1 l32
       *brace_container C1
        {t-- in var}
    {\\n}
   {empty_line:\\n}
-  *47 @example C3 l34
+  *@example C3 l34
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C4
-    *48 @var C1 l35
+    *@var C1 l35
      *brace_container C1
       {v--ar in example}
     {\\n}
-    *49 @cite C1 l36
+    *@cite C1 l36
      *brace_container C1
       {c--ite in example}
     {\\n}

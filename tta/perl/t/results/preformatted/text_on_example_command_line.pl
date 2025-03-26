@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'text_on_example_command_line'} = '*document_root C1
  *before_node_section C7
-  *0 @example C2 l1
+  *@example C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'text_on_example_command_line'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *1 @example C3 l4
+  *@example C3 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'text_on_example_command_line'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @example C3 l8
+  *@example C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -72,13 +72,13 @@ $result_tree_text{'text_on_example_command_line'} = '*document_root C1
      |{\\n}
      {example text after end}
   {empty_line:\\n}
-  *3 @example C3 l12
+  *@example C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *4 @example C2 l13
+   *@example C2 l13
     *arguments_line C1
      *block_line_arg
      |INFO

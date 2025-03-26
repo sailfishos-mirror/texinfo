@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'macro_expansion'} = '*document_root C1
  *before_node_section C22
   {empty_line:\\n}
-  *0 @macro C6 l2
+  *@macro C6 l2
   |EXTRA
   |macro_name:{macroone}
   |misc_args:A{arg1|arg2}
@@ -45,7 +45,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{second arg}
-  *1 @verbatim C3 l9:@macroone
+  *@verbatim C3 l9:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,11 +75,11 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|command_name:{macroone}
      >*brace_arg C1
       >{aaa @samp{a macro , } bbb}
-   *2 @samp C1 l11:@macroone
+   *@samp C1 l11:@macroone
     *brace_container C1
      {a macro , }
    { bbb and \\n}
-  *3 @verbatim C3 l11:@macroone
+  *@verbatim C3 l11:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -107,7 +107,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >*macro_call
     >|INFO
     >|command_name:{macroone}
-  *4 @verbatim C3 l13:@macroone
+  *@verbatim C3 l13:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -142,7 +142,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{@macroone{nested second arg}}
-  *5 @verbatim C3 l15:@macroone
+  *@verbatim C3 l15:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -177,7 +177,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{{} \\ }
-  *6 @verbatim C3 l17:@macroone
+  *@verbatim C3 l17:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -215,7 +215,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {now and \\n}
-  *7 @verbatim C5 l23:@macroone
+  *@verbatim C5 l23:@macroone
    *arguments_line C1
     *block_line_arg
     |INFO

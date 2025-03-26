@@ -24,7 +24,7 @@ T}}
   *arguments_line C1
    *line_arg C2
     {in section }
-    *1 @verb C1 l1
+    *@verb C1 l1
     |INFO
     |delimiter:{T}
      *brace_container C3

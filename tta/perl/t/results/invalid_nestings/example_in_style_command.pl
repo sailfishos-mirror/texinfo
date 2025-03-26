@@ -7,10 +7,10 @@ use utf8;
 $result_tree_text{'example_in_style_command'} = '*document_root C1
  *before_node_section C2
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      {\\n}
-  *1 @example C3 l2
+  *@example C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO

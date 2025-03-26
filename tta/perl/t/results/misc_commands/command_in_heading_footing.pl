@@ -28,7 +28,7 @@ $result_tree_text{'command_in_heading_footing'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {In code }
-   *0 @code C1 l5
+   *@code C1 l5
     *brace_container C1
      *@thissection
    {.\\n}

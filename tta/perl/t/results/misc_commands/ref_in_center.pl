@@ -87,7 +87,7 @@ $result_tree_text{'ref_in_center'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @ref C1 l7
+    *@ref C1 l7
      *brace_arg C1
      |EXTRA
      |node_content:{Top}
@@ -99,7 +99,7 @@ $result_tree_text{'ref_in_center'} = '*document_root C5
   |spaces_before_argument:
    |{ }
    *line_arg C1
-    *5 @ref C3 l9
+    *@ref C3 l9
      *brace_arg C1
       {Top}
      *brace_arg

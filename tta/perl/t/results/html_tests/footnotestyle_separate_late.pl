@@ -37,7 +37,7 @@ NodeForward: [U1]
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E6]
+ |section_childs:EC[E3|E5]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -75,7 +75,7 @@ NodeBack: [U0]
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{chap-f}
   *arguments_line C1
    *line_arg C1
@@ -90,10 +90,10 @@ NodeBack: [U0]
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E6|up->E1]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -102,7 +102,7 @@ NodeBack: [U0]
     {Chapter f}
   {empty_line:\\n}
   *paragraph C2
-   *4 @footnote C1 l7
+   *@footnote C1 l7
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -110,7 +110,7 @@ NodeBack: [U0]
       {in fchap 1}
    {\\n}
   {empty_line:\\n}
-U2 unit[E5]
+U2 unit[E4]
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -121,13 +121,13 @@ Up: [U0]
 NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
- *5 @node C1 l9 {chap s}
+ *4 @node C1 l9 {chap s}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |normalized:{chap-s}
@@ -137,13 +137,13 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
     {chap s}
- *6 @chapter C5 l10 {Chapter s}
+ *5 @chapter C5 l10 {Chapter s}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -156,7 +156,7 @@ NodeBack: [U1]
     {Chapter s}
   {empty_line:\\n}
   *paragraph C2
-   *7 @footnote C1 l12
+   *@footnote C1 l12
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C1

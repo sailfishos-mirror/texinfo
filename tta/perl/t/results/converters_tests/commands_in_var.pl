@@ -79,33 +79,33 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
     {chap}
   {empty_line:\\n}
   *paragraph C1
-   *4 @var C1 l7
+   *@var C1 l7
     *brace_container C38
      {a }
-     *5 @~ C1 l7
+     *@~ C1 l7
       *following_arg C1
        {n}
      { }
-     *6 @aa C1 l7
+     *@aa C1 l7
       *brace_container
      { }
-     *7 @TeX C1 l7
+     *@TeX C1 l7
       *brace_container
      { }
-     *8 @image C1 l7
+     *@image C1 l7
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {myimage}
      { }
-     *9 @ref C1 l7
+     *@ref C1 l7
       *brace_arg C1
       |EXTRA
       |node_content:{chap}
       |normalized:{chap}
        {chap}
      { }
-     *10 @xref C1 l7
+     *@xref C1 l7
       *brace_arg C4
       |EXTRA
       |manual_content:{f}
@@ -115,7 +115,7 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        {)}
        {node}
      {\\n}
-     *11 @ref C4 l8
+     *@ref C4 l8
       *brace_arg C1
       |EXTRA
       |node_content:{ext}
@@ -126,7 +126,7 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
       *brace_arg C1
        {argf}
      { }
-     *12 @inlinefmtifelse C3 l8
+     *@inlinefmtifelse C3 l8
      |EXTRA
      |expand_index:{2}
      |format:{latex}
@@ -135,51 +135,51 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
       *elided_brace_command_arg C1
        {raw:}
       *brace_arg C1
-       *13 @verb C1 l8
+       *@verb C1 l8
        |INFO
        |delimiter:{!}
         *brace_container C1
          {raw:inverb}
      { }
-     *14 @anchor C1 l8
+     *4 @anchor C1 l8
      |EXTRA
      |is_target:{1}
      |normalized:{inanchor}
       *brace_arg C1
        {inanchor}
      {spaces_after_close_brace: }
-     *15 @hyphenation C1 l8
+     *@hyphenation C1 l8
      |EXTRA
      |global_command_number:{1}
       *brace_arg C1
        {hyphena-te}
      {spaces_after_close_brace:\\n}
-     *16 @U C1 l9
+     *@U C1 l9
       *brace_arg C1
        {00ff}
      { }
-     *17 @math C1 l9
+     *@math C1 l9
       *brace_command_context C1
        {ma+th}
      { }
-     *18 @footnote C1 l9
+     *@footnote C1 l9
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C1
        *paragraph C1
         {infootnote}
      { }
-     *19 @url C1 l9
+     *@url C1 l9
       *brace_arg C1
        {la}
      { }
-     *20 @url C2 l9
+     *@url C2 l9
       *brace_arg C1
        {a}
       *brace_arg C1
        {b}
      { }
-     *21 @url C2 l9
+     *@url C2 l9
       *brace_arg
       |INFO
       |spaces_before_argument:
@@ -187,13 +187,13 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
       *brace_arg C1
        {lb}
      {\\n}
-     *22 @url C3 l10
+     *@url C3 l10
       *brace_arg
       *brace_arg
       *brace_arg C1
        {c}
      { }
-     *23 @email C2 l10
+     *@email C2 l10
       *brace_arg C3
        {a}
        *@@
@@ -204,7 +204,7 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        |{ }
        {e}
      { }
-     *24 @abbr C2 l10
+     *@abbr C2 l10
       *brace_arg C1
        {ab}
       *brace_arg C1

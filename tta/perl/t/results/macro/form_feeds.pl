@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'form_feeds'} = '*document_root C1
  *before_node_section C11
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{a|b}
@@ -25,7 +25,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{oneargmacro}
   |misc_args:A{c}

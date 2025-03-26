@@ -8,7 +8,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *paragraph C2
-   *0 @file C1 l2
+   *@file C1 l2
     *brace_container C2
      {\\n}
      >SOURCEMARKS

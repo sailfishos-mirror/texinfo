@@ -37,7 +37,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
      {(}
      {f}
      {)}
-     *2 @asis C1 l4
+     *@asis C1 l4
       *brace_container C1
        {a:}
     {menu_entry_separator:::}
@@ -47,7 +47,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
-     *3 @asis C1 l5
+     *@asis C1 l5
       *brace_container C1
        {name:}
     {menu_entry_separator:: }
@@ -77,7 +77,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
      {(}
      {f}
      {)}
-     *4 @asis C1 l6
+     *@asis C1 l6
       *brace_container C1
        {node. }
     {menu_entry_separator:. }
@@ -97,7 +97,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
      {(}
      {f}
      {)}
-     *5 @asis C1 l7
+     *@asis C1 l7
       *brace_container C1
        {node,n}
     {menu_entry_separator:. }
@@ -117,7 +117,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
      {(}
      {f}
      {)}
-     *6 @asis C1 l8
+     *@asis C1 l8
       *brace_container C1
        {node\\tn}
     {menu_entry_separator:. }

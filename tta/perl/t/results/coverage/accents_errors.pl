@@ -8,14 +8,14 @@ $result_tree_text{'accents_errors'} = '*document_root C1
  *before_node_section C3
   *paragraph C10
    {accent at end of line }
-   *0 @ringaccent C1 l1
+   *@ringaccent C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
     *following_arg C1
      {a}
    {ccent at end of line and spaces }
-   *1 @ringaccent C1 l2
+   *@ringaccent C1 l2
    |INFO
    |spaces_after_cmd_before_arg:
     |{  \\n}
@@ -24,13 +24,13 @@ $result_tree_text{'accents_errors'} = '*document_root C1
    {ccent followed by }
    *@@
    { }
-   *2 @ringaccent l3
+   *@ringaccent l3
    *@.
    {\\n}
   {empty_line:\\n}
   *paragraph C11
    {accent character with spaces }
-   *3 @~ C1 l5
+   *@~ C1 l5
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'accents_errors'} = '*document_root C1
      {f}
    {ollowing.\\n}
    {accent character at end of line }
-   *4 @~ C1 l6
+   *@~ C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -47,7 +47,7 @@ $result_tree_text{'accents_errors'} = '*document_root C1
    {ccent character followed by }
    *@@
    { }
-   *5 @~ l7
+   *@~ l7
    *@.
    {\\n}
 ';

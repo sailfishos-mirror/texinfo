@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_item_itemx'} = '*document_root C1
  *before_node_section C1
-  *0 @vtable C6 l1
+  *@vtable C6 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *before_item C3
     {empty_line:\\n}
     *paragraph C1

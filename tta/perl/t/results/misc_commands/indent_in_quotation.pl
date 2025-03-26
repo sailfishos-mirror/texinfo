@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'indent_in_quotation'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C5 l1
+  *@quotation C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO

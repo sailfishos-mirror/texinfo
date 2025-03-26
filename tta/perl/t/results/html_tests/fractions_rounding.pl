@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'fractions_rounding'} = '*document_root C1
  *before_node_section C1
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{1}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *1 @code C1 l3
+       *@code C1 l3
         *brace_container C2
          *@@
          {chapter}
@@ -71,7 +71,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{2}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *2 @code C1 l3
+       *@code C1 l3
         *brace_container C2
          *@@
          {unnumbered}
@@ -81,7 +81,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{3}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *3 @code C1 l3
+       *@code C1 l3
         *brace_container C2
          *@@
          {appendix}
@@ -91,7 +91,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{4}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *4 @code C1 l3
+       *@code C1 l3
         *brace_container C2
          *@@
          {chapheading}

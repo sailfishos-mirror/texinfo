@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_name_with_digit'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{macro1}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{macro11}
   |misc_args:A{arg}

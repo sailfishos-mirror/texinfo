@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'long_uref_after_item'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C3 l1
+  *@itemize C3 l1
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C2 l2
@@ -20,7 +20,7 @@ $result_tree_text{'long_uref_after_item'} = '*document_root C1
    |item_number:{1}
     {ignorable_spaces_after_command:\\n}
     *paragraph C2
-     *2 @uref C1 l3
+     *@uref C1 l3
       *brace_arg C1
        {http://foo.org/some/long/url/which/goes/past/eighty/columns/and/has/no/alternative/text.html}
      {\\n}

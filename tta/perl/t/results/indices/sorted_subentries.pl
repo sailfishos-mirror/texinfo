@@ -411,7 +411,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E4]
   |index_entry:I{cp,14}
    *line_arg C3
-    *6 @samp C1 l24
+    *@samp C1 l24
      *brace_container C1
       {hhh}
     {ignorable_spaces_before_command: }
@@ -435,7 +435,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E4]
   |index_entry:I{cp,15}
    *line_arg C3
-    *7 @kbd C1 l25
+    *@kbd C1 l25
      *brace_container C1
       {hhh}
     {ignorable_spaces_before_command: }
@@ -446,7 +446,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
     |EXTRA
     |subentry_level:{1}
      *line_arg C3
-      *8 @sc C1 l25
+      *@sc C1 l25
        *brace_container C1
         {jjj}
       {ignorable_spaces_before_command: }
@@ -460,7 +460,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *9 @email C2 l25
+        *@email C2 l25
          *brace_arg C1
           {jjj}
          *brace_arg C1
@@ -518,7 +518,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
         |{\\n}
         {lll}
         {spaces_at_end: }
-        *10 @sortas C1 l27
+        *@sortas C1 l27
          *brace_arg C1
           {A}
   *index_entry_command@cindex C1 l28

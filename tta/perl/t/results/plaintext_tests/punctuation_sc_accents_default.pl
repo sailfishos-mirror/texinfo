@@ -86,171 +86,171 @@ $result_tree_text{'punctuation_sc_accents_default'} = '*document_root C5
    {``in double q\'\'. `in simple q\'.\\n}
   {empty_line:\\n}
   *paragraph C14
-   *4 @\' C1 punctuation_small_case_accents_utf8.texi:l11
+   *@\' C1 punctuation_small_case_accents_utf8.texi:l11
     *following_arg C1
      {e}
    {, --- }
-   *5 @dfn C1 punctuation_small_case_accents_utf8.texi:l11
+   *@dfn C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container C1
      {def}
    { -- }
-   *6 @code C1 punctuation_small_case_accents_utf8.texi:l11
+   *@code C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container C1
      {in code}
    {. }
-   *7 @samp C1 punctuation_small_case_accents_utf8.texi:l11
+   *@samp C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container C1
      {in samp}
    { aé. }
-   *8 @comma C1 punctuation_small_case_accents_utf8.texi:l11
+   *@comma C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container
    { }
-   *9 @exclamdown C1 punctuation_small_case_accents_utf8.texi:l11
+   *@exclamdown C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container
    {. }
-   *10 @dots C1 punctuation_small_case_accents_utf8.texi:l11
+   *@dots C1 punctuation_small_case_accents_utf8.texi:l11
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C26
-   *11 @geq C1 punctuation_small_case_accents_utf8.texi:l13
+   *@geq C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    { }
-   *12 @enddots C1 punctuation_small_case_accents_utf8.texi:l13
+   *@enddots C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    { }
-   *13 @AA C1 punctuation_small_case_accents_utf8.texi:l13
+   *@AA C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    { }
-   *14 @\' C1 punctuation_small_case_accents_utf8.texi:l13
+   *@\' C1 punctuation_small_case_accents_utf8.texi:l13
     *following_arg C1
      {e}
    { }
-   *15 @dotaccent C1 punctuation_small_case_accents_utf8.texi:l13
+   *@dotaccent C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container C1
      {A}
    { }
-   *16 @l C1 punctuation_small_case_accents_utf8.texi:l13
+   *@l C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    {. }
-   *17 @copyright C1 punctuation_small_case_accents_utf8.texi:l13
+   *@copyright C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    {. }
-   *18 @error C1 punctuation_small_case_accents_utf8.texi:l13
+   *@error C1 punctuation_small_case_accents_utf8.texi:l13
     *brace_container
    {.\\n}
-   *19 @quotedblleft C1 punctuation_small_case_accents_utf8.texi:l14
+   *@quotedblleft C1 punctuation_small_case_accents_utf8.texi:l14
     *brace_container
    { in quotes }
-   *20 @quotedblright C1 punctuation_small_case_accents_utf8.texi:l14
+   *@quotedblright C1 punctuation_small_case_accents_utf8.texi:l14
     *brace_container
    {. }
-   *21 @expansion C1 punctuation_small_case_accents_utf8.texi:l14
+   *@expansion C1 punctuation_small_case_accents_utf8.texi:l14
     *brace_container
    {\\n}
-   *22 @minus C1 punctuation_small_case_accents_utf8.texi:l15
+   *@minus C1 punctuation_small_case_accents_utf8.texi:l15
     *brace_container
    { }
-   *23 @registeredsymbol C1 punctuation_small_case_accents_utf8.texi:l15
+   *@registeredsymbol C1 punctuation_small_case_accents_utf8.texi:l15
     *brace_container
    {\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C26
-   *24 @u C1 punctuation_small_case_accents_utf8.texi:l18
+   *@u C1 punctuation_small_case_accents_utf8.texi:l18
     *brace_container C1
      {--a}
    {\\n}
-   *25 @^ C1 punctuation_small_case_accents_utf8.texi:l19
+   *@^ C1 punctuation_small_case_accents_utf8.texi:l19
     *brace_container C1
      {--a}
    {\\n}
-   *26 @aa C1 punctuation_small_case_accents_utf8.texi:l20
+   *@aa C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container
    { }
-   *27 @AA C1 punctuation_small_case_accents_utf8.texi:l20
+   *@AA C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container
    { }
-   *28 @^ C1 punctuation_small_case_accents_utf8.texi:l20
+   *@^ C1 punctuation_small_case_accents_utf8.texi:l20
     *following_arg C1
      {e}
    { }
-   *29 @^ C1 punctuation_small_case_accents_utf8.texi:l20
+   *@^ C1 punctuation_small_case_accents_utf8.texi:l20
     *following_arg C1
      {E}
    { }
-   *30 @~ C1 punctuation_small_case_accents_utf8.texi:l20
+   *@~ C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container C1
-     *31 @dotless C1 punctuation_small_case_accents_utf8.texi:l20
+     *@dotless C1 punctuation_small_case_accents_utf8.texi:l20
       *brace_container C1
        {i}
    { }
-   *32 @dotless C1 punctuation_small_case_accents_utf8.texi:l20
+   *@dotless C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container C1
      {i}
    { }
-   *33 @udotaccent C1 punctuation_small_case_accents_utf8.texi:l20
+   *@udotaccent C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container C1
      {r}
    { }
-   *34 @v C1 punctuation_small_case_accents_utf8.texi:l20
+   *@v C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container C1
-     *35 @\' C1 punctuation_small_case_accents_utf8.texi:l20
+     *@\' C1 punctuation_small_case_accents_utf8.texi:l20
       *brace_container C1
        {r}
    { }
-   *36 @= C1 punctuation_small_case_accents_utf8.texi:l20
+   *@= C1 punctuation_small_case_accents_utf8.texi:l20
     *brace_container C1
-     *37 @, C1 punctuation_small_case_accents_utf8.texi:l20
+     *@, C1 punctuation_small_case_accents_utf8.texi:l20
       *brace_container C1
-       *38 @~ C1 punctuation_small_case_accents_utf8.texi:l20
+       *@~ C1 punctuation_small_case_accents_utf8.texi:l20
         *brace_container C1
          {n}
    {.\\n}
-   *39 @equiv C1 punctuation_small_case_accents_utf8.texi:l21
+   *@equiv C1 punctuation_small_case_accents_utf8.texi:l21
     *brace_container
    {\\n}
-   *40 @sc C1 punctuation_small_case_accents_utf8.texi:l22
+   *@sc C1 punctuation_small_case_accents_utf8.texi:l22
     *brace_container C17
-     *41 @aa C1 punctuation_small_case_accents_utf8.texi:l22
+     *@aa C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container
      { }
-     *42 @AA C1 punctuation_small_case_accents_utf8.texi:l22
+     *@AA C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container
      { }
-     *43 @^ C1 punctuation_small_case_accents_utf8.texi:l22
+     *@^ C1 punctuation_small_case_accents_utf8.texi:l22
       *following_arg C1
        {e}
      { é }
-     *44 @^ C1 punctuation_small_case_accents_utf8.texi:l22
+     *@^ C1 punctuation_small_case_accents_utf8.texi:l22
       *following_arg C1
        {E}
      { }
-     *45 @~ C1 punctuation_small_case_accents_utf8.texi:l22
+     *@~ C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container C1
-       *46 @dotless C1 punctuation_small_case_accents_utf8.texi:l22
+       *@dotless C1 punctuation_small_case_accents_utf8.texi:l22
         *brace_container C1
          {i}
      { }
-     *47 @dotless C1 punctuation_small_case_accents_utf8.texi:l22
+     *@dotless C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container C1
        {i}
      { }
-     *48 @udotaccent C1 punctuation_small_case_accents_utf8.texi:l22
+     *@udotaccent C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container C1
        {r}
      { }
-     *49 @v C1 punctuation_small_case_accents_utf8.texi:l22
+     *@v C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container C1
-       *50 @\' C1 punctuation_small_case_accents_utf8.texi:l22
+       *@\' C1 punctuation_small_case_accents_utf8.texi:l22
         *brace_container C1
          {r}
      { }
-     *51 @= C1 punctuation_small_case_accents_utf8.texi:l22
+     *@= C1 punctuation_small_case_accents_utf8.texi:l22
       *brace_container C1
-       *52 @, C1 punctuation_small_case_accents_utf8.texi:l22
+       *@, C1 punctuation_small_case_accents_utf8.texi:l22
         *brace_container C1
-         *53 @~ C1 punctuation_small_case_accents_utf8.texi:l22
+         *@~ C1 punctuation_small_case_accents_utf8.texi:l22
           *brace_container C1
            {n}
    {.\\n}

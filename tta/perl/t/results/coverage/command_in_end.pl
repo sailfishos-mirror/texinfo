@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'command_in_end'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C4 l1
+  *@quotation C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -22,11 +22,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *1 @code C1 l3
+      *@code C1 l3
        *brace_container C1
         {quotation}
    {empty_line:\\n}
-   *2 @quotation C4 l5
+   *@quotation C4 l5
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -45,11 +45,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
       |spaces_after_argument:
        |{\\n}
        {q}
-       *3 @code C1 l7
+       *@code C1 l7
         *brace_container C1
          {uotation}
     {empty_line:\\n}
-    *4 @quotation C4 l9
+    *@quotation C4 l9
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -68,11 +68,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
        |spaces_after_argument:
         |{\\n}
         {qu}
-        *5 @code C1 l11
+        *@code C1 l11
          *brace_container C1
           {otation}
      {empty_line:\\n}
-     *6 @quotation C10 l13
+     *@quotation C10 l13
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -91,12 +91,12 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         |spaces_after_argument:
          |{\\n}
          {quot}
-         *7 @asis C1 l15
+         *@asis C1 l15
           *brace_container C1
            {atio}
          {n}
       {empty_line:\\n}
-      *8 @quotation C3 l17
+      *@quotation C3 l17
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -115,11 +115,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         |spaces_after_argument:
          |{\\n}
          {q}
-         *9 @asis C1 l19
+         *@asis C1 l19
           *brace_container
          {uotation}
       {empty_line:\\n}
-      *10 @quotation C3 l21
+      *@quotation C3 l21
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -138,11 +138,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         |spaces_after_argument:
          |{\\n}
          {qu}
-         *11 @asis C1 l23
+         *@asis C1 l23
           *brace_container
          {otation}
       {empty_line:\\n}
-      *12 @quotation C3 l25
+      *@quotation C3 l25
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -161,11 +161,11 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         |spaces_after_argument:
          |{\\n}
          {quot}
-         *13 @asis C1 l27
+         *@asis C1 l27
           *brace_container
          {ation}
       {empty_line:\\n}
-      *14 @verbatim C3 l29
+      *@verbatim C3 l29
        *arguments_line C1
         *block_line_arg
         |INFO

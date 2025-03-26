@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'documentdescription'} = '*document_root C2
  *before_node_section C2
-  *0 @documentdescription C3 l1
+  *@documentdescription C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,34 +14,34 @@ $result_tree_text{'documentdescription'} = '*document_root C2
      |{\\n}
    *paragraph C15
     {in }
-    *1 @code C1 l2
+    *@code C1 l2
      *brace_container C1
       {documentdescri---ption}
     { --- }
-    *2 @bullet C1 l2
+    *@bullet C1 l2
      *brace_container
     { }
-    *3 @enddots C1 l2
+    *@enddots C1 l2
      *brace_container
     { }
-    *4 @verb C1 l2
+    *@verb C1 l2
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:"verb}
     { }
-    *5 @aa C1 l2
+    *@aa C1 l2
      *brace_container
     { }
-    *6 @^ C1 l2
+    *@^ C1 l2
      *brace_container C1
-      *7 @dotless C1 l2
+      *@dotless C1 l2
        *brace_container C1
         {i}
     { }
-    *8 @email C1 l2
+    *@email C1 l2
      *brace_arg C2
-      *9 @code C1 l2
+      *@code C1 l2
        *brace_container C1
         {some}
       {body}
@@ -58,7 +58,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
      |{\\n}
      {documentdescription}
   {empty_line:\\n}
- *10 @top C1 l5 {top}
+ *0 @top C1 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E10]
+  ||section_childs:EC[E0]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'non_ascii_in_macro_name'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |invalid_syntax:{1}
    *arguments_line C1

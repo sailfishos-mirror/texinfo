@@ -8,7 +8,7 @@ $result_tree_text{'after_punctuation_character_in_command'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {Text.}
-   *0 @asis C1 l1
+   *@asis C1 l1
     *brace_container C2
      {)\\n}
      {follows}

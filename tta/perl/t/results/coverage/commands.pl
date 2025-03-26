@@ -9,25 +9,25 @@ $result_tree_text{'commands'} = '*document_root C1
   *paragraph C13
    *@@
    { }
-   *0 @TeX C1 l1
+   *@TeX C1 l1
     *brace_container
    { }
    *@\\n
-   *1 @" C1 l2
+   *@" C1 l2
     *following_arg C1
      {e}
    { }
-   *2 @^ C1 l2
+   *@^ C1 l2
     *brace_container C1
-     *3 @dotless C1 l2
+     *@dotless C1 l2
       *brace_container C1
        {i}
    { }
-   *4 @~ C1 l2
+   *@~ C1 l2
     *brace_container C1
      {a}
    { }
-   *5 @ringaccent C1 l2
+   *@ringaccent C1 l2
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -36,17 +36,17 @@ $result_tree_text{'commands'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C10
-   *6 @clicksequence C1 l4
+   *@clicksequence C1 l4
     *brace_container C3
      {File }
-     *7 @click C1 l4
+     *@click C1 l4
      |EXTRA
      |clickstyle:{arrow}
       *brace_container
      { Open}
    *@.
    {\\n}
-   *8 @email C2 l5
+   *@email C2 l5
     *brace_arg C1
      {a}
     *brace_arg C1
@@ -55,12 +55,12 @@ $result_tree_text{'commands'} = '*document_root C1
      |{ }
      {b}
    { }
-   *9 @code C1 l5
+   *@code C1 l5
     *brace_container C1
      {code --- -- \'\' ``}
    {\\n}
    {--- -- \'\' ``. }
-   *10 @sc C1 l6
+   *@sc C1 l6
     *brace_container C1
      {small caps}
    {.\\n}
@@ -77,10 +77,10 @@ $result_tree_text{'commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {index entry ``in text\'\' }
-    *11 @LaTeX C1 l8
+    *@LaTeX C1 l8
      *brace_container
   {empty_line:\\n}
-  *12 @majorheading C1 l10
+  *0 @majorheading C1 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {majorheading }
-    *13 @b C1 l10
+    *@b C1 l10
      *brace_container C1
       {in b}
 ';

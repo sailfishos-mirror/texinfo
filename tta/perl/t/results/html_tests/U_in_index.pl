@@ -91,7 +91,7 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @U C1 l7
+    *@U C1 l7
      *brace_arg C1
       {0131}
     { dotless i}
@@ -108,7 +108,7 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @U C1 l9
+    *@U C1 l9
      *brace_arg C1
       {0074}
     { letter t}
@@ -125,7 +125,7 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @U C1 l11
+    *@U C1 l11
      *brace_arg C1
       {00B5}
     { greek letter mu}

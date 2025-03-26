@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
  *before_node_section C3
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *1 @multitable C4 l5
+  *@multitable C4 l5
   |INFO
   |spaces_before_argument:
    |{ }

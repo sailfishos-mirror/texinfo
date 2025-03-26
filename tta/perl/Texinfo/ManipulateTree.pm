@@ -415,10 +415,13 @@ sub set_element_tree_numbers($$)
 
   if (($builtin_cmdname
        and ($builtin_cmdname eq 'node'
-            or $Texinfo::Commands::brace_commands{$builtin_cmdname}
+            or $builtin_cmdname eq 'caption' or $builtin_cmdname eq 'shortcaption'
+            or $builtin_cmdname eq 'anchor' or $builtin_cmdname eq 'namedanchor'
          or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname}
-            or $Texinfo::Commands::block_commands{$builtin_cmdname}
+            or $builtin_cmdname eq 'float'
+            or $builtin_cmdname eq 'menu'
             or $builtin_cmdname eq 'nodedescription'
+            or $builtin_cmdname eq 'nodedescriptionblock'
             or $builtin_cmdname eq 'xrefname'))
     # no reason for this to happen, but if it does, avoid clobbering
       and not exists($element->{'_number'})) {

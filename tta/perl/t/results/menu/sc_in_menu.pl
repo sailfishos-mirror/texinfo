@@ -31,7 +31,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
-     *2 @sc C1 l5
+     *@sc C1 l5
       *brace_container C1
        {value}
     {menu_entry_separator::}
@@ -39,25 +39,25 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     |EXTRA
     |node_content:{@sc{node}}
     |normalized:{node}
-     *3 @sc C1 l5
+     *@sc C1 l5
       *brace_container C1
        {node}
     {menu_entry_separator:.   }
     *menu_entry_description C1
      *preformatted C2
-      *4 @sc C1 l5
+      *@sc C1 l5
        *brace_container C1
         {descrip tion}
       {\\n}
    *menu_comment C2
     *preformatted C4
      {after_menu_description_line:\\n}
-     *5 @sc C1 l7
+     *@sc C1 l7
       *brace_container C1
        {menu comment}
      {\\n}
      {empty_line:\\n}
-    *6 @example C3 l9
+    *@example C3 l9
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -65,20 +65,20 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
        |{\\n}
      *preformatted C10
       {* }
-      *7 @sc C1 l10
+      *@sc C1 l10
        *brace_container C1
         {menu-example value}
       {:(dir)}
-      *8 @sc C1 l10
+      *@sc C1 l10
        *brace_container C1
         {menu-example node}
       {.   }
-      *9 @sc C1 l10
+      *@sc C1 l10
        *brace_container C1
         {menu-example descrip tion}
       {\\n}
       {empty_line:\\n}
-      *10 @sc C1 l12
+      *@sc C1 l12
        *brace_container C1
         {menu-example comment}
       {\\n}
@@ -105,7 +105,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *11 @node C4 l16 {@sc{node}}
+ *2 @node C4 l16 {@sc{node}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -119,17 +119,17 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *12 @sc C1 l16
+    *@sc C1 l16
      *brace_container C1
       {node}
   {empty_line:\\n}
-  *13 @example C3 l18
+  *@example C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *14 @menu C4 l19
+   *3 @menu C4 l19
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -138,7 +138,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *menu_entry C6 l20
      {menu_entry_leading_text:* }
      *menu_entry_name C1
-      *15 @sc C1 l20
+      *@sc C1 l20
        *brace_container C1
         {example value}
      {menu_entry_separator::}
@@ -150,20 +150,20 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
       {(}
       {dir}
       {)}
-      *16 @sc C1 l20
+      *@sc C1 l20
        *brace_container C1
         {example node}
      {menu_entry_separator:.   }
      *menu_entry_description C1
       *preformatted C2
-       *17 @sc C1 l20
+       *@sc C1 l20
         *brace_container C1
          {example descrip tion}
        {\\n}
     *menu_comment C1
      *preformatted C3
       {after_menu_description_line:\\n}
-      *18 @sc C1 l22
+      *@sc C1 l22
        *brace_container C1
         {example comment}
       {\\n}

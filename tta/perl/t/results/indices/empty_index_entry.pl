@@ -38,7 +38,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 @deffn C2 l5
+  *@deffn C2 l5
   |INFO
   |spaces_before_argument:
    |{ }

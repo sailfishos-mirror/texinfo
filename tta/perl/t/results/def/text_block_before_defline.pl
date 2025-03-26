@@ -79,7 +79,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *4 @defblock C4 l7
+  *@defblock C4 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -88,7 +88,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    *before_defline C6
     *paragraph C3
      {Some text}
-     *5 @footnote C1 l8
+     *@footnote C1 l8
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C1
@@ -96,7 +96,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
         {In footnote}
      {.\\n}
     {empty_line:\\n}
-    *6 @example C3 l10
+    *@example C3 l10
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
        |{\\n}
        {example}
     {empty_line:\\n}
-    *7 @menu C3 l14
+    *4 @menu C3 l14
      *arguments_line C1
       *block_line_arg
       |INFO

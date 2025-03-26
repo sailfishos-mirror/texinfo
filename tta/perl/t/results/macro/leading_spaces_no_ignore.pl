@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'leading_spaces_no_ignore'} = '*document_root C1
  *before_node_section C4
-  *0 @macro C4 l1
+  *@macro C4 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{}

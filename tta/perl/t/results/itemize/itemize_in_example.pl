@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'itemize_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C11 l1
+  *@example C11 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @itemize C3 l2
+   *@itemize C3 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *2 @bullet l2
+      *@bullet l2
     *@item C1 l3
     |EXTRA
     |item_number:{1}
@@ -43,7 +43,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *3 @itemize C3 l8
+   *@itemize C3 l8
    |INFO
    |spaces_before_argument:
     |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *4 @asis l8
+      *@asis l8
     *@item C1 l9
     |EXTRA
     |item_number:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *5 @itemize C3 l12
+   *@itemize C3 l12
    |INFO
    |spaces_before_argument:
     |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *6 @itemize C3 l16
+   *@itemize C3 l16
    |INFO
    |spaces_before_argument:
     |{ }
@@ -130,7 +130,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {itemize}
    *preformatted C1
     {empty_line:\\n}
-   *7 @itemize C3 l20
+   *@itemize C3 l20
    |INFO
    |spaces_before_argument:
     |{ }
@@ -139,7 +139,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *8 @bullet C1 l20
+      *@bullet C1 l20
        *brace_container
       { a--n itemize line}
     *@item C1 l21

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_in_flushright'} = '*document_root C2
  *before_node_section C1
-  *0 @flushright C4 l1
+  *@flushright C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -16,7 +16,7 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
    *paragraph C1
     {text flushed right\\n}
    {empty_line:\\n}
- *1 @section C1 l5 {a section}
+ *0 @section C1 l5 {a section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

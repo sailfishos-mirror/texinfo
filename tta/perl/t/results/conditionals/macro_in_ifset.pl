@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'macro_in_ifset'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{truc}
   |misc_args:A{}

@@ -19,11 +19,11 @@ $result_tree_text{'listoffloats_with_commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {th}
-    *0 @\' C1 l1
+    *@\' C1 l1
      *following_arg C1
       {e}
     {or}
-    *1 @` C1 l1
+    *@` C1 l1
      *following_arg C1
       {e}
     {me}

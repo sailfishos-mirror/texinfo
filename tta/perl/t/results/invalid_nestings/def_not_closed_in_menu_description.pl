@@ -24,7 +24,7 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
     *menu_entry_description C2
      *preformatted C1
       {before deff }
-     *1 @deffn C2 l2
+     *@deffn C2 l2
      |INFO
      |spaces_before_argument:
       |{ }

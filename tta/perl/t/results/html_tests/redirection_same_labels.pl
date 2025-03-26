@@ -38,7 +38,7 @@ NodeForward: [U1]
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E15]
+ |section_childs:EC[E4|E9]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -124,9 +124,9 @@ NodeBack: [U0]
  |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E14|up->E0]
+ |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
- |node_directions:D[next->E14|prev->E0|up->E0]
+ |node_directions:D[next->E8|prev->E0|up->E0]
  |normalized:{umlaut}
   *arguments_line C1
    *line_arg C1
@@ -141,10 +141,10 @@ NodeBack: [U0]
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E15|up->E1]
+ |section_directions:D[next->E9|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E15|prev->E1|up->E1]
+ |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -164,7 +164,7 @@ NodeBack: [U0]
     |EXTRA
     |node_content:{@"i}
     |normalized:{_00ef}
-     *6 @" C1 l16
+     *@" C1 l16
       *following_arg C1
        {i}
     {menu_entry_separator:::}
@@ -177,9 +177,9 @@ NodeBack: [U0]
     |EXTRA
     |node_content:{@~{@dotless{i}}}
     |normalized:{_0129}
-     *7 @~ C1 l17
+     *@~ C1 l17
       *brace_container C1
-       *8 @dotless C1 l17
+       *@dotless C1 l17
         *brace_container C1
          {i}
     {menu_entry_separator:::}
@@ -198,45 +198,45 @@ NodeBack: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C2 l20 {@"i}
+ *6 @node C2 l20 {@"i}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|up->E3]
- |node_directions:D[next->E11|up->E3]
+ |menu_directions:D[next->E7|up->E3]
+ |node_directions:D[next->E7|up->E3]
  |normalized:{_00ef}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *10 @" C1 l20
+    *@" C1 l20
      *following_arg C1
       {i}
   {empty_line:\\n}
- *11 @node C2 l22 {@~{@dotless{i}}}
+ *7 @node C2 l22 {@~{@dotless{i}}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E9|up->E3]
- |node_directions:D[prev->E9|up->E3]
+ |menu_directions:D[prev->E6|up->E3]
+ |node_directions:D[prev->E6|up->E3]
  |normalized:{_0129}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *12 @~ C1 l22
+    *@~ C1 l22
      *brace_container C1
-      *13 @dotless C1 l22
+      *@dotless C1 l22
        *brace_container C1
         {i}
   {empty_line:\\n}
-U2 unit[E15]
+U2 unit[E9]
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -248,16 +248,16 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U2]
- *14 @node C1 l24 {circumflex}
+ *8 @node C1 l24 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
- |associated_title_command:[E15]
+ |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E16]
+ |menus:EC[E10]
  |node_directions:D[prev->E3|up->E0]
  |normalized:{circumflex}
   *arguments_line C1
@@ -266,13 +266,13 @@ NodeBack: [U2]
    |spaces_after_argument:
     |{\\n}
     {circumflex}
- *15 @chapter C4 l25 {circumflex}
+ *9 @chapter C4 l25 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E14]
- |associated_node:[E14]
+ |associated_anchor_command:[E8]
+ |associated_node:[E8]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -284,7 +284,7 @@ NodeBack: [U2]
     |{\\n}
     {circumflex}
   {empty_line:\\n}
-  *16 @menu C3 l27
+  *10 @menu C3 l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -296,7 +296,7 @@ NodeBack: [U2]
     |EXTRA
     |node_content:{@^i}
     |normalized:{_00ee}
-     *17 @^ C1 l28
+     *@^ C1 l28
       *following_arg C1
        {i}
     {menu_entry_separator:::}
@@ -315,21 +315,21 @@ NodeBack: [U2]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *18 @node C1 l31 {@^i}
+ *11 @node C1 l31 {@^i}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E14]
- |node_directions:D[up->E14]
+ |menu_directions:D[up->E8]
+ |node_directions:D[up->E8]
  |normalized:{_00ee}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *19 @^ C1 l31
+    *@^ C1 l31
      *following_arg C1
       {i}
 ';

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{body}
@@ -33,7 +33,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
     >*line_arg C1
      >{}
   *paragraph C3
-   *1 @code C1 l5:@mymacro
+   *@code C1 l5:@mymacro
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container

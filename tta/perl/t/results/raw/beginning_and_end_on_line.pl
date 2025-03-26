@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @tex C2 l2
+  *@tex C2 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
      |{\\n}
      {tex}
   {empty_line:\\n}
-  *1 @verbatim C2 l4
+  *@verbatim C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
      |{\\n}
      {verbatim}
   {empty_line:\\n}
-  *2 @html C2 l6
+  *@html C2 l6
   |INFO
   |spaces_before_argument:
    |{ }

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'double_copying'} = '*document_root C1
  *before_node_section C1
-  *0 @copying C6 l1
+  *@copying C6 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -16,7 +16,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
    *paragraph C1
     {This is a copyright notice\\n}
    {empty_line:\\n}
-   *1 @copying C3 l5
+   *@copying C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO

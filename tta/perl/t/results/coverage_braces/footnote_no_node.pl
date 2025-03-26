@@ -26,7 +26,7 @@ $result_tree_text{'footnote_no_node'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {F}
-   *1 @footnote C1 l3
+   *@footnote C1 l3
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'item_container'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @itemize C3 l2
+  *@itemize C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'item_container'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *1 @itemize C3 l6
+  *@itemize C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *2 @bullet l6
+     *@bullet l6
    *@item C3 l7
    |EXTRA
    |item_number:{1}
@@ -64,13 +64,13 @@ $result_tree_text{'item_container'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *3 @itemize C3 l11
+  *@itemize C3 l11
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @bullet
+     *@bullet
      |INFO
      |inserted:{1}
    *@item C2 l12

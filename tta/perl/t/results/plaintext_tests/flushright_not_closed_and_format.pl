@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
  *before_node_section C1
-  *0 @flushright C4 l1
+  *@flushright C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -15,7 +15,7 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
    *paragraph C1
     {flushright\\n}
    {empty_line:\\n}
-   *1 @quotation C3 l4
+   *@quotation C3 l4
     *arguments_line C1
      *block_line_arg
      |INFO

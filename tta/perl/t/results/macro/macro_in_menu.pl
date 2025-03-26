@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'macro_in_menu'} = '*document_root C1
  *before_node_section C14
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{astar}
   |misc_args:A{}
@@ -26,7 +26,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l6
+  *@macro C3 l6
   |EXTRA
   |macro_name:{starspaces}
   |misc_args:A{}
@@ -45,7 +45,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C3 l10
+  *@macro C3 l10
   |EXTRA
   |macro_name:{spaces}
   |misc_args:A{}
@@ -64,7 +64,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *3 @macro C3 l14
+  *@macro C3 l14
   |EXTRA
   |macro_name:{aspace}
   |misc_args:A{}
@@ -83,7 +83,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *4 @macro C3 l18
+  *@macro C3 l18
   |EXTRA
   |macro_name:{twocolon}
   |misc_args:A{}
@@ -102,7 +102,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *5 @macro C3 l22
+  *@macro C3 l22
   |EXTRA
   |macro_name:{acolon}
   |misc_args:A{}
@@ -121,7 +121,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *6 @menu C8 l26
+  *0 @menu C8 l26
    *arguments_line C1
     *block_line_arg
     |INFO

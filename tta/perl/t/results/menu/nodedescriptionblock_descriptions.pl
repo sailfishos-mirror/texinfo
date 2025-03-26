@@ -30,7 +30,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E12|E15|E19|E23]
+ |section_childs:EC[E4|E8|E11|E14|E18]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -132,10 +132,10 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E11|up->E0]
+ |menu_directions:D[next->E7|up->E0]
  |node_description:[E5]
- |node_directions:D[next->E11|prev->E0|up->E0]
- |node_long_description:[E10]
+ |node_directions:D[next->E7|prev->E0|up->E0]
+ |node_long_description:[E6]
  |normalized:{toto}
   *arguments_line C1
    *line_arg C1
@@ -150,10 +150,10 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E12|up->E1]
+ |section_directions:D[next->E8|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E12|prev->E1|up->E1]
+ |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -172,20 +172,20 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {toto is there:: and the }
-    *6 @emph C1 l16
+    *@emph C1 l16
      *brace_container C1
       {is a description}
-    *7 @w C1 l16
+    *@w C1 l16
      *brace_container C1
       {slightly long}
     { and }
-    *8 @verb C1 l16
+    *@verb C1 l16
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:vv somewhat}
     { }
-    *9 @ringaccent C1 l16
+    *@ringaccent C1 l16
     |INFO
     |spaces_after_cmd_before_arg:
      |{ }
@@ -193,7 +193,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
       {a}
     {nexpected}
   {empty_line:\\n}
-  *10 @nodedescriptionblock C3 l18
+  *6 @nodedescriptionblock C3 l18
   |EXTRA
   |element_node:[E3]
    *arguments_line C1
@@ -215,18 +215,18 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *11 @node C1 l22 {titi}
+ *7 @node C1 l22 {titi}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
- |associated_title_command:[E12]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
- |menu_directions:D[next->E14|prev->E3|up->E0]
- |node_description:[E13]
- |node_directions:D[next->E14|prev->E3|up->E0]
- |node_long_description:[E13]
+ |menu_directions:D[next->E10|prev->E3|up->E0]
+ |node_description:[E9]
+ |node_directions:D[next->E10|prev->E3|up->E0]
+ |node_long_description:[E9]
  |normalized:{titi}
   *arguments_line C1
    *line_arg C1
@@ -234,17 +234,17 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {titi}
- *12 @chapter C4 l23 {Titi}
+ *8 @chapter C4 l23 {Titi}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
- |associated_node:[E11]
- |section_directions:D[next->E15|prev->E4|up->E1]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
+ |section_directions:D[next->E11|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E15|prev->E4|up->E1]
+ |toplevel_directions:D[next->E11|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -252,9 +252,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Titi}
   {empty_line:\\n}
-  *13 @nodedescriptionblock C3 l25
+  *9 @nodedescriptionblock C3 l25
   |EXTRA
-  |element_node:[E11]
+  |element_node:[E7]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -274,18 +274,18 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *14 @node C1 l29 {other}
+ *10 @node C1 l29 {other}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
- |associated_title_command:[E15]
+ |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
- |menu_directions:D[next->E18|prev->E11|up->E0]
- |node_description:[E16]
- |node_directions:D[next->E18|prev->E11|up->E0]
- |node_long_description:[E16]
+ |menu_directions:D[next->E13|prev->E7|up->E0]
+ |node_description:[E12]
+ |node_directions:D[next->E13|prev->E7|up->E0]
+ |node_long_description:[E12]
  |normalized:{other}
   *arguments_line C1
    *line_arg C1
@@ -293,17 +293,17 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {other}
- *15 @chapter C4 l30 {Other}
+ *11 @chapter C4 l30 {Other}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E14]
- |associated_node:[E14]
- |section_directions:D[next->E19|prev->E12|up->E1]
+ |associated_anchor_command:[E10]
+ |associated_node:[E10]
+ |section_directions:D[next->E14|prev->E8|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E19|prev->E12|up->E1]
+ |toplevel_directions:D[next->E14|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -311,9 +311,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Other}
   {empty_line:\\n}
-  *16 @nodedescriptionblock C7 l32
+  *12 @nodedescriptionblock C7 l32
   |EXTRA
-  |element_node:[E14]
+  |element_node:[E10]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -325,7 +325,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    *paragraph C1
     {Para2\\n}
    {empty_line:\\n}
-   *17 @quotation C3 l37
+   *@quotation C3 l37
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -356,18 +356,18 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *18 @node C1 l42 {a somewhat long node without description nor following space}
+ *13 @node C1 l42 {a somewhat long node without description nor following space}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E19]
- |associated_title_command:[E19]
+ |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
- |menu_directions:D[next->E22|prev->E14|up->E0]
- |node_description:[E21]
- |node_directions:D[next->E22|prev->E14|up->E0]
- |node_long_description:[E20]
+ |menu_directions:D[next->E17|prev->E10|up->E0]
+ |node_description:[E16]
+ |node_directions:D[next->E17|prev->E10|up->E0]
+ |node_long_description:[E15]
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
    *line_arg C1
@@ -375,17 +375,17 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {a somewhat long node without description nor following space}
- *19 @chapter C6 l43 {Somewhat long}
+ *14 @chapter C6 l43 {Somewhat long}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E18]
- |associated_node:[E18]
- |section_directions:D[next->E23|prev->E15|up->E1]
+ |associated_anchor_command:[E13]
+ |associated_node:[E13]
+ |section_directions:D[next->E18|prev->E11|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E23|prev->E15|up->E1]
+ |toplevel_directions:D[next->E18|prev->E11|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -393,9 +393,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Somewhat long}
   {empty_line:\\n}
-  *20 @nodedescriptionblock C3 l45
+  *15 @nodedescriptionblock C3 l45
   |EXTRA
-  |element_node:[E18]
+  |element_node:[E13]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -415,30 +415,30 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
-  *21 @nodedescription C1 l49
+  *16 @nodedescription C1 l49
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E18]
+  |element_node:[E13]
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {not as long as the node}
   {empty_line:\\n}
- *22 @node C1 l51 {node double nodedescriptionblock}
+ *17 @node C1 l51 {node double nodedescriptionblock}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E23]
- |associated_title_command:[E23]
+ |associated_section:[E18]
+ |associated_title_command:[E18]
  |is_target:{1}
- |menu_directions:D[prev->E18|up->E0]
- |node_description:[E24]
- |node_directions:D[prev->E18|up->E0]
- |node_long_description:[E24]
+ |menu_directions:D[prev->E13|up->E0]
+ |node_description:[E19]
+ |node_directions:D[prev->E13|up->E0]
+ |node_long_description:[E19]
  |normalized:{node-double-nodedescriptionblock}
   *arguments_line C1
    *line_arg C1
@@ -446,17 +446,17 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {node double nodedescriptionblock}
- *23 @chapter C6 l52 {test double}
+ *18 @chapter C6 l52 {test double}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E22]
- |associated_node:[E22]
- |section_directions:D[prev->E19|up->E1]
+ |associated_anchor_command:[E17]
+ |associated_node:[E17]
+ |section_directions:D[prev->E14|up->E1]
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E19|up->E1]
+ |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -464,9 +464,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {test double}
   {empty_line:\\n}
-  *24 @nodedescriptionblock C3 l54
+  *19 @nodedescriptionblock C3 l54
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E17]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -486,9 +486,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
-  *25 @nodedescriptionblock C3 l58
+  *20 @nodedescriptionblock C3 l58
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E17]
    *arguments_line C1
     *block_line_arg
     |INFO

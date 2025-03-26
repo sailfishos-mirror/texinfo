@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'recursive_linemacro_in_body'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{anorecurse}
   |misc_args:A{arg|other}

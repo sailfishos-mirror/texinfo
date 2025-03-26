@@ -24,7 +24,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
    {para\\n}
    {  fff\\n}
   {empty_line:\\n}
-  *0 @quotation C4 l6
+  *@quotation C4 l6
    *arguments_line C1
     *block_line_arg
     |INFO

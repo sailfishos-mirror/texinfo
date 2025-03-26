@@ -79,7 +79,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 @macro C3 l7
+  *@macro C3 l7
   |EXTRA
   |macro_name:{phooindex}
   |misc_args:A{arg}
@@ -120,7 +120,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phooindex,;,:}
   *paragraph C2
-   *5 definfoenclose_command@phooindex C1 l13
+   *definfoenclose_command@phooindex C1 l13
    |INFO
    |command_name:{phooindex}
    |EXTRA
@@ -142,7 +142,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phooindex = strong}
   *paragraph C2
-   *6 @strong C1 l16
+   *@strong C1 l16
    |INFO
    |alias_of:{phooindex}
     *brace_container C1
@@ -186,7 +186,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phooindex,;,:}
   *paragraph C2
-   *7 definfoenclose_command@phooindex C1 l22
+   *definfoenclose_command@phooindex C1 l22
    |INFO
    |command_name:{phooindex}
    |EXTRA
@@ -196,7 +196,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
      {dee}
    {\\n}
   {empty_line:\\n}
-  *8 @macro C3 l24
+  *@macro C3 l24
   |EXTRA
   |macro_name:{phooindex}
   |misc_args:A{arg}
@@ -252,7 +252,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {igg}
   {empty_line:\\n}
-  *9 @macro C3 l32
+  *@macro C3 l32
   |EXTRA
   |macro_name:{phooindex}
   |misc_args:A{arg}
@@ -295,7 +295,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phooindex = strong}
   *paragraph C2
-   *10 @strong C1 l38
+   *@strong C1 l38
    |INFO
    |alias_of:{phooindex}
     *brace_container C1
@@ -314,7 +314,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phoo,;,:}
   *paragraph C2
-   *11 definfoenclose_command@phoo C1 l41
+   *definfoenclose_command@phoo C1 l41
    |INFO
    |command_name:{phoo}
    |EXTRA
@@ -361,14 +361,14 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     |{\\n}
     {phooindex = strong}
   *paragraph C2
-   *12 @strong C1 l47
+   *@strong C1 l47
    |INFO
    |alias_of:{phooindex}
     *brace_container C1
      {all}
    {\\n}
   {empty_line:\\n}
-  *13 @macro C3 l49
+  *@macro C3 l49
   |EXTRA
   |macro_name:{phooindex}
   |misc_args:A{arg}

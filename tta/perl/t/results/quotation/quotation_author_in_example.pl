@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'quotation_author_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @quotation C3 l2
+   *@quotation C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO

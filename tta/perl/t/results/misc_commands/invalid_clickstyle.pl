@@ -16,7 +16,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *0 @click C1 l4
+   *@click C1 l4
    |EXTRA
    |clickstyle:{result}
     *brace_container
@@ -31,7 +31,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *1 @click C1 l8
+   *@click C1 l8
    |EXTRA
    |clickstyle:{nocmd}
     *brace_container
@@ -45,7 +45,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *2 @click C1 l12
+   *@click C1 l12
    |EXTRA
    |clickstyle:{nocmd}
     *brace_container

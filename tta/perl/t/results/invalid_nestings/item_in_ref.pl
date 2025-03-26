@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'item_in_ref'} = '*document_root C1
  *before_node_section C1
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -32,7 +32,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
       {First item text\\n}
      {empty_line:\\n}
      *paragraph C1
-      *2 @ref C3 l5
+      *@ref C3 l5
        *brace_arg C1
         {Top}
        *brace_arg

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'wrong_braces_simple'} = '*document_root C1
  *before_node_section C9
-  *0 @deffn C2 l1
+  *@deffn C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C2 l4
+  *@deffn C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *2 @deffn C2 l7
+  *@deffn C2 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -157,7 +157,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *3 @deffn C2 l10
+  *@deffn C2 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -211,7 +211,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *4 @deffn C6 l13
+  *@deffn C6 l13
   |INFO
   |spaces_before_argument:
    |{ }

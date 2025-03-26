@@ -7,11 +7,11 @@ use utf8;
 $result_tree_text{'multitable_in_style_command'} = '*document_root C1
  *before_node_section C2
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C2
      {\\n}
      {Multitable\\n}
-  *1 @multitable C3 l3
+  *@multitable C3 l3
   |INFO
   |spaces_before_argument:
    |{ }

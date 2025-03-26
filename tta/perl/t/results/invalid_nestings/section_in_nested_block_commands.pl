@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
  *before_node_section C1
-  *0 @table C2 l1
+  *@table C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @strong l1
+     *@strong l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -31,7 +31,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
      *paragraph C1
       {table line\\n}
      {empty_line:\\n}
-     *2 @quotation C4 l5
+     *@quotation C4 l5
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
       *paragraph C1
        {in quotation\\n}
       {empty_line:\\n}
- *3 @section C1 l9 {a section}
+ *0 @section C1 l9 {a section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

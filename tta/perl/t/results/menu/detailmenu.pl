@@ -27,7 +27,7 @@ $result_tree_text{'detailmenu'} = '*document_root C1
    *menu_comment C1
     *preformatted C1
      {after_menu_description_line:\\n}
-   *1 @detailmenu C3 l5
+   *@detailmenu C3 l5
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1

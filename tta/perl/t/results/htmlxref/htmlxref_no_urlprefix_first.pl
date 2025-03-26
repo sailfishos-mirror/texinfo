@@ -80,7 +80,7 @@ $result_tree_text{'htmlxref_no_urlprefix_first'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C2
-   *4 @xref C4 l7
+   *@xref C4 l7
     *brace_arg
     *brace_arg
     *brace_arg
@@ -89,7 +89,7 @@ $result_tree_text{'htmlxref_no_urlprefix_first'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *5 @xref C4 l9
+   *@xref C4 l9
     *brace_arg
     *brace_arg
     *brace_arg

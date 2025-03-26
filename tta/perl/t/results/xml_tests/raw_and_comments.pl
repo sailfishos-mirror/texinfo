@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'raw_and_comments'} = '*document_root C1
  *before_node_section C3
-  *0 @tex C3 l1
+  *@tex C3 l1
   |INFO
   |spaces_before_argument:
    |{  }
@@ -35,7 +35,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
-   *1 @xml C3 l6
+   *@xml C3 l6
    |INFO
    |spaces_before_argument:
     |{ }

@@ -8,100 +8,100 @@ $result_tree_text{'punctuation_and_upper_case_commands'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
   *paragraph C18
-   *0 @var C1 l2
+   *@var C1 l2
     *brace_container C1
      {aaa}
    {. }
-   *1 @var C1 l2
+   *@var C1 l2
     *brace_container C1
-     *2 @~ C1 l2
+     *@~ C1 l2
       *following_arg C1
        {e}
    {. }
-   *3 @var C1 l2
+   *@var C1 l2
     *brace_container C1
-     *4 @aa C1 l2
+     *@aa C1 l2
       *brace_container
    {.\\n}
-   *5 @var C1 l3
+   *@var C1 l3
     *brace_container C1
      {AAA}
    {. }
-   *6 @var C1 l3
+   *@var C1 l3
     *brace_container C1
-     *7 @~ C1 l3
+     *@~ C1 l3
       *following_arg C1
        {E}
    {. }
-   *8 @var C1 l3
+   *@var C1 l3
     *brace_container C1
-     *9 @AA C1 l3
+     *@AA C1 l3
       *brace_container
    {.\\n}
-   *10 @var C1 l4
+   *@var C1 l4
     *brace_container C1
      {double AAA}
    {.  }
-   *11 @var C1 l4
+   *@var C1 l4
     *brace_container C2
      {double }
-     *12 @~ C1 l4
+     *@~ C1 l4
       *following_arg C1
        {E}
    {. }
-   *13 @var C1 l4
+   *@var C1 l4
     *brace_container C2
      {double }
-     *14 @AA C1 l4
+     *@AA C1 l4
       *brace_container
    {.  End.\\n}
   {empty_line:\\n}
   *paragraph C18
-   *15 @sc C1 l6
+   *@sc C1 l6
     *brace_container C1
      {aaa}
    {. }
-   *16 @sc C1 l6
+   *@sc C1 l6
     *brace_container C1
-     *17 @~ C1 l6
+     *@~ C1 l6
       *following_arg C1
        {e}
    {. }
-   *18 @sc C1 l6
+   *@sc C1 l6
     *brace_container C1
-     *19 @aa C1 l6
+     *@aa C1 l6
       *brace_container
    {.\\n}
-   *20 @sc C1 l7
+   *@sc C1 l7
     *brace_container C1
      {AAA}
    {. }
-   *21 @sc C1 l7
+   *@sc C1 l7
     *brace_container C1
-     *22 @~ C1 l7
+     *@~ C1 l7
       *following_arg C1
        {E}
    {. }
-   *23 @sc C1 l7
+   *@sc C1 l7
     *brace_container C1
-     *24 @AA C1 l7
+     *@AA C1 l7
       *brace_container
    {.\\n}
-   *25 @sc C1 l8
+   *@sc C1 l8
     *brace_container C1
      {double AAA}
    {.  }
-   *26 @sc C1 l8
+   *@sc C1 l8
     *brace_container C2
      {double }
-     *27 @~ C1 l8
+     *@~ C1 l8
       *following_arg C1
        {E}
    {. }
-   *28 @sc C1 l8
+   *@sc C1 l8
     *brace_container C2
      {double }
-     *29 @AA C1 l8
+     *@AA C1 l8
       *brace_container
    {.  End.\\n}
 ';

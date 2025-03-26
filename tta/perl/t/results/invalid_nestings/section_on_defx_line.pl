@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_on_defx_line'} = '*document_root C2
  *before_node_section C1
-  *0 @deffn C2 l1
+  *@deffn C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
      *def_name C1
       *def_line_arg C1
        {b}
- *1 @section C4 l2 {s}
+ *0 @section C4 l2 {s}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

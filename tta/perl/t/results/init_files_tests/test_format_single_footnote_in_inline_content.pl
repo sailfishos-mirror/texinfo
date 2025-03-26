@@ -81,7 +81,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   {empty_line:\\n}
   *paragraph C3
    {a}
-   *4 @footnote C1 l7
+   *@footnote C1 l7
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -91,14 +91,14 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   {empty_line:\\n}
   *paragraph C3
    {b}
-   *5 @footnote C1 l9
+   *@footnote C1 l9
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C3
      *@c C1
       {rawline_arg: an example in the footnote\\n}
      {empty_line:\\n}
-     *6 @example C3 l11
+     *@example C3 l11
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -121,7 +121,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   {empty_line:\\n}
   *paragraph C3
    {c}
-   *7 @footnote C1 l16
+   *@footnote C1 l16
    |INFO
    |spaces_before_argument:
     |{\\n}
@@ -134,14 +134,14 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   {empty_line:\\n}
   *paragraph C3
    {d}
-   *8 @footnote C1 l20
+   *@footnote C1 l20
    |INFO
    |spaces_before_argument:
     |{\\n}
    |EXTRA
    |global_command_number:{4}
     *brace_command_context C1
-     *9 @quotation C4 l21
+     *@quotation C4 l21
      |INFO
      |spaces_before_argument:
       |{ }

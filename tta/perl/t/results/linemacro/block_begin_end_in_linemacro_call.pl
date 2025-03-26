@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
  *before_node_section C19
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a}
@@ -36,7 +36,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >|{ }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@quotation aa\\nin quotation\\n}
-  *1 @quotation C3 l8:@lm
+  *@quotation C3 l8:@lm
   |INFO
   |spaces_before_argument:
    |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *2 @quotation C3 l11
+  *@quotation C3 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -113,7 +113,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >|{ }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@quotation}
-  *3 @quotation C5 l18:@lm
+  *@quotation C5 l18:@lm
   |INFO
   |spaces_before_argument:
    |{ }
@@ -153,7 +153,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >|{ }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@ignore\\nignored }
-   *4 @ignore C5 l26:@lm
+   *@ignore C5 l26:@lm
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >|{ }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@macro mymac {e, f}\\nargs \\e\\|\\f\\|\\n@defline @lm {\\e\\} {\\f\\}\\n}
-   *5 @macro C6 l34:@lm
+   *@macro C6 l34:@lm
    |EXTRA
    |macro_name:{mymac}
    |misc_args:A{e|f}
@@ -211,7 +211,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
       |{\\n}
       {macro}
   {empty_line:\\n}
-  *6 @defblock C5 l37
+  *@defblock C5 l37
    *arguments_line C1
     *block_line_arg
     |INFO

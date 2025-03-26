@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'unpaired_backslash_in_macro_body'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C4 l1
+  *@macro C4 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{arg}

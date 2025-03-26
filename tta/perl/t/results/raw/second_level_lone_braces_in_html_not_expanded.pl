@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_root C1
  *before_node_section C3
-  *0 @html C3 l1
+  *@html C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
      |{\\n}
      {html}
   {empty_line:\\n}
-  *1 @html C3 l6
+  *@html C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -17,8 +17,8 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E4]
- |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E5|up->MISSING: (line_arg)[C3]]
+ |menus:EC[E2]
+ |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E3|up->MISSING: (line_arg)[C3]]
  |normalized:{Top}
   *arguments_line C4
    *line_arg C1
@@ -58,14 +58,14 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E7]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {top}
   {empty_line:\\n}
   *paragraph C4
-   *2 @ref C4 l5
+   *@ref C4 l5
     *brace_arg C1
     |EXTRA
     |node_content:{a}
@@ -95,7 +95,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
      |{ }
      {no_existing_no_manual.info}
    {\\n}
-   *3 @ref C4 l6
+   *@ref C4 l6
     *brace_arg C1
     |EXTRA
     |node_content:{a}
@@ -117,7 +117,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
      {no_existing_no_manual.info}
    {\\n}
   {empty_line:\\n}
-  *4 @menu C5 l8
+  *2 @menu C5 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -169,7 +169,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C2 l14 {first}
+ *3 @node C2 l14 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -193,13 +193,13 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {no_existing_no_manual.info}
     {)}
   {empty_line:\\n}
- *6 @node C1 l16 {chapter}
+ *4 @node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C4]]
@@ -230,13 +230,13 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {dir}
     {)}
     {node in dir}
- *7 @chapter C3 l17 {Chapter}
+ *5 @chapter C3 l17 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -249,7 +249,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {Chapter}
   {empty_line:\\n}
   *paragraph C2
-   *8 @xref C1 l19
+   *@xref C1 l19
     *brace_arg C4
     |EXTRA
     |manual_content:{some_name_inf.inf}

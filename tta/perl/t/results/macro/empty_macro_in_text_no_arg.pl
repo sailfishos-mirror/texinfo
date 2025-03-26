@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
  *before_node_section C8
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{texnl}
   |misc_args:A{}
@@ -34,7 +34,7 @@ $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
     >|command_name:{texnl}
    >macro_expansion<end;1><p:5>
   {empty_line:\\n}
-  *1 @macro C2 l6
+  *@macro C2 l6
   |EXTRA
   |macro_name:{texnltwo}
   |misc_args:A{}

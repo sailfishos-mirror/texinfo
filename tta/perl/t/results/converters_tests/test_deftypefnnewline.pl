@@ -103,7 +103,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 @deftypefun C3 l11
+  *@deftypefun C3 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -153,7 +153,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypefun}
   {empty_line:\\n}
-  *5 @deftypefn C3 l15
+  *@deftypefn C3 l15
   |INFO
   |spaces_before_argument:
    |{ }
@@ -197,7 +197,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *6 @deftypeop C3 l19
+  *@deftypeop C3 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -263,7 +263,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *7 @deftypeop C3 l23
+  *@deftypeop C3 l23
   |INFO
   |spaces_before_argument:
    |{ }
@@ -325,7 +325,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *8 @deftypecv C3 l27
+  *@deftypecv C3 l27
   |INFO
   |spaces_before_argument:
    |{ }
@@ -387,7 +387,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *9 @deftypecv C3 l31
+  *@deftypecv C3 l31
   |INFO
   |spaces_before_argument:
    |{ }
@@ -453,7 +453,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *10 @deffn C3 l35
+  *@deffn C3 l35
   |INFO
   |spaces_before_argument:
    |{ }
@@ -506,7 +506,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |{\\n}
     {off}
   {empty_line:\\n}
-  *11 @deftypefun C3 l41
+  *@deftypefun C3 l41
   |INFO
   |spaces_before_argument:
    |{ }
@@ -556,7 +556,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypefun}
   {empty_line:\\n}
-  *12 @deftypefn C3 l45
+  *@deftypefn C3 l45
   |INFO
   |spaces_before_argument:
    |{ }
@@ -600,7 +600,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *13 @deftypeop C3 l49
+  *@deftypeop C3 l49
   |INFO
   |spaces_before_argument:
    |{ }
@@ -666,7 +666,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *14 @deftypeop C3 l53
+  *@deftypeop C3 l53
   |INFO
   |spaces_before_argument:
    |{ }
@@ -728,7 +728,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *15 @deftypecv C3 l57
+  *@deftypecv C3 l57
   |INFO
   |spaces_before_argument:
    |{ }
@@ -790,7 +790,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *16 @deftypecv C3 l61
+  *@deftypecv C3 l61
   |INFO
   |spaces_before_argument:
    |{ }
@@ -856,7 +856,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *17 @deffn C3 l65
+  *@deffn C3 l65
   |INFO
   |spaces_before_argument:
    |{ }

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_def_arguments'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C10 l1
+  *@deffn C10 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*4 @var C1
+      |*@var C1
        |*brace_container C1
         |{i}
    |index_entry:I{fn,1}
@@ -31,7 +31,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *1 @var C1 l1
+       *@var C1 l1
         *brace_container C1
          {i}
      {spaces: }
@@ -55,10 +55,10 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
      |{    \\n}
      *def_category C1
       *def_line_arg C1
-       *2 @b C1 l2
+       *@b C1 l2
         *brace_container C3
          {id }
-         *3 @samp C1 l2
+         *@samp C1 l2
           *brace_container C1
            {i}
          { ule}

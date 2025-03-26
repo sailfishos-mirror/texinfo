@@ -25,7 +25,7 @@ $result_tree_text{'ref_to_top_in_anchor'} = '*document_root C2
   |normalized:{TOP-Top}
    *brace_arg C2
     {TOP }
-    *2 @ref C1 l2
+    *@ref C1 l2
      *brace_arg C1
      |EXTRA
      |node_content:{Top}

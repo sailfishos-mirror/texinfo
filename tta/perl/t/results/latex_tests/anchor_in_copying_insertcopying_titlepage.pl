@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C4
-   *0 @copying C3 l1
+   *@copying C3 l1
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -15,7 +15,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
       |{\\n}
     *paragraph C3
      {Cop. }
-     *1 @anchor C1 l2
+     *0 @anchor C1 l2
      |EXTRA
      |is_target:{1}
      |normalized:{a-in-copying}
@@ -36,7 +36,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
       |{\\n}
       {copying}
    {empty_line:\\n}
-   *2 @titlepage C8 l5
+   *@titlepage C8 l5
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -54,7 +54,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
     {empty_line:\\n}
     *@page C1
      {rawline_arg:\\n}
-    *3 @anchor C1 l9
+    *1 @anchor C1 l9
     |EXTRA
     |is_target:{1}
     |normalized:{a-in-titlepage}
@@ -79,15 +79,15 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *4 @node C1 l13 {Top}
+ *2 @node C1 l13 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E6]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -95,21 +95,21 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C2 l14 {top}
+ *3 @top C2 l14 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E7]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -117,15 +117,15 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
     |{\\n}
     {top}
   {empty_line:\\n}
- *6 @node C1 l16 {Chapter}
+ *4 @node C1 l16 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[prev->E4|up->E4]
+ |node_directions:D[prev->E2|up->E2]
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -133,17 +133,17 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *7 @chapter C3 l17 {Chap}
+ *5 @chapter C3 l17 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
- |section_directions:D[up->E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_directions:D[up->E3]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E5|up->E5]
+ |toplevel_directions:D[prev->E3|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -152,14 +152,14 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
     {Chap}
   {empty_line:\\n}
   *paragraph C4
-   *8 @pxref C1 l19
+   *@pxref C1 l19
     *brace_arg C1
     |EXTRA
     |node_content:{a in copying}
     |normalized:{a-in-copying}
      {a in copying}
    {.\\n}
-   *9 @pxref C1 l20
+   *@pxref C1 l20
     *brace_arg C1
     |EXTRA
     |node_content:{a in titlepage}

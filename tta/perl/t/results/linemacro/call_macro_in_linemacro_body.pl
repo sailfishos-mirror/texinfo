@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C5 l1
+  *@linemacro C5 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a|b}
@@ -27,7 +27,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @macro C5 l7
+  *@macro C5 l7
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{c|d}
@@ -75,7 +75,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      >{yy \\n  zz}
      >>SOURCEMARKS
      >>linemacro_expansion<end;1><p:4>
-  *2 @table C4 l14:@mymacro
+  *@table C4 l14:@mymacro
   |INFO
   |spaces_before_argument:
    |{ }
@@ -84,11 +84,11 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @code C1 l14:@mymacro
+     *@code C1 l14:@mymacro
       *brace_container
    *before_item C1
     *paragraph C3
-     *4 @var C1 l14:@mymacro
+     *@var C1 l14:@mymacro
       *brace_container C1
        {something}
      {\\n}

@@ -1,5 +1,11 @@
 2025-03-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers),
+	tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers):
+	keep only brace and block commands that can be in extra information.
+
+2025-03-26  Patrice Dumas  <pertusus@free.fr>
+
 	Remove command_as_argument extra information
 
 	* tta/C/parsetexi/parser.c (kbd_formatted_as_code),

@@ -65,8 +65,8 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E6]
- |node_directions:D[next->E7]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -81,14 +81,14 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E8|E10]
+ |section_childs:EC[E4|E6]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E8]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
     |{\\n}
     {GNU LilyPond --- 学習マニュアル}
   {empty_line:\\n}
-  *2 @copying C7 japanese_shift_jis.texi:l11
+  *@copying C7 japanese_shift_jis.texi:l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -104,12 +104,12 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
      |{\\n}
    *paragraph C3
     {Copyright }
-    *3 @copyright C1 japanese_shift_jis.texi:l12
+    *@copyright C1 japanese_shift_jis.texi:l12
      *brace_container
     { 1999--2008 著作者一同\\n}
    {empty_line:\\n}
    *paragraph C2
-    *4 @emph C1 japanese_shift_jis.texi:l14
+    *@emph C1 japanese_shift_jis.texi:l14
      *brace_container C3
       {The translation of the following copyright notice is provided\\n}
       {for courtesy to non-English speakers, but only the notice in English\\n}
@@ -117,7 +117,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
     {\\n}
    {empty_line:\\n}
    *paragraph C2
-    *5 @emph C1 japanese_shift_jis.texi:l18
+    *@emph C1 japanese_shift_jis.texi:l18
      *brace_container C2
       {以下は英語を話さない人々のための著作権についての注意書きです。しかしながら、\\n}
       {英語で書かれた注意書きだけが法的に有効です。}
@@ -138,7 +138,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
   *paragraph C1
    {これは GNU LilyPond バージョン \\n}
   {empty_line:\\n}
-  *6 @menu C4 japanese_shift_jis.texi:l25
+  *2 @menu C4 japanese_shift_jis.texi:l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -178,16 +178,16 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 japanese_shift_jis.texi:l30 {Preface}
+ *3 @node C1 japanese_shift_jis.texi:l30 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E9|up->E0]
- |node_directions:D[next->E9|prev->E0|up->E0]
+ |menu_directions:D[next->E5|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{Preface}
   *arguments_line C1
    *line_arg C1
@@ -195,17 +195,17 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Preface}
- *8 @chapter C5 japanese_shift_jis.texi:l31 {Preface}
+ *4 @chapter C5 japanese_shift_jis.texi:l31 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_directions:D[next->E10|up->E1]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E10|prev->E1|up->E1]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -217,16 +217,16 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    {それは 1995 年のある日の EJE (Eindhoven Youth Orchestra) のリハーサル中のできごとでした − ある変わり者のバイオリン奏者であるジャンは同じく変わり者のフレンチホルン奏者のハン-ウェンに彼がかかわっている新しい大きなプロジェクトのことを話しました。それは音楽を出版するための自動化されたシステムです (正確には、それは MPP − MusiXTeX のプリプロセッサです)。それを聞いてハン-ウェンはすぐに楽譜からいくつかの部分をプリントアウトしたいと思い、彼はそのためのソフトウェアを探し始め、すぐにその虜になってしまいました。それが MPP の終わりを決定付けました。多くの哲学的考察を含み白熱した email の交換の後、ハン-ウェンは 1996 年に LilyPond の製作を開始しました。この時、ジャンはハン-ウェンの新しいプロジェクトに引きずり込まれました。\\n}
   {empty_line:\\n}
   {empty_line:\\n}
- *9 @node C1 japanese_shift_jis.texi:l36 {Introduction}
+ *5 @node C1 japanese_shift_jis.texi:l36 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
- |associated_title_command:[E10]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
- |menu_directions:D[prev->E7|up->E0]
- |node_directions:D[prev->E7|up->E0]
+ |menu_directions:D[prev->E3|up->E0]
+ |node_directions:D[prev->E3|up->E0]
  |normalized:{Introduction}
   *arguments_line C1
    *line_arg C1
@@ -234,17 +234,17 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *10 @chapter C4 japanese_shift_jis.texi:l37 {Introduction}
+ *6 @chapter C4 japanese_shift_jis.texi:l37 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
- |associated_node:[E9]
- |section_directions:D[prev->E8|up->E1]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
+ |section_directions:D[prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E8|up->E1]
+ |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

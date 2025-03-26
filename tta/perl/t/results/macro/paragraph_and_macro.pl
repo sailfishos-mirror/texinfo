@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'paragraph_and_macro'} = '*document_root C1
  *before_node_section C19
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{aempty}
   |misc_args:A{}
@@ -24,7 +24,7 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l4
+  *@macro C3 l4
   |EXTRA
   |macro_name:{aspace}
   |misc_args:A{}
@@ -43,7 +43,7 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C3 l8
+  *@macro C3 l8
   |EXTRA
   |macro_name:{word}
   |misc_args:A{}

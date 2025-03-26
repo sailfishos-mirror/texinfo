@@ -60,7 +60,7 @@ $result_tree_text{'verb_in_menu_description'} = '*document_root C3
     *menu_entry_description C1
      *preformatted C3
       {\\n}
-      *3 @verb C1 l6
+      *@verb C1 l6
       |INFO
       |delimiter:{:}
        *brace_container C2

@@ -58,136 +58,136 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e`: }
-   *2 @` C1 l6
+   *@` C1 l6
     *brace_container C1
      {e}
    { }
-   *3 @` C1 l6
+   *@` C1 l6
     *following_arg C1
      {e}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e\': }
-   *4 @\' C1 l8
+   *@\' C1 l8
     *brace_container C1
      {e}
    { }
-   *5 @\' C1 l8
+   *@\' C1 l8
     *following_arg C1
      {e}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e^: }
-   *6 @^ C1 l10
+   *@^ C1 l10
     *brace_container C1
      {e}
    { }
-   *7 @^ C1 l10
+   *@^ C1 l10
     *following_arg C1
      {e}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be u": }
-   *8 @" C1 l12
+   *@" C1 l12
     *brace_container C1
      {u}
    { }
-   *9 @" C1 l12
+   *@" C1 l12
     *following_arg C1
      {u}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be i`: }
-   *10 @` C1 l14
+   *@` C1 l14
     *brace_container C1
      {i}
    { }
-   *11 @` C1 l14
+   *@` C1 l14
     *following_arg C1
      {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be i\': }
-   *12 @\' C1 l16
+   *@\' C1 l16
     *brace_container C1
      {i}
    { }
-   *13 @\' C1 l16
+   *@\' C1 l16
     *following_arg C1
      {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be i^: }
-   *14 @^ C1 l18
+   *@^ C1 l18
     *brace_container C1
      {i}
    { }
-   *15 @^ C1 l18
+   *@^ C1 l18
     *following_arg C1
      {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be u": }
-   *16 @" C1 l20
+   *@" C1 l20
     *brace_container C1
      {u}
    { }
-   *17 @" C1 l20
+   *@" C1 l20
     *following_arg C1
      {u}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be c,: }
-   *18 @, C1 l22
+   *@, C1 l22
     *brace_container C1
      {c}
    { }
-   *19 @, C1 l22
+   *@, C1 l22
     *following_arg C1
      {c}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be n~: }
-   *20 @~ C1 l24
+   *@~ C1 l24
     *brace_container C1
      {n}
    { }
-   *21 @~ C1 l24
+   *@~ C1 l24
     *following_arg C1
      {n}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e=: }
-   *22 @= C1 l26
+   *@= C1 l26
     *brace_container C1
      {e}
    { }
-   *23 @= C1 l26
+   *@= C1 l26
     *following_arg C1
      {e}
    {\\n}
   {empty_line:\\n}
   *paragraph C7
    {should be e}
-   *24 @w C1 l28
+   *@w C1 l28
     *brace_container C1
      {\'}
    {\': }
-   *25 @H C1 l28
+   *@H C1 l28
     *brace_container C1
      {e}
    { }
-   *26 @H C1 l28
+   *@H C1 l28
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -197,11 +197,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e.: }
-   *27 @dotaccent C1 l30
+   *@dotaccent C1 l30
     *brace_container C1
      {e}
    { }
-   *28 @dotaccent C1 l30
+   *@dotaccent C1 l30
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -211,11 +211,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e*: }
-   *29 @ringaccent C1 l32
+   *@ringaccent C1 l32
     *brace_container C1
      {e}
    { }
-   *30 @ringaccent C1 l32
+   *@ringaccent C1 l32
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -225,18 +225,18 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {should be ee[: }
-   *31 @tieaccent C1 l34
+   *@tieaccent C1 l34
     *brace_container C1
      {ee}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e(: }
-   *32 @u C1 l36
+   *@u C1 l36
     *brace_container C1
      {e}
    { }
-   *33 @u C1 l36
+   *@u C1 l36
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -246,11 +246,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e_: }
-   *34 @ubaraccent C1 l38
+   *@ubaraccent C1 l38
     *brace_container C1
      {e}
    { }
-   *35 @ubaraccent C1 l38
+   *@ubaraccent C1 l38
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -260,11 +260,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be .e: }
-   *36 @udotaccent C1 l40
+   *@udotaccent C1 l40
     *brace_container C1
      {e}
    { }
-   *37 @udotaccent C1 l40
+   *@udotaccent C1 l40
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -274,11 +274,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e<: }
-   *38 @v C1 l42
+   *@v C1 l42
     *brace_container C1
      {e}
    { }
-   *39 @v C1 l42
+   *@v C1 l42
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -288,11 +288,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be a; : }
-   *40 @ogonek C1 l44
+   *@ogonek C1 l44
     *brace_container C1
      {a}
    { }
-   *41 @ogonek C1 l44
+   *@ogonek C1 l44
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -302,11 +302,11 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {should be e; : }
-   *42 @ogonek C1 l46
+   *@ogonek C1 l46
     *brace_container C1
      {e}
    { }
-   *43 @ogonek C1 l46
+   *@ogonek C1 l46
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -316,75 +316,75 @@ $result_tree_text{'accentenc'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C5
    {upside down: }
-   *44 @questiondown C1 l48
+   *@questiondown C1 l48
     *brace_container
    { }
-   *45 @exclamdown C1 l48
+   *@exclamdown C1 l48
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {A-with-circle: }
-   *46 @aa C1 l50
+   *@aa C1 l50
     *brace_container
    {,}
-   *47 @AA C1 l50
+   *@AA C1 l50
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C9
    {AE, OE ligatures: }
-   *48 @ae C1 l52
+   *@ae C1 l52
     *brace_container
    { }
-   *49 @AE C1 l52
+   *@AE C1 l52
     *brace_container
    { }
-   *50 @oe C1 l52
+   *@oe C1 l52
     *brace_container
    { }
-   *51 @OE C1 l52
+   *@OE C1 l52
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {dotless i, j: }
-   *52 @dotless C1 l54
+   *@dotless C1 l54
     *brace_container C1
      {i}
    { }
-   *53 @dotless C1 l54
+   *@dotless C1 l54
     *brace_container C1
      {j}
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {Polish suppressed-L: }
-   *54 @l C1 l56
+   *@l C1 l56
     *brace_container
    { }
-   *55 @L C1 l56
+   *@L C1 l56
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C5
    {O-with-slash: }
-   *56 @o C1 l58
+   *@o C1 l58
     *brace_container
    { }
-   *57 @O C1 l58
+   *@O C1 l58
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {es-zet or sharp S: }
-   *58 @ss C1 l60
+   *@ss C1 l60
     *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {pounds sterling: }
-   *59 @pounds C1 l62
+   *@pounds C1 l62
     *brace_container
    {\\n}
   {empty_line:\\n}
@@ -392,36 +392,36 @@ $result_tree_text{'accentenc'} = '*document_root C3
    {rawline_arg: arg is command -- @dotless{i} is special-cased for HTML\\n}
   *paragraph C3
    {should be dotless i`: }
-   *60 @` C1 l65
+   *@` C1 l65
     *brace_container C1
-     *61 @dotless C1 l65
+     *@dotless C1 l65
       *brace_container C1
        {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless i\': }
-   *62 @\' C1 l67
+   *@\' C1 l67
     *brace_container C1
-     *63 @dotless C1 l67
+     *@dotless C1 l67
       *brace_container C1
        {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless i^: }
-   *64 @^ C1 l69
+   *@^ C1 l69
     *brace_container C1
-     *65 @dotless C1 l69
+     *@dotless C1 l69
       *brace_container C1
        {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless i": }
-   *66 @" C1 l71
+   *@" C1 l71
     *brace_container C1
-     *67 @dotless C1 l71
+     *@dotless C1 l71
       *brace_container C1
        {i}
    {\\n}
@@ -430,36 +430,36 @@ $result_tree_text{'accentenc'} = '*document_root C3
    {rawline_arg: arg is command -- @dotless{j}\\n}
   *paragraph C3
    {should be dotless j`: }
-   *68 @` C1 l74
+   *@` C1 l74
     *brace_container C1
-     *69 @dotless C1 l74
+     *@dotless C1 l74
       *brace_container C1
        {j}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless j\': }
-   *70 @\' C1 l76
+   *@\' C1 l76
     *brace_container C1
-     *71 @dotless C1 l76
+     *@dotless C1 l76
       *brace_container C1
        {j}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless j^: }
-   *72 @^ C1 l78
+   *@^ C1 l78
     *brace_container C1
-     *73 @dotless C1 l78
+     *@dotless C1 l78
       *brace_container C1
        {j}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {should be dotless j": }
-   *74 @" C1 l80
+   *@" C1 l80
     *brace_container C1
-     *75 @dotless C1 l80
+     *@dotless C1 l80
       *brace_container C1
        {j}
    {\\n}

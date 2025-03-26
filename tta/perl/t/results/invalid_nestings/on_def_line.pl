@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'on_def_line'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C3 l1
+  *@deffn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*7 @titlefont C1
+      |*@titlefont C1
       ||EXTRA
       ||global_command_number:{1}
        |*brace_container C1
@@ -26,7 +26,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
     *block_line_arg C7
      *def_category C1
       *bracketed_arg C1 l1
-       *1 @anchor C1 l1
+       *0 @anchor C1 l1
        |EXTRA
        |is_target:{1}
        |normalized:{in-anchor}
@@ -35,7 +35,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *2 @titlefont C1 l1
+       *@titlefont C1 l1
        |EXTRA
        |global_command_number:{1}
         *brace_container C1
@@ -43,7 +43,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *3 @footnote C1 l1
+       *@footnote C1 l1
        |EXTRA
        |global_command_number:{1}
         *brace_command_context C1
@@ -70,7 +70,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*8 @titlefont C1
+      |*@titlefont C1
       ||EXTRA
       ||global_command_number:{2}
        |*brace_container C1
@@ -80,7 +80,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
     *line_arg C7
      *def_category C1
       *bracketed_arg C1 l2
-       *4 @anchor C1 l2
+       *1 @anchor C1 l2
        |EXTRA
        |is_target:{1}
        |normalized:{in-anchorx}
@@ -89,7 +89,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *5 @titlefont C1 l2
+       *@titlefont C1 l2
        |EXTRA
        |global_command_number:{2}
         *brace_container C1
@@ -97,7 +97,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *6 @footnote C1 l2
+       *@footnote C1 l2
        |EXTRA
        |global_command_number:{2}
         *brace_command_context C1

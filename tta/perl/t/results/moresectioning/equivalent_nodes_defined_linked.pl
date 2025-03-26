@@ -12,8 +12,8 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
- |node_directions:D[next->E4]
+ |menus:EC[E1]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C2
    *line_arg C1
@@ -27,11 +27,11 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    |EXTRA
    |node_content:{@asis{chap}}
    |normalized:{chap}
-    *1 @asis C1 l1
+    *@asis C1 l1
      *brace_container C1
       {chap}
   {empty_line:\\n}
-  *2 @menu C3 l3
+  *1 @menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     |EXTRA
     |node_content:{@strong{chap}}
     |normalized:{chap}
-     *3 @strong C1 l4
+     *@strong C1 l4
       *brace_container C1
        {chap}
     {menu_entry_separator:::}
@@ -62,7 +62,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C9 l7 {chap}
+ *2 @node C9 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *5 @float C3 l9
+  *3 @float C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
      |{\\n}
     |spaces_before_argument:
      |{ }
-     *6 @samp C1 l9
+     *@samp C1 l9
       *brace_container C1
        {chap}
    *paragraph C1
@@ -128,7 +128,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {Ref to node }
-   *7 @ref C1 l15
+   *@ref C1 l15
     *brace_arg C1
     |EXTRA
     |node_content:{chap}
@@ -144,12 +144,12 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    {chap}
    *@}
    { }
-   *8 @ref C1 l17
+   *@ref C1 l17
     *brace_arg C1
     |EXTRA
     |node_content:{@samp{chap}}
     |normalized:{chap}
-     *9 @samp C1 l17
+     *@samp C1 l17
       *brace_container C1
        {chap}
    {.\\n}

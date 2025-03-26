@@ -9,7 +9,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content C2
-   *0 @copying C5 l2
+   *@copying C5 l2
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -18,7 +18,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
     {empty_line:\\n}
     *paragraph C3
      {Copying.\\n}
-     *1 @anchor C1 l5
+     *0 @anchor C1 l5
      |EXTRA
      |is_target:{1}
      |normalized:{Copying-information}
@@ -40,13 +40,13 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C2 l9 {Top}
+ *1 @node C2 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -55,13 +55,13 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *3 @node C8 l11 {chap}
+ *2 @node C8 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2]
+ |node_directions:D[prev->E1]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
    {rawline_arg:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @xref C1 l17
+   *@xref C1 l17
     *brace_arg C1
     |EXTRA
     |node_content:{Copying information}

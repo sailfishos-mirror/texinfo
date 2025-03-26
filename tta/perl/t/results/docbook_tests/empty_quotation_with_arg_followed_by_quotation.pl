@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document_root C1
  *before_node_section C3
-  *0 @quotation C2 l1
+  *@quotation C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *1 @quotation C3 l4
+  *@quotation C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO

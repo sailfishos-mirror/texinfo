@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'image_inline_or_not'} = '*document_root C5
  *before_node_section C5
-  *0 @image C1 l1
+  *@image C1 l1
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -15,23 +15,23 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Para }
-   *1 @image C1 l3
+   *@image C1 l3
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {hh}
    {.\\n}
   {empty_line:\\n}
- *2 @node C1 l5 {Top}
+ *0 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E18]
- |node_directions:D[next->E24]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -39,21 +39,21 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C15 l6 {top}
+ *1 @top C15 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
- |section_childs:EC[E26]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E26]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
-  *4 @image C1 l8
+  *@image C1 l8
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -70,14 +70,14 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Para }
-   *5 @image C1 l10
+   *@image C1 l10
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {jj}
    {.\\n}
   {empty_line:\\n}
-  *6 @example C3 l12
+  *@example C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
    *preformatted C7
     {empty_line:\\n}
-    *7 @image C1 l14
+    *@image C1 l14
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -93,7 +93,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     {\\n}
     {empty_line:\\n}
     {T\\n}
-    *8 @image C1 l17
+    *@image C1 l17
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -111,7 +111,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
      {example}
   {empty_line:\\n}
-  *9 @quotation C4 l20
+  *@quotation C4 l20
   |INFO
   |spaces_before_argument:
    |{ }
@@ -120,12 +120,12 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *10 @image C1 l20
+     *@image C1 l20
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {in_quotation_arg}
-   *11 @image C1 l21
+   *@image C1 l21
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
@@ -143,7 +143,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *12 @table C3 l24
+  *@table C3 l24
   |INFO
   |spaces_before_argument:
    |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *13 @asis l24
+     *@asis l24
    *table_entry C2
     *table_term C1
      *@item C1 l25
@@ -163,14 +163,14 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *14 @image C1 l25
+       *@image C1 l25
        |EXTRA
        |input_encoding_name:{utf-8}
         *brace_arg C1
          {in_table_item}
     *table_definition C8
      {empty_line:\\n}
-     *15 @image C1 l27
+     *@image C1 l27
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -179,14 +179,14 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C3
       {AA }
-      *16 @image C1 l29
+      *@image C1 l29
       |EXTRA
       |input_encoding_name:{utf-8}
        *brace_arg C1
         {in_table_def_para}
       {\\n}
      {empty_line:\\n}
-     *17 @image C1 l31
+     *@image C1 l31
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -204,7 +204,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
      {table}
   {empty_line:\\n}
-  *18 @menu C5 l34
+  *2 @menu C5 l34
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -216,7 +216,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     |EXTRA
     |node_content:{@image{node_image}}
     |normalized:{node_005fimage}
-     *19 @image C1 l35
+     *@image C1 l35
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -224,7 +224,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     {menu_entry_separator::: }
     *menu_entry_description C1
      *preformatted C2
-      *20 @image C1 l35
+      *@image C1 l35
       |EXTRA
       |input_encoding_name:{utf-8}
        *brace_arg C1
@@ -233,7 +233,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *menu_entry C6 l36
     {menu_entry_leading_text:* }
     *menu_entry_name C1
-     *21 @image C1 l36
+     *@image C1 l36
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -247,7 +247,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      {(}
      {somewhere}
      {)}
-     *22 @image C1 l36
+     *@image C1 l36
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -259,7 +259,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *menu_comment C1
     *preformatted C3
      {after_menu_description_line:\\n}
-     *23 @image C1 l38
+     *@image C1 l38
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -277,44 +277,44 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *24 @node C1 l41 {@image{node_image}}
+ *3 @node C1 l41 {@image{node_image}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E26]
- |associated_title_command:[E26]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|up->E2]
- |node_directions:D[prev->E2|up->E2]
+ |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|up->E0]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{node_005fimage}
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *25 @image C1 l41
+    *@image C1 l41
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {node_image}
- *26 @chapter C8 l42 {@image{in_chapter_arg}}
+ *4 @chapter C8 l42 {@image{in_chapter_arg}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E24]
- |associated_node:[E24]
- |section_directions:D[up->E3]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E3|up->E3]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *27 @image C1 l42
+    *@image C1 l42
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -323,14 +323,14 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {T}
-   *28 @footnote C1 l45
+   *@footnote C1 l45
    |INFO
    |spaces_before_argument:
     |{\\n}
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C2
-     *29 @image C1 l46
+     *@image C1 l46
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -340,7 +340,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {U}
-   *30 @footnote C1 l49
+   *@footnote C1 l49
    |INFO
    |spaces_before_argument:
     |{\\n}
@@ -349,7 +349,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *brace_command_context C2
      *paragraph C3
       {Some t\\n}
-      *31 @image C1 l51
+      *@image C1 l51
       |EXTRA
       |input_encoding_name:{utf-8}
        *brace_arg C1
@@ -358,14 +358,14 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      {empty_line:\\n}
    {\\n}
   {empty_line:\\n}
-  *32 @float C8 l55
+  *5 @float C8 l55
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E34]
+  |caption:[E6]
   |float_number:{1.1}
-  |float_section:[E26]
+  |float_section:[E4]
   |float_type:{F}
   |global_command_number:{1}
   |is_target:{1}
@@ -379,25 +379,25 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      |{\\n}
      {g}
    {empty_line:\\n}
-   *33 @image C1 l57
+   *@image C1 l57
    |EXTRA
    |input_encoding_name:{utf-8}
     *brace_arg C1
      {in_float}
    {\\n}
    {empty_line:\\n}
-   *34 @caption C1 l59
+   *6 @caption C1 l59
    |EXTRA
-   |float:[E32]
+   |float:[E5]
     *brace_command_context C2
-     *35 @image C1 l59
+     *@image C1 l59
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {in_caption}
      *paragraph C2
       { PAra }
-      *36 @image C1 l59
+      *@image C1 l59
       |EXTRA
       |input_encoding_name:{utf-8}
        *brace_arg C1

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_colon_source_mark'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{klm}
   |misc_args:A{arg}
@@ -34,7 +34,7 @@ $result_tree_text{'protect_colon_source_mark'} = '*document_root C1
     >|command_name:{klm}
      >*brace_arg C1
       >{nop}
-   *1 @asis C1
+   *@asis C1
     *brace_container C1
      {:}
    { nop then more and after.\\n}

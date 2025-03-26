@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'spaces_in_call'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C5 l1
+  *@linemacro C5 l1
   |EXTRA
   |macro_name:{mylinecommand}
   |misc_args:A{first|second|rest}
@@ -34,7 +34,7 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
    >|command_name:{mylinecommand}
     >*line_arg C1
      >{{a b}{c d}{rest}}
-  *1 @defblock C3 l7:@mylinecommand
+  *@defblock C3 l7:@mylinecommand
    *arguments_line C1
     *block_line_arg
     |INFO

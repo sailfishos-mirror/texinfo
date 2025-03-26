@@ -17,7 +17,7 @@ $result_tree_text{'begin_like_comment_on_set_line'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {!}
-   *0 @value C1
+   *@value C1
     *brace_container C1
      {x}
    {! !some thing  is it!\\n}

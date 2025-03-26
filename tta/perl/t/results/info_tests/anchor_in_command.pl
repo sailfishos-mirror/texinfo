@@ -21,23 +21,23 @@ $result_tree_text{'anchor_in_command'} = '*document_root C2
     {Top}
   {empty_line:\\n}
   *paragraph C2
-   *1 @strong C1 l3
+   *@strong C1 l3
     *brace_container C8
      {aaa }
-     *2 @TeX C1 l3
+     *@TeX C1 l3
       *brace_container
      { }
-     *3 @emph C1 l3
+     *@emph C1 l3
       *brace_container C1
        {in emph}
      { after \\n}
      *@c C1
       {rawline_arg: emph @emph{emph2 @anchor{anchor in emph} }}.\\n}
      {emph }
-     *4 @emph C1 l5
+     *@emph C1 l5
       *brace_container C2
        {emph2 }
-       *5 @anchor C1 l5
+       *1 @anchor C1 l5
        |EXTRA
        |is_target:{1}
        |normalized:{anchor-in-emph}

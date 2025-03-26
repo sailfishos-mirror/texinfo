@@ -49,7 +49,7 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 @defivar C2 l6
+  *@defivar C2 l6
   |INFO
   |spaces_before_argument:
    |{ }

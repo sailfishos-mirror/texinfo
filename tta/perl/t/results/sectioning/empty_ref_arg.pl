@@ -21,7 +21,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     {first}
   {empty_line:\\n}
   *paragraph C8
-   *1 @ref C2 l3
+   *@ref C2 l3
     *brace_arg C1
     |EXTRA
     |node_content:{first}
@@ -33,7 +33,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
      |{ }
      *@ 
    {\\n}
-   *2 @ref C3 l4
+   *@ref C3 l4
     *brace_arg C1
     |EXTRA
     |node_content:{first}
@@ -49,7 +49,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
      |{ }
      *@ 
    {\\n}
-   *3 @ref C3 l5
+   *@ref C3 l5
     *brace_arg C1
     |EXTRA
     |node_content:{first}
@@ -66,7 +66,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
      |{ }
      *@:
    {\\n}
-   *4 @ref C3 l6
+   *@ref C3 l6
     *brace_arg C1
     |EXTRA
     |node_content:{first}

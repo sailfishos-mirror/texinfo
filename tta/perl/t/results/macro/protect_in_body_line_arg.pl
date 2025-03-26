@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_in_body_line_arg'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{macroone}
   |misc_args:A{arg1|arg2}
@@ -32,15 +32,15 @@ $result_tree_text{'protect_in_body_line_arg'} = '*document_root C1
     >*macro_call
     >|INFO
     >|command_name:{macroone}
-   *1 @emph C1 l5:@macroone
+   *@emph C1 l5:@macroone
     *brace_container
    { protected \\ -> \\arg1\\ }
-   *2 @emph C1 l5:@macroone
+   *@emph C1 l5:@macroone
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container
    { }
-   *3 @samp C1 l5
+   *@samp C1 l5
     *brace_container C1
      {f\\irst arg}
    {, second arg\\n}

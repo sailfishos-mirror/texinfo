@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'defx_after_empty_line'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C4 l1
+  *@deffn C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'defx_after_empty_line'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*2 @var C1
+      |*@var C1
        |*brace_container C1
         |{i}
    |index_entry:I{fn,1}
@@ -31,7 +31,7 @@ $result_tree_text{'defx_after_empty_line'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *1 @var C1 l1
+       *@var C1 l1
         *brace_container C1
          {i}
      {spaces: }

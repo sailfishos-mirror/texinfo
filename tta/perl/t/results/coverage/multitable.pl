@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'multitable'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @multitable C4 l2
+  *@multitable C4 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *1 @multitable C3 l11
+  *@multitable C3 l11
   |INFO
   |spaces_before_argument:
    |{ }

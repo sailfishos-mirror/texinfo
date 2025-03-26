@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{macro-one}
   |misc_args:A{arg-one|arg2}
@@ -39,7 +39,7 @@ $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{@code{bli-bli}}
-   *1 @code C1 l5:@macro-one
+   *@code C1 l5:@macro-one
     *brace_container C1
      {bli-bli}
    {.\\n}

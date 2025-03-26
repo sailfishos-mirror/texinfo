@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
  *before_node_section C8
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{mycommand}
   |misc_args:A{a|b|c}
@@ -46,7 +46,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{and @code{more}}
-  *1 @anchor C1 l5:@mycommand
+  *0 @anchor C1 l5:@mycommand
   |EXTRA
   |is_target:{1}
   |normalized:{aa}
@@ -54,7 +54,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
     {aa}
   *paragraph C3
    {, definite and }
-   *2 @code C1 l5:@mycommand
+   *@code C1 l5:@mycommand
    >SOURCEMARKS
    >linemacro_expansion<end;1>
     *brace_container C1
@@ -83,7 +83,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
       >|{ }
       >{@var{the\\n call}}
    {  protected, in }
-   *3 @var C1 l9:@mycommand
+   *@var C1 l9:@mycommand
    >SOURCEMARKS
    >linemacro_expansion<end;2>
     *brace_container C2

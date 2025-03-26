@@ -7,23 +7,23 @@ use utf8;
 $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
  *before_node_section C1
   *paragraph C16
-   *0 @abbr C1 l1
+   *@abbr C1 l1
     *brace_arg C1
      {AAA}
    {. }
-   *1 @acronym C1 l1
+   *@acronym C1 l1
     *brace_arg C1
      {BBB}
    {. }
-   *2 @abbr C1 l1
+   *@abbr C1 l1
     *brace_arg C1
      {aaa}
    {. }
-   *3 @acronym C1 l1
+   *@acronym C1 l1
     *brace_arg C1
      {bbb}
    {. Next.\\n}
-   *4 @abbr C2 l2
+   *@abbr C2 l2
     *brace_arg C1
      {AAA}
     *brace_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
      |{ }
      {expL}
    {. }
-   *5 @acronym C2 l2
+   *@acronym C2 l2
     *brace_arg C1
      {BBB}
     *brace_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
      |{ }
      {explA}
    {. }
-   *6 @abbr C2 l2
+   *@abbr C2 l2
     *brace_arg C1
      {aaa}
     *brace_arg C1
@@ -50,7 +50,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
      |{ }
      {expl}
    {. \\n}
-   *7 @acronym C2 l3
+   *@acronym C2 l3
     *brace_arg C1
      {bbb}
     *brace_arg C1

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'comment_in_quotation'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @quotation C3 l2
+  *@quotation C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'comment_in_quotation'} = '*document_root C1
      |{ \\n}
      {quotation}
   {empty_line:\\n}
-  *1 @quotation C3 l6
+  *@quotation C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
  *before_node_section C6
-  *0 @multitable C4 l1
+  *@multitable C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *1 @multitable C4 l12
+  *@multitable C4 l12
   |INFO
   |spaces_before_argument:
    |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *2 @multitable C4 l21
+  *@multitable C4 l21
   |INFO
   |spaces_before_argument:
    |{ }

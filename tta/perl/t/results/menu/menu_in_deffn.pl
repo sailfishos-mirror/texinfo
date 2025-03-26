@@ -20,7 +20,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
     |{\\n}
     {first}
   {empty_line:\\n}
-  *1 @deffn C3 l3
+  *@deffn C3 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
       *def_line_arg C1
        {c}
    *def_item C1
-    *2 @menu C3 l4
+    *1 @menu C3 l4
      *arguments_line C1
       *block_line_arg
       |INFO

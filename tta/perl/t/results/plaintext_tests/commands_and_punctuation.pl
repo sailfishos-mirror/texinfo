@@ -12,10 +12,10 @@ $result_tree_text{'commands_and_punctuation'} = '*document_root C1
    {   and now inhibit.}
    *@:
    { Now dots }
-   *0 @dots C1 l1
+   *@dots C1 l1
     *brace_container
    { and enddots }
-   *1 @enddots C1 l1
+   *@enddots C1 l1
     *brace_container
    { and}
 ';

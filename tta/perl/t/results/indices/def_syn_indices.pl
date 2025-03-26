@@ -146,17 +146,17 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {a }
-    *4 @var C1 l17
+    *@var C1 l17
      *brace_container C1
       {index entry}
     { t}
-    *5 @~ C1 l17
+    *@~ C1 l17
      *following_arg C1
       {e}
     { }
-    *6 @^ C1 l17
+    *@^ C1 l17
      *brace_container C1
-      *7 @dotless C1 l17
+      *@dotless C1 l17
        *brace_container C1
         {i}
   {empty_line:\\n}

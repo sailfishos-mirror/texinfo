@@ -15,7 +15,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{n1}
   *arguments_line C1
    *line_arg C1
@@ -30,34 +30,34 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_directions:D[next->E4]
+ |section_directions:D[next->E3]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1|E4]
+  ||section_childs:EC[E1|E3]
   ||section_level:{0}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *2 @ref C1 l2
+    *@ref C1 l2
      *brace_arg C1
      |EXTRA
      |node_content:{n2}
      |normalized:{n2}
       {n2}
   {empty_line:\\n}
- *3 @node C1 l4 {n2}
+ *2 @node C1 l4 {n2}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |normalized:{n2}
@@ -67,13 +67,13 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    |spaces_after_argument:
     |{\\n}
     {n2}
- *4 @chapter C1 l5 {@ref{n1}}
+ *3 @chapter C1 l5 {@ref{n1}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[prev->E1]
  |section_level:{1}
  |section_number:{2}
@@ -83,7 +83,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @ref C1 l5
+    *@ref C1 l5
      *brace_arg C1
      |EXTRA
      |node_content:{n1}

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'index_command_before_end_table'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @table C3 l2
+  *@table C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @code l2
+     *@code l2
    *table_entry C2
     *table_term C2
      *@item C1 l3

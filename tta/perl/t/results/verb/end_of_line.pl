@@ -8,7 +8,7 @@ $result_tree_text{'end_of_line'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {verb at end of line }
-   *0 @verb C1 l1
+   *@verb C1 l1
    |INFO
    |delimiter:{}
     *brace_container C4

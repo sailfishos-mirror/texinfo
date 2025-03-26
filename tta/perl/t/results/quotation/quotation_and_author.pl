@@ -9,7 +9,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
   *paragraph C1
    {Text before quotation\\n}
   {empty_line:\\n}
-  *0 @quotation C4 l3
+  *@quotation C4 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
   *paragraph C1
    {Text between quotation and smallquotation\\n}
   {empty_line:\\n}
-  *1 @smallquotation C4 l10
+  *@smallquotation C4 l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
      |{\\n}
      {smallquotation}
   {empty_line:\\n}
-  *2 @quotation C4 l15
+  *@quotation C4 l15
   |INFO
   |spaces_before_argument:
    |{ }

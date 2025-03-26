@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'lone_braces_in_inlineraw'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @inlineraw C2 l1
+   *@inlineraw C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}

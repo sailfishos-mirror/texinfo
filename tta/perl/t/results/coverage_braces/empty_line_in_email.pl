@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'empty_line_in_email'} = '*document_root C1
  *before_node_section C4
   *paragraph C1
-   *0 @email C1 l1
+   *@email C1 l1
     *brace_arg C1
     |INFO
     |spaces_before_argument:

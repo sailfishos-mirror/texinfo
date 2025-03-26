@@ -78,7 +78,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 @example C5 l7
+  *@example C5 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
      |{\\n}
    *preformatted C1
     {deffs\\n}
-   *5 @defun C4 l9
+   *@defun C4 l9
    |INFO
    |spaces_before_argument:
     |{ }
@@ -120,13 +120,13 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
       {spaces: }
       *def_arg C1
        *def_line_arg C1
-        *6 @var C1 l9
+        *@var C1 l9
          *brace_container C1
           {arg}
       {spaces: }
       *def_arg C1
        *def_line_arg C1
-        *7 @dots C1 l9
+        *@dots C1 l9
          *brace_container
     *@defunx C1 l10
     |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
        *def_line_arg C1
         {args}
     *def_item C1
-     *8 @deffn C3 l11
+     *@deffn C3 l11
      |INFO
      |spaces_before_argument:
       |{ }
@@ -205,7 +205,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
          *def_line_arg C1
           {args}
       *def_item C1
-       *9 @defvar C5 l12
+       *@defvar C5 l12
        |INFO
        |spaces_before_argument:
         |{ }
@@ -274,7 +274,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
           {THis is the defvar\\n}
           {empty_line:\\n}
           {A table within the def\\n}
-         *10 @table C4 l18
+         *@table C4 l18
          |INFO
          |spaces_before_argument:
           |{ }
@@ -283,7 +283,7 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
            |INFO
            |spaces_after_argument:
             |{\\n}
-            *11 @asis l18
+            *@asis l18
           *table_entry C2
            *table_term C1
             *@item C1 l19

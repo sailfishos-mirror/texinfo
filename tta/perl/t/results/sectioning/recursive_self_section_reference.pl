@@ -41,7 +41,7 @@ $result_tree_text{'recursive_self_section_reference'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *2 @ref C1 l2
+    *@ref C1 l2
      *brace_arg C1
      |EXTRA
      |node_content:{sharp}

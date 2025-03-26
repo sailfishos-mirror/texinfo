@@ -25,7 +25,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >|spaces_after_argument:
       >|{\\n}
       >{notset}
-  *0 @ignore C3 l5
+  *@ignore C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >|spaces_after_argument:
       >|{\\n}
       >{notset}
-  *1 @verbatim C3 l12
+  *@verbatim C3 l12
   >SOURCEMARKS
   >expanded_conditional_command<end;2>
    >*@end C1 l15
@@ -116,7 +116,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
       >|{\\n}
       >{notset}
   *paragraph C2
-   *2 @verb C1 l18
+   *@verb C1 l18
    |INFO
    |delimiter:{%}
     *brace_container C2

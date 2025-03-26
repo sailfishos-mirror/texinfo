@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
  *before_node_section C1
-  *0 @example C2 l1
+  *@example C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
    *arguments_line C3
     *block_line_arg C2
-     *1 @ref C4 l1
+     *@ref C4 l1
       *brace_arg C1
       |EXTRA
       |node_content:{a}
@@ -28,7 +28,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *2 @anchor C1 l1
+     *0 @anchor C1 l1
      |EXTRA
      |is_target:{1}
      |normalized:{an-anchor}

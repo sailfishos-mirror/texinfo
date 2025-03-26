@@ -44,11 +44,11 @@ $result_tree_text{'comment_on_clear_line'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {!}
-   *0 @value C1
+   *@value C1
     *brace_container C1
      {x}
    {!, !}
-   *1 @value C1
+   *@value C1
     *brace_container C1
      {y}
    {!, !g!, !a vv!\\n}

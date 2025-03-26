@@ -15,7 +15,7 @@ $result_tree_text{'titlefont_in_center'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *0 @titlefont C1 l2
+    *@titlefont C1 l2
     |EXTRA
     |global_command_number:{1}
      *brace_container C1

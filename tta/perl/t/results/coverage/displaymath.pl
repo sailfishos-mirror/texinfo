@@ -8,7 +8,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
  *before_node_section C11
   *paragraph C1
    {Simple\\n}
-  *0 @displaymath C7 l2
+  *@displaymath C7 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -37,21 +37,21 @@ $result_tree_text{'displaymath'} = '*document_root C1
    {Math with }
    *@@
    {-command\\n}
-  *1 @displaymath C8 l7
+  *@displaymath C8 l7
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @code C1 l8
+   *@code C1 l8
     *brace_container C1
      {math code}
    { a < b \\sum}
-   *3 @sub C1 l8
+   *@sub C1 l8
     *brace_container C1
      {i}
    { q}
-   *4 @sup C1 l8
+   *@sup C1 l8
     *brace_container C1
      {2}
    {\\n}
@@ -69,7 +69,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Complex\\n}
-  *5 @displaymath C10 l12
+  *@displaymath C10 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -78,7 +78,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    { \\underline}
    *balanced_braces C3 l13
     {{}
-    *6 @code C1 l13
+    *@code C1 l13
      *brace_container C2
       {math \\hbox}
       *balanced_braces C1 l13
@@ -109,7 +109,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {With a comment\\n}
-  *7 @displaymath C4 l17
+  *@displaymath C4 l17
    *arguments_line C1
     *block_line_arg
     |INFO

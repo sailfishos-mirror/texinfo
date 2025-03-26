@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'itemize_tieaccent'} = '*document_root C1
  *before_node_section C12
   *preamble_before_content
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @tieaccent C1 l1
+     *@tieaccent C1 l1
       *brace_container C1
        {ab}
    *@item C2 l2
@@ -25,7 +25,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *2 @tieaccent C1 l2
+     *@tieaccent C1 l2
       *brace_container C1
        {ab}
      {\\n}
@@ -41,7 +41,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *3 @itemize C3 l5
+  *@itemize C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -50,11 +50,11 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @tieaccent C1 l5
+     *@tieaccent C1 l5
       *brace_container C2
-       *5 @aa C1 l5
+       *@aa C1 l5
         *brace_container
-       *6 @^ C1 l5
+       *@^ C1 l5
         *following_arg C1
          {e}
    *@item C2 l6
@@ -63,11 +63,11 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *7 @tieaccent C1 l6
+     *@tieaccent C1 l6
       *brace_container C2
-       *8 @aa C1 l6
+       *@aa C1 l6
         *brace_container
-       *9 @^ C1 l6
+       *@^ C1 l6
         *following_arg C1
          {e}
      {\\n}
@@ -83,7 +83,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *10 @itemize C3 l9
+  *@itemize C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -92,9 +92,9 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *11 @tieaccent C1 l9
+     *@tieaccent C1 l9
       *brace_container C2
-       *12 @aa C1 l9
+       *@aa C1 l9
         *brace_container
        {d}
    *@item C2 l10
@@ -103,9 +103,9 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *13 @tieaccent C1 l10
+     *@tieaccent C1 l10
       *brace_container C2
-       *14 @aa C1 l10
+       *@aa C1 l10
         *brace_container
        {d}
      {\\n}
@@ -121,7 +121,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *15 @itemize C3 l13
+  *@itemize C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -130,10 +130,10 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *16 @tieaccent C1 l13
+     *@tieaccent C1 l13
       *brace_container C2
        {x}
-       *17 @^ C1 l13
+       *@^ C1 l13
         *following_arg C1
          {e}
    *@item C2 l14
@@ -142,10 +142,10 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *18 @tieaccent C1 l14
+     *@tieaccent C1 l14
       *brace_container C2
        {x}
-       *19 @^ C1 l14
+       *@^ C1 l14
         *following_arg C1
          {e}
      {\\n}
@@ -161,7 +161,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *20 @itemize C3 l17
+  *@itemize C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -170,7 +170,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *21 @tieaccent C1 l17
+     *@tieaccent C1 l17
       *brace_container C1
        {g}
    *@item C2 l18
@@ -179,7 +179,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *22 @tieaccent C1 l18
+     *@tieaccent C1 l18
       *brace_container C1
        {g}
      {\\n}
@@ -195,7 +195,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *23 @itemize C3 l21
+  *@itemize C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -204,9 +204,9 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *24 @tieaccent C1 l21
+     *@tieaccent C1 l21
       *brace_container C1
-       *25 @^ C1 l21
+       *@^ C1 l21
         *following_arg C1
          {e}
    *@item C2 l22
@@ -215,9 +215,9 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item }
-     *26 @tieaccent C1 l22
+     *@tieaccent C1 l22
       *brace_container C1
-       *27 @^ C1 l22
+       *@^ C1 l22
         *following_arg C1
          {e}
      {\\n}

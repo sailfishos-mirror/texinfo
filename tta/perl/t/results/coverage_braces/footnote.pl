@@ -8,7 +8,7 @@ $result_tree_text{'footnote'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {text}
-   *0 @footnote C1 l1
+   *@footnote C1 l1
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C3
@@ -16,7 +16,7 @@ $result_tree_text{'footnote'} = '*document_root C1
       {in footnote.\\n}
      {empty_line:\\n}
      *paragraph C2
-      *1 @r C1 l3
+      *@r C1 l3
        *brace_container C1
         {in footnote r}
       {. }

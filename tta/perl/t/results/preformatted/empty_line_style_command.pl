@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_line_style_command'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'empty_line_style_command'} = '*document_root C1
      |{\\n}
    *preformatted C3
     {example }
-    *1 @samp C1 l2
+    *@samp C1 l2
      *brace_container C3
       {in samp\\n}
       {empty_line:\\n}

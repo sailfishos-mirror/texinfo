@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'set_on_item_line'} = '*document_root C1
  *before_node_section C3
-  *0 @table C5 l1
+  *@table C5 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @code l1
+     *@code l1
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -73,7 +73,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *2 @table C5 l10
+  *@table C5 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @code l10
+     *@code l10
    *table_entry C2
     *table_term C1
      *@item C1 l11

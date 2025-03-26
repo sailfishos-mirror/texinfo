@@ -75,7 +75,7 @@ $result_tree_text{'link'} = '*document_root C4
      {off}
   {empty_line:\\n}
   *paragraph C2
-   *3 @link C1 l11
+   *@link C1 l11
     *brace_arg C1
     |EXTRA
     |node_content:{One}
@@ -84,7 +84,7 @@ $result_tree_text{'link'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @link C2 l13
+   *@link C2 l13
     *brace_arg C1
     |EXTRA
     |node_content:{One}
@@ -113,7 +113,7 @@ $result_tree_text{'link'} = '*document_root C4
      {on}
   {empty_line:\\n}
   *paragraph C2
-   *5 @link C1 l18
+   *@link C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{One}
@@ -122,7 +122,7 @@ $result_tree_text{'link'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *6 @link C2 l20
+   *@link C2 l20
     *brace_arg C1
     |EXTRA
     |node_content:{One}
@@ -139,7 +139,7 @@ $result_tree_text{'link'} = '*document_root C4
    {external link\\n}
   {empty_line:\\n}
   *paragraph C2
-   *7 @link C3 l24
+   *@link C3 l24
     *brace_arg C1
     |EXTRA
     |node_content:{Introduction}
@@ -150,7 +150,7 @@ $result_tree_text{'link'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *8 @link C3 l26
+   *@link C3 l26
     *brace_arg C1
     |EXTRA
     |node_content:{Introduction}

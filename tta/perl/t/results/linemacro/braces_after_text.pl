@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'braces_after_text'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{a|b|c}
@@ -25,7 +25,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @defblock C3 l5
+  *@defblock C3 l5
    *arguments_line C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>

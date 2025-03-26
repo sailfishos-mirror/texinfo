@@ -8,11 +8,11 @@ $result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
  *before_node_section C3
   *paragraph C3
    {Texte}
-   *0 @footnote C1 l1
+   *@footnote C1 l1
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
-     *1 @quotation C3 l1
+     *@quotation C3 l1
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -35,11 +35,11 @@ $result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Last text }
-   *2 @footnote C1 l6
+   *@footnote C1 l6
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C2
-     *3 @example C3 l6
+     *@example C3 l6
       *arguments_line C1
        *block_line_arg
        |INFO

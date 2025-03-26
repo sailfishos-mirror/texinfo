@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'def_groupings_args'} = '*document_root C1
  *before_node_section C5
-  *0 @deffn C2 l1
+  *@deffn C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -17,7 +17,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
     |*def_name C1
      |*def_line_arg C3
       |{b}
-      |*8 @code C1
+      |*@code C1
        |*brace_container C1
         |{aa}
       |{c}
@@ -34,7 +34,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      *def_name C1
       *def_line_arg C3
        {b}
-       *1 @code C1 l1
+       *@code C1 l1
         *brace_container C1
          {aa}
        {c}
@@ -50,7 +50,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *2 @deffn C2 l4
+  *@deffn C2 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      *def_category C1
       *def_line_arg C2
        {a}
-       *3 @samp C1 l4
+       *@samp C1 l4
         *brace_container C1
          {g1}
    *@end C1 l5
@@ -80,7 +80,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *4 @deffn C2 l7
+  *@deffn C2 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
     |*def_name C1
      |*bracketed_arg C2
       |{br }
-      |*9 @samp C1
+      |*@samp C1
        |*brace_container C1
         |{s}
    |index_entry:I{fn,2}
@@ -102,7 +102,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      |{\\n}
      *def_category C1
       *def_line_arg C2
-       *5 @var C1 l7
+       *@var C1 l7
         *brace_container C1
          {var}
        {c}
@@ -110,7 +110,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
      *def_name C1
       *bracketed_arg C2 l7
        {br }
-       *6 @samp C1 l7
+       *@samp C1 l7
         *brace_container C1
          {s}
      {spaces: }
@@ -119,7 +119,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
        {c}
      *def_arg C1
       *def_line_arg C1
-       *7 @code C1 l7
+       *@code C1 l7
         *brace_container C1
          {arg}
      {delimiter:)}

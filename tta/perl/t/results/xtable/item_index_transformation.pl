@@ -42,7 +42,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *2 @table C4 l4
+  *@table C4 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @asis l4
+     *@asis l4
    *table_entry C2
     *table_term C6
      *index_entry_command@cindex C1 l9
@@ -151,7 +151,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |{\\n}
      {table}
   {empty_line:\\n}
-  *4 @table C4 l16
+  *@table C4 l16
   |INFO
   |spaces_before_argument:
    |{ }
@@ -160,7 +160,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @asis l16
+     *@asis l16
    *table_entry C2
     *table_term C5
      *index_entry_command@cindex C1 l20
@@ -247,7 +247,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |{\\n}
      {table}
   {empty_line:\\n}
-  *6 @table C4 l27
+  *@table C4 l27
   |INFO
   |spaces_before_argument:
    |{ }
@@ -256,7 +256,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @asis l27
+     *@asis l27
    *table_entry C2
     *table_term C4
      *index_entry_command@cindex C1 l28
@@ -334,7 +334,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |{\\n}
      {table}
   {empty_line:\\n}
-  *8 @table C4 l37
+  *@table C4 l37
   |INFO
   |spaces_before_argument:
    |{ }
@@ -343,7 +343,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *9 @asis l37
+     *@asis l37
    *table_entry C2
     *table_term C1
      *@item C1 l38

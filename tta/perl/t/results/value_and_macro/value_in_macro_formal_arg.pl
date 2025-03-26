@@ -12,7 +12,7 @@ $result_tree_text{'value_in_macro_formal_arg'} = '*document_root C1
    {rawline_arg:argument}
    {rawline_arg:arg}
   {empty_line:\\n}
-  *0 @macro C3 l3
+  *@macro C3 l3
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{testvalue}

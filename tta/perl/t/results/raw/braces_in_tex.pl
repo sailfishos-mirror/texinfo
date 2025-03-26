@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'braces_in_tex'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @tex C3 l2
+  *@tex C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -32,14 +32,14 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
      {tex}
   {empty_line:\\n}
   {empty_line:\\n}
-  *1 @example C3 l11
+  *@example C3 l11
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C1
-    *2 @tex C3 l12
+    *@tex C3 l12
      *arguments_line C1
       *block_line_arg
       |INFO

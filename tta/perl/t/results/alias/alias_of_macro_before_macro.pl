@@ -18,7 +18,7 @@ $result_tree_text{'alias_of_macro_before_macro'} = '*document_root C1
     |{\\n}
     {new = mymacro}
   {empty_line:\\n}
-  *0 @macro C3 l3
+  *@macro C3 l3
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{thearg}

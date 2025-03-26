@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'arg_in_brace_no_arg_command'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @TeX C1 l1
+   *@TeX C1 l1
     *brace_container C1
      {in tex}
    {\\n}

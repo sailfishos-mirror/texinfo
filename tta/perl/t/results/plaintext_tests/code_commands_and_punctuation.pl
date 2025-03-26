@@ -7,11 +7,11 @@ use utf8;
 $result_tree_text{'code_commands_and_punctuation'} = '*document_root C1
  *before_node_section C1
   *paragraph C4
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      {AA}
    {. }
-   *1 @samp C1 l1
+   *@samp C1 l1
     *brace_container C1
      {aa}
    {. After.\\n}

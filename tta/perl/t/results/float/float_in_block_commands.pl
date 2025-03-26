@@ -7,18 +7,18 @@ use utf8;
 $result_tree_text{'float_in_block_commands'} = '*document_root C1
  *before_node_section C7
   *preamble_before_content
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @float C5 l2
+   *0 @float C5 l2
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E2]
+   |caption:[E1]
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{1}
@@ -34,9 +34,9 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      |spaces_before_argument:
       |{ }
       {in example}
-    *2 @caption C1 l3
+    *1 @caption C1 l3
     |EXTRA
-    |float:[E1]
+    |float:[E0]
      *brace_command_context C1
       *paragraph C1
        {float in example}
@@ -66,18 +66,18 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *3 @quotation C3 l7
+  *@quotation C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *4 @float C4 l8
+   *2 @float C4 l8
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E5]
+   |caption:[E3]
    |float_number:{2}
    |float_type:{Text}
    |global_command_number:{2}
@@ -93,9 +93,9 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      |spaces_before_argument:
       |{ }
       {in quotation}
-    *5 @caption C1 l9
+    *3 @caption C1 l9
     |EXTRA
-    |float:[E4]
+    |float:[E2]
      *brace_command_context C1
       *paragraph C1
        {float in quotation}
@@ -123,18 +123,18 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *6 @cartouche C3 l13
+  *@cartouche C3 l13
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *7 @float C4 l14
+   *4 @float C4 l14
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E8]
+   |caption:[E5]
    |float_number:{3}
    |float_type:{Text}
    |global_command_number:{3}
@@ -150,9 +150,9 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      |spaces_before_argument:
       |{ }
       {in cartouche}
-    *8 @caption C1 l15
+    *5 @caption C1 l15
     |EXTRA
-    |float:[E7]
+    |float:[E4]
      *brace_command_context C1
       *paragraph C1
        {float in cartouche}

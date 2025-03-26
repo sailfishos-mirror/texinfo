@@ -21,14 +21,14 @@ $result_tree_text{'quotation_in_ref'} = '*document_root C2
     {first}
   {empty_line:\\n}
   *paragraph C1
-   *1 @xref C2 l3
+   *@xref C2 l3
     *brace_arg C1
      {first}
     *brace_arg
     |INFO
     |spaces_before_argument:
      |{\\n}
-  *2 @quotation C3 l4
+  *@quotation C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO

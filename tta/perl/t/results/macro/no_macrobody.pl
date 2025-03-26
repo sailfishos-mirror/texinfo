@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'no_macrobody'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{nomacrobody}
   |misc_args:A{arg}

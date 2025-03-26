@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
  *before_node_section C8
-  *0 @copying C3 l1
+  *@copying C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @deftypefun C3 l2
+   *@deftypefun C3 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -96,15 +96,15 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
   |global_command_number:{2}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *2 @node C1 l13 {Top}
+ *0 @node C1 l13 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -112,21 +112,21 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l14 {top}
+ *1 @top C2 l14 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
- |section_childs:EC[E5]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,15 +134,15 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C1 l16 {chap}
+ *2 @node C1 l16 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[prev->E2|up->E2]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -150,17 +150,17 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *5 @chapter C4 l17 {Chapter}
+ *3 @chapter C4 l17 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_directions:D[up->E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E3|up->E3]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -168,7 +168,7 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *6 @deftypefun C3 l19
+  *@deftypefun C3 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -179,7 +179,7 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{something}
-   |element_node:[E4]
+   |element_node:[E2]
    |index_entry:I{fn,2}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C7

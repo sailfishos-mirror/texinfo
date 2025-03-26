@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'standard_quotations'} = '*document_root C1
  *before_node_section C11
-  *0 @quotation C3 l1
+  *@quotation C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *1 @quotation C3 l5
+  *@quotation C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *2 @quotation C3 l9
+  *@quotation C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *3 @quotation C3 l13
+  *@quotation C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *4 @quotation C3 l17
+  *@quotation C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -126,7 +126,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *5 @quotation C3 l21
+  *@quotation C3 l21
   |INFO
   |spaces_before_argument:
    |{ }

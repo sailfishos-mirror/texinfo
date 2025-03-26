@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_multitable_in_itemize'} = '*document_root C1
  *before_node_section C1
-  *0 @itemize C3 l1
+  *@itemize C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'empty_multitable_in_itemize'} = '*document_root C1
     *paragraph C1
      {in macro\\n}
     {empty_line:\\n}
-    *1 @multitable C2 l4
+    *@multitable C2 l4
     |EXTRA
     |max_columns:{0}
      *arguments_line C1

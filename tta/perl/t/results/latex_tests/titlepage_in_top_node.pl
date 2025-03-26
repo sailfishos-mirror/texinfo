@@ -15,7 +15,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -30,14 +30,14 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
   *paragraph C1
    {In top\\n}
   {empty_line:\\n}
-  *2 @titlepage C3 l6
+  *@titlepage C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,13 +75,13 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
      |{\\n}
      {titlepage}
   {empty_line:\\n}
- *3 @node C1 l10 {chap}
+ *2 @node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chap}
@@ -91,13 +91,13 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C3 l11 {chap}
+ *3 @chapter C3 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}

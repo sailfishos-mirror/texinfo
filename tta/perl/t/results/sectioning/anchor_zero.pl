@@ -30,7 +30,7 @@ $result_tree_text{'anchor_zero'} = '*document_root C2
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @xref C1 l5
+   *@xref C1 l5
     *brace_arg C1
     |EXTRA
     |node_content:{0}

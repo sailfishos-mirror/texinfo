@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_headitem'} = '*document_root C1
  *before_node_section C1
-  *0 @multitable C4 l1
+  *@multitable C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
      |cell_number:{2}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *1 @code C1 l3
+       *@code C1 l3
         *brace_container C1
          {3}
        { }
@@ -67,7 +67,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
      |cell_number:{3}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *2 @code C1 l3
+       *@code C1 l3
         *brace_container C1
          {30}
        {\\n}

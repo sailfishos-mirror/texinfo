@@ -80,7 +80,7 @@ $result_tree_text{'footnote_no_number'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Para}
-   *4 @footnote C1 l7
+   *@footnote C1 l7
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -90,7 +90,7 @@ $result_tree_text{'footnote_no_number'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Para2}
-   *5 @footnote C1 l9
+   *@footnote C1 l9
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C1

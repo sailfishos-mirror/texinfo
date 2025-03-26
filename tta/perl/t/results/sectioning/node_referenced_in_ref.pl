@@ -13,7 +13,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -52,7 +52,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
      {menu}
   {empty_line:\\n}
   *paragraph C2
-   *2 @ref C1 l7
+   *@ref C1 l7
     *brace_arg C1
     |EXTRA
     |node_content:{second level node}
@@ -60,7 +60,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
      {second level node}
    {.\\n}
   {empty_line:\\n}
- *3 @node C2 l9 {chap first level node}
+ *2 @node C2 l9 {chap first level node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -76,7 +76,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
     |{\\n}
     {chap first level node}
   {empty_line:\\n}
- *4 @node C1 l11 {second level node}
+ *3 @node C1 l11 {second level node}
  |INFO
  |spaces_before_argument:
   |{ }

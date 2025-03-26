@@ -39,7 +39,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
   *paragraph C1
    {gurgl\\n}
   {empty_line:\\n}
-  *0 @value C1
+  *@value C1
    *brace_container C1
     {unknown}
   {\\n}

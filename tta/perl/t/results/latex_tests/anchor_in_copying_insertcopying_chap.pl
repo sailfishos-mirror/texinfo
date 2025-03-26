@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C3 l1
+   *@copying C3 l1
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -15,7 +15,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
       |{\\n}
     *paragraph C3
      {Cop. }
-     *1 @anchor C1 l2
+     *0 @anchor C1 l2
      |EXTRA
      |is_target:{1}
      |normalized:{a-in-copying}
@@ -36,15 +36,15 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l5 {Top}
+ *1 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
- |node_directions:D[next->E4]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -52,21 +52,21 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l6 {top}
+ *2 @top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
- |section_childs:EC[E5]
+ |associated_anchor_command:[E1]
+ |associated_node:[E1]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E2]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -74,15 +74,15 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C1 l8 {Chapter}
+ *3 @node C1 l8 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |node_directions:D[prev->E2|up->E2]
+ |node_directions:D[prev->E1|up->E1]
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -90,17 +90,17 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *5 @chapter C7 l9 {Chap}
+ *4 @chapter C7 l9 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_directions:D[up->E3]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[up->E2]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E3|up->E3]
+ |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,7 +109,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C2
-   *6 @pxref C1 l11
+   *@pxref C1 l11
     *brace_arg C1
     |EXTRA
     |node_content:{a in copying}
@@ -123,7 +123,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    {rawline_arg:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *7 @pxref C1 l15
+   *@pxref C1 l15
     *brace_arg C1
     |EXTRA
     |node_content:{a in copying}

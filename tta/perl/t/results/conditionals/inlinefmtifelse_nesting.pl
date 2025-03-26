@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlinefmtifelse_nesting'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @inlinefmtifelse C3 l1
+   *@inlinefmtifelse C3 l1
    |EXTRA
    |expand_index:{2}
    |format:{info}
@@ -19,7 +19,7 @@ $result_tree_text{'inlinefmtifelse_nesting'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *1 @emph C1 l1
+     *@emph C1 l1
       *brace_container C1
        {text}
    {\\n}

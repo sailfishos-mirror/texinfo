@@ -81,7 +81,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
       >>SOURCEMARKS
       >>value_expansion<end;1><p:13>
    {This is the }
-   *2 @emph C1 incl-incl.txi:l1
+   *@emph C1 incl-incl.txi:l1
     *brace_container C1
      {included}
    { file (include-value2.txi) <> ---. \\n}
@@ -134,7 +134,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
       >>SOURCEMARKS
       >>value_expansion<end;3><p:12>
    {This is the }
-   *3 @emph C1 incl-incl.txi:l1
+   *@emph C1 incl-incl.txi:l1
     *brace_container C1
      {included}
    { file (include-value2.txi) <> ---. \\n}
@@ -186,7 +186,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
          >>{test_var}
       >>value_expansion<end;5><p:12>
    {This is the }
-   *4 @emph C1 incl-incl.txi:l1
+   *@emph C1 incl-incl.txi:l1
     *brace_container C1
      {included}
    { file (include-value2.txi) <> ---. \\n}

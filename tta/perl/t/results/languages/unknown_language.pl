@@ -94,7 +94,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Unknown language. }
-   *4 @xref C1 l9
+   *@xref C1 l9
     *brace_arg C1
     |EXTRA
     |node_content:{Top}
@@ -117,7 +117,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Another unknown language. }
-   *5 @xref C1 l13
+   *@xref C1 l13
     *brace_arg C1
     |EXTRA
     |node_content:{Top}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'texinfo_command_alias'} = '*document_root C1
  *before_node_section C10
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mystrong}
   |misc_args:A{arg}
@@ -62,7 +62,7 @@ $result_tree_text{'texinfo_command_alias'} = '*document_root C1
     {mystrong,;,:}
   {empty_line:\\n}
   *paragraph C2
-   *1 definfoenclose_command@mystrong C1 l11
+   *definfoenclose_command@mystrong C1 l11
    |INFO
    |alias_of:{strong}
    |command_name:{mystrong}

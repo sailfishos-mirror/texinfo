@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'nested_example_and_comment'} = '*document_root C1
  *before_node_section C5
-  *0 @example C5 l1
+  *@example C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -16,7 +16,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     {First line 0 }
     *@c C1
      {rawline_arg:\\n}
-   *1 @example C3 l3
+   *@example C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @example C5 l9
+  *@example C5 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     {First line 1 }
     *@c C1
      {rawline_arg:\\n}
-   *3 @example C3 l11
+   *@example C3 l11
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -94,7 +94,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *4 @example C5 l17
+  *@example C5 l17
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     {First line 2 }
     *@c C1
      {rawline_arg:\\n}
-   *5 @example C3 l19
+   *@example C3 l19
     *arguments_line C1
      *block_line_arg
      |INFO

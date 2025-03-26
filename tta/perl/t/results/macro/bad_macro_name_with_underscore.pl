@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'bad_macro_name_with_underscore'} = '*document_root C1
  *before_node_section C1
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{the_macro}
   |misc_args:A{arg1|arg2}

@@ -60,7 +60,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *3 @table C5 l6
+  *@table C5 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @samp l6
+     *@samp l6
    *before_item C1
     {empty_line:\\n}
    *table_entry C2
@@ -84,7 +84,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
        |{\\n}
        {foo}
     *table_definition C4
-     *5 @anchor C1 l9
+     *3 @anchor C1 l9
      |EXTRA
      |is_target:{1}
      |normalized:{foo}
@@ -93,7 +93,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
      {spaces_after_close_brace:\\n}
      *paragraph C3
       {Some text about }
-      *6 @samp C1 l10
+      *@samp C1 l10
        *brace_container C1
         {foo}
       {\\n}
@@ -110,7 +110,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
        |{\\n}
        {Foo}
     *table_definition C4
-     *7 @anchor C1 l13
+     *4 @anchor C1 l13
      |EXTRA
      |is_target:{1}
      |normalized:{Foo}
@@ -119,7 +119,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
      {spaces_after_close_brace:\\n}
      *paragraph C3
       {Some text about }
-      *8 @samp C1 l14
+      *@samp C1 l14
        *brace_container C1
         {Foo}
       {\\n}
@@ -137,7 +137,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
      {table}
   {empty_line:\\n}
   *paragraph C2
-   *9 @xref C1 l18
+   *@xref C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{foo}
@@ -146,7 +146,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @xref C1 l20
+   *@xref C1 l20
     *brace_arg C1
     |EXTRA
     |node_content:{Foo}

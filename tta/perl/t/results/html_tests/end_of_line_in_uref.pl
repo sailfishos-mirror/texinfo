@@ -8,7 +8,7 @@ $result_tree_text{'end_of_line_in_uref'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {See the }
-   *0 @uref C2 l1
+   *@uref C2 l1
     *brace_arg C2
      {https://gcc.gnu.org/codingconventions.html#Spelling\\n}
      {Spelling}

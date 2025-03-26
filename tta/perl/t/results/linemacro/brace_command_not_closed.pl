@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'brace_command_not_closed'} = '*document_root C1
  *before_node_section C4
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{mycommand}
   |misc_args:A{a|b|c}
@@ -35,7 +35,7 @@ $result_tree_text{'brace_command_not_closed'} = '*document_root C1
     >*line_arg C1
      >{@code{in code\\n\\n}
   *paragraph C1
-   *1 @code C1 l6:@mycommand
+   *@code C1 l6:@mycommand
     *brace_container C2
      {in code\\n}
      {empty_line:\\n}

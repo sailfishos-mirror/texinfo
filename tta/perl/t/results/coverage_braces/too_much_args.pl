@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'too_much_args'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @abbr C2 l1
+   *@abbr C2 l1
     *brace_arg C1
      {AZE}
     *brace_arg C1

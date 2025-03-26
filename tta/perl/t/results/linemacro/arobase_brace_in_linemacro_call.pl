@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'arobase_brace_in_linemacro_call'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C4 l1
+  *@linemacro C4 l1
   |EXTRA
   |macro_name:{simplemac}
   |misc_args:A{arg1|arg2}

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C11 l1
+   *@copying C11 l1
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -28,7 +28,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |{\\n}
       {Copying this document}
     {empty_line:\\n}
-    *1 @defun C4 l5
+    *@defun C4 l5
     |INFO
     |spaces_before_argument:
      |{ }
@@ -104,7 +104,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        |{\\n}
        {defun}
     {empty_line:\\n}
-    *2 @ftable C3 l10
+    *@ftable C3 l10
     |INFO
     |spaces_before_argument:
      |{ }
@@ -113,7 +113,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *3 @asis l10
+       *@asis l10
      *table_entry C1
       *table_term C2
        *@item C1 l11
@@ -177,16 +177,16 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |{\\n}
       {copying}
    {empty_line:\\n}
- *4 @node C1 l19 {Top}
+ *0 @node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E6]
- |node_directions:D[next->E7]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -194,21 +194,21 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C6 l20 {top}
+ *1 @top C6 l20 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E8]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E8]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -219,7 +219,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   *paragraph C1
    {Top.\\n}
   {empty_line:\\n}
-  *6 @menu C3 l24
+  *2 @menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -248,16 +248,16 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 l28 {chapter}
+ *3 @node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[up->E4]
- |node_directions:D[prev->E4|up->E4]
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -265,17 +265,17 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *8 @chapter C4 l29 {Chapter}
+ *4 @chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_directions:D[up->E5]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E5|up->E5]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

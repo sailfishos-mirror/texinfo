@@ -8,14 +8,14 @@ $result_tree_text{'ref_empty_node'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *paragraph C8
-   *0 @ref C4 l2
+   *@ref C4 l2
     *brace_arg
     *brace_arg
     *brace_arg
     *brace_arg C1
      {manual}
    { }
-   *1 @ref C5 l2
+   *@ref C5 l2
     *brace_arg
     *brace_arg
     *brace_arg
@@ -29,13 +29,13 @@ $result_tree_text{'ref_empty_node'} = '*document_root C1
      |{ }
      {Manual}
    { }
-   *2 @inforef C3 l2
+   *@inforef C3 l2
     *brace_arg
     *brace_arg
     *brace_arg C1
      {imanual}
    {\\n}
-   *3 @xref C5 l3
+   *@xref C5 l3
     *brace_arg
     |INFO
     |spaces_before_argument:

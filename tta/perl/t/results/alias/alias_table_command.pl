@@ -18,7 +18,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
     |{\\n}
     {myalias = code}
   {empty_line:\\n}
-  *0 @table C3 l3
+  *@table C3 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @code l3
+     *@code l3
      |INFO
      |alias_of:{myalias}
    *table_entry C1

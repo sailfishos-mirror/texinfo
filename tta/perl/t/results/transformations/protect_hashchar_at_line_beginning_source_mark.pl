@@ -9,7 +9,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content C2
-   *0 @macro C3 cpp_directives_line_value_macro.texi:l2
+   *@macro C3 cpp_directives_line_value_macro.texi:l2
    |EXTRA
    |macro_name:{vvv}
    |misc_args:A{}
@@ -36,13 +36,13 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     >|INFO
     >|command_name:{vvv}
      >*brace_arg
-   *1 @hashchar C1
+   *@hashchar C1
     *brace_container
    {line 30 "toto"\\n}
    >SOURCEMARKS
    >macro_expansion<end;1><p:14>
   {empty_line:\\n}
-  *2 @macro C3 cpp_directives_line_value_macro.texi:l8
+  *@macro C3 cpp_directives_line_value_macro.texi:l8
   |EXTRA
   |macro_name:{machash}
   |misc_args:A{}
@@ -69,13 +69,13 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     >|INFO
     >|command_name:{machash}
      >*brace_arg
-   *3 @hashchar C1
+   *@hashchar C1
    >SOURCEMARKS
    >macro_expansion<end;2>
     *brace_container
    { 130\\n}
   {empty_line:\\n}
-  *4 @macro C3 cpp_directives_line_value_macro.texi:l14
+  *@macro C3 cpp_directives_line_value_macro.texi:l14
   |EXTRA
   |macro_name:{numberfileflag}
   |misc_args:A{arg}
@@ -95,7 +95,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
      {macro}
   {empty_line:\\n}
   *paragraph C2
-   *5 @hashchar C1
+   *@hashchar C1
     *brace_container
    { 900 "titi" 3900\\n}
    >SOURCEMARKS
@@ -120,7 +120,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     >*@value C1
      >*brace_container C1
       >{hash}
-   *6 @hashchar C1
+   *@hashchar C1
    >SOURCEMARKS
    >value_expansion<end;1>
     *brace_container

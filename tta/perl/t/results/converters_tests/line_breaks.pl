@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'line_breaks'} = '*document_root C1
  *before_node_section C10
-  *0 @documentdescription C3 l1
+  *@documentdescription C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *@*
     { line break}
   {empty_line:\\n}
-  *1 @table C3 l10
+  *@table C3 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *2 @strong l10
+     *@strong l10
    *table_entry C2
     *table_term C2
      *@item C1 l11
@@ -112,7 +112,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
      |{\\n}
      {table}
   {empty_line:\\n}
-  *3 @quotation C3 l16
+  *@quotation C3 l16
   |INFO
   |spaces_before_argument:
    |{ }

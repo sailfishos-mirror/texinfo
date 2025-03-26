@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C5 l1
+   *@copying C5 l1
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -16,7 +16,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
     {empty_line:\\n}
     *paragraph C3
      {Copying}
-     *1 @footnote C1 l3
+     *@footnote C1 l3
      |INFO
      |spaces_before_argument:
       |{\\n}
@@ -25,7 +25,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
       *brace_command_context C1
        *paragraph C3
         {In footnote.\\n}
-        *2 @anchor C1 l5
+        *0 @anchor C1 l5
         |EXTRA
         |is_target:{1}
         |normalized:{Copying-footnote}
@@ -48,13 +48,13 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
       |{\\n}
       {copying}
    {empty_line:\\n}
- *3 @node C2 l10 {Top}
+ *1 @node C2 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -63,13 +63,13 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *4 @node C8 l12 {chap}
+ *2 @node C8 l12 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3]
+ |node_directions:D[prev->E1]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -89,7 +89,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
    {rawline_arg:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *5 @xref C1 l18
+   *@xref C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{Copying footnote}

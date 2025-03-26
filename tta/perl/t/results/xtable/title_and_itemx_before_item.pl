@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'title_and_itemx_before_item'} = '*document_root C1
  *before_node_section C1
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'title_and_itemx_before_item'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @emph l1
+     *@emph l1
    *before_item C1
     *paragraph C1
      {Title\\n}

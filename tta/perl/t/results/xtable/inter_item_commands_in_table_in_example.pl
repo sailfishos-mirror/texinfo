@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @table C4 l2
+   *@table C4 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *2 @var l2
+      *@var l2
     *table_entry C2
      *table_term C5
       *@item C1 l3

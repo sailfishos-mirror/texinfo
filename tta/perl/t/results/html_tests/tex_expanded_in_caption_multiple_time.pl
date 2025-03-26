@@ -36,7 +36,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
    |EXTRA
    |float:[E0]
     *brace_command_context C1
-     *2 @tex C3 l4
+     *@tex C3 l4
       *arguments_line C1
        *block_line_arg
        |INFO

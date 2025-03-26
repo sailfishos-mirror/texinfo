@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
  *before_node_section C5
-  *0 @linemacro C4 l1
+  *@linemacro C4 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a|b}
@@ -26,7 +26,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @macro C5 l6
+  *@macro C5 l6
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{c|d}
@@ -61,7 +61,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{jj @var{T}}
-  *2 @quotation C7 l14:@lm
+  *@quotation C7 l14:@lm
   |INFO
   |spaces_before_argument:
    |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      >|spaces_before_argument:
       >|{\\n}
       >{   ggg}
-   *3 @table C3 l14:@mymacro
+   *@table C3 l14:@mymacro
    |INFO
    |spaces_before_argument:
     |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{ \\n}
-      *4 @emph l14:@mymacro
+      *@emph l14:@mymacro
     *table_entry C1
      *table_term C1
       *@item C1 l14:@mymacro
@@ -120,7 +120,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
       >macro_expansion<end;1><p:5>
    *paragraph C3
     {now second arg: jj }
-    *5 @var C1 l14:@lm
+    *@var C1 l14:@lm
     >SOURCEMARKS
     >linemacro_expansion<end;1>
      *brace_container C1

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'end_of_lines_protected'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C3 l1
+  *@deffn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{vvv}
   |misc_args:A{}
@@ -39,7 +39,7 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
     >|INFO
     >|command_name:{vvv}
      >*brace_arg
-   *1 @asis C1
+   *@asis C1
     *brace_container C1
      {.,,,..}
      >SOURCEMARKS
@@ -50,7 +50,7 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
         >{punct}
      >value_expansion<end;1><p:5>
    { and after}
-   *2 @asis C1
+   *@asis C1
     *brace_container C1
      {.}
    {\\n}

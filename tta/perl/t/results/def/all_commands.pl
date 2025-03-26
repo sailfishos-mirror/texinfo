@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'all_commands'} = '*document_root C1
  *before_node_section C53
-  *0 @defvr C3 l1
+  *@defvr C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defvr}
   {empty_line:\\n}
-  *1 @deffn C3 l5
+  *@deffn C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *2 @deffn C3 l9
+  *@deffn C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *3 @deftypefn C3 l13
+  *@deftypefn C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -174,7 +174,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *4 @deftypefn C3 l17
+  *@deftypefn C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -217,7 +217,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *5 @deftypeop C3 l21
+  *@deftypeop C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -282,7 +282,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *6 @deftypeop C3 l25
+  *@deftypeop C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -343,7 +343,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *7 @deftypevr C3 l29
+  *@deftypevr C3 l29
   |INFO
   |spaces_before_argument:
    |{ }
@@ -386,7 +386,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypevr}
   {empty_line:\\n}
-  *8 @defcv C3 l33
+  *@defcv C3 l33
   |INFO
   |spaces_before_argument:
    |{ }
@@ -429,7 +429,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defcv}
   {empty_line:\\n}
-  *9 @defcv C3 l37
+  *@defcv C3 l37
   |INFO
   |spaces_before_argument:
    |{ }
@@ -476,7 +476,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defcv}
   {empty_line:\\n}
-  *10 @deftypecv C3 l41
+  *@deftypecv C3 l41
   |INFO
   |spaces_before_argument:
    |{ }
@@ -537,7 +537,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *11 @deftypecv C3 l45
+  *@deftypecv C3 l45
   |INFO
   |spaces_before_argument:
    |{ }
@@ -602,7 +602,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *12 @defop C3 l49
+  *@defop C3 l49
   |INFO
   |spaces_before_argument:
    |{ }
@@ -663,7 +663,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defop}
   {empty_line:\\n}
-  *13 @defop C3 l53
+  *@defop C3 l53
   |INFO
   |spaces_before_argument:
    |{ }
@@ -720,7 +720,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defop}
   {empty_line:\\n}
-  *14 @deftp C3 l57
+  *@deftp C3 l57
   |INFO
   |spaces_before_argument:
    |{ }
@@ -763,7 +763,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftp}
   {empty_line:\\n}
-  *15 @defun C3 l61
+  *@defun C3 l61
   |INFO
   |spaces_before_argument:
    |{ }
@@ -808,7 +808,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defun}
   {empty_line:\\n}
-  *16 @defmac C3 l65
+  *@defmac C3 l65
   |INFO
   |spaces_before_argument:
    |{ }
@@ -853,7 +853,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defmac}
   {empty_line:\\n}
-  *17 @defspec C3 l69
+  *@defspec C3 l69
   |INFO
   |spaces_before_argument:
    |{ }
@@ -898,7 +898,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defspec}
   {empty_line:\\n}
-  *18 @defvar C3 l73
+  *@defvar C3 l73
   |INFO
   |spaces_before_argument:
    |{ }
@@ -939,7 +939,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defvar}
   {empty_line:\\n}
-  *19 @defvar C3 l77
+  *@defvar C3 l77
   |INFO
   |spaces_before_argument:
    |{ }
@@ -988,7 +988,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defvar}
   {empty_line:\\n}
-  *20 @defopt C3 l81
+  *@defopt C3 l81
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1029,7 +1029,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defopt}
   {empty_line:\\n}
-  *21 @deftypefun C3 l85
+  *@deftypefun C3 l85
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1078,7 +1078,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypefun}
   {empty_line:\\n}
-  *22 @deftypevar C3 l89
+  *@deftypevar C3 l89
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1123,7 +1123,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypevar}
   {empty_line:\\n}
-  *23 @defivar C3 l93
+  *@defivar C3 l93
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1182,7 +1182,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defivar}
   {empty_line:\\n}
-  *24 @deftypeivar C3 l97
+  *@deftypeivar C3 l97
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1245,7 +1245,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {deftypeivar}
   {empty_line:\\n}
-  *25 @defmethod C3 l101
+  *@defmethod C3 l101
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1308,7 +1308,7 @@ $result_tree_text{'all_commands'} = '*document_root C1
      |{\\n}
      {defmethod}
   {empty_line:\\n}
-  *26 @deftypemethod C3 l105
+  *@deftypemethod C3 l105
   |INFO
   |spaces_before_argument:
    |{ }

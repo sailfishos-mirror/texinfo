@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'empty_titlefont'} = '*document_root C1
  *before_node_section C3
   {empty_line:\\n}
-  *0 @titlefont C1 l2
+  *@titlefont C1 l2
   |EXTRA
   |global_command_number:{1}
    *brace_container

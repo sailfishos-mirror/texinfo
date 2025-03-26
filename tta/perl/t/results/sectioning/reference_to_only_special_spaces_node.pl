@@ -32,7 +32,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E7]
+ |section_childs:EC[E3|E5]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -55,7 +55,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{_2002_2003_2002}
   *arguments_line C1
    *line_arg C1
@@ -70,10 +70,10 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E7|up->E1]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
     {EN QUAD| | EM QUAD| | EN SPACE| |}
   {empty_line:\\n}
   *paragraph C2
-   *4 @ref C2 reference_to_only_special_spaces_node.texi:l8
+   *@ref C2 reference_to_only_special_spaces_node.texi:l8
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -98,13 +98,13 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
      {   }
    {.\\n}
   {empty_line:\\n}
- *5 @node C1 reference_to_only_special_spaces_node.texi:l10 {@code{   }}
+ *4 @node C1 reference_to_only_special_spaces_node.texi:l10 {@code{   }}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |node_directions:D[prev->E2|up->E0]
  |normalized:{_2002_2003_2002}
   *arguments_line C1
@@ -112,16 +112,16 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @code C1 reference_to_only_special_spaces_node.texi:l10
+    *@code C1 reference_to_only_special_spaces_node.texi:l10
      *brace_container C1
       {   }
- *7 @chapter C5 reference_to_only_special_spaces_node.texi:l11 {@code{EN QUAD| | EM QUAD| | EN SPACE| |}}
+ *5 @chapter C5 reference_to_only_special_spaces_node.texi:l11 {@code{EN QUAD| | EM QUAD| | EN SPACE| |}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -131,24 +131,24 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *8 @code C1 reference_to_only_special_spaces_node.texi:l11
+    *@code C1 reference_to_only_special_spaces_node.texi:l11
      *brace_container C1
       {EN QUAD| | EM QUAD| | EN SPACE| |}
   {empty_line:\\n}
   *paragraph C2
-   *9 @ref C2 reference_to_only_special_spaces_node.texi:l13
+   *@ref C2 reference_to_only_special_spaces_node.texi:l13
     *brace_arg C1
     |EXTRA
     |node_content:{@code{   }}
     |normalized:{_2002_2003_2002}
-     *10 @code C1 reference_to_only_special_spaces_node.texi:l13
+     *@code C1 reference_to_only_special_spaces_node.texi:l13
       *brace_container C1
        {   }
     *brace_arg C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *11 @code C1 reference_to_only_special_spaces_node.texi:l13
+     *@code C1 reference_to_only_special_spaces_node.texi:l13
       *brace_container C1
        {   }
    {.\\n}

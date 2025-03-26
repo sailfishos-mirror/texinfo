@@ -7,15 +7,15 @@ use utf8;
 $result_tree_text{'float_in_style_command'} = '*document_root C1
  *before_node_section C2
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      {\\n}
-  *1 @float C5 l2
+  *0 @float C5 l2
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E2]
+  |caption:[E1]
   |float_number:{1}
   |float_type:{A}
   |global_command_number:{1}
@@ -33,9 +33,9 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
      {B}
    *paragraph C1
     {in float\\n}
-   *2 @caption C1 l4
+   *1 @caption C1 l4
    |EXTRA
-   |float:[E1]
+   |float:[E0]
     *brace_command_context C1
      *paragraph C1
       {Caption}

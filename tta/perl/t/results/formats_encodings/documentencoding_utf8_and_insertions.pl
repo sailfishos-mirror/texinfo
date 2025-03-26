@@ -22,16 +22,16 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {-- --- \'\' `` ` \' }
-   *0 @code C1 l3
+   *@code C1 l3
     *brace_container C1
      {in code}
    {. }
-   *1 @~ C1 l3
+   *@~ C1 l3
     *following_arg C1
      {e}
    {.\\n}
   {empty_line:\\n}
-  *2 @example C3 l5
+  *@example C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -39,11 +39,11 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
      |{\\n}
    *preformatted C5
     {-- --- \'\' `` ` \' }
-    *3 @code C1 l6
+    *@code C1 l6
      *brace_container C1
       {in code}
     {. }
-    *4 @~ C1 l6
+    *@~ C1 l6
      *following_arg C1
       {e}
     {.\\n}

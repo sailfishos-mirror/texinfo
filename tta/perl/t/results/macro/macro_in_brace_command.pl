@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_brace_command'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{foo}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{abar}
   |misc_args:A{}
@@ -44,7 +44,7 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @itemize C3 l9
+  *@itemize C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -53,13 +53,13 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *3 @bullet l9
+     *@bullet l9
    *@item C2 l10
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C3
-     *4 @email C1 l10
+     *@email C1 l10
       *brace_arg C3
        {foo-expansion}
        >SOURCEMARKS

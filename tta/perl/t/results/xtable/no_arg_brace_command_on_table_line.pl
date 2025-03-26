@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,10 +15,10 @@ $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis
+     *@asis
      |INFO
      |inserted:{1}
-     *2 @bullet l1
+     *@bullet l1
    *table_entry C1
     *table_term C1
      *@item C1 l2

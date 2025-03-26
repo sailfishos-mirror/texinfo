@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'ref_to_unknown_node'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @xref C1 l1
+   *@xref C1 l1
     *brace_arg C1
     |EXTRA
     |node_content:{unknown node}

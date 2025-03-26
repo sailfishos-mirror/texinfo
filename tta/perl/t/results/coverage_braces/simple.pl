@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @b C1 l1
+   *@b C1 l1
     *brace_container C1
      {in  b}
    {.}

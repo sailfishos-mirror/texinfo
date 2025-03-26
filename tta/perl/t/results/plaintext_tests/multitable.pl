@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'multitable'} = '*document_root C1
  *before_node_section C9
-  *0 @multitable C3 l1
+  *@multitable C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *1 @multitable C4 l6
+  *@multitable C4 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -305,7 +305,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *2 @multitable C3 l23
+  *@multitable C3 l23
   |INFO
   |spaces_before_argument:
    |{ }
@@ -379,7 +379,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *3 @multitable C3 l29
+  *@multitable C3 l29
   |INFO
   |spaces_before_argument:
    |{ }
@@ -424,7 +424,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *4 @multitable C3 l35
+  *@multitable C3 l35
   |INFO
   |spaces_before_argument:
    |{ }

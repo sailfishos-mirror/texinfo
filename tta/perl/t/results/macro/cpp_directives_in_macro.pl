@@ -9,7 +9,7 @@ $result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content C2
-   *0 @macro C3 cpp_directives_in_macro.texi:l2
+   *@macro C3 cpp_directives_in_macro.texi:l2
    |EXTRA
    |macro_name:{simplemacro}
    |misc_args:A{out}

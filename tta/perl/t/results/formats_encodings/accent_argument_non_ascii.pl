@@ -79,11 +79,11 @@ $result_tree_text{'accent_argument_non_ascii'} = '*document_root C5
     |{\\n}
     {Chapter}
   *paragraph C4
-   *4 @\' C1 l6
+   *@\' C1 l6
     *brace_container C1
      {ê}
    {\\n}
-   *5 @\' C1 l7
+   *@\' C1 l7
     *following_arg C1
      {ê}
    {\\n}

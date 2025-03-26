@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_accent'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{aletter}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l5
+  *@macro C3 l5
   |EXTRA
   |macro_name:{aspace}
   |misc_args:A{}
@@ -45,7 +45,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
      {macro}
   {empty_line:\\n}
   *paragraph C8
-   *2 @ringaccent C1 l9
+   *@ringaccent C1 l9
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -60,7 +60,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     *following_arg C1
      {a}
    {.\\n}
-   *3 @ringaccent C1 l10
+   *@ringaccent C1 l10
    |INFO
    |spaces_after_cmd_before_arg:
     |{}
@@ -75,7 +75,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     *following_arg C1
      {a}
    {.\\n}
-   *4 @~ C1 l11
+   *@~ C1 l11
    |INFO
    |spaces_after_cmd_before_arg:
     |{}
@@ -90,7 +90,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     *following_arg C1
      {a}
    {.\\n}
-   *5 @~ C1 l12
+   *@~ C1 l12
     *brace_container C1
      {a}
      >SOURCEMARKS
@@ -103,7 +103,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *6 @ringaccent C1 l14
+   *@ringaccent C1 l14
    |INFO
    |spaces_after_cmd_before_arg:
     |{  }

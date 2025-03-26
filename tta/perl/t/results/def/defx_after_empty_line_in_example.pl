@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @deffn C4 l2
+   *@deffn C4 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
     |def_index_element:
      |*def_name C1
       |*def_line_arg C1
-       |*3 @var C1
+       |*@var C1
         |*brace_container C1
          |{i}
     |index_entry:I{fn,1}
@@ -37,7 +37,7 @@ $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
       {spaces: }
       *def_name C1
        *def_line_arg C1
-        *2 @var C1 l2
+        *@var C1 l2
          *brace_container C1
           {i}
       {spaces: }

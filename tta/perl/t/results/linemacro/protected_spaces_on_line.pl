@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
  *before_node_section C10
-  *0 @linemacro C5 l1
+  *@linemacro C5 l1
   |EXTRA
   |macro_name:{test}
   |misc_args:A{first|rest}
@@ -41,7 +41,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{(bar, baz)@\\n continuation line}
-  *1 @deffn C3 l8:@test
+  *@deffn C3 l8:@test
   |INFO
   |spaces_before_argument:
    |{ }
@@ -117,7 +117,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{(bar, baz) rest@ and more}
-  *2 @deffn C3 l10:@test
+  *@deffn C3 l10:@test
   |INFO
   |spaces_before_argument:
    |{ }
@@ -201,7 +201,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{(bar, baz)@@}
-  *3 @deffn C3 l12:@test
+  *@deffn C3 l12:@test
   |INFO
   |spaces_before_argument:
    |{ }

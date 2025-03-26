@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'block_commands'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @group C3 l2
+  *@group C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
      |{\\n}
      {group}
   {empty_line:\\n}
-  *1 @quotation C3 l6
+  *@quotation C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -51,12 +51,12 @@ $result_tree_text{'block_commands'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *2 @float C7 l10
+  *0 @float C7 l10
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E3]
+  |caption:[E1]
   |float_number:{1}
   |float_type:{a float}
   |global_command_number:{1}
@@ -76,9 +76,9 @@ $result_tree_text{'block_commands'} = '*document_root C1
     {In float\\n}
    {empty_line:\\n}
    {empty_line:\\n}
-   *3 @caption C1 l14
+   *1 @caption C1 l14
    |EXTRA
-   |float:[E2]
+   |float:[E0]
     *brace_command_context C3
      *paragraph C1
       {in caption\\n}

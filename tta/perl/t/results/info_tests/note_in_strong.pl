@@ -22,14 +22,14 @@ $result_tree_text{'note_in_strong'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {3 One }
-   *1 @strong C1 l3
+   *@strong C1 l3
     *brace_container C1
      {Note}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {5 }
-   *2 @strong C1 l5
+   *@strong C1 l5
     *brace_container C1
      {Note a}
    {.\\n}
@@ -38,28 +38,28 @@ $result_tree_text{'note_in_strong'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {9 }
-   *3 @strong C1 l9
+   *@strong C1 l9
     *brace_container C1
      {note}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {11 }
-   *4 @strong C1 l11
+   *@strong C1 l11
     *brace_container C1
      {note b}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {13 }
-   *5 @strong C1 l13
+   *@strong C1 l13
     *brace_container C1
      { note}
    {.\\n}
   {empty_line:\\n}
   *paragraph C3
    {15 }
-   *6 @strong C1 l15
+   *@strong C1 l15
     *brace_container C1
      {note-bbb}
    {.\\n}

@@ -45,7 +45,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
     |EXTRA
     |node_content:{@verb{:  :}}
     |normalized:{-}
-     *2 @verb C1 l5
+     *@verb C1 l5
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -77,7 +77,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C2 l9 {@ @ }
+ *2 @node C2 l9 {@ @ }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
     *@ 
     *@ 
   {empty_line:\\n}
- *4 @node C2 l11 {@verb{:  :}}
+ *3 @node C2 l11 {@verb{:  :}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,13 +98,13 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @verb C1 l11
+    *@verb C1 l11
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:  }
   {empty_line:\\n}
- *6 @node C7 l13 {@w{  }}
+ *4 @node C7 l13 {@w{  }}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -113,12 +113,12 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @w C1 l13
+    *@w C1 l13
      *brace_container C1
       {  }
   {empty_line:\\n}
   *paragraph C2
-   *8 @ref C1 l15
+   *@ref C1 l15
     *brace_arg C2
     |EXTRA
     |node_content:{@ @ }
@@ -128,12 +128,12 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *9 @ref C1 l17
+   *@ref C1 l17
     *brace_arg C1
     |EXTRA
     |node_content:{@verb{:  :}}
     |normalized:{-}
-     *10 @verb C1 l17
+     *@verb C1 l17
      |INFO
      |delimiter:{:}
       *brace_container C1
@@ -141,12 +141,12 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *11 @ref C1 l19
+   *@ref C1 l19
     *brace_arg C1
     |EXTRA
     |node_content:{@w{  }}
     |normalized:{-}
-     *12 @w C1 l19
+     *@w C1 l19
       *brace_container C1
        {  }
    {\\n}

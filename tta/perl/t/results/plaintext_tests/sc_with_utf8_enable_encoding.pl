@@ -20,7 +20,7 @@ $result_tree_text{'sc_with_utf8_enable_encoding'} = '*document_root C1
     |{\\n}
     {utf-8}
   *paragraph C2
-   *0 @sc C1 l2
+   *@sc C1 l2
     *brace_container C1
      {in sc}
    {.\\n}

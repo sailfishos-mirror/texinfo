@@ -7,36 +7,36 @@ use utf8;
 $result_tree_text{'abbr_acronym'} = '*document_root C1
  *before_node_section C3
   *paragraph C6
-   *0 @acronym C2 l1
+   *@acronym C2 l1
     *brace_arg C1
      {--a}
     *brace_arg C1
      {an accronym}
    {\\n}
-   *1 @acronym C1 l2
+   *@acronym C1 l2
     *brace_arg C1
      {--a}
    {\\n}
-   *2 @acronym C2 l3
+   *@acronym C2 l3
     *brace_arg C1
      {--a}
     *brace_arg C4
      {an accronym }
-     *3 @comma C1 l3
+     *@comma C1 l3
       *brace_container
      { }
-     *4 @enddots C1 l3
+     *@enddots C1 l3
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C4
-   *5 @abbr C2 l5
+   *@abbr C2 l5
     *brace_arg C4
-     *6 @\' C1 l5
+     *@\' C1 l5
       *following_arg C1
        {E}
      {--a. }
-     *7 @comma C1 l5
+     *@comma C1 l5
       *brace_container
      {A.}
     *brace_arg C5
@@ -45,24 +45,24 @@ $result_tree_text{'abbr_acronym'} = '*document_root C1
      |{ }
     |spaces_before_argument:
      |{ }
-     *8 @\' C1 l5
+     *@\' C1 l5
       *following_arg C1
        {E}
      {tude--}
-     *9 @comma C1 l5
+     *@comma C1 l5
       *brace_container
      { }
-     *10 @b C1 l5
+     *@b C1 l5
       *brace_container C1
        {Autonome}
    {\\n}
-   *11 @abbr C1 l6
+   *@abbr C1 l6
     *brace_arg C4
-     *12 @\' C1 l6
+     *@\' C1 l6
       *following_arg C1
        {E}
      {--a. }
-     *13 @comma C1 l6
+     *@comma C1 l6
       *brace_container
      {A.}
    {\\n}

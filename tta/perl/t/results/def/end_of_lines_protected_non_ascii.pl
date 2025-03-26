@@ -9,7 +9,7 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
-  *0 @deffn C3 end_of_lines_protected_non_ascii.texi:l2
+  *@deffn C3 end_of_lines_protected_non_ascii.texi:l2
   |INFO
   |spaces_before_argument:
    |{ }

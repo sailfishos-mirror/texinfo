@@ -26,7 +26,7 @@ $result_tree_text{'example_in_menu_comment'} = '*document_root C1
    *menu_comment C3
     *preformatted C1
      {after_menu_description_line:\\n}
-    *1 @example C3 l4
+    *@example C3 l4
      *arguments_line C1
       *block_line_arg
       |INFO

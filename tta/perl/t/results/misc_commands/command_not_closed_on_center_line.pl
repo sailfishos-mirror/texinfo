@@ -12,7 +12,7 @@ $result_tree_text{'command_not_closed_on_center_line'} = '*document_root C1
    |{ }
    *line_arg C2
     {c }
-    *0 @strong C1 l1
+    *@strong C1 l1
      *brace_container C1
       {\\n}
   *paragraph C1

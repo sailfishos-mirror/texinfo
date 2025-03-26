@@ -13,7 +13,7 @@ $result_tree_text{'ignored_value_definition'} = '*document_root C1
    {rawline_arg:outside}
   {empty_line:\\n}
   *paragraph C2
-   *0 @inlinefmt C2 l3
+   *@inlinefmt C2 l3
    |EXTRA
    |format:{tex}
     *brace_arg C1

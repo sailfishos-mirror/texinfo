@@ -18,7 +18,7 @@ $result_tree_text{'incorrect_allowcodebreaks_argument'} = '*document_root C1
     |{\\n}
     {_arg}
   *paragraph C2
-   *0 @code C1 l2
+   *@code C1 l2
     *brace_container C1
      {b a}
    {\\n}

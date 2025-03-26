@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_end_call_in_ignored_raw'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C4 l1
+  *@macro C4 l1
   |EXTRA
   |macro_name:{startraw}
   |misc_args:A{}
@@ -32,7 +32,7 @@ $result_tree_text{'macro_end_call_in_ignored_raw'} = '*document_root C1
    >|INFO
    >|command_name:{startraw}
     >*brace_arg
-  *1 @tex C3 l6:@startraw
+  *@tex C3 l6:@startraw
    *arguments_line C1
     *block_line_arg
     |INFO

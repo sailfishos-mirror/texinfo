@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mystrong}
   |misc_args:A{arg}
@@ -50,7 +50,7 @@ $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
     {strong = mystrong}
   {empty_line:\\n}
   *paragraph C2
-   *1 @strong C1 l9
+   *@strong C1 l9
    |INFO
    |alias_of:{new}
     *brace_container C1

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{macone}
   |misc_args:A{arg}
@@ -26,7 +26,7 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l6
+  *@macro C3 l6
   |EXTRA
   |macro_name:{mactwo}
   |misc_args:A{arg}

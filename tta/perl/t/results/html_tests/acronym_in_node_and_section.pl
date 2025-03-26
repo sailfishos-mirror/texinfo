@@ -67,7 +67,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E5|E9]
+ |section_childs:EC[E5|E7]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -87,7 +87,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[next->E7|up->E2]
+ |node_directions:D[next->E6|up->E2]
  |normalized:{sec-define}
   *arguments_line C1
    *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |EXTRA
  |associated_anchor_command:[E4]
  |associated_node:[E4]
- |section_directions:D[next->E9|up->E3]
+ |section_directions:D[next->E7|up->E3]
  |section_level:{2}
  |section_number:{1.1}
   *arguments_line C1
@@ -113,7 +113,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
     {define}
   {empty_line:\\n}
   *paragraph C2
-   *6 @acronym C2 l10
+   *@acronym C2 l10
     *brace_arg C1
      {GHJ}
     *brace_arg C1
@@ -123,13 +123,13 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
      {Good Hypo Jolly}
    {\\n}
   {empty_line:\\n}
- *7 @node C1 l12 {sec here is @acronym{GHJ}}
+ *6 @node C1 l12 {sec here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E2]
  |normalized:{sec-here-is-GHJ}
@@ -139,16 +139,16 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {sec here is }
-    *8 @acronym C1 l12
+    *@acronym C1 l12
      *brace_arg C1
       {GHJ}
- *9 @section C3 l13 {here is @acronym{GHJ}}
+ *7 @section C3 l13 {here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
  |section_directions:D[prev->E5|up->E3]
  |section_level:{2}
  |section_number:{1.2}
@@ -158,13 +158,13 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {here is }
-    *10 @acronym C1 l13
+    *@acronym C1 l13
      *brace_arg C1
       {GHJ}
   {empty_line:\\n}
   *paragraph C3
    {In text }
-   *11 @acronym C1 l15
+   *@acronym C1 l15
     *brace_arg C1
      {GHJ}
    {.\\n}

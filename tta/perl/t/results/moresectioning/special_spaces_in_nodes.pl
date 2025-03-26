@@ -318,7 +318,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     {NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
   {empty_line:\\n}
   *paragraph C2
-   *13 @ref C1 special_spaces_in_nodes.texi:l36
+   *@ref C1 special_spaces_in_nodes.texi:l36
     *brace_arg C1
     |EXTRA
     |node_content:{NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}

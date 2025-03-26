@@ -31,7 +31,7 @@ $result_tree_text{'setchapternewpage_on_odd_titlepage_set_headings'} = '*documen
      |{\\n}
      {odd}
    {empty_line:\\n}
-   *0 @titlepage C3 l5
+   *@titlepage C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO

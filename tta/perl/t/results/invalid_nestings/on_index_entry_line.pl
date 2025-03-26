@@ -16,19 +16,19 @@ $result_tree_text{'on_index_entry_line'} = '*document_root C1
    *line_arg C8
     *@indent l1
     {ignorable_spaces_after_command: }
-    *0 @titlefont C1 l1
+    *@titlefont C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_container C1
       {in titlefont}
     { }
-    *1 @anchor C1 l1
+    *0 @anchor C1 l1
     |EXTRA
     |is_target:{1}
     |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
-    *2 @footnote C1 l1
+    *@footnote C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1

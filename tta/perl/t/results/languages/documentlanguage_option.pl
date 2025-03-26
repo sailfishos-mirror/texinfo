@@ -134,7 +134,7 @@ $result_tree_text{'documentlanguage_option'} = '*document_root C6
     {Chapter}
   {empty_line:\\n}
   *paragraph C2
-   *4 @xref C1 documentlanguage.texi:l30
+   *@xref C1 documentlanguage.texi:l30
     *brace_arg C1
     |EXTRA
     |node_content:{chapter}
@@ -142,7 +142,7 @@ $result_tree_text{'documentlanguage_option'} = '*document_root C6
      {chapter}
    {.\\n}
   {empty_line:\\n}
-  *5 @deftypemethod C3 documentlanguage.texi:l32
+  *@deftypemethod C3 documentlanguage.texi:l32
   |INFO
   |spaces_before_argument:
    |{ }

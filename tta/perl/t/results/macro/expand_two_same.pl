@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'expand_two_same'} = '*document_root C1
  *before_node_section C6
-  *0 @macro C4 l1
+  *@macro C4 l1
   |EXTRA
   |macro_name:{macrotwo}
   |misc_args:A{arg}
@@ -40,13 +40,13 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{a simple @code{\\narg}\\n}
-   *1 @code C1 l8:@macrotwo
+   *@code C1 l8:@macrotwo
     *brace_container C2
      {\\n}
      {arg}
    {\\n}
    { and re a simple }
-   *2 @code C1 l8:@macrotwo
+   *@code C1 l8:@macrotwo
     *brace_container C2
      {\\n}
      {arg}

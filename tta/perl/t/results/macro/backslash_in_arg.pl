@@ -36,7 +36,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 @macro C3 l4
+  *@macro C3 l4
   |EXTRA
   |macro_name:{funindex}
   |misc_args:A{TEXT}

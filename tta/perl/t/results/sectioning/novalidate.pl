@@ -62,7 +62,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
      {menu}
   {empty_line:\\n}
   *paragraph C2
-   *2 @xref C1 l10
+   *@xref C1 l10
     *brace_arg C1
     |EXTRA
     |node_content:{unknown ref}

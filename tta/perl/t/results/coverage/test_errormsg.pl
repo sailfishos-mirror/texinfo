@@ -8,18 +8,18 @@ $result_tree_text{'test_errormsg'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {Some text\\n}
-   *0 @errormsg C1 l2
+   *@errormsg C1 l2
     *brace_arg C4
      {Text }
-     *1 @~ C1 l2
+     *@~ C1 l2
       *following_arg C1
        {e}
      { }
-     *2 @code C1 l2
+     *@code C1 l2
       *brace_container C1
        {code}
    {\\n}
-   *3 @errormsg C1 l3
+   *@errormsg C1 l3
     *brace_arg C1
     |INFO
     |spaces_after_argument:

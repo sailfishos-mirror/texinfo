@@ -13,7 +13,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
-  *2 @example C3 l7
+  *@example C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
      |{\\n}
    *preformatted C3
     {Now }
-    *3 @ref C1 l8
+    *@ref C1 l8
      *brace_arg C2
      |EXTRA
      |node_content:{chap nnn the\\nnode name}
@@ -79,7 +79,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
      |{\\n}
      {example}
   {empty_line:\\n}
- *4 @node C1 l12 {chap nnn the node name}
+ *2 @node C1 l12 {chap nnn the node name}
  |INFO
  |spaces_before_argument:
   |{ }

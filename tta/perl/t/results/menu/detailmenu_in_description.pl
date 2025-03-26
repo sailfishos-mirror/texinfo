@@ -24,7 +24,7 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       {Your rights.\\n}
-   *1 @detailmenu C3 l4
+   *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1

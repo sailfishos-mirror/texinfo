@@ -7,9 +7,9 @@ use utf8;
 $result_tree_text{'command_in_U'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
-     *1 @code C1 l1
+     *@code C1 l1
       *brace_container C1
        {09AF}
 ';

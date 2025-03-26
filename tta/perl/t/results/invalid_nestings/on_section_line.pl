@@ -24,19 +24,19 @@ $result_tree_text{'on_section_line'} = '*document_root C2
     *@noindent l1
     {ignorable_spaces_after_command: }
     {Text }
-    *1 @titlefont C1 l1
+    *@titlefont C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_container C1
       {in titlefont}
     { }
-    *2 @anchor C1 l1
+    *1 @anchor C1 l1
     |EXTRA
     |is_target:{1}
     |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
-    *3 @footnote C1 l1
+    *@footnote C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1

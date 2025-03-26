@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
  *before_node_section C10
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{begin-file}
   |misc_args:A{}
@@ -47,7 +47,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >macro_expansion<end;1>
     {texi_commands.info}
   {empty_line:\\n}
-  *1 @macro C3 l7
+  *@macro C3 l7
   |EXTRA
   |macro_name:{latin1}
   |misc_args:A{}
@@ -89,7 +89,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >SOURCEMARKS
     >macro_expansion<end;2>
   {empty_line:\\n}
-  *2 @macro C4 l13
+  *@macro C4 l13
   |EXTRA
   |macro_name:{multiinclude}
   |misc_args:A{}
@@ -109,15 +109,15 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
      |{\\n}
      {macro}
   {empty_line:\\n}
- *3 @node C1 l18 {Top}
+ *0 @node C1 l18 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E5]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -125,18 +125,18 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C2 l19 {top}
+ *1 @top C2 l19 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E4]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
@@ -145,13 +145,13 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *5 @node C8 l21 {chap}
+ *2 @node C8 l21 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -178,7 +178,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >|spaces_after_argument:
      >|{\\n}
      >{macro_included.texi}
-  *6 @macro C3 macro_included.texi:l1
+  *@macro C3 macro_included.texi:l1
   |EXTRA
   |macro_name:{themacro}
   |misc_args:A{}

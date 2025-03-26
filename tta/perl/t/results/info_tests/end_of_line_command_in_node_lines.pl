@@ -186,7 +186,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E11]
+ |menus:EC[E8]
  |node_directions:D[prev->E3|up->E0]
  |normalized:{new-n}
   *arguments_line C1
@@ -214,7 +214,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     {Ochap}
   {empty_line:\\n}
   *paragraph C2
-   *8 @xref C1 l23
+   *@xref C1 l23
     *brace_arg C5
     |EXTRA
     |node_content:{chap @* f     nl Something? @* After punct}
@@ -227,7 +227,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *9 @xref C1 l25
+   *@xref C1 l25
     *brace_arg C3
     |EXTRA
     |node_content:{ankh @* p}
@@ -238,7 +238,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @xref C2 l27
+   *@xref C2 l27
     *brace_arg C3
     |EXTRA
     |node_content:{ankh @* p}
@@ -255,7 +255,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
      {gg}
    {.\\n}
   {empty_line:\\n}
-  *11 @menu C5 l29
+  *8 @menu C5 l29
    *arguments_line C1
     *block_line_arg
     |INFO

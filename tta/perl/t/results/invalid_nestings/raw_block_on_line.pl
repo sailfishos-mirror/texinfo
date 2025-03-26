@@ -14,7 +14,7 @@ $result_tree_text{'raw_block_on_line'} = '*document_root C1
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
-    *0 @tex C1 l1
+    *@tex C1 l1
      *arguments_line C1
       *block_line_arg
       |INFO

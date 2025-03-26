@@ -58,13 +58,13 @@ $result_tree_text{'menu'} = '*document_root C3
     *menu_entry_description C3
      *preformatted C1
       {description\\n}
-     *3 @itemize C3 l7
+     *@itemize C3 l7
       *arguments_line C1
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *4 @bullet
+        *@bullet
         |INFO
         |inserted:{1}
       *@item C1 l8
@@ -85,7 +85,7 @@ $result_tree_text{'menu'} = '*document_root C3
         |{\\n}
         {itemize}
      *preformatted C2
-      *5 @html C3 l10
+      *@html C3 l10
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -110,13 +110,13 @@ $result_tree_text{'menu'} = '*document_root C3
      {after_menu_description_line:\\n}
      {CCC\\n}
      {empty_line:\\n}
-    *6 @itemize C3 l17
+    *@itemize C3 l17
      *arguments_line C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *7 @bullet
+       *@bullet
        |INFO
        |inserted:{1}
      *@item C1 l18
@@ -138,7 +138,7 @@ $result_tree_text{'menu'} = '*document_root C3
        {itemize}
     *preformatted C5
      {empty_line:\\n}
-     *8 @html C3 l21
+     *@html C3 l21
       *arguments_line C1
        *block_line_arg
        |INFO
@@ -160,13 +160,13 @@ $result_tree_text{'menu'} = '*document_root C3
      {empty_line:\\n}
      {BBB\\n}
      {empty_line:\\n}
-    *9 @itemize C3 l27
+    *@itemize C3 l27
      *arguments_line C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *10 @bullet
+       *@bullet
        |INFO
        |inserted:{1}
      *@item C1 l28
@@ -231,7 +231,7 @@ $result_tree_text{'menu'} = '*document_root C3
    *menu_comment C1
     *preformatted C1
      {after_menu_description_line:\\n}
-   *11 @detailmenu C9 l38
+   *@detailmenu C9 l38
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1
@@ -251,13 +251,13 @@ $result_tree_text{'menu'} = '*document_root C3
      *menu_entry_description C3
       *preformatted C1
        {detaildescription\\n}
-      *12 @itemize C3 l40
+      *@itemize C3 l40
        *arguments_line C1
         *block_line_arg C1
         |INFO
         |spaces_after_argument:
          |{\\n}
-         *13 @bullet
+         *@bullet
          |INFO
          |inserted:{1}
        *@item C1 l41
@@ -278,7 +278,7 @@ $result_tree_text{'menu'} = '*document_root C3
          |{\\n}
          {itemize}
       *preformatted C2
-       *14 @html C3 l43
+       *@html C3 l43
         *arguments_line C1
          *block_line_arg
          |INFO
@@ -303,13 +303,13 @@ $result_tree_text{'menu'} = '*document_root C3
       {after_menu_description_line:\\n}
       {detailCCC\\n}
       {empty_line:\\n}
-     *15 @itemize C3 l50
+     *@itemize C3 l50
       *arguments_line C1
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *16 @bullet
+        *@bullet
         |INFO
         |inserted:{1}
       *@item C1 l51
@@ -331,7 +331,7 @@ $result_tree_text{'menu'} = '*document_root C3
         {itemize}
      *preformatted C5
       {empty_line:\\n}
-      *17 @html C3 l54
+      *@html C3 l54
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -353,13 +353,13 @@ $result_tree_text{'menu'} = '*document_root C3
       {empty_line:\\n}
       {detailBBB\\n}
       {empty_line:\\n}
-     *18 @itemize C3 l60
+     *@itemize C3 l60
       *arguments_line C1
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *19 @bullet
+        *@bullet
         |INFO
         |inserted:{1}
       *@item C1 l61

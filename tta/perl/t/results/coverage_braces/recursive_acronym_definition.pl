@@ -7,21 +7,21 @@ use utf8;
 $result_tree_text{'recursive_acronym_definition'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @acronym C2 l1
+   *@acronym C2 l1
     *brace_arg C1
      {GNU}
     *brace_arg C2
     |INFO
     |spaces_before_argument:
      |{ }
-     *1 @acronym C2 l1
+     *@acronym C2 l1
       *brace_arg C1
        {GNU}
       *brace_arg C2
       |INFO
       |spaces_before_argument:
        |{ }
-       *2 @acronym C2 l1
+       *@acronym C2 l1
         *brace_arg C1
          {GNU}
         *brace_arg C1

@@ -6,25 +6,25 @@ use utf8;
 
 $result_tree_text{'mathjax_with_texinfo'} = '*document_root C1
  *before_node_section C3
-  *0 @displaymath C7 l1
+  *@displaymath C7 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {a}
-   *1 @sup C1 l2
+   *@sup C1 l2
     *brace_container C3
      {b - \\frac}
      *balanced_braces C1 l2
       {{\\xi}}
      *balanced_braces C3 l2
       {{phi }
-      *2 @copyright C1 l2
+      *@copyright C1 l2
        *brace_container
       {}}
    { }
-   *3 @dotless C1 l2
+   *@dotless C1 l2
     *brace_container C1
      {i}
    {\\n}
@@ -42,19 +42,19 @@ $result_tree_text{'mathjax_with_texinfo'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Some }
-   *4 @math C1 l5
+   *@math C1 l5
     *brace_command_context C8
      {a }
-     *5 @minus C1 l5
+     *@minus C1 l5
       *brace_container
      { b }
-     *6 @geq C1 l5
+     *@geq C1 l5
       *brace_container
      { }
-     *7 @AA C1 l5
+     *@AA C1 l5
       *brace_container
      { }
-     *8 @^ C1 l5
+     *@^ C1 l5
       *following_arg C1
        {e}
    {.\\n}

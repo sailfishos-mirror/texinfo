@@ -79,11 +79,11 @@ $result_tree_text{'dotless_argument_non_ascii'} = '*document_root C5
     |{\\n}
     {Chapter}
   *paragraph C4
-   *4 @dotless C1 l6
+   *@dotless C1 l6
     *brace_container C1
      {ê}
    {\\n}
-   *5 @dotless C1 l7
+   *@dotless C1 l7
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

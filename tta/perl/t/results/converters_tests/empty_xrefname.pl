@@ -193,7 +193,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
     {off}
   {empty_line:\\n}
   *paragraph C2
-   *10 @xref C1 l21
+   *@xref C1 l21
     *brace_arg C1
     |EXTRA
     |node_content:{entiti}
@@ -216,7 +216,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   {empty_line:\\n}
   *paragraph C3
    {xrefautomaticsectiontitle on }
-   *11 @ref C1 l25
+   *@ref C1 l25
     *brace_arg C1
     |EXTRA
     |node_content:{entiti}

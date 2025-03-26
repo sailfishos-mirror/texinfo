@@ -77,14 +77,14 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @ref C1 l5
+    *@ref C1 l5
      *brace_arg C1
      |EXTRA
      |node_content:{to node1}
      |normalized:{to-node1}
       {to node1}
   {empty_line:\\n}
- *5 @node C1 l7 {to @ref{node1}}
+ *4 @node C1 l7 {to @ref{node1}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
    |spaces_after_argument:
     |{\\n}
     {to }
-    *6 @ref C1 l7
+    *@ref C1 l7
      *brace_arg C1
      |EXTRA
      |node_content:{node1}

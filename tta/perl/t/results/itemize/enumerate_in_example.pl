@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'enumerate_in_example'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @example C3 l2
+  *@example C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @enumerate C4 l3
+   *@enumerate C4 l3
    |EXTRA
    |enumerate_specification:{1}
     *arguments_line C1

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_macro_argument'} = '*document_root C1
  *before_node_section C7
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{mymacro}
   |misc_args:A{}
@@ -63,7 +63,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
       >{x}
    >macro_expansion<end;4><p:19>
   {empty_line:\\n}
-  *1 @macro C3 l7
+  *@macro C3 l7
   |EXTRA
   |macro_name:{mytwo}
   |misc_args:A{arg}

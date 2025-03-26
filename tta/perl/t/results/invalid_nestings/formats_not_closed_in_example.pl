@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C4 l1
+  *@example C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
      |{\\n}
    *preformatted C1
     {empty_line:\\n}
-   *1 @table C2 l3
+   *@table C2 l3
    |INFO
    |spaces_before_argument:
     |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *2 @asis l3
+      *@asis l3
     *table_entry C2
      *table_term C1
       *@item C1 l4
@@ -40,7 +40,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
        {table line\\n}
        {empty_line:\\n}
        {Some text.\\n}
-      *3 @enumerate C4 l8
+      *@enumerate C4 l8
       |EXTRA
       |enumerate_specification:{1}
        *arguments_line C1

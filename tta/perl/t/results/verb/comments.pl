@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'comments'} = '*document_root C1
  *before_node_section C3
   *paragraph C2
-   *0 @verb C1 l1
+   *@verb C1 l1
    |INFO
    |delimiter:{a}
     *brace_container C2
@@ -18,7 +18,7 @@ $result_tree_text{'comments'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C4
    {something }
-   *1 @verb C1 l4
+   *@verb C1 l4
    |INFO
    |delimiter:{,}
     *brace_container C1

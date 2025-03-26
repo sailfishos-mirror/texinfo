@@ -9,40 +9,40 @@ $result_tree_text{'punctuation_in_command'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C18
    {Text. Email }
-   *0 @email C2 l2
+   *@email C2 l2
     *brace_arg C1
      {a. b}
     *brace_arg C1
      {a. b}
    { dmn }
-   *1 @dmn C1 l2
+   *@dmn C1 l2
     *brace_container C1
      {1. 2}
    { and text. indicateurl }
-   *2 @indicateurl C1 l2
+   *@indicateurl C1 l2
     *brace_container C1
      {i. u}
    { and then kbd }
-   *3 @kbd C1 l2
+   *@kbd C1 l2
     *brace_container C1
      {k. d}
    { and math }
-   *4 @math C1 l2
+   *@math C1 l2
     *brace_command_context C1
      {m. a}
    { and cite }
-   *5 @cite C1 l2
+   *@cite C1 l2
     *brace_container C1
      {c. e}
    { and emph }
-   *6 @emph C1 l2
+   *@emph C1 l2
     *brace_container C1
      {e. h}
    { text. \\n}
    {asis in code }
-   *7 @code C1 l3
+   *@code C1 l3
     *brace_container C1
-     *8 @asis C1 l3
+     *@asis C1 l3
       *brace_container C1
        {a. c}
    {\\n}

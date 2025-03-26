@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'all_empty_def'} = '*document_root C1
  *before_node_section C17
-  *0 @deffn C2 l1
+  *@deffn C2 l1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -27,7 +27,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @defvr C2 l4
+  *@defvr C2 l4
    *def_line C1 l4
    |EXTRA
    |def_command:{defvr}
@@ -48,7 +48,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {defvr}
   {empty_line:\\n}
-  *2 @deftypefn C2 l7
+  *@deftypefn C2 l7
    *def_line C1 l7
    |EXTRA
    |def_command:{deftypefn}
@@ -69,7 +69,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *3 @deftypeop C2 l10
+  *@deftypeop C2 l10
    *def_line C1 l10
    |EXTRA
    |def_command:{deftypeop}
@@ -90,7 +90,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *4 @deftypevr C2 l13
+  *@deftypevr C2 l13
    *def_line C1 l13
    |EXTRA
    |def_command:{deftypevr}
@@ -111,7 +111,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {deftypevr}
   {empty_line:\\n}
-  *5 @defcv C2 l16
+  *@defcv C2 l16
    *def_line C1 l16
    |EXTRA
    |def_command:{defcv}
@@ -132,7 +132,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {defcv}
   {empty_line:\\n}
-  *6 @deftypecv C2 l19
+  *@deftypecv C2 l19
    *def_line C1 l19
    |EXTRA
    |def_command:{deftypecv}
@@ -153,7 +153,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *7 @defop C2 l22
+  *@defop C2 l22
    *def_line C1 l22
    |EXTRA
    |def_command:{defop}
@@ -174,7 +174,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
      |{\\n}
      {defop}
   {empty_line:\\n}
-  *8 @deftp C2 l25
+  *@deftp C2 l25
    *def_line C1 l25
    |EXTRA
    |def_command:{deftp}

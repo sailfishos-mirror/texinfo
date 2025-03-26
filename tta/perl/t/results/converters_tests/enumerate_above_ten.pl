@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'enumerate_above_ten'} = '*document_root C1
  *before_node_section C1
-  *0 @enumerate C3 l1
+  *@enumerate C3 l1
   |INFO
   |spaces_before_argument:
    |{ }

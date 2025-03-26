@@ -52,24 +52,24 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    {dd\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @code C1 l11
+   *@code C1 l11
     *brace_container C1
      {end in code\\f}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @code C1 l13
+   *@code C1 l13
     *brace_container C1
      {\\fbegin in code}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @code C1 l15
+   *@code C1 l15
     *brace_container C1
      {middle\\f in code}
    {\\n}
   {empty_line:\\n}
-  *5 @anchor C1 l17
+  *2 @anchor C1 l17
   |EXTRA
   |is_target:{1}
   |normalized:{aa}
@@ -78,7 +78,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   {spaces_after_close_brace:\\f}
   *paragraph C6
    {something }
-   *6 @email C2 l17
+   *@email C2 l17
     *brace_arg C1
     |INFO
     |spaces_before_argument:
@@ -89,7 +89,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     |spaces_before_argument:
      |{ \\f }
      {fff}
-   *7 @footnote C1 l17
+   *@footnote C1 l17
    |INFO
    |spaces_before_argument:
     |{\\n}
@@ -101,7 +101,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       {f1 }
      {empty_line:\\f}
    { }
-   *8 @footnote C1 l18
+   *@footnote C1 l18
    |INFO
    |spaces_before_argument:
     |{ \\f }
@@ -116,7 +116,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *9 @xref C1 l20
+   *@xref C1 l20
     *brace_arg C1
     |EXTRA
     |node_content:{chap\\fnode}
@@ -124,7 +124,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      {chap\\fnode}
    {\\n}
   {empty_line:\\n}
-  *10 @example C3 l22
+  *@example C3 l22
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -164,12 +164,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     {in \\fcenter}
   {empty_line:\\n}
   *paragraph C2
-   *11 @indicateurl C1 l29
+   *@indicateurl C1 l29
     *brace_container C1
      { \\f in indicateurl}
    {\\n}
   {empty_line:\\n}
-  *12 @deffn C4 l31
+  *@deffn C4 l31
   |INFO
   |spaces_before_argument:
    |{ \\f }
@@ -317,12 +317,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *13 @float C9 l36
+  *3 @float C9 l36
   |EXTRA
-  |caption:[E14]
+  |caption:[E4]
   |float_type:{}
   |global_command_number:{1}
-  |shortcaption:[E15]
+  |shortcaption:[E5]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -330,12 +330,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{\\n}
    *paragraph C1
     {a float\\n}
-   *14 @caption C1 l38
+   *4 @caption C1 l38
    |INFO
    |spaces_before_argument:
     |{\\f }
    |EXTRA
-   |float:[E13]
+   |float:[E3]
     *brace_command_context C5
      *paragraph C1
       {within }
@@ -347,12 +347,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    {spaces_after_close_brace: \\f }
    *paragraph C1
     {Toto\\n}
-   *15 @shortcaption C1 l39
+   *5 @shortcaption C1 l39
    |INFO
    |spaces_before_argument:
     |{\\f }
    |EXTRA
-   |float:[E13]
+   |float:[E3]
     *brace_command_context C5
      *paragraph C1
       {shc within }
@@ -376,7 +376,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{ \\f\\n}
      {float}
   {empty_line:\\n}
-  *16 @float C3 l42
+  *6 @float C3 l42
   |INFO
   |spaces_before_argument:
    |{ }

@@ -78,7 +78,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
     *brace_command_context C1
      *paragraph C2
       {in caption}
-      *4 @footnote C1 l8
+      *@footnote C1 l8
       |EXTRA
       |global_command_number:{1}
        *brace_command_context C1

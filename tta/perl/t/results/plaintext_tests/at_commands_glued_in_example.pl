@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -17,16 +17,16 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
     *@@
     {.\\n}
     {TeX}
-    *1 @TeX C1 l3
+    *@TeX C1 l3
      *brace_container
     {TeX.\\n}
     {code}
-    *2 @code C1 l4
+    *@code C1 l4
      *brace_container C1
       {in code}
     {code.\\n}
     {acronym}
-    *3 @acronym C2 l5
+    *@acronym C2 l5
      *brace_arg C1
       {ABC}
      *brace_arg C1
@@ -36,12 +36,12 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       {aaa bb cc}
     {acronym.\\n}
     {acronym2}
-    *4 @acronym C1 l6
+    *@acronym C1 l6
      *brace_arg C1
       {ABC}
     {acronym.\\n}
     {email}
-    *5 @email C2 l7
+    *@email C2 l7
      *brace_arg C1
       {somebody}
      *brace_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       {mali}
     {email.\\n}
     {ref}
-    *6 @ref C1 l8
+    *@ref C1 l8
      *brace_arg C1
      |EXTRA
      |node_content:{Top}
@@ -59,7 +59,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       {Top}
     {ref.\\n}
     {Foornote}
-    *7 @footnote C1 l9
+    *@footnote C1 l9
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1
@@ -67,9 +67,9 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
        {in footnote}
     {after footnote.\\n}
     {accent}
-    *8 @^ C1 l10
+    *@^ C1 l10
      *brace_container C1
-      *9 @dotless C1 l10
+      *@dotless C1 l10
        *brace_container C1
         {i}
     {accent.\\n}
@@ -93,7 +93,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       |{\\n}
       {4}
     {anchor}
-    *10 @anchor C1 l14
+    *0 @anchor C1 l14
     |EXTRA
     |is_target:{1}
     |normalized:{anchor}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
  *before_node_section C4
-  *0 @linemacro C4 l1
+  *@linemacro C4 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{a|b}
@@ -27,7 +27,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
      {linemacro}
   {empty_line:\\n}
   *paragraph C3
-   *1 @math C1 l6
+   *@math C1 l6
    |INFO
    |spaces_before_argument:
     |{\\n}

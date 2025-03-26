@@ -17,7 +17,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {BI}
-  *0 @linemacro C4 l2
+  *@linemacro C4 l2
   |EXTRA
   |macro_name:{defbuiltin}
   |misc_args:A{symbol|rest}
@@ -37,7 +37,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *1 @defblock C8 l7
+  *@defblock C8 l7
    *arguments_line C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'verb_with_arobase_in_linemacro_call'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{mycommand}
   |misc_args:A{a|b|c}
@@ -35,7 +35,7 @@ $result_tree_text{'verb_with_arobase_in_linemacro_call'} = '*document_root C1
     >*line_arg C1
      >{@verb{@ in verb @} and next\\n}
   *paragraph C3
-   *1 @verb C1 l5:@mycommand
+   *@verb C1 l5:@mycommand
    |INFO
    |delimiter:{@}
     *brace_container C1

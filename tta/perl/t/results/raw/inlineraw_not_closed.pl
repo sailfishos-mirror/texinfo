@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
  *before_node_section C1
   *paragraph C1
-   *0 @inlineraw C2 l1
+   *@inlineraw C2 l1
    |EXTRA
    |expand_index:{1}
    |format:{html}
@@ -18,7 +18,7 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {aa\\n}
- *1 @section C1 l2 {sec}
+ *0 @section C1 l2 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

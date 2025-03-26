@@ -23,12 +23,12 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
      *@c C1
       {rawline_arg: c\\n}
      {* a4}
-     *1 @b C1 l6
+     *@b C1 l6
       *brace_container C1
        {a}
      {: \\n}
      {* a5}
-     *2 @b C1 l7
+     *@b C1 l7
       *brace_container C1
        {b}
      {: }

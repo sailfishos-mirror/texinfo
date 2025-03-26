@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'recursive_call_in_rmacro'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
-  *0 @rmacro C3 l2
+  *@rmacro C3 l2
   |EXTRA
   |macro_name:{rec}
   |misc_args:A{}

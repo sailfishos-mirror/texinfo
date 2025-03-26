@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'hyphenation'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @hyphenation C1 l2
+  *@hyphenation C1 l2
   |EXTRA
   |global_command_number:{1}
    *brace_arg C1

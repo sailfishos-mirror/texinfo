@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'double_command'} = '*document_root C1
  *before_node_section C3
-  *0 @deffn C3 l1
+  *@deffn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'double_command'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C3 l5
+  *@deffn C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'double_command'} = '*document_root C1
      {spaces:  }
      *def_arg C1
       *def_line_arg C1
-       *2 @defvr C1 l5
+       *@defvr C1 l5
        |INFO
        |spaces_before_argument:
         |{ }

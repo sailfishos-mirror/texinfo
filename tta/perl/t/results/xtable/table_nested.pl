@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'table_nested'} = '*document_root C1
  *before_node_section C10
-  *0 @macro C23 l1
+  *@macro C23 l1
   |EXTRA
   |macro_name:{myvtable}
   |misc_args:A{}
@@ -47,7 +47,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Quotation\\n}
-  *1 @quotation C7 l26
+  *@quotation C7 l26
    *arguments_line C1
    >SOURCEMARKS
    >macro_expansion<start;1>
@@ -59,7 +59,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @vtable C5 l27:@myvtable
+   *@vtable C5 l27:@myvtable
    |INFO
    |spaces_before_argument:
     |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *3 @asis l27:@myvtable
+      *@asis l27:@myvtable
     *table_entry C2
      *table_term C2
       *@item C1 l27:@myvtable
@@ -143,7 +143,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C1
     {Something.\\n}
-   *4 @table C4 l27:@myvtable
+   *@table C4 l27:@myvtable
    |INFO
    |spaces_before_argument:
     |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *5 @emph l27:@myvtable
+      *@emph l27:@myvtable
     *table_entry C2
      *table_term C1
       *@item C1 l27:@myvtable
@@ -210,7 +210,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Example\\n}
-  *6 @example C7 l31
+  *@example C7 l31
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -223,7 +223,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     >|INFO
     >|command_name:{myvtable}
      >*brace_arg
-   *7 @vtable C5 l32:@myvtable
+   *@vtable C5 l32:@myvtable
    |INFO
    |spaces_before_argument:
     |{ }
@@ -232,7 +232,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *8 @asis l32:@myvtable
+      *@asis l32:@myvtable
     *table_entry C2
      *table_term C2
       *@item C1 l32:@myvtable
@@ -307,7 +307,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
    *preformatted C2
     {empty_line:\\n}
     {Something.\\n}
-   *9 @table C4 l32:@myvtable
+   *@table C4 l32:@myvtable
    |INFO
    |spaces_before_argument:
     |{ }
@@ -316,7 +316,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *10 @emph l32:@myvtable
+      *@emph l32:@myvtable
     *table_entry C2
      *table_term C1
       *@item C1 l32:@myvtable
@@ -374,13 +374,13 @@ $result_tree_text{'table_nested'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C1
    {Double quotation\\n}
-  *11 @quotation C3 l36
+  *@quotation C3 l36
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *12 @quotation C7 l37
+   *@quotation C7 l37
     *arguments_line C1
     >SOURCEMARKS
     >macro_expansion<start;3>
@@ -392,7 +392,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-    *13 @vtable C5 l38:@myvtable
+    *@vtable C5 l38:@myvtable
     |INFO
     |spaces_before_argument:
      |{ }
@@ -401,7 +401,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *14 @asis l38:@myvtable
+       *@asis l38:@myvtable
      *table_entry C2
       *table_term C2
        *@item C1 l38:@myvtable
@@ -476,7 +476,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     {empty_line:\\n}
     *paragraph C1
      {Something.\\n}
-    *15 @table C4 l38:@myvtable
+    *@table C4 l38:@myvtable
     |INFO
     |spaces_before_argument:
      |{ }
@@ -485,7 +485,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *16 @emph l38:@myvtable
+       *@emph l38:@myvtable
      *table_entry C2
       *table_term C1
        *@item C1 l38:@myvtable

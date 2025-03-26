@@ -8,13 +8,13 @@ $result_tree_text{'indent_in_command_in_paragraph'} = '*document_root C1
  *before_node_section C1
   *paragraph C5
    {In para }
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      *@indent l1
    {.  }
-   *1 @asis C1 l1
+   *@asis C1 l1
     *brace_container C1
-     *2 @b C1 l1
+     *@b C1 l1
       *brace_container C2
        {in double command}
        *@noindent l1

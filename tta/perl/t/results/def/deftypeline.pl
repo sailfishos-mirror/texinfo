@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'deftypeline'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
-  *0 @defblock C4 l1
+  *@defblock C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'deftypeline'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *1 @var C1 l2
+       *@var C1 l2
         *brace_container C1
          {bar}
      {delimiter:,}
@@ -58,13 +58,13 @@ $result_tree_text{'deftypeline'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *2 @var C1 l2
+       *@var C1 l2
         *brace_container C1
          {baz}
      {delimiter:)}
    *def_item C1
     *paragraph C2
-     *3 @dots C1 l3
+     *@dots C1 l3
       *brace_container
      {\\n}
    *@end C1 l4

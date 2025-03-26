@@ -8,7 +8,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *paragraph C2
-   *0 @code C1 l2
+   *@code C1 l2
     *brace_container C2
      {\\n}
      *@everyheading C1 l3
@@ -22,7 +22,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
        {in code}
    {\\n}
   {empty_line:\\n}
-  *1 @example C3 l6
+  *@example C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @quotation C3 l10
+  *@quotation C3 l10
    *arguments_line C1
     *block_line_arg
     |INFO

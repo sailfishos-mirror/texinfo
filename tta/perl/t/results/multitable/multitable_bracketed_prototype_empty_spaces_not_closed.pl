@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'multitable_bracketed_prototype_empty_spaces_not_closed'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @multitable C2 l2
+  *@multitable C2 l2
   |INFO
   |spaces_before_argument:
    |{ }

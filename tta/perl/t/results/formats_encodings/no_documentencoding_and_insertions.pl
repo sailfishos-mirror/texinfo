@@ -9,16 +9,16 @@ $result_tree_text{'no_documentencoding_and_insertions'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {-- --- \'\' `` ` \' }
-   *0 @code C1 l2
+   *@code C1 l2
     *brace_container C1
      {in code}
    {. }
-   *1 @~ C1 l2
+   *@~ C1 l2
     *following_arg C1
      {e}
    {.\\n}
   {empty_line:\\n}
-  *2 @example C3 l4
+  *@example C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -26,11 +26,11 @@ $result_tree_text{'no_documentencoding_and_insertions'} = '*document_root C1
      |{\\n}
    *preformatted C5
     {-- --- \'\' `` ` \' }
-    *3 @code C1 l5
+    *@code C1 l5
      *brace_container C1
       {in code}
     {. }
-    *4 @~ C1 l5
+    *@~ C1 l5
      *following_arg C1
       {e}
     {.\\n}

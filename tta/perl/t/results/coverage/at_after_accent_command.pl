@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'at_after_accent_command'} = '*document_root C1
  *before_node_section C1
   *paragraph C6
-   *0 @ringaccent l1
+   *@ringaccent l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
    *@@
    {. }
-   *1 @^ l1
+   *@^ l1
    *@@
    {.\\n}
 ';

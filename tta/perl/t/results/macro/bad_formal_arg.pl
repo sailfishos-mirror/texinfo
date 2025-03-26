@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'bad_formal_arg'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{bad}
@@ -27,7 +27,7 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l6
+  *@macro C3 l6
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{badspace}
@@ -47,7 +47,7 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C6 l10
+  *@macro C6 l10
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{abar}

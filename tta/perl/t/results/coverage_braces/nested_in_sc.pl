@@ -7,34 +7,34 @@ use utf8;
 $result_tree_text{'nested_in_sc'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @sc C1 l1
+   *@sc C1 l1
     *brace_container C1
-     *1 @sc C1 l1
+     *@sc C1 l1
       *brace_container C14
        {aaa }
-       *2 @~ C1 l1
+       *@~ C1 l1
         *following_arg C1
          {n}
        { }
-       *3 @aa C1 l1
+       *@aa C1 l1
         *brace_container
        { }
-       *4 @TeX C1 l1
+       *@TeX C1 l1
         *brace_container
        { }
-       *5 @~ C1 l1
+       *@~ C1 l1
         *brace_container C1
-         *6 @aa C1 l1
+         *@aa C1 l1
           *brace_container
        { }
-       *7 @footnote C1 l1
+       *@footnote C1 l1
        |EXTRA
        |global_command_number:{1}
         *brace_command_context C1
          *paragraph C1
           {In footnote}
        {, }
-       *8 @abbr C2 l1
+       *@abbr C2 l1
         *brace_arg C1
          {ABr}
         *brace_arg C1
@@ -43,7 +43,7 @@ $result_tree_text{'nested_in_sc'} = '*document_root C1
          |{ }
          {expl}
        {, \\n}
-       *9 @verb C1 l2
+       *@verb C1 l2
        |INFO
        |delimiter:{:}
         *brace_container C1

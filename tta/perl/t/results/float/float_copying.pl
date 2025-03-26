@@ -7,19 +7,19 @@ use utf8;
 $result_tree_text{'float_copying'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C4 l1
+   *@copying C4 l1
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
     {empty_line:\\n}
-    *1 @float C7 l3
+    *0 @float C7 l3
     |INFO
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |caption:[E2]
+    |caption:[E1]
     |float_number:{1}
     |float_type:{Copyright notice}
     |global_command_number:{1}
@@ -40,13 +40,13 @@ $result_tree_text{'float_copying'} = '*document_root C5
       {Public domain is not really a licence, as it means than\\n}
       {the author abandon his copyright.\\n}
      {empty_line:\\n}
-     *2 @caption C1 l8
+     *1 @caption C1 l8
      |EXTRA
-     |float:[E1]
+     |float:[E0]
       *brace_command_context C6
        *paragraph C3
         {The Public Domain notice}
-        *3 @footnote C1 l8
+        *@footnote C1 l8
         |INFO
         |spaces_before_argument:
          |{\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
          *brace_command_context C7
           *paragraph C3
            {The caption copying footnote\\n}
-           *4 @anchor C1 l10
+           *2 @anchor C1 l10
            |EXTRA
            |is_target:{1}
            |normalized:{caption-copying-footnote-anchor}
@@ -94,7 +94,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
           {empty_line:\\n}
           *paragraph C3
            {see }
-           *5 @ref C1 l15
+           *@ref C1 l15
             *brace_arg C1
             |EXTRA
             |node_content:{Copying and floats}
@@ -104,7 +104,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
           {empty_line:\\n}
         {\\n}
        {empty_line:\\n}
-       *6 @anchor C1 l19
+       *3 @anchor C1 l19
        |EXTRA
        |is_target:{1}
        |normalized:{public-domain-anchor}
@@ -163,16 +163,16 @@ $result_tree_text{'float_copying'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *7 @node C1 l26 {Top}
+ *4 @node C1 l26 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |menus:EC[E9]
- |node_directions:D[next->E10]
+ |menus:EC[E6]
+ |node_directions:D[next->E7]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -180,21 +180,21 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *8 @top C6 l27 {Top}
+ *5 @top C6 l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_childs:EC[E11]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_childs:EC[E8]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E8]
+  ||section_childs:EC[E5]
   ||section_level:{-1}
- |toplevel_directions:D[next->E11]
+ |toplevel_directions:D[next->E8]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -207,7 +207,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *9 @menu C3 l31
+  *6 @menu C3 l31
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -236,17 +236,17 @@ $result_tree_text{'float_copying'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @node C1 l35 {Copying and floats}
+ *7 @node C1 l35 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
- |associated_title_command:[E11]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E7]
- |node_directions:D[prev->E7|up->E7]
+ |menu_directions:D[up->E4]
+ |node_directions:D[prev->E4|up->E4]
  |normalized:{Copying-and-floats}
   *arguments_line C1
    *line_arg C1
@@ -254,17 +254,17 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Copying and floats}
- *11 @appendix C9 l36 {Copying and floats}
+ *8 @appendix C9 l36 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
- |associated_node:[E10]
- |section_directions:D[up->E8]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
+ |section_directions:D[up->E5]
  |section_level:{1}
  |section_number:{A}
- |toplevel_directions:D[prev->E8|up->E8]
+ |toplevel_directions:D[prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO

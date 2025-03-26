@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'image_no_braces'} = '*document_root C1
  *before_node_section C1
-  *0 @image l1
+  *@image l1
   |INFO
   |spaces_after_cmd_before_arg:
    |{ }

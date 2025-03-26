@@ -36,7 +36,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 @macro C8 l4
+  *@macro C8 l4
   |EXTRA
   |macro_name:{testallowcodebreakspara}
   |misc_args:A{nr}
@@ -60,7 +60,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *3 @macro C6 l13
+  *@macro C6 l13
   |EXTRA
   |macro_name:{testallowcodebreaksexample}
   |misc_args:A{}
@@ -92,60 +92,60 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{0}
-   *4 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {1aaa}
    { }
-   *5 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {2aaa-}
    { }
-   *6 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {-3bbb}
    { }
-   *7 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {4aaa-bbb}
    { \\n}
-   *8 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      { 5aaa-bb}
    { }
-   *9 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {6aaa-bb }
    { }
-   *10 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {ccc 7aaa-bbb}
    { }
-   *11 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {ccc 8aaa-bbb ddd}
    {\\n}
-   *12 @code C1 l21:@testallowcodebreakspara
+   *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {9aaa-bbb rrr_vv}
    {\\n}
-   *13 @samp C1 l21:@testallowcodebreakspara
+   *@samp C1 l21:@testallowcodebreakspara
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container C9
      {fff-- --- minus}
-     *14 @minus C1 l21:@testallowcodebreakspara
+     *@minus C1 l21:@testallowcodebreakspara
       *brace_container
      {b aa-tt}
-     *15 @\' C1 l21:@testallowcodebreakspara
+     *@\' C1 l21:@testallowcodebreakspara
       *following_arg C1
        {e}
      {ff_gg aa}
-     *16 @r C1 l21:@testallowcodebreakspara
+     *@r C1 l21:@testallowcodebreakspara
       *brace_container C1
        {r-oman}
      { \\n}
      {anc-hor}
-     *17 @anchor C1 l21:@testallowcodebreakspara
+     *2 @anchor C1 l21:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node0}
@@ -159,14 +159,14 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg
-  *18 @example C3 l22:@testallowcodebreaksexample
+  *@example C3 l22:@testallowcodebreaksexample
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *19 @code C1 l22:@testallowcodebreaksexample
+    *@code C1 l22:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}
@@ -206,60 +206,60 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{1}
-   *20 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {1aaa}
    { }
-   *21 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {2aaa-}
    { }
-   *22 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {-3bbb}
    { }
-   *23 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {4aaa-bbb}
    { \\n}
-   *24 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      { 5aaa-bb}
    { }
-   *25 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {6aaa-bb }
    { }
-   *26 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {ccc 7aaa-bbb}
    { }
-   *27 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {ccc 8aaa-bbb ddd}
    {\\n}
-   *28 @code C1 l26:@testallowcodebreakspara
+   *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {9aaa-bbb rrr_vv}
    {\\n}
-   *29 @samp C1 l26:@testallowcodebreakspara
+   *@samp C1 l26:@testallowcodebreakspara
    >SOURCEMARKS
    >macro_expansion<end;3>
     *brace_container C9
      {fff-- --- minus}
-     *30 @minus C1 l26:@testallowcodebreakspara
+     *@minus C1 l26:@testallowcodebreakspara
       *brace_container
      {b aa-tt}
-     *31 @\' C1 l26:@testallowcodebreakspara
+     *@\' C1 l26:@testallowcodebreakspara
       *following_arg C1
        {e}
      {ff_gg aa}
-     *32 @r C1 l26:@testallowcodebreakspara
+     *@r C1 l26:@testallowcodebreakspara
       *brace_container C1
        {r-oman}
      { \\n}
      {anc-hor}
-     *33 @anchor C1 l26:@testallowcodebreakspara
+     *3 @anchor C1 l26:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node1}
@@ -273,14 +273,14 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg
-  *34 @example C3 l27:@testallowcodebreaksexample
+  *@example C3 l27:@testallowcodebreaksexample
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *35 @code C1 l27:@testallowcodebreaksexample
+    *@code C1 l27:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}
@@ -300,7 +300,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {In w:\\n}
-   *36 @w C1 l30
+   *@w C1 l30
     *brace_container C21
      {Out of code --- out-of-code.\\n}
      >SOURCEMARKS
@@ -310,60 +310,60 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
       >|command_name:{testallowcodebreakspara}
        >*brace_arg C1
         >{w}
-     *37 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {1aaa}
      { }
-     *38 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {2aaa-}
      { }
-     *39 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {-3bbb}
      { }
-     *40 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {4aaa-bbb}
      { \\n}
-     *41 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        { 5aaa-bb}
      { }
-     *42 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {6aaa-bb }
      { }
-     *43 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {ccc 7aaa-bbb}
      { }
-     *44 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {ccc 8aaa-bbb ddd}
      {\\n}
-     *45 @code C1 l30:@testallowcodebreakspara
+     *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {9aaa-bbb rrr_vv}
      {\\n}
-     *46 @samp C1 l30:@testallowcodebreakspara
+     *@samp C1 l30:@testallowcodebreakspara
      >SOURCEMARKS
      >macro_expansion<end;5>
       *brace_container C9
        {fff-- --- minus}
-       *47 @minus C1 l30:@testallowcodebreakspara
+       *@minus C1 l30:@testallowcodebreakspara
         *brace_container
        {b aa-tt}
-       *48 @\' C1 l30:@testallowcodebreakspara
+       *@\' C1 l30:@testallowcodebreakspara
         *following_arg C1
          {e}
        {ff_gg aa}
-       *49 @r C1 l30:@testallowcodebreakspara
+       *@r C1 l30:@testallowcodebreakspara
         *brace_container C1
          {r-oman}
        { \\n}
        {anc-hor}
-       *50 @anchor C1 l30:@testallowcodebreakspara
+       *4 @anchor C1 l30:@testallowcodebreakspara
        |EXTRA
        |is_target:{1}
        |normalized:{A-nodew}
@@ -372,16 +372,16 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      {\\n}
    {\\n}
   {empty_line:\\n}
-  *51 @example C3 l33
+  *@example C3 l33
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *52 @w C1 l34
+    *@w C1 l34
      *brace_container C1
-      *53 @code C1 l34
+      *@code C1 l34
        *brace_container C1
         {in-example}
     {\\n}
@@ -419,60 +419,60 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{2}
-   *54 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {1aaa}
    { }
-   *55 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {2aaa-}
    { }
-   *56 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {-3bbb}
    { }
-   *57 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {4aaa-bbb}
    { \\n}
-   *58 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      { 5aaa-bb}
    { }
-   *59 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {6aaa-bb }
    { }
-   *60 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {ccc 7aaa-bbb}
    { }
-   *61 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {ccc 8aaa-bbb ddd}
    {\\n}
-   *62 @code C1 l39:@testallowcodebreakspara
+   *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {9aaa-bbb rrr_vv}
    {\\n}
-   *63 @samp C1 l39:@testallowcodebreakspara
+   *@samp C1 l39:@testallowcodebreakspara
    >SOURCEMARKS
    >macro_expansion<end;6>
     *brace_container C9
      {fff-- --- minus}
-     *64 @minus C1 l39:@testallowcodebreakspara
+     *@minus C1 l39:@testallowcodebreakspara
       *brace_container
      {b aa-tt}
-     *65 @\' C1 l39:@testallowcodebreakspara
+     *@\' C1 l39:@testallowcodebreakspara
       *following_arg C1
        {e}
      {ff_gg aa}
-     *66 @r C1 l39:@testallowcodebreakspara
+     *@r C1 l39:@testallowcodebreakspara
       *brace_container C1
        {r-oman}
      { \\n}
      {anc-hor}
-     *67 @anchor C1 l39:@testallowcodebreakspara
+     *5 @anchor C1 l39:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node2}
@@ -486,14 +486,14 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg
-  *68 @example C3 l40:@testallowcodebreaksexample
+  *@example C3 l40:@testallowcodebreaksexample
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *69 @code C1 l40:@testallowcodebreaksexample
+    *@code C1 l40:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'spaces_info_lost'} = '*document_root C1
  *before_node_section C3
-  *0 @display C3 l1
+  *@display C3 l1
   |INFO
   |spaces_before_argument:
    |{  }
@@ -30,7 +30,7 @@ $result_tree_text{'spaces_info_lost'} = '*document_root C1
      |{ \\n}
      {display}
   {empty_line:\\n}
-  *1 @verbatim C3 l5
+  *@verbatim C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO

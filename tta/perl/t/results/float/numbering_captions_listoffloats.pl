@@ -15,8 +15,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E24]
- |node_directions:D[next->E25]
+ |menus:EC[E22]
+ |node_directions:D[next->E23]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,14 +31,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E26|E51|E65|E79|E84]
+ |section_childs:EC[E24|E42|E56|E70|E75]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E26]
+ |toplevel_directions:D[next->E24]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{text-with-a-lot-of-features}
-  |shortcaption:[E5]
+  |shortcaption:[E4]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -79,15 +79,15 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     *brace_command_context C1
      *paragraph C2
       {An example of float caption}
-      *4 @enddots C1 l6
+      *@enddots C1 l6
        *brace_container
    {spaces_after_close_brace:\\n}
-   *5 @shortcaption C1 l7
+   *4 @shortcaption C1 l7
    |EXTRA
    |float:[E2]
     *brace_command_context C1
      *paragraph C2
-      *6 @TeX C1 l7
+      *@TeX C1 l7
        *brace_container
       { and someething}
    {spaces_after_close_brace:\\n}
@@ -103,16 +103,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *7 @float C8 l10
+  *5 @float C8 l10
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E8]
+  |caption:[E6]
   |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{2}
-  |shortcaption:[E9]
+  |shortcaption:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -122,16 +122,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {No label but caption and shortcaption.\\n}
    {empty_line:\\n}
-   *8 @caption C1 l13
+   *6 @caption C1 l13
    |EXTRA
-   |float:[E7]
+   |float:[E5]
     *brace_command_context C1
      *paragraph C1
       {C No label}
    {spaces_after_close_brace:\\n}
-   *9 @shortcaption C1 l14
+   *7 @shortcaption C1 l14
    |EXTRA
-   |float:[E7]
+   |float:[E5]
     *brace_command_context C1
      *paragraph C1
       {SC No label}
@@ -148,19 +148,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *10 @float C8 l17
+  *8 @float C8 l17
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E11]
+  |caption:[E9]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{3}
   |is_target:{1}
   |normalized:{label-but-no-type}
-  |shortcaption:[E12]
+  |shortcaption:[E10]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -171,16 +171,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {No type but caption and shortcaption.\\n}
    {empty_line:\\n}
-   *11 @caption C1 l20
+   *9 @caption C1 l20
    |EXTRA
-   |float:[E10]
+   |float:[E8]
     *brace_command_context C1
      *paragraph C1
       {C No type}
    {spaces_after_close_brace:\\n}
-   *12 @shortcaption C1 l21
+   *10 @shortcaption C1 l21
    |EXTRA
-   |float:[E10]
+   |float:[E8]
     *brace_command_context C1
      *paragraph C1
       {SC No type}
@@ -198,7 +198,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {float}
   {empty_line:\\n}
   {empty_line:\\n}
-  *13 @float C4 l25
+  *11 @float C4 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -232,7 +232,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {float}
   {empty_line:\\n}
   {empty_line:\\n}
-  *14 @float C4 l31
+  *12 @float C4 l31
   |EXTRA
   |float_section:[E1]
   |float_type:{}
@@ -257,13 +257,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *15 @float C7 l36
+  *13 @float C7 l36
   |EXTRA
-  |caption:[E16]
+  |caption:[E14]
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{6}
-  |shortcaption:[E17]
+  |shortcaption:[E15]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -271,16 +271,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
    *paragraph C1
     {No label, no type, but caption and shortcaption.\\n}
-   *16 @caption C1 l38
+   *14 @caption C1 l38
    |EXTRA
-   |float:[E15]
+   |float:[E13]
     *brace_command_context C1
      *paragraph C1
       {C No label, no type, but caption and shortcaption.}
    {spaces_after_close_brace:\\n}
-   *17 @shortcaption C1 l39
+   *15 @shortcaption C1 l39
    |EXTRA
-   |float:[E15]
+   |float:[E13]
     *brace_command_context C1
      *paragraph C1
       {SC No label, no type, but caption and shortcaption.}
@@ -297,19 +297,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *18 @float C8 l42
+  *16 @float C8 l42
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E19]
+  |caption:[E17]
   |float_number:{3}
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{7}
   |is_target:{1}
   |normalized:{label-but-no-type-2}
-  |shortcaption:[E20]
+  |shortcaption:[E18]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -320,16 +320,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Second float with no type.\\n}
    {empty_line:\\n}
-   *19 @caption C1 l45
+   *17 @caption C1 l45
    |EXTRA
-   |float:[E18]
+   |float:[E16]
     *brace_command_context C1
      *paragraph C1
       {C No type 2}
    {spaces_after_close_brace:\\n}
-   *20 @shortcaption C1 l46
+   *18 @shortcaption C1 l46
    |EXTRA
-   |float:[E18]
+   |float:[E16]
     *brace_command_context C1
      *paragraph C1
       {SC No type 2}
@@ -346,19 +346,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *21 @float C8 l49
+  *19 @float C8 l49
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E22]
+  |caption:[E20]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{Warning}
   |global_command_number:{8}
   |is_target:{1}
   |normalized:{warning-in-top}
-  |shortcaption:[E23]
+  |shortcaption:[E21]
    *arguments_line C2
     *block_line_arg C1
      {Warning}
@@ -372,16 +372,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {A warning\\n}
    {empty_line:\\n}
-   *22 @caption C1 l52
+   *20 @caption C1 l52
    |EXTRA
-   |float:[E21]
+   |float:[E19]
     *brace_command_context C1
      *paragraph C1
       {C A warning}
    {spaces_after_close_brace:\\n}
-   *23 @shortcaption C1 l53
+   *21 @shortcaption C1 l53
    |EXTRA
-   |float:[E21]
+   |float:[E19]
     *brace_command_context C1
      *paragraph C1
       {SC A warning}
@@ -398,7 +398,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *24 @menu C7 l56
+  *22 @menu C7 l56
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -471,17 +471,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {menu}
   {empty_line:\\n}
- *25 @node C1 l64 {chapter}
+ *23 @node C1 l64 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E26]
- |associated_title_command:[E26]
+ |associated_section:[E24]
+ |associated_title_command:[E24]
  |is_target:{1}
- |menu_directions:D[next->E50|up->E0]
- |menus:EC[E46]
- |node_directions:D[next->E50|prev->E0|up->E0]
+ |menu_directions:D[next->E41|up->E0]
+ |menus:EC[E37]
+ |node_directions:D[next->E41|prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -489,18 +489,18 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *26 @chapter C14 l65 {A chapter}
+ *24 @chapter C14 l65 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E25]
- |associated_node:[E25]
- |section_childs:EC[E48]
- |section_directions:D[next->E51|up->E1]
+ |associated_anchor_command:[E23]
+ |associated_node:[E23]
+ |section_childs:EC[E39]
+ |section_directions:D[next->E42|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E51|prev->E1|up->E1]
+ |toplevel_directions:D[next->E42|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -508,14 +508,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {A chapter}
   {empty_line:\\n}
-  *27 @float C6 l67
+  *25 @float C6 l67
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E28]
+  |caption:[E26]
   |float_number:{1.1}
-  |float_section:[E26]
+  |float_section:[E24]
   |float_type:{Text}
   |global_command_number:{9}
   |is_target:{1}
@@ -533,9 +533,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Text in chapter\\n}
    {empty_line:\\n}
-   *28 @caption C1 l70
+   *26 @caption C1 l70
    |EXTRA
-   |float:[E27]
+   |float:[E25]
     *brace_command_context C1
      *paragraph C1
       {C Text in chapter}
@@ -552,14 +552,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *29 @float C4 l73
+  *27 @float C4 l73
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E30]
+  |caption:[E28]
   |float_number:{1.2}
-  |float_section:[E26]
+  |float_section:[E24]
   |float_type:{Text}
   |global_command_number:{10}
   |is_target:{1}
@@ -574,16 +574,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |spaces_before_argument:
      |{ }
      {float with a lot of features and no shortcaption}
-   *30 @caption C1 l74
+   *28 @caption C1 l74
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |float:[E29]
+   |float:[E27]
     *brace_command_context C1
      *paragraph C2
       {An example of float caption, no shortcaption}
-      *31 @enddots C1 l74
+      *@enddots C1 l74
        *brace_container
    {spaces_after_close_brace:\\n}
    *@end C1 l75
@@ -598,14 +598,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *32 @float C6 l77
+  *29 @float C6 l77
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E37]
+  |caption:[E30]
   |float_number:{1.1}
-  |float_section:[E26]
+  |float_section:[E24]
   |float_type:{théorème}
   |global_command_number:{11}
   |is_target:{1}
@@ -613,11 +613,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *arguments_line C2
     *block_line_arg C5
      {th}
-     *33 @\' C1 l77
+     *@\' C1 l77
       *following_arg C1
        {e}
      {or}
-     *34 @` C1 l77
+     *@` C1 l77
       *following_arg C1
        {e}
      {me}
@@ -630,26 +630,26 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {theoreme}
    *paragraph C5
     {A th}
-    *35 @\' C1 l78
+    *@\' C1 l78
      *following_arg C1
       {e}
     {or}
-    *36 @` C1 l78
+    *@` C1 l78
      *following_arg C1
       {e}
     {me\\n}
    {empty_line:\\n}
-   *37 @caption C1 l80
+   *30 @caption C1 l80
    |EXTRA
-   |float:[E32]
+   |float:[E29]
     *brace_command_context C1
      *paragraph C5
       {C A th}
-      *38 @\' C1 l80
+      *@\' C1 l80
        *following_arg C1
         {e}
       {or}
-      *39 @` C1 l80
+      *@` C1 l80
        *following_arg C1
         {e}
       {me}
@@ -666,19 +666,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *40 @float C8 l83
+  *31 @float C8 l83
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E41]
+  |caption:[E32]
   |float_number:{1.1}
-  |float_section:[E26]
+  |float_section:[E24]
   |float_type:{}
   |global_command_number:{12}
   |is_target:{1}
   |normalized:{label-but-no-type-in-chapter}
-  |shortcaption:[E42]
+  |shortcaption:[E33]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -689,16 +689,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
-   *41 @caption C1 l86
+   *32 @caption C1 l86
    |EXTRA
-   |float:[E40]
+   |float:[E31]
     *brace_command_context C1
      *paragraph C1
       {C No type in chapter}
    {spaces_after_close_brace:\\n}
-   *42 @shortcaption C1 l87
+   *33 @shortcaption C1 l87
    |EXTRA
-   |float:[E40]
+   |float:[E31]
     *brace_command_context C1
      *paragraph C1
       {SC No type in chapter}
@@ -715,19 +715,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *43 @float C8 l90
+  *34 @float C8 l90
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E44]
+  |caption:[E35]
   |float_number:{1.1}
-  |float_section:[E26]
+  |float_section:[E24]
   |float_type:{Warning}
   |global_command_number:{13}
   |is_target:{1}
   |normalized:{warning-in-chapter}
-  |shortcaption:[E45]
+  |shortcaption:[E36]
    *arguments_line C2
     *block_line_arg C1
      {Warning}
@@ -741,16 +741,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {A warning\\n}
    {empty_line:\\n}
-   *44 @caption C1 l93
+   *35 @caption C1 l93
    |EXTRA
-   |float:[E43]
+   |float:[E34]
     *brace_command_context C1
      *paragraph C1
       {C A warning in chapter}
    {spaces_after_close_brace:\\n}
-   *45 @shortcaption C1 l94
+   *36 @shortcaption C1 l94
    |EXTRA
-   |float:[E43]
+   |float:[E34]
     *brace_command_context C1
      *paragraph C1
       {SC A warning in chapter}
@@ -767,7 +767,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *46 @menu C3 l97
+  *37 @menu C3 l97
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -796,16 +796,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {menu}
   {empty_line:\\n}
- *47 @node C1 l101 {section}
+ *38 @node C1 l101 {section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E48]
- |associated_title_command:[E48]
+ |associated_section:[E39]
+ |associated_title_command:[E39]
  |is_target:{1}
- |menu_directions:D[up->E25]
- |node_directions:D[up->E25]
+ |menu_directions:D[up->E23]
+ |node_directions:D[up->E23]
  |normalized:{section}
   *arguments_line C1
    *line_arg C1
@@ -813,14 +813,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {section}
- *48 @section C4 l102 {A section}
+ *39 @section C4 l102 {A section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E47]
- |associated_node:[E47]
- |section_directions:D[up->E26]
+ |associated_anchor_command:[E38]
+ |associated_node:[E38]
+ |section_directions:D[up->E24]
  |section_level:{2}
  |section_number:{1.1}
   *arguments_line C1
@@ -830,13 +830,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {A section}
   {empty_line:\\n}
-  *49 @float C5 l104
+  *40 @float C5 l104
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
   |float_number:{1.3}
-  |float_section:[E48]
+  |float_section:[E39]
   |float_type:{Text}
   |global_command_number:{14}
   |is_target:{1}
@@ -867,17 +867,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *50 @node C1 l110 {Unnumbered}
+ *41 @node C1 l110 {Unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E51]
- |associated_title_command:[E51]
+ |associated_section:[E42]
+ |associated_title_command:[E42]
  |is_target:{1}
- |menu_directions:D[next->E64|prev->E25|up->E0]
- |menus:EC[E52]
- |node_directions:D[next->E64|prev->E25|up->E0]
+ |menu_directions:D[next->E55|prev->E23|up->E0]
+ |menus:EC[E43]
+ |node_directions:D[next->E55|prev->E23|up->E0]
  |normalized:{Unnumbered}
   *arguments_line C1
    *line_arg C1
@@ -885,17 +885,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Unnumbered}
- *51 @unnumbered C7 l111 {Unnumbered}
+ *42 @unnumbered C7 l111 {Unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E50]
- |associated_node:[E50]
- |section_childs:EC[E60]
- |section_directions:D[next->E65|prev->E26|up->E1]
+ |associated_anchor_command:[E41]
+ |associated_node:[E41]
+ |section_childs:EC[E51]
+ |section_directions:D[next->E56|prev->E24|up->E1]
  |section_level:{1}
- |toplevel_directions:D[next->E65|prev->E26|up->E1]
+ |toplevel_directions:D[next->E56|prev->E24|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -903,7 +903,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {Unnumbered}
   {empty_line:\\n}
-  *52 @menu C3 l113
+  *43 @menu C3 l113
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -931,19 +931,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |spaces_after_argument:
      |{\\n}
      {menu}
-  *53 @float C7 l116
+  *44 @float C7 l116
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E55]
+  |caption:[E46]
   |float_number:{5}
-  |float_section:[E51]
+  |float_section:[E42]
   |float_type:{Text}
   |global_command_number:{15}
   |is_target:{1}
   |normalized:{unnumbered-float}
-  |shortcaption:[E54]
+  |shortcaption:[E45]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -956,16 +956,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {unnumbered float}
    *paragraph C1
     {unnum\\n}
-   *54 @shortcaption C1 l118
+   *45 @shortcaption C1 l118
    |EXTRA
-   |float:[E53]
+   |float:[E44]
     *brace_command_context C1
      *paragraph C1
       {SC unnumbered float}
    {spaces_after_close_brace:\\n}
-   *55 @caption C1 l119
+   *46 @caption C1 l119
    |EXTRA
-   |float:[E53]
+   |float:[E44]
     *brace_command_context C1
      *paragraph C1
       {C unnumbered float}
@@ -981,19 +981,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |spaces_after_argument:
      |{\\n}
      {float}
-  *56 @float C8 l121
+  *47 @float C8 l121
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E57]
+  |caption:[E48]
   |float_number:{5}
-  |float_section:[E51]
+  |float_section:[E42]
   |float_type:{}
   |global_command_number:{16}
   |is_target:{1}
   |normalized:{label-but-no-type-in-unnumbered}
-  |shortcaption:[E58]
+  |shortcaption:[E49]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -1004,16 +1004,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
-   *57 @caption C1 l124
+   *48 @caption C1 l124
    |EXTRA
-   |float:[E56]
+   |float:[E47]
     *brace_command_context C1
      *paragraph C1
       {C No type in unnumbered}
    {spaces_after_close_brace:\\n}
-   *58 @shortcaption C1 l125
+   *49 @shortcaption C1 l125
    |EXTRA
-   |float:[E56]
+   |float:[E47]
     *brace_command_context C1
      *paragraph C1
       {SC No type in unnumbered}
@@ -1031,16 +1031,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {float}
   {empty_line:\\n}
   {empty_line:\\n}
- *59 @node C1 l129 {Section within unnumbered}
+ *50 @node C1 l129 {Section within unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E60]
- |associated_title_command:[E60]
+ |associated_section:[E51]
+ |associated_title_command:[E51]
  |is_target:{1}
- |menu_directions:D[up->E50]
- |node_directions:D[up->E50]
+ |menu_directions:D[up->E41]
+ |node_directions:D[up->E41]
  |normalized:{Section-within-unnumbered}
   *arguments_line C1
    *line_arg C1
@@ -1048,14 +1048,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Section within unnumbered}
- *60 @section C5 l130 {Section within unnumbered}
+ *51 @section C5 l130 {Section within unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E59]
- |associated_node:[E59]
- |section_directions:D[up->E51]
+ |associated_anchor_command:[E50]
+ |associated_node:[E50]
+ |section_directions:D[up->E42]
  |section_level:{2}
   *arguments_line C1
    *line_arg C1
@@ -1065,19 +1065,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {Section within unnumbered}
   {empty_line:\\n}
   {empty_line:\\n}
-  *61 @float C7 l133
+  *52 @float C7 l133
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E63]
+  |caption:[E54]
   |float_number:{6}
-  |float_section:[E60]
+  |float_section:[E51]
   |float_type:{Text}
   |global_command_number:{17}
   |is_target:{1}
   |normalized:{Section-within-unnumbered-float}
-  |shortcaption:[E62]
+  |shortcaption:[E53]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1090,16 +1090,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {Section within unnumbered float}
    *paragraph C1
     {Section within unnumbered\\n}
-   *62 @shortcaption C1 l135
+   *53 @shortcaption C1 l135
    |EXTRA
-   |float:[E61]
+   |float:[E52]
     *brace_command_context C1
      *paragraph C1
       {SC Section within unnumbered}
    {spaces_after_close_brace:\\n}
-   *63 @caption C1 l136
+   *54 @caption C1 l136
    |EXTRA
-   |float:[E61]
+   |float:[E52]
     *brace_command_context C1
      *paragraph C1
       {C Section within unnumbered}
@@ -1116,17 +1116,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *64 @node C1 l139 {Chapter with unnumbsubsec}
+ *55 @node C1 l139 {Chapter with unnumbsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E65]
- |associated_title_command:[E65]
+ |associated_section:[E56]
+ |associated_title_command:[E56]
  |is_target:{1}
- |menu_directions:D[next->E78|prev->E50|up->E0]
- |menus:EC[E66]
- |node_directions:D[next->E78|prev->E50|up->E0]
+ |menu_directions:D[next->E69|prev->E41|up->E0]
+ |menus:EC[E57]
+ |node_directions:D[next->E69|prev->E41|up->E0]
  |normalized:{Chapter-with-unnumbsubsec}
   *arguments_line C1
    *line_arg C1
@@ -1134,18 +1134,18 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Chapter with unnumbsubsec}
- *65 @chapter C5 l140 {Chapter with unnumbsubsec}
+ *56 @chapter C5 l140 {Chapter with unnumbsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E64]
- |associated_node:[E64]
- |section_childs:EC[E71]
- |section_directions:D[next->E79|prev->E51|up->E1]
+ |associated_anchor_command:[E55]
+ |associated_node:[E55]
+ |section_childs:EC[E62]
+ |section_directions:D[next->E70|prev->E42|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E79|prev->E51|up->E1]
+ |toplevel_directions:D[next->E70|prev->E42|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1153,7 +1153,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {Chapter with unnumbsubsec}
   {empty_line:\\n}
-  *66 @menu C3 l142
+  *57 @menu C3 l142
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -1181,19 +1181,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |spaces_after_argument:
      |{\\n}
      {menu}
-  *67 @float C7 l145
+  *58 @float C7 l145
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E69]
+  |caption:[E60]
   |float_number:{2.1}
-  |float_section:[E65]
+  |float_section:[E56]
   |float_type:{Text}
   |global_command_number:{18}
   |is_target:{1}
   |normalized:{Chapter-with-subsec-float}
-  |shortcaption:[E68]
+  |shortcaption:[E59]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1206,16 +1206,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {Chapter with subsec float}
    *paragraph C1
     {Chap\\n}
-   *68 @shortcaption C1 l147
+   *59 @shortcaption C1 l147
    |EXTRA
-   |float:[E67]
+   |float:[E58]
     *brace_command_context C1
      *paragraph C1
       {SC Chapter with subsec}
    {spaces_after_close_brace:\\n}
-   *69 @caption C1 l148
+   *60 @caption C1 l148
    |EXTRA
-   |float:[E67]
+   |float:[E58]
     *brace_command_context C1
      *paragraph C1
       {C Chapter with subsec}
@@ -1232,16 +1232,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *70 @node C1 l151 {unnumbered sec}
+ *61 @node C1 l151 {unnumbered sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E71]
- |associated_title_command:[E71]
+ |associated_section:[E62]
+ |associated_title_command:[E62]
  |is_target:{1}
- |menu_directions:D[up->E64]
- |node_directions:D[up->E64]
+ |menu_directions:D[up->E55]
+ |node_directions:D[up->E55]
  |normalized:{unnumbered-sec}
   *arguments_line C1
    *line_arg C1
@@ -1249,14 +1249,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {unnumbered sec}
- *71 @unnumberedsec C6 l152 {unnumbered sec}
+ *62 @unnumberedsec C6 l152 {unnumbered sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E70]
- |associated_node:[E70]
- |section_directions:D[up->E65]
+ |associated_anchor_command:[E61]
+ |associated_node:[E61]
+ |section_directions:D[up->E56]
  |section_level:{2}
   *arguments_line C1
    *line_arg C1
@@ -1265,19 +1265,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {unnumbered sec}
   {empty_line:\\n}
-  *72 @float C7 l154
+  *63 @float C7 l154
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E74]
+  |caption:[E65]
   |float_number:{2.2}
-  |float_section:[E71]
+  |float_section:[E62]
   |float_type:{Text}
   |global_command_number:{19}
   |is_target:{1}
   |normalized:{unnumbered-sec-float}
-  |shortcaption:[E73]
+  |shortcaption:[E64]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1290,16 +1290,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {unnumbered sec float}
    *paragraph C1
     {Chap\\n}
-   *73 @shortcaption C1 l156
+   *64 @shortcaption C1 l156
    |EXTRA
-   |float:[E72]
+   |float:[E63]
     *brace_command_context C1
      *paragraph C1
       {SC unnumbered sec float}
    {spaces_after_close_brace:\\n}
-   *74 @caption C1 l157
+   *65 @caption C1 l157
    |EXTRA
-   |float:[E72]
+   |float:[E63]
     *brace_command_context C1
      *paragraph C1
       {C unnumbered sec float}
@@ -1316,19 +1316,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
-  *75 @float C8 l160
+  *66 @float C8 l160
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E76]
+  |caption:[E67]
   |float_number:{2.1}
-  |float_section:[E71]
+  |float_section:[E62]
   |float_type:{}
   |global_command_number:{20}
   |is_target:{1}
   |normalized:{label-but-no-type-in-unnumbered-subsec-in-chapter}
-  |shortcaption:[E77]
+  |shortcaption:[E68]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -1339,16 +1339,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
-   *76 @caption C1 l163
+   *67 @caption C1 l163
    |EXTRA
-   |float:[E75]
+   |float:[E66]
     *brace_command_context C1
      *paragraph C1
       {C No type in unnumbered subsec in chapter}
    {spaces_after_close_brace:\\n}
-   *77 @shortcaption C1 l164
+   *68 @shortcaption C1 l164
    |EXTRA
-   |float:[E75]
+   |float:[E66]
     *brace_command_context C1
      *paragraph C1
       {SC No type in unnumbered subsec in chapter}
@@ -1365,16 +1365,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *78 @node C1 l167 {Appendix for float}
+ *69 @node C1 l167 {Appendix for float}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E79]
- |associated_title_command:[E79]
+ |associated_section:[E70]
+ |associated_title_command:[E70]
  |is_target:{1}
- |menu_directions:D[next->E83|prev->E64|up->E0]
- |node_directions:D[next->E83|prev->E64|up->E0]
+ |menu_directions:D[next->E74|prev->E55|up->E0]
+ |node_directions:D[next->E74|prev->E55|up->E0]
  |normalized:{Appendix-for-float}
   *arguments_line C1
    *line_arg C1
@@ -1382,17 +1382,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Appendix for float}
- *79 @appendix C4 l168 {Appendix for float}
+ *70 @appendix C4 l168 {Appendix for float}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E78]
- |associated_node:[E78]
- |section_directions:D[next->E84|prev->E65|up->E1]
+ |associated_anchor_command:[E69]
+ |associated_node:[E69]
+ |section_directions:D[next->E75|prev->E56|up->E1]
  |section_level:{1}
  |section_number:{A}
- |toplevel_directions:D[next->E84|prev->E65|up->E1]
+ |toplevel_directions:D[next->E75|prev->E56|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1400,19 +1400,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |{\\n}
     {Appendix for float}
   {empty_line:\\n}
-  *80 @float C8 l170
+  *71 @float C8 l170
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E82]
+  |caption:[E73]
   |float_number:{A.1}
-  |float_section:[E79]
+  |float_section:[E70]
   |float_type:{Text}
   |global_command_number:{21}
   |is_target:{1}
   |normalized:{appendix-sec-float}
-  |shortcaption:[E81]
+  |shortcaption:[E72]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1426,16 +1426,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    {empty_line:\\n}
    *paragraph C1
     {Appendix\\n}
-   *81 @shortcaption C1 l173
+   *72 @shortcaption C1 l173
    |EXTRA
-   |float:[E80]
+   |float:[E71]
     *brace_command_context C1
      *paragraph C1
       {SC appendix sec float}
    {spaces_after_close_brace:\\n}
-   *82 @caption C1 l174
+   *73 @caption C1 l174
    |EXTRA
-   |float:[E80]
+   |float:[E71]
     *brace_command_context C1
      *paragraph C1
       {C appendix sec float}
@@ -1452,16 +1452,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *83 @node C1 l177 {list of floats}
+ *74 @node C1 l177 {list of floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E84]
- |associated_title_command:[E84]
+ |associated_section:[E75]
+ |associated_title_command:[E75]
  |is_target:{1}
- |menu_directions:D[prev->E78|up->E0]
- |node_directions:D[prev->E78|up->E0]
+ |menu_directions:D[prev->E69|up->E0]
+ |node_directions:D[prev->E69|up->E0]
  |normalized:{list-of-floats}
   *arguments_line C1
    *line_arg C1
@@ -1469,16 +1469,16 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {list of floats}
- *84 @unnumbered C15 l178 {list of floats}
+ *75 @unnumbered C15 l178 {list of floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E83]
- |associated_node:[E83]
- |section_directions:D[prev->E79|up->E1]
+ |associated_anchor_command:[E74]
+ |associated_node:[E74]
+ |section_directions:D[prev->E70|up->E1]
  |section_level:{1}
- |toplevel_directions:D[prev->E79|up->E1]
+ |toplevel_directions:D[prev->E70|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1488,7 +1488,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *paragraph C8
    {See }
-   *85 @ref C1 l180
+   *@ref C1 l180
     *brace_arg C1
     |EXTRA
     |node_content:{text in section}
@@ -1496,14 +1496,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {text in section}
    {.\\n}
    {And (}
-   *86 @pxref C1 l181
+   *@pxref C1 l181
     *brace_arg C1
     |EXTRA
     |node_content:{text in chapter}
     |normalized:{text-in-chapter}
      {text in chapter}
    {).\\n}
-   *87 @xref C1 l182
+   *@xref C1 l182
     *brace_arg C1
     |EXTRA
     |node_content:{text with a lot of features}
@@ -1513,7 +1513,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *paragraph C3
    {And now a ref (without manual or printed manual)\\n}
-   *88 @ref C3 l185
+   *@ref C3 l185
     *brace_arg C1
     |EXTRA
     |node_content:{text with a lot of features}
@@ -1533,7 +1533,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *paragraph C3
    {And now a ref (with manual without printed manual)\\n}
-   *89 @ref C4 l188
+   *@ref C4 l188
     *brace_arg C1
     |EXTRA
     |node_content:{text with a lot of features}
@@ -1557,7 +1557,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *paragraph C3
    {And now a ref (without manual with a printed manual)\\n}
-   *90 @ref C5 l191
+   *@ref C5 l191
     *brace_arg C1
     |EXTRA
     |node_content:{text with a lot of features}
@@ -1582,7 +1582,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *paragraph C3
    {A ref to float without type }
-   *91 @ref C1 l193
+   *@ref C1 l193
     *brace_arg C1
     |EXTRA
     |node_content:{label but no type}
@@ -1614,11 +1614,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {th}
-    *92 @\' C1 l196
+    *@\' C1 l196
      *following_arg C1
       {e}
     {or}
-    *93 @` C1 l196
+    *@` C1 l196
      *following_arg C1
       {e}
     {me}

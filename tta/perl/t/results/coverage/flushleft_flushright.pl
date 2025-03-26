@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'flushleft_flushright'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @flushleft C5 l2
+  *@flushleft C5 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
      |{\\n}
      {flushleft}
   {empty_line:\\n}
-  *1 @flushright C5 l10
+  *@flushright C5 l10
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -15,11 +15,11 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {``category---}
-    *0 @var C1 l1
+    *@var C1 l1
      *brace_container C1
       {th  ere}
     {?\'\'}
-  *1 @direntry C3 l2
+  *@direntry C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
     *menu_entry_description C1
      *preformatted C3
       {``hello---}
-      *2 @var C1 l3
+      *@var C1 l3
        *brace_container C1
         {there}
       {?\'\'\\n}
@@ -65,7 +65,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {cat2}
-  *3 @direntry C4 l7
+  *@direntry C4 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -101,13 +101,13 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
      {direntry}
   {empty_line:\\n}
   {empty_line:\\n}
- *4 @node C1 l15 {Top}
+ *0 @node C1 l15 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -116,18 +116,18 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C3 l16 {Test dircategory and direntry}
+ *1 @top C3 l16 {Test dircategory and direntry}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1

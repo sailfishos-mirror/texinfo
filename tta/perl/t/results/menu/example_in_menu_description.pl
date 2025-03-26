@@ -60,7 +60,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
     *menu_entry_description C2
      *preformatted C1
       {\\n}
-     *3 @example C3 l6
+     *@example C3 l6
       *arguments_line C1
        *block_line_arg
        |INFO

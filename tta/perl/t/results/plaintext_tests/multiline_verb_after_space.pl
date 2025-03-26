@@ -8,7 +8,7 @@ $result_tree_text{'multiline_verb_after_space'} = '*document_root C1
  *before_node_section C1
   *paragraph C3
    {AA }
-   *0 @verb C1 l1
+   *@verb C1 l1
    |INFO
    |delimiter:{*}
     *brace_container C2

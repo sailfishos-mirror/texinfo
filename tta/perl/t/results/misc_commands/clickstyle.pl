@@ -15,7 +15,7 @@ $result_tree_text{'clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *0 @click C1 l3
+   *@click C1 l3
    |EXTRA
    |clickstyle:{result}
     *brace_container
@@ -30,7 +30,7 @@ $result_tree_text{'clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *1 @click C1 l7
+   *@click C1 l7
    |EXTRA
    |clickstyle:{equiv}
     *brace_container

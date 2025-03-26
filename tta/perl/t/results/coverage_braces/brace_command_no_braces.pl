@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'brace_command_no_braces'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @xref l1
+   *@xref l1
 ';
 
 

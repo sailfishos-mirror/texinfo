@@ -9,7 +9,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content C6
-   *0 @macro C3 cpp_directives_after_macros.texi:l2
+   *@macro C3 cpp_directives_after_macros.texi:l2
    |EXTRA
    |macro_name:{noargsspaces}
    |misc_args:A{}
@@ -28,7 +28,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
       |{\\n}
       {macro}
    {empty_line:\\n}
-   *1 @macro C3 cpp_directives_after_macros.texi:l6
+   *@macro C3 cpp_directives_after_macros.texi:l6
    |EXTRA
    |macro_name:{emptyexpansion}
    |misc_args:A{}

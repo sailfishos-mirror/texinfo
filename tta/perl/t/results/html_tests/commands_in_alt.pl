@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'commands_in_alt'} = '*document_root C1
  *before_node_section C4
-  *0 @image C4 l1
+  *@image C4 l1
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -15,19 +15,19 @@ $result_tree_text{'commands_in_alt'} = '*document_root C1
    *brace_arg
    *brace_arg C2
     {alt -- }
-    *1 @b C1 l1
+    *@b C1 l1
      *brace_container C1
       {in b}
   {\\n}
   {empty_line:\\n}
-  *2 @example C3 l3
+  *@example C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *3 @image C4 l4
+    *@image C4 l4
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'commands_in_alt'} = '*document_root C1
      *brace_arg
      *brace_arg C2
       {alt -- }
-      *4 @b C1 l4
+      *@b C1 l4
        *brace_container C1
         {in b}
     {\\n}

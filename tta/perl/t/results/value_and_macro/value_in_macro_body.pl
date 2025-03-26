@@ -12,7 +12,7 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
    {rawline_arg:bodyarg}
    {rawline_arg:\\arg\\}
   {empty_line:\\n}
-  *0 @macro C3 l3
+  *@macro C3 l3
   |EXTRA
   |macro_name:{testvaluebody}
   |misc_args:A{arg}
@@ -40,7 +40,7 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
     >|command_name:{testvaluebody}
      >*brace_arg C1
       >{macro_arg1}
-   *1 @emph C1 l7:@testvaluebody
+   *@emph C1 l7:@testvaluebody
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container C1

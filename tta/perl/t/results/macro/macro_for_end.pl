@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_for_end'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{myend}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_for_end'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @cartouche C2 l5
+  *@cartouche C2 l5
    *arguments_line C1
    >SOURCEMARKS
    >macro_expansion<start;1>

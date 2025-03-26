@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{lm}
   |misc_args:A{one}

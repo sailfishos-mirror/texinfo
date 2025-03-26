@@ -11,16 +11,16 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    *@@
    {.\\n}
    {TeX}
-   *0 @TeX C1 l2
+   *@TeX C1 l2
     *brace_container
    {TeX.\\n}
    {code}
-   *1 @code C1 l3
+   *@code C1 l3
     *brace_container C1
      {in code}
    {code.\\n}
    {acronym}
-   *2 @acronym C2 l4
+   *@acronym C2 l4
     *brace_arg C1
      {ABC}
     *brace_arg C1
@@ -30,12 +30,12 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
      {aaa bb cc}
    {acronym.\\n}
    {acronym2}
-   *3 @acronym C1 l5
+   *@acronym C1 l5
     *brace_arg C1
      {ABC}
    {acronym.\\n}
    {email}
-   *4 @email C2 l6
+   *@email C2 l6
     *brace_arg C1
      {somebody}
     *brace_arg C1
@@ -45,7 +45,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
      {mali}
    {email.\\n}
    {ref}
-   *5 @ref C1 l7
+   *@ref C1 l7
     *brace_arg C1
     |EXTRA
     |node_content:{Top}
@@ -53,7 +53,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
      {Top}
    {ref.\\n}
    {Foornote}
-   *6 @footnote C1 l8
+   *@footnote C1 l8
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -61,9 +61,9 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
       {in footnote}
    {after footnote.\\n}
    {accent}
-   *7 @^ C1 l9
+   *@^ C1 l9
     *brace_container C1
-     *8 @dotless C1 l9
+     *@dotless C1 l9
       *brace_container C1
        {i}
    {accent.\\n}
@@ -88,7 +88,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
     {4}
   *paragraph C5
    {anchor}
-   *9 @anchor C1 l13
+   *0 @anchor C1 l13
    |EXTRA
    |is_target:{1}
    |normalized:{anchor}

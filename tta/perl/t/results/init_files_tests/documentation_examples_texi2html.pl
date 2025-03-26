@@ -17,7 +17,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *0 @email C2 l2
+     *@email C2 l2
       *brace_arg C3
        {someone}
        *@@
@@ -28,14 +28,14 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
        |{ }
        {me}
      { }
-     *1 @sansserif C1 l2
+     *@sansserif C1 l2
       *brace_container C1
        {in--title}
      { }
-     *2 @error C1 l2
+     *@error C1 l2
       *brace_container
      { }
-     *3 @equiv C1 l2
+     *@equiv C1 l2
       *brace_container
    {empty_line:\\n}
    *@contents C1 l4
@@ -43,15 +43,15 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *4 @node C1 l6 {Top}
+ *0 @node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E6]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -59,21 +59,21 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C2 l7 {top}
+ *1 @top C2 l7 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E7|E35|E39|E41]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E3|E5|E7|E9]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -81,15 +81,15 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{\\n}
     {top}
   {empty_line:\\n}
- *6 @node C1 l9 {chapter}
+ *2 @node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E34|prev->E4|up->E4]
+ |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -97,17 +97,17 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *7 @chapter C28 l10 {Chapter}
+ *3 @chapter C28 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
- |section_directions:D[next->E35|up->E5]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E35|prev->E5|up->E5]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -116,39 +116,39 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {Chapter}
   {empty_line:\\n}
   *paragraph C11
-   *8 @sansserif C1 l12
+   *@sansserif C1 l12
     *brace_container C1
      {in--text}
    { }
    *@-
    { p--n. }
-   *9 @error C1 l12
+   *@error C1 l12
     *brace_container
    { }
-   *10 @equiv C1 l12
+   *@equiv C1 l12
     *brace_container
    {\\n}
-   *11 @xref C1 l13
+   *@xref C1 l13
     *brace_arg C1
     |EXTRA
     |node_content:{my node}
     |normalized:{my-node}
      {my node}
-   *12 @footnote C1 l13
+   *@footnote C1 l13
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C1
       {in footnote}
    {.\\n}
-  *13 @titlefont C1 l14
+  *@titlefont C1 l14
   |EXTRA
   |global_command_number:{1}
    *brace_container C1
     {in titlefont}
   {\\n}
   *paragraph C6
-   *14 @email C2 l15
+   *@email C2 l15
     *brace_arg C3
      {a}
      *@@
@@ -159,57 +159,57 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{ }
      {someone}
    {\\n}
-   *15 @sc C1 l16
+   *@sc C1 l16
     *brace_container C1
      {in Sc}
    {\\n}
-   *16 @var C1 l17
+   *@var C1 l17
     *brace_container C1
      {in var}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *17 @math C1 l19
+   *@math C1 l19
     *brace_command_context C7
-     *18 @sansserif C1 l19
+     *@sansserif C1 l19
       *brace_container C1
        {in--math}
      { }
      *@-
      { a=b }
-     *19 @error C1 l19
+     *@error C1 l19
       *brace_container
      { }
-     *20 @equiv C1 l19
+     *@equiv C1 l19
       *brace_container
    {\\n}
   {empty_line:\\n}
-  *21 @indentedblock C3 l21
+  *@indentedblock C3 l21
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *22 @example C3 l22
+   *@example C3 l22
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
     *preformatted C10
-     *23 @sansserif C1 l23
+     *@sansserif C1 l23
       *brace_container C1
        {in--example}
      { }
      *@-
      { c. }
-     *24 @error C1 l23
+     *@error C1 l23
       *brace_container
      { }
-     *25 @equiv C1 l23
+     *@equiv C1 l23
       *brace_container
      {\\n}
-     *26 @email C1 l24
+     *@email C1 l24
       *brace_arg C3
        {a}
        *@@
@@ -238,14 +238,14 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{\\n}
      {indentedblock}
   {empty_line:\\n}
-  *27 @display C3 l28
+  *@display C3 l28
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    *preformatted C2
-    *28 @email C1 l29
+    *@email C1 l29
      *brace_arg C3
       {a}
       *@@
@@ -263,7 +263,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{\\n}
      {display}
   {empty_line:\\n}
-  *29 @displaymath C9 l32
+  *@displaymath C9 l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -274,7 +274,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {{h}}
    *balanced_braces C3 l33
     {{j}
-    *30 @sup C1 l33
+    *@sup C1 l33
      *brace_container C1
       {2}
     {}}
@@ -302,13 +302,13 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:[E2]
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *31 @file C1 l36
+    *@file C1 l36
      *brace_container C1
       {e1}
   *index_entry_command@cindex C1 l37
@@ -317,7 +317,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:[E2]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -347,12 +347,12 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {fr}
   {empty_line:\\n}
   *paragraph C2
-   *32 @error C1 l43
+   *@error C1 l43
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *33 @equiv C1 l45
+   *@equiv C1 l45
     *brace_container
    {\\n}
   {empty_line:\\n}
@@ -361,15 +361,15 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |global_command_number:{2}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *34 @node C1 l49 {my node}
+ *4 @node C1 l49 {my node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E35]
- |associated_title_command:[E35]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[next->E38|prev->E6|up->E4]
+ |node_directions:D[next->E6|prev->E2|up->E0]
  |normalized:{my-node}
   *arguments_line C1
    *line_arg C1
@@ -377,17 +377,17 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {my node}
- *35 @chapter C8 l50 {New node}
+ *5 @chapter C8 l50 {New node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E34]
- |associated_node:[E34]
- |section_directions:D[next->E39|prev->E7|up->E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_directions:D[next->E7|prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E39|prev->E7|up->E5]
+ |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -409,25 +409,25 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {pl}
   {empty_line:\\n}
   *paragraph C2
-   *36 @error C1 l54
+   *@error C1 l54
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *37 @equiv C1 l56
+   *@equiv C1 l56
     *brace_container
    {\\n}
   {empty_line:\\n}
- *38 @node C1 l58 {Index}
+ *6 @node C1 l58 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E39]
- |associated_title_command:[E39]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E40|prev->E34|up->E4]
+ |node_directions:D[next->E8|prev->E4|up->E0]
  |normalized:{Index}
   *arguments_line C1
    *line_arg C1
@@ -435,17 +435,17 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Index}
- *39 @appendix C4 l59 {Index}
+ *7 @appendix C4 l59 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E38]
- |associated_node:[E38]
- |section_directions:D[next->E41|prev->E35|up->E5]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[next->E9|prev->E5|up->E1]
  |section_level:{1}
  |section_number:{A}
- |toplevel_directions:D[next->E41|prev->E35|up->E5]
+ |toplevel_directions:D[next->E9|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -466,15 +466,15 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{\\n}
     {cp}
   {empty_line:\\n}
- *40 @node C1 l63 {Second appendix}
+ *8 @node C1 l63 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E41]
- |associated_title_command:[E41]
+ |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
- |node_directions:D[prev->E38|up->E4]
+ |node_directions:D[prev->E6|up->E0]
  |normalized:{Second-appendix}
   *arguments_line C1
    *line_arg C1
@@ -482,17 +482,17 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Second appendix}
- *41 @appendix C2 l64 {Second appendix}
+ *9 @appendix C2 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E40]
- |associated_node:[E40]
- |section_directions:D[prev->E39|up->E5]
+ |associated_anchor_command:[E8]
+ |associated_node:[E8]
+ |section_directions:D[prev->E7|up->E1]
  |section_level:{1}
  |section_number:{B}
- |toplevel_directions:D[prev->E39|up->E5]
+ |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

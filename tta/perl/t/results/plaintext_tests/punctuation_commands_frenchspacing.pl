@@ -36,10 +36,10 @@ $result_tree_text{'punctuation_commands_frenchspacing'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {Enddots}
-   *0 @enddots C1 l5
+   *@enddots C1 l5
     *brace_container
    { Enddots}
-   *1 @enddots C1 l5
+   *@enddots C1 l5
     *brace_container
    {  GBBB.\\n}
   {empty_line:\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'punctuation_commands_frenchspacing'} = '*document_root C1
    *@?
    {\\n}
    {Enddots}
-   *2 @enddots C1 l10
+   *@enddots C1 l10
     *brace_container
    {\\n}
    {End.\\n}
@@ -71,7 +71,7 @@ $result_tree_text{'punctuation_commands_frenchspacing'} = '*document_root C1
    *@?
    {\\n}
    {Enddots}
-   *3 @enddots C1 l17
+   *@enddots C1 l17
     *brace_container
    {\\n}
    {End.\\n}

@@ -78,7 +78,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 @example C3 l7
+  *@example C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO

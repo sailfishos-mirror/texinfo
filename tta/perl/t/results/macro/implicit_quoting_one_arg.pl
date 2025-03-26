@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{FIXAME}
   |misc_args:A{a}
@@ -34,7 +34,7 @@ $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
     >*brace_arg C1
      >{Many arguments, separated by commas, are processed here}
   *paragraph C2
-   *1 @strong C1 l6:@FIXAME
+   *@strong C1 l6:@FIXAME
    >SOURCEMARKS
    >macro_expansion<end;1>
     *brace_container C1

@@ -51,19 +51,19 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
      { }
      *@|
      {   }
-     *0 @code C1 l2
+     *@code C1 l2
       *brace_container C1
        *@thischaptername
    {empty_line:\\n}
- *1 @node C1 l4 {Top}
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
- |associated_title_command:[E2]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -71,21 +71,21 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l5 {top sectionning}
+ *1 @top C2 l5 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
- |associated_node:[E1]
- |section_childs:EC[E4|E6]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E3|E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -93,15 +93,15 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
     |{\\n}
     {top sectionning}
   {empty_line:\\n}
- *3 @node C1 l7 {chapter}
+ *2 @node C1 l7 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -109,18 +109,18 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C10 l8 {ch--ap}
+ *3 @chapter C10 l8 {ch--ap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
- |section_childs:EC[E5]
- |section_directions:D[next->E6|up->E2]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_childs:EC[E4]
+ |section_directions:D[next->E5|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E6|prev->E2|up->E2]
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -140,12 +140,12 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
   *paragraph C1
    {after ch--ap second page\\n}
   {empty_line:\\n}
- *5 @section C2 l18 {sec1}
+ *4 @section C2 l18 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
+ |section_directions:D[up->E3]
  |section_level:{2}
  |section_number:{1.1}
   *arguments_line C1
@@ -155,15 +155,15 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
     |{\\n}
     {sec1}
   {empty_line:\\n}
- *6 @chapter C2 l20 {chap 2}
+ *5 @chapter C2 l20 {chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E2]
+ |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E4|up->E2]
+ |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

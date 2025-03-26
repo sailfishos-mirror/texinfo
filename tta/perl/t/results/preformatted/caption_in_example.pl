@@ -11,7 +11,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E2]
+  |caption:[E1]
   |float_type:{float}
   |global_command_number:{1}
    *arguments_line C1
@@ -21,7 +21,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
      |{\\n}
      {float}
    {empty_line:\\n}
-   *1 @example C6 l3
+   *@example C6 l3
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
     *preformatted C2
      {in example \\n}
      {empty_line:\\n}
-    *2 @caption C1 l6
+    *1 @caption C1 l6
     |EXTRA
     |float:[E0]
      *brace_command_context C1

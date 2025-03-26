@@ -30,14 +30,14 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -59,8 +59,8 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chap_00ea}
@@ -70,17 +70,17 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
-    *3 @^ C1 l7
+    *@^ C1 l7
      *following_arg C1
       {e}
- *4 @chapter C6 l8 {Chap@^e}
+ *3 @chapter C6 l8 {Chap@^e}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E9]
+ |section_childs:EC[E5]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -91,19 +91,19 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Chap}
-    *5 @^ C1 l8
+    *@^ C1 l8
      *following_arg C1
       {e}
   {empty_line:\\n}
   *paragraph C3
    {Text}
-   *6 @footnote C1 l10
+   *@footnote C1 l10
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C2
       {Go }
-      *7 @samp C1 l10
+      *@samp C1 l10
        *brace_container C1
         {s}
    {\\n}
@@ -122,13 +122,13 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |{\\n}
     {entry}
   {empty_line:\\n}
- *8 @node C1 l14 {sec}
+ *4 @node C1 l14 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[up->E2]
@@ -139,14 +139,14 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {sec}
- *9 @section C5 l15 {Section}
+ *5 @section C5 l15 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[up->E4]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_directions:D[up->E3]
  |section_level:{2}
  |section_number:{1.1}
   *arguments_line C1
@@ -169,7 +169,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *10 @deftypefn C3 l19
+  *@deftypefn C3 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |*def_name C1
      |*def_line_arg C1
       |{name}
-   |element_node:[E8]
+   |element_node:[E4]
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C13

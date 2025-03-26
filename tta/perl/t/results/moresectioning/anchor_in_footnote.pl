@@ -14,8 +14,8 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E4]
- |node_directions:D[next->E5]
+ |menus:EC[E3]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -30,14 +30,14 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E6]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -47,13 +47,13 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {In top node}
-   *2 @footnote C1 l4
+   *@footnote C1 l4
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *paragraph C3
       {in footnote\\n}
-      *3 @anchor C1 l5
+      *2 @anchor C1 l5
       |EXTRA
       |is_target:{1}
       |normalized:{Anchor-in-footnote}
@@ -62,7 +62,7 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
       {.\\n}
    {\\n}
   {empty_line:\\n}
-  *4 @menu C3 l8
+  *3 @menu C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -91,13 +91,13 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l12 {chapter}
+ *4 @node C1 l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -108,13 +108,13 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C3 l13 {Chap}
+ *5 @chapter C3 l13 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -127,7 +127,7 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C2
-   *7 @ref C1 l15
+   *@ref C1 l15
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

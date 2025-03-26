@@ -9,7 +9,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content C2
-   *0 @macro C3 cpp_directives_line_value_macro.texi:l2
+   *@macro C3 cpp_directives_line_value_macro.texi:l2
    |EXTRA
    |macro_name:{vvv}
    |misc_args:A{}
@@ -38,7 +38,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
      >*brace_arg
    >macro_expansion<end;1><p:15>
   {empty_line:\\n}
-  *1 @macro C3 cpp_directives_line_value_macro.texi:l8
+  *@macro C3 cpp_directives_line_value_macro.texi:l8
   |EXTRA
   |macro_name:{machash}
   |misc_args:A{}
@@ -67,7 +67,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
      >*brace_arg
    >macro_expansion<end;2><p:1>
   {empty_line:\\n}
-  *2 @macro C3 cpp_directives_line_value_macro.texi:l14
+  *@macro C3 cpp_directives_line_value_macro.texi:l14
   |EXTRA
   |macro_name:{numberfileflag}
   |misc_args:A{arg}

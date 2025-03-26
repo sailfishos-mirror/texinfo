@@ -6,14 +6,14 @@ use utf8;
 
 $result_tree_text{'heading_in_copying'} = '*document_root C3
  *before_node_section C2
-  *0 @copying C7 l1
+  *@copying C7 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *1 @heading C1 l3
+   *0 @heading C1 l3
    |INFO
    |spaces_before_argument:
     |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      {in copying }
      *@@
      { }
-     *2 @emph C1 l3
+     *@emph C1 l3
       *brace_container C1
        {heading}
    *index_entry_command@cindex C1 l4
@@ -43,7 +43,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      |{\\n}
      {cindex copying}
    {empty_line:\\n}
-   *3 @subheading C1 l6
+   *1 @subheading C1 l6
    |INFO
    |spaces_before_argument:
     |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      {second in copying }
      *@@
      { }
-     *4 @emph C1 l6
+     *@emph C1 l6
       *brace_container C1
        {subheading}
    *@end C1 l7
@@ -71,13 +71,13 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *5 @node C1 l9 {Top}
+ *2 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -85,13 +85,13 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @node C3 l10 {chap}
+ *3 @node C3 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5]
+ |node_directions:D[prev->E2]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

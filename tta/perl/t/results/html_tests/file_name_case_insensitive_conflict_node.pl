@@ -188,7 +188,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     {foo}
   {empty_line:\\n}
   *paragraph C2
-   *11 @xref C1 l18
+   *@xref C1 l18
     *brace_arg C1
     |EXTRA
     |node_content:{foo}
@@ -197,7 +197,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *12 @xref C1 l20
+   *@xref C1 l20
     *brace_arg C1
     |EXTRA
     |node_content:{Foo}

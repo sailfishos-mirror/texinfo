@@ -18,7 +18,7 @@ $result_tree_text{'alias_zero'} = '*document_root C1
     |{\\n}
     {0 = strong}
   *paragraph C2
-   *0 @strong C1 l2
+   *@strong C1 l2
    |INFO
    |alias_of:{0}
     *brace_container C1

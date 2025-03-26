@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_table'} = '*document_root C1
  *before_node_section C1
-  *0 @table C2 l1
+  *@table C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'empty_table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @code l1
+     *@code l1
    *@end C1 l2
    |INFO
    |spaces_before_argument:

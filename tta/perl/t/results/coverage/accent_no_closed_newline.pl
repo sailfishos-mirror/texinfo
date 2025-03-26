@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'accent_no_closed_newline'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @~ C1 l1
+   *@~ C1 l1
     *brace_container C2
      {e\\n}
      {empty_line:\\n}

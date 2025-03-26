@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C3 l1
+  *@macro C3 l1
   |EXTRA
   |macro_name:{string}
   |misc_args:A{}
@@ -25,7 +25,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @deffn C1 l5
+  *@deffn C1 l5
   |INFO
   |spaces_before_argument:
    |{ }

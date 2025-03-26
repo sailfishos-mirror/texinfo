@@ -20,7 +20,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @linemacro C3 l3
+  *@linemacro C3 l3
   |EXTRA
   |macro_name:{inside}
   |misc_args:A{a|b|rest}
@@ -39,7 +39,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *2 @linemacro C4 l7
+  *@linemacro C4 l7
   |EXTRA
   |macro_name:{outside}
   |misc_args:A{one|two|three}
@@ -59,7 +59,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      |{\\n}
      {linemacro}
   {empty_line:\\n}
-  *3 @defblock C4 l12
+  *@defblock C4 l12
    *arguments_line C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>

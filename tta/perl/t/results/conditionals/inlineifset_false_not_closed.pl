@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlineifset_false_not_closed'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
-   *0 @inlineifset C2 l1
+   *@inlineifset C2 l1
    |EXTRA
    |format:{aaa}
     *brace_arg C1

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'many_conditionals'} = '*document_root C1
  *before_node_section C14
-  *0 @html C3 l1
+  *@html C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -118,7 +118,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
       >{ifnotinfo}
   {empty_line:\\n}
   {empty_line:\\n}
-  *1 @tex C3 l23
+  *@tex C3 l23
    *arguments_line C1
     *block_line_arg
     |INFO

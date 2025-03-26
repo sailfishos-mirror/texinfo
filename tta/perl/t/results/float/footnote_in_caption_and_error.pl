@@ -78,13 +78,13 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
     *brace_command_context C1
      *paragraph C2
       {in caption}
-      *4 @footnote C1 l8
+      *@footnote C1 l8
       |EXTRA
       |global_command_number:{1}
        *brace_command_context C1
         *paragraph C2
          {in footnote }
-         *5 @error l8
+         *@error l8
    {spaces_after_close_brace:\\n}
    *@end C1 l9
    |INFO

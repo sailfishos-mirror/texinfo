@@ -16,7 +16,7 @@ $result_tree_text{'center'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {in center }
-    *0 @code C1 l2
+    *@code C1 l2
      *brace_container C1
       {in code}
   {empty_line:\\n}

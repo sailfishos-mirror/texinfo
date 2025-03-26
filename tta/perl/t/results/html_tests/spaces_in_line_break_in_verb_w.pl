@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'spaces_in_line_break_in_verb_w'} = '*document_root C1
  *before_node_section C3
   *paragraph C2
-   *0 @w C1 l1
+   *@w C1 l1
     *brace_container C2
      {aaa  bb\\n}
      {ccc}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @verb C1 l4
+   *@verb C1 l4
    |INFO
    |delimiter:{|}
     *brace_container C2

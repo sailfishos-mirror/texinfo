@@ -17,7 +17,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor:\\n}
-   *1 @ref C1 l4
+   *@ref C1 l4
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -27,7 +27,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to the anchor in footnote:\\n}
-   *2 @ref C1 l7
+   *@ref C1 l7
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}
@@ -36,14 +36,14 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @footnote C1 l9
+   *@footnote C1 l9
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C6
      *paragraph C1
       {In footnote.\\n}
      {empty_line:\\n}
-     *4 @anchor C1 l11
+     *1 @anchor C1 l11
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-footnote}
@@ -53,7 +53,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
      {empty_line:\\n}
      *paragraph C3
       {Ref to main text anchor\\n}
-      *5 @ref C1 l14
+      *@ref C1 l14
        *brace_arg C1
        |EXTRA
        |node_content:{An anchor}
@@ -62,7 +62,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
       {\\n}
    {\\n}
   {empty_line:\\n}
-  *6 @float C3 l17
+  *2 @float C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to float\\n}
-   *7 @ref C1 l22
+   *@ref C1 l22
     *brace_arg C1
     |EXTRA
     |node_content:{float anchor}
@@ -105,7 +105,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
      {float anchor}
    {.\\n}
   {empty_line:\\n}
-  *8 @menu C3 l24
+  *3 @menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -147,15 +147,15 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *9 @node C1 l30 {Top}
+ *4 @node C1 l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
- |associated_title_command:[E10]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[next->E11]
+ |node_directions:D[next->E6]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -163,21 +163,21 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *10 @top C2 l31 {top section}
+ *5 @top C2 l31 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
- |associated_node:[E9]
- |section_childs:EC[E12]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_childs:EC[E7]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E10]
+  ||section_childs:EC[E5]
   ||section_level:{-1}
- |toplevel_directions:D[next->E12]
+ |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -185,15 +185,15 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *11 @node C1 l33 {chapter}
+ *6 @node C1 l33 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
- |associated_title_command:[E12]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
- |node_directions:D[prev->E9|up->E9]
+ |node_directions:D[prev->E4|up->E4]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -201,17 +201,17 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *12 @chapter C5 l34 {Chapter}
+ *7 @chapter C5 l34 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
- |associated_node:[E11]
- |section_directions:D[up->E10]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[up->E5]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E10|up->E10]
+ |toplevel_directions:D[prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,7 +221,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *13 @ref C1 l37
+   *@ref C1 l37
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -231,7 +231,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *14 @ref C1 l40
+   *@ref C1 l40
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

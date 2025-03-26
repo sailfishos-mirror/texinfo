@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'raw'} = '*document_root C1
  *before_node_section C3
-  *0 @tex C3 l1
+  *@tex C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -28,7 +28,7 @@ $result_tree_text{'raw'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
-   *1 @xml C3 l6
+   *@xml C3 l6
     *arguments_line C1
      *block_line_arg
      |INFO

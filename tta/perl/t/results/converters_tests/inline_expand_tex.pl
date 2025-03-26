@@ -8,7 +8,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
   *paragraph C12
-   *0 @inlinefmt C2 l2
+   *@inlinefmt C2 l2
    |EXTRA
    |format:{html}
     *brace_arg C1
@@ -16,7 +16,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: <blink>html</blink> ``}
    {, \\n}
-   *1 @inlinefmt C2 l3
+   *@inlinefmt C2 l3
    |EXTRA
    |format:{plaintext}
     *brace_arg C1
@@ -24,7 +24,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: plaintext ``}
    {, \\n}
-   *2 @inlinefmt C2 l4
+   *@inlinefmt C2 l4
    |EXTRA
    |format:{xml}
     *brace_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: <para>xml</para> ``}
    {,\\n}
-   *3 @inlinefmt C2 l5
+   *@inlinefmt C2 l5
    |EXTRA
    |format:{docbook}
     *brace_arg C1
@@ -40,7 +40,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: <emphasis>docbook</emphasis> ``}
    {, \\n}
-   *4 @inlinefmt C2 l6
+   *@inlinefmt C2 l6
    |EXTRA
    |expand_index:{1}
    |format:{tex}
@@ -51,11 +51,11 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {$\\underlinea < b }
-     *5 @code C1 l6
+     *@code C1 l6
       *brace_container C1
        {tex \\hbox code }
    {$ ``\\n}
-   *6 @inlinefmt C2 l7
+   *@inlinefmt C2 l7
    |EXTRA
    |format:{latex}
     *brace_arg C1
@@ -66,7 +66,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C12
-   *7 @inlineraw C2 l10
+   *@inlineraw C2 l10
    |EXTRA
    |format:{html}
     *brace_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: raw <blink>html</blink> ``}
    {, \\n}
-   *8 @inlineraw C2 l11
+   *@inlineraw C2 l11
    |EXTRA
    |format:{plaintext}
     *brace_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: raw plaintext ``}
    {, \\n}
-   *9 @inlineraw C2 l12
+   *@inlineraw C2 l12
    |EXTRA
    |format:{xml}
     *brace_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: raw <para>xml</para> ``}
    {,\\n}
-   *10 @inlineraw C2 l13
+   *@inlineraw C2 l13
    |EXTRA
    |format:{docbook}
     *brace_arg C1
@@ -98,7 +98,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw: raw <emphasis>docbook</emphasis> ``}
    {, \\n}
-   *11 @inlineraw C2 l14
+   *@inlineraw C2 l14
    |EXTRA
    |expand_index:{1}
    |format:{tex}
@@ -111,7 +111,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
      {raw $\\underline}
      *balanced_braces C3 l14
       {{a < b }
-      *12 @code C1 l14
+      *@code C1 l14
        *brace_container C2
         {tex \\hbox}
         *balanced_braces C1 l14
@@ -119,7 +119,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
       {}}
      {$ ``}
    {\\n}
-   *13 @inlineraw C2 l15
+   *@inlineraw C2 l15
    |EXTRA
    |format:{latex}
     *brace_arg C1

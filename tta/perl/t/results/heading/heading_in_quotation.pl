@@ -6,14 +6,14 @@ use utf8;
 
 $result_tree_text{'heading_in_quotation'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C5 l1
+  *@quotation C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *1 @heading C1 l3
+   *0 @heading C1 l3
    |INFO
    |spaces_before_argument:
     |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
      {in quotation }
      *@@
      { }
-     *2 @emph C1 l3
+     *@emph C1 l3
       *brace_container C1
        {heading}
    {empty_line:\\n}

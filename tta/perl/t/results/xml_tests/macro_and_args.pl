@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_and_args'} = '*document_root C1
  *before_node_section C3
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{good}
   |misc_args:A{aaa|2b-bb}
@@ -24,7 +24,7 @@ $result_tree_text{'macro_and_args'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C2 l4
+  *@macro C2 l4
   |EXTRA
   |invalid_syntax:{1}
   |macro_name:{bad}

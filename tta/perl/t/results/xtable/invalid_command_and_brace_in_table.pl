@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
  *before_node_section C1
-  *0 @table C3 l1
+  *@table C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *before_item C2
     {spaces_before_paragraph: }
     *paragraph C3

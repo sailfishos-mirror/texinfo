@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'not_closed'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C3 l1
+  *@deffn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'not_closed'} = '*document_root C1
       *def_line_arg C1
        {args}
    *def_item C1
-    *1 @defvar C1 l3
+    *@defvar C1 l3
     |INFO
     |spaces_before_argument:
      |{ }

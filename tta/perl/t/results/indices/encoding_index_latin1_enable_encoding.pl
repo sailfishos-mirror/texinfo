@@ -100,17 +100,17 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *3 @" C1 encoding_index_latin1.texi:l10
+    *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
     { }
-    *4 @" C1 encoding_index_latin1.texi:l10
+    *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
-    *5 @" C1 encoding_index_latin1.texi:l10
+    *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
-    *6 @" C1 encoding_index_latin1.texi:l10
+    *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l11
@@ -125,20 +125,20 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @^ C1 encoding_index_latin1.texi:l11
+    *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
     { }
-    *8 @^ C1 encoding_index_latin1.texi:l11
+    *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
-    *9 @^ C1 encoding_index_latin1.texi:l11
+    *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
-    *10 @^ C1 encoding_index_latin1.texi:l11
+    *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
-    *11 @^ C1 encoding_index_latin1.texi:l11
+    *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l12
@@ -517,7 +517,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *12 @l C1 encoding_index_latin1.texi:l40
+    *@l C1 encoding_index_latin1.texi:l40
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l41
   |INFO
@@ -531,7 +531,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *13 @L C1 encoding_index_latin1.texi:l41
+    *@L C1 encoding_index_latin1.texi:l41
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l42
   |INFO
@@ -545,11 +545,11 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *14 @dotless C1 encoding_index_latin1.texi:l42
+    *@dotless C1 encoding_index_latin1.texi:l42
      *brace_container C1
       {i}
     { }
-    *15 @dotless C1 encoding_index_latin1.texi:l42
+    *@dotless C1 encoding_index_latin1.texi:l42
      *brace_container C1
       {i}
     { (dotless)}
@@ -565,15 +565,15 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *16 @^ C1 encoding_index_latin1.texi:l43
+    *@^ C1 encoding_index_latin1.texi:l43
      *brace_container C1
-      *17 @dotless C1 encoding_index_latin1.texi:l43
+      *@dotless C1 encoding_index_latin1.texi:l43
        *brace_container C1
         {i}
     { }
-    *18 @^ C1 encoding_index_latin1.texi:l43
+    *@^ C1 encoding_index_latin1.texi:l43
      *brace_container C1
-      *19 @dotless C1 encoding_index_latin1.texi:l43
+      *@dotless C1 encoding_index_latin1.texi:l43
        *brace_container C1
         {i}
     { (dotless)}
@@ -589,7 +589,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *20 @ss C1 encoding_index_latin1.texi:l44
+    *@ss C1 encoding_index_latin1.texi:l44
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l45
   |INFO
@@ -603,7 +603,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *21 @euro C1 encoding_index_latin1.texi:l45
+    *@euro C1 encoding_index_latin1.texi:l45
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l46
   |INFO
@@ -617,7 +617,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *22 @AE C1 encoding_index_latin1.texi:l46
+    *@AE C1 encoding_index_latin1.texi:l46
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l47
   |INFO
@@ -631,7 +631,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *23 @exclamdown C1 encoding_index_latin1.texi:l47
+    *@exclamdown C1 encoding_index_latin1.texi:l47
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l48
   |INFO
@@ -645,7 +645,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *24 @TH C1 encoding_index_latin1.texi:l48
+    *@TH C1 encoding_index_latin1.texi:l48
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l49
   |INFO
@@ -659,7 +659,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *25 @DH C1 encoding_index_latin1.texi:l49
+    *@DH C1 encoding_index_latin1.texi:l49
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l50
   |INFO
@@ -673,7 +673,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *26 @textdegree C1 encoding_index_latin1.texi:l50
+    *@textdegree C1 encoding_index_latin1.texi:l50
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l51
   |INFO
@@ -713,7 +713,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *27 @quotedblleft C1 encoding_index_latin1.texi:l53
+    *@quotedblleft C1 encoding_index_latin1.texi:l53
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l54
   |INFO
@@ -727,7 +727,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *28 @geq C1 encoding_index_latin1.texi:l54
+    *@geq C1 encoding_index_latin1.texi:l54
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l55
   |INFO
@@ -741,7 +741,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *29 @comma C1 encoding_index_latin1.texi:l55
+    *@comma C1 encoding_index_latin1.texi:l55
      *brace_container
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l56
   |INFO

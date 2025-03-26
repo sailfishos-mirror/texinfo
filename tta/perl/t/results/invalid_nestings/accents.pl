@@ -8,27 +8,27 @@ $result_tree_text{'accents'} = '*document_root C1
  *before_node_section C3
   *paragraph C5
    {Valid\\n}
-   *0 @~ C1 l2
+   *@~ C1 l2
     *brace_container C1
-     *1 @TeX C1 l2
+     *@TeX C1 l2
       *brace_container
    {. }
-   *2 @~ C1 l2
+   *@~ C1 l2
     *brace_container C1
      *@@
    {.\\n}
   {empty_line:\\n}
   *paragraph C5
    {Invalid\\n}
-   *3 @~ C1 l5
+   *@~ C1 l5
     *brace_container C1
-     *4 @code C1 l5
+     *@code C1 l5
       *brace_container C1
        {a}
    {.  }
-   *5 @^ C1 l5
+   *@^ C1 l5
     *brace_container C1
-     *6 @anchor C1 l5
+     *0 @anchor C1 l5
      |EXTRA
      |is_target:{1}
      |normalized:{truc}

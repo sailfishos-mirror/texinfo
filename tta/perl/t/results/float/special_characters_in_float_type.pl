@@ -84,7 +84,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E7]
+  |caption:[E5]
   |float_number:{1.1}
   |float_section:[E3]
   |float_type:{A < " `` ` \' \' \\aaa . --- in var}
@@ -96,7 +96,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
      {A < " `` ` \' \' \\aaa }
      *@.
      { --- }
-     *5 @var C1 l7
+     *@var C1 l7
       *brace_container C1
        {in var}
     *block_line_arg C4
@@ -108,12 +108,12 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
      {L < " `` ` \' \' \\aaa }
      *@.
      { --- }
-     *6 @var C1 l7
+     *@var C1 l7
       *brace_container C1
        {in var}
    *paragraph C1
     {F\\n}
-   *7 @caption C1 l9
+   *5 @caption C1 l9
    |EXTRA
    |float:[E4]
     *brace_command_context C1
@@ -121,7 +121,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
       {float A < " `` ` \' \' \\aaa }
       *@.
       { --- }
-      *8 @var C1 l9
+      *@var C1 l9
        *brace_container C1
         {in var}
    {spaces_after_close_brace:\\n}
@@ -151,7 +151,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
     {A < " `` ` \' \' \\aaa }
     *@.
     { --- }
-    *9 @var C1 l12
+    *@var C1 l12
      *brace_container C1
       {in var}
 ';

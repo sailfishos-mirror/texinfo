@@ -33,11 +33,11 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
     {bb}
   {empty_line:\\n}
   *paragraph C8
-   *1 @xref C4 l3
+   *@xref C4 l3
     *brace_arg C1
     |EXTRA
     |node_content:{@emph{aa}}
-     *2 @emph C1 l3
+     *@emph C1 l3
       *brace_container C1
        {aa}
     *brace_arg
@@ -45,11 +45,11 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
     *brace_arg C1
      {ext}
    {.\\n}
-   *3 @xref C5 l4
+   *@xref C5 l4
     *brace_arg C1
     |EXTRA
     |node_content:{@var{aa}}
-     *4 @var C1 l4
+     *@var C1 l4
       *brace_container C1
        {aa}
     *brace_arg
@@ -58,21 +58,21 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
     *brace_arg C1
      {Book}
    {.\\n}
-   *5 @xref C1 l5
+   *@xref C1 l5
     *brace_arg C1
     |EXTRA
     |node_content:{@emph{aa}}
     |normalized:{aa}
-     *6 @emph C1 l5
+     *@emph C1 l5
       *brace_container C1
        {aa}
    {.\\n}
-   *7 @xref C1 l6
+   *@xref C1 l6
     *brace_arg C1
     |EXTRA
     |node_content:{@var{aa}}
     |normalized:{aa}
-     *8 @var C1 l6
+     *@var C1 l6
       *brace_container C1
        {aa}
    {.\\n}

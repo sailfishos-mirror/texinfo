@@ -60,7 +60,7 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
     *menu_entry_description C1
      *preformatted C3
       {\\n}
-      *3 @inlineraw C2 l6
+      *@inlineraw C2 l6
       |EXTRA
       |expand_index:{1}
       |format:{html}

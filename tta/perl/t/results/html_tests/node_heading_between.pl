@@ -114,7 +114,7 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
     {Section}
   {empty_line:\\n}
   *paragraph C2
-   *6 @xref C1 l11
+   *@xref C1 l11
     *brace_arg C1
     |EXTRA
     |node_content:{Topic}

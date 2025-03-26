@@ -7,10 +7,10 @@ use utf8;
 $result_tree_text{'cartouche_in_style_command'} = '*document_root C1
  *before_node_section C3
   *paragraph C1
-   *0 @code C1 l1
+   *@code C1 l1
     *brace_container C1
      {\\n}
-  *1 @cartouche C3 l2
+  *@cartouche C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO

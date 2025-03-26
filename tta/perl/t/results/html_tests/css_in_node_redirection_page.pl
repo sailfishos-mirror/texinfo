@@ -43,11 +43,11 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
     {top}
   {empty_line:\\n}
   *paragraph C4
-   *2 @sansserif C1 l4
+   *@sansserif C1 l4
     *brace_container C1
      {SANS}
    {.\\n}
-   *3 @anchor C1 l5
+   *2 @anchor C1 l5
    |EXTRA
    |is_target:{1}
    |normalized:{spot}

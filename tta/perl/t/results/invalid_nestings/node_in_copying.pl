@@ -6,13 +6,13 @@ use utf8;
 
 $result_tree_text{'node_in_copying'} = '*document_root C2
  *before_node_section C1
-  *0 @copying C1 l1
+  *@copying C1 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
- *1 @node C2 l2 {node}
+ *0 @node C2 l2 {node}
  |INFO
  |spaces_before_argument:
   |{ }

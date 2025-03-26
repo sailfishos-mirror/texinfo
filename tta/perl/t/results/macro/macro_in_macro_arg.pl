@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
  *before_node_section C8
   {empty_line:\\n}
-  *0 @macro C3 l2
+  *@macro C3 l2
   |EXTRA
   |macro_name:{macroone}
   |misc_args:A{}
@@ -26,7 +26,7 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *1 @macro C3 l6
+  *@macro C3 l6
   |EXTRA
   |macro_name:{macrotwo}
   |misc_args:A{arg}
@@ -45,7 +45,7 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *2 @macro C4 l10
+  *@macro C4 l10
   |EXTRA
   |macro_name:{macrothree}
   |misc_args:A{text|arg}

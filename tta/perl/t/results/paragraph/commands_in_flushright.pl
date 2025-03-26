@@ -6,14 +6,14 @@ use utf8;
 
 $result_tree_text{'commands_in_flushright'} = '*document_root C1
  *before_node_section C1
-  *0 @flushright C26 l1
+  *@flushright C26 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *1 @group C3 l3
+   *@group C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {group}
    {empty_line:\\n}
-   *2 @quotation C3 l7
+   *@quotation C3 l7
    |INFO
    |spaces_before_argument:
     |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {quotation}
    {empty_line:\\n}
-   *3 @enumerate C4 l11
+   *@enumerate C4 l11
    |EXTRA
    |enumerate_specification:{1}
     *arguments_line C1
@@ -90,7 +90,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {enumerate}
    {empty_line:\\n}
-   *4 @table C3 l17
+   *@table C3 l17
    |INFO
    |spaces_before_argument:
     |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{\\n}
-      *5 @emph l17
+      *@emph l17
     *table_entry C2
      *table_term C2
       *@item C1 l18
@@ -138,7 +138,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {table}
    {empty_line:\\n}
-   *6 @multitable C3 l25
+   *@multitable C3 l25
    |INFO
    |spaces_before_argument:
     |{ }
@@ -204,12 +204,12 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {multitable}
    {empty_line:\\n}
-   *7 @float C7 l35
+   *0 @float C7 l35
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E8]
+   |caption:[E1]
    |float_number:{1}
    |float_type:{label}
    |global_command_number:{1}
@@ -229,9 +229,9 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *paragraph C1
      {in float\\n}
     {empty_line:\\n}
-    *8 @caption C1 l39
+    *1 @caption C1 l39
     |EXTRA
-    |float:[E7]
+    |float:[E0]
      *brace_command_context C1
       *paragraph C1
        {in caption}
@@ -262,7 +262,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      |{\\n}
      {2}
    {empty_line:\\n}
-   *9 @smallexample C3 l45
+   *@smallexample C3 l45
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -282,7 +282,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {smallexample}
    {empty_line:\\n}
-   *10 @format C3 l49
+   *@format C3 l49
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -302,7 +302,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {format}
    {empty_line:\\n}
-   *11 @flushleft C3 l53
+   *@flushleft C3 l53
     *arguments_line C1
      *block_line_arg
      |INFO

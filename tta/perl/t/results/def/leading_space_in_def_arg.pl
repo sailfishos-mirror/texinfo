@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
  *before_node_section C1
-  *0 @deffn C2 l1
+  *@deffn C2 l1
   |INFO
   |spaces_before_argument:
    |{ }

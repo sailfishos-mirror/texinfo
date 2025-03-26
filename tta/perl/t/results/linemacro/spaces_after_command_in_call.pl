@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C5 l1
+  *@linemacro C5 l1
   |EXTRA
   |macro_name:{mylinecommand}
   |misc_args:A{first|second|rest}
@@ -46,7 +46,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{rest}
-  *1 @defblock C3 l7:@mylinecommand
+  *@defblock C3 l7:@mylinecommand
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*4 @code C1
+      |*@code C1
       ||INFO
       ||spaces_after_cmd_before_arg:
        ||{ }
@@ -78,7 +78,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *2 @code C1 l7:@mylinecommand
+       *@code C1 l7:@mylinecommand
        |INFO
        |spaces_after_cmd_before_arg:
         |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *def_line_arg C1
-       *3 @ringaccent C1 l7:@mylinecommand
+       *@ringaccent C1 l7:@mylinecommand
        |INFO
        |spaces_after_cmd_before_arg:
         |{ }

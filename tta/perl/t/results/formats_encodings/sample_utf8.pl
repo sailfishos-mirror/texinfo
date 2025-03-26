@@ -48,7 +48,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@c C1
     {rawline_arg: %**end of header\\n}
    {empty_line:\\n}
-   *0 @copying C5 sample_utf8.texi:l8
+   *@copying C5 sample_utf8.texi:l8
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       |{\\n}
       {copying}
    {empty_line:\\n}
-   *1 @titlepage C6 sample_utf8.texi:l15
+   *@titlepage C6 sample_utf8.texi:l15
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -124,16 +124,16 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       >|INFO
       >|spaces_after_argument:
        >|{\\n}
- *2 @node C1 sample_utf8.texi:l27 {Top}
+ *0 @node C1 sample_utf8.texi:l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E4]
- |node_directions:D[next->E5]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -141,21 +141,21 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C7 sample_utf8.texi:l28 {Texinfo中文示例}
+ *1 @top C7 sample_utf8.texi:l28 {Texinfo中文示例}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
- |section_childs:EC[E6|E9|E11]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -181,7 +181,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      >{ifnottex}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *4 @menu C5 sample_utf8.texi:l33
+  *2 @menu C5 sample_utf8.texi:l33
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -234,16 +234,16 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
- *5 @node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
+ *3 @node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E8|up->E2]
- |node_directions:D[next->E8|prev->E2|up->E2]
+ |menu_directions:D[next->E5|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   *arguments_line C1
    *line_arg C1
@@ -251,17 +251,17 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {第一章（First Chapter）}
- *6 @chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
+ *4 @chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
- |section_directions:D[next->E9|up->E3]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E9|prev->E3|up->E3]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -275,7 +275,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E5]
+  |element_node:[E3]
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -291,7 +291,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E5]
+   |element_node:[E3]
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -304,7 +304,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E5]
+   |element_node:[E3]
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
@@ -317,7 +317,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E5]
+   |element_node:[E3]
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO
@@ -328,7 +328,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   *paragraph C1
    {Here is a numbered list.\\n}
   {empty_line:\\n}
-  *7 @enumerate C4 sample_utf8.texi:l53
+  *@enumerate C4 sample_utf8.texi:l53
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -363,16 +363,16 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      |{\\n}
      {enumerate}
   {empty_line:\\n}
- *8 @node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
+ *5 @node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
- |menu_directions:D[next->E10|prev->E5|up->E2]
- |node_directions:D[next->E10|prev->E5|up->E2]
+ |menu_directions:D[next->E7|prev->E3|up->E0]
+ |node_directions:D[next->E7|prev->E3|up->E0]
  |normalized:{Second-Chapter-AE-_0104_0118-ae-_0105_0119}
   *arguments_line C1
    *line_arg C1
@@ -380,17 +380,17 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Second Chapter AE ĄĘ ae ąę}
- *9 @chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
+ *6 @chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[next->E11|prev->E6|up->E3]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
+ |section_directions:D[next->E8|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E11|prev->E6|up->E3]
+ |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -401,17 +401,17 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   *paragraph C1
    {Zażółć gęślą jaźń!\\n}
   {empty_line:\\n}
- *10 @node C1 sample_utf8.texi:l66 {Index node}
+ *7 @node C1 sample_utf8.texi:l66 {Index node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
- |associated_title_command:[E11]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[prev->E8|up->E2]
- |node_directions:D[prev->E8|up->E2]
+ |menu_directions:D[prev->E5|up->E0]
+ |node_directions:D[prev->E5|up->E0]
  |normalized:{Index-node}
   *arguments_line C1
    *line_arg C1
@@ -419,16 +419,16 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Index node}
- *11 @unnumbered C4 sample_utf8.texi:l67 {Index}
+ *8 @unnumbered C4 sample_utf8.texi:l67 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
- |associated_node:[E10]
- |section_directions:D[prev->E9|up->E3]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
+ |section_directions:D[prev->E6|up->E1]
  |section_level:{1}
- |toplevel_directions:D[prev->E9|up->E3]
+ |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

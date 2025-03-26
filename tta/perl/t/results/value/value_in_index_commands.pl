@@ -198,19 +198,19 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {a }
-    *2 @var C1 l27
+    *@var C1 l27
      *brace_container C1
       {index entry}
     { t}
-    *3 @\' C1 l27
+    *@\' C1 l27
      *following_arg C1
       {e}
     { }
-    *4 @^ C1 l27
+    *@^ C1 l27
     >SOURCEMARKS
     >value_expansion<end;7>
      *brace_container C1
-      *5 @dotless C1 l27
+      *@dotless C1 l27
        *brace_container C1
         {i}
   {empty_line:\\n}

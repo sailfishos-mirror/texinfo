@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'today_in_copying'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content C2
-   *0 @copying C3 l1
+   *@copying C3 l1
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
     *paragraph C2
-     *1 @today C1 l2
+     *@today C1 l2
       *brace_container
      {.\\n}
     *@end C1 l3
@@ -29,15 +29,15 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l5 {Top}
+ *0 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
- |associated_title_command:[E3]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E4]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -45,18 +45,18 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l6 {top}
+ *1 @top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_node:[E2]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E3]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
@@ -65,13 +65,13 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C3 l8 {chap}
+ *2 @node C3 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2]
+ |node_directions:D[prev->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

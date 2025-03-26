@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'text_arguments'} = '*document_root C1
  *before_node_section C3
-  *0 @linemacro C3 l1
+  *@linemacro C3 l1
   |EXTRA
   |macro_name:{nospace}
   |misc_args:A{one|two|three}
@@ -46,10 +46,10 @@ $result_tree_text{'text_arguments'} = '*document_root C1
      >|spaces_before_argument:
       >|{ }
       >{Z}
-   *1 @bullet C1 l5:@nospace
+   *@bullet C1 l5:@nospace
     *brace_container
    {Y}
-   *2 @minus C1 l5:@nospace
+   *@minus C1 l5:@nospace
     *brace_container
    {X\\n}
    >SOURCEMARKS

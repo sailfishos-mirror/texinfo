@@ -79,7 +79,7 @@ $result_tree_text{'verb_delimiter_not_ascii'} = '*document_root C5
     |{\\n}
     {Chapter}
   *paragraph C2
-   *4 @verb C1 l6
+   *@verb C1 l6
    |INFO
    |delimiter:{ê}
     *brace_container C1

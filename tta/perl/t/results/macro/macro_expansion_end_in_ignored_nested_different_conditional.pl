@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'} = '*document_root C1
  *before_node_section C2
-  *0 @macro C5 l1
+  *@macro C5 l1
   |EXTRA
   |macro_name:{beginnestedcond}
   |misc_args:A{}

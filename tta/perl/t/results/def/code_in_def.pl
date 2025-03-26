@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'code_in_def'} = '*document_root C1
  *before_node_section C1
-  *0 @deftypefn C3 l1
+  *@deftypefn C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'code_in_def'} = '*document_root C1
      {delimiter:(}
      *def_typearg C1
       *def_line_arg C1
-       *1 @code C1 l1
+       *@code C1 l1
         *brace_container C2
          {const std::vector<int>}
          *@&
@@ -50,7 +50,7 @@ $result_tree_text{'code_in_def'} = '*document_root C1
    *def_item C1
     *paragraph C3
      {Documentation of }
-     *2 @code C1 l2
+     *@code C1 l2
       *brace_container C1
        {foo}
      {.\\n}

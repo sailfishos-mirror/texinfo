@@ -7,14 +7,14 @@ use utf8;
 $result_tree_text{'spaces_unknown_command_after_braced_command'} = '*document_root C1
  *before_node_section C3
   *paragraph C2
-   *0 @code l1
+   *@code l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
    { \\n}
   {empty_line:\\n}
   *paragraph C3
-   *1 @~ l3
+   *@~ l3
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

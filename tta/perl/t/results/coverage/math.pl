@@ -8,7 +8,7 @@ $result_tree_text{'math'} = '*document_root C1
  *before_node_section C10
   *paragraph C3
    {Simple math\\n}
-   *0 @math C1 l2
+   *@math C1 l2
     *brace_command_context C4
      {--}
      *balanced_braces C1 l2
@@ -22,24 +22,24 @@ $result_tree_text{'math'} = '*document_root C1
    {Math with }
    *@@
    {-command\\n}
-   *1 @math C1 l5
+   *@math C1 l5
     *brace_command_context C5
-     *2 @code C1 l5
+     *@code C1 l5
       *brace_container C1
        {math code}
      { a < b \\sum}
-     *3 @sub C1 l5
+     *@sub C1 l5
       *brace_container C1
        {i}
      { q}
-     *4 @sup C1 l5
+     *@sup C1 l5
       *brace_container C1
        {2}
    {\\n}
   {empty_line:\\n}
   *paragraph C3
    {Complex\\n}
-   *5 @math C1 l8
+   *@math C1 l8
    |INFO
    |spaces_before_argument:
     |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'math'} = '*document_root C1
      {\\underline}
      *balanced_braces C3 l8
       {{}
-      *6 @code C1 l8
+      *@code C1 l8
        *brace_container C2
         {math \\hbox}
         *balanced_braces C1 l8
@@ -73,11 +73,11 @@ $result_tree_text{'math'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C5
    {The 3}
-   *7 @sup C1 l13
+   *@sup C1 l13
     *brace_container C1
      {rd}
    {is the I}
-   *8 @sub C1 l13
+   *@sub C1 l13
     *brace_container C1
      {r}
    {.\\n}

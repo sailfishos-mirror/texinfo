@@ -32,11 +32,11 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     |spaces_after_argument:
      |{\\n}
      {``category---}
-     *0 @var C1 direntry_dircategory.texi:l5
+     *@var C1 direntry_dircategory.texi:l5
       *brace_container C1
        {th  ere}
      {?\'\'}
-   *1 @direntry C3 direntry_dircategory.texi:l6
+   *@direntry C3 direntry_dircategory.texi:l6
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      *menu_entry_description C1
       *preformatted C3
        {``hello---}
-       *2 @var C1 direntry_dircategory.texi:l7
+       *@var C1 direntry_dircategory.texi:l7
         *brace_container C1
          {there}
        {?\'\'\\n}
@@ -82,7 +82,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     |spaces_after_argument:
      |{\\n}
      {cat2}
-   *3 @direntry C4 direntry_dircategory.texi:l11
+   *@direntry C4 direntry_dircategory.texi:l11
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -118,16 +118,16 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
       {direntry}
    {empty_line:\\n}
    {empty_line:\\n}
- *4 @node C1 direntry_dircategory.texi:l19 {Top}
+ *0 @node C1 direntry_dircategory.texi:l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E7]
- |node_directions:D[next->E8]
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -135,21 +135,21 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C8 direntry_dircategory.texi:l20 {Test dircategory and direntry}
+ *1 @top C8 direntry_dircategory.texi:l20 {Test dircategory and direntry}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E9]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
+ |section_childs:EC[E4]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E9]
+ |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -168,7 +168,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {in text}
-  *6 @direntry C3 direntry_dircategory.texi:l24
+  *@direntry C3 direntry_dircategory.texi:l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -201,7 +201,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      |{\\n}
      {direntry}
   {empty_line:\\n}
-  *7 @menu C3 direntry_dircategory.texi:l28
+  *2 @menu C3 direntry_dircategory.texi:l28
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -230,16 +230,16 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 direntry_dircategory.texi:l32 {chapter}
+ *3 @node C1 direntry_dircategory.texi:l32 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[up->E4]
- |node_directions:D[prev->E4|up->E4]
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -247,17 +247,17 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C4 direntry_dircategory.texi:l33 {chapter}
+ *4 @chapter C4 direntry_dircategory.texi:l33 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[up->E5]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E5|up->E5]
+ |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

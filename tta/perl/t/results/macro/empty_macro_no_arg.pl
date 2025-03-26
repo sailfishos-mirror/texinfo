@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_macro_no_arg'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C2 l1
+  *@macro C2 l1
   |EXTRA
   |macro_name:{foo}
   |misc_args:A{}

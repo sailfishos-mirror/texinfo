@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
  *before_node_section C11
   *paragraph C2
-   *0 @inlinefmtifelse C3 l1
+   *@inlinefmtifelse C3 l1
    |EXTRA
    |expand_index:{2}
    |format:{html}
@@ -17,13 +17,13 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
      {raw:if @code{html}}
     *brace_arg C2
      {else }
-     *1 @code C1 l1
+     *@code C1 l1
       *brace_container C1
        {html}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *2 @inlinefmtifelse C3 l3
+   *@inlinefmtifelse C3 l3
    |EXTRA
    |expand_index:{2}
    |format:{plaintext}
@@ -33,13 +33,13 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
      {raw:if @emph{plaintext}}
     *brace_arg C2
      {else }
-     *3 @emph C1 l3
+     *@emph C1 l3
       *brace_container C1
        {plaintext}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *4 @inlinefmtifelse C3 l5
+   *@inlinefmtifelse C3 l5
    |EXTRA
    |expand_index:{2}
    |format:{xml}
@@ -52,13 +52,13 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {xml }
-     *5 @env C1 l5
+     *@env C1 l5
       *brace_container C1
        {else}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *6 @inlinefmtifelse C3 l7
+   *@inlinefmtifelse C3 l7
    |EXTRA
    |expand_index:{2}
    |format:{docbook}
@@ -76,14 +76,14 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {else }
-     *7 @strong C1 l7
+     *@strong C1 l7
       *brace_container C1
        {docbook spaces}
      { }
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *8 @inlinefmtifelse C3 l9
+   *@inlinefmtifelse C3 l9
    |EXTRA
    |expand_index:{2}
    |format:{tex}
@@ -92,14 +92,14 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw:if @var{tex}}
     *brace_arg C2
-     *9 @var C1 l9
+     *@var C1 l9
       *brace_container C1
        {else}
      { tex}
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @inlinefmtifelse C3 l11
+   *@inlinefmtifelse C3 l11
    |EXTRA
    |expand_index:{2}
    |format:{latex}
@@ -108,7 +108,7 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     *elided_brace_command_arg C1
      {raw:if @sc{latex}}
     *brace_arg C2
-     *11 @sc C1 l11
+     *@sc C1 l11
       *brace_container C1
        {else}
      { latex}

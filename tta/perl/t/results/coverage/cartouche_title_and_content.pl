@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
  *before_node_section C1
-  *0 @cartouche C3 l1
+  *@cartouche C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -16,7 +16,7 @@ $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {Box title on }
-     *1 @emph C1 l1
+     *@emph C1 l1
       *brace_container C1
        {documentation}
    *paragraph C2

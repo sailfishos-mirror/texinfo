@@ -7,34 +7,34 @@ use utf8;
 $result_tree_text{'invalid_U'} = '*document_root C1
  *before_node_section C1
   *paragraph C19
-   *0 @U l1
+   *@U l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
-   *1 @U C1 l1
+   *@U C1 l1
     *brace_arg
    { }
-   *2 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
      {z}
    { }
-   *3 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
      {abc}
    { }
-   *4 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
      {9999999999999}
    { }
-   *5 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
      {110000}
    { }
-   *6 @U C1 l1
+   *@U C1 l1
     *brace_arg C1
      {10FFFF}
    {\\n}
-   *7 @U C1 l2
+   *@U C1 l2
     *brace_arg C1
     |INFO
     |spaces_after_argument:
@@ -43,11 +43,11 @@ $result_tree_text{'invalid_U'} = '*document_root C1
      |{ }
      {0023}
    { }
-   *8 @U C1 l2
+   *@U C1 l2
     *brace_arg C1
      {FFFD}
    { }
-   *9 @U C1 l2
+   *@U C1 l2
     *brace_arg C1
     |INFO
     |spaces_after_argument:

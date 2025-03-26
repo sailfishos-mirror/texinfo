@@ -8,7 +8,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
  *before_node_section C8
   *paragraph C1
    {para\\n}
-  *0 @verbatim C3 l2
+  *@verbatim C3 l2
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {para b html\\n}
-   *1 @html C3 l7
+   *@html C3 l7
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    {para b tex\\n}
-   *2 @tex C3 l13
+   *@tex C3 l13
     *arguments_line C1
      *block_line_arg
      |INFO

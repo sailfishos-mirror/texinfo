@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
  *before_node_section C9
-  *0 @ignore C3 l1
+  *@ignore C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -25,7 +25,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
      |{\\n}
      {ignore}
   {empty_line:\\n}
-  *1 @ignore C3 l5
+  *@ignore C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
      |{\\n}
      {ignore}
   {empty_line:\\n}
-  *2 @ignore C3 l9
+  *@ignore C3 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
      |{\\n}
      {ignore}
   {empty_line:\\n}
-  *3 @ignore C3 l13
+  *@ignore C3 l13
   |INFO
   |spaces_before_argument:
    |{  }
@@ -87,7 +87,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
      |{\\n}
      {ignore}
   {empty_line:\\n}
-  *4 @ignore C3 l17
+  *@ignore C3 l17
   |INFO
   |spaces_before_argument:
    |{ }

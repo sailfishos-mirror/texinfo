@@ -6,19 +6,19 @@ use utf8;
 
 $result_tree_text{'table_in_display_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @example C3 l1
+  *@example C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @display C3 l2
+   *@display C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{\\n}
-    *2 @table C3 l3
+    *@table C3 l3
     |INFO
     |spaces_before_argument:
      |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'table_in_display_in_example'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *3 @asis l3
+       *@asis l3
      *table_entry C2
       *table_term C1
        *@item C1 l4

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
  *before_node_section C9
   *paragraph C2
-   *0 @inlineifclear C2 l1
+   *@inlineifclear C2 l1
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *1 @inlineifset C2 l4
+   *@inlineifset C2 l4
    |INFO
    |spaces_after_cmd_before_arg:
     |{\\n}
@@ -53,7 +53,7 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
    {rawline_arg:}
   {empty_line:\\n}
   *paragraph C2
-   *2 @inlineifclear C2 l9
+   *@inlineifclear C2 l9
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @inlineifset C2 l11
+   *@inlineifset C2 l11
    |INFO
    |spaces_after_cmd_before_arg:
     |{ }

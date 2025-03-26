@@ -7,13 +7,13 @@ use utf8;
 $result_tree_text{'nested_args'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
-   *0 @xref C4 l1
+   *@xref C4 l1
     *brace_arg C3
     |EXTRA
     |node_content:{@@ @samp{in samp}}
      *@@
      { }
-     *1 @samp C1 l1
+     *@samp C1 l1
       *brace_container C1
        {in samp}
     *brace_arg C2
@@ -21,7 +21,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {descr }
-     *2 @b C1 l1
+     *@b C1 l1
       *brace_container C1
        {in b}
     *brace_arg C3
@@ -29,7 +29,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     |spaces_before_argument:
      |{ }
      {S}
-     *3 @~ C1 l1
+     *@~ C1 l1
       *brace_container C1
        {e}
      {ction}
@@ -37,7 +37,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ \\n}
-     *4 @cite C1 l2
+     *@cite C1 l2
       *brace_container C1
        {manual}
    {.}

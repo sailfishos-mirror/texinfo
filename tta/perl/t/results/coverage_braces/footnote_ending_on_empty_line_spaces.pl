@@ -8,7 +8,7 @@ $result_tree_text{'footnote_ending_on_empty_line_spaces'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
    {text}
-   *0 @footnote C1 l1
+   *@footnote C1 l1
    |INFO
    |spaces_before_argument:
     |{ }

@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'nested_multitable'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @multitable C3 l2
+  *@multitable C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
      |EXTRA
      |cell_number:{1}
       {ignorable_spaces_after_command:\\n}
-      *1 @multitable C3 l4
+      *@multitable C3 l4
       |INFO
       |spaces_before_argument:
        |{ }

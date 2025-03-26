@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
  *before_node_section C1
-  *0 @quotation C5 l1
+  *@quotation C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -14,7 +14,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
      |{\\n}
    *paragraph C1
     {In quotation\\n}
-   *1 @cartouche C3 l3
+   *@cartouche C3 l3
     *arguments_line C1
      *block_line_arg
      |INFO

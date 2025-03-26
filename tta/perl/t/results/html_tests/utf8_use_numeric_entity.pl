@@ -22,7 +22,7 @@ $result_tree_text{'utf8_use_numeric_entity'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {AA }
-   *0 @^ C1 l3
+   *@^ C1 l3
     *following_arg C1
      {e}
    { --- -- \'` \'\' ``}

@@ -108,7 +108,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |indent:{1}
    {endof line with spaces line after indent\\n}
   {empty_line:\\n}
-  *1 @image C5 l21
+  *@image C5 l21
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -137,7 +137,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {e}
   {\\n}
   {empty_line:\\n}
-  *2 @image C5 l23
+  *@image C5 l23
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C1
@@ -169,7 +169,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {e}
   {\\n}
   {empty_line:\\n}
-  *3 @quotation C3 l26
+  *@quotation C3 l26
   |INFO
   |spaces_before_argument:
    |{  }
@@ -193,18 +193,18 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *4 @float C8 l30
+  *1 @float C8 l30
   |INFO
   |spaces_before_argument:
    |{  }
   |EXTRA
-  |caption:[E5]
+  |caption:[E2]
   |float_number:{1}
   |float_type:{ff}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{b}
-  |shortcaption:[E6]
+  |shortcaption:[E3]
    *arguments_line C2
     *block_line_arg C1
     |INFO
@@ -220,20 +220,20 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {b}
    *paragraph C1
     {f\\n}
-   *5 @caption C1 l32
+   *2 @caption C1 l32
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |float:[E4]
+   |float:[E1]
     *brace_command_context C1
      *paragraph C1
       {In caption }
    *paragraph C1
     {j.\\n}
-   *6 @shortcaption C1 l33
+   *3 @shortcaption C1 l33
    |EXTRA
-   |float:[E4]
+   |float:[E1]
     *brace_command_context C1
      *paragraph C1
       {Short}
@@ -252,7 +252,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {float}
   {empty_line:\\n}
-  *7 @multitable C2 l36
+  *@multitable C2 l36
   |INFO
   |spaces_before_argument:
    |{  }
@@ -283,7 +283,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *8 @multitable C2 l39
+  *@multitable C2 l39
   |INFO
   |spaces_before_argument:
    |{  }
@@ -303,7 +303,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       |{ }
       {r }
      {  }
-     *9 @var C1 l39
+     *@var C1 l39
       *brace_container C1
        {cmd}
      {gg hh j}
@@ -319,7 +319,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *10 @verbatim C3 l42
+  *@verbatim C3 l42
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -338,7 +338,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{ \\n}
      {verbatim}
   {empty_line:\\n}
-  *11 @tex C3 l46
+  *@tex C3 l46
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -358,7 +358,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{  \\n}
      {tex}
   {empty_line:\\n}
-  *12 @example C3 l50
+  *@example C3 l50
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -378,7 +378,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{  \\n}
      {example}
   {empty_line:\\n}
-  *13 @table C3 l54
+  *@table C3 l54
   |INFO
   |spaces_before_argument:
    |{  }
@@ -387,7 +387,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{  \\n}
-     *14 @strong l54
+     *@strong l54
    *table_entry C1
     *table_term C1
      *@item C1 l55
@@ -413,7 +413,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {T}
-   *15 @footnote C1 l58
+   *@footnote C1 l58
    |INFO
    |spaces_before_argument:
     |{  }
@@ -426,7 +426,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {Math }
-   *16 @math C1 l60
+   *@math C1 l60
    |INFO
    |spaces_before_argument:
     |{ }
@@ -438,12 +438,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *17 @indicateurl C1 l62
+   *@indicateurl C1 l62
     *brace_container C1
      { http://ggg }
    {\\n}
   {empty_line:\\n}
-  *18 @deffn C3 l64
+  *@deffn C3 l64
   |INFO
   |spaces_before_argument:
    |{ }

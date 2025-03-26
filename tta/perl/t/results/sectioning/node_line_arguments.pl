@@ -168,7 +168,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   *arguments_line C3
    *line_arg C3
     {arg1 }
-    *7 @comma C1 l10
+    *@comma C1 l10
      *brace_container
     { arg2}
    *line_arg C2
@@ -178,7 +178,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |EXTRA
    |node_content:{@,cedilla}
    |normalized:{_00e7edilla}
-    *8 @, C1 l10
+    *@, C1 l10
      *following_arg C1
       {c}
     {edilla}
@@ -194,7 +194,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |EXTRA
    |node_content:{@strong{comma in strong,}}
    |normalized:{comma-in-strong_002c}
-    *9 @strong C1 l10
+    *@strong C1 l10
      *brace_container C1
       {comma in strong,}
 ';

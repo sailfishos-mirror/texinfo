@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'xref_quote_long_item'} = '*document_root C1
  *before_node_section C1
-  *0 @table C4 l1
+  *@table C4 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -15,7 +15,7 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *1 @asis l1
+     *@asis l1
    *before_item C1
     {empty_line:\\n}
    *table_entry C2
@@ -28,21 +28,21 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *2 @code C1 l3
+       *@code C1 l3
         *brace_container C2
          *@@
          {verbatiminclude}
     *table_definition C2
      *paragraph C2
-      *3 @xref C4 l4
+      *@xref C4 l4
        *brace_arg C5
        |EXTRA
        |node_content:{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude)}
         {Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar}
-        *4 @comma C1 l4
+        *@comma C1 l4
          *brace_container
         { $configuration_information}
-        *5 @comma C1 l4
+        *@comma C1 l4
          *brace_container
         { $verbatiminclude)}
        *brace_arg

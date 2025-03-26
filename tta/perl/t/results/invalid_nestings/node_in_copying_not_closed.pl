@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
  *before_node_section C1
-  *0 @copying C5 l1
+  *@copying C5 l1
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -17,13 +17,13 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
     {This is an unterminatted copyright notice\\n}
    {empty_line:\\n}
    {empty_line:\\n}
- *1 @node C1 l6 {Top}
+ *0 @node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
- |associated_title_command:[E2]
+ |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -32,18 +32,18 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C3 l7 {Top section}
+ *1 @top C3 l7 {Top section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
- |associated_node:[E1]
+ |associated_anchor_command:[E0]
+ |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E2]
+  ||section_childs:EC[E1]
   ||section_level:{-1}
   *arguments_line C1
    *line_arg C1

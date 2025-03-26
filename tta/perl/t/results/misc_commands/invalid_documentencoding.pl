@@ -20,7 +20,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {us-ascii}
-    *0 @asis C1 l2
+    *@asis C1 l2
      *brace_container
   {empty_line:\\n}
   *@documentencoding C1 l4
@@ -35,7 +35,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {latin1}
-    *1 @asis C1 l4
+    *@asis C1 l4
      *brace_container C1
       {a}
   *@documentencoding C1 l5
@@ -113,7 +113,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {AAA}
-     *2 @TeX C1 l10
+     *@TeX C1 l10
       *brace_container
    *@documentencoding C1 l11
    |INFO
@@ -127,7 +127,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      {BBB}
-     *3 @\' C1 l11
+     *@\' C1 l11
       *following_arg C1
        {e}
 ';

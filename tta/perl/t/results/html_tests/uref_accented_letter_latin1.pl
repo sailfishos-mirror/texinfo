@@ -21,13 +21,13 @@ $result_tree_text{'uref_accented_letter_latin1'} = '*document_root C1
     {ISO-8859-1}
   {empty_line:\\n}
   *paragraph C2
-   *0 @uref C1 l3
+   *@uref C1 l3
     *brace_arg C3
      {http://example.com/acc_}
-     *1 @" C1 l3
+     *@" C1 l3
       *following_arg C1
        {a}
-     *2 @ogonek C1 l3
+     *@ogonek C1 l3
       *brace_container C1
        {a}
    {\\n}

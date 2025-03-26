@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'insert_copying_and_paragraph'} = '*document_root C1
  *before_node_section C4
-  *0 @copying C3 l1
+  *@copying C3 l1
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
  *before_node_section C5
-  *0 @macro C6 l1
+  *@macro C6 l1
   |EXTRA
   |macro_name:{macrotwo}
   |misc_args:A{arg}

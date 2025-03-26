@@ -75,7 +75,7 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
      {float}
   {empty_line:\\n}
   *paragraph C2
-   *2 @ref C1 l9
+   *@ref C1 l9
     *brace_arg C1
     |EXTRA
     |node_content:{Label1}
@@ -84,7 +84,7 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *3 @ref C1 l11
+   *@ref C1 l11
     *brace_arg C1
     |EXTRA
     |node_content:{Label2}

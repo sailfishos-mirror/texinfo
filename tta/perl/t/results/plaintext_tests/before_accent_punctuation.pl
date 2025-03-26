@@ -8,7 +8,7 @@ $result_tree_text{'before_accent_punctuation'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
    {a. }
-   *0 @^ C1 l1
+   *@^ C1 l1
     *following_arg C1
      {a}
 ';

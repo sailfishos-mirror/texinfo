@@ -78,7 +78,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *4 @itemize C3 l7
+  *@itemize C3 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @inlineraw l7
+     *@inlineraw l7
    *@item C2 l8
    |EXTRA
    |item_number:{1}
@@ -106,7 +106,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *6 @itemize C4 l11
+  *@itemize C4 l11
   |INFO
   |spaces_before_argument:
    |{ }
@@ -115,7 +115,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @image l11
+     *@image l11
    *@item C2 l12
    |EXTRA
    |item_number:{1}
@@ -140,7 +140,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *8 @itemize C4 l16
+  *@itemize C4 l16
   |INFO
   |spaces_before_argument:
    |{ }
@@ -149,7 +149,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *9 @footnote l16
+     *@footnote l16
    *@item C2 l17
    |EXTRA
    |item_number:{1}
@@ -179,7 +179,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *10 @itemize C3 l25
+  *@itemize C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
@@ -188,7 +188,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *11 @caption l25
+     *4 @caption l25
    *@item C2 l26
    |EXTRA
    |item_number:{1}
@@ -207,7 +207,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *12 @itemize C4 l29
+  *@itemize C4 l29
   |INFO
   |spaces_before_argument:
    |{ }
@@ -216,7 +216,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *13 @math l29
+     *@math l29
    *@item C2 l30
    |EXTRA
    |item_number:{1}
@@ -229,7 +229,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     {ignorable_spaces_after_command: }
     *paragraph C3
      {a}
-     *14 @sup C1 l31
+     *@sup C1 l31
       *brace_container C1
        {c}
      {\\n}
@@ -249,7 +249,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *15 @itemize C4 l37
+  *@itemize C4 l37
   |INFO
   |spaces_before_argument:
    |{ }
@@ -258,7 +258,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *16 @anchor l37
+     *5 @anchor l37
    *@item C2 l38
    |EXTRA
    |item_number:{1}
@@ -283,7 +283,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *17 @itemize C3 l42
+  *@itemize C3 l42
   |INFO
   |spaces_before_argument:
    |{ }
@@ -292,7 +292,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *18 @verb l42
+     *@verb l42
    *@item C2 l43
    |EXTRA
    |item_number:{1}

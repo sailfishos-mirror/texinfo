@@ -11,7 +11,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
+ |associated_title_command:[E5]
  |is_target:{1}
  |normalized:{first}
   *arguments_line C1
@@ -21,7 +21,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     |{\\n}
     {first}
   {empty_line:\\n}
-  *1 @example C4 l3
+  *@example C4 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -31,7 +31,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     {empty_line:\\n}
     {in example\\n}
     {empty_line:\\n}
-   *2 @menu C9 l7
+   *1 @menu C9 l7
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
      *preformatted C2
       {in submenu\\n}
       {empty_line:\\n}
-    *3 @menu C2 l10
+    *2 @menu C2 l10
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
-    *4 @menu C3 l13
+    *3 @menu C3 l13
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -84,14 +84,14 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
-    *5 @menu C3 l17
+    *4 @menu C3 l17
      *arguments_line C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
        |{\\n}
      *menu_comment C1
-      *6 @quotation C3 l18
+      *@quotation C3 l18
        *arguments_line C1
         *block_line_arg
         |INFO
@@ -124,7 +124,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C5
      *preformatted C1
       {empty_line:\\n}
-     *7 @subheading C1 l23
+     *5 @subheading C1 l23
      |INFO
      |spaces_before_argument:
       |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
        {subheading in menu}
      *preformatted C1
       {empty_line:\\n}
-     *8 @enumerate C3 l25
+     *@enumerate C3 l25
      |EXTRA
      |enumerate_specification:{1}
       *arguments_line C1

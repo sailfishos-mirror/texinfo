@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'empty_def_command'} = '*document_root C1
  *before_node_section C3
-  *0 @deffn C2 l1
+  *@deffn C2 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'empty_def_command'} = '*document_root C1
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *1 @deffn C3 l4
+  *@deffn C3 l4
   |INFO
   |spaces_before_argument:
    |{ }
