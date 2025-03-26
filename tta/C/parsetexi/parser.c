@@ -1148,7 +1148,7 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
 
 /* if kbd should be formatted as code */
 int
-kbd_formatted_as_code (ELEMENT *current)
+kbd_formatted_as_code (void)
 {
   if (global_kbdinputstyle == kbd_code)
     {
@@ -1178,18 +1178,16 @@ parent_of_command_as_argument (ELEMENT *current)
     && (current->e.c->contents.number == 1);
 }
 
-/* register a command like @bullet with @itemize, or @asis with @table */
+/* register command_as_argument_kbd_code */
 void
 register_command_as_argument (ELEMENT *cmd_as_arg)
 {
-  ELEMENT *command_element = cmd_as_arg->parent->parent->parent;
-  debug ("FOR PARENT @%s command_as_argument %s",
-         command_name(command_element->e.c->cmd),
-         command_name(cmd_as_arg->e.c->cmd));
-  add_extra_element (command_element,
-                     AI_key_command_as_argument, cmd_as_arg);
   if (cmd_as_arg->e.c->cmd == CM_kbd
-      && kbd_formatted_as_code (command_element)) {
+      && kbd_formatted_as_code ()) {
+    ELEMENT *command_element = cmd_as_arg->parent->parent->parent;
+    debug ("FOR PARENT @%s command_as_argument %s",
+           command_name(command_element->e.c->cmd),
+           command_name(cmd_as_arg->e.c->cmd));
     command_element->flags |= EF_command_as_argument_kbd_code;
   }
 }

@@ -197,8 +197,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO

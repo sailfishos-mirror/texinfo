@@ -8,8 +8,6 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
   *0 @itemize C5 l1
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -34,8 +32,6 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
     *paragraph C1
      {First level item\\n}
     *2 @itemize C5 l4
-    |EXTRA
-    |command_as_argument:[E3]
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -60,8 +56,6 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
       *paragraph C1
        {Second level item\\n}
       *4 @itemize C5 l7
-      |EXTRA
-      |command_as_argument:[E5]
        *arguments_line C1
         *block_line_arg C1
         |INFO
@@ -86,8 +80,6 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
         *paragraph C1
          {Third level item\\n}
         *6 @itemize C5 l10
-        |EXTRA
-        |command_as_argument:[E7]
          *arguments_line C1
           *block_line_arg C1
           |INFO

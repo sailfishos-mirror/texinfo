@@ -10,8 +10,6 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -72,8 +70,6 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
      *7 @bullet
@@ -229,6 +225,13 @@ $result_errors{'section_on_itemize_line'} = [
 ',
     'line_nr' => 7,
     'text' => '@section should not appear on @itemize line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: accent command `@ringaccent\' not allowed as @itemize argument
+',
+    'line_nr' => 7,
+    'text' => 'accent command `@ringaccent\' not allowed as @itemize argument',
     'type' => 'warning'
   },
   {

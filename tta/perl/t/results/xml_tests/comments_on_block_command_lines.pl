@@ -10,8 +10,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -74,8 +72,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E4]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -107,8 +103,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E6]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -204,8 +198,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E10]
    *arguments_line C1
     *block_line_arg C1
     |INFO

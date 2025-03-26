@@ -97,8 +97,6 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -135,8 +133,6 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -177,8 +173,6 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -207,8 +201,6 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E11]
    *arguments_line C1
     *block_line_arg C1
     |INFO

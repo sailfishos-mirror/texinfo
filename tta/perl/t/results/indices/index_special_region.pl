@@ -325,8 +325,6 @@ $result_tree_text{'index_special_region'} = '*document_root C7
      {deffn}
   {empty_line:\\n}
   *12 @ftable C4 index_special_region.texi:l50
-  |EXTRA
-  |command_as_argument:[E13]
    *arguments_line C1
     *block_line_arg C1
     |INFO

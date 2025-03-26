@@ -86,8 +86,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -132,8 +130,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -194,8 +190,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {itemize}
   {empty_line:\\n}
   *8 @itemize C4 indices_in_begin_tables_lists.texi:l22
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -508,8 +502,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E17]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -551,8 +543,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E19]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -607,8 +597,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E21]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -713,8 +701,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E23]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -766,8 +752,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E25]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -817,8 +801,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E27]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -870,8 +852,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E29]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -921,8 +901,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E31]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -972,8 +950,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E33]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1022,8 +998,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E35]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1072,8 +1046,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E37]
    *arguments_line C1
     *block_line_arg C1
     |INFO

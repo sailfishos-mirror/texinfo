@@ -82,8 +82,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -148,8 +146,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -198,8 +194,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -248,8 +242,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E11]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -298,8 +290,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E13]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -353,8 +343,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E16]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -403,8 +391,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E18]
    *arguments_line C1
     *block_line_arg C1
     |INFO

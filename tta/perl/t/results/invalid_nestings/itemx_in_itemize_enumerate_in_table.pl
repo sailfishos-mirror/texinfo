@@ -10,8 +10,6 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -34,8 +32,6 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
      *paragraph C1
       {In item, nested itemize\\n}
      *2 @itemize C3 l5
-     |EXTRA
-     |command_as_argument:[E3]
       *arguments_line C1
        *block_line_arg C1
        |INFO

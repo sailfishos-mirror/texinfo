@@ -7,8 +7,6 @@ use utf8;
 $result_tree_text{'long_uref_after_item'} = '*document_root C1
  *before_node_section C1
   *0 @itemize C3 l1
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO

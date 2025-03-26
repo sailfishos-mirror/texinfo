@@ -42,8 +42,6 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E6]
    *arguments_line C1
     *block_line_arg C1
     |INFO

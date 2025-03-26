@@ -43,8 +43,6 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E3]
       *arguments_line C1
        *block_line_arg C1
        |INFO

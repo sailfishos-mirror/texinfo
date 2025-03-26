@@ -7,8 +7,6 @@ use utf8;
 $result_tree_text{'formats_only_title_comments'} = '*document_root C1
  *before_node_section C9
   *0 @itemize C3 l1
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -67,8 +65,6 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E4]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -96,8 +92,6 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E6]
    *arguments_line C1
     *block_line_arg C1
     |INFO

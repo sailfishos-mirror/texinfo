@@ -1248,7 +1248,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
         }
       else if (cmd == CM_kbd)
         {
-          if (kbd_formatted_as_code (command_e))
+          if (kbd_formatted_as_code ())
             {
               command_e->flags |= EF_code;
             }

@@ -132,8 +132,6 @@ $result_tree_text{'center'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E8]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -168,8 +166,6 @@ $result_tree_text{'center'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E10]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -339,8 +335,6 @@ $result_tree_text{'center'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-    |EXTRA
-    |command_as_argument:[E15]
      *arguments_line C1
       *block_line_arg C1
       |INFO

@@ -1278,9 +1278,6 @@ The @emph{item_number} @code{extra} key holds the number of this item.
 The @emph{cell_number} index key holds the index of the column of
 the cell.
 
-@item @code{@@itemize}
-@anchor{Texinfo@asis{::}Parser @code{@@itemize}}
-
 @item @code{@@table}
 @anchor{Texinfo@asis{::}Parser @code{@@table}}
 
@@ -1289,9 +1286,6 @@ the cell.
 
 @item @code{@@ftable}
 @anchor{Texinfo@asis{::}Parser @code{@@ftable}}
-
-The @emph{command_as_argument} @code{extra} key points to the @@-command
-as argument on the @@-command line.
 
 If the command in argument for @code{@@table}, @code{@@vtable} or @code{@@ftable}
 is @code{@@kbd} and the context and @code{@@kbdinputstyle} is such that @code{@@kbd}

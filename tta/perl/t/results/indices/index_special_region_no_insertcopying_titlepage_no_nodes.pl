@@ -348,8 +348,6 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes'} = 
      {deffn}
   {empty_line:\\n}
   *12 @ftable C4 index_special_region_no_insertcopying.texi:l53
-  |EXTRA
-  |command_as_argument:[E13]
    *arguments_line C1
     *block_line_arg C1
     |INFO

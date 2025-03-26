@@ -147,8 +147,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E13]
    *arguments_line C1
     *block_line_arg C1
     |INFO

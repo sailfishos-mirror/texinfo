@@ -187,8 +187,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -262,8 +260,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E19]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -329,8 +325,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E25]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -482,8 +476,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E33]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -579,8 +571,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E40]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -646,8 +636,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E46]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1009,8 +997,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E111]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1042,8 +1028,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E114]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1124,8 +1108,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E120]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1199,8 +1181,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E126]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1278,8 +1258,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E132]
    *arguments_line C1
     *block_line_arg C1
     |INFO

@@ -83,8 +83,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -129,8 +127,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -191,8 +187,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      {itemize}
   {empty_line:\\n}
   *8 @itemize C4 l20
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO

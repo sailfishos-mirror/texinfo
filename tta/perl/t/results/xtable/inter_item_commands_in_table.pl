@@ -83,8 +83,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -126,8 +124,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -182,8 +178,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -288,8 +282,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E11]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -355,8 +347,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E13]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -408,8 +398,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E15]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -459,8 +447,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E17]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -512,8 +498,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E19]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -563,8 +547,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E21]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -614,8 +596,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E23]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -664,8 +644,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E25]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -714,8 +692,6 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E27]
    *arguments_line C1
     *block_line_arg C1
     |INFO

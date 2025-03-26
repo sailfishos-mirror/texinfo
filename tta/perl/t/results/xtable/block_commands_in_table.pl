@@ -82,8 +82,6 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -243,8 +241,6 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E10]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -312,8 +308,6 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -371,8 +365,6 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E14]
    *arguments_line C1
     *block_line_arg C1
     |INFO

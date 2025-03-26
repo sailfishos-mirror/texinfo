@@ -179,8 +179,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E6]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -219,8 +217,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E8]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -355,8 +351,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E26]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -471,8 +465,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E29]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -720,8 +712,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E60]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -836,8 +826,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E63]
       *arguments_line C1
        *block_line_arg C1
        |INFO

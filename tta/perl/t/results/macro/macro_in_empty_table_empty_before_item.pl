@@ -28,8 +28,6 @@ $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E2]
    *arguments_line C1
     *block_line_arg C1
     |INFO

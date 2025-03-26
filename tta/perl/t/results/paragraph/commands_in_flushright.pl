@@ -94,8 +94,6 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E5]
     *arguments_line C1
      *block_line_arg C1
      |INFO

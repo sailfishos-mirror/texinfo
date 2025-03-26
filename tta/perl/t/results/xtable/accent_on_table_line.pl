@@ -10,8 +10,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -62,8 +60,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -115,8 +111,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -154,8 +148,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -192,8 +184,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E15]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -230,8 +220,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E18]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -269,8 +257,6 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E21]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -372,11 +358,11 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: accent command `@~\' not allowed as @table argument
+    'error_line' => 'bad argument to @table: @~{}
 ',
     'line_nr' => 6,
-    'text' => 'accent command `@~\' not allowed as @table argument',
-    'type' => 'warning'
+    'text' => 'bad argument to @table: @~{}',
+    'type' => 'error'
   },
   {
     'error_line' => '@~ expected braces
@@ -421,11 +407,11 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: accent command `@ringaccent\' not allowed as @table argument
+    'error_line' => 'bad argument to @table: @ringaccent{}
 ',
     'line_nr' => 23,
-    'text' => 'accent command `@ringaccent\' not allowed as @table argument',
-    'type' => 'warning'
+    'text' => 'bad argument to @table: @ringaccent{}',
+    'type' => 'error'
   },
   {
     'error_line' => 'bad argument to @table: @ringaccent{a}

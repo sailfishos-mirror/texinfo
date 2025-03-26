@@ -26,8 +26,6 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
      {linemacro}
   {empty_line:\\n}
   *1 @itemize C3 l5
-  |EXTRA
-  |command_as_argument:[E2]
    *arguments_line C1
     *block_line_arg C1
     |INFO

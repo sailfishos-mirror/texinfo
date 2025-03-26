@@ -69,7 +69,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E2]
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
     *block_line_arg C1
@@ -107,7 +106,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E4]
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
     *block_line_arg C1
@@ -154,7 +152,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |command_as_argument:[E7]
    |command_as_argument_kbd_code:{1}
     *arguments_line C1
      *block_line_arg C1
@@ -191,7 +188,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |command_as_argument:[E9]
    |command_as_argument_kbd_code:{1}
     *arguments_line C1
      *block_line_arg C1
@@ -266,7 +262,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E11]
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
     *block_line_arg C1
@@ -304,7 +299,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E13]
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
     *block_line_arg C1
@@ -350,8 +344,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E16]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -384,8 +376,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E18]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -456,8 +446,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E20]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -491,8 +479,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E22]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -535,8 +521,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E25]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -569,8 +553,6 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E27]
     *arguments_line C1
      *block_line_arg C1
      |INFO

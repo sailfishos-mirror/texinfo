@@ -63,8 +63,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E3]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -149,8 +147,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E5]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -231,8 +227,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E8]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -317,8 +311,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E10]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -404,8 +396,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-    |EXTRA
-    |command_as_argument:[E14]
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -490,8 +480,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-    |EXTRA
-    |command_as_argument:[E16]
      *arguments_line C1
       *block_line_arg C1
       |INFO

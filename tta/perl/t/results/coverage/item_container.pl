@@ -39,8 +39,6 @@ $result_tree_text{'item_container'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E2]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -67,8 +65,6 @@ $result_tree_text{'item_container'} = '*document_root C1
      {itemize}
   {empty_line:\\n}
   *3 @itemize C3 l11
-  |EXTRA
-  |command_as_argument:[E4]
    *arguments_line C1
     *block_line_arg C1
     |INFO

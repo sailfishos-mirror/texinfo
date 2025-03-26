@@ -41,8 +41,6 @@ $result_tree_text{'in_table'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E3]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -65,8 +63,6 @@ $result_tree_text{'in_table'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -191,8 +187,6 @@ $result_tree_text{'in_table'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C1
     |INFO

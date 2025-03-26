@@ -47,8 +47,6 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E3]
    *arguments_line C1
     *block_line_arg C1
     |INFO

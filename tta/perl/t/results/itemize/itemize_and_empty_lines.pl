@@ -135,8 +135,6 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      {itemize}
   {empty_line:\\n}
   *5 @itemize C8 l28
-  |EXTRA
-  |command_as_argument:[E6]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -273,8 +271,6 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -309,8 +305,6 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E14]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -328,8 +322,6 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-    |EXTRA
-    |command_as_argument:[E16]
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -373,8 +365,6 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E18]
    *arguments_line C1
     *block_line_arg C1
     |INFO

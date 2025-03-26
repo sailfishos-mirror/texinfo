@@ -10,8 +10,6 @@ $result_tree_text{'section_in_table'} = '*document_root C2
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
     |INFO

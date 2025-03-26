@@ -883,8 +883,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E16]
    *arguments_line C1
     *block_line_arg C1
     |INFO

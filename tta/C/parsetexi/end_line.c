@@ -922,7 +922,6 @@ end_line_starting_block (ELEMENT *current)
     }
   else if (command_data(command).flags & CF_blockitem)
     {
-      KEY_PAIR *k;
       if (command == CM_enumerate)
         {
           const char *spec = "1";
@@ -951,11 +950,55 @@ end_line_starting_block (ELEMENT *current)
             }
           add_extra_string_dup (current, AI_key_enumerate_specification, spec);
         }
+      else if (command == CM_itemize)
+        {
+          const ELEMENT *command_as_argument
+            = block_line_argument_command (block_line_arg);
+
+          /* Check if command as argument isn't an accent command */
+          if (block_line_arg->e.c->contents.number == 1)
+            {
+              const ELEMENT *arg = block_line_arg->e.c->contents.list[0];
+              if (!(type_data[arg->type].flags & TF_text)
+                  && (arg->e.c->contents.number == 0
+                      || (arg->e.c->contents.number == 1
+              && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
+                {
+                  enum command_id cmd = element_builtin_cmd (arg);
+                  if (builtin_command_data[cmd].flags & CF_accent)
+                    {
+                      command_warn (current, "accent command `@%s' "
+                            "not allowed as @%s argument",
+                            command_name(cmd),
+                            command_name(command));
+                    }
+                }
+            }
+          /* if the command as argument does not have braces but it is
+             not a mark (noarg) command, warn */
+          if (command_as_argument
+              && command_as_argument->e.c->contents.number <= 0
+              && command_data(command_as_argument->e.c->cmd).data != BRACE_noarg)
+            {
+               command_warn (current, "@%s expected braces",
+                             command_name(command_as_argument->e.c->cmd));
+            }
+           /* if no command_as_argument given, default to @bullet for
+              @itemize */
+          if (block_line_arg->e.c->contents.number == 0)
+            {
+              ELEMENT *e
+                = new_command_element (ET_brace_noarg_command, CM_bullet);
+              e->flags |= EF_inserted;
+              insert_into_contents (block_line_arg, e, 0);
+            }
+        }
       else if (command_data(command).data == BLOCK_item_line)
         {
-          KEY_PAIR *k_command_as_arg;
-          k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
-          if (!k_command_as_arg)
+          const ELEMENT *command_as_argument
+            = block_line_argument_command (block_line_arg);
+
+          if (!command_as_argument)
             {
               if (block_line_arg->e.c->contents.number > 0)
                 {
@@ -976,117 +1019,27 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = k_command_as_arg->k.element;
-              if (!(command_flags(e) & CF_brace)
-                  || (command_data(e->e.c->cmd).data == BRACE_noarg))
+              if (command_data(command_as_argument->e.c->cmd).data == BRACE_noarg)
                 {
                   command_error (current,
                                  "command @%s not accepting argument in brace "
                                  "should not be on @%s line",
-                                 command_name(e->e.c->cmd),
+                                 command_name(command_as_argument->e.c->cmd),
                                  command_name(command));
-                  k_command_as_arg->key = AI_key_none;
+                  command_as_argument = 0;
                 }
             }
-        }
-      else if (command == CM_itemize)
-        {
-          KEY_PAIR *k_command_as_arg;
-          k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
-      /* check that command_as_argument of the @itemize is alone on the line,
-         otherwise it is not a command_as_argument */
-          if (k_command_as_arg)
+      /* if no command_as_argument given, default to @asis for @table. */
+          if (!command_as_argument)
             {
-              size_t i;
-              const ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
+              ELEMENT *e;
 
-              for (i = 0; i < block_line_arg->e.c->contents.number; i++)
-                {
-                  if (contents_child_by_index (block_line_arg, i)
-                                                     == command_as_arg_e)
-                    {
-                      i++;
-                      break;
-                    }
-                }
-              for (; i < block_line_arg->e.c->contents.number; i++)
-                {
-                  int not_command_as_arg = 0;
-                  ELEMENT *f = contents_child_by_index (block_line_arg, i);
-                  if (f->type == ET_normal_text)
-                    {
-                      if (f->e.text->end > 0
-                          && *(f->e.text->text
-                                 + strspn (f->e.text->text, whitespace_chars)))
-                        not_command_as_arg = 1;
-                    }
-                  else if (!(!(type_data[f->type].flags & TF_text)
-                             && (f->e.c->cmd == CM_c
-                                 || f->e.c->cmd == CM_comment)))
-                    not_command_as_arg = 1;
-
-                  if (not_command_as_arg)
-                    {
-                      k_command_as_arg->key = AI_key_none;
-                      k_command_as_arg = 0;
-                      break;
-                    }
-                }
-
-          /* if the command as argument does not have braces but it is
-             not a mark (noarg) command, warn */
-              if (k_command_as_arg
-                  && command_as_arg_e->e.c->contents.number <= 0
-              /* only brace commands are registered as command_as_argument
-                 so we can assume that the following is true:
-                 && command_data(command_as_arg_e->e.c->cmd).flags & CF_brace
-               */
-                  && command_data(command_as_arg_e->e.c->cmd).data != BRACE_noarg)
-                {
-                   command_warn (current, "@%s expected braces",
-                                 command_name(command_as_arg_e->e.c->cmd));
-                }
-            }
-        }
-
-      /* Check if command_as_argument isn't an accent command */
-      k = lookup_extra (current, AI_key_command_as_argument);
-      if (k && k->k.element)
-        {
-          enum command_id as_argument_cmd = k->k.element->e.c->cmd;
-          if (as_argument_cmd
-              && (command_data(as_argument_cmd).flags & CF_accent))
-            {
-              command_warn (current, "accent command `@%s' "
-                            "not allowed as @%s argument",
-                            command_name(as_argument_cmd),
-                            command_name(command));
-              k->key = AI_key_none;
-            }
-        }
-      /* if no command_as_argument given, default to @bullet for
-         @itemize, and @asis for @table. */
-      if (command == CM_itemize)
-        {
-          if (block_line_arg->e.c->contents.number == 0)
-            {
-              ELEMENT *e
-                = new_command_element (ET_brace_noarg_command, CM_bullet);
+              e = new_command_element (ET_brace_command, CM_asis);
               e->flags |= EF_inserted;
               insert_into_contents (block_line_arg, e, 0);
-              add_extra_element (current, AI_key_command_as_argument, e);
             }
         }
-      else if (command_data(command).data == BLOCK_item_line
-               && !lookup_extra_element (current, AI_key_command_as_argument))
-        {
-          ELEMENT *e;
 
-          e = new_command_element (ET_brace_command, CM_asis);
-          e->flags |= EF_inserted;
-          insert_into_contents (block_line_arg, e, 0);
-          add_extra_element (current, AI_key_command_as_argument, e);
-        }
 
       {
         ELEMENT *bi = new_element (ET_before_item);

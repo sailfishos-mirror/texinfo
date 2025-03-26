@@ -1,3 +1,20 @@
+2025-03-26  Patrice Dumas  <pertusus@free.fr>
+
+	Remove command_as_argument extra information
+
+	* tta/C/parsetexi/parser.c (kbd_formatted_as_code),
+	tta/perl/Texinfo/ParserNonXS.pm (_kbd_formatted_as_code): remove
+	unused element argument.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/end_line.c
+	(end_line_starting_block), tta/C/parsetexi/parser.c
+	(register_command_as_argument), tta/perl/Texinfo/ParserNonXS.pm
+	(_end_line_starting_block, _register_command_as_argument): do not set
+	command_as_argument as extra information.  Use
+	block_line_argument_command to prepare some of the error messages for
+	itemize and table, use a specific check for accent command for
+	itemize.
+
 2025-03-25  Patrice Dumas  <pertusus@free.fr>
 
 	Get command as argument from the tree, not from extra information

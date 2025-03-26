@@ -1549,9 +1549,9 @@ sub _in_preformatted_context_not_menu($)
   return 0;
 }
 
-sub _kbd_formatted_as_code($$)
+sub _kbd_formatted_as_code($)
 {
-  my ($self, $current) = @_;
+  my $self = shift;
 
   if ($self->{'kbdinputstyle'} eq 'code') {
     return 1;
@@ -4324,9 +4324,45 @@ sub _end_line_starting_block($$$)
       }
       $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'enumerate_specification'} = $spec;
+    } elsif ($command eq 'itemize') {
+    # Check if command_as_argument isn't an accent command
+      if ($block_line_arg->{'contents'}
+          and scalar(@{$block_line_arg->{'contents'}}) == 1) {
+        my $arg = $block_line_arg->{'contents'}->[0];
+        if ($arg->{'cmdname'}
+            and (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})
+                 or (scalar(@{$arg->{'contents'}}) == 1
+                     and !$arg->{'contents'}->[0]->{'contents'}))) {
+          my $cmdname = $arg->{'cmdname'};
+          if ($accent_commands{$cmdname}) {
+            $self->_command_warn($current,
+                  __("accent command `\@%s' not allowed as \@%s argument"),
+                  $cmdname, $command);
+          }
+        }
+      }
+      my $command_as_argument
+        = Texinfo::Common::block_line_argument_command($block_line_arg);
+
+      # if the command as argument does not have braces but it is
+      # not a mark (noarg) command, warn
+      if (defined($command_as_argument)
+          and !$command_as_argument->{'contents'}
+          and $brace_commands{$command_as_argument->{'cmdname'}} ne 'noarg') {
+        my $cmdname = $command_as_argument->{'cmdname'};
+        $self->_command_warn($current, __("\@%s expected braces"),
+                             $cmdname);
+      }
+      if (!$block_line_arg->{'contents'}) {
+        my $inserted = { 'cmdname' => 'bullet',
+                         'info' => {'inserted' => 1},
+                         'parent' => $block_line_arg };
+        unshift @{$block_line_arg->{'contents'}}, $inserted;
+      }
     } elsif ($block_commands{$command} eq 'item_line') {
-      if (!$current->{'extra'}
-          or !$current->{'extra'}->{'command_as_argument'}) {
+      my $command_as_argument
+        = Texinfo::Common::block_line_argument_command($block_line_arg);
+      if (!$command_as_argument) {
         if ($block_line_arg->{'contents'}
             and scalar(@{$block_line_arg->{'contents'}})) {
           # expand the contents to avoid surrounding spaces
@@ -4341,91 +4377,22 @@ sub _end_line_starting_block($$$)
                                 __("missing \@%s argument"),
                                 $command);
         }
-      } elsif ($self->{'brace_commands'}->{
-    $current->{'extra'}->{'command_as_argument'}->{'cmdname'}} eq 'noarg') {
+      }
+      if ($command_as_argument
+          and $self->{'brace_commands'}->{$command_as_argument->{'cmdname'}}
+                                                                eq 'noarg') {
         $self->_command_error($current,
   __("command \@%s not accepting argument in brace should not be on \@%s line"),
-            $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
+            $command_as_argument->{'cmdname'},
             $current->{'cmdname'});
-        delete $current->{'extra'}->{'command_as_argument'};
-        if (scalar(keys(%{$current->{'extra'}})) == 0) {
-          delete $current->{'extra'};
-        }
+        $command_as_argument = undef;
       }
-    } elsif ($command eq 'itemize'
-             and $current->{'extra'}
-             and $current->{'extra'}->{'command_as_argument'}) {
-      my $command_as_argument = $current->{'extra'}->{'command_as_argument'};
-      # This code checks that the command_as_argument of the @itemize
-      # is alone on the line, otherwise it is not a command_as_argument.
-      my $i;
-      my $contents_nr = scalar(@{$block_line_arg->{'contents'}});
-      for ($i = 0; $i < $contents_nr; $i++) {
-        if ($block_line_arg->{'contents'}->[$i] eq $command_as_argument) {
-          $i++;
-          last;
-        }
-      }
-      for (; $i < $contents_nr; $i++) {
-        my $arg = $block_line_arg->{'contents'}->[$i];
-        if (!(($arg->{'cmdname'}
-               and ($arg->{'cmdname'} eq 'c'
-                    or $arg->{'cmdname'} eq 'comment'))
-              or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
-          delete $current->{'extra'}->{'command_as_argument'};
-          if (scalar(keys(%{$current->{'extra'}})) == 0) {
-            delete $current->{'extra'};
-          }
-          $command_as_argument = undef;
-          last;
-        }
-      }
-      # if the command as argument does not have braces but it is
-      # not a mark (noarg) command, warn
-      if (defined($command_as_argument)
-          and !$command_as_argument->{'contents'}
-          and $brace_commands{$command_as_argument->{'cmdname'}} ne 'noarg') {
-        my $cmdname = $command_as_argument->{'cmdname'};
-        $self->_command_warn($current, __("\@%s expected braces"),
-                             $cmdname);
-      }
-    }
-    # Check if command_as_argument isn't an accent command
-    if ($current->{'extra'}
-        and $current->{'extra'}->{'command_as_argument'}
-        and $accent_commands{$current->{'extra'}->{'command_as_argument'}
-                                                            ->{'cmdname'}}) {
-      # this can only happen to an accent command with brace, if without
-      # brace it is not set as command_as_argument to begin with.
-      $self->_command_warn($current,
-            __("accent command `\@%s' not allowed as \@%s argument"),
-            $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
-            $command);
-      delete $current->{'extra'}->{'command_as_argument'};
-      if (scalar(keys(%{$current->{'extra'}})) == 0) {
-        delete $current->{'extra'};
-      }
-    }
-    if ($command eq 'itemize') {
-      if (!$block_line_arg->{'contents'}) {
-        my $inserted = { 'cmdname' => 'bullet',
-                         'info' => {'inserted' => 1},
-                         'parent' => $block_line_arg };
-        unshift @{$block_line_arg->{'contents'}}, $inserted;
-        $current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'command_as_argument'} = $inserted;
-      }
-    } elsif ($block_commands{$command} eq 'item_line') {
-      $current->{'extra'} = {} if (!$current->{'extra'});
-      if (!$current->{'extra'}->{'command_as_argument'}) {
-        # arguments_line type element
-        my $arguments_line = $current->{'contents'}->[0];
-        my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+      if (!$command_as_argument) {
         my $inserted =  { 'cmdname' => 'asis',
                           'info' => {'inserted' => 1},
                           'parent' => $current };
         unshift @{$block_line_arg->{'contents'}}, $inserted;
-        $current->{'extra'}->{'command_as_argument'} = $inserted;
       }
     }
     push @{$current->{'contents'}}, { 'type' => 'before_item',
@@ -4990,23 +4957,22 @@ sub _parent_of_command_as_argument($)
       and scalar(@{$current->{'contents'}}) == 1);
 }
 
-# register a command like @bullet with @itemize, or @asis with @table
+# register command_as_argument_kbd_code
 sub _register_command_as_argument($$)
 {
   my $self = shift;
   my $cmd_as_arg = shift;
 
-  my $command_element = $cmd_as_arg->{'parent'}->{'parent'}->{'parent'};
-
-  print STDERR "FOR PARENT \@$command_element->{'cmdname'} ".
-         "command_as_argument $cmd_as_arg->{'cmdname'}\n"
-              if ($self->{'conf'}->{'DEBUG'});
-  $command_element->{'extra'} = {}
-    if (!defined($command_element->{'extra'}));
-  $command_element->{'extra'}->{'command_as_argument'}
-    = $cmd_as_arg;
   if ($cmd_as_arg->{'cmdname'} eq 'kbd'
-      and _kbd_formatted_as_code($self, $command_element)) {
+      and _kbd_formatted_as_code($self)) {
+    my $command_element = $cmd_as_arg->{'parent'}->{'parent'}->{'parent'};
+
+    print STDERR "FOR PARENT \@$command_element->{'cmdname'} ".
+           "command_as_argument $cmd_as_arg->{'cmdname'}\n"
+                if ($self->{'conf'}->{'DEBUG'});
+
+    $command_element->{'extra'} = {}
+       if (!defined($command_element->{'extra'}));
     $command_element->{'extra'}->{'command_as_argument_kbd_code'} = 1;
   }
 }
@@ -6280,7 +6246,7 @@ sub _handle_brace_command($$$$)
       $command_e->{'extra'}->{'end'}
         = $self->{'definfoenclose'}->{$command}->[1];
     } elsif ($command eq 'kbd'
-           and _kbd_formatted_as_code($self, $command_e)) {
+             and _kbd_formatted_as_code($self)) {
       $command_e->{'extra'} = {} if (!$command_e->{'extra'});
       $command_e->{'extra'}->{'code'} = 1;
     }
@@ -9464,16 +9430,11 @@ The I<item_number> C<extra> key holds the number of this item.
 The I<cell_number> index key holds the index of the column of
 the cell.
 
-=item C<@itemize>
-
 =item C<@table>
 
 =item C<@vtable>
 
 =item C<@ftable>
-
-The I<command_as_argument> C<extra> key points to the @-command
-as argument on the @-command line.
 
 If the command in argument for C<@table>, C<@vtable> or C<@ftable>
 is C<@kbd> and the context and C<@kbdinputstyle> is such that C<@kbd>

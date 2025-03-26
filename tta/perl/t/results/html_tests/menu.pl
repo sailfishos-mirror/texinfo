@@ -59,8 +59,6 @@ $result_tree_text{'menu'} = '*document_root C3
      *preformatted C1
       {description\\n}
      *3 @itemize C3 l7
-     |EXTRA
-     |command_as_argument:[E4]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -113,8 +111,6 @@ $result_tree_text{'menu'} = '*document_root C3
      {CCC\\n}
      {empty_line:\\n}
     *6 @itemize C3 l17
-    |EXTRA
-    |command_as_argument:[E7]
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -165,8 +161,6 @@ $result_tree_text{'menu'} = '*document_root C3
      {BBB\\n}
      {empty_line:\\n}
     *9 @itemize C3 l27
-    |EXTRA
-    |command_as_argument:[E10]
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -258,8 +252,6 @@ $result_tree_text{'menu'} = '*document_root C3
       *preformatted C1
        {detaildescription\\n}
       *12 @itemize C3 l40
-      |EXTRA
-      |command_as_argument:[E13]
        *arguments_line C1
         *block_line_arg C1
         |INFO
@@ -312,8 +304,6 @@ $result_tree_text{'menu'} = '*document_root C3
       {detailCCC\\n}
       {empty_line:\\n}
      *15 @itemize C3 l50
-     |EXTRA
-     |command_as_argument:[E16]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -364,8 +354,6 @@ $result_tree_text{'menu'} = '*document_root C3
       {detailBBB\\n}
       {empty_line:\\n}
      *18 @itemize C3 l60
-     |EXTRA
-     |command_as_argument:[E19]
       *arguments_line C1
        *block_line_arg C1
        |INFO

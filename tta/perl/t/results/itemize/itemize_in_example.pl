@@ -16,8 +16,6 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E2]
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -49,8 +47,6 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |command_as_argument:[E4]
     *arguments_line C1
      *block_line_arg C1
      |INFO

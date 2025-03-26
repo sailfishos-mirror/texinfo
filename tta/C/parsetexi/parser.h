@@ -83,7 +83,7 @@ ELEMENT *end_paragraph_preformatted (ELEMENT *current,
                                  enum command_id interrupting_cmd);
 void isolate_last_space (ELEMENT *current);
 void isolate_trailing_space (ELEMENT *current, enum element_type spaces_type);
-int kbd_formatted_as_code (ELEMENT *current);
+int kbd_formatted_as_code (void);
 int parent_of_command_as_argument (ELEMENT *current);
 void register_command_as_argument (ELEMENT *cmd_as_arg);
 ELEMENT *begin_preformatted (ELEMENT *current);

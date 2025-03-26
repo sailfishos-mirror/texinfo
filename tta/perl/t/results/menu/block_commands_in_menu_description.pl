@@ -61,8 +61,6 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
      *preformatted C1
       {\\n}
      *3 @itemize C4 l6
-     |EXTRA
-     |command_as_argument:[E4]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -96,8 +94,6 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |command_as_argument:[E6]
       *arguments_line C1
        *block_line_arg C1
        |INFO

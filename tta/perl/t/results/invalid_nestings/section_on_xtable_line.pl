@@ -10,8 +10,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E1]
    *arguments_line C1
     *block_line_arg C1
      *1 @asis
@@ -42,8 +40,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E4]
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -73,8 +69,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E8]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -101,8 +95,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |command_as_argument:[E11]
    *arguments_line C1
     *block_line_arg C2
      *11 @asis

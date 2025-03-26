@@ -158,10 +158,24 @@ $result_errors{'empty_accent_argument'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
+',
+    'line_nr' => 1,
+    'text' => 'accent command `@~\' not allowed as @itemize argument',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: command `@~\' must not be followed by new line
 ',
     'line_nr' => 5,
     'text' => 'command `@~\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
+',
+    'line_nr' => 5,
+    'text' => 'accent command `@~\' not allowed as @itemize argument',
     'type' => 'warning'
   },
   {
@@ -176,6 +190,13 @@ $result_errors{'empty_accent_argument'} = [
 ',
     'line_nr' => 13,
     'text' => 'command `@~\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
+',
+    'line_nr' => 13,
+    'text' => 'accent command `@~\' not allowed as @itemize argument',
     'type' => 'warning'
   }
 ];
