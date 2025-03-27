@@ -727,11 +727,11 @@ sub _convert($$;$)
                         [['command', $element->{'extra'}->{'clickstyle'}]]);
       }
       if ($self->{'itemize_command_as_argument'}
-          and $element eq $self->{'itemize_command_as_argument'}
-          and !$element->{'contents'}) {
-        my $arguments = [['command', $element->{'cmdname'}]];
-        push @$arguments, ['automatic', 'on']
-          if ($element->{'info'} and $element->{'info'}->{'inserted'});
+          and $element eq $self->{'itemize_command_as_argument'}) {
+        # the element was determined to be an element without braces
+        # when going through @itemize, reuse this information to output
+        # a specific element.
+        my $arguments = [['command', $cmdname]];
         return $self->txi_markup_element('formattingcommand', $arguments);
       }
 
@@ -1386,7 +1386,14 @@ sub _convert($$;$)
         }
 
         if ($command_argument) {
-          if ($element->{'cmdname'} eq 'itemize') {
+          if ($element->{'cmdname'} eq 'itemize'
+              and !$element->{'contents'}) {
+            # this is used to determine that a command appears on the @itemize
+            # line without braces, for the command line arguments
+            # conversion just below.
+            # It could have been possible to use the tree in the command as
+            # argument formatting, but this is simpler, and $command_argument
+            # was already obtained by going through the tree.
             $self->{'itemize_command_as_argument'} = $command_argument;
           }
           push @$attribute,
