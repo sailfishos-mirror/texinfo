@@ -76,4 +76,4 @@ wget -v -N -r https://www.gnu.org/software/gnubg/manual/gnubg.texi.gz
 # motti (HTML only)
 
 # May be relevant to ask projects for *.texi*
-# gnupg, lilypond, octave
+# gnupg, lilypond, maxima, octave
