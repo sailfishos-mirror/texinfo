@@ -1,5 +1,33 @@
 2025-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	Do not add default asis for @*table in tree, generate dynamically
+
+	* tta/C/convert/converter.c (default_asis_command)
+	(setup_converter_generic, item_line_block_line_argument_command)
+	(block_item_line_command), tta/perl/Texinfo/Common.pm
+	(item_line_block_line_argument_command, block_item_line_command):
+	check in item_line_block_line_argument_command that the command is not
+	a noarg command.  Do not return the default asis commmand.  Add
+	block_item_line_command that returns the asis command.  Remove
+	inserted info information from default asis.
+
+	* tta/C/convert/converter.c (table_item_content_tree),
+	tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree): call
+	block_item_line_command.
+
+	* tta/C/parsetexi/end_line.c (end_line_starting_block),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block): do not add
+	asis command in the tree if @table does not have an argument or have
+	an incorrect argument.
+
+	* tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): call
+	block_item_line_command for the prepended element.
+
+	* util/texinfo.dtd, tta/perl/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert): no more automaticcommandarg.
+
+2025-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): fix variable
 	used to check empty contents.
 

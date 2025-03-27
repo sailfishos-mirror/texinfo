@@ -8,13 +8,10 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
  *before_node_section C1
   *@table C3 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
    *table_entry C2
     *table_term C1
      *@item C1 l2

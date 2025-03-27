@@ -899,8 +899,24 @@ sub item_line_block_line_argument_command($)
   my $block_line_arg = shift;
 
   my $arg = block_line_argument_command($block_line_arg);
+
+  if ($arg
+      and $Texinfo::Commands::brace_commands{$arg->{'cmdname'}} eq 'noarg') {
+    $arg = undef;
+  }
+  return $arg;
+}
+
+my $default_asis_command = {'cmdname' => 'asis'};
+
+sub block_item_line_command($)
+{
+  my $block_line_arg = shift;
+
+  my $arg = item_line_block_line_argument_command($block_line_arg);
+
   if (!$arg) {
-    $arg = {'cmdname' => 'asis', 'info' => {'inserted' => 1}};
+    $arg = $default_asis_command;
   }
   return $arg;
 }

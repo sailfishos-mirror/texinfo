@@ -128,6 +128,8 @@ static size_t converter_space;
 
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
+static const ELEMENT *default_asis_command;
+
 void
 setup_converter_generic (void)
 {
@@ -151,6 +153,8 @@ setup_converter_generic (void)
       /* TRANSLATORS: expansion of @error{} as Texinfo code */
       (void) gdt_noop("error@arrow{}");
     }
+
+  default_asis_command = new_command_element (ET_brace_command, CM_asis);
 }
 
 
@@ -1445,6 +1449,32 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
 
 
 
+const ELEMENT *
+item_line_block_line_argument_command (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = block_line_argument_command (block_line_arg);
+
+  if (arg)
+    {
+      enum command_id data_cmd = element_builtin_data_cmd (arg);
+      if (builtin_command_data[data_cmd].data == BRACE_noarg)
+        arg = 0;
+    }
+
+  return arg;
+}
+
+const ELEMENT *
+block_item_line_command (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = item_line_block_line_argument_command (block_line_arg);
+
+  /* if no command_as_argument given, default to @asis for @table. */
+  if (!arg)
+    arg = default_asis_command;
+  return arg;
+}
+
 TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
@@ -1464,7 +1494,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
   arguments_line = table_command->e.c->contents.list[0];
   block_line_arg = arguments_line->e.c->contents.list[0];
 
-  command_as_argument = block_line_argument_command (block_line_arg);
+  command_as_argument = block_item_line_command (block_line_arg);
 
   if (command_as_argument)
     {

@@ -866,7 +866,6 @@
 
 <!ENTITY % blocktablearg
          "%spacesblockattr;
-          automaticcommandarg CDATA #IMPLIED
           commandarg CDATA #IMPLIED
           begin CDATA #IMPLIED
           end CDATA #IMPLIED">

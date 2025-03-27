@@ -349,13 +349,10 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
   {empty_line:\\n}
   *@ftable C4 index_special_region_no_insertcopying.texi:l53
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
    *table_entry C1
     *table_term C1
      *@item C1 index_special_region_no_insertcopying.texi:l54

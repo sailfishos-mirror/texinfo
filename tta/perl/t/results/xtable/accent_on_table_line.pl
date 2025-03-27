@@ -11,13 +11,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@~ l1
    *table_entry C1
     *table_term C1
@@ -61,13 +58,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@~ C1 l6
       *brace_container
    *table_entry C1
@@ -112,14 +106,11 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |comment_at_end:
      |*@comment C1
       |{rawline_arg:\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@~ l11
    *table_entry C1
     *table_term C1
@@ -149,13 +140,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{ \\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@~ l15
    *table_entry C1
     *table_term C1
@@ -185,13 +173,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@ringaccent l19
    *table_entry C1
     *table_term C1
@@ -221,13 +206,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@ringaccent C1 l23
       *brace_container
    *table_entry C1
@@ -258,13 +240,10 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@ringaccent C1 l27
       *brace_container C1
        {a}
@@ -474,33 +453,33 @@ $result_converted{'html_text'}->{'accent_on_table_line'} = '<dl class="table">
 ';
 
 
-$result_converted{'xml'}->{'accent_on_table_line'} = '<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'accent_on_table_line'} = '<table spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">first item</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc brace first item</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code acc brace</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" "><!-- comment -->
+<table spaces=" " endspaces=" "><!-- comment -->
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc comment first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" "> 
+<table spaces=" " endspaces=" "> 
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc space first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces arg first item</itemformat></item>
 </tableterm></tableentry></table>
 ';

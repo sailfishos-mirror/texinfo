@@ -1020,15 +1020,6 @@ end_line_starting_block (ELEMENT *current)
                   command_as_argument = 0;
                 }
             }
-      /* if no command_as_argument given, default to @asis for @table. */
-          if (!command_as_argument)
-            {
-              ELEMENT *e;
-
-              e = new_command_element (ET_brace_command, CM_asis);
-              e->flags |= EF_inserted;
-              insert_into_contents (block_line_arg, e, 0);
-            }
         }
 
 

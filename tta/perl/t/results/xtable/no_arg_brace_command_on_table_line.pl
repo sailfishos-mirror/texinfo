@@ -11,13 +11,10 @@ $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@bullet l1
    *table_entry C1
     *table_term C1

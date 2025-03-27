@@ -794,8 +794,7 @@ sub _convert($$;$)
           my $block_line_arg = $arguments_line->{'contents'}->[0];
 
           my $prepended_element
-            = Texinfo::Common::item_line_block_line_argument_command(
-                                                         $block_line_arg);
+            = Texinfo::Common::block_item_line_command($block_line_arg);
 
           if ($prepended_element) {
             $format_item_command = $prepended_element->{'cmdname'};
@@ -1399,11 +1398,6 @@ sub _convert($$;$)
           push @$attribute,
            (['commandarg', $command_argument->{'cmdname'}],
              $self->_infoenclose_attribute($command_argument));
-
-          if ($command_argument->{'info'}
-              and $command_argument->{'info'}->{'inserted'}) {
-            push @$attribute, ['automaticcommandarg', 'on'];
-          }
         }
       } elsif ($element->{'extra'}
                and $element->{'extra'}->{'enumerate_specification'}) {

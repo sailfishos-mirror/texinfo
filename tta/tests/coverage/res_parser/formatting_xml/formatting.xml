@@ -2296,21 +2296,21 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
+<table endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<ftable spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="44">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="7">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="45">b</indexterm>b</itemformat></itemx>
@@ -3468,21 +3468,21 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
+<table endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<ftable spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="96">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="14">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="97">b</indexterm>b</itemformat></itemx>
@@ -4681,21 +4681,21 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<table spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
+<table endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+<ftable spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="148">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="21">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="149">b</indexterm>b</itemformat></itemx>
@@ -5847,21 +5847,21 @@ Invalid use of &arobase;':&linebreak;
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c not style formatting -->
-</pre><table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+</pre><table spaces=" " endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
 </pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 <!-- c missing style formatting -->
-</pre><table commandarg="asis" automaticcommandarg="on" endspaces=" ">
+</pre><table endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
 </pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a--missing style formatting</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 <!-- c not style formatting -->
-</pre><ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
+</pre><ftable spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="200">a</indexterm>a</itemformat></item>
 <pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="28">index entry between item and itemx</indexterm></cindex>
 </pre><itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="201">b</indexterm>b</itemformat></itemx>

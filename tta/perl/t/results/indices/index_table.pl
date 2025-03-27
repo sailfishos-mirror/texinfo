@@ -171,13 +171,10 @@ $result_tree_text{'index_table'} = '*document_root C12
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@bullet index_table.texi:l21
    *table_entry C2
     *table_term C2
@@ -227,13 +224,10 @@ $result_tree_text{'index_table'} = '*document_root C12
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@asis
-     |INFO
-     |inserted:{1}
      *@bullet index_table.texi:l28
    *table_entry C2
     *table_term C2

@@ -1594,7 +1594,7 @@ sub table_item_content_tree($$)
   my $block_line_arg = $arguments_line->{'contents'}->[0];
 
   my $command_as_argument
-    = Texinfo::Common::block_line_argument_command($block_line_arg);
+    = Texinfo::Common::block_item_line_command($block_line_arg);
 
   if ($command_as_argument) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};

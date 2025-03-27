@@ -11,10 +11,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C1
-     *@asis
-     |INFO
-     |inserted:{1}
+    *block_line_arg
  *0 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
@@ -41,13 +38,10 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
+    *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{ }
-     *@asis
-     |INFO
-     |inserted:{1}
      *@TeX l3
  *1 @section C3 l3 {second}
  |INFO
@@ -96,10 +90,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C2
-     *@asis
-     |INFO
-     |inserted:{1}
+    *block_line_arg C1
      *@ringaccent l7
      |INFO
      |spaces_after_cmd_before_arg:
@@ -277,11 +268,11 @@ $result_converted{'plaintext'}->{'section_on_xtable_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable commandarg="asis" automaticcommandarg="on" spaces=" ">
+$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable spaces=" ">
 </vtable>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" "> 
+<table spaces=" "> 
 </table>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
@@ -291,7 +282,7 @@ $result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable commandarg="asis
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 
-<ftable commandarg="asis" automaticcommandarg="on" spaces=" ">
+<ftable spaces=" ">
 </ftable>
 </section>
 <section spaces=" "><sectiontitle>fourth</sectiontitle>

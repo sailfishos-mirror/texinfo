@@ -4403,13 +4403,6 @@ sub _end_line_starting_block($$$)
             $current->{'cmdname'});
         $command_as_argument = undef;
       }
-
-      if (!$command_as_argument) {
-        my $inserted =  { 'cmdname' => 'asis',
-                          'info' => {'inserted' => 1},
-                          'parent' => $current };
-        unshift @{$block_line_arg->{'contents'}}, $inserted;
-      }
     }
     push @{$current->{'contents'}}, { 'type' => 'before_item',
                                       'parent', $current };
