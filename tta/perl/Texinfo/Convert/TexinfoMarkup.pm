@@ -1387,7 +1387,7 @@ sub _convert($$;$)
 
         if ($command_argument) {
           if ($element->{'cmdname'} eq 'itemize'
-              and !$element->{'contents'}) {
+              and !$command_argument->{'contents'}) {
             # this is used to determine that a command appears on the @itemize
             # line without braces, for the command line arguments
             # conversion just below.
