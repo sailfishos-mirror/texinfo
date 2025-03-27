@@ -725,8 +725,6 @@
 	* tta/perl/Texinfo/Convert/Text.pm (text_accents): call _convert
 	instead of convert_to_text.
 
-	* tta/C/convert/convert_html.c (html_translate_names), 
-
 2025-03-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/errors.c (message_list_line_error_ext)
