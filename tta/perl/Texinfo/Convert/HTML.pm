@@ -5714,10 +5714,10 @@ sub _convert_itemize_command($$$$$)
   my $block_line_arg = $arguments_line->{'contents'}->[0];
 
   my $command_as_argument_name;
-  my $command_as_argument
-    = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
-  if ($command_as_argument) {
-    $command_as_argument_name = $command_as_argument->{'cmdname'};
+  my $prepended_element
+    = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
+  if ($prepended_element) {
+    $command_as_argument_name = $prepended_element->{'cmdname'};
   }
   my $mark_class_name;
 

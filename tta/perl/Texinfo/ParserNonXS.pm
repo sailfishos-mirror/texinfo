@@ -4375,12 +4375,6 @@ sub _end_line_starting_block($$$)
         $self->_command_warn($current, __("\@%s expected braces"),
                              $cmdname);
       }
-      #if (!$block_line_arg->{'contents'}) {
-      #  my $inserted = { 'cmdname' => 'bullet',
-      #                   'info' => {'inserted' => 1},
-      #                   'parent' => $block_line_arg };
-      #  unshift @{$block_line_arg->{'contents'}}, $inserted;
-      #}
     } elsif ($block_commands{$command} eq 'item_line') {
       my $command_as_argument
         = Texinfo::Common::block_line_argument_command($block_line_arg);

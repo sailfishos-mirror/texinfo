@@ -1,5 +1,17 @@
 2025-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (itemize_item_prepended_element), 
+	tta/perl/Texinfo/Common.pm (itemize_item_prepended_element: rename
+	itemize_block_line_argument_command as itemize_item_prepended_element.
+	Rename associated variables.  Update callers.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_set_environment_options):
+	simplify code now that bullet cannot be inserted.
+
+	Remove commented out code.
+
+2025-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	Do not add default bullet for @itemize in tree, generate dynamically
 
 	* tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree),

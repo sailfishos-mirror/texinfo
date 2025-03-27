@@ -905,7 +905,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 /* here and not in utils because it depends on copy_tree */
 /* returned element should be destroyed by the caller */
 ELEMENT *
-itemize_block_line_argument_command (const ELEMENT *block_line_arg)
+itemize_item_prepended_element (const ELEMENT *block_line_arg)
 {
   const ELEMENT *arg = block_line_argument_command (block_line_arg);
   ELEMENT *e;

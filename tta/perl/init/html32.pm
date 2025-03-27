@@ -310,10 +310,10 @@ sub html32_convert_item_command($$$$$)
     my $arguments_line = $itemize->{'contents'}->[0];
     my $block_line_arg = $arguments_line->{'contents'}->[0];
     my $command_as_argument_name;
-    my $command_as_argument
-      = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
-    if ($command_as_argument) {
-      $command_as_argument_name = $command_as_argument->{'cmdname'};
+    my $prepended_element
+      = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
+    if ($prepended_element) {
+      $command_as_argument_name = $prepended_element->{'cmdname'};
     }
     if ($command_as_argument_name and $command_as_argument_name eq 'bullet') {
       $prepend = '';
@@ -321,7 +321,7 @@ sub html32_convert_item_command($$$$$)
       # Setting multiple expansion should not be needed, except in
       # case of invalid constructs
       $prepend = $self->convert_tree_new_formatting_context(
-                                 $block_line_arg,
+                                 $prepended_element,
                                  $command->{'cmdname'}, 'item_prepended');
     }
     if ($content =~ /\S/) {

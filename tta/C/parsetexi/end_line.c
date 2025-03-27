@@ -983,17 +983,6 @@ end_line_starting_block (ELEMENT *current)
                command_warn (current, "@%s expected braces",
                              command_name(command_as_argument->e.c->cmd));
             }
-           /* if no command_as_argument given, default to @bullet for
-              @itemize */
-            /*
-          if (block_line_arg->e.c->contents.number == 0)
-            {
-              ELEMENT *e
-                = new_command_element (ET_brace_noarg_command, CM_bullet);
-              e->flags |= EF_inserted;
-              insert_into_contents (block_line_arg, e, 0);
-            }
-             */
         }
       else if (command_data(command).data == BLOCK_item_line)
         {

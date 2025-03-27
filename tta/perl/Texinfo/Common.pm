@@ -872,7 +872,7 @@ sub block_line_argument_command($)
   return undef;
 }
 
-sub itemize_block_line_argument_command($)
+sub itemize_item_prepended_element($)
 {
   my $block_line_arg = shift;
 

@@ -2410,27 +2410,22 @@ sub _set_environment_options($$$)
     my $arguments_line = $element->{'contents'}->[0];
     my $block_line_arg = $arguments_line->{'contents'}->[0];
     my $command_as_argument_name;
-    my $command_as_argument
-      = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
-    if ($command_as_argument) {
-      $command_as_argument_name = $command_as_argument->{'cmdname'};
+    my $prepended_element
+      = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
+    if ($prepended_element) {
+      $command_as_argument_name = $prepended_element->{'cmdname'};
     }
     if ($command_as_argument_name and $command_as_argument_name eq 'w') {
       # the result with \hbox{} would probably have been the same,
       # but using an empty label is more consistent with the Texinfo manual
       return {$environment => 'label={}'};
     } elsif ($block_line_arg->{'contents'}) {
-      # arguments_line type element
-      my $label_element = $block_line_arg->{'contents'}->[0];
       # NOTE when @itemize is in a preformatted environment (@example...),
       # we are not in a preformatted type here, such that the conversion
       # does not take into account the preformatted environment.  Ok or best.
-      if (!$label_element->{'info'}
-          or !$label_element->{'info'}->{'inserted'}) {
-        my $itemize_label = _convert($self, $block_line_arg);
-        if ($itemize_label ne '') {
-          return {$environment => 'label='.$itemize_label};
-        }
+      my $itemize_label = _convert($self, $block_line_arg);
+      if ($itemize_label ne '') {
+        return {$environment => 'label='.$itemize_label};
       }
     }
   }
