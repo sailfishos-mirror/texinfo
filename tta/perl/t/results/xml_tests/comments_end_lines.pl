@@ -8,13 +8,10 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
  *before_node_section C19
   *@itemize C3 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -367,7 +364,7 @@ $result_floats{'comments_end_lines'} = 'f: 1
 ';
 
 
-$result_converted{'xml'}->{'comments_end_lines'} = '<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+$result_converted{'xml'}->{'comments_end_lines'} = '<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>itemize it
 </para></listitem></itemize>  <!-- c comment itemize -->
 

@@ -2409,13 +2409,17 @@ sub _set_environment_options($$$)
     my $environment = $LaTeX_environment_commands{$command}[0];
     my $arguments_line = $element->{'contents'}->[0];
     my $block_line_arg = $arguments_line->{'contents'}->[0];
-    my $command_as_argument_name
+    my $command_as_argument_name;
+    my $command_as_argument
       = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
+    if ($command_as_argument) {
+      $command_as_argument_name = $command_as_argument->{'cmdname'};
+    }
     if ($command_as_argument_name and $command_as_argument_name eq 'w') {
       # the result with \hbox{} would probably have been the same,
       # but using an empty label is more consistent with the Texinfo manual
       return {$environment => 'label={}'};
-    } else {
+    } elsif ($block_line_arg->{'contents'}) {
       # arguments_line type element
       my $label_element = $block_line_arg->{'contents'}->[0];
       # NOTE when @itemize is in a preformatted environment (@example...),

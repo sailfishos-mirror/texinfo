@@ -1650,7 +1650,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -2822,7 +2822,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -4035,7 +4035,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -5201,7 +5201,7 @@ indent in quotation
 <pre xml:space="preserve">something, other thing
 </pre></smallquotation>
 <pre xml:space="preserve">
-</pre><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</pre><itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> i--temize
 </pre></listitem></itemize>
 <pre xml:space="preserve">

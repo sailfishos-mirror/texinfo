@@ -309,8 +309,12 @@ sub html32_convert_item_command($$$$$)
     my $itemize = $command->{'parent'};
     my $arguments_line = $itemize->{'contents'}->[0];
     my $block_line_arg = $arguments_line->{'contents'}->[0];
-    my $command_as_argument_name
+    my $command_as_argument_name;
+    my $command_as_argument
       = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
+    if ($command_as_argument) {
+      $command_as_argument_name = $command_as_argument->{'cmdname'};
+    }
     if ($command_as_argument_name and $command_as_argument_name eq 'bullet') {
       $prepend = '';
     } else {

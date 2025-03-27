@@ -11,14 +11,11 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |comment_at_end:
      |*@c C1
       |{rawline_arg: comm\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -780,7 +777,7 @@ $result_floats{'comments_on_block_command_lines'} = 'f: 1
 ';
 
 
-$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" automaticcommandarg="on" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend><!-- c comm -->
+$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize spaces=" " endspaces=" "><!-- c comm -->
 <listitem><prepend>&bullet;</prepend> <para>itemize it
 </para></listitem></itemize>
 

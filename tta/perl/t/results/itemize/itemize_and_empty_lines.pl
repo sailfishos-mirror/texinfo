@@ -136,13 +136,10 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   {empty_line:\\n}
   *@itemize C8 l28
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *@item C2 l29
    |EXTRA
    |item_number:{1}
@@ -681,7 +678,7 @@ end example.
 </para></quotation>
 </listitem></itemize>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>first item
 </para></listitem><listitem><prepend>&bullet;</prepend>
 <example endspaces=" ">

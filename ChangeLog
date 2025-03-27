@@ -1,5 +1,42 @@
 2025-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	Do not add default bullet for @itemize in tree, generate dynamically
+
+	* tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tta/C/convert/converter.c (table_item_content_tree): handle the case
+	of an item or itemx not in table.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree):
+	avoid spurious autovivification of extra.
+
+	* tta/C/main/manipulate_tree.c (itemize_block_line_argument_command),
+	tta/C/main/utils.c: move itemize_block_line_argument_command to
+	manipulate_tree.c.
+
+	* tta/C/main/manipulate_tree.c (itemize_block_line_argument_command),
+	tta/perl/Texinfo/Common.pm (itemize_block_line_argument_command):
+	return the element that can be converted to be prepended to an @item,
+	including a @bullet for the case of @itemize without argument.
+
+	* tta/C/convert/format_html.c (html_convert_itemize_command),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_itemize_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_set_environment_options),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/init/html32.pm (html32_convert_item_command): update
+	for change in itemize_block_line_argument_command.  convert element
+	returned by itemize_block_line_argument_command when needing a
+	bullet added if there is no @itemize argument.
+
+	* tta/C/parsetexi/end_line.c (end_line_starting_block),
+	tta/C/parsetexi/end_line.c (end_line_starting_block): do not add
+	bullet to the @itemize line when there is no argument, the
+	itemize_block_line_argument_command result should be used instead in
+	converters.
+
+2025-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/get_manuals.sh: change in comment.
 
 2025-03-26  Patrice Dumas  <pertusus@free.fr>

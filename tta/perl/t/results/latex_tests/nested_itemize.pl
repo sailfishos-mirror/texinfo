@@ -9,13 +9,10 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
   *preamble_before_content
   *@itemize C5 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *before_item C1
     {spaces_before_paragraph:   }
    *@item C2 l2
@@ -33,13 +30,10 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
      {First level item\\n}
     *@itemize C5 l4
      *arguments_line C1
-      *block_line_arg C1
+      *block_line_arg
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *@bullet
-       |INFO
-       |inserted:{1}
      *before_item C1
       {spaces_before_paragraph:     }
      *@item C2 l5
@@ -57,13 +51,10 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
        {Second level item\\n}
       *@itemize C5 l7
        *arguments_line C1
-        *block_line_arg C1
+        *block_line_arg
         |INFO
         |spaces_after_argument:
          |{\\n}
-         *@bullet
-         |INFO
-         |inserted:{1}
        *before_item C1
         {spaces_before_paragraph:       }
        *@item C2 l8
@@ -81,13 +72,10 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
          {Third level item\\n}
         *@itemize C5 l10
          *arguments_line C1
-          *block_line_arg C1
+          *block_line_arg
           |INFO
           |spaces_after_argument:
            |{\\n}
-           *@bullet
-           |INFO
-           |inserted:{1}
          *before_item C1
           {spaces_before_paragraph:         }
          *@item C2 l11

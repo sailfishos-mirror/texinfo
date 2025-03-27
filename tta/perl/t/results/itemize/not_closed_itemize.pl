@@ -8,13 +8,10 @@ $result_tree_text{'not_closed_itemize'} = '*document_root C1
  *before_node_section C1
   *@itemize C1 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
 ';
 
 

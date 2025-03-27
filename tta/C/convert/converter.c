@@ -1448,13 +1448,23 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
 TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
-  const ELEMENT *table_command = element->parent->parent->parent;
-  /* arguments_line type element */
-  const ELEMENT *arguments_line = table_command->e.c->contents.list[0];
-  const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
+  const ELEMENT *table_command;
+  const ELEMENT *arguments_line;
+  const ELEMENT *block_line_arg;
+  const ELEMENT *command_as_argument;
 
-  const ELEMENT *command_as_argument
-    = block_line_argument_command (block_line_arg);
+  /* not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
+     in @table */
+  if (element->parent->type != ET_table_term)
+    return 0;
+
+  table_command = element->parent->parent->parent;
+
+  /* arguments_line type element */
+  arguments_line = table_command->e.c->contents.list[0];
+  block_line_arg = arguments_line->e.c->contents.list[0];
+
+  command_as_argument = block_line_argument_command (block_line_arg);
 
   if (command_as_argument)
     {

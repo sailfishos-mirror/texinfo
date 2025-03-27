@@ -8,13 +8,10 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
  *before_node_section C9
   *@itemize C3 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *before_item C2
     *@c C1
      {rawline_arg: comment itemize\\n}

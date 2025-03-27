@@ -1812,26 +1812,6 @@ block_line_argument_command (const ELEMENT *block_line_arg)
   return 0;
 }
 
-const char *
-itemize_block_line_argument_command (const ELEMENT *block_line_arg)
-{
-  const ELEMENT *arg = block_line_argument_command (block_line_arg);
-  const char *command_as_argument_name = 0;
-
-  if (arg)
-    {
-      if (arg->e.c->cmd == CM_click)
-        {
-          command_as_argument_name = lookup_extra_string (arg,
-                                                          AI_key_clickstyle);
-          if (command_as_argument_name)
-            return command_as_argument_name;
-        }
-      command_as_argument_name = element_command_name (arg);
-    }
-  return command_as_argument_name;
-}
-
 /* the caller should allocate a two element table for results */
 void
 find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)

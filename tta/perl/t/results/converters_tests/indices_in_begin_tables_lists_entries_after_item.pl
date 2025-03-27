@@ -191,13 +191,10 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
   {empty_line:\\n}
   *@itemize C4 indices_in_begin_tables_lists.texi:l22
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *before_item C2
     *@c C1
      {rawline_arg: comment in itemize\\n}

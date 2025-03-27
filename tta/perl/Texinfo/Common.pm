@@ -882,12 +882,15 @@ sub itemize_block_line_argument_command($)
     if ($cmdname eq 'click'
         and $arg->{'extra'}
         and $arg->{'extra'}->{'clickstyle'}) {
-      return $arg->{'extra'}->{'clickstyle'};
+      return {'cmdname' => $arg->{'extra'}->{'clickstyle'}};
     } else {
-      return $cmdname;
+      return $arg;
     }
+  } elsif (!$block_line_arg->{'contents'}) {
+    return {'cmdname' => 'bullet'};
+  } else {
+    return $block_line_arg;
   }
-  return undef;
 }
 
 # always return something

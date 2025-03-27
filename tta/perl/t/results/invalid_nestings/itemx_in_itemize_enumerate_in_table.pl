@@ -33,13 +33,10 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
       {In item, nested itemize\\n}
      *@itemize C3 l5
       *arguments_line C1
-       *block_line_arg C1
+       *block_line_arg
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *@bullet
-        |INFO
-        |inserted:{1}
       *before_item C1
        *@itemx C1 l6
        |INFO
@@ -178,7 +175,7 @@ $result_converted{'xml'}->{'itemx_in_itemize_enumerate_in_table'} = '<table comm
 <tableentry><tableterm><item spaces=" "><itemformat command="strong">item</itemformat></item>
 </tableterm><tableitem>
 <para>In item, nested itemize
-</para><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</para><itemize endspaces=" ">
 <beforefirstitem><itemx spaces=" ">in nested itemize itemx</itemx>
 </beforefirstitem></itemize>
 

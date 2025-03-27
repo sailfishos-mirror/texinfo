@@ -897,19 +897,23 @@ sub _convert($$;$)
           and ($parent_cmdname eq 'itemize'
                or $parent_cmdname eq 'enumerate')) {
         $result .= "<listitem>";
-        my $command_as_argument_name;
         if ($parent_cmdname eq 'itemize') {
           # parent line arguments_line type element
           my $arguments_line = $element->{'parent'}->{'contents'}->[0];
           my $block_line_arg = $arguments_line->{'contents'}->[0];
 
-          $command_as_argument_name
+          my $command_as_argument_name;
+          my $command_as_argument
             = Texinfo::Common::itemize_block_line_argument_command(
                                                           $block_line_arg);
+          if ($command_as_argument) {
+            $command_as_argument_name = $command_as_argument->{'cmdname'};
+          }
+
           if (!($command_as_argument_name
                 and $command_as_argument_name eq 'bullet')) {
             $self->{'pending_prepend'}
-              = _convert($self, $block_line_arg);
+              = _convert($self, $command_as_argument);
             $self->{'pending_prepend'} .= " ";
           }
         }

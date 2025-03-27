@@ -60,13 +60,10 @@ $result_tree_text{'menu'} = '*document_root C3
       {description\\n}
      *@itemize C3 l7
       *arguments_line C1
-       *block_line_arg C1
+       *block_line_arg
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *@bullet
-        |INFO
-        |inserted:{1}
       *@item C1 l8
       |EXTRA
       |item_number:{1}
@@ -112,13 +109,10 @@ $result_tree_text{'menu'} = '*document_root C3
      {empty_line:\\n}
     *@itemize C3 l17
      *arguments_line C1
-      *block_line_arg C1
+      *block_line_arg
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *@bullet
-       |INFO
-       |inserted:{1}
      *@item C1 l18
      |EXTRA
      |item_number:{1}
@@ -162,13 +156,10 @@ $result_tree_text{'menu'} = '*document_root C3
      {empty_line:\\n}
     *@itemize C3 l27
      *arguments_line C1
-      *block_line_arg C1
+      *block_line_arg
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *@bullet
-       |INFO
-       |inserted:{1}
      *@item C1 l28
      |EXTRA
      |item_number:{1}
@@ -253,13 +244,10 @@ $result_tree_text{'menu'} = '*document_root C3
        {detaildescription\\n}
       *@itemize C3 l40
        *arguments_line C1
-        *block_line_arg C1
+        *block_line_arg
         |INFO
         |spaces_after_argument:
          |{\\n}
-         *@bullet
-         |INFO
-         |inserted:{1}
        *@item C1 l41
        |EXTRA
        |item_number:{1}
@@ -305,13 +293,10 @@ $result_tree_text{'menu'} = '*document_root C3
       {empty_line:\\n}
      *@itemize C3 l50
       *arguments_line C1
-       *block_line_arg C1
+       *block_line_arg
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *@bullet
-        |INFO
-        |inserted:{1}
       *@item C1 l51
       |EXTRA
       |item_number:{1}
@@ -355,13 +340,10 @@ $result_tree_text{'menu'} = '*document_root C3
       {empty_line:\\n}
      *@itemize C3 l60
       *arguments_line C1
-       *block_line_arg C1
+       *block_line_arg
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *@bullet
-        |INFO
-        |inserted:{1}
       *@item C1 l61
       |EXTRA
       |item_number:{1}

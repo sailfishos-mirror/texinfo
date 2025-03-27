@@ -66,13 +66,10 @@ $result_tree_text{'item_container'} = '*document_root C1
   {empty_line:\\n}
   *@itemize C3 l11
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *@item C2 l12
    |EXTRA
    |item_number:{1}
@@ -154,7 +151,7 @@ $result_converted{'xml'}->{'item_container'} = '
  <para>b&textndash;ullet
 </para></listitem></itemize>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <listitem><prepend>&bullet;</prepend> <para>no itemize argument
 </para></listitem></itemize>
 ';

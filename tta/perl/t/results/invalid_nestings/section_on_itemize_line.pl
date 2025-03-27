@@ -71,10 +71,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |spaces_before_argument:
    |{ }
    *arguments_line C1
-    *block_line_arg C1
-     *@bullet
-     |INFO
-     |inserted:{1}
+    *block_line_arg
  *2 @section C3 l5 {third}
  |INFO
  |spaces_before_argument:
@@ -269,7 +266,7 @@ $result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="mi
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 
-<itemize commandarg="bullet" automaticcommandarg="on" spaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize spaces=" ">
 </itemize>
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>

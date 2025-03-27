@@ -26,7 +26,7 @@
 <para>i&textndash;tem 2
 </para></listitem></itemize>
 
-<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize endspaces=" ">
 <beforefirstitem><!-- c comment in itemize -->
 <para>T&textndash;ext before items.
 </para></beforefirstitem><listitem><prepend>&bullet;</prepend> 

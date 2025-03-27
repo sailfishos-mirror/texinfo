@@ -770,8 +770,10 @@ sub _convert($$;$)
           # parent line arguments_line type element
           my $arguments_line = $element->{'parent'}->{'contents'}->[0];
           my $block_line_arg = $arguments_line->{'contents'}->[0];
+          my $prepended_element
+    = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
           $result .= $self->txi_markup_open_element('prepend')
-            .$self->_convert($block_line_arg)
+            .$self->_convert($prepended_element)
             .$self->txi_markup_close_element('prepend');
         }
         unshift @close_format_elements, 'listitem';

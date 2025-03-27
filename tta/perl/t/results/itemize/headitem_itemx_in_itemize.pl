@@ -8,13 +8,10 @@ $result_tree_text{'headitem_itemx_in_itemize'} = '*document_root C1
  *before_node_section C1
   *@itemize C3 l1
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *@item C5 l2
    |EXTRA
    |item_number:{1}

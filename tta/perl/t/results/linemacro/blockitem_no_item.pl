@@ -27,13 +27,10 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
   {empty_line:\\n}
   *@itemize C3 l5
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@bullet
-     |INFO
-     |inserted:{1}
    *before_item C1
     *paragraph C3
      {AA\\n}

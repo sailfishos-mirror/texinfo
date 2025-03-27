@@ -3723,9 +3723,11 @@ sub _convert($$)
       } else {
         # arguments_line type element
         my $arguments_line = $element->{'parent'}->{'contents'}->[0];
-        my $block_line_args = $arguments_line->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
+        my $prepended_element
+          = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
         # this is the text prepended to items.
-        _convert($self, $block_line_args);
+        _convert($self, $prepended_element);
         _convert($self, { 'text' => ' ' });
       }
       _stream_output($self,

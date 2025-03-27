@@ -985,6 +985,7 @@ end_line_starting_block (ELEMENT *current)
             }
            /* if no command_as_argument given, default to @bullet for
               @itemize */
+            /*
           if (block_line_arg->e.c->contents.number == 0)
             {
               ELEMENT *e
@@ -992,6 +993,7 @@ end_line_starting_block (ELEMENT *current)
               e->flags |= EF_inserted;
               insert_into_contents (block_line_arg, e, 0);
             }
+             */
         }
       else if (command_data(command).data == BLOCK_item_line)
         {

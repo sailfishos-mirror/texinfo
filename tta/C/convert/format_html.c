@@ -8919,13 +8919,13 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                               const HTML_ARGS_FORMATTED *args_formatted,
                               const char *content, TEXT *result)
 {
-  const char *command_as_argument_name = 0;
   const char *mark_class_name = 0;
   STRING_LIST *classes;
   char *attribute_class;
   const CSS_SELECTOR_STYLE *selector_style = 0;
   const ELEMENT *arguments_line;
   const ELEMENT *block_line_arg;
+  ELEMENT *prepended_element;
 
   if (html_in_string (self))
     {
@@ -8938,15 +8938,19 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
   arguments_line = element->e.c->contents.list[0];
   block_line_arg = arguments_line->e.c->contents.list[0];
 
-  command_as_argument_name
+  prepended_element
     = itemize_block_line_argument_command (block_line_arg);
 
-  if (command_as_argument_name)
+  if (prepended_element)
     {
-      if (!strcmp (command_as_argument_name, "w"))
-        mark_class_name = "none";
-      else
-        mark_class_name = command_as_argument_name;
+      if (!(type_data[prepended_element->type].flags & TF_text))
+        {
+          if (prepended_element->e.c->cmd == CM_w)
+            mark_class_name = "none";
+          else
+            mark_class_name = element_command_name (prepended_element);
+        }
+      destroy_element_and_children (prepended_element);
     }
 
   classes = new_string_list ();

@@ -1581,6 +1581,12 @@ sub table_item_content_tree($$)
   my $self = shift;
   my $element = shift;
 
+  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
+  # in @table
+  if (!$element->{'parent'}->{'type'}
+      or $element->{'parent'}->{'type'} ne 'table_term') {
+    return undef;
+  }
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
 
   # arguments_line type element
@@ -1594,7 +1600,8 @@ sub table_item_content_tree($$)
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
     my $command = {'cmdname' => $command_as_argument_cmdname,
                    'source_info' => $element->{'source_info'},};
-    if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
+    if ($table_command->{'extra'}
+        and $table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
     }
     # command name for the Texinfo::Commands hashes tests

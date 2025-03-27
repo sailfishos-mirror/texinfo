@@ -62,13 +62,10 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
       {\\n}
      *@itemize C4 l6
       *arguments_line C1
-       *block_line_arg C1
+       *block_line_arg
        |INFO
        |spaces_after_argument:
         |{\\n}
-        *@bullet
-        |INFO
-        |inserted:{1}
       *before_item C1
        *preformatted C1
         {empty_line:\\n}
@@ -324,7 +321,7 @@ $result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node identi
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</pre><itemize endspaces=" ">
 <beforefirstitem><pre xml:space="preserve">
 </pre></beforefirstitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> in item
 
