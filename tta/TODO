@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Change DTD for the new tree for subentry
-
 update libintl-perl before the release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
@@ -84,15 +82,12 @@ converter_customization_options, unique_at_command_options.
 Texinfo tree reader
 ===================
 
-for index entries, go through index line argument and subentries as if they
-were children of the index command.
-
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
 
 Treat spaces in info as tree elements, not as attributes.  With ignorable
 as a category.  Maybe treat verb delimiter the same.  And also braces
-of types with implicit braces.
+of types with implicit braces?
 
 Categories:
 ignorable text

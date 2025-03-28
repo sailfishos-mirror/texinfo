@@ -1,5 +1,16 @@
 2025-03-28  Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd (subentry, xrefname, anchoridentifier): update
+	subentry to match changes in tree.  Add xrefname.  Add
+	anchoridentifier identifier attribute.  Remove formattingcommand
+	automatic and itemize automaticcommandarg.
+
+	* configure.ac (TEXINFO_DTD_VERSION): bump.
+
+	* tta/maintain/check_back_xml_forth_texi_t.sh: update paths.
+
+2025-03-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/TODO: update.
 	Add/change comments related to commands_init_conf.
 
@@ -2270,7 +2281,7 @@
 	@namedanchor in LaTeX output
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): if
-	xrefautomaticsectiontitle is on, use th e@namedanchor second argument
+	xrefautomaticsectiontitle is on, use the @namedanchor second argument
 	as name.
 
 2025-02-19  Patrice Dumas  <pertusus@free.fr>

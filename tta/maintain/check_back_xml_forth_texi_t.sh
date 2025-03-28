@@ -58,10 +58,10 @@ if test -n "$1"; then
   fi
 else
   rm -rf $mdir/backforth_xmltexi $mdir/backforth_checktexi $mdir/backforth_plaintexi $mdir/backforth_logs
-  ${srcdir}/maintain/all_tests.sh texis > $mdir/all_tests_texis.log
+  ${srcdir}/../maintain/all_tests.sh texis > $mdir/all_tests_texis.log
 fi
 
-export XML_CATALOG_FILES=./maintain/catalog.xml
+export XML_CATALOG_FILES=../maintain/catalog.xml
 mkdir -p $mdir/backforth_logs
 for dir in `find t_texis/ -type d` ; do
   bdir=`echo $dir | sed 's;t_texis/;;'`
@@ -97,13 +97,13 @@ for dir in `find t_texis/ -type d` ; do
     # This concerns a few files only, and those files are more or less
     # the same whether the file or the directory is specified.
     #./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/$bfile.texi $file
-    ${srcdir}/perl/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
+    ${srcdir}/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
     echo "              Texinfo XML"
-    ${srcdir}/perl/texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
+    ${srcdir}/texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
     echo "              xmllint"
     xmllint --nonet --noout --valid $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/xmllint/$bdir/${bfile}_lint.1 2>$mdir/xmllint/$bdir/${bfile}_lint.2
     echo "              Back"
-    ${srcdir}/../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
+    ${srcdir}/../../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
   done
   ) > $logfile 2>&1
 done

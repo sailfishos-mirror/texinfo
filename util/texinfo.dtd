@@ -62,7 +62,7 @@
 <!-- index entry commands -->
 <!ENTITY % indexentry.cmds "cindex | cpindex | findex | fnindex
   | kindex | kyindex | pindex | pgindex | tindex | tpindex
-  | vindex | vrindex | indexcommand | subentry">
+  | vindex | vrindex | indexcommand">
 
 <!-- API definition commands -->
 <!ENTITY % def.cmds "deffn | defvr | deftypefn | deftypeop | deftypevr
@@ -93,7 +93,7 @@
 
 <!-- Headings -->
 <!ENTITY % heading.cmds "majorheading | chapheading | heading | subheading
-                     | subsubheading">
+                     | subsubheading | xrefname">
 
 <!-- Block content, as opposed to Inline content -->
 <!ENTITY % block  "%block.cmds; | verbatiminclude
@@ -186,8 +186,8 @@
      index term contexts.
      It is not possible to have different contents in different contexts
      in the DTD, so we use the contents for all the contexts -->
-<!ENTITY % Inline.indexentryline "%Inline.line; | seealso | seeentry | sortas
-                                  | defbracketed">
+<!ENTITY % Inline.indexentryline "%Inline.line; | subentry | seealso
+                                  | seeentry | sortas | defbracketed">
 <!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor | namedanchor">
 
 <!ENTITY % Inline.defargline "%Inline.line; | defbracketed">
@@ -619,6 +619,9 @@
           %spacesattr;>
 <!ELEMENT sectiontitle  (#PCDATA | %Inline.line;)*>
 
+<!ELEMENT xrefname (#PCDATA | %Inline.line;)*>
+<!ATTLIST xrefname
+          %spacesattr;>
 
 <!-- emacs-page
      Block elements -->
@@ -840,7 +843,6 @@
                    (listitem | %indexentry.cmds;)*)>
 <!ATTLIST itemize
           %spacesblockattr;
-          automaticcommandarg CDATA #IMPLIED
           commandarg CDATA #IMPLIED>
 <!ELEMENT enumerate (enumeratefirst?, beforefirstitem?,
                      (listitem | %indexentry.cmds;)*)>
@@ -857,8 +859,7 @@
 <!ELEMENT itemprepend (#PCDATA | %Inline.line; | formattingcommand)*>
 <!ELEMENT formattingcommand EMPTY>
 <!ATTLIST formattingcommand
-          command CDATA #REQUIRED
-          automatic (%onoff;) 'off'>
+          command CDATA #REQUIRED>
 <!ELEMENT beforefirstitem (%block;)*>
 
 <!-- Tables -->
@@ -1232,7 +1233,8 @@
           identifier CDATA #IMPLIED>
 <!ELEMENT anchoridentifier (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST anchoridentifier
-          %spacesattr;>
+          %spacesattr;
+          identifier CDATA #IMPLIED>
 <!ELEMENT anchorname (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST anchorname
           %spacesattr;>
