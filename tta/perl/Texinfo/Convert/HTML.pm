@@ -8939,9 +8939,12 @@ sub _load_htmlxref_files {
 #  all_directions          # determined parallelly in C
 #  deprecated_config_directories
 #
+#     API exists
+#
+#   Get through converter set_global_document_commands with 'before'.  No
+#   specific API to set, but can use get_conf or force_conf in setup handler
 #  commands_init_conf
 #
-#     API exists
 #  shared_conversion_state
 #   Set through the shared_conversion_state API (among others):
 #  explained_commands         # used only in an @-command conversion function
@@ -13730,8 +13733,8 @@ sub _setup_output($)
   }
 
   # the settable commands configuration has potentially been modified for
-  # this output file especially.  Update the corresponding initial
-  # configuration.
+  # this output file especially in setup handler.  Update the corresponding
+  # initial configuration.
   my $conf = $self->{'conf'};
   foreach my $settable_command (
          keys(%Texinfo::Common::document_settable_at_commands)) {

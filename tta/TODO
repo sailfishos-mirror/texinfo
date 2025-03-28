@@ -74,10 +74,6 @@ special_unit_element type (only in HTML code)
 Other
 -----
 
-For converter writers, after the difference with C has been resolved or
-confirmed
-'output_init_conf' and 'converter_init_conf'.
-
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 No documentation of Texinfo::Options hashes used in converters:

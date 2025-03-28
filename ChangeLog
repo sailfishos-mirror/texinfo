@@ -1,5 +1,10 @@
 2025-03-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/TODO: update.
+	Add/change comments related to commands_init_conf.
+
+2025-03-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/init_files_tests.t (documentation_examples): set
 	CASE_INSENSITIVE_FILENAMES, otherwise two files with only differences
 	in case are created, and the test fails on case insensitive
@@ -1018,7 +1023,7 @@
 
 	* tta/perl/Texinfo/Convert/Text.pm
 	(_initialize_converter_text_options_encoding)
-	(_initialize_text_options_encoding): duplicate to hae a version using
+	(_initialize_text_options_encoding): duplicate to have a version using
 	get_conf() and the other directly accessing the hash.
 
 2025-03-10  Patrice Dumas  <pertusus@free.fr>
