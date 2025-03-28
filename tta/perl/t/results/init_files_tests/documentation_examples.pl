@@ -636,4 +636,22 @@ $result_indices_sort_strings{'documentation_examples'} = 'cp:
  i2
 ';
 
+$result_converted_errors{'file_html'}->{'documentation_examples'} = [
+  {
+    'error_line' => 'warning: @node `Index\' file index.html for redirection exists
+',
+    'line_nr' => 58,
+    'text' => '@node `Index\' file index.html for redirection exists',
+    'type' => 'warning'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'warning: conflict with Top file
+',
+    'text' => 'conflict with Top file',
+    'type' => 'warning'
+  }
+];
+
+
 1;

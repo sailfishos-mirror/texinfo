@@ -211,6 +211,7 @@ Text@footnote{In footnote}.
 ['documentation_examples',
 $documentation_examples_text,
 {'init_files' => ['documentation_examples.pm']},
+{'CASE_INSENSITIVE_FILENAMES' => 1},
 ],
 ['documentation_examples_texi2html',
 $documentation_examples_text,
