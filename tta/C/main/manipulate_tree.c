@@ -902,35 +902,6 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
-/* here and not in utils because it depends on copy_tree */
-/* returned element should be destroyed by the caller */
-ELEMENT *
-itemize_item_prepended_element (const ELEMENT *block_line_arg)
-{
-  const ELEMENT *arg = block_line_argument_command (block_line_arg);
-  ELEMENT *e;
-
-  if (arg)
-    {
-      /* cast to remove const, as the tree is modified temporarily
-         during copy */
-      e = copy_tree ((ELEMENT *)arg, 0);
-    }
-  else if (block_line_arg->e.c->contents.number == 0)
-    {
-      e = new_command_element (ET_brace_noarg_command, CM_bullet);
-    }
-  else
-    {
-      /* cast to remove const, as the tree is modified temporarily
-         during copy */
-      e = copy_tree ((ELEMENT *)block_line_arg, 0);
-    }
-  return e;
-}
-
-
-
 uintptr_t
 set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 {

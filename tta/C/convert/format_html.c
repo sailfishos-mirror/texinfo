@@ -8891,7 +8891,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
   const CSS_SELECTOR_STYLE *selector_style = 0;
   const ELEMENT *arguments_line;
   const ELEMENT *block_line_arg;
-  ELEMENT *prepended_element;
+  const ELEMENT *prepended_element;
 
   if (html_in_string (self))
     {
@@ -8916,7 +8916,6 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
           else
             mark_class_name = element_command_name (prepended_element);
         }
-      destroy_element_and_children (prepended_element);
     }
 
   classes = new_string_list ();

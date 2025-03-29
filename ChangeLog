@@ -1,5 +1,17 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (default_bullet_command)
+	(setup_converter_generic, itemize_item_prepended_element),
+	tta/C/convert/format_html.c (html_convert_itemize_command),
+	tta/C/main/manipulate_tree.c, tta/perl/Texinfo/Common.pm
+	($default_bullet_command, itemize_item_prepended_element): move
+	itemize_item_prepended_element to converter.c.  Setup a default bullet
+	element to be reused by itemize_item_prepended_element.  Change
+	itemize_item_prepended_element to return an already existing const
+	element.  Update caller.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	Deprecate @clickstyle
 
 	* NEWS, TODO, doc/texinfo.texi (Click Sequences) (Customization

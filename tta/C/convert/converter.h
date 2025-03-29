@@ -206,6 +206,7 @@ void free_tree_added_elements (CONVERTER *self,
 void destroy_tree_added_elements (CONVERTER *self,
                                   TREE_ADDED_ELEMENTS *tree_elements);
 
+const ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
 TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
                                               const ELEMENT *element);
 

@@ -129,6 +129,7 @@ static size_t converter_space;
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
 static const ELEMENT *default_asis_command;
+static const ELEMENT *default_bullet_command;
 
 void
 setup_converter_generic (void)
@@ -155,6 +156,8 @@ setup_converter_generic (void)
     }
 
   default_asis_command = new_command_element (ET_brace_command, CM_asis);
+  default_bullet_command = new_command_element (ET_brace_noarg_command,
+                                                CM_bullet);
 }
 
 
@@ -1448,6 +1451,19 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
 }
 
 
+
+const ELEMENT *
+itemize_item_prepended_element (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = block_line_argument_command (block_line_arg);
+
+  if (arg)
+    return arg;
+  else if (block_line_arg->e.c->contents.number == 0)
+    return default_bullet_command;
+  else
+    return block_line_arg;
+}
 
 const ELEMENT *
 item_line_block_line_argument_command (const ELEMENT *block_line_arg)

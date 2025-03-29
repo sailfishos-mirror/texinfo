@@ -876,6 +876,8 @@ sub block_line_argument_command($)
   return undef;
 }
 
+my $default_bullet_command = {'cmdname' => 'bullet'};
+
 sub itemize_item_prepended_element($)
 {
   my $block_line_arg = shift;
@@ -884,7 +886,7 @@ sub itemize_item_prepended_element($)
   if ($arg) {
     return $arg;
   } elsif (!$block_line_arg->{'contents'}) {
-    return {'cmdname' => 'bullet'};
+    return $default_bullet_command;
   } else {
     return $block_line_arg;
   }

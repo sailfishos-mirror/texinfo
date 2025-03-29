@@ -44,10 +44,6 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 
-ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
-
-
-
 char *print_tree_details (ELEMENT *tree, const char *fname_encoding,
                           int use_filename);
 char *element_number_or_error (const ELEMENT *element);
