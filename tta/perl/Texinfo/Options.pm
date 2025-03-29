@@ -295,7 +295,6 @@ my %converter_common_regular_options_defaults = (
 $regular_options_types{'converter_common'} = \%converter_common_regular_options_defaults;
 
 my %converter_defaults_regular_options_defaults = (
-  'documentlanguage'                 => undef,
 );
 
 $regular_options_types{'converter_defaults'} = \%converter_defaults_regular_options_defaults;
@@ -312,7 +311,6 @@ my %html_converter_regular_options_defaults = (
   'COPIABLE_LINKS'                   => 1,
   'DATE_IN_HEADER'                   => 0,
   'DEFAULT_RULE'                     => '<hr>',
-  'documentlanguage'                 => undef,
   'DOCTYPE'                          => '<!DOCTYPE html>',
   'DO_ABOUT'                         => 0,
   'OUTPUT_CHARACTERS'                => 0,

@@ -34,9 +34,6 @@
 # the same as elsewhere, but occasionally may be specific of the Parser.
 -- common_parser
 
-# not 'en' as it is better to specify that there is no
-# need for translation since the strings are in english
-# rather than ask for translations to en
 documentlanguage           undef
 # if >= 10, tree is printed in texi2any.pl after parsing.
 # If >= 100 tree is printed every line.
@@ -58,7 +55,6 @@ LOCALE_ENCODING            undef
 # the converter_defaults method
 -- converter_defaults
 
-documentlanguage undef
 
 # in Texinfo::Convert::Converter, common to all the converters
 -- converter_common
@@ -92,7 +88,6 @@ CHECK_HTMLXREF         1
 COPIABLE_LINKS         1
 DATE_IN_HEADER         0
 DEFAULT_RULE           <hr>
-documentlanguage       undef
 DOCTYPE                <!DOCTYPE html>
 DO_ABOUT               0
 OUTPUT_CHARACTERS      0

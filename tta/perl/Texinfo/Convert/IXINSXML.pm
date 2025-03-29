@@ -46,7 +46,6 @@ my %defaults = (
   'EXTENSION'            => 'ixin',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
-  'documentlanguage'     => undef,
   'USE_NODES'            => 1,
 );
 

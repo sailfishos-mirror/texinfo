@@ -47,7 +47,6 @@ my %defaults = (
   'EXTENSION'            => 'xml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
-  'documentlanguage'     => undef,
 );
 
 sub converter_defaults($;$)

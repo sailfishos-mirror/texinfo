@@ -61,13 +61,11 @@ add_converter_common_regular_options_defaults (OPTIONS_LIST *options_list)
 void
 set_converter_defaults_regular_options_defaults (OPTIONS *options)
 {
-  option_set_conf (&options->documentlanguage, -2, 0);
 }
 
 void
 add_converter_defaults_regular_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_option_value (options_list, "documentlanguage", -2, 0);
 }
 
 void
@@ -84,7 +82,6 @@ set_html_converter_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->COPIABLE_LINKS, 1, 0);
   option_set_conf (&options->DATE_IN_HEADER, 0, 0);
   option_set_conf (&options->DEFAULT_RULE, -2, "<hr>");
-  option_set_conf (&options->documentlanguage, -2, 0);
   option_set_conf (&options->DOCTYPE, -2, "<!DOCTYPE html>");
   option_set_conf (&options->DO_ABOUT, 0, 0);
   option_set_conf (&options->OUTPUT_CHARACTERS, 0, 0);
@@ -140,7 +137,6 @@ add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "COPIABLE_LINKS", 1, 0);
   add_option_value (options_list, "DATE_IN_HEADER", 0, 0);
   add_option_value (options_list, "DEFAULT_RULE", -2, "<hr>");
-  add_option_value (options_list, "documentlanguage", -2, 0);
   add_option_value (options_list, "DOCTYPE", -2, "<!DOCTYPE html>");
   add_option_value (options_list, "DO_ABOUT", 0, 0);
   add_option_value (options_list, "OUTPUT_CHARACTERS", 0, 0);

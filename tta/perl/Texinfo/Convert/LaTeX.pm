@@ -792,7 +792,6 @@ my %defaults = (
   'OUTPUT_CHARACTERS'    => 0,
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'tex',
-  'documentlanguage'     => undef,
   'paragraphindent'      => undef, # global default is for Info/Plaintext
 );
 

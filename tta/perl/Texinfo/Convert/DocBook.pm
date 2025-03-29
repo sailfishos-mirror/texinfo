@@ -56,7 +56,6 @@ my %defaults = (
   'EXTENSION'            => 'xml', # dbk?
   'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
-  'documentlanguage'     => undef,
   'OPEN_QUOTE_SYMBOL'    => '&#'.hex('2018').';',
   'CLOSE_QUOTE_SYMBOL'   => '&#'.hex('2019').';',
   'USE_NUMERIC_ENTITY'   => 1,

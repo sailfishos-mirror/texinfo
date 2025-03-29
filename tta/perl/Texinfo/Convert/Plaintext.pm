@@ -372,7 +372,6 @@ my %defaults = (
   'INFO_SPECIAL_CHARS_WARNING' => undef,
   # different from the default, which is undef
   'OUTFILE'              => '-',
-  'documentlanguage'     => undef,
   'USE_NODES'            => 1,
 );
 

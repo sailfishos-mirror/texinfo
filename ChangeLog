@@ -1,5 +1,16 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/data/converters_defaults.txt,
+	tta/perl/Texinfo/Convert/DocBook.pm (%defaults),
+	tta/perl/Texinfo/Convert/IXINSXML.pm (%defaults),
+	tta/perl/Texinfo/Convert/LaTeX.pm (%defaults),
+	tta/perl/Texinfo/Convert/Plaintext.pm (%defaults), 
+	tta/perl/Texinfo/Convert/TexinfoSXML.pm (%defaults),
+	tta/perl/Texinfo/Convert/TexinfoXML.pm (%defaults): remove default
+	documentlanguage setting to undef, as it is the default everywhere.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	Do not set en as default documentlanguage, use DEFAULT_STRINGS_LANG if
 	needed (set to en)
 
