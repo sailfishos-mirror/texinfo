@@ -157,17 +157,15 @@ sub _switch_messages_locale
 
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
-our %translation_cache;
-our %translation_cache_context;
+my $translation_cache;
 
 # Return a translated string.
 # $LANG set the language if set.  If undef, no translation.
 # NOTE If called from a converter, $LANG will in general be set from the
 # document documentlanguage when it is encountered.  Before the first
 # @documentlanguage, it depends on the converter.  Some do not set
-# @documentlanguage before it is encountered.  Some set some default
-# based on @documentlanguage if in the preamble, some set some default
-# language (in general en) in any case.
+# @documentlanguage before it is encountered, some set some default
+# based on @documentlanguage if in the preamble.
 # Can be replaced by a call to a user-supplied function in gdt* with a
 # different prototype.
 sub translate_string($$;$)
@@ -176,20 +174,28 @@ sub translate_string($$;$)
 
   return ($string) if (!defined($lang) or $lang eq '');
 
-  my $translated_string;
-  if (!defined($translation_context)) {
-    if (defined($translation_cache{$string})
-        and defined($translation_cache{$string}->{$lang})) {
-      $translated_string = $translation_cache{$string}->{$lang};
-      return $translated_string;
-    }
+  my $translation_context_str;
+  if (defined($translation_context)) {
+    $translation_context_str = $translation_context;
   } else {
-    if (defined($translation_cache_context{$string})
-        and defined($translation_cache_context{$string}->{$translation_context})
-        and defined($translation_cache_context{$string}->{$translation_context}->{$lang})) {
-      $translated_string = $translation_cache_context{$string}->{$translation_context}->{$lang};
-      return $translated_string;
+    $translation_context_str = '';
+  }
+  my $translated_string;
+  my $strings_cache;
+  if ($translation_cache->{$lang}) {
+    my $lang_cache = $translation_cache->{$lang};
+    if ($lang_cache->{$translation_context_str}) {
+      if (defined($lang_cache->{$translation_context_str}->{$string})) {
+        $translated_string = $lang_cache->{$translation_context_str}->{$string};
+        return $translated_string;
+      }
+    } else {
+      $lang_cache->{$translation_context_str} = {}
     }
+    $strings_cache = $lang_cache->{$translation_context_str};
+  } else {
+    $translation_cache->{$lang} = {$translation_context_str => {}};
+    $strings_cache = $translation_cache->{$lang}->{$translation_context_str};
   }
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
@@ -255,18 +261,9 @@ sub translate_string($$;$)
       POSIX::setlocale(LC_MESSAGES, '');
     }
   }
-  if (!defined($translation_context)) {
-    $translation_cache{$string} = {}
-      if !defined($translation_cache{$string});
-    $translation_cache{$string}->{$lang} = $translated_string;
-  } else {
-    $translation_cache_context{$string} = {}
-      if !defined($translation_cache_context{$string});
-    $translation_cache_context{$string}->{$translation_context} = {}
-      if !defined($translation_cache_context{$string}->{$translation_context});
-    $translation_cache_context{$string}->{$translation_context}->{$lang}
-      = $translated_string;
-  }
+
+  $strings_cache->{$string} = $translated_string;
+
   #print STDERR "_GDT '$string' '$translated_string'\n";
   return $translated_string;
 }
