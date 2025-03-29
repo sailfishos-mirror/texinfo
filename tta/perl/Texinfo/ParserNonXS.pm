@@ -5911,13 +5911,16 @@ sub _handle_line_command($$$$$$)
             sprintf(__("\@%s should only appear in an index entry"),
                     $command), $source_info);
         }
-        # TODO subentry_level is only used here, it would make sense to
-        # remove it completly
         my $subentry_level = 1;
-        if ($parent->{'cmdname'} eq 'subentry') {
-          $subentry_level = $parent->{'extra'}->{'subentry_level'} + 1;
+        my $current = $parent;
+        while ($subentry_level < 3) {
+          if ($current->{'cmdname'} and $current->{'cmdname'} eq 'subentry') {
+            $subentry_level++;
+            $current = $current->{'parent'}->{'parent'};
+          } else {
+            last;
+          }
         }
-        $command_e->{'extra'} = {'subentry_level' => $subentry_level};
         if ($subentry_level > 2) {
           $self->_line_error(__(
       "no more than two levels of index subentry are allowed"),

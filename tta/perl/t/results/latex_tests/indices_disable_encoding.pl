@@ -213,7 +213,6 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
      |{ }
     |EXTRA
     |sortas:{a!"@b}
-    |subentry_level:{1}
      *line_arg C12
      |INFO
      |spaces_after_argument:

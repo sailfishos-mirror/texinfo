@@ -827,8 +827,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             }
           else if (cmd == CM_subentry)
             {
-              int level = 1;
-              ELEMENT *parent = current->parent;
+              int subentry_level = 1;
+              const ELEMENT *parent = current->parent;
+              const ELEMENT *current = parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)
                   && parent->e.c->cmd != CM_subentry)
@@ -836,19 +837,17 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   line_warn ("@subentry should only occur in an index entry");
                 }
 
-              if (parent->e.c->cmd == CM_subentry)
+              while (subentry_level < 3)
                 {
-                  int status;
-                  int parent_level
-                     = lookup_extra_integer (parent, AI_key_subentry_level,
-                                             &status);
-                  if (status >= 0 && parent_level)
-                    level = parent_level + 1;
+                  if (current->e.c->cmd == CM_subentry)
+                    {
+                       subentry_level++;
+                       current = current->parent->parent;
+                    }
                   else
-                    fatal ("No subentry parent level or level 0");
+                    break;
                 }
-              add_extra_integer (command_e, AI_key_subentry_level, level);
-              if (level > 2)
+              if (subentry_level > 2)
                 {
                   line_error
                     ("no more than two levels of index subentry are allowed");

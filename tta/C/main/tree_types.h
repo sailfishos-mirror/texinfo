@@ -83,7 +83,6 @@ enum directions {
   ai_key(max_columns, integer) \
   ai_key(row_number, integer) \
   ai_key(section_level, integer) \
-  ai_key(subentry_level, integer) \
   \
   ai_key(begin, string) \
   ai_key(def_command, string) \
