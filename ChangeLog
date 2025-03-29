@@ -1,5 +1,13 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	Do not translate output document string if language is empty or undef
+
+	* tta/C/main/translations.c (translate_string),
+	tta/perl/Texinfo/Translations.pm (translate_string): return the input
+	string if lang argument is undef or an empty string.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/data/converters_defaults.txt,
 	tta/perl/Texinfo/Convert/DocBook.pm (%defaults),
 	tta/perl/Texinfo/Convert/IXINSXML.pm (%defaults),

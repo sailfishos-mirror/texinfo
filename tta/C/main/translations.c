@@ -226,10 +226,8 @@ translate_string (const char *string, const char *in_lang,
   static TEXT language_locales;
   int i;
 
-  /* language is not checked if set as a customization variable, in that
-     case it could be undefined, the empty string or any other string. */
-  if (!in_lang)
-    lang = TXI_DEFAULT_STRINGS_LANG;
+  if (!in_lang || !strlen (in_lang))
+    return strdup (string);
 
 #ifndef ENABLE_NLS
   if (use_external_translate_string < 0)

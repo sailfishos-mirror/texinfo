@@ -161,8 +161,7 @@ our %translation_cache;
 our %translation_cache_context;
 
 # Return a translated string.
-# $LANG set the language if set.  If undef,
-# Texinfo::Common::DEFAULT_STRINGS_LANG is used.
+# $LANG set the language if set.  If undef, no translation.
 # NOTE If called from a converter, $LANG will in general be set from the
 # document documentlanguage when it is encountered.  Before the first
 # @documentlanguage, it depends on the converter.  Some do not set
@@ -175,9 +174,7 @@ sub translate_string($$;$)
 {
   my ($string, $lang, $translation_context) = @_;
 
-  # language is not checked if set as a customization variable, in that
-  # case it could be the empty string or any other string.
-  $lang = Texinfo::Common::DEFAULT_STRINGS_LANG if (!defined($lang));
+  return ($string) if (!defined($lang) or $lang eq '');
 
   my $translated_string;
   if (!defined($translation_context)) {
