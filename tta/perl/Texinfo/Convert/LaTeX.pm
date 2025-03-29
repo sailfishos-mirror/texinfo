@@ -341,6 +341,7 @@ my %LaTeX_no_arg_brace_commands = (
     'error' => '\fbox{error}',
     'expansion' => '$\mapsto{}$',
     'arrow' => '$\rightarrow{}$',
+    'click' => '$\rightarrow{}$',
     'minus' => '-',
     'point' => '$\star{}$',
     'print' => '$\dashv{}$',
@@ -374,6 +375,7 @@ my %LaTeX_no_arg_brace_commands = (
     'error' => '\fbox{error}',
     'expansion' => '\mapsto{}',
     'arrow' => '\rightarrow{}',
+    'click' => '\rightarrow{}',
     'minus' => '-',
     'point' => '\star{}',
     'print' => '\dashv{}',
@@ -3000,10 +3002,6 @@ sub _convert($$)
       return $result;
     } elsif (exists($brace_no_arg_commands{$cmdname})) {
       my $converted_command = $cmdname;
-      if ($cmdname eq 'click' and $element->{'extra'}
-        and exists($element->{'extra'}->{'clickstyle'})) {
-        $converted_command = $element->{'extra'}->{'clickstyle'};
-      }
       if ($self->{'output_characters'}) {
         my $encoding = $self->{'output_encoding_name'};
         if ($letter_no_arg_commands{$converted_command}) {

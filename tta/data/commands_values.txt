@@ -56,6 +56,7 @@ rbracechar           }
 # symbols (22)
 arrow                ->
 bullet               *
+click                ->
 copyright            (C)
 dots                 ...
 enddots              ...
@@ -111,8 +112,6 @@ TH           TH
 th           th
 
 # other
-# specially treated
-click           
 error           error-->
 tie            \x20
 
@@ -187,6 +186,7 @@ th                 00FE
 # symbols (11)
 arrow              2192
 bullet             2022
+click              2192
 copyright          00A9
 dots               2026
 # enddots
@@ -211,9 +211,6 @@ quoteleft          2018
 quoteright         2019
 
 # other
-# this should only happen if the @clickstyle argument isn't a
-# command with braces and no argument.
-click              2192
 # error              
 # tie                
 # tie              0020
@@ -293,6 +290,7 @@ ampchar        &amp;
 # symbols
 arrow              &rarr;
 bullet             &bull;
+click              &rarr;
 copyright          &copy;
 dots               &hellip;
 # enddots            ...
@@ -349,7 +347,6 @@ TH            &THORN;
 th            &thorn;
 
 # other
-click         &rarr;
 # in general the following is not used since error
 # appears in 'translated_commands'
 error         error--&gt;

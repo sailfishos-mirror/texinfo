@@ -44,7 +44,7 @@
 #include "input.h"
 /* lookup_infoenclose */
 #include "macro.h"
-/* parsed_document read_comment read_command_name global_clickstyle
+/* parsed_document read_comment read_command_name
    STILL_MORE_TO_PROCESS end_line register_global_command count_items
    close_commands ... */
 #include "parser.h"
@@ -311,7 +311,36 @@ parse_rawline_command (const char *line, enum command_id cmd,
       if (!value)
         goto clickstyle_invalid;
       ADD_ARG (p - 1, q - p + 1);
-      free (global_clickstyle); global_clickstyle = value;
+      /* handle as if @alias click=value had been given */
+      if (!global_parser_conf.no_user_commands)
+        {
+          enum command_id new_cmd;
+          enum command_id existing_cmd = lookup_command (value);
+          if (!existing_cmd)
+          {
+            /* supposedly existing command not defined.  Pre-register a
+               user-defined command */
+            existing_cmd = add_texinfo_command (value);
+            user_defined_command_data[existing_cmd & ~USER_COMMAND_BIT].flags
+                                                                 |= CF_UNKNOWN;
+          }
+          if (command_data(existing_cmd).flags & CF_ALIAS)
+            {
+              enum command_id alias_exist_cmd = command_data(existing_cmd).data;
+              if (strcmp (command_name(alias_exist_cmd), "click"))
+                existing_cmd = alias_exist_cmd;
+            }
+          new_cmd = add_texinfo_command ("click");
+          new_cmd &= ~USER_COMMAND_BIT;
+          user_defined_command_data[new_cmd].flags |= CF_ALIAS;
+          user_defined_command_data[new_cmd].data = existing_cmd;
+          if (existing_cmd & USER_COMMAND_BIT)
+            {
+              enum command_id user_data_cmd = existing_cmd & ~USER_COMMAND_BIT;
+              user_defined_command_data[user_data_cmd].flags |= CF_REGISTERED;
+            }
+        }
+
       /* if strlen is not used to guard against checking after the end of q,
          for some reason, valgrind does not find that the *(q+1) could be
          unallocated */
@@ -1227,11 +1256,6 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
           line_warn ("@%s should only appear in an index entry",
                      command_name(cmd));
         }
-    }
-  /* click cannot be definfoenclose'd */
-  else if (cmd == CM_click)
-    {
-      add_extra_string_dup (command_e, AI_key_clickstyle, global_clickstyle);
     }
   else
     {

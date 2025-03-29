@@ -77,8 +77,6 @@ initialize_parsing (enum context root_ct)
     global_documentlanguage = 0;
 
   /* initialize document state */
-  free (global_clickstyle);
-  global_clickstyle = strdup ("arrow");
   global_kbdinputstyle = kbd_distinct;
 
   current_node = 0;

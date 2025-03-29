@@ -2041,6 +2041,13 @@ $result_errors{'macro_in_misc_commands'} = [
     'macro' => 'refillmacro',
     'text' => '@refill is obsolete',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 197,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
   }
 ];
 

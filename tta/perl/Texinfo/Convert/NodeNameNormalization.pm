@@ -314,10 +314,6 @@ sub _convert($)
     if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {
       return $normalize_node_nobrace_symbol_text{$cmdname};
     } elsif (defined($normalize_node_brace_no_arg_commands{$cmdname})) {
-      $cmdname = $element->{'extra'}->{'clickstyle'}
-         if ($element->{'extra'}
-          and defined($element->{'extra'}->{'clickstyle'})
-          and defined($normalize_node_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
       my $result = $normalize_node_brace_no_arg_commands{$cmdname};
       return $result;
     # commands with braces

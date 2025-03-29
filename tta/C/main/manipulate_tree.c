@@ -912,21 +912,6 @@ itemize_item_prepended_element (const ELEMENT *block_line_arg)
 
   if (arg)
     {
-      enum command_id cmd;
-      if (arg->e.c->cmd == CM_click)
-        {
-          const char *command_as_argument_name = lookup_extra_string (arg,
-                                                          AI_key_clickstyle);
-          if (command_as_argument_name)
-            {
-              cmd = lookup_builtin_command (command_as_argument_name);
-              if (cmd)
-                {
-                  e = new_command_element (ET_brace_noarg_command, cmd);
-                  return e;
-                }
-            }
-        }
       /* cast to remove const, as the tree is modified temporarily
          during copy */
       e = copy_tree ((ELEMENT *)arg, 0);

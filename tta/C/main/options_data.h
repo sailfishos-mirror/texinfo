@@ -14,9 +14,9 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-#define TXI_OPTIONS_NR 234
+#define TXI_OPTIONS_NR 233
 
-#define TXI_COMMAND_OPTIONS_NR 44
+#define TXI_COMMAND_OPTIONS_NR 43
 
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
@@ -204,7 +204,6 @@ typedef struct OPTIONS {
 /* multiple_at_command */
 
     OPTION allowcodebreaks;
-    OPTION clickstyle;
     OPTION codequotebacktick;
     OPTION codequoteundirected;
     OPTION contents;

@@ -1,5 +1,43 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	Deprecate @clickstyle
+
+	* NEWS, TODO, doc/texinfo.texi (Click Sequences) (Customization
+	Variables for @@-Commands, Command List), tta/C/main/tree_types.h
+	(AI_KEYS_LIST), tta/C/parsetexi/api.c (initialize_parsing),
+	tta/C/parsetexi/handle_commands.c (parse_rawline_command,
+	handle_brace_command), tta/C/parsetexi/parser.c (global_clickstyle),
+	tta/data/command_data.txt (clickstyle), tta/data/commands_values.txt
+	(click), tta/data/options_data.txt, tta/perl/Texinfo/Convert/LaTeX.pm
+	(%LaTeX_no_arg_brace_commands),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm
+	(%no_arg_commands_formatting), tta/perl/Texinfo/ParserNonXS.pm
+	(%parser_document_state_initialization, _parse_rawline_command)
+	(_handle_brace_command), tta/perl/init/html32.pm, util/texinfo.dtd:
+	handle clickstyle as an alias command call.  Do not set extra
+	clickstyle of click command.  Add information to convert @click
+	command when missing.  Remove clickstyle as a customization option.
+
+	* tta/C/convert/format_html.c (html_convert_no_arg_command)
+	(html_css_string_convert_no_arg_command), tta/C/main/convert_to_text.c
+	(text_brace_no_arg_command), tta/C/main/manipulate_tree.c
+	(itemize_item_prepended_element), tta/C/main/node_name_normalization.c
+	(setup_node_name_normalization, convert_to_normalized_internal),
+	tta/perl/Texinfo/Common.pm (itemize_item_prepended_element),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_no_arg_command)
+	(_css_string_convert_no_arg_command),
+	tta/perl/Texinfo/Convert/IXIN.pm, tta/perl/Texinfo/Convert/LaTeX.pm
+	(_convert), tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/Convert/Text.pm (brace_no_arg_command): remove code
+	checking extra clickstyle information for click formatting.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
+	* util/txixml2texi.pl (BEGIN): update paths.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/html_tests.t (css_in_node_redirection_page): add
 	@documentlanguage en.
 

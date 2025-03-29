@@ -158,7 +158,6 @@ my %parser_document_state_initialization = (
                               # reference with 2 values, beginning and ending.
 
   # parsing information still relevant at the end of the parsing
-  'clickstyle' => 'arrow',        #
   'kbdinputstyle' => 'distinct',  #
   'source_mark_counters' => {},   #
   'current_node'    => undef,     # last seen node.
@@ -5788,8 +5787,6 @@ sub _handle_line_command($$$$$$)
       = _parse_rawline_command($self, $line, $command, $source_info);
     $command_e->{'info'} = {'arg_line' => $line}
       if ($special_arg);
-    # FIXME add a check that the @clickstyle argument is a glyph command
-    # at that point?
 
     # if using the @set txi* instead of a proper @-command, replace
     # by the tree obtained with the @-command.  Even though
@@ -6241,9 +6238,6 @@ sub _handle_brace_command($$$$)
     $self->_line_warn(
       sprintf(__("\@%s should only appear in an index entry"),
               $command), $source_info);
-  } elsif ($command eq 'click') { # click cannot be definfoenclose'd
-    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
-    $command_e->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
   } else {
     if ($self->{'definfoenclose'}->{$command}) {
       $command_e->{'type'} = 'definfoenclose_command';
@@ -7912,7 +7906,13 @@ sub _parse_rawline_command($$$$)
     # REMACRO
     if ($line =~ /^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
       $args = ['@'.$1];
-      $self->{'clickstyle'} = $1;
+      my $as_existing_command = $1;
+      #handle as if @alias click=$1 had been given
+      if (exists($self->{'aliases'}->{$as_existing_command})
+          and $self->{'aliases'}->{$as_existing_command} ne 'click') {
+        $as_existing_command = $self->{'aliases'}->{$as_existing_command};
+      }
+      $self->{'aliases'}->{'click'} = $as_existing_command;
       my $remaining = $line;
       $remaining =~ s/^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(comment|c)((\@|\s+).*)?)?//;
       $has_comment = 1 if (defined($4));
@@ -8574,7 +8574,7 @@ I<lineraw> line commands and definition line commands.
 
 I<lineraw> line commands arguments are not subject to the
 usual macro expansion.  I<lineraw> line commands with
-arguments are, for example, C<@set>, C<@clickstyle>, C<@unmacro>
+arguments are, for example, C<@set>, C<@unmacro>
 and C<@comment>.  C<@raisesections>, C<@contents> and C<@novalidate>
 are examples of I<lineraw> line commands without arguments.
 
@@ -8867,7 +8867,7 @@ C<@verb>, C<@macro> body).
 
 Used for the arguments to some special line commands whose arguments
 aren't subject to the usual macro expansion.  For example C<@set>,
-C<@clickstyle>, C<@unmacro>, C<@comment>.  The argument is associated to
+C<@unmacro>, C<@comment>.  The argument is associated to
 the I<text> key.
 
 =item spaces_at_end
@@ -9335,10 +9335,6 @@ The first argument normalized is in I<normalized>.
 the normalized label, built as specified in the Texinfo documentation in the
 I<HTML Xref> node.  There is also a I<node_content> key for an element holding
 the corresponding content.
-
-=item C<@click>
-
-In I<clickstyle> there is the current clickstyle command.
 
 =item C<def_line>
 

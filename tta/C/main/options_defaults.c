@@ -438,7 +438,6 @@ void
 set_multiple_at_command_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->allowcodebreaks, -2, "true");
-  option_set_conf (&options->clickstyle, -2, "@arrow");
   option_set_conf (&options->codequotebacktick, -2, "off");
   option_set_conf (&options->codequoteundirected, -2, "off");
   option_set_conf (&options->contents, 0, 0);
@@ -468,7 +467,6 @@ void
 add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list)
 {
   add_option_value (options_list, "allowcodebreaks", -2, "true");
-  add_option_value (options_list, "clickstyle", -2, "@arrow");
   add_option_value (options_list, "codequotebacktick", -2, "off");
   add_option_value (options_list, "codequoteundirected", -2, "off");
   add_option_value (options_list, "contents", 0, 0);

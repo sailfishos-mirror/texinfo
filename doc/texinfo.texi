@@ -10175,28 +10175,25 @@ which produces:
 
 @findex click
 @findex arrow
-The @code{@@click} command produces a right arrow by default; this
-glyph is also available independently via the command
-@code{@@arrow@{@}}.
+The @code{@@click} command produces a right arrow; this glyph is also
+available independently via the command @code{@@arrow@{@}}.
 
 @findex clickstyle
-You can change the glyph produced by @code{@@click} with the command
-@code{@@clickstyle}, which takes a command name as its single argument
-on the rest of the line.  The command should produce a glyph, and
-the usual empty braces @samp{@{@}} are omitted.  Here's an example:
+The @code{@@clickstyle} command that could be used to change the glyph
+produced by @code{@@click} is deprecated, you should not use it anymore.  You
+can use @code{@@alias} (@pxref{@code{@@alias}}) instead to change the glyph
+produced by @code{@@click}.
 
+You can replace:
 @example
 @@clickstyle @@result
-@dots{} @@clicksequence@{File @@click@{@} Open@} @dots{}
+@end example
+by
+@example
+@@alias click=result
 @end example
 
-@noindent
-now produces:
-
-@display
-@clickstyle @result
-@dots{} @clicksequence{File @click{} Open} @dots{}
-@end display
+The @code{@@clickstyle} command will be removed in a future release.
 
 
 @node Inserting Unicode
@@ -15546,7 +15543,7 @@ variable with the same name (minus the leading @code{@@}):
 @example
 @@afivepaper            @@afourpaper        @@afourlatex
 @@afourwide             @@allowcodebreaks   @@bsixpaper
-@@contents              @@clickstyle        @@codequotebacktick
+@@contents              @@codequotebacktick
 @@codequoteundirected   @@deftypefnnewline  @@documentdescription
 @@documentencoding      @@documentlanguage  @@evenfooting
 @@evenfootingmarks      @@evenheading       @@evenheadingmarks
@@ -19836,6 +19833,7 @@ Represent a single ``click'' in a GUI@.  Used within
 Represent a sequence of clicks in a GUI@.  @xref{Click Sequences}.
 
 @item @@clickstyle @@@var{cmd}
+This command is deprecated, do not use it.
 Execute @@@var{cmd} for each @code{@@click}; the default is
 @code{@@arrow}.  The usual following empty braces on @@@var{cmd} are
 omitted.  @xref{Click Sequences}.

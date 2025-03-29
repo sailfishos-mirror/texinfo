@@ -184,7 +184,6 @@ our %converter_other_options = (
 
 our %multiple_at_command_options = (
   'allowcodebreaks'                  => 'true',
-  'clickstyle'                       => '@arrow',
   'codequotebacktick'                => 'off',
   'codequoteundirected'              => 'off',
   'contents'                         => 0,

@@ -158,7 +158,7 @@ set                     line,preamble                   LINE_lineraw 2
 clear                   line,preamble                   LINE_lineraw 1
 unmacro                 line,preamble                   LINE_lineraw 1
 # arg should be an @-command
-clickstyle              line,global,preamble            LINE_lineraw 1
+clickstyle              line,global,preamble,deprecated            LINE_lineraw 1
 
 # special
 definfoenclose          line,preamble,contain_plain_text,deprecated    LINE_specific  3

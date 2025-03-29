@@ -84,7 +84,7 @@ texinfo_register_formatting_function('format_protect_text', \&html32_format_prot
 
 
 foreach my $command ('euro', 'geq', 'leq',
-   'bullet', 'equiv', 'expansion', 'minus', 'point', 'result', 'arrow',
+   'bullet', 'click', 'equiv', 'expansion', 'minus', 'point', 'result', 'arrow',
    'quotedblleft', 'quotedblright',
    'quoteleft', 'quoteright',
    'quotedblbase', 'quotesinglbase', 'guillemetleft', 'guillemetright',

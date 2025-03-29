@@ -51,9 +51,6 @@ setup_node_name_normalization (void)
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      /* avoid an arrow as default value, the mapping depends on clickstyle */
-      if (i == CM_click)
-        continue;
       if (unicode_character_brace_no_arg_commands[i].codepoint)
         command_normalization_text[i]
           = unicode_character_brace_no_arg_commands[i].text;
@@ -119,17 +116,6 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
     {
       if (command_normalization_text[e->e.c->cmd])
         ADD(command_normalization_text[e->e.c->cmd]);
-      else if (e->e.c->cmd == CM_click)
-        {
-          enum command_id cmd;
-          char *command_name = lookup_extra_string (e, AI_key_clickstyle);
-          if (command_name)
-            {
-              cmd = lookup_builtin_command (command_name);
-              if (command_normalization_text[cmd])
-                ADD(command_normalization_text[cmd]);
-            }
-        }
       else if (builtin_command_data[e->e.c->cmd].flags & CF_accent)
         {
           if (e->e.c->contents.number > 0)

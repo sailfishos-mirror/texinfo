@@ -387,11 +387,6 @@ sub brace_no_arg_command($;$$$$)
   my $set_case = shift;
 
   my $command_name = $element->{'cmdname'};
-  $command_name = $element->{'extra'}->{'clickstyle'}
-    if ($element->{'extra'}
-      and defined($element->{'extra'}->{'clickstyle'})
-      and defined($Texinfo::CommandsValues::text_brace_no_arg_commands{
-                                  $element->{'extra'}->{'clickstyle'}}));
   my $result;
   if (defined($encoding) and
       (!$ascii_glyph

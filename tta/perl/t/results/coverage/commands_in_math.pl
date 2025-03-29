@@ -207,8 +207,6 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
    *@click C1 l17
-   |EXTRA
-   |clickstyle:{arrow}
     *brace_container
    {\\n}
    *@U C1 l18
@@ -542,7 +540,7 @@ $result_converted{'xml'}->{'commands_in_math'} = '
 </displaymath>
 
 <displaymath endspaces=" ">
-<click command="arrow"/>
+&click;
 <U>0075</U>
 &tex; &latex; &bullet; &copyright; &dots; &enddots; &equiv;
 &errorglyph; &expansion; &minus; &point; &printglyph; &result;

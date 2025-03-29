@@ -1441,10 +1441,10 @@ but , ,&noeos;
 <para><code>need 1002</code>
 </para><need spaces=" " value="1002" line="1002"></need>
 
-<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
+<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &click; A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
-<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
+<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
@@ -1476,7 +1476,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </displaymath>
 
 <displaymath endspaces=" ">
-<click command="arrow"/>
+&rarr;
 <U>0075</U>
 &bullet; &copyright; &dots; &enddots; &equiv;
 &errorglyph; &expansion; &minus; &printglyph; &result;
@@ -2613,10 +2613,10 @@ but , ,&noeos;
 <para><code>need 1002</code>
 </para><need spaces=" " value="1002" line="1002"></need>
 
-<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
+<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
-<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
+<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
@@ -2648,7 +2648,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </displaymath>
 
 <displaymath endspaces=" ">
-<click command="arrow"/>
+&rarr;
 <U>0075</U>
 &bullet; &copyright; &dots; &enddots; &equiv;
 &errorglyph; &expansion; &minus; &printglyph; &result;
@@ -3826,10 +3826,10 @@ but , ,&noeos;
 <para><code>need 1002</code>
 </para><need spaces=" " value="1002" line="1002"></need>
 
-<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
+<para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
-<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
+<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
@@ -3861,7 +3861,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </displaymath>
 
 <displaymath endspaces=" ">
-<click command="arrow"/>
+&rarr;
 <U>0075</U>
 &bullet; &copyright; &dots; &enddots; &equiv;
 &errorglyph; &expansion; &minus; &printglyph; &result;
@@ -4992,10 +4992,10 @@ but , ,&noeos;
 <code>need 1002</code>
 </pre><need spaces=" " value="1002" line="1002"></need>
 <pre xml:space="preserve">
-<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
+<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
-<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
+<code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 
 <!-- c test most commands that could happen in math mode -->
@@ -5027,7 +5027,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </displaymath>
 <pre xml:space="preserve">
 </pre><displaymath endspaces=" ">
-<click command="arrow"/>
+&rarr;
 <U>0075</U>
 &bullet; &copyright; &dots; &enddots; &equiv;
 &errorglyph; &expansion; &minus; &printglyph; &result;

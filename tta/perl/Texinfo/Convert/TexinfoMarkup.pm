@@ -82,7 +82,7 @@ our %no_arg_commands_formatting = (
            'error'        => 'errorglyph',
            'expansion'     => 'expansion',
            'arrow'        => 'rarr',
-           'click'        => ['click', ['command', 'arrow']],
+           'click'        => 'click',
            'minus'        => 'minus',
            'point'        => 'point',
            'print'        => 'printglyph',
@@ -720,12 +720,6 @@ sub _convert($$;$)
   if ($element->{'cmdname'}) {
     my $cmdname = $element->{'cmdname'};
     if (defined($no_arg_commands_formatting{$cmdname})) {
-      if ($cmdname eq 'click'
-          and $element->{'extra'}
-          and defined($element->{'extra'}->{'clickstyle'})) {
-        return $self->txi_markup_element('click',
-                        [['command', $element->{'extra'}->{'clickstyle'}]]);
-      }
       if ($self->{'itemize_command_as_argument'}
           and $element eq $self->{'itemize_command_as_argument'}) {
         # the element was determined to be an element without braces

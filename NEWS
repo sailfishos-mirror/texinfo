@@ -13,6 +13,7 @@ See the manual for detailed information.
   . heading command supported after @node
   . new command @xrefname can follow @node
   . new command @namedanchor
+  . deprecate @clickstyle
 
 * texi2any
   . texi2any program implementation in C embedding Perl.

@@ -3210,18 +3210,6 @@ sub _convert_no_arg_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($cmdname eq 'click' and $command->{'extra'}
-      and exists($command->{'extra'}->{'clickstyle'})) {
-    my $click_cmdname = $command->{'extra'}->{'clickstyle'};
-    if ((in_preformatted_context($self) or in_math($self)
-         and $self->{'no_arg_commands_formatting'}->{$click_cmdname}
-                                                        ->{'preformatted'})
-        or (in_string($self) and
-            $self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'string'})
-        or ($self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'normal'})) {
-      $cmdname = $click_cmdname;
-    }
-  }
   if (in_upper_case($self) and $letter_no_arg_commands{$cmdname}
       and $letter_no_arg_commands{uc($cmdname)}) {
     $cmdname = uc($cmdname);
@@ -3256,13 +3244,6 @@ sub _css_string_convert_no_arg_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($cmdname eq 'click' and $command->{'extra'}
-      and exists($command->{'extra'}->{'clickstyle'})) {
-    my $click_cmdname = $command->{'extra'}->{'clickstyle'};
-    if ($self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'css_string'}) {
-      $cmdname = $click_cmdname;
-    }
-  }
   if (in_upper_case($self) and $letter_no_arg_commands{$cmdname}
       and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);

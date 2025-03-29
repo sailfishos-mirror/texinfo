@@ -73,7 +73,7 @@ BEGIN
     }
 
     # to find Texinfo::ModulePath
-    unshift @INC, $t2a_builddir;
+    unshift @INC, join('/', ($t2a_builddir, 'perl'));
 
     require Texinfo::ModulePath;
     Texinfo::ModulePath::init(undef, undef, undef);

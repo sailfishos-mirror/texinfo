@@ -1395,6 +1395,13 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 143,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: remaining argument on @clickstyle line: {result_macro}
 ',
     'line_nr' => 143,

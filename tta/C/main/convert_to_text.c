@@ -334,19 +334,6 @@ text_brace_no_arg_command (const ELEMENT *e, const char *encoding,
   char *result = 0;
   enum command_id cmd = e->e.c->cmd;
 
-  if (cmd == CM_click)
-    {
-      char *clickstyle = lookup_extra_string (e, AI_key_clickstyle);
-      if (clickstyle)
-        {
-          enum command_id clickstyle_cmd = lookup_builtin_command (clickstyle);
-          if (clickstyle_cmd && text_brace_no_arg_commands[clickstyle_cmd])
-            {
-              cmd = clickstyle_cmd;
-            }
-        }
-    }
-
   if (encoding
       && (!ascii_glyph
           || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0)))

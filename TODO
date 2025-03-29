@@ -149,6 +149,11 @@ Post-release:
   (see git commit c7490e3cb4be27, 2025-03-01, Patrice Dumas, for affected
   files.)
 
+* texi2any, Texinfo TeX:
+  Decide if deprecated clickstyle command should be removed completely
+  for this release, if yes, remove it (leave at least for one release after
+  7.2).
+
 ***********************************************************************
 
 * Ideas that will not be implemented:

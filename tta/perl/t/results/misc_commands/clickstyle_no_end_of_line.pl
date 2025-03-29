@@ -20,7 +20,15 @@ $result_texis{'clickstyle_no_end_of_line'} = '@clickstyle @result';
 
 $result_texts{'clickstyle_no_end_of_line'} = '';
 
-$result_errors{'clickstyle_no_end_of_line'} = [];
+$result_errors{'clickstyle_no_end_of_line'} = [
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 1,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  }
+];
 
 
 1;

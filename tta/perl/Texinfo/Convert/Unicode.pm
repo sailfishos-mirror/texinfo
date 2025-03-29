@@ -195,7 +195,7 @@ our %transliterate_map = (
                '2022'  => 'o', # bullet
                '2026'  => '...', # ellipsis
                #'21A6'  => '?', # expansion, probably no translit
-               '2192'  => '->', # arrow
+               '2192'  => '->', # arrow and click
                '21D2'  => '=>', # result
                '2212'  => '-',
                #'2261'  => '?', # equiv, probably no translit

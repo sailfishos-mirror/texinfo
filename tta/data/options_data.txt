@@ -45,7 +45,6 @@ NO_USER_COMMANDS                        parser 0 integer
 # also used in util/txicustomvars
 
 allowcodebreaks            multiple_at_command true     char
-clickstyle                 multiple_at_command @arrow   char
 codequotebacktick          multiple_at_command off      char
 codequoteundirected        multiple_at_command off      char
 contents                   multiple_at_command 0        integer

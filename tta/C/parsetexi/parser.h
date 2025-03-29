@@ -117,7 +117,6 @@ extern ELEMENT *current_node;
 extern const ELEMENT *current_section;
 extern ELEMENT *current_part;
 
-extern char *global_clickstyle;
 extern char *global_documentlanguage;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };

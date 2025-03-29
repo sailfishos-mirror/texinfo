@@ -824,6 +824,7 @@ our %def_alias_commands = (
 
 our %deprecated_commands = (
   "centerchap"              => 1,
+  "clickstyle"              => 1,
   "definfoenclose"          => 1,
   "inforef"                 => 1,
   "refill"                  => 1,

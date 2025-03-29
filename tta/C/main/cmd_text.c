@@ -467,7 +467,7 @@ const char *text_brace_no_arg_commands[] = {
 0,
 0,
 0,
-"",   /* click */
+"->",   /* click */
 0,
 0,
 0,

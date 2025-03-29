@@ -72,6 +72,7 @@ our %command_structuring_level = (
 our %extra_unicode_map = (
     'arrow'    => '2192',
     'bullet'    => '2022',
+    'click'    => '2192',
     'copyright'    => '00A9',
     'dots'    => '2026',
     'equiv'    => '2261',
@@ -85,7 +86,6 @@ our %extra_unicode_map = (
     'quotedblright'    => '201D',
     'quoteleft'    => '2018',
     'quoteright'    => '2019',
-    'click'    => '2192',
 );
 
 our %nobrace_symbol_text = (
@@ -127,6 +127,7 @@ our %text_brace_no_arg_commands = (
     'rbracechar'    => '}',
     'arrow'    => '->',
     'bullet'    => '*',
+    'click'    => '->',
     'copyright'    => '(C)',
     'dots'    => '...',
     'enddots'    => '...',
@@ -175,7 +176,6 @@ our %text_brace_no_arg_commands = (
     'ss'    => 'ss',
     'TH'    => 'TH',
     'th'    => 'th',
-    'click'    => '',
     'error'    => 'error-->',
     'tie'    => ' ',
 );
@@ -204,6 +204,7 @@ our %xml_text_entity_no_arg_commands = (
     'ampchar'    => '&amp;',
     'arrow'    => '&rarr;',
     'bullet'    => '&bull;',
+    'click'    => '&rarr;',
     'copyright'    => '&copy;',
     'dots'    => '&hellip;',
     'equiv'    => '&equiv;',
@@ -248,7 +249,6 @@ our %xml_text_entity_no_arg_commands = (
     'ss'    => '&szlig;',
     'TH'    => '&THORN;',
     'th'    => '&thorn;',
-    'click'    => '&rarr;',
     'error'    => 'error--&gt;',
     'tie'    => '&nbsp;',
 );

@@ -331,7 +331,6 @@ reset_parser_counters (void)
 }
 
 
-char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;

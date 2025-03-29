@@ -16,9 +16,9 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *@click C1 l4
-   |EXTRA
-   |clickstyle:{result}
+   *@result C1 l4
+   |INFO
+   |alias_of:{click}
     *brace_container
    { (result on the same line).\\n}
   {empty_line:\\n}
@@ -29,13 +29,8 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   |global_command_number:{2}
    {rawline_arg:@nocmd}
   {empty_line:\\n}
-  *paragraph C3
-   {A }
-   *@click C1 l8
-   |EXTRA
-   |clickstyle:{nocmd}
-    *brace_container
-   { (nocmd).\\n}
+  *paragraph C1
+   {A  (nocmd).\\n}
   {empty_line:\\n}
   *@clickstyle l10
   |INFO
@@ -43,28 +38,23 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   |EXTRA
   |global_command_number:{3}
   {empty_line:\\n}
-  *paragraph C3
-   {A }
-   *@click C1 l12
-   |EXTRA
-   |clickstyle:{nocmd}
-    *brace_container
-   { (something).\\n}
+  *paragraph C1
+   {A  (something).\\n}
 ';
 
 
 $result_texis{'invalid_clickstyle'} = '
 @clickstyle @result on the same line
 
-A @click{} (result on the same line).
+A @result{} (result on the same line).
 
 @clickstyle @nocmd
 
-A @click{} (nocmd).
+A  (nocmd).
 
 @clickstyle something
 
-A @click{} (something).
+A  (something).
 ';
 
 
@@ -81,10 +71,52 @@ A  (something).
 
 $result_errors{'invalid_clickstyle'} = [
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 2,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: remaining argument on @clickstyle line: on the same line
 ',
     'line_nr' => 2,
     'text' => 'remaining argument on @clickstyle line: on the same line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 6,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'unknown command `nocmd\'
+',
+    'line_nr' => 8,
+    'text' => 'unknown command `nocmd\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced {
+',
+    'line_nr' => 8,
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced }
+',
+    'line_nr' => 8,
+    'text' => 'misplaced }',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 10,
+    'text' => '@clickstyle is obsolete',
     'type' => 'warning'
   },
   {
@@ -94,6 +126,27 @@ $result_errors{'invalid_clickstyle'} = [
     'line_nr' => 10,
     'text' => '@clickstyle should only accept an @-command as argument, not ` something
 \'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'unknown command `nocmd\'
+',
+    'line_nr' => 12,
+    'text' => 'unknown command `nocmd\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced {
+',
+    'line_nr' => 12,
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced }
+',
+    'line_nr' => 12,
+    'text' => 'misplaced }',
     'type' => 'error'
   }
 ];

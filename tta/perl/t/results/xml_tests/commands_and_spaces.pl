@@ -640,6 +640,13 @@ T
 
 $result_errors{'commands_and_spaces'} = [
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 7,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: unexpected argument on @multitable line: @var{cmd}
 ',
     'line_nr' => 39,

@@ -15,9 +15,9 @@ $result_tree_text{'clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *@click C1 l3
-   |EXTRA
-   |clickstyle:{result}
+   *@result C1 l3
+   |INFO
+   |alias_of:{click}
     *brace_container
    { (result).\\n}
   {empty_line:\\n}
@@ -30,9 +30,9 @@ $result_tree_text{'clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *@click C1 l7
-   |EXTRA
-   |clickstyle:{equiv}
+   *@equiv C1 l7
+   |INFO
+   |alias_of:{click}
     *brace_container
    { (equiv no space)\\n}
   {empty_line:\\n}
@@ -41,11 +41,11 @@ $result_tree_text{'clickstyle'} = '*document_root C1
 
 $result_texis{'clickstyle'} = '@clickstyle @result
 
-A @click{} (result).
+A @result{} (result).
 
 @clickstyle@equiv
 
-A @click{} (equiv no space)
+A @equiv{} (equiv no space)
 
 ';
 
@@ -58,7 +58,22 @@ A == (equiv no space)
 
 ';
 
-$result_errors{'clickstyle'} = [];
+$result_errors{'clickstyle'} = [
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 1,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 5,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  }
+];
 
 
 1;

@@ -868,12 +868,9 @@ sub _convert($$;$)
     if (defined($docbook_no_arg_commands_formatting{$cmdname})) {
       #warn "  has no_arg_commands_formatting \n";
       my $command_name;
-      if ($cmdname eq 'click' and $element->{'extra'}
-          and defined($element->{'extra'}->{'clickstyle'})) {
-        $command_name = $element->{'extra'}->{'clickstyle'};
-      } elsif ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]
-               and $Texinfo::Commands::letter_no_arg_commands{$cmdname}
-               and $Texinfo::Commands::letter_no_arg_commands{uc($cmdname)}) {
+      if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]
+          and $Texinfo::Commands::letter_no_arg_commands{$cmdname}
+          and $Texinfo::Commands::letter_no_arg_commands{uc($cmdname)}) {
         $command_name = uc($cmdname)
       } else {
         $command_name = $cmdname;

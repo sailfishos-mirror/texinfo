@@ -86,7 +86,6 @@ enum directions {
   ai_key(subentry_level, integer) \
   \
   ai_key(begin, string) \
-  ai_key(clickstyle, string) \
   ai_key(def_command, string) \
   ai_key(documentlanguage, string) \
   ai_key(element_region, string) \

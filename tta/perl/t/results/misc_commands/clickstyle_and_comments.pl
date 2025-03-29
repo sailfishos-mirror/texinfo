@@ -63,6 +63,13 @@ $result_texts{'clickstyle_and_comments'} = '';
 
 $result_errors{'clickstyle_and_comments'} = [
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 1,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: remaining argument on @clickstyle line: a
 ',
     'line_nr' => 1,
@@ -70,10 +77,24 @@ $result_errors{'clickstyle_and_comments'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 2,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: remaining argument on @clickstyle line: b
 ',
     'line_nr' => 2,
     'text' => 'remaining argument on @clickstyle line: b',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 3,
+    'text' => '@clickstyle is obsolete',
     'type' => 'warning'
   },
   {
@@ -86,6 +107,13 @@ $result_errors{'clickstyle_and_comments'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 4,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
 \'
 ',
@@ -93,6 +121,27 @@ $result_errors{'clickstyle_and_comments'} = [
     'text' => '@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
 \'',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 5,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 6,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 7,
+    'text' => '@clickstyle is obsolete',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: remaining argument on @clickstyle line: on the same line @comment g

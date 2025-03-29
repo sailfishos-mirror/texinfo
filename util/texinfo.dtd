@@ -1493,8 +1493,6 @@
 <!ELEMENT bye EMPTY>
 
 <!ELEMENT click  EMPTY>
-<!ATTLIST click
-          command        CDATA #REQUIRED>
 
 <!ELEMENT dotless (#PCDATA)>
 <!ATTLIST dotless
@@ -1603,6 +1601,7 @@ Use exactly what is on the XML specification
 <!ENTITY le         "&#x2264;">
 <!ENTITY ge         "&#x2265;">
 <!ENTITY equiv      "&#x2261;">
+<!ENTITY click      "<click/>">
 
 <!ENTITY auml "&#xe4;">
 <!ENTITY ouml "&#xf6;">

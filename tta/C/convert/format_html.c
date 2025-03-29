@@ -5869,26 +5869,6 @@ html_convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
   else
     context = HCC_type_normal;
 
-  if (cmd == CM_click)
-    {
-      enum command_id click_cmd = 0;
-      const char *click_cmdname = lookup_extra_string (element,
-                                                     AI_key_clickstyle);
-      if (click_cmdname)
-        {
-          click_cmd = lookup_builtin_command (click_cmdname);
-        }
-      if (click_cmd)
-        {
-          const HTML_NO_ARG_COMMAND_CONVERSION *conv_context
-            = self->html_no_arg_command_conversion[click_cmd];
-          if (conv_context[context].text || conv_context[context].element)
-            {
-              formatted_cmd = click_cmd;
-            }
-        }
-    }
-
   if (html_in_upper_case (self)
       && html_commands_data[formatted_cmd].upper_case_cmd)
     {
@@ -5909,20 +5889,6 @@ html_css_string_convert_no_arg_command (CONVERTER *self,
                                 const char *content, TEXT *result)
 {
   enum command_id formatted_cmd = cmd;
-  if (cmd == CM_click)
-    {
-      enum command_id click_cmd = 0;
-      const char *click_cmdname = lookup_extra_string (element,
-                                                 AI_key_clickstyle);
-      if (click_cmdname)
-        {
-          click_cmd = lookup_builtin_command (click_cmdname);
-        }
-      if (click_cmd)
-        {
-          formatted_cmd = click_cmd;
-        }
-    }
 
   if (html_in_upper_case (self)
       && html_commands_data[formatted_cmd].upper_case_cmd)

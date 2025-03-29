@@ -1034,8 +1034,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      *@click C1 l114
-     |EXTRA
-     |clickstyle:{arrow}
       *brace_container
    *@item C2 l115
    |EXTRA
@@ -1044,8 +1042,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     *paragraph C3
      {item click }
      *@click C1 l115
-     |EXTRA
-     |clickstyle:{arrow}
       *brace_container
      {\\n}
    *@end C1 l116
@@ -1070,8 +1066,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      *@click C1 l118
-     |EXTRA
-     |clickstyle:{arrow}
       *brace_container
      { a}
    *@item C2 l119
@@ -1081,8 +1075,6 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     *paragraph C3
      {item click }
      *@click C1 l119
-     |EXTRA
-     |clickstyle:{arrow}
       *brace_container
      { a\\n}
    *@end C1 l120
@@ -1113,9 +1105,9 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@click C1 l124
-     |EXTRA
-     |clickstyle:{result}
+     *@result C1 l124
+     |INFO
+     |alias_of:{click}
       *brace_container
    *@item C2 l125
    |EXTRA
@@ -1123,9 +1115,9 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item result click }
-     *@click C1 l125
-     |EXTRA
-     |clickstyle:{result}
+     *@result C1 l125
+     |INFO
+     |alias_of:{click}
       *brace_container
      {\\n}
    *@end C1 l126
@@ -1149,9 +1141,9 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *@click C1 l128
-     |EXTRA
-     |clickstyle:{result}
+     *@result C1 l128
+     |INFO
+     |alias_of:{click}
       *brace_container
      { a}
    *@item C2 l129
@@ -1160,9 +1152,9 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item result click }
-     *@click C1 l129
-     |EXTRA
-     |clickstyle:{result}
+     *@result C1 l129
+     |INFO
+     |alias_of:{click}
       *brace_container
      {\\n}
    *@end C1 l130
@@ -1445,12 +1437,12 @@ $result_texis{'itemize_arguments'} = '
 
 @clickstyle @result
 
-@itemize @click{}
-@item item result click @click{}
+@itemize @result{}
+@item item result click @result{}
 @end itemize
 
-@itemize @click{} a
-@item item result click @click{}
+@itemize @result{} a
+@item item result click @result{}
 @end itemize
 
 @itemize @error{}
@@ -1555,6 +1547,13 @@ $result_errors{'itemize_arguments'} = [
 ',
     'line_nr' => 110,
     'text' => '@asis expected braces',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @clickstyle is obsolete
+',
+    'line_nr' => 122,
+    'text' => '@clickstyle is obsolete',
     'type' => 'warning'
   }
 ];

@@ -102,7 +102,7 @@ my %additional_setting_commands;
 # 'afourlatex', 'afourwide', 'bsixpaper'
 foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
                      'evenheading', 'evenfooting', 'oddheading', 'oddfooting',
-                     'documentencoding', 'documentlanguage', 'clickstyle') {
+                     'documentencoding', 'documentlanguage') {
   $additional_setting_commands{$command} = 1;
 }
 

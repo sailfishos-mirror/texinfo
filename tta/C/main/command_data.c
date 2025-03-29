@@ -72,7 +72,7 @@ COMMAND builtin_command_data[] = {
 {"clear", CF_line | CF_no_paragraph | CF_preamble, 0, LINE_lineraw, 1},
 {"click", CF_brace, 0, BRACE_noarg, 0},
 {"clicksequence", CF_brace, 0, BRACE_style_other, 1},
-{"clickstyle", CF_line | CF_no_paragraph | CF_global | CF_preamble, 0, LINE_lineraw, 1},
+{"clickstyle", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_deprecated, 0, LINE_lineraw, 1},
 {"code", CF_brace, CF_brace_code, BRACE_style_code, 1},
 {"codequotebacktick", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_specific, 1},
 {"codequoteundirected", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_specific, 1},

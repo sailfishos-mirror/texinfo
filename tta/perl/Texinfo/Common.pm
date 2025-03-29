@@ -882,14 +882,7 @@ sub itemize_item_prepended_element($)
 
   my $arg = block_line_argument_command($block_line_arg);
   if ($arg) {
-    my $cmdname = $arg->{'cmdname'};
-    if ($cmdname eq 'click'
-        and $arg->{'extra'}
-        and $arg->{'extra'}->{'clickstyle'}) {
-      return {'cmdname' => $arg->{'extra'}->{'clickstyle'}};
-    } else {
-      return $arg;
-    }
+    return $arg;
   } elsif (!$block_line_arg->{'contents'}) {
     return {'cmdname' => 'bullet'};
   } else {
