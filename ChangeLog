@@ -1,5 +1,14 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/html_tests.t (css_in_node_redirection_page): add
+	@documentlanguage en.
+
+	* tta/perl/t/init/css_in_node_redirection_page.pm
+	(_texi2any_tests_css_in_node_redirection_page_format_translate_message):
+	return input string if lang is undef.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (item_line_block_line_argument_command):
 	check that Texinfo::Commands::brace_commands is defined.
 
