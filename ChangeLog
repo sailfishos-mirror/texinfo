@@ -1,3 +1,39 @@
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
+	Do not set en as default documentlanguage, use DEFAULT_STRINGS_LANG if
+	needed (set to en)
+
+	* tta/C/main/base_utils.h (TXI_DEFAULT_STRINGS_LANG),
+	tta/perl/Texinfo/Common.pm (DEFAULT_STRINGS_LANG): define constants,
+	set to en.
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/HTML.pm (_setup_output),
+	tta/perl/Texinfo/Translations.pm (translate_string),
+	tta/C/main/translations.c (translate_string): if documentlanguage is
+	an empty string, use it for the body lang and for translations.
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin),
+	tta/perl/Texinfo/Convert/HTML.pm (_setup_output),
+	tta/perl/Texinfo/Translations.pm (translate_string),
+	tta/perl/t/init/css_in_node_redirection_page.pm: use
+	DEFAULT_STRINGS_LANG/TXI_DEFAULT_STRINGS_LANG.
+
+	* tta/perl/init/chm.pm (chm_init): set language to
+	DEFAULT_STRINGS_LANG if documentlanguage is not defined, otherwise set
+	it to an empty string.
+
+	* tta/perl/Texinfo/Convert/IXIN.pm: set lang only if documentlanguage
+	is defined.
+
+	* tta/data/converters_defaults.txt,
+	tta/perl/Texinfo/Convert/TexinfoSXML.pm (%defaults),
+	tta/perl/Texinfo/Convert/TexinfoXML.pm (%defaults): set default
+	documentlanguage to undef, not to en.
+
+	* tta/perl/Texinfo/Common.pm (MESSAGES_TEXTDOMAIN): use a constant.
+
 2025-03-28  Patrice Dumas  <pertusus@free.fr>
 
 	* util/texinfo.dtd (subentry, xrefname, anchoridentifier): update

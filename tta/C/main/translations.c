@@ -227,9 +227,9 @@ translate_string (const char *string, const char *in_lang,
   int i;
 
   /* language is not checked if set as a customization variable, in that
-     case it could be the empty string or any other string. */
-  if (!in_lang || !strlen (in_lang))
-    lang = "en";
+     case it could be undefined, the empty string or any other string. */
+  if (!in_lang)
+    lang = TXI_DEFAULT_STRINGS_LANG;
 
 #ifndef ENABLE_NLS
   if (use_external_translate_string < 0)

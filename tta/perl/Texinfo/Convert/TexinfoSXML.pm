@@ -40,7 +40,7 @@ my %defaults = (
   'EXTENSION'            => 'sxml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
-  'documentlanguage'     => 'en',
+  'documentlanguage'     => undef,
 );
 
 sub converter_defaults($;$)

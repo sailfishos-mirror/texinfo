@@ -403,11 +403,15 @@ sub chm_init($)
   }
   print STDERR "# chm: writing HTML Help project in $hhp_file_path_name...\n"
      if ($verbose);
-  my $language = $chm_languages{'en'};
+  my $language = '';
   my $documentlanguage = $self->get_conf('documentlanguage');
-  $documentlanguage =~ s/_.*//;
-  if (exists ($chm_languages{$documentlanguage})) {
-    $language = $chm_languages{$documentlanguage};
+  if (defined($documentlanguage)) {
+    $documentlanguage =~ s/_.*//;
+    if (exists ($chm_languages{$documentlanguage})) {
+      $language = $chm_languages{$documentlanguage};
+    }
+  } else {
+    $language = $chm_languages{Texinfo::Common::DEFAULT_STRINGS_LANG};
   }
   my $title = _chm_convert_tree_to_text($self, $self->get_info('title_tree'));
   my $top_file = '';

@@ -370,13 +370,13 @@ sub output($$)
   my $coding = $self->get_conf('OUTPUT_ENCODING_NAME');
   my $documentlanguage = $self->get_conf('documentlanguage');
 
-  if ($coding or $documentlanguage) {
+  if ($coding or defined($documentlanguage)) {
     # Note: Info readers expect the Local Variables section to be
     # under 1000 bytes in length so not many variables can be added here.
     $tag_text .= "\n\x{1F}\nLocal Variables:\n";
     $tag_text .= "coding: $coding\n" if $coding;
     $tag_text .= "Info-documentlanguage: $documentlanguage\n"
-      if $documentlanguage;
+      if defined($documentlanguage);
     $tag_text .= "End:\n";
   }
   if ($fh) {

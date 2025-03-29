@@ -363,10 +363,6 @@ sub convert_tree($$)
   return _convert($self, $root);
 }
 
-# not the same as a default for @documentlanguage.  $DEFAULT_LANG
-# is used in the lang attribute, but if there is no @documentlanguag,
-# the lang_stack will start with an empty string, not with $DEFAULT_LANG.
-my $DEFAULT_LANG = 'en';
 sub conversion_output_begin($;$$)
 {
   my $self = shift;
@@ -387,12 +383,16 @@ sub conversion_output_begin($;$$)
     $id = '';
   }
 
-  my $lang = $DEFAULT_LANG;
+  my $lang;
   $self->set_global_document_commands('preamble', ['documentlanguage']);
-  if (defined($self->get_conf('documentlanguage'))) {
-    $lang = $self->get_conf('documentlanguage');
-    push @{$self->{'lang_stack'}}, $self->get_conf('documentlanguage');
+  my $documentlanguage = $self->get_conf('documentlanguage');
+  if (defined($documentlanguage)) {
+    $lang = $documentlanguage;
+    push @{$self->{'lang_stack'}}, $documentlanguage;
   } else {
+    $lang = Texinfo::Common::DEFAULT_STRINGS_LANG;
+    # start with an empty string if there is no documentlanguage, not with
+    # $lang (used for the lang attribute).
     push @{$self->{'lang_stack'}}, '';
   }
   my $result =  "<?xml version=\"1.0\"${encoding}?>".'
@@ -1057,8 +1057,9 @@ sub _convert($$;$)
     .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
             }
             my $language = '';
-            if (defined($self->get_conf('documentlanguage'))) {
-              $language = $self->get_conf('documentlanguage');
+            my $documentlanguage = $self->get_conf('documentlanguage');
+            if (defined($documentlanguage)) {
+              $language = $documentlanguage;
               if ($self->{'lang_stack'}->[-1] ne $language) {
                 $section_attribute .= ' lang="'.$language.'"';
               }

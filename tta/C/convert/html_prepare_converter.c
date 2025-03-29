@@ -32,7 +32,8 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_conversion_data.h"
-/* bug fatal isascii_alnum isascii_alpha read_var_len */
+/* bug fatal isascii_alnum isascii_alpha read_var_len
+   TXI_DEFAULT_STRINGS_LANG */
 #include "base_utils.h"
 /* new_element */
 #include "tree.h"
@@ -3746,7 +3747,8 @@ html_setup_output (CONVERTER *self, char **paths)
   int handler_fatal_error_level;
   int setup_handler_status;
   int js_categories_list_nr = 0;
-  const char *structure_preamble_document_language;
+  const char *body_lang;
+  char *body_element_attributes;
 
   if (self->conf->OUTFILE.o.string)
     {
@@ -3820,19 +3822,16 @@ html_setup_output (CONVERTER *self, char **paths)
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
-  structure_preamble_document_language
-    = self->conf->documentlanguage.o.string;
+  body_lang = self->conf->documentlanguage.o.string;
 
-  if (structure_preamble_document_language
-      && strlen (structure_preamble_document_language))
-    {
-      char *body_element_attributes;
-      xasprintf (&body_element_attributes, "lang=\"%s\"",
-                 structure_preamble_document_language);
-      option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
-                0, body_element_attributes);
-      free (body_element_attributes);
-    }
+  if (!body_lang)
+    body_lang = TXI_DEFAULT_STRINGS_LANG;
+
+  xasprintf (&body_element_attributes, "lang=\"%s\"", body_lang);
+  option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+                   0, body_element_attributes);
+  free (body_element_attributes);
+
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
   init_conversion_after_setup_handler (self);

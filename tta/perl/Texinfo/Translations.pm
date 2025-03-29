@@ -74,8 +74,6 @@ sub import {
 
 # i18n
 
-my $DEFAULT_LANGUAGE = 'en';
-
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
 
@@ -163,8 +161,8 @@ our %translation_cache;
 our %translation_cache_context;
 
 # Return a translated string.
-# $LANG set the language if set.  If undef, the $DEFAULT_LANGUAGE variable
-# is used.
+# $LANG set the language if set.  If undef,
+# Texinfo::Common::DEFAULT_STRINGS_LANG is used.
 # NOTE If called from a converter, $LANG will in general be set from the
 # document documentlanguage when it is encountered.  Before the first
 # @documentlanguage, it depends on the converter.  Some do not set
@@ -179,7 +177,7 @@ sub translate_string($$;$)
 
   # language is not checked if set as a customization variable, in that
   # case it could be the empty string or any other string.
-  $lang = $DEFAULT_LANGUAGE if (!defined($lang) or $lang eq '');
+  $lang = Texinfo::Common::DEFAULT_STRINGS_LANG if (!defined($lang));
 
   my $translated_string;
   if (!defined($translation_context)) {

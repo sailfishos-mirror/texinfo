@@ -92,7 +92,7 @@ CHECK_HTMLXREF         1
 COPIABLE_LINKS         1
 DATE_IN_HEADER         0
 DEFAULT_RULE           <hr>
-documentlanguage       en
+documentlanguage       undef
 DOCTYPE                <!DOCTYPE html>
 DO_ABOUT               0
 OUTPUT_CHARACTERS      0

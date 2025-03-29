@@ -66,19 +66,23 @@ __ __p
 
 our $VERSION = '7.2dev';
 
+# TODO document?
+use constant {
+   MESSAGES_TEXTDOMAIN => 'texinfo',
+   DEFAULT_STRINGS_LANG => 'en',
+};
+
 # i18n
 # For the messages translations.
-my $messages_textdomain = 'texinfo';
-
 sub __($) {
   my $msgid = shift;
-  return Locale::Messages::dgettext($messages_textdomain, $msgid);
+  return Locale::Messages::dgettext(MESSAGES_TEXTDOMAIN, $msgid);
 }
 
 sub __p($$) {
   my $context = shift;
   my $msgid = shift;
-  return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
+  return Locale::Messages::dpgettext(MESSAGES_TEXTDOMAIN, $context, $msgid);
 }
 
 

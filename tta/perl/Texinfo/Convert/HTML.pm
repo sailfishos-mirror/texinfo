@@ -13746,12 +13746,11 @@ sub _setup_output($)
 
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
-  my $structure_preamble_document_language = $self->get_conf('documentlanguage');
-  if (defined($structure_preamble_document_language)
-      and $structure_preamble_document_language ne '') {
-    $self->set_conf('BODY_ELEMENT_ATTRIBUTES',
-                    'lang="' . $structure_preamble_document_language . '"');
+  my $body_lang = $self->get_conf('documentlanguage');
+  if (!defined($body_lang)) {
+    $body_lang = Texinfo::Common::DEFAULT_STRINGS_LANG;
   }
+  $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$body_lang.'"');
   $self->set_global_document_commands('before', ['documentlanguage']);
 
   _init_conversion_after_setup_handler($self);

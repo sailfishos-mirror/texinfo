@@ -2,6 +2,8 @@ package Texinfo::Config;
 
 use strict;
 
+use Texinfo::Common;
+
 my %translations = (
   'en' => { "The node you are looking for is at {href}."
           => {'' => "The \@sansserif{node} you are looking for is at {href}."}
@@ -11,6 +13,7 @@ my %translations = (
 sub _texi2any_tests_css_in_node_redirection_page_format_translate_message($$$;$)
 {
   my ($self, $string, $lang, $translation_context) = @_;
+  $lang = Texinfo::Common::DEFAULT_STRINGS_LANG if (!defined($lang));
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})

@@ -373,14 +373,11 @@ sub output_ixin($$)
                            [['name', $output_file_name]]);
   }
   my $lang = $self->get_conf('documentlanguage');
-  #my $lang_code = $lang;
-  #my $region_code;
-  #if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
-  #  $lang_code = $1;
-  #  $region_code = $2;
-  #}
-  $result .= ' ';
-  $result .= $self->ixin_list_element('lang', [['name', $lang]]);
+  if (defined($lang)) {
+    $result .= ' ';
+    $result .= $self->ixin_list_element('lang', [['name', $lang]]);
+  }
+
   # FIXME title: use simpletitle or fulltitle
 
   my $document_info;
