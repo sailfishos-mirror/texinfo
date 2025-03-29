@@ -41,6 +41,7 @@ my %translations = (
 sub _texi2any_tests_format_translate_message($$$;$)
 {
   my ($self, $string, $lang, $translation_context) = @_;
+  return $string if (!defined($lang));
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})

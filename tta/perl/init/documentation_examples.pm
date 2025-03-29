@@ -521,6 +521,7 @@ texinfo_register_file_id_setting_function('label_target_name',
 sub my_format_translate_message($$$;$)
 {
   my ($converter, $string, $lang, $translation_context) = @_;
+  return $string if (!defined($lang));
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})

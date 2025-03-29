@@ -1,5 +1,21 @@
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (item_line_block_line_argument_command):
+	check that Texinfo::Commands::brace_commands is defined.
+
+	* tta/perl/init/documentation_examples.pm
+	(my_format_translate_message),
+	tta/perl/t/init/special_element_customization.pm
+	(_texi2any_tests_special_unit_translate_message),
+	tta/perl/t/init/translated_strings_customization.pm
+	(_texi2any_tests_format_translate_message),
+	tta/perl/t/init/translation_in_parser_in_translation.pm
+	(_texi2any_test_translation_in_parser_format_translate_message),
+	doc/texi2any_api.texi (Translated Strings Customization):
+	return input string if lang is undef.
+
+2025-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	Do not translate output document string if language is empty or undef
 
 	* tta/C/main/translations.c (translate_string),

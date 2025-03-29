@@ -904,9 +904,13 @@ sub item_line_block_line_argument_command($)
 
   my $arg = block_line_argument_command($block_line_arg);
 
-  if ($arg
-      and $Texinfo::Commands::brace_commands{$arg->{'cmdname'}} eq 'noarg') {
-    $arg = undef;
+  if ($arg) {
+    my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
+    # $Texinfo::Commands::brace_commands{} is undef
+    # for definfoenclose'd commands
+    if ($brace_category and $brace_category eq 'noarg') {
+      $arg = undef;
+    }
   }
   return $arg;
 }

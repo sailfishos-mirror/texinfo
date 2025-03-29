@@ -4042,7 +4042,9 @@ function reference:
 @deftypefn {Function Reference} @var{$translated_string} format_translate_message @
   (@var{$converter}, @var{$string}, @var{$lang}, @var{$translation_context})
 @var{$string} is the string to be translated, @var{$lang} is the language.
-@var{$translation_context} is an optional translation context.
+@var{$lang} may be undef, if @code{@@documentlanguage} is not set.  In
+that case you can return the string untranslated.  @var{$translation_context}
+is an optional translation context.
 
 The result returned should be the translated string. The result returned may
 also be @samp{undef}, in which case the translation is done as if the function
@@ -4080,6 +4082,7 @@ my %translations = (
 sub my_format_translate_message($$$;$)
 @{
   my ($self, $string, $lang, $translation_context) = @@_;
+  return $string if (!defined($lang));
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations@{$lang@})
       and exists($translations@{$lang@}->@{$string@})
