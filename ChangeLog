@@ -1,3 +1,59 @@
+2025-03-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Translations.pm (translate_string, gdt)
+	(gdt_string, pgdt), tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/perl/Texinfo/Convert/Converter.pm (cdt, cdt_string),
+	tta/perl/Texinfo/Convert/HTML.pm (html_translate_string, cdt)
+	(cdt_string), tta/perl/Texinfo/Convert/Text.pm (_text_heading)
+	(_convert), tta/perl/Texinfo/Convert/Utils.pm
+	(definition_category_tree, expand_today, translated_command_tree)
+	(add_heading_number), tta/perl/Texinfo/Structuring.pm
+	(new_complete_node_menu, new_detailmenu),
+	tta/perl/Texinfo/Transformations.pm (complete_tree_nodes_missing_menu)
+	(regenerate_master_menu), tta/perl/init/documentation_examples.pm,
+	tta/perl/t/init/css_in_node_redirection_page.pm,
+	tta/perl/t/init/special_element_customization.pm,
+	tta/perl/t/init/translated_strings_customization.pm,
+	tta/perl/t/init/translation_in_parser_in_translation.pm,
+	doc/texi2any_api.texi (Translated Strings Customization): replace the
+	lang argument of translate_string, gdt, gdt_string and pgdt by an
+	array reference with language as first element, and as second element
+	an hash reference holding translations already done for that language
+	that can be used instead of the default translations cache.  Pass to
+	functions calling gdt or gdt_string, such as cdt,
+	definition_category_tree and similar.  Update callers.
+
+	* tta/perl/Texinfo/Translations.pm ($lang_translations)
+	($undef_lang_translation, complete_indices): use a separate translated
+	string cache for complete_indices, given that the translated strings
+	are only used in this function.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (switch_lang_translations),
+	tta/C/convert/build_html_perl_state.c (switch_lang_translations)
+	(build_html_translated_names), tta/perl/Texinfo/Convert/Converter.pm
+	(_generic_converter_init), tta/perl/Texinfo/Convert/DocBook.pm
+	(conversion_output_begin, _convert), tta/perl/Texinfo/Convert/HTML.pm
+	(_translate_names), tta/perl/Texinfo/Convert/Info.pm (_info_header),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_informative_command_output),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text)
+	(set_language): add switch_lang_translations to setup the
+	current_lang_translations key in converter that holds the language and
+	the hash reference holding translations already done for that
+	language, set the translations key to the hash reference holding the
+	translations.  The hash reference holding the translations is set to
+	the main trnaslation cache used in the default case,
+	Texinfo::Translations::translation_cache.  Therefore, the cache is the
+	same as the default one, but the converters set the language hash
+	instead of getting it from the language in translate_string.  Call
+	switch_lang_translations in converters when the documentlanguage is
+	set or modified.
+
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text): handle undef
+	INPUT_FILE_NAME_ENCODING and LOCALE_ENCODING.
+
 2025-03-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Translations.pm ($translation_cache)

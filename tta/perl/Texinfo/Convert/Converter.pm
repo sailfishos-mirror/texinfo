@@ -300,6 +300,11 @@ sub _generic_converter_init($$;$)
       # be reset by set_conf.
       $converter->{'configured'}->{$key} = 1;
     }
+
+    if (exists($conf->{'documentlanguage'})) {
+      Texinfo::Convert::Utils::switch_lang_translations($converter,
+                                           $conf->{'documentlanguage'});
+    }
   }
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
@@ -470,7 +475,7 @@ sub cdt($$;$$)
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt($string,
-                                    $self->get_conf('documentlanguage'),
+                                    $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $self->get_conf('DEBUG'),
                                     $translation_context);
@@ -481,7 +486,7 @@ sub cdt_string($$;$$)
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt_string($string,
-                                    $self->get_conf('documentlanguage'),
+                                    $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $translation_context);
 }

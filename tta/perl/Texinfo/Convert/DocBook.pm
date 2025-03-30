@@ -387,6 +387,7 @@ sub conversion_output_begin($;$$)
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
     $lang = $documentlanguage;
+    Texinfo::Convert::Utils::switch_lang_translations($self, $documentlanguage);
     push @{$self->{'lang_stack'}}, $documentlanguage;
   } else {
     $lang = Texinfo::Common::DEFAULT_STRINGS_LANG;
@@ -530,6 +531,8 @@ sub conversion_output_begin($;$$)
     }
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
+  Texinfo::Convert::Utils::switch_lang_translations($self,
+                                       $self->get_conf('documentlanguage'));
 
   my $document_info = '';
   $document_info .= $title_info . $authors_info;
@@ -962,6 +965,10 @@ sub _convert($$;$)
       #warn "  is dbk line command\n";
       if ($docbook_global_commands{$cmdname}) {
         Texinfo::Common::set_informative_command_value($self, $element);
+        if ($cmdname eq 'documentlanguage') {
+          Texinfo::Convert::Utils::switch_lang_translations($self,
+                                       $self->get_conf('documentlanguage'));
+        }
         return '';
       }
       if ($Texinfo::Commands::root_commands{$cmdname}) {

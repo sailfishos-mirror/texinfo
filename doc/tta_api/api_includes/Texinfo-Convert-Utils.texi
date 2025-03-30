@@ -38,16 +38,22 @@ implement the required interfaces and could also have a converter available in
 some cases, to call the functions with the converter argument set.
 
 @table @asis
-@item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $lang)}
+@item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $lang_translations)}
 @cindex @code{add_heading_number}
 
 @emph{$heading_element} is a heading command tree element.  @emph{$heading_text} is the
 already formatted heading text.  if the @emph{$do_number} optional argument is
-defined and false, no number is used and the text is returned as is.  If the
-@emph{$lang} optional argument is set, the resulting string is translated to
-@emph{$lang}.  This function returns the heading with a number and the appendix
-part if needed.
+defined and false, no number is used and the text is returned as is.  The
+@emph{$lang_translations} optional argument should be an array reference with one
+or two elements.  The first element of the array is the language the resulting
+string is translated to.  The second element, if set, should be an hash
+reference holding translations already done.  If a language is set in
+@emph{$lang_translations}, the string is translated and the optional @emph{$debug}
+argument is passed to the translation function.
+
+This function returns the heading with a number and the appendix part if
+needed.
 
 @item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($category@comma{} $class@comma{} $type@comma{} $name@comma{} $arguments) = definition_arguments_content($element)}
@@ -62,18 +68,21 @@ Arguments correspond to text following the other elements
 on the @@-command line.  If there is no argument, @emph{$arguments}
 will be @code{undef}.
 
-@item $tree = definition_category_tree($def_line, $lang, $debug, $converter)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang@comma{} $debug@comma{} $converter)}
+@item $tree = definition_category_tree($def_line, $lang_translations, $debug, $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang_translations@comma{} $debug@comma{} $converter)}
 @cindex @code{definition_category_tree}
 
 @emph{$def_line} is a @code{def_line} Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the @emph{$def_line} taking the class
-into account, if there is one.  If the @emph{$lang} optional argument is set,
-the resulting string is translated to @emph{$lang}.  In that case, the optional
-@emph{$debug} argument is passed to the translation function.  If the optional
-@emph{$converter} argument is set, the translation is done by a converter method.
-In that case, @emph{$lang} and @emph{$debug} are ignored, the converter method
-uses corresponding converter customization variables.
+into account, if there is one.  The @emph{$lang_translations} optional argument
+should be an array reference with one or two elements.  The first element of
+the array is the language the resulting string is translated to.  The second
+element, if set, should be an hash reference holding translations already done.
+If @emph{$lang_translations} is set, the optional @emph{$debug} argument is passed to
+the translation function.  If the optional @emph{$converter} argument is set, the
+translation is done by a converter method.  In that case, @emph{$lang_translations}
+and @emph{$debug} are ignored, the converter method uses similar converter
+information.
 
 @item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = encoded_input_file_name($character_string_name@comma{} $input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}

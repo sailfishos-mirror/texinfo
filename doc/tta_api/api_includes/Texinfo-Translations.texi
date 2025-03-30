@@ -16,7 +16,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   my $tree_translated
     = Texinfo::Translations::gdt('See {reference} in @cite{{book}}',
-                           $converter->get_conf('documentlanguage'),
+                           [$converter->get_conf('documentlanguage')],
                           {'reference' => $tree_reference,
                            'book'  => {'text' => $book_name}});
 @end verbatim
@@ -62,11 +62,11 @@ converted documents, and return a Texinfo tree.  The @code{gdt_string} is simila
 but returns a simple string, for already converted strings.
 
 @table @asis
-@item $tree = gdt($string, $lang, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
-@anchor{Texinfo@asis{::}Translations $tree = gdt($string@comma{} $lang@comma{} $replaced_substrings@comma{} $translation_context@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
+@item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $tree = gdt($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
 
-@item $string = gdt_string($string, $lang, $replaced_substrings, $translation_context, $object, $translate_string_method)
-@anchor{Texinfo@asis{::}Translations $string = gdt_string($string@comma{} $lang@comma{} $replaced_substrings@comma{} $translation_context@comma{} $object@comma{} $translate_string_method)}
+@item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $string = gdt_string($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $object@comma{} $translate_string_method)}
 
 @cindex @code{gdt}
 @cindex @code{gdt_string}
@@ -77,7 +77,10 @@ the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With @code{gdt_string} a string
 is returned.
 
-@emph{$lang} is the language used for the translation.
+The @emph{$lang_translations}
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
 
 @emph{$replaced_substrings} is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -103,7 +106,7 @@ parsed as a Texinfo string, with @emph{@{reference@}} substituted by
 replaced by the associated Texinfo tree text element:
 
 @verbatim
-  $tree = gdt('See {reference} in @cite{{book}}', "ca",
+  $tree = gdt('See {reference} in @cite{{book}}', ['ca'],
               {'reference' => $tree_reference,
                'book'  => {'text' => $book_name}});
 @end verbatim
@@ -115,11 +118,11 @@ translated strings by providing a @emph{$translate_string_method} argument.  If 
 undef it should be a reference on a function that is called instead of
 @code{translate_string}.  The @emph{$object} is passed as first argument of the
 @emph{$translate_string_method}, the other arguments are the same as
-@ref{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang@comma{} $translation_context),, @code{translate_string}}
+@ref{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang_translations@comma{} $translation_context),, @code{translate_string}}
 arguments.
 
-@item $tree = pgdt($translation_context, $string, $lang, $replaced_substrings, $debug_level)
-@anchor{Texinfo@asis{::}Translations $tree = pgdt($translation_context@comma{} $string@comma{} $lang@comma{} $replaced_substrings@comma{} $debug_level)}
+@item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $tree = pgdt($translation_context@comma{} $string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
 @cindex @code{pgdt}
 
 Same to @code{gdt} except that the @emph{$translation_context} is not optional.
@@ -133,14 +136,18 @@ By default, in @code{gdt}, @code{gdt_string} and @code{pgdt} a string is transla
 @code{translate_string}.
 
 @table @asis
-@item $translated_string = translate_string($string, $lang, $translation_context)
-@anchor{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang@comma{} $translation_context)}
+@item $translated_string = translate_string($string, $lang_translations, $translation_context)
+@anchor{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang_translations@comma{} $translation_context)}
 @cindex @code{translate_string}
 
-The @emph{$string} is a string to be translated.  @emph{$lang} is the language used for
-the translation.  The @emph{$translation_context} is optional.  If not @code{undef}
-this is a translation context string for @emph{$string}.  It is the first argument
-of @code{pgettext} in the C API of Gettext.
+The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
+If the language is @code{undef}, the input string is returned as is.  The
+@emph{$translation_context} is optional.  If not @code{undef} this is a translation
+context string for @emph{$string}.  It is the first argument of @code{pgettext} in the
+C API of Gettext.
 
 @code{translate_string} uses a gettext-like infrastructure to retrieve the
 translated strings, using the @emph{texinfo_document} domain.

@@ -283,7 +283,7 @@ There are three main types of line commands, regular line commands,
 
 @emph{lineraw} line commands arguments are not subject to the
 usual macro expansion.  @emph{lineraw} line commands with
-arguments are, for example, @code{@@set}, @code{@@clickstyle}, @code{@@unmacro}
+arguments are, for example, @code{@@set}, @code{@@unmacro}
 and @code{@@comment}.  @code{@@raisesections}, @code{@@contents} and @code{@@novalidate}
 are examples of @emph{lineraw} line commands without arguments.
 
@@ -614,7 +614,7 @@ Text in an environment where it should be kept as is (in @code{@@verbatim},
 
 Used for the arguments to some special line commands whose arguments
 aren't subject to the usual macro expansion.  For example @code{@@set},
-@code{@@clickstyle}, @code{@@unmacro}, @code{@@comment}.  The argument is associated to
+@code{@@unmacro}, @code{@@comment}.  The argument is associated to
 the @emph{text} key.
 
 @item spaces_at_end
@@ -1173,11 +1173,6 @@ The first argument normalized is in @emph{normalized}.
 the normalized label, built as specified in the Texinfo documentation in the
 @emph{HTML Xref} node.  There is also a @emph{node_content} key for an element holding
 the corresponding content.
-
-@item @code{@@click}
-@anchor{Texinfo@asis{::}Parser @code{@@click}}
-
-In @emph{clickstyle} there is the current clickstyle command.
 
 @item @code{def_line}
 @anchor{Texinfo@asis{::}Parser @code{def_line} 1}

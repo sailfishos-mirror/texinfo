@@ -184,6 +184,41 @@ sub output_files_unclosed_files($)
 
 
 
+my $undef_lang_translation = [undef];
+
+# TODO document?
+sub switch_lang_translations($$)
+{
+  my $self = shift;
+  my $lang = shift;
+
+  if (defined($lang)) {
+    my $current_lang_translation = $self->{'current_lang_translations'};
+    if (defined($current_lang_translation)
+        and defined($current_lang_translation->[0])
+        and $current_lang_translation->[0] eq $lang) {
+      # Nothing to do
+    } else {
+      my $translations;
+      if (!defined($self->{'translations'})) {
+        $translations = $Texinfo::Translations::translation_cache;
+        $self->{'translations'} = $translations;
+      } else {
+        $translations = $self->{'translations'};
+      }
+      if (!$translations->{$lang}) {
+        $translations->{$lang} = {};
+      }
+      $self->{'current_lang_translations'} = [$lang,
+                                         $translations->{$lang}];
+    }
+  } else {
+    $self->{'current_lang_translations'} = $undef_lang_translation;
+  }
+}
+
+
+
 our @month_name =
     (
      Texinfo::Common::gdt('January'),
@@ -239,7 +274,7 @@ sub definition_arguments_content($)
 sub definition_category_tree($;$$$)
 {
   my $current = shift;
-  my $lang = shift;
+  my $lang_translations = shift;
   my $debug = shift;
   my $converter = shift;
 
@@ -274,14 +309,15 @@ sub definition_category_tree($;$$$)
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if ($converter) {
       return $converter->cdt('{category} on @code{{class}}', $substrings);
-    } elsif (defined($lang)) {
+    } elsif (defined($lang_translations)) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
-                                            $lang, $substrings, $debug);
+                                            $lang_translations, $substrings,
+                                            $debug);
     } else {
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
-                                 $current->{'extra'}->{'documentlanguage'},
+                                 [$current->{'extra'}->{'documentlanguage'}],
                                  $substrings);
       return $tree;
     }
@@ -292,15 +328,16 @@ sub definition_category_tree($;$$$)
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if ($converter) {
       return $converter->cdt('{category} of @code{{class}}', $substrings);
-    } elsif (defined($lang)) {
+    } elsif (defined($lang_translations)) {
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
-                                        $lang, $substrings, $debug);
+                                        $lang_translations, $substrings,
+                                        $debug);
     } else {
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
-                                 $current->{'extra'}->{'documentlanguage'},
+                                 [$current->{'extra'}->{'documentlanguage'}],
                                  $substrings);
     }
   }
@@ -309,7 +346,7 @@ sub definition_category_tree($;$$$)
 sub expand_today($;$$$)
 {
   my $test = shift;
-  my $lang = shift;
+  my $lang_translations = shift;
   my $debug = shift;
   my $converter = shift;
 
@@ -332,11 +369,12 @@ sub expand_today($;$$$)
           { 'month' => $converter->cdt(
                           $Texinfo::Convert::Utils::month_name[$mon]),
             'day' => {'text' => $mday}, 'year' => {'text' => $year} });
-  } elsif (defined($lang)) {
+  } elsif (defined($lang_translations)) {
     my $month_tree
       = Texinfo::Translations::gdt($Texinfo::Convert::Utils::month_name[$mon],
-                                   $lang, 0, $debug);
-    $tree = Texinfo::Translations::gdt('{month} {day}, {year}', $lang,
+                                   $lang_translations, 0, $debug);
+    $tree = Texinfo::Translations::gdt('{month} {day}, {year}',
+          $lang_translations,
           { 'month' => $month_tree,
             'day' => {'text' => $mday}, 'year' => {'text' => $year} },
            $debug);
@@ -401,7 +439,7 @@ sub translated_command_tree($$$$;$)
 {
   my $translated_commands = shift;
   my $cmdname = shift;
-  my $lang = shift;
+  my $lang_translations = shift;
   my $debug = shift;
   my $converter = shift;
 
@@ -411,8 +449,8 @@ sub translated_command_tree($$$$;$)
     if ($converter) {
       return $converter->cdt($to_translate);
     } else {
-      return Texinfo::Translations::gdt($to_translate, $lang, 0,
-                                        $debug);
+      return Texinfo::Translations::gdt($to_translate,
+                             $lang_translations, 0, $debug);
     }
   }
   return undef;
@@ -498,7 +536,7 @@ sub add_heading_number($$;$$)
   my $current = shift;
   my $text = shift;
   my $numbered = shift;
-  my $lang = shift;
+  my $lang_translations = shift;
 
   my $number;
   if ($current->{'extra'}
@@ -508,7 +546,7 @@ sub add_heading_number($$;$$)
   }
 
   my $result;
-  if (defined($lang)) {
+  if (defined($lang_translations)) {
     # NOTE we reach here when called from Texinfo::Convert::Text
     # only if associated with a converter.
     # There is a test especially crafted to reach that point in
@@ -517,11 +555,11 @@ sub add_heading_number($$;$$)
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'extra'}->{'section_level'} == 1) {
         $result = Texinfo::Translations::gdt_string(
-                      'Appendix {number} {section_title}', $lang,
-                      {'number' => $number, 'section_title' => $text});
+                    'Appendix {number} {section_title}', $lang_translations,
+                    {'number' => $number, 'section_title' => $text});
       } else {
         $result = Texinfo::Translations::gdt_string(
-                                 '{number} {section_title}', $lang,
+                       '{number} {section_title}', $lang_translations,
                        {'number' => $number, 'section_title' => $text});
       }
     } else {
@@ -750,15 +788,21 @@ some cases, to call the functions with the converter argument set.
 
 =over
 
-=item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang)
+=item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations)
 X<C<add_heading_number>>
 
 I<$heading_element> is a heading command tree element.  I<$heading_text> is the
 already formatted heading text.  if the I<$do_number> optional argument is
-defined and false, no number is used and the text is returned as is.  If the
-I<$lang> optional argument is set, the resulting string is translated to
-I<$lang>.  This function returns the heading with a number and the appendix
-part if needed.
+defined and false, no number is used and the text is returned as is.  The
+I<$lang_translations> optional argument should be an array reference with one
+or two elements.  The first element of the array is the language the resulting
+string is translated to.  The second element, if set, should be an hash
+reference holding translations already done.  If a language is set in
+I<$lang_translations>, the string is translated and the optional I<$debug>
+argument is passed to the translation function.
+
+This function returns the heading with a number and the appendix part if
+needed.
 
 =item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>
@@ -772,17 +816,20 @@ Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category_tree($def_line, $lang, $debug, $converter)
+=item $tree = definition_category_tree($def_line, $lang_translations, $debug, $converter)
 X<C<definition_category_tree>>
 
 I<$def_line> is a C<def_line> Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the I<$def_line> taking the class
-into account, if there is one.  If the I<$lang> optional argument is set,
-the resulting string is translated to I<$lang>.  In that case, the optional
-I<$debug> argument is passed to the translation function.  If the optional
-I<$converter> argument is set, the translation is done by a converter method.
-In that case, I<$lang> and I<$debug> are ignored, the converter method
-uses corresponding converter customization variables.
+into account, if there is one.  The I<$lang_translations> optional argument
+should be an array reference with one or two elements.  The first element of
+the array is the language the resulting string is translated to.  The second
+element, if set, should be an hash reference holding translations already done.
+If I<$lang_translations> is set, the optional I<$debug> argument is passed to
+the translation function.  If the optional I<$converter> argument is set, the
+translation is done by a converter method.  In that case, I<$lang_translations>
+and I<$debug> are ignored, the converter method uses similar converter
+information.
 
 =item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 

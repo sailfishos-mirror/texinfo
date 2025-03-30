@@ -48,8 +48,81 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
+static const char *lang_trans_key = "current_lang_translations";
+
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
 static void
-build_html_translated_names (HV *hv, CONVERTER *converter)
+switch_lang_translations (HV *converter_hv, const char *lang)
+{
+  AV *current_lang_translations_av;
+
+  dTHX;
+
+  if (lang)
+    {
+      SV *translations;
+      SV *lang_sv = newSVpv_utf8 (lang, 0);
+      SV **translations_sv;
+      HV *translations_hv;
+      HE *translations_lang_he;
+      HV *translations_lang_hv;
+      SV **current_lang_translations_sv;
+
+      FETCH(current_lang_translations);
+      if (current_lang_translations_sv
+          && SvOK (*current_lang_translations_sv))
+        {
+          AV *lang_trans_AV = (AV *)SvRV (*current_lang_translations_sv);
+          SV **current_lang_sv = av_fetch (lang_trans_AV, 0, 0);
+          if (SvOK (*current_lang_sv))
+            {
+              if (!sv_cmp (lang_sv, *current_lang_sv))
+                return;
+            }
+        }
+
+      FETCH(translations);
+
+      if (!translations_sv || !SvOK (*translations_sv))
+        {
+          translations = get_sv ("Texinfo::Translations::translation_cache",
+                                 0);
+          hv_store (converter_hv, "translations", strlen ("translations"),
+                    SvREFCNT_inc (translations), 0);
+        }
+      else
+        {
+          translations = *translations_sv;
+        }
+      translations_hv = (HV *)SvRV (translations);
+      translations_lang_he = hv_fetch_ent (translations_hv, lang_sv,
+                                           0, 0);
+      if (!translations_lang_he)
+        {
+          translations_lang_hv = newHV ();
+          hv_store_ent (translations_hv, lang_sv,
+                        newRV_noinc ((SV *)translations_lang_hv), 0);
+        }
+      else
+        translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
+
+      current_lang_translations_av = newAV ();
+      av_push (current_lang_translations_av, lang_sv);
+      av_push (current_lang_translations_av,
+               newRV_inc ((SV *) translations_lang_hv));
+    }
+  else
+    {
+      current_lang_translations_av = newAV ();
+
+      av_push (current_lang_translations_av, newSV (0));
+    }
+  hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
+            newRV_noinc ((SV *) current_lang_translations_av), 0);
+}
+
+static void
+build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
   int j;
   SV **directions_strings_sv;
@@ -59,11 +132,12 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   SV **no_arg_commands_formatting_sv;
   HV *direction_string_hv;
   SV **convert_text_options_sv;
+  const char *documentlanguage
+    = converter->conf->documentlanguage.o.string;
 
   dTHX;
 
   /* reset with empty hash */
-#define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);
   FETCH(directions_strings);
   directions_strings_hv = (HV *) SvRV (*directions_strings_sv);
 #define tds_type(name) \
@@ -76,8 +150,6 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   FETCH(convert_text_options);
   if (convert_text_options_sv)
     {
-      const char *documentlanguage
-        = converter->conf->documentlanguage.o.string;
       SV *documentlanguage_sv;
       HV *text_options_hv = (HV *) SvRV (*convert_text_options_sv);
 
@@ -88,6 +160,8 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
       hv_store (text_options_hv, "documentlanguage",
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
+
+  switch_lang_translations (converter_hv, documentlanguage);
 
   FETCH(special_unit_info);
   special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);

@@ -240,12 +240,14 @@ copy_sv_options_for_convert_text (SV *sv_in)
       = SvIV (*DOC_ENCODING_FOR_INPUT_FILE_NAME_sv);
 
   FETCH(INPUT_FILE_NAME_ENCODING)
-  if (INPUT_FILE_NAME_ENCODING_sv)
+  if (INPUT_FILE_NAME_ENCODING_sv
+      && SvOK (*INPUT_FILE_NAME_ENCODING_sv))
     text_options->INPUT_FILE_NAME_ENCODING
       = non_perl_strdup (SvPVutf8_nolen (*INPUT_FILE_NAME_ENCODING_sv));
 
   FETCH(LOCALE_ENCODING)
-  if (LOCALE_ENCODING_sv)
+  if (LOCALE_ENCODING_sv
+      && SvOK (*LOCALE_ENCODING_sv))
     text_options->LOCALE_ENCODING
       = non_perl_strdup (SvPVutf8_nolen (*LOCALE_ENCODING_sv));
 

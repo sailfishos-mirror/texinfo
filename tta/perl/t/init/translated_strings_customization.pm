@@ -40,7 +40,9 @@ my %translations = (
 
 sub _texi2any_tests_format_translate_message($$$;$)
 {
-  my ($self, $string, $lang, $translation_context) = @_;
+  my ($converter, $string, $lang_translations, $translation_context) = @_;
+  my $lang;
+  $lang = $lang_translations->[0] if ($lang_translations);
   return $string if (!defined($lang));
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})

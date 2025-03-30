@@ -1697,6 +1697,7 @@ sub _informative_command_output($$)
 
   if ($cmdname eq 'documentlanguage') {
     my $language = $self->get_conf($cmdname);
+    Texinfo::Convert::Utils::switch_lang_translations($self, $language);
     $language =~ s/_/-/;
     $self->{'packages'}->{'babel'} = 1;
     return "\\selectlanguage{$language}%\n";
@@ -1820,7 +1821,7 @@ sub _latex_begin_output($)
   foreach my $informative_cmdname ('documentlanguage', 'pagesizes',
                                                'paragraphindent') {
     my $conf_value = $self->get_conf($informative_cmdname);
-    if (defined ($conf_value)) {
+    if (defined($conf_value)) {
       $header .= _informative_command_output($self, $informative_cmdname);
     }
   }
@@ -2677,7 +2678,7 @@ sub _convert_def_line($$)
     my $converted_category;
     my $category
       = Texinfo::Convert::Utils::definition_category_tree($element,
-                                     $self->get_conf('documentlanguage'),
+                                     $self->{'current_lang_translations'},
                                              $self->get_conf('DEBUG'));
     if (defined($category)) {
       # category is converted in normal text context

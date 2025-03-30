@@ -2794,6 +2794,10 @@ sub _translate_names($)
 
   Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
                                        $self->get_conf('documentlanguage'));
+
+  Texinfo::Convert::Utils::switch_lang_translations($self,
+                                       $self->get_conf('documentlanguage'));
+
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
     $output_encoding_name = 'UNDEF' if (!defined($output_encoding_name));
@@ -2875,20 +2879,20 @@ sub _translate_names($)
 # Texinfo::Translations::translate_string redefined to call user defined function.
 sub html_translate_string($$$;$)
 {
-  my ($self, $string, $lang, $translation_context) = @_;
+  my ($self, $string, $lang_translations, $translation_context) = @_;
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
-    my $format_lang = $lang;
-    $format_lang = $self->get_conf('documentlanguage')
-                           if ($self and !defined($format_lang));
+    my $format_lang_translations = $lang_translations;
+    $format_lang_translations = $self->{'current_lang_translations'}
+                           if ($self and !defined($format_lang_translations));
     my $translated_string
       = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
-                                 $string, $format_lang, $translation_context);
+                     $string, $format_lang_translations, $translation_context);
     if (defined($translated_string)) {
       return $translated_string;
     }
   }
 
-  return Texinfo::Translations::translate_string($string, $lang,
+  return Texinfo::Translations::translate_string($string, $lang_translations,
                                                  $translation_context);
 }
 
@@ -2899,7 +2903,7 @@ sub cdt($$;$$)
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt($string,
-                                    $self->get_conf('documentlanguage'),
+                                    $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $self->get_conf('DEBUG'),
                                     $translation_context, $self,
@@ -2911,7 +2915,7 @@ sub cdt_string($$;$$)
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt_string($string,
-                                    $self->get_conf('documentlanguage'),
+                                    $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $translation_context, $self,
                                     \&html_translate_string);
@@ -4742,7 +4746,8 @@ sub _convert_heading_command($$$$$)
                                                  $identifiers_target, $node);
           } else { # $format_menu eq 'menu_no_detailmenu'
             $menu_node
-              = Texinfo::Structuring::new_complete_node_menu($node, $self);
+              = Texinfo::Structuring::new_complete_node_menu($node,
+                                $self->{'current_lang_translations'}, $self);
           }
           if ($menu_node) {
             $toc_or_mini_toc_or_auto_menu = $self->convert_tree($menu_node,
@@ -7928,7 +7933,7 @@ sub _convert_def_line_type($$$$)
     my $category_result = '';
     my $def_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($element,
-                                     $self->get_conf('documentlanguage'),
+                                     $self->{'current_lang_translations'},
                                      $self->get_conf('DEBUG'), $self);
     $category_result
       = $self->convert_tree($def_category_tree)

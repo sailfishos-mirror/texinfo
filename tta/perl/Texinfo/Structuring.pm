@@ -1379,10 +1379,12 @@ sub _insert_menu_comment_content($$$;$)
 }
 
 # Creates a new @menu element based on $NODE sectioning information.
-# $CUSTOMIZATION_INFORMATION is only used for the top menu.
+# $LANG_TRANSLATIONS and $CUSTOMIZATION_INFORMATION are only used
+# for the top menu.
 sub new_complete_node_menu
 {
-  my ($node, $customization_information, $use_sections) = @_;
+  my ($node, $lang_translations, $customization_information,
+      $use_sections) = @_;
 
   my @node_childs = get_node_node_childs_from_sectioning($node);
 
@@ -1427,7 +1429,7 @@ sub new_complete_node_menu
             = Texinfo::ManipulateTree::copy_contentsNonXS($part_line_arg);
           my $part_title
            = Texinfo::Translations::gdt('Part: {part_title}',
-                    $customization_information->get_conf('documentlanguage'),
+                                        $lang_translations,
                                      {'part_title' => $part_title_copy},
                               $customization_information->get_conf('DEBUG'));
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
@@ -1439,7 +1441,7 @@ sub new_complete_node_menu
             and $appendix_commands{$child_section->{'cmdname'}}) {
           my $appendix_title
              = Texinfo::Translations::gdt('Appendices',
-                   $customization_information->get_conf('documentlanguage'),
+                                          $lang_translations,
                       undef, $customization_information->get_conf('DEBUG'));
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $appendix_title,
@@ -1460,8 +1462,9 @@ sub new_complete_node_menu
 # Create a new @detailmenu element.
 # used in tree transformations.  Used in converters through
 # new_complete_menu_master_menu.
-sub new_detailmenu($$$$;$)
+sub new_detailmenu($$$$$;$)
 {
+  my $lang_translations = shift;
   my $customization_information = shift;
   my $registrar = shift;
   my $identifier_target = shift;
@@ -1496,7 +1499,7 @@ sub new_detailmenu($$$$;$)
          = $new_detailmenu->{'contents'}->[0]->{'contents'}->[0];
     my $master_menu_title
            = Texinfo::Translations::gdt(' --- The Detailed Node Listing ---',
-                    $customization_information->get_conf('documentlanguage'),
+                  $lang_translations,
                   undef, $customization_information->get_conf('DEBUG'));
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
@@ -1524,13 +1527,16 @@ sub new_complete_menu_master_menu($$$)
   my $labels = shift;
   my $node = shift;
 
-  my $menu_node = new_complete_node_menu($node, $self);
+  my $menu_node
+    = new_complete_node_menu($node,
+                        $self->{'current_lang_translations'}, $self);
   if ($menu_node
       and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top'
       and $node->{'extra'}->{'associated_section'}
       and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $detailmenu = new_detailmenu($self, undef, $labels, [$menu_node]);
+    my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
+                                    $self, undef, $labels, [$menu_node]);
     if ($detailmenu) {
       # add a blank line before the detailed node listing
       my $menu_comment = {'type' => 'menu_comment',
@@ -1572,7 +1578,7 @@ sub _print_down_menus($$$$$;$)
     @menus = @{$node->{'extra'}->{'menus'}};
   } else {
     my $current_menu
-      = new_complete_node_menu($node, undef, $use_sections);
+      = new_complete_node_menu($node, undef, undef, $use_sections);
     if (defined($current_menu)) {
       @menus = ( $current_menu );
     } else {
@@ -1739,7 +1745,7 @@ X<C<new_block_command>>
 Complete I<$element> by adding the I<$command_name>, the command line
 argument and C<@end> to turn the element to a proper block command.
 
-=item $new_menu = new_complete_node_menu($node, $customization_information, $use_sections)
+=item $new_menu = new_complete_node_menu($node, $lang_translations, $customization_information, $use_sections)
 X<C<new_complete_node_menu>>
 
 Returns a C<@menu> Texinfo tree element for node I<$node>, pointing to the

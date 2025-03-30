@@ -1117,12 +1117,16 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  AV *lang_translations;
 
   dTHX;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
   build_html_formatting_state (self);
+
+  lang_translations = newAV ();
+  av_push (lang_translations, newSVpv (lang, 0));
 
   dSP;
 
@@ -1134,7 +1138,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
-  PUSHs(sv_2mortal (newSVpv (lang, 0)));
+  PUSHs(sv_2mortal (newRV_inc ((SV *) lang_translations)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
   PUTBACK;
 

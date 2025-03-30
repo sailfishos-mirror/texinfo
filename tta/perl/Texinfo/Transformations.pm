@@ -630,6 +630,8 @@ sub complete_tree_nodes_missing_menu($;$)
 
   my $customization_information = $document;
 
+  my $lang_translations = [$document->get_conf('documentlanguage')];
+
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node (@{$non_automatic_nodes}) {
     if (not $node->{'extra'}->{'menus'}
@@ -637,6 +639,7 @@ sub complete_tree_nodes_missing_menu($;$)
       my $section = $node->{'extra'}->{'associated_section'};
       my $current_menu
         = Texinfo::Structuring::new_complete_node_menu($node,
+                                 $lang_translations,
                                  $customization_information, $use_sections);
       if (defined($current_menu)) {
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
@@ -661,8 +664,9 @@ sub regenerate_master_menu($;$)
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
   my $new_detailmenu
-      = Texinfo::Structuring::new_detailmenu($document,
-                      $document->registrar(),
+      = Texinfo::Structuring::new_detailmenu(
+                      [$document->get_conf('documentlanguage')],
+                      $document, $document->registrar(),
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);
   # no need for a master menu

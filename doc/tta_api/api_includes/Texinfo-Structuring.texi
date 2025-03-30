@@ -100,8 +100,8 @@ sectioning command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node, $customization_information, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $customization_information@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node, $lang_translations, $customization_information, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $lang_translations@comma{} $customization_information@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
 Returns a @code{@@menu} Texinfo tree element for node @emph{$node}, pointing to the

@@ -157,12 +157,13 @@ sub _switch_messages_locale
 
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
-my $translation_cache;
+our $translation_cache = {};
 
 # Return a translated string.
-# $LANG set the language if set.  If undef, no translation.
-# NOTE If called from a converter, $LANG will in general be set from the
-# document documentlanguage when it is encountered.  Before the first
+# first element of $LANG_TRANSLATIONS sets the language if set.  If undef,
+# no translation.
+# NOTE If called from a converter, the language will in general be set from
+# the document documentlanguage when it is encountered.  Before the first
 # @documentlanguage, it depends on the converter.  Some do not set
 # @documentlanguage before it is encountered, some set some default
 # based on @documentlanguage if in the preamble.
@@ -170,7 +171,16 @@ my $translation_cache;
 # different prototype.
 sub translate_string($$;$)
 {
-  my ($string, $lang, $translation_context) = @_;
+  my ($string, $lang_translations, $translation_context) = @_;
+
+  my $lang;
+  my $translations;
+  if ($lang_translations) {
+    $lang = $lang_translations->[0];
+    if (scalar(@$lang_translations) > 1) {
+      $translations = $lang_translations->[1];
+    }
+  }
 
   return ($string) if (!defined($lang) or $lang eq '');
 
@@ -182,21 +192,21 @@ sub translate_string($$;$)
   }
   my $translated_string;
   my $strings_cache;
-  if ($translation_cache->{$lang}) {
-    my $lang_cache = $translation_cache->{$lang};
-    if ($lang_cache->{$translation_context_str}) {
-      if (defined($lang_cache->{$translation_context_str}->{$string})) {
-        $translated_string = $lang_cache->{$translation_context_str}->{$string};
-        return $translated_string;
-      }
-    } else {
-      $lang_cache->{$translation_context_str} = {}
+  if (!$translations) {
+    if (!$translation_cache->{$lang}) {
+      $translation_cache->{$lang} = {}
     }
-    $strings_cache = $lang_cache->{$translation_context_str};
-  } else {
-    $translation_cache->{$lang} = {$translation_context_str => {}};
-    $strings_cache = $translation_cache->{$lang}->{$translation_context_str};
+    $translations = $translation_cache->{$lang};
   }
+  if ($translations->{$translation_context_str}) {
+    if (defined($translations->{$translation_context_str}->{$string})) {
+      $translated_string = $translations->{$translation_context_str}->{$string};
+      return $translated_string;
+    }
+  } else {
+    $translations->{$translation_context_str} = {};
+  }
+  $strings_cache = $translations->{$translation_context_str};
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -270,22 +280,27 @@ sub translate_string($$;$)
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
+# The LANG_TRANSLATIONS argument is a reference array with the language
+# translated to as first element, and as second element an hash that is
+# used to hold translations already done.
 # $TRANSLATED_STRING_METHOD is optional.  If set, it is called instead
 # of translate_string.  $TRANSLATED_STRING_METHOD takes
 # $CUSTOMIZATION_INFORMATION as first argument in addition to other
 # translate_string arguments.
 sub gdt($;$$$$$$)
 {
-  my ($string, $lang, $replaced_substrings, $debug_level,
+  my ($string, $lang_translations, $replaced_substrings, $debug_level,
       $translation_context, $customization_information,
       $translate_string_method) = @_;
 
   my $translated_string;
   if ($translate_string_method) {
     $translated_string = &$translate_string_method($customization_information,
-                                       $string, $lang, $translation_context);
+                                       $string, $lang_translations,
+                                       $translation_context);
   } else {
-    $translated_string = translate_string($string, $lang, $translation_context);
+    $translated_string = translate_string($string, $lang_translations,
+                                          $translation_context);
   }
 
   my $result_tree
@@ -301,15 +316,17 @@ sub gdt($;$$$$$$)
 # a Texinfo tree.
 sub gdt_string($;$$$$$)
 {
-  my ($string, $lang, $replaced_substrings, $translation_context,
+  my ($string, $lang_translations, $replaced_substrings, $translation_context,
       $customization_information, $translate_string_method) = @_;
 
   my $translated_string;
   if ($translate_string_method) {
     $translated_string = &$translate_string_method($customization_information,
-                                       $string, $lang, $translation_context);
+                                       $string, $lang_translations,
+                                       $translation_context);
   } else {
-    $translated_string = translate_string($string, $lang, $translation_context);
+    $translated_string = translate_string($string, $lang_translations,
+                                         $translation_context);
   }
 
   return _replace_substrings ($translated_string, $replaced_substrings);
@@ -440,13 +457,19 @@ sub _substitute($$) {
 
 # Same as gdt but with mandatory translation context, used for marking
 # of strings with translation contexts
-sub pgdt($$;$$$)
+sub pgdt($$;$$$$$)
 {
   my ($translation_context, $string,
-      $lang, $replaced_substrings, $debug_level) = @_;
-  return gdt($string, $lang, $replaced_substrings, $debug_level,
-             $translation_context, $debug_level);
+      $lang_translations, $replaced_substrings, $debug_level,
+      $customization_information, $translate_string_method) = @_;
+  return gdt($string, $lang_translations, $replaced_substrings, $debug_level,
+             $translation_context, $customization_information,
+             $translate_string_method);
 }
+
+my $lang_translations = {};
+
+my $undef_lang_translation = [undef];
 
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
@@ -455,6 +478,8 @@ sub complete_indices($;$)
 {
   my $index_names = shift;
   my $debug_level = shift;
+  my $current_lang;
+  my $current_lang_translations;
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
     next if (not defined($index_names->{$index_name}->{'index_entries'}));
@@ -493,13 +518,25 @@ sub complete_indices($;$)
           # used for getting the translation.
           my $entry_language
              = $main_entry_element->{'extra'}->{'documentlanguage'};
+          if (!defined($entry_language)) {
+            $current_lang_translations = $undef_lang_translation;
+            $current_lang = $entry_language;
+          } elsif (!defined($current_lang)
+                   or $entry_language ne $current_lang) {
+            if (!$lang_translations->{$entry_language}) {
+              $lang_translations->{$entry_language} = {};
+            }
+            $current_lang_translations
+              = [$entry_language, $lang_translations->{$entry_language}];
+            $current_lang = $entry_language;
+          }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
-            $index_entry = gdt('{name} on {class}', $entry_language,
+            $index_entry = gdt('{name} on {class}', $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
             $text_element = {'text' => ' on ',
@@ -511,7 +548,8 @@ sub complete_indices($;$)
   # TRANSLATORS: association of a variable or instance variable with
   # a class in descriptions of object-oriented programming variables or
   # instance variable.
-            $index_entry = gdt('{name} of {class}', $entry_language,
+            $index_entry = gdt('{name} of {class}',
+                               $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
             $text_element = {'text' => ' of ',
@@ -552,7 +590,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   my $tree_translated
     = Texinfo::Translations::gdt('See {reference} in @cite{{book}}',
-                           $converter->get_conf('documentlanguage'),
+                           [$converter->get_conf('documentlanguage')],
                           {'reference' => $tree_reference,
                            'book'  => {'text' => $book_name}});
 
@@ -596,9 +634,9 @@ but returns a simple string, for already converted strings.
 
 =over
 
-=item $tree = gdt($string, $lang, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
+=item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 
-=item $string = gdt_string($string, $lang, $replaced_substrings, $translation_context, $object, $translate_string_method)
+=item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $object, $translate_string_method)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -607,7 +645,10 @@ the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
-I<$lang> is the language used for the translation.
+The I<$lang_translations>
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
 
 I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -632,7 +673,7 @@ parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated Texinfo tree text element:
 
-  $tree = gdt('See {reference} in @cite{{book}}', "ca",
+  $tree = gdt('See {reference} in @cite{{book}}', ['ca'],
               {'reference' => $tree_reference,
                'book'  => {'text' => $book_name}});
 
@@ -643,10 +684,10 @@ translated strings by providing a I<$translate_string_method> argument.  If not
 undef it should be a reference on a function that is called instead of
 C<translate_string>.  The I<$object> is passed as first argument of the
 I<$translate_string_method>, the other arguments are the same as
-L<< C<translate_string>|/$translated_string = translate_string($string, $lang, $translation_context) >>
+L<< C<translate_string>|/$translated_string = translate_string($string, $lang_translations, $translation_context) >>
 arguments.
 
-=item $tree = pgdt($translation_context, $string, $lang, $replaced_substrings, $debug_level)
+=item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
 X<C<pgdt>>
 
 Same to C<gdt> except that the I<$translation_context> is not optional.
@@ -661,13 +702,17 @@ C<translate_string>.
 
 =over
 
-=item $translated_string = translate_string($string, $lang, $translation_context)
+=item $translated_string = translate_string($string, $lang_translations, $translation_context)
 X<C<translate_string>>
 
-The I<$string> is a string to be translated.  I<$lang> is the language used for
-the translation.  The I<$translation_context> is optional.  If not C<undef>
-this is a translation context string for I<$string>.  It is the first argument
-of C<pgettext> in the C API of Gettext.
+The I<$string> is a string to be translated.  The I<$lang_translations>
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
+If the language is C<undef>, the input string is returned as is.  The
+I<$translation_context> is optional.  If not C<undef> this is a translation
+context string for I<$string>.  It is the first argument of C<pgettext> in the
+C API of Gettext.
 
 C<translate_string> uses a gettext-like infrastructure to retrieve the
 translated strings, using the I<texinfo_document> domain.
