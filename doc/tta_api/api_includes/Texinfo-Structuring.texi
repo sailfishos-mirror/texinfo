@@ -100,24 +100,32 @@ sectioning command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node, $lang_translations, $customization_information, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $lang_translations@comma{} $customization_information@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node, $lang_translations, $debug_level, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
 Returns a @code{@@menu} Texinfo tree element for node @emph{$node}, pointing to the
 children of the node obtained with the sectioning structure.  If
-@emph{$use_sections} is set, use section names for the menu entry names.
-@emph{$customization_information}, if defined, should hold information needed for
-translations.  Translations are only needed when generating the top node menu.
+@emph{$use_sections} is set, use section names for the menu entry names.  The
+@emph{$lang_translations} argument should be an array reference with one or two
+elements.  The first element of the array is the language used for translations.
+The second element, if set, should be an hash reference holding
+translations already done.  @emph{$debug_level} is an optional debugging level
+similar to the @code{DEBUG} customization variable.  If set, it is supplied to the
+function called for translations.  Translations are only needed when generating
+the top node menu.
 
-@item $detailmenu = new_detailmenu($customization_information, $registrar, $identifier_target, $menus)
-@anchor{Texinfo@asis{::}Structuring $detailmenu = new_detailmenu($customization_information@comma{} $registrar@comma{} $identifier_target@comma{} $menus)}
+@item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $menus)
+@anchor{Texinfo@asis{::}Structuring $detailmenu = new_detailmenu($lang_translations@comma{} $customization_information@comma{} $registrar@comma{} $identifier_target@comma{} $menus)}
 @cindex @code{new_detailmenu}
 
 Returns a detailmenu tree element formatted as a master node.
 @emph{$menus} is an array reference containing the regular menus of the Top node.
-@emph{$customization_information} should hold information needed for translations
-and error reporting.
+@emph{$lang_translations} argument should be an array reference with one or two
+elements.  The first element of the array is the language used for translations.
+The second element, if set, should be an hash reference holding translations
+already done.  @emph{$customization_information} should hold information needed for
+translations and error reporting.
 
 The @emph{$registrar} argument can be set to a @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} object.
 If the @emph{$registrar} argument is not set, @emph{$customization_information} is

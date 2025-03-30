@@ -1379,11 +1379,10 @@ sub _insert_menu_comment_content($$$;$)
 }
 
 # Creates a new @menu element based on $NODE sectioning information.
-# $LANG_TRANSLATIONS and $CUSTOMIZATION_INFORMATION are only used
-# for the top menu.
+# $LANG_TRANSLATIONS and $DEBUG are only used for the top menu.
 sub new_complete_node_menu
 {
-  my ($node, $lang_translations, $customization_information,
+  my ($node, $lang_translations, $debug,
       $use_sections) = @_;
 
   my @node_childs = get_node_node_childs_from_sectioning($node);
@@ -1407,7 +1406,6 @@ sub new_complete_node_menu
   # in top node, additionally insert menu comments for parts and for
   # the first appendix.
   if ($section and $section->{'cmdname'} eq 'top'
-      and $customization_information
       and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top') {
     my $content_index = 0;
@@ -1431,7 +1429,7 @@ sub new_complete_node_menu
            = Texinfo::Translations::gdt('Part: {part_title}',
                                         $lang_translations,
                                      {'part_title' => $part_title_copy},
-                              $customization_information->get_conf('DEBUG'));
+                                         $debug);
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $part_title, ($content_index == 0));
           $content_index++;
@@ -1441,8 +1439,7 @@ sub new_complete_node_menu
             and $appendix_commands{$child_section->{'cmdname'}}) {
           my $appendix_title
              = Texinfo::Translations::gdt('Appendices',
-                                          $lang_translations,
-                      undef, $customization_information->get_conf('DEBUG'));
+                                 $lang_translations, undef, $debug);
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $appendix_title,
                                        ($content_index == 0 or $part_added));
@@ -1529,7 +1526,8 @@ sub new_complete_menu_master_menu($$$)
 
   my $menu_node
     = new_complete_node_menu($node,
-                        $self->{'current_lang_translations'}, $self);
+                        $self->{'current_lang_translations'},
+                        $self->get_conf('DEBUG'));
   if ($menu_node
       and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top'
@@ -1745,22 +1743,30 @@ X<C<new_block_command>>
 Complete I<$element> by adding the I<$command_name>, the command line
 argument and C<@end> to turn the element to a proper block command.
 
-=item $new_menu = new_complete_node_menu($node, $lang_translations, $customization_information, $use_sections)
+=item $new_menu = new_complete_node_menu($node, $lang_translations, $debug_level, $use_sections)
 X<C<new_complete_node_menu>>
 
 Returns a C<@menu> Texinfo tree element for node I<$node>, pointing to the
 children of the node obtained with the sectioning structure.  If
-I<$use_sections> is set, use section names for the menu entry names.
-I<$customization_information>, if defined, should hold information needed for
-translations.  Translations are only needed when generating the top node menu.
+I<$use_sections> is set, use section names for the menu entry names.  The
+I<$lang_translations> argument should be an array reference with one or two
+elements.  The first element of the array is the language used for translations.
+The second element, if set, should be an hash reference holding
+translations already done.  I<$debug_level> is an optional debugging level
+similar to the C<DEBUG> customization variable.  If set, it is supplied to the
+function called for translations.  Translations are only needed when generating
+the top node menu.
 
-=item $detailmenu = new_detailmenu($customization_information, $registrar, $identifier_target, $menus)
+=item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $menus)
 X<C<new_detailmenu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$menus> is an array reference containing the regular menus of the Top node.
-I<$customization_information> should hold information needed for translations
-and error reporting.
+I<$lang_translations> argument should be an array reference with one or two
+elements.  The first element of the array is the language used for translations.
+The second element, if set, should be an hash reference holding translations
+already done.  I<$customization_information> should hold information needed for
+translations and error reporting.
 
 The I<$registrar> argument can be set to a L<Texinfo::Report> object.
 If the I<$registrar> argument is not set, I<$customization_information> is

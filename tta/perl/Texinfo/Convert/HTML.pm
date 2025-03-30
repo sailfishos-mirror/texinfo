@@ -4747,7 +4747,8 @@ sub _convert_heading_command($$$$$)
           } else { # $format_menu eq 'menu_no_detailmenu'
             $menu_node
               = Texinfo::Structuring::new_complete_node_menu($node,
-                                $self->{'current_lang_translations'}, $self);
+                                $self->{'current_lang_translations'},
+                                 $self->get_conf('DEBUG'));
           }
           if ($menu_node) {
             $toc_or_mini_toc_or_auto_menu = $self->convert_tree($menu_node,
