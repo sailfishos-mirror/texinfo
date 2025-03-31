@@ -11877,8 +11877,7 @@ Include a two-letter (or three-letter) ISO@tie{}639-2 language code
 the command name, optionally followed by an underscore and two-letter
 ISO@tie{}3166 two-letter country code (@var{cc}).  If you have a
 multilingual document, the intent is to be able to use this command
-multiple times, to declare each language change.  If the command is
-not used at all, the default is @code{en_US} for US English.
+multiple times, to declare each language change.
 
 As with GNU Gettext (@pxref{Top,,, gettext, Gettext}), if the country
 code is omitted, the main dialect is assumed where possible.  For
@@ -11891,7 +11890,8 @@ such as ``see'' in cross-references (@pxref{Cross References}),
 ``Function'' in defuns (@pxref{Definition Commands}), and so on.
 Optionally, this command may also affect how @command{texi2any}
 sorts indices (@pxref{Global Customization Variables}, under
-@code{DOCUMENTLANGUAGE_COLLATION}).
+@code{DOCUMENTLANGUAGE_COLLATION}).  If the document language is not
+specified, the default english document strings are output as is.
 
 Note that in Info output, some strings, such as ``Node:'', ``Next:'',
 ``Menu:'', etc., are keywords and so are not translated.

@@ -14,6 +14,9 @@ See the manual for detailed information.
   . new command @xrefname can follow @node
   . new command @namedanchor
   . deprecate @clickstyle
+  . do not consider en_US to be the default document language, the language
+    is unspecified if there is no @documentlanguage.  Default strings are
+    in english, however.
 
 * texi2any
   . texi2any program implementation in C embedding Perl.

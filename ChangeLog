@@ -1,5 +1,16 @@
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
+	en_US is not the default document language, but the language for
+	defaults
+
+	* doc/texinfo.texi (@code{@@documentlanguage}), NEWS: do not consider
+	en_US to be the default document language, the language is unspecified
+	if there is no @documentlanguage.  This already corresponds to the
+	actual situation for most output formats.  Document that default
+	strings are in english, however.
+
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
 	Cache translated string and associated tree together
 
 	* tta/perl/Texinfo/Translations.pm (translate_string, gdt, gdt_string),
