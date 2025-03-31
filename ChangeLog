@@ -1,5 +1,12 @@
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/many_input_files/for_nbspaces_different_encodings.sh: use
+	DIFF_OPTIONS.
+
+	More consistent commented out code.
+
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl ((%outfile_preamble): remove the xml:lang
 	texinfo attribute.
 
