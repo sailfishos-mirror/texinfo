@@ -133,7 +133,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; entry:</td><td class="menu-entry-description">
 </td></tr>

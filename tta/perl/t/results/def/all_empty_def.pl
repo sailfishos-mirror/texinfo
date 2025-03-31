@@ -345,7 +345,7 @@ $result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <dl class="first-deffn def-block">
 <dt class="deffn def-line"></dt>
 </dl>

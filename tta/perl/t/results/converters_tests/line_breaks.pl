@@ -223,7 +223,7 @@ h1.settitle {text-align:center}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <h1 class="settitle">the manual <br> new version</h1>
 <hr>
 

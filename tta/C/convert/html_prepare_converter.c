@@ -32,8 +32,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_conversion_data.h"
-/* bug fatal isascii_alnum isascii_alpha read_var_len
-   TXI_DEFAULT_STRINGS_LANG */
+/* bug fatal isascii_alnum isascii_alpha read_var_len */
 #include "base_utils.h"
 /* new_element */
 #include "tree.h"
@@ -3825,7 +3824,7 @@ html_setup_output (CONVERTER *self, char **paths)
   body_lang = self->conf->documentlanguage.o.string;
 
   if (!body_lang)
-    body_lang = TXI_DEFAULT_STRINGS_LANG;
+    body_lang = "";
 
   xasprintf (&body_element_attributes, "lang=\"%s\"", body_lang);
   option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,

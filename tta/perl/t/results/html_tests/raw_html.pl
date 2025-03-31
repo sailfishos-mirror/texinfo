@@ -58,7 +58,7 @@ $result_converted{'html'}->{'raw_html'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <i>
 
 

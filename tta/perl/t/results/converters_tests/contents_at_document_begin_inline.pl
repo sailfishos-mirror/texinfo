@@ -212,7 +212,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 

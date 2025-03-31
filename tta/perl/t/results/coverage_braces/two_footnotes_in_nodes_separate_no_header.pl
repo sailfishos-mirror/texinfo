@@ -252,7 +252,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="g_t2-footnotes-in-2-nodes"><span>2 footnotes in 2 nodes<a class="copiable-link" href="#g_t2-footnotes-in-2-nodes"> &para;</a></span></h1>
 

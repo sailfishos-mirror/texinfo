@@ -147,7 +147,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="In-top-"><span>In top <a class="copiable-link" href="#In-top-"> &para;</a></span></h1>
 

@@ -81,7 +81,7 @@ $result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="unnumbered-level-extent">
 </div>
 <div class="unnumbered-level-extent">

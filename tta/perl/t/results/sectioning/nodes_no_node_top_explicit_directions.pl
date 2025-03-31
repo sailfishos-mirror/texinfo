@@ -201,7 +201,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>

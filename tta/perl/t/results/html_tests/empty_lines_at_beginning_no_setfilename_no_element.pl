@@ -72,7 +72,7 @@ div.center {text-align:center}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="center">centered
 </div>
 <p>Some text.

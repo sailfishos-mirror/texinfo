@@ -310,7 +310,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="top">
 <div class="nav-panel">
 <p>

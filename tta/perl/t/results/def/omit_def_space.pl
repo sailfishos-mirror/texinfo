@@ -200,7 +200,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>

@@ -128,7 +128,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <h1 class="shorttitlepage">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 <hr>
 

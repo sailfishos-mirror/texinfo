@@ -68,7 +68,7 @@ $result_converted{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = '
 
 </head>
 
-<body lang="en">
+<body lang="">
 1 TeX
 2 TeX
 

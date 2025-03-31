@@ -44,7 +44,7 @@ $result_converted{'html'}->{'lone_contents'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 
 

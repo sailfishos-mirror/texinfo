@@ -148,7 +148,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="format">
 <div class="example">
 <pre class="example-preformatted">

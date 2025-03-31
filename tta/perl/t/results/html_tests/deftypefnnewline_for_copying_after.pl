@@ -297,7 +297,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn def-block">
 <dt class="deftypefn deftypefun-alias-deftypefn def-line" id="index-copying-NAME"><span class="category-def">Function: </span><span><code class="def-type">TYPE</code> <strong class="def-name">NAME</strong> <code class="def-code-arguments">ARGUMENTS...</code><a class="copiable-link" href="#index-copying-NAME"> &para;</a></span></dt>

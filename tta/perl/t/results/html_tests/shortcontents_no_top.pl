@@ -115,7 +115,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="chapter-level-extent" id="chap">
 <h2 class="chapter"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 

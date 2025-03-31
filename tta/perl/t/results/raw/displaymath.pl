@@ -125,7 +125,7 @@ MathJax = {
 </script>
 </head>
 
-<body lang="en" class="tex2jax_ignore">
+<body lang="" class="tex2jax_ignore">
 <pre class="displaymath tex2jax_process">\\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
 \\]</pre>
 <p>before

@@ -174,7 +174,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="top-section">
 <h1 class="top"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <p>Top section

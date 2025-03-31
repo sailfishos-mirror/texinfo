@@ -211,7 +211,7 @@ td.menu-entry-destination {vertical-align: top}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>

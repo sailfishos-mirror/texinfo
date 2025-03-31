@@ -284,7 +284,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 
 

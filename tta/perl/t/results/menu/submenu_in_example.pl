@@ -325,7 +325,7 @@ pre.menu-comment-preformatted {font-family: serif}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node" id="first"></a>
 <div class="example">
 <pre class="example-preformatted">

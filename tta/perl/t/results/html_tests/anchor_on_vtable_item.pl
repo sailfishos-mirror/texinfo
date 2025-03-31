@@ -316,7 +316,7 @@ th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bo
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>

@@ -115,7 +115,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="section-level-extent" id="section">
 <h3 class="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 

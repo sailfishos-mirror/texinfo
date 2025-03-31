@@ -1960,7 +1960,7 @@ th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bo
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>

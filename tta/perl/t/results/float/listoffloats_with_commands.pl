@@ -60,7 +60,7 @@ $result_converted{'html'}->{'listoffloats_with_commands'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 
 

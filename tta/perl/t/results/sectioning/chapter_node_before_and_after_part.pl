@@ -249,7 +249,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <div class="chapter-level-extent" id="Top">
 <div class="nav-panel">

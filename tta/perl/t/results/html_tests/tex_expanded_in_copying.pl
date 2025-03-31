@@ -77,7 +77,7 @@ $result_converted{'html'}->{'tex_expanded_in_copying'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 
 

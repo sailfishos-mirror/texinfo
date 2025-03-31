@@ -133,7 +133,7 @@ $result_converted{'html'}->{'float_type_with_tieaccent'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="float" id="label">
 <p>inside
 </p><div class="type-number-float"><p><strong class="strong">A 1&#865;a 第&#865;H &ecirc;&#865;一 and text 1</strong></p></div></div>

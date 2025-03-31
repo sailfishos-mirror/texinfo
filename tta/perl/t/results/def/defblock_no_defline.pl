@@ -64,7 +64,7 @@ $result_converted{'html'}->{'defblock_no_defline'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <dl class="defblock def-block">
 <dd><p>misc text inside
 </p></dd></dl>

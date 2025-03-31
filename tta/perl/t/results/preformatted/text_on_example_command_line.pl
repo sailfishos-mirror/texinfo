@@ -182,7 +182,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <div class="example user-text-on-line-followed-by-text">
 <pre class="example-preformatted">normal text

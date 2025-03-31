@@ -90,7 +90,7 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="float" id="Label">
 
 <p>In float.

@@ -197,7 +197,7 @@ pre.display-preformatted {font-family: inherit}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <div class="display">
 <pre class="display-preformatted">normal text

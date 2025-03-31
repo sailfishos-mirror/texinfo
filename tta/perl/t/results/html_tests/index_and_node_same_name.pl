@@ -120,7 +120,7 @@ th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bo
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 <h4 class="node" id="index-node"><span>index node<a class="copiable-link" href="#index-node"> &para;</a></span></h4>

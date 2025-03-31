@@ -129,7 +129,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#chap-subnode" accesskey="n" rel="next">chap subnode</a> &nbsp; </p>

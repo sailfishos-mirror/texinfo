@@ -84,7 +84,7 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <p>In included file.
 </p>
 

@@ -123,7 +123,7 @@ $result_converted{'html'}->{'example_invalid_at_commands_arguments'} = '<!DOCTYP
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 
 

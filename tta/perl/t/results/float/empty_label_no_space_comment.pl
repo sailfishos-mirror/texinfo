@@ -73,7 +73,7 @@ $result_converted{'html'}->{'empty_label_no_space_comment'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="float">
 <div class="type-number-float"><p><strong class="strong">Type</strong></p></div></div>
 

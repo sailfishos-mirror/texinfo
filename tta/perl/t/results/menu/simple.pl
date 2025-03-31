@@ -189,7 +189,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <p>Before menu.
 </p>

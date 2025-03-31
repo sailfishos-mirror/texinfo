@@ -100,7 +100,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <table class="menu">
 <tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">* a1:
 * a2:  

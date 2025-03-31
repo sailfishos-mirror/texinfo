@@ -117,7 +117,7 @@ td.menu-entry-destination {vertical-align: top}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td class="menu-entry-description">Your rights.

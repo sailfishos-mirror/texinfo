@@ -48,7 +48,7 @@ $result_converted{'html'}->{'uref_accented_letter'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <p><a class="uref" href="http://example.com/acc_%c3%a4%c4%85">http://example.com/acc_&auml;&#261;</a>
 </p>
 

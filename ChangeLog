@@ -1,5 +1,14 @@
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
+	empty string for body lang in HTML without @documentlanguage
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/HTML.pm (_setup_output): set the body lang
+	attribute argument in BODY_ELEMENT_ATTRIBUTES to an empty string if
+	@documentlanguage is not set.
+
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
 	en_US is not the default document language, but the language for
 	defaults
 

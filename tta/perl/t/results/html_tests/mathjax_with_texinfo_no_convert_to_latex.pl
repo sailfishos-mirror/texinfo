@@ -118,7 +118,7 @@ MathJax = {
 </script>
 </head>
 
-<body lang="en" class="tex2jax_ignore">
+<body lang="" class="tex2jax_ignore">
 <pre class="displaymath tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xi}{phi &copy;}</sup> &inodot;
 \\]</pre>
 <p>Some <em class="math tex2jax_process">\\(a &minus; b &ge; &Aring; &ecirc;\\)</em>.

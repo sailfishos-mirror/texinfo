@@ -97,7 +97,7 @@ $result_converted{'html'}->{'nodes_no_section_footnote_no_top_node_output'} = '<
 
 </head>
 
-<body lang="en">
+<body lang="">
 <a class="node" id="Top"></a><a class="node" id="chap"></a>
 <p>a<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p><div class="footnotes-segment">

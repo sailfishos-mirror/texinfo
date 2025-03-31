@@ -49,7 +49,7 @@ $result_converted{'html'}->{'end_of_line_in_uref'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <p>See the <a class="uref" href="https://gcc.gnu.org/codingconventions.html#Spelling%20Spelling">terminology and markup</a> section.</p>
 
 

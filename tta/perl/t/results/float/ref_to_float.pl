@@ -159,7 +159,7 @@ $result_converted{'html'}->{'ref_to_float'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="float" id="Label1">
 <p>Float
 </p><div class="type-number-float"><p><strong class="strong">Text 1</strong></p></div></div>

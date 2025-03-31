@@ -646,7 +646,7 @@ ul.mark-bullet {list-style-type: disc}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>

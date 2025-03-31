@@ -75,7 +75,7 @@ pre.display-preformatted {font-family: inherit}
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <div class="display">
 <pre class="display-preformatted">and now &ndash; yes&mdash;now and &ldquo;so&rdquo;.

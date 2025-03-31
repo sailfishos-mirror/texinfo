@@ -139,7 +139,7 @@ td.menu-entry-destination {vertical-align: top}
 
 </head>
 
-<body lang="en">
+<body lang="">
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a1" accesskey="1">(f)a1</a>:</td><td class="menu-entry-description">
 </td></tr>

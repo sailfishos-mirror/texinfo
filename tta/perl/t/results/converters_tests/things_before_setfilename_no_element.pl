@@ -401,7 +401,7 @@ $result_converted{'html'}->{'things_before_setfilename_no_element'} = '<!DOCTYPE
 
 </head>
 
-<body lang="en">
+<body lang="">
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>

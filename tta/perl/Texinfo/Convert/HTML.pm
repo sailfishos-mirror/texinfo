@@ -13780,7 +13780,7 @@ sub _setup_output($)
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $body_lang = $self->get_conf('documentlanguage');
   if (!defined($body_lang)) {
-    $body_lang = Texinfo::Common::DEFAULT_STRINGS_LANG;
+    $body_lang = '';
   }
   $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$body_lang.'"');
   $self->set_global_document_commands('before', ['documentlanguage']);

@@ -183,7 +183,7 @@ $result_converted{'html'}->{'empty_caption'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="en">
+<body lang="">
 <div class="float" id="b">
 <p>In float A, B
 </p><div class="type-number-float"><p><strong class="strong">a 1: </strong></p></div></div>
