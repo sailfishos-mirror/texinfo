@@ -55,68 +55,68 @@ static void
 switch_lang_translations (HV *converter_hv, const char *lang)
 {
   AV *current_lang_translations_av;
+  const char *translation_lang;
+  SV *translations;
+  SV *lang_sv;
+  SV **translations_sv;
+  HV *translations_hv;
+  HE *translations_lang_he;
+  HV *translations_lang_hv;
+  SV **current_lang_translations_sv;
 
   dTHX;
 
   if (lang)
+    translation_lang = lang;
+  else
+    translation_lang = "";
+
+  lang_sv = newSVpv_utf8 (translation_lang, 0);
+
+  FETCH(current_lang_translations);
+  if (current_lang_translations_sv
+      && SvOK (*current_lang_translations_sv))
     {
-      SV *translations;
-      SV *lang_sv = newSVpv_utf8 (lang, 0);
-      SV **translations_sv;
-      HV *translations_hv;
-      HE *translations_lang_he;
-      HV *translations_lang_hv;
-      SV **current_lang_translations_sv;
-
-      FETCH(current_lang_translations);
-      if (current_lang_translations_sv
-          && SvOK (*current_lang_translations_sv))
+      AV *lang_trans_AV = (AV *)SvRV (*current_lang_translations_sv);
+      SV **current_lang_sv = av_fetch (lang_trans_AV, 0, 0);
+      if (SvOK (*current_lang_sv))
         {
-          AV *lang_trans_AV = (AV *)SvRV (*current_lang_translations_sv);
-          SV **current_lang_sv = av_fetch (lang_trans_AV, 0, 0);
-          if (SvOK (*current_lang_sv))
-            {
-              if (!sv_cmp (lang_sv, *current_lang_sv))
-                return;
-            }
+          if (!sv_cmp (lang_sv, *current_lang_sv))
+            return;
         }
+    }
 
-      FETCH(translations);
+  FETCH(translations);
 
-      if (!translations_sv || !SvOK (*translations_sv))
-        {
-          translations = get_sv ("Texinfo::Translations::translation_cache",
-                                 0);
-          hv_store (converter_hv, "translations", strlen ("translations"),
-                    SvREFCNT_inc (translations), 0);
-        }
-      else
-        {
-          translations = *translations_sv;
-        }
-      translations_hv = (HV *)SvRV (translations);
-      translations_lang_he = hv_fetch_ent (translations_hv, lang_sv,
-                                           0, 0);
-      if (!translations_lang_he)
-        {
-          translations_lang_hv = newHV ();
-          hv_store_ent (translations_hv, lang_sv,
-                        newRV_noinc ((SV *)translations_lang_hv), 0);
-        }
-      else
-        translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
-
-      current_lang_translations_av = newAV ();
-      av_push (current_lang_translations_av, lang_sv);
-      av_push (current_lang_translations_av,
-               newRV_inc ((SV *) translations_lang_hv));
+  if (!translations_sv || !SvOK (*translations_sv))
+    {
+      translations = get_sv ("Texinfo::Translations::translation_cache",
+                             0);
+      hv_store (converter_hv, "translations", strlen ("translations"),
+                SvREFCNT_inc (translations), 0);
     }
   else
     {
-      current_lang_translations_av = newAV ();
-
-      av_push (current_lang_translations_av, newSV (0));
+      translations = *translations_sv;
     }
+
+  translations_hv = (HV *)SvRV (translations);
+  translations_lang_he = hv_fetch_ent (translations_hv, lang_sv,
+                                       0, 0);
+  if (!translations_lang_he)
+    {
+      translations_lang_hv = newHV ();
+      hv_store_ent (translations_hv, lang_sv,
+                    newRV_noinc ((SV *)translations_lang_hv), 0);
+    }
+  else
+    translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
+
+  current_lang_translations_av = newAV ();
+  av_push (current_lang_translations_av, lang_sv);
+  av_push (current_lang_translations_av,
+           newRV_inc ((SV *) translations_lang_hv));
+
   hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
             newRV_noinc ((SV *) current_lang_translations_av), 0);
 }

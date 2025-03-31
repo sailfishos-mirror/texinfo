@@ -1,3 +1,28 @@
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
+	Cache translated string and associated tree together
+
+	* tta/perl/Texinfo/Translations.pm (translate_string, gdt, gdt_string),
+	tta/C/convert/build_html_perl_state.c (switch_lang_translations),
+	tta/perl/Texinfo/Convert/Utils.pm (switch_lang_translations): if lang
+	is undef, set it to the empty string and use the empty string like an
+	language name for caching.  If the lang is ends up an empty string,
+	cache using undef as translated string.  Put the translated string (or
+	undef if lang is undef or the empty string) into an array reference,
+	and put the expanded Texinfo tree in the same array reference instead
+	of using a separate hash to cache the tree.  Move handling of tree
+	caching and call of _substitute to gdt instead of
+	_replace_convert_substrings.  Remove %cached_translation_trees.
+
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_conversion_initialization),
+	tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/perl/Texinfo/Convert/HTML.pm (html_translate_string)
+	(conversion_initialization): use a different cache for user-defined
+	strings, corresponding to the translation_cache converter key.  Reset
+	the cache for each output, such that stale translation cannot happen.
+
 2025-03-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Structuring.pm (new_complete_node_menu): pass

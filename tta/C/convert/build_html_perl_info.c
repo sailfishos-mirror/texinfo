@@ -293,6 +293,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
 {
   HV *converter_hv;
   HV *converter_info_hv;
+  HV *translation_cache_hv;
 
   dTHX;
 
@@ -311,6 +312,10 @@ html_pass_conversion_initialization (CONVERTER *converter,
      even if the Perl data changes */
   converter->pl_info_hv = converter_info_hv;
   SvREFCNT_inc (converter_info_hv);
+
+  /* always (re)set.  For user-defined translations */
+  translation_cache_hv = newHV ();
+  STORE("translation_cache", newRV_noinc ((SV *)translation_cache_hv));
 
   if (converter)
     {

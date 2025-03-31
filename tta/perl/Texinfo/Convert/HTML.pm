@@ -2884,11 +2884,52 @@ sub html_translate_string($$$;$)
     my $format_lang_translations = $lang_translations;
     $format_lang_translations = $self->{'current_lang_translations'}
                            if ($self and !defined($format_lang_translations));
+
+    # prepare lang_translations argument for user-defined translations.
+    my $lang;
+    my $translations;
+    if ($format_lang_translations) {
+      $lang = $format_lang_translations->[0];
+    }
+    $lang = '' if (!defined($lang));
+    if (!$self->{'translation_cache'}->{$lang}) {
+      $self->{'translation_cache'}->{$lang} = {};
+    }
+    $translations = $self->{'translation_cache'}->{$lang};
+
     my $translated_string
       = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
-                     $string, $format_lang_translations, $translation_context);
+                     $string, [$lang, $translations], $translation_context);
+
     if (defined($translated_string)) {
-      return $translated_string;
+      # reuse the tree if the translation matches the cached translation
+      # otherwise setup a new translation (without tree).
+      my $translation_context_str;
+      if (defined($translation_context)) {
+        $translation_context_str = $translation_context;
+      } else {
+        $translation_context_str = '';
+      }
+      my $strings_cache;
+      if ($translations->{$translation_context_str}) {
+        if (defined($translations->{$translation_context_str}->{$string})) {
+          my $translated_string_tree
+            = $translations->{$translation_context_str}->{$string};
+          my $cached_translated_string = $translated_string_tree->[0];
+          if ($cached_translated_string eq $translated_string) {
+            return $translated_string_tree;
+          }
+        }
+      } else {
+        $translations->{$translation_context_str} = {};
+      }
+      $strings_cache = $translations->{$translation_context_str};
+
+      my $result = [$translated_string];
+
+      $strings_cache->{$string} = $result;
+
+      return $result;
     }
   }
 
@@ -12410,6 +12451,10 @@ sub conversion_initialization($$;$)
 
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];
+
+  # for user-defined translation results.  Always reset such as not
+  # to get a cached translation obtained for a previous conversion.
+  $self->{'translation_cache'} = {};
 
   my %special_characters_set;
 

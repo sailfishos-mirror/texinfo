@@ -159,7 +159,7 @@ sub _switch_messages_locale
 # system rigmarole every time.
 our $translation_cache = {};
 
-# Return a translated string.
+# Return an array reference with a translated string.
 # first element of $LANG_TRANSLATIONS sets the language if set.  If undef,
 # no translation.
 # NOTE If called from a converter, the language will in general be set from
@@ -182,7 +182,7 @@ sub translate_string($$;$)
     }
   }
 
-  return ($string) if (!defined($lang) or $lang eq '');
+  $lang = '' if (!defined($lang));
 
   my $translation_context_str;
   if (defined($translation_context)) {
@@ -192,6 +192,7 @@ sub translate_string($$;$)
   }
   my $translated_string;
   my $strings_cache;
+  # use default translated string and tree cache if none was passed
   if (!$translations) {
     if (!$translation_cache->{$lang}) {
       $translation_cache->{$lang} = {}
@@ -199,14 +200,21 @@ sub translate_string($$;$)
     $translations = $translation_cache->{$lang};
   }
   if ($translations->{$translation_context_str}) {
-    if (defined($translations->{$translation_context_str}->{$string})) {
-      $translated_string = $translations->{$translation_context_str}->{$string};
-      return $translated_string;
+    if ($translations->{$translation_context_str}->{$string}) {
+      return $translations->{$translation_context_str}->{$string};
     }
   } else {
     $translations->{$translation_context_str} = {};
   }
   $strings_cache = $translations->{$translation_context_str};
+
+  # no translation, but still needed to setup caching for the associated
+  # tree
+  if ($lang eq '') {
+    my $result = [undef];
+    $strings_cache->{$lang} = $result;
+    return $result;
+  }
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -272,11 +280,15 @@ sub translate_string($$;$)
     }
   }
 
-  $strings_cache->{$string} = $translated_string;
+  my $result = [$translated_string];
+
+  $strings_cache->{$string} = $result;
 
   #print STDERR "_GDT '$string' '$translated_string'\n";
-  return $translated_string;
+  return $result;
 }
+
+our %cached_translation_trees;
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
@@ -293,21 +305,43 @@ sub gdt($;$$$$$$)
       $translation_context, $customization_information,
       $translate_string_method) = @_;
 
-  my $translated_string;
+  my $result_tree;
+  my $translated_string_tree;
   if ($translate_string_method) {
-    $translated_string = &$translate_string_method($customization_information,
+    $translated_string_tree
+           = &$translate_string_method($customization_information,
                                        $string, $lang_translations,
                                        $translation_context);
+
   } else {
-    $translated_string = translate_string($string, $lang_translations,
-                                          $translation_context);
+    $translated_string_tree
+     = translate_string($string, $lang_translations, $translation_context);
   }
 
-  my $result_tree
-    = _replace_convert_substrings($translated_string, $replaced_substrings,
-                                  $debug_level);
-  #print STDERR "GDT '$string' '$translated_string' '".
-  #     Texinfo::Convert::Texinfo::convert_to_texinfo($result_tree)."'\n";
+  if (scalar(@$translated_string_tree) == 1) {
+    my $translated_string = $translated_string_tree->[0];
+    $translated_string = $string if (!defined($translated_string));
+    # No need to convert this more than once as we should get the same
+    # every time.  Cache the non-substituted tree in translated_string_tree.
+    my $tree
+      = _replace_convert_substrings($translated_string, $replaced_substrings,
+                                    $debug_level);
+    push @$translated_string_tree, $tree;
+  }
+
+  $result_tree = dclone($translated_string_tree->[1]);
+
+  if ($replaced_substrings) {
+    $result_tree = _substitute($result_tree, $replaced_substrings);
+  }
+
+  if ($debug_level) {
+    my $translated_string = $translated_string_tree->[0];
+    $translated_string = $string if (!defined($translated_string));
+
+    print STDERR "RESULT GDT: '$string' '$translated_string' ".
+       Texinfo::Convert::Texinfo::convert_to_texinfo($result_tree)."'\n";
+  }
   return $result_tree;
 }
 
@@ -321,15 +355,18 @@ sub gdt_string($;$$$$$)
 
   my $translated_string;
   if ($translate_string_method) {
-    $translated_string = &$translate_string_method($customization_information,
+    $translated_string
+           = &$translate_string_method($customization_information,
                                        $string, $lang_translations,
                                        $translation_context);
   } else {
     $translated_string = translate_string($string, $lang_translations,
-                                         $translation_context);
+                                          $translation_context);
   }
 
-  return _replace_substrings ($translated_string, $replaced_substrings);
+  my $converted_string = $translated_string->[0];
+  $converted_string = $string if (!defined($converted_string));
+  return _replace_substrings ($converted_string, $replaced_substrings);
 }
 
 sub _replace_substrings($;$)
@@ -347,8 +384,6 @@ sub _replace_substrings($;$)
   return $translation_result;
 }
 
-our %cached_translation_trees;
-
 sub _replace_convert_substrings($;$$)
 {
   my $translated_string = shift;
@@ -356,14 +391,6 @@ sub _replace_convert_substrings($;$$)
   my $debug_level = shift;
 
   my $texinfo_line = $translated_string;
-
-  my $tree;
-  if (defined($cached_translation_trees{$translated_string})) {
-    # No need to convert this more than once as we should get the same
-    # every time.
-    $tree = dclone($cached_translation_trees{$translated_string});
-    goto have_tree;
-  }
 
   # we change the substituted brace-enclosed strings to internal
   # values marked by @txiinternalvalue such that their location
@@ -398,7 +425,7 @@ sub _replace_convert_substrings($;$$)
     print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
-  $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+  my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
   my ($errors, $errors_count) = $parser->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
@@ -408,14 +435,7 @@ sub _replace_convert_substrings($;$$)
       warn $error_message->{'error_line'};
     }
   }
- $cached_translation_trees{$translated_string} = dclone($tree);
 
- have_tree:
-  $tree = _substitute($tree, $replaced_substrings);
-  if ($debug_level) {
-    print STDERR "RESULT GDT: '".
-       Texinfo::Convert::Texinfo::convert_to_texinfo($tree)."'\n";
-  }
   return $tree;
 }
 

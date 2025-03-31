@@ -184,37 +184,36 @@ sub output_files_unclosed_files($)
 
 
 
-my $undef_lang_translation = [undef];
-
 # TODO document?
 sub switch_lang_translations($$)
 {
   my $self = shift;
   my $lang = shift;
 
-  if (defined($lang)) {
-    my $current_lang_translation = $self->{'current_lang_translations'};
-    if (defined($current_lang_translation)
-        and defined($current_lang_translation->[0])
-        and $current_lang_translation->[0] eq $lang) {
-      # Nothing to do
-    } else {
-      my $translations;
-      if (!defined($self->{'translations'})) {
-        $translations = $Texinfo::Translations::translation_cache;
-        $self->{'translations'} = $translations;
-      } else {
-        $translations = $self->{'translations'};
-      }
-      if (!$translations->{$lang}) {
-        $translations->{$lang} = {};
-      }
-      $self->{'current_lang_translations'} = [$lang,
-                                         $translations->{$lang}];
-    }
-  } else {
-    $self->{'current_lang_translations'} = $undef_lang_translation;
+  $lang = '' if (!defined($lang));
+
+  my $current_lang_translation = $self->{'current_lang_translations'};
+  if (defined($current_lang_translation)
+      and defined($current_lang_translation->[0])
+      and $current_lang_translation->[0] eq $lang) {
+    # Nothing to do
+    return;
   }
+
+  my $translations;
+  if (!defined($self->{'translations'})) {
+    $translations = $Texinfo::Translations::translation_cache;
+    $self->{'translations'} = $translations;
+  } else {
+    $translations = $self->{'translations'};
+  }
+
+  if (!$translations->{$lang}) {
+    $translations->{$lang} = {};
+  }
+
+  $self->{'current_lang_translations'} = [$lang,
+                                       $translations->{$lang}];
 }
 
 
