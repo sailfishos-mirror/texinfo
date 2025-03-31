@@ -240,7 +240,7 @@ my %outfile_preamble = (
 '. "<book>\n", "</book>\n"],
   'xml' => ['<?xml version="1.0"?>
 '."<!DOCTYPE texinfo PUBLIC \"-//GNU//DTD TexinfoML V${XML_DTD_VERSION}//EN\" \"http://www.gnu.org/software/texinfo/dtd/${XML_DTD_VERSION}/texinfo.dtd\">
-".'<texinfo xml:lang="en">
+".'<texinfo>
 ', "</texinfo>\n"],
  # done dynamically for CSS
  'html_text' => \&output_preamble_postamble_html,
