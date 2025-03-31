@@ -382,17 +382,16 @@ sub conversion_output_begin($;$$)
     $id = '';
   }
 
-  my $lang;
+  my $lang_attribute;
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
-    $lang = $documentlanguage;
+    $lang_attribute = " lang=\"$documentlanguage\"";
     Texinfo::Convert::Utils::switch_lang_translations($self, $documentlanguage);
     push @{$self->{'lang_stack'}}, $documentlanguage;
   } else {
-    $lang = Texinfo::Common::DEFAULT_STRINGS_LANG;
-    # start with an empty string if there is no documentlanguage, not with
-    # $lang (used for the lang attribute).
+    $lang_attribute = '';
+    # start with an empty string if there is no documentlanguage
     push @{$self->{'lang_stack'}}, '';
   }
   my $result =  "<?xml version=\"1.0\"${encoding}?>".'
@@ -400,7 +399,7 @@ sub conversion_output_begin($;$$)
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-'. "<book${id} lang=\"$lang\">\n";
+'. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
   my $global_commands;

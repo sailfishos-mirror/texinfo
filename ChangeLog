@@ -1,5 +1,15 @@
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
+	no DocBook book lang attribute without @documentlanguage
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin): do
+	not set the book lang attribute if documentlanguage is not set.
+
+	* tta/perl/t/test_utils.pl (%outfile_preamble): remove the book lang
+	attribute from the DocBook preamble.
+
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
 	empty string for body lang in HTML without @documentlanguage
 
 	* tta/C/convert/html_prepare_converter.c (html_setup_output),

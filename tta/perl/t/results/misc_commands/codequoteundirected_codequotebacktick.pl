@@ -1668,7 +1668,7 @@ $result_converted{'docbook_doc'}->{'codequoteundirected_codequotebacktick'} = '<
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="en">
+<book>
 <title>test quotes</title>
 <bookinfo><title>test quotes</title>
 <legalnotice><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 

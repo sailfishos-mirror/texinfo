@@ -446,7 +446,7 @@ $result_converted{'docbook_doc'}->{'comment_space_command_on_line'} = '<?xml ver
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="en">
+<book>
 <title>Settitle &#160;</title><!-- settittle -->
 <bookinfo><title>Settitle &#160;</title><!-- settittle -->
 </bookinfo>

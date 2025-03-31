@@ -237,7 +237,7 @@ my %outfile_preamble = (
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-'. "<book lang=\"en\">\n", "</book>\n"],
+'. "<book>\n", "</book>\n"],
   'xml' => ['<?xml version="1.0"?>
 '."<!DOCTYPE texinfo PUBLIC \"-//GNU//DTD TexinfoML V${XML_DTD_VERSION}//EN\" \"http://www.gnu.org/software/texinfo/dtd/${XML_DTD_VERSION}/texinfo.dtd\">
 ".'<texinfo xml:lang="en">

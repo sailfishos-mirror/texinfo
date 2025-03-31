@@ -3,7 +3,7 @@
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book id="extension_undef" lang="en">
+<book id="extension_undef">
 <chapter label="">
 <title>top</title>
 

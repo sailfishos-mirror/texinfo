@@ -3,7 +3,7 @@
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book id="formatting.xml" lang="en">
+<book id="formatting.xml">
 <title>title &#8211;a</title>
 <subtitle>formatting subtitle &#8211;a
 subtitle 2 &#8211;a</subtitle>

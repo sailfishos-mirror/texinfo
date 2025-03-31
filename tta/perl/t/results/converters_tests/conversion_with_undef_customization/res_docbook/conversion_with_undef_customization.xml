@@ -3,7 +3,7 @@
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book id="conversion_with_undef_customization.xml" lang="en">
+<book id="conversion_with_undef_customization.xml">
 <chapter label="1" id="chap_00ea">
 <title>Chap&#234;</title>
 
