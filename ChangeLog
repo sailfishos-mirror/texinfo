@@ -1,5 +1,11 @@
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/call_perl_function.c
+	(call_translations_translate_string): update for changes in input and
+	output arguments of Texinfo::Translations::translate_string.
+
+2025-03-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/many_input_files/for_nbspaces_different_encodings.sh: use
 	DIFF_OPTIONS.
 

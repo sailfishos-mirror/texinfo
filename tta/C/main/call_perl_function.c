@@ -115,9 +115,11 @@ call_translations_translate_string (const char *string, const char *in_lang,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
+  AV *lang_translations;
+  const char *translation_lang;
 
   dTHX;
 
@@ -125,6 +127,14 @@ call_translations_translate_string (const char *string, const char *in_lang,
      embedded Perl */
   if (get_no_perl_interpreter ())
     return 0;
+
+  if (in_lang)
+    translation_lang = in_lang;
+  else
+    translation_lang = "";
+
+  lang_translations = newAV ();
+  av_push (lang_translations, newSVpv (translation_lang, 0));
 
   dSP;
 
@@ -135,7 +145,7 @@ call_translations_translate_string (const char *string, const char *in_lang,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (newSVpv_utf8 (string, 0)));
-  PUSHs(sv_2mortal (newSVpv_utf8 (in_lang, 0)));
+  PUSHs(sv_2mortal (newRV_inc ((SV *) lang_translations)));
   PUSHs(sv_2mortal (newSVpv_utf8 (translation_context, 0)));
   PUTBACK;
 
@@ -149,8 +159,22 @@ call_translations_translate_string (const char *string, const char *in_lang,
     croak ("translate_string should return 1 item\n");
 
   result_sv = POPs;
-  result_ret = SvPVutf8 (result_sv, len);
-  result = non_perl_strndup (result_ret, len);
+  if (SvOK (result_sv))
+    {
+      AV *result_av = (AV *)SvRV (result_sv);
+      SV **translated_string_sv = av_fetch (result_av, 0, 0);
+      if (translated_string_sv)
+        {
+          if (SvOK (*translated_string_sv))
+            result_ret = SvPVutf8 (*translated_string_sv, len);
+          else
+            {
+              result_ret = string;
+              len = strlen (result_ret);
+            }
+        }
+      result = non_perl_strndup (result_ret, len);
+    }
 
   PUTBACK;
 
