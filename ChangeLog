@@ -1,3 +1,29 @@
+2025-04-01  Patrice Dumas  <pertusus@free.fr>
+
+	change functions to have language in argument when possible
+
+	* doc/texi2any_api.texi (Translated Strings Customization),
+	tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/perl/Texinfo/Convert/HTML.pm (html_translate_string),
+	tta/perl/init/documentation_examples.pm,
+	tta/perl/t/init/css_in_node_redirection_page.pm,
+	tta/perl/t/init/special_element_customization.pm,
+	tta/perl/t/init/translated_strings_customization.pm,
+	tta/perl/t/init/translation_in_parser_in_translation.pm: change
+	format_translate_message call back to having language directly in
+	argument.
+
+	* tta/C/main/call_perl_function.c
+	(call_translations_translate_string), tta/perl/Texinfo/Translations.pm
+	(translate_string, cache_translate_string): rename translate_string as
+	cache_translate_string and readd translate_string to do only the
+	translation, and not the caching of the translation.  Update
+	call_translations_translate_string call to call the new
+	translate_string (corresponding to the previous way of calling
+	translate_string before merging the tree and translation string
+	caches).
+
 2025-03-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/call_perl_function.c

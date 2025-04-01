@@ -111,14 +111,14 @@ replaced by the associated Texinfo tree text element:
                'book'  => {'text' => $book_name}});
 @end verbatim
 
-By default, @code{gdt} and @code{gdt_string} call @code{translate_string} to use a
+By default, @code{gdt} and @code{gdt_string} call @code{cache_translate_string} to use a
 gettext-like infrastructure to retrieve the translated strings, using the
 @emph{texinfo_document} domain.  You can change the method used to retrieve the
 translated strings by providing a @emph{$translate_string_method} argument.  If not
 undef it should be a reference on a function that is called instead of
 @code{translate_string}.  The @emph{$object} is passed as first argument of the
 @emph{$translate_string_method}, the other arguments are the same as
-@ref{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang_translations@comma{} $translation_context),, @code{translate_string}}
+@ref{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context),, @code{translate_string}}
 arguments.
 
 @item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
@@ -133,24 +133,28 @@ in the Gettext C API.
 @end table
 
 By default, in @code{gdt}, @code{gdt_string} and @code{pgdt} a string is translated with
-@code{translate_string}.
+@code{cache_translate_string}.
 
 @table @asis
-@item $translated_string = translate_string($string, $lang_translations, $translation_context)
-@anchor{Texinfo@asis{::}Translations $translated_string = translate_string($string@comma{} $lang_translations@comma{} $translation_context)}
-@cindex @code{translate_string}
+@item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context)
+@anchor{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context)}
+@cindex @code{cache_translate_string}
 
 The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
 argument should be an array reference with one or two elements.  The first
 element of the array is the language used for the translation.  The second
 element, if set, should be an hash reference holding translations already done.
-If the language is @code{undef}, the input string is returned as is.  The
-@emph{$translation_context} is optional.  If not @code{undef} this is a translation
-context string for @emph{$string}.  It is the first argument of @code{pgettext} in the
-C API of Gettext.
+If the language is @code{undef} or an empty string, the input string does not
+need to be translated.  The @emph{$translation_context} is optional.  If not
+@code{undef} this is a translation context string for @emph{$string}.  It is the first
+argument of @code{pgettext} in the C API of Gettext.
 
-@code{translate_string} uses a gettext-like infrastructure to retrieve the
-translated strings, using the @emph{texinfo_document} domain.
+@code{cache_translate_string} uses a gettext-like infrastructure to retrieve the
+translated strings, using the @emph{texinfo_document} domain.  Returns an array
+reference with the translated string as first element, or undef if the
+input string should be used as translation.  The second element of the
+reference array, if present, should be the Texinfo tree corresponding to
+the translated string, without the braced arguments substituted.
 
 @end table
 

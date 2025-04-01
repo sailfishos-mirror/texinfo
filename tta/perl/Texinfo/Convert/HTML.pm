@@ -2876,7 +2876,7 @@ sub _translate_names($)
 
 # redefined functions
 #
-# Texinfo::Translations::translate_string redefined to call user defined function.
+# Texinfo::Translations::cache_translate_string redefined to call user defined function.
 sub html_translate_string($$$;$)
 {
   my ($self, $string, $lang_translations, $translation_context) = @_;
@@ -2885,23 +2885,22 @@ sub html_translate_string($$$;$)
     $format_lang_translations = $self->{'current_lang_translations'}
                            if ($self and !defined($format_lang_translations));
 
-    # prepare lang_translations argument for user-defined translations.
     my $lang;
     my $translations;
     if ($format_lang_translations) {
       $lang = $format_lang_translations->[0];
     }
-    $lang = '' if (!defined($lang));
-    if (!$self->{'translation_cache'}->{$lang}) {
-      $self->{'translation_cache'}->{$lang} = {};
-    }
-    $translations = $self->{'translation_cache'}->{$lang};
-
     my $translated_string
       = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
-                     $string, [$lang, $translations], $translation_context);
+                                         $string, $lang, $translation_context);
 
     if (defined($translated_string)) {
+      $lang = '' if (!defined($lang));
+      if (!$self->{'translation_cache'}->{$lang}) {
+        $self->{'translation_cache'}->{$lang} = {};
+      }
+      $translations = $self->{'translation_cache'}->{$lang};
+
       # reuse the tree if the translation matches the cached translation
       # otherwise setup a new translation (without tree).
       my $translation_context_str;
@@ -2933,12 +2932,12 @@ sub html_translate_string($$$;$)
     }
   }
 
-  return Texinfo::Translations::translate_string($string, $lang_translations,
-                                                 $translation_context);
+  return Texinfo::Translations::cache_translate_string($string,
+                               $lang_translations, $translation_context);
 }
 
-# redefine generic Converter functions to pass a customized translate_string
-# function
+# redefine generic Converter functions to pass a customized
+# cache_translate_string function
 sub cdt($$;$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;

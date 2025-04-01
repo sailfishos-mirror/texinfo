@@ -155,66 +155,11 @@ sub _switch_messages_locale
   }
 }
 
-# Cache translations in a hash to avoid having to go through the locale
-# system rigmarole every time.
-our $translation_cache = {};
-
-# Return an array reference with a translated string.
-# first element of $LANG_TRANSLATIONS sets the language if set.  If undef,
-# no translation.
-# NOTE If called from a converter, the language will in general be set from
-# the document documentlanguage when it is encountered.  Before the first
-# @documentlanguage, it depends on the converter.  Some do not set
-# @documentlanguage before it is encountered, some set some default
-# based on @documentlanguage if in the preamble.
-# Can be replaced by a call to a user-supplied function in gdt* with a
-# different prototype.
+# TODO document?
+# LANG should not be undef nor an empty string.
 sub translate_string($$;$)
 {
-  my ($string, $lang_translations, $translation_context) = @_;
-
-  my $lang;
-  my $translations;
-  if ($lang_translations) {
-    $lang = $lang_translations->[0];
-    if (scalar(@$lang_translations) > 1) {
-      $translations = $lang_translations->[1];
-    }
-  }
-
-  $lang = '' if (!defined($lang));
-
-  my $translation_context_str;
-  if (defined($translation_context)) {
-    $translation_context_str = $translation_context;
-  } else {
-    $translation_context_str = '';
-  }
-  my $translated_string;
-  my $strings_cache;
-  # use default translated string and tree cache if none was passed
-  if (!$translations) {
-    if (!$translation_cache->{$lang}) {
-      $translation_cache->{$lang} = {}
-    }
-    $translations = $translation_cache->{$lang};
-  }
-  if ($translations->{$translation_context_str}) {
-    if ($translations->{$translation_context_str}->{$string}) {
-      return $translations->{$translation_context_str}->{$string};
-    }
-  } else {
-    $translations->{$translation_context_str} = {};
-  }
-  $strings_cache = $translations->{$translation_context_str};
-
-  # no translation, but still needed to setup caching for the associated
-  # tree
-  if ($lang eq '') {
-    my $result = [undef];
-    $strings_cache->{$lang} = $result;
-    return $result;
-  }
+  my ($string, $lang, $translation_context) = @_;
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -257,6 +202,7 @@ sub translate_string($$;$)
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
+  my $translated_string;
   if (defined($translation_context)) {
     $translated_string = Locale::Messages::pgettext($translation_context,
                                                      $string);
@@ -280,6 +226,70 @@ sub translate_string($$;$)
     }
   }
 
+  return $translated_string;
+}
+
+# Cache translations in a hash to avoid having to go through the locale
+# system rigmarole every time.
+our $translation_cache = {};
+
+# Return an array reference with a translated string.
+# The LANG_TRANSLATIONS argument is an array reference with the language
+# translated to as first element, and as optional second element an hash
+# that is used to hold translations already done for that language.
+# If the language is undef or an empty string, no translation is needed.
+sub cache_translate_string($$;$)
+{
+  my ($string, $lang_translations, $translation_context) = @_;
+
+  my $lang;
+  my $translations;
+  if ($lang_translations) {
+    $lang = $lang_translations->[0];
+    if (scalar(@$lang_translations) > 1) {
+      $translations = $lang_translations->[1];
+    }
+  }
+
+  $lang = '' if (!defined($lang));
+
+  my $translation_context_str;
+  if (defined($translation_context)) {
+    $translation_context_str = $translation_context;
+  } else {
+    $translation_context_str = '';
+  }
+  my $strings_cache;
+  # use default translated string and tree cache if none was passed
+  if (!$translations) {
+    if (!$translation_cache->{$lang}) {
+      $translation_cache->{$lang} = {}
+    }
+    $translations = $translation_cache->{$lang};
+  }
+
+  if ($translations->{$translation_context_str}) {
+    if ($translations->{$translation_context_str}->{$string}) {
+      # return cached translation and tree
+      return $translations->{$translation_context_str}->{$string};
+    }
+  } else {
+    $translations->{$translation_context_str} = {};
+  }
+
+  $strings_cache = $translations->{$translation_context_str};
+
+  # no translation, but still needed to setup caching for the associated
+  # tree
+  if ($lang eq '') {
+    my $result = [undef];
+    $strings_cache->{$lang} = $result;
+    return $result;
+  }
+
+  my $translated_string = translate_string($string, $lang,
+                                           $translation_context);
+
   my $result = [$translated_string];
 
   $strings_cache->{$string} = $result;
@@ -292,13 +302,19 @@ our %cached_translation_trees;
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
-# The LANG_TRANSLATIONS argument is a reference array with the language
-# translated to as first element, and as second element an hash that is
-# used to hold translations already done.
+# The LANG_TRANSLATIONS argument is an array reference with the language
+# translated to as first element, and as optional second element an hash
+# that is used to hold translations already done for that language.
+# If the language is undef or an empty string, no translation is needed.
+# NOTE If called from a converter, the language will in general be set from
+# the document documentlanguage when it is encountered.  Before the first
+# @documentlanguage, it depends on the converter.  Some do not set
+# @documentlanguage before it is encountered, some set based on
+# @documentlanguage if in the preamble.
 # $TRANSLATED_STRING_METHOD is optional.  If set, it is called instead
-# of translate_string.  $TRANSLATED_STRING_METHOD takes
+# of cache_translate_string.  $TRANSLATED_STRING_METHOD takes
 # $CUSTOMIZATION_INFORMATION as first argument in addition to other
-# translate_string arguments.
+# cache_translate_string arguments.
 sub gdt($;$$$$$$)
 {
   my ($string, $lang_translations, $replaced_substrings, $debug_level,
@@ -315,7 +331,8 @@ sub gdt($;$$$$$$)
 
   } else {
     $translated_string_tree
-     = translate_string($string, $lang_translations, $translation_context);
+     = cache_translate_string($string, $lang_translations,
+                              $translation_context);
   }
 
   if (scalar(@$translated_string_tree) == 1) {
@@ -360,8 +377,8 @@ sub gdt_string($;$$$$$)
                                        $string, $lang_translations,
                                        $translation_context);
   } else {
-    $translated_string = translate_string($string, $lang_translations,
-                                          $translation_context);
+    $translated_string = cache_translate_string($string, $lang_translations,
+                                                $translation_context);
   }
 
   my $converted_string = $translated_string->[0];
@@ -697,14 +714,14 @@ replaced by the associated Texinfo tree text element:
               {'reference' => $tree_reference,
                'book'  => {'text' => $book_name}});
 
-By default, C<gdt> and C<gdt_string> call C<translate_string> to use a
+By default, C<gdt> and C<gdt_string> call C<cache_translate_string> to use a
 gettext-like infrastructure to retrieve the translated strings, using the
 I<texinfo_document> domain.  You can change the method used to retrieve the
 translated strings by providing a I<$translate_string_method> argument.  If not
 undef it should be a reference on a function that is called instead of
 C<translate_string>.  The I<$object> is passed as first argument of the
 I<$translate_string_method>, the other arguments are the same as
-L<< C<translate_string>|/$translated_string = translate_string($string, $lang_translations, $translation_context) >>
+L<< C<translate_string>|/$translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context) >>
 arguments.
 
 =item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
@@ -718,24 +735,28 @@ in the Gettext C API.
 =back
 
 By default, in C<gdt>, C<gdt_string> and C<pgdt> a string is translated with
-C<translate_string>.
+C<cache_translate_string>.
 
 =over
 
-=item $translated_string = translate_string($string, $lang_translations, $translation_context)
-X<C<translate_string>>
+=item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context)
+X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
 argument should be an array reference with one or two elements.  The first
 element of the array is the language used for the translation.  The second
 element, if set, should be an hash reference holding translations already done.
-If the language is C<undef>, the input string is returned as is.  The
-I<$translation_context> is optional.  If not C<undef> this is a translation
-context string for I<$string>.  It is the first argument of C<pgettext> in the
-C API of Gettext.
+If the language is C<undef> or an empty string, the input string does not
+need to be translated.  The I<$translation_context> is optional.  If not
+C<undef> this is a translation context string for I<$string>.  It is the first
+argument of C<pgettext> in the C API of Gettext.
 
-C<translate_string> uses a gettext-like infrastructure to retrieve the
-translated strings, using the I<texinfo_document> domain.
+C<cache_translate_string> uses a gettext-like infrastructure to retrieve the
+translated strings, using the I<texinfo_document> domain.  Returns an array
+reference with the translated string as first element, or undef if the
+input string should be used as translation.  The second element of the
+reference array, if present, should be the Texinfo tree corresponding to
+the translated string, without the braced arguments substituted.
 
 =back
 

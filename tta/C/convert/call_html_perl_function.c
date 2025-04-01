@@ -1117,49 +1117,12 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HV *converter_hv;
-  AV *lang_translations;
-  const char *translation_lang;
-  SV **translation_cache_sv;
-  HV *translations_lang_hv;
 
   dTHX;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
   build_html_formatting_state (self);
-
-  if (lang)
-    translation_lang = lang;
-  else
-    translation_lang = "";
-
-  lang_translations = newAV ();
-  av_push (lang_translations, newSVpv (translation_lang, 0));
-
-  /* Not clear that the setup of the cache is useful, but it is setup in
-     the same way in Perl before calling format_translate_message */
-  converter_hv = (HV *)SvRV ((SV *)self->sv);
-
-  translation_cache_sv = hv_fetch (converter_hv, "translation_cache",
-                                   strlen ("translation_cache"), 0);
-
-  if (translation_cache_sv)
-    {
-      HV *translation_cache_hv = (HV *)SvRV (*translation_cache_sv);
-      SV *lang_sv = newSVpv_utf8 (lang, 0);
-      HE *translations_lang_he = hv_fetch_ent (translation_cache_hv, lang_sv,
-                                                0, 0);
-      if (!translations_lang_he)
-        {
-          translations_lang_hv = newHV ();
-          hv_store_ent (translation_cache_hv, lang_sv,
-                        newRV_noinc ((SV *)translations_lang_hv), 0);
-        }
-      else
-        translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
-    }
-  av_push (lang_translations, newRV_inc ((SV *) translations_lang_hv));
 
   dSP;
 
@@ -1171,7 +1134,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
-  PUSHs(sv_2mortal (newRV_inc ((SV *) lang_translations)));
+  PUSHs(sv_2mortal (newSVpv (lang, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
   PUTBACK;
 
