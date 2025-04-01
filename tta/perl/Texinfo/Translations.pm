@@ -719,9 +719,9 @@ gettext-like infrastructure to retrieve the translated strings, using the
 I<texinfo_document> domain.  You can change the method used to retrieve the
 translated strings by providing a I<$translate_string_method> argument.  If not
 undef it should be a reference on a function that is called instead of
-C<translate_string>.  The I<$object> is passed as first argument of the
+C<cache_translate_string>.  The I<$object> is passed as first argument of the
 I<$translate_string_method>, the other arguments are the same as
-L<< C<translate_string>|/$translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context) >>
+L<< C<cache_translate_string>|/$translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context) >>
 arguments.
 
 =item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
