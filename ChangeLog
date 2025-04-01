@@ -1,5 +1,24 @@
 2025-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/hashmap.c (init_c_hashmap, is_c_hashmap_registered)
+	(c_hashmap_register, clear_c_hashmap),
+	tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter): remove the converter argument of
+	init_registered_ids_c_hashmap, instead return an hashmap pointer and
+	rename the function as init_c_hashmap.  Pass an hashmap argument to
+	is_c_hashmap_registered_id, c_hashmap_register_id and
+	clear_registered_ids_c_hashmap, renaming the functions as
+	is_c_hashmap_registered, c_hashmap_register and clear_c_hashmap.
+	Inline free_registered_ids_c_hashmap in html_free_converter and
+	remove.  Update callers.
+
+	* tta/C/convert/hashmap.c (BUCKET, c_hashmap_register)
+	(c_hashmap_value): add a void *value field in the hash, add a
+	corresponding argument to c_hashmap_register and add c_hashmap_value
+	function.
+
+2025-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	change functions to have language in argument when possible
 
 	* doc/texi2any_api.texi (Translated Strings Customization),

@@ -4163,13 +4163,13 @@ html_prepare_conversion_units (CONVERTER *self)
 int
 html_id_is_registered (CONVERTER *self, const char *string)
 {
-  return is_c_hashmap_registered_id (self, string);
+  return is_c_hashmap_registered (self->registered_ids_c_hashmap, string);
 }
 
 void
 html_register_id (CONVERTER *self, const char *string)
 {
-  c_hashmap_register_id (self, string);
+  c_hashmap_register (self->registered_ids_c_hashmap, string, 0);
 }
 
 /* used for diverse elements: tree units, indices, footnotes, special
@@ -4977,7 +4977,7 @@ html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
   size_t predicted_values = ids_hashmap_predicted_values (self);
-  init_registered_ids_c_hashmap (self, predicted_values);
+  self->registered_ids_c_hashmap = init_c_hashmap (predicted_values);
 
   /*
    Do that before the other elements, to be sure that special page ids

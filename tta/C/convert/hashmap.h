@@ -17,11 +17,15 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-void init_registered_ids_c_hashmap (CONVERTER *self, size_t nbuckets);
-int is_c_hashmap_registered_id (CONVERTER *self, const char *in_string);
-void c_hashmap_register_id (CONVERTER *self, const char *in_string);
-void clear_registered_ids_c_hashmap (CONVERTER *self);
-void free_registered_ids_c_hashmap (CONVERTER *self);
+struct C_HASHMAP;
+
+struct C_HASHMAP *init_c_hashmap (size_t nbuckets);
+int is_c_hashmap_registered (struct C_HASHMAP *H, const char *in_string);
+void c_hashmap_register (struct C_HASHMAP *H, const char *in_string,
+                         const void *value);
+const void *c_hashmap_value (struct C_HASHMAP *H, const char *in_string,
+                             int *found);
+void clear_c_hashmap (struct C_HASHMAP *H);
 
 
 #endif

@@ -167,7 +167,7 @@ html_reset_converter (CONVERTER *self)
   /* targets */
   reset_html_targets (self, self->html_targets);
 
-  clear_registered_ids_c_hashmap (self);
+  clear_c_hashmap (self->registered_ids_c_hashmap);
 
   for (i = 0; i < ST_footnote_location+1; i++)
     {
@@ -353,7 +353,8 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_target_cmds.stack);
 
-  free_registered_ids_c_hashmap (self);
+  clear_c_hashmap (self->registered_ids_c_hashmap);
+  free (self->registered_ids_c_hashmap);
 
   if (self->pl_info_hv)
     {

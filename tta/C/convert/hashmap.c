@@ -26,6 +26,7 @@
 typedef struct BUCKET {
   /* Linked list of strings. */
   char *string;
+  const void *value;
   struct BUCKET *next;
 } BUCKET;
 
@@ -83,8 +84,8 @@ hash_string (const char *string, C_HASHMAP *H)
 }
 
 #define NBUCKETS 256
-void
-init_registered_ids_c_hashmap (CONVERTER *self, size_t nbuckets)
+C_HASHMAP *
+init_c_hashmap (size_t nbuckets)
 {
   C_HASHMAP *H = malloc (sizeof (C_HASHMAP));
   memset (H, 0, sizeof (C_HASHMAP));
@@ -99,13 +100,12 @@ init_registered_ids_c_hashmap (CONVERTER *self, size_t nbuckets)
   H->bucket = malloc (sizeof (BUCKET *) * nbuckets);
   memset (H->bucket, 0, sizeof (BUCKET *) * nbuckets);
 
-  self->registered_ids_c_hashmap = H;
+  return H;
 }
 
 int
-is_c_hashmap_registered_id (CONVERTER *self, const char *in_string)
+is_c_hashmap_registered (C_HASHMAP *H, const char *in_string)
 {
-  C_HASHMAP *H = (C_HASHMAP *)self->registered_ids_c_hashmap;
   unsigned int hash = hash_string(in_string, H);
   BUCKET *B = H->bucket[hash];
 
@@ -119,13 +119,33 @@ is_c_hashmap_registered_id (CONVERTER *self, const char *in_string)
   return 0;
 }
 
-void
-c_hashmap_register_id (CONVERTER *self, const char *in_string)
+const void *
+c_hashmap_value (C_HASHMAP * H, const char *in_string, int *found)
 {
-  C_HASHMAP *H = (C_HASHMAP *)self->registered_ids_c_hashmap;
+  unsigned int hash = hash_string(in_string, H);
+  BUCKET *B = H->bucket[hash];
 
+  while (B)
+    {
+      if (!strcmp(B->string, in_string))
+        {
+          *found = 1;
+          return B->value;
+        }
+      B = B->next;
+    }
+
+  *found = 0;
+  return 0;
+}
+
+void
+c_hashmap_register (C_HASHMAP *H, const char *in_string,
+                    const void *value)
+{
   BUCKET *new = new_bucket(H);
   new->string = strdup (in_string);
+  new->value = value;
   unsigned int hash = hash_string(in_string, H);
 
   /* Add to front of linked list. */
@@ -136,9 +156,8 @@ c_hashmap_register_id (CONVERTER *self, const char *in_string)
 }
 
 void
-clear_registered_ids_c_hashmap (CONVERTER *self)
+clear_c_hashmap (C_HASHMAP *H)
 {
-  C_HASHMAP *H = (C_HASHMAP *)self->registered_ids_c_hashmap;
   int i;
 
   if (!H)
@@ -161,13 +180,5 @@ clear_registered_ids_c_hashmap (CONVERTER *self)
 
   free (H->bucket);
   memset (H, 0, sizeof (C_HASHMAP));
-}
-
-void
-free_registered_ids_c_hashmap (CONVERTER *self)
-{
-  C_HASHMAP *H = (C_HASHMAP *)self->registered_ids_c_hashmap;
-  clear_registered_ids_c_hashmap (self);
-  free (H);
 }
 
