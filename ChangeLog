@@ -1,5 +1,10 @@
 2025-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources), tta/C/main/hashmap.c,
+	tta/C/main/hashmap.h: move hashmap.c to main out of convert.
+
+2025-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/hashmap.c (init_c_hashmap, is_c_hashmap_registered)
 	(c_hashmap_register, clear_c_hashmap),
 	tta/C/convert/html_converter_finish.c (html_reset_converter)
