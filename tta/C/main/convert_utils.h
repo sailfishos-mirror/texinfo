@@ -34,7 +34,8 @@ typedef struct PARSED_DEF {
 LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations);
+                          LANG_TRANSLATION *current_lang_translations,
+                          size_t cache_size);
 
 ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,

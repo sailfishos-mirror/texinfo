@@ -172,7 +172,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       if (!lang)
         lang = "";
 
-      lang_translation = get_lang_translation (&self->translation_cache, lang);
+      lang_translation = get_lang_translation (&self->translation_cache, lang,
+                                               TXI_CONVERT_STRINGS_NR);
       translations = lang_translation->translations;
 
       if (translation_context)
@@ -670,7 +671,8 @@ html_translate_names (CONVERTER *self)
   self->current_lang_translations =
     switch_lang_translations (&translation_cache,
                               self->conf->documentlanguage.o.string,
-                              self->current_lang_translations);
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
 
   if (self->conf->DEBUG.o.integer > 0)
     {

@@ -61,7 +61,8 @@ element_associated_processing_encoding (const ELEMENT *element)
 LANG_TRANSLATION *
 switch_lang_translations (LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations)
+                          LANG_TRANSLATION *current_lang_translations,
+                          size_t cache_size)
 {
   const char *lang;
   LANG_TRANSLATION *lang_translation;
@@ -75,7 +76,8 @@ switch_lang_translations (LANG_TRANSLATION ***lang_translations,
       && !strcmp(current_lang_translations->lang, lang))
     return current_lang_translations;
 
-  lang_translation = get_lang_translation (lang_translations, lang);
+  lang_translation
+    = get_lang_translation (lang_translations, lang, cache_size);
   return lang_translation;
 }
 

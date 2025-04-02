@@ -440,14 +440,11 @@ free_lang_translation (LANG_TRANSLATION *lang_translation)
     free_lang_translation_tree_list (lang_translation->translations);
 }
 
-// msgfmt --statistics po_document/*.pot
-#define TEXINFO_TRANSLATED_STRINGS_NR 243
-
 LANG_TRANSLATION **translation_cache;
 
 LANG_TRANSLATION *
 get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang)
+                      const char *lang, size_t cache_size)
 {
   size_t i = 0;
   LANG_TRANSLATION **lang_translations = *lang_translations_ptr;
@@ -476,8 +473,8 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
      malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
    memset (lang_translations[i]->translations, 0,
            sizeof (LANG_TRANSLATION_TREE_LIST));
-  lang_translations[i]->translations->hash
-    = init_c_hashmap (TEXINFO_TRANSLATED_STRINGS_NR);
+
+  lang_translations[i]->translations->hash = init_c_hashmap (cache_size);
 
   return lang_translations[i];
 }
@@ -546,7 +543,8 @@ cache_translate_string (const char *string,
   else
     {
       LANG_TRANSLATION *general_lang_translation
-        = get_lang_translation (&translation_cache, lang);
+        = get_lang_translation (&translation_cache, lang,
+                                TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;
     }
 

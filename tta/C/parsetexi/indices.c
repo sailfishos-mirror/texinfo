@@ -461,7 +461,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                       if (!current_lang || strcmp (lang, current_lang))
                         {
                           current_lang_translations
-                           = get_lang_translation (&lang_translations, lang);
+                           = get_lang_translation (&lang_translations, lang,
+                                                   TXI_PARSER_STRINGS_NR);
                           current_lang = lang;
                         }
 

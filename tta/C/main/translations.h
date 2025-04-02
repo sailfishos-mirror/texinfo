@@ -8,6 +8,19 @@
 #include "tree_types.h"
 #include "document_types.h"
 
+// msgfmt --statistics po_document/*.pot
+#define TXI_DOCUMENT_TRANSLATED_STRINGS_NR 243
+
+/* there are two translated strings in parser related to definition
+   name and category, that are not shared with the remaining of the
+   codes
+ */
+#define TXI_PARSER_STRINGS_NR 2
+
+/* number of document strings except for parser strings */
+#define TXI_CONVERT_STRINGS_NR \
+  (TXI_DOCUMENT_TRANSLATED_STRINGS_NR - TXI_PARSER_STRINGS_NR)
+
 /* element or string may not always be present */
 typedef struct NAMED_STRING_ELEMENT {
     const char *name;
@@ -29,7 +42,7 @@ void configure_output_strings_translations (const char *localesdir,
 
 LANG_TRANSLATION *get_lang_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang);
+                      const char *lang, size_t cache_size);
 LANG_TRANSLATION *new_lang_translation (const char *lang);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,

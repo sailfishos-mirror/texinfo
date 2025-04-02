@@ -121,7 +121,8 @@ copy_options_for_convert_text (OPTIONS *options)
 
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
-                                text_options->documentlanguage, 0);
+                                text_options->documentlanguage, 0,
+                                TXI_CONVERT_STRINGS_NR);
 
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
     text_options->INPUT_FILE_NAME_ENCODING
@@ -234,8 +235,8 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
 
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
-                                text_options->documentlanguage, 0);
-
+                                text_options->documentlanguage, 0,
+                                TXI_CONVERT_STRINGS_NR);
 }
 
 

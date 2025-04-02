@@ -1,5 +1,16 @@
 2025-04-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/convert_utils.c (switch_lang_translations),
+	tta/C/main/translations.c (get_lang_translation),
+	tta/C/main/translations.h (TXI_DOCUMENT_TRANSLATED_STRINGS_NR)
+	(TXI_PARSER_STRINGS_NR, TXI_CONVERT_STRINGS_NR): pass cache hash size
+	to switch_lang_translations and get_lang_translation.  Update callers.
+	Rename TEXINFO_TRANSLATED_STRINGS_NR as
+	TXI_DOCUMENT_TRANSLATED_STRINGS_NR and add TXI_PARSER_STRINGS_NR and
+	TXI_CONVERT_STRINGS_NR that are used for the cache size.
+
+2025-04-02  Patrice Dumas  <pertusus@free.fr>
+
 	Switch translation cache lang outside of gdt in C
 
 	* tta/C/main/translations.c (cache_translate_string): handle a NULL
