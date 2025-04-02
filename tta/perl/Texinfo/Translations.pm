@@ -504,8 +504,6 @@ sub pgdt($$;$$$$$)
 
 my $lang_translations = {};
 
-my $undef_lang_translation = [undef];
-
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
@@ -553,11 +551,9 @@ sub complete_indices($;$)
           # used for getting the translation.
           my $entry_language
              = $main_entry_element->{'extra'}->{'documentlanguage'};
-          if (!defined($entry_language)) {
-            $current_lang_translations = $undef_lang_translation;
-            $current_lang = $entry_language;
-          } elsif (!defined($current_lang)
-                   or $entry_language ne $current_lang) {
+          $entry_language = '' if (!defined($entry_language));
+          if (!defined($current_lang)
+              or $entry_language ne $current_lang) {
             if (!$lang_translations->{$entry_language}) {
               $lang_translations->{$entry_language} = {};
             }
