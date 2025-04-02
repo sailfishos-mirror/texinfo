@@ -23,6 +23,7 @@
 #include <locale.h>
 #include <errno.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #ifdef ENABLE_NLS
 #include <libintl.h>
@@ -38,8 +39,10 @@
 /* isascii_lower isascii_upper fatal */
 #include "base_utils.h"
 #include "tree.h"
+#include "hashmap.h"
 /* read_flag_len */
 #include "utils.h"
+#include "manipulate_tree.h"
 #include "api_to_perl.h"
 #include "debug.h"
 #include "document.h"
@@ -398,6 +401,174 @@ translate_string (const char *string, const char *in_lang,
 #endif
 }
 
+LANG_TRANSLATION *
+new_lang_translation (const char *lang)
+{
+  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
+    malloc (sizeof (LANG_TRANSLATION));
+  if (lang)
+    result->lang = strdup (lang);
+  else
+    result->lang = strdup ("");
+  result->translations = 0;
+
+  return result;
+}
+
+void
+free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
+{
+  size_t i;
+
+  clear_c_hashmap (translations->hash);
+  for (i = 0; i < translations->number; i++)
+    {
+      TRANSLATION_TREE *translation_tree = translations->list[i];
+      free (translation_tree->translated);
+      free (translation_tree->translation);
+      if (translation_tree->tree)
+        destroy_element_and_children (translation_tree->tree);
+      free (translation_tree);
+    }
+}
+
+void
+free_lang_translation (LANG_TRANSLATION *lang_translation)
+{
+  free (lang_translation->lang);
+  if (lang_translation->translations)
+    free_lang_translation_tree_list (lang_translation->translations);
+}
+
+// msgfmt --statistics po_document/*.pot
+#define TEXINFO_TRANSLATED_STRINGS_NR 243
+
+static LANG_TRANSLATION *translation_cache;
+
+LANG_TRANSLATION_TREE_LIST *
+get_lang_translation (LANG_TRANSLATION **lang_translations_ptr,
+                      const char *lang)
+{
+  size_t i = 0;
+  LANG_TRANSLATION *lang_translations = *lang_translations_ptr;
+
+  if (lang_translations)
+    {
+      for (i = 0; lang_translations[i].lang; i++)
+        {
+          if (!strcmp (lang_translations[i].lang, lang))
+            {
+              return lang_translations[i].translations;
+            }
+        }
+    }
+
+  *lang_translations_ptr = (LANG_TRANSLATION *)
+    realloc (*lang_translations_ptr,
+             (i+2) * sizeof (LANG_TRANSLATION));
+
+  lang_translations = *lang_translations_ptr;
+
+  memset (&lang_translations[i+1], 0, sizeof (LANG_TRANSLATION));
+
+  lang_translations[i].lang = strdup (lang);
+  lang_translations[i].translations = (LANG_TRANSLATION_TREE_LIST *)
+     malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
+   memset (lang_translations[i].translations, 0,
+           sizeof (LANG_TRANSLATION_TREE_LIST));
+  lang_translations[i].translations->hash
+    = init_c_hashmap (TEXINFO_TRANSLATED_STRINGS_NR);
+
+  return lang_translations[i].translations;
+}
+
+TRANSLATION_TREE *
+new_translation_tree (const char *translated)
+{
+  TRANSLATION_TREE *result = (TRANSLATION_TREE *) malloc
+                                 (sizeof (TRANSLATION_TREE));
+  memset (result, 0, sizeof (TRANSLATION_TREE));
+  result->translated = strdup (translated);
+  return result;
+}
+
+TRANSLATION_TREE *
+add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
+                      const char *translated)
+{
+  uintptr_t translation_nr;
+  TRANSLATION_TREE *result;
+
+  if (translations->number >= translations->space)
+    {
+      translations->list = (TRANSLATION_TREE **)
+        realloc (translations->list,
+                 (translations->space += 5) * sizeof (TRANSLATION_TREE *));
+    }
+  result = new_translation_tree (translated);
+  translations->list[translations->number] = result;
+
+  translations->number++;
+  translation_nr = translations->number;
+  c_hashmap_register (translations->hash, translated, (void *)translation_nr);
+
+  return result;
+}
+
+TRANSLATION_TREE *
+cache_translate_string (const char *string,
+                        LANG_TRANSLATION *lang_translation,
+                        const char *translation_context)
+{
+  const char *lang;
+  const char *translation_context_str;
+  LANG_TRANSLATION_TREE_LIST *translations;
+  char *translated_context_string;
+  TRANSLATION_TREE *result;
+  uintptr_t string_nr;
+  int found;
+
+  if (lang_translation && lang_translation->lang)
+    lang = lang_translation->lang;
+  else
+    lang = "";
+
+  if (translation_context)
+    translation_context_str = translation_context;
+  else
+    translation_context_str = "";
+
+  xasprintf (&translated_context_string, "%s-%s",
+             string, translation_context_str);
+
+  if (!lang_translation->translations)
+    translations = get_lang_translation (&translation_cache, lang);
+  else
+    translations = lang_translation->translations;
+
+  string_nr = (uintptr_t) c_hashmap_value (translations->hash,
+                                           translated_context_string, &found);
+  if (found)
+    {
+      result = translations->list[string_nr -1];
+      free (translated_context_string);
+      return result;
+    }
+
+  result = add_translation_tree (translations, translated_context_string);
+
+  if (strlen (lang))
+    {
+      char *translated_string
+        = translate_string (string, lang, translation_context);
+      result->translation = translated_string;
+    }
+
+  free (translated_context_string);
+
+  return result;
+}
+
 char *
 replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings)
@@ -462,6 +633,7 @@ replace_substrings (const char *string,
   return substituted.text;
 }
 
+/* TODO rename */
 ELEMENT *
 substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
@@ -509,12 +681,12 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
 DOCUMENT *
-replace_convert_substrings (char *translated_string,
+replace_convert_substrings (const char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                             int debug_level)
 {
   size_t i;
-  char *texinfo_line;
+  char *texinfo_line = 0;
   int parser_debug_level = 0;
   DOCUMENT *document;
 
@@ -539,8 +711,6 @@ replace_convert_substrings (char *translated_string,
       for (i = 0; i < replaced_substrings->number; i++)
         free (replaced_substrings->list[i].string);
     }
-  else
-    texinfo_line = translated_string;
 
   /*
   fprintf (stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
@@ -564,7 +734,10 @@ replace_convert_substrings (char *translated_string,
   parser_conf_set_NO_INDEX (1);
   parser_conf_set_NO_USER_COMMANDS (1);
 
-  document = parse_string (texinfo_line, 1);
+  if (replaced_substrings)
+    document = parse_string (texinfo_line, 1);
+  else
+    document = parse_string (translated_string, 1);
 
   if (debug_level > 0)
     fprintf (stderr, "C|IN TR PARSER '%s'\n", texinfo_line);
@@ -582,40 +755,8 @@ replace_convert_substrings (char *translated_string,
   wipe_document_parser_errors (document);
 
   if (replaced_substrings)
-    {
-      ELEMENT *result_tree = substitute (document->tree, replaced_substrings);
-      document->tree = result_tree;
-      free (texinfo_line);
-    }
+    free (texinfo_line);
 
-  if (debug_level > 0)
-    {
-      char *result_texi = convert_to_texinfo (document->tree);
-      fprintf (stderr, "C|RESULT GDT: '%s'\n", result_texi);
-      free (result_texi);
-    }
-/*
-  if (debug_level > 0)
-    fprintf (stderr, "GDT doc descriptor: %d\n", document->descriptor);
-*/
-
-  return document;
-}
-
-/* returns a document. */
-DOCUMENT *
-gdt (const char *string, const char *lang,
-     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-     int debug_level, const char *translation_context)
-{
-  DOCUMENT *document;
-
-  char *translated_string = translate_string (string, lang,
-                                              translation_context);
-
-  document = replace_convert_substrings (translated_string,
-                                  replaced_substrings, debug_level);
-  free (translated_string);
   return document;
 }
 
@@ -628,13 +769,48 @@ gdt_tree (const char *string, DOCUMENT *document,
           const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context)
 {
-  DOCUMENT *gdt_document = gdt (string, lang, replaced_substrings,
-                                        debug_level, translation_context);
-  ELEMENT *tree
-    = unregister_document_merge_with_document (gdt_document,
-                                               document);
+  TRANSLATION_TREE *translated_string_tree;
+  ELEMENT *result_tree;
 
-  return tree;
+  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
+
+  translated_string_tree
+    = cache_translate_string (string, lang_translation, translation_context);
+
+  if (!translated_string_tree->tree)
+    {
+      DOCUMENT *translation_document;
+      const char *translated_string = translated_string_tree->translation;
+
+      if (!translated_string)
+        translated_string = string;
+
+      translation_document
+        = replace_convert_substrings (translated_string, replaced_substrings,
+                                      debug_level);
+      translated_string_tree->tree
+        = unregister_document_merge_with_document (translation_document,
+                                                   document);
+    }
+
+  result_tree = copy_tree (translated_string_tree->tree, 0);
+
+  if (replaced_substrings)
+    {
+      substitute (result_tree, replaced_substrings);
+    }
+
+  if (debug_level > 0)
+    {
+      char *result_texi = convert_to_texinfo (result_tree);
+      fprintf (stderr, "C|RESULT GDT: '%s'\n", result_texi);
+      free (result_texi);
+    }
+
+  free_lang_translation (lang_translation);
+  free (lang_translation);
+
+  return result_tree;
 }
 
 char *
@@ -642,11 +818,24 @@ gdt_string (const char *string, const char *lang,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context)
 {
-  char *translated_string = translate_string (string, lang,
-                                              translation_context);
+  TRANSLATION_TREE *translated_string_tree;
+  const char *translated_string;
+  char *result;
 
-  char *result = replace_substrings (translated_string, replaced_substrings);
-  free (translated_string);
+  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
+
+  translated_string_tree
+    = cache_translate_string (string, lang_translation, translation_context);
+
+  free_lang_translation (lang_translation);
+  free (lang_translation);
+
+  translated_string = translated_string_tree->translation;
+
+  if (!translated_string)
+    translated_string = string;
+
+  result = replace_substrings (translated_string, replaced_substrings);
   return result;
 }
 

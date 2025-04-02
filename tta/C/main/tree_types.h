@@ -390,6 +390,25 @@ typedef struct NAME_NUMBER_LIST {
     NAME_NUMBER *list;
 } NAME_NUMBER_LIST;
 
+/* not used in parser, here because it is used in translations */
+typedef struct TRANSLATION_TREE {
+    char *translated;
+    char *translation;
+    ELEMENT *tree;
+} TRANSLATION_TREE;
+
+typedef struct LANG_TRANSLATION_TREE_LIST {
+    size_t number;
+    size_t space;
+    TRANSLATION_TREE **list;
+    void *hash;
+} LANG_TRANSLATION_TREE_LIST;
+
+typedef struct LANG_TRANSLATION {
+    char *lang;
+    LANG_TRANSLATION_TREE_LIST *translations;
+} LANG_TRANSLATION;
+
 /* tree element flags */
 /* in info in Perl */
 #define EF_inserted                      0x0001

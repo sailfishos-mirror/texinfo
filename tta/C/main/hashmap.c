@@ -19,8 +19,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "converter_types.h"
-
 #include "hashmap.h"
 
 typedef struct BUCKET {

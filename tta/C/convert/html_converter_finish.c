@@ -30,6 +30,7 @@
 #include "converter.h"
 #include "api_to_perl.h"
 #include "hashmap.h"
+#include "translations.h"
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type
    html_free_direction_icons_array
@@ -183,6 +184,14 @@ html_reset_converter (CONVERTER *self)
 
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
+
+  if (self->translation_cache)
+    {
+      for (i = 0; self->translation_cache[i].lang; i++)
+        free_lang_translation (&self->translation_cache[i]);
+      free (self->translation_cache);
+      self->translation_cache = 0;
+    }
 
   /* formatted_index_entries may not be initialized if there was an error
      early and prepare_conversion_units_targets was never called */

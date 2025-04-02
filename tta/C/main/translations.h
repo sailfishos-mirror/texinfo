@@ -25,17 +25,26 @@ void configure_output_strings_translations (const char *localesdir,
                                             const char *strings_textdomain_in,
                                          int use_external_translate_string_in);
 
+LANG_TRANSLATION_TREE_LIST *get_lang_translation (
+                      LANG_TRANSLATION **lang_translations_ptr,
+                      const char *lang);
+LANG_TRANSLATION *new_lang_translation (const char *lang);
+TRANSLATION_TREE *add_translation_tree (
+                   LANG_TRANSLATION_TREE_LIST *translations,
+                      const char *translated);
+void free_lang_translation (LANG_TRANSLATION *lang_translation);
 char *translate_string (const char * string, const char *lang,
                         const char *translation_context);
-DOCUMENT *replace_convert_substrings (char *translated_string,
+TRANSLATION_TREE *cache_translate_string (const char *string,
+                        LANG_TRANSLATION *lang_translation,
+                        const char *translation_context);
+DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                           int debug_level);
+ELEMENT *substitute (ELEMENT *tree,
+                     NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
-
-DOCUMENT *gdt (const char *string, const char *lang,
-            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-            int debug_level, const char *translation_context);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    const char *lang,

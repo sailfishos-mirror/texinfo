@@ -1,5 +1,36 @@
 2025-04-02  Patrice Dumas  <pertusus@free.fr>
 
+	Caching of translated strings in C
+
+	* tta/C/main/translations.c (gdt_tree), tta/C/convert/convert_html.c
+	(html_gdt_tree): merge *gdt in *gdt_tree.
+
+	* tta/C/convert/convert_html.c (html_custom_translate_string)
+	(html_translate_string, html_gdt_tree, html_cache_translate_string)
+	(html_cdt_string), tta/C/convert/html_converter_finish.c
+	(html_reset_converter), tta/C/main/converter_types.h
+	(LANG_TRANSLATION), tta/C/main/translations.c (new_lang_translation)
+	(free_lang_translation_tree_list, free_lang_translation)
+	(TEXINFO_TRANSLATED_STRINGS_NR, translation_cache)
+	(get_lang_translation, new_translation_tree, add_translation_tree)
+	(cache_translate_string, replace_convert_substrings) (gdt_tree,
+	gdt_string), tta/C/main/tree_types.h (TRANSLATION_TREE)
+	(LANG_TRANSLATION_TREE_LIST, LANG_TRANSLATION): add types used for
+	caching of translations and translation tree, TRANSLATION_TREE,
+	LANG_TRANSLATION_TREE_LIST (for the list and hash of translations) and
+	LANG_TRANSLATION (for the translations for a language).  Add a general
+	translation_cache and a translation_cache in HTML converter.  Split
+	html_custom_translate_string out of html_translate_string.  Add
+	cache_translate_string and html_cache_translate_string to handle
+	caching of translated strings and tree.  Move call of substitute to
+	gdt_tree.  Add functions to manage translations caching.  Call in
+	gdt_tree, html_gdt_tree, gdt_string and html_cdt_string.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (html_cache_translate_string):
+	rename html_translate_string as html_cache_translate_string.
+
+2025-04-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (cache_translate_string): fix
 	variable name typo.  Remove unused %cached_translation_trees.
 

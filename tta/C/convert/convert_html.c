@@ -34,6 +34,7 @@
 /* fatal isascii_alpha */
 #include "base_utils.h"
 #include "tree.h"
+#include "hashmap.h"
 #include "builtin_commands.h"
 #include "command_stack.h"
 #include "errors.h"
@@ -41,6 +42,7 @@
    encode_with_iconv output_unit_type_names get_cmd_global_uniq_command
    */
 #include "utils.h"
+#include "manipulate_tree.h"
 #include "customization_options.h"
 #include "extra.h"
 #include "debug.h"
@@ -103,10 +105,10 @@ format_translate_message (CONVERTER *self,
 }
 
 /* return string to be freed by the caller */
-char *
-html_translate_string (CONVERTER *self, const char *string,
-                       const char *lang,
-                       const char *translation_context)
+static char *
+html_custom_translate_string (CONVERTER *self, const char *string,
+                              const char *lang,
+                              const char *translation_context)
 {
   const FORMATTING_REFERENCE *formatting_reference
     = &self->formatting_references[FR_format_translate_message];
@@ -126,47 +128,138 @@ html_translate_string (CONVERTER *self, const char *string,
         return translated_string;
     }
 
-  return translate_string (string, lang, translation_context);
+  return 0;
 }
 
-/* returns a document. */
-/* same as gdt with html_translate_string called instead of translate_string */
-DOCUMENT *
-html_gdt (const char *string, CONVERTER *self, const char *lang,
-          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          const char *translation_context)
+char *
+html_translate_string (CONVERTER *self, const char *string,
+                       const char *lang,
+                       const char *translation_context)
 {
-  const OPTIONS *options = self->conf;
-  int debug_level = 0;
-  DOCUMENT *document;
+  char *result = html_custom_translate_string (self, string, lang,
+                                               translation_context);
 
-  char *translated_string = html_translate_string (self, string, lang,
-                                                   translation_context);
-
-  if (options && options->DEBUG.o.integer >= 0)
-    debug_level = options->DEBUG.o.integer;
-
-  document = replace_convert_substrings (translated_string,
-                                    replaced_substrings, debug_level);
-  free (translated_string);
-  return document;
+  if (!result)
+    return translate_string (string, lang, translation_context);
+  else
+    return result;
 }
 
-/* same as gdt_tree with html_gdt called instead of gdt */
+TRANSLATION_TREE *
+html_cache_translate_string (CONVERTER *self, const char *string,
+                             LANG_TRANSLATION *lang_translation,
+                             const char *translation_context)
+{
+  const char *lang;
+  char *translated_string;
+
+  if (lang_translation && lang_translation->lang)
+    lang = lang_translation->lang;
+
+  translated_string = html_custom_translate_string (self, string, lang,
+                                                    translation_context);
+
+  if (translated_string)
+    {
+      const char *translation_context_str;
+      LANG_TRANSLATION_TREE_LIST *translations;
+      char *translated_context_string;
+      TRANSLATION_TREE *result;
+      uintptr_t string_nr;
+      int found;
+
+      if (!lang)
+        lang = "";
+
+      translations = get_lang_translation (&self->translation_cache, lang);
+
+      if (translation_context)
+        translation_context_str = translation_context;
+      else
+        translation_context_str = "";
+
+      xasprintf (&translated_context_string, "%s-%s",
+                 string, translation_context_str);
+
+      string_nr = (uintptr_t) c_hashmap_value (translations->hash,
+                                       translated_context_string, &found);
+      if (found)
+        {
+          free (translated_context_string);
+          result = translations->list[string_nr -1];
+          if (!strcmp (result->translation, translated_string))
+            {
+              free (translated_string);
+              return result;
+            }
+          if (result->tree)
+            {
+              destroy_element_and_children (result->tree);
+              result->tree = 0;
+            }
+          free (result->translation);
+          result->translation = translated_string;
+          return result;
+        }
+      result = add_translation_tree (translations, translated_context_string);
+
+      result->translation = translated_string;
+      free (translated_context_string);
+      return result;
+    }
+
+  return cache_translate_string (string, lang_translation,
+                                         translation_context);
+}
+
+/* same as gdt_tree with html_translate_string called instead of translate_string */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
                const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
-  DOCUMENT *document = self->document;
+  int debug_level = 0;
+  const OPTIONS *options = self->conf;
+  TRANSLATION_TREE *translated_string_tree;
+  ELEMENT *result_tree;
 
-  DOCUMENT *gdt_document = html_gdt (string, self, lang,
-                                     replaced_substrings, translation_context);
+  if (options && options->DEBUG.o.integer >= 0)
+    debug_level = options->DEBUG.o.integer;
 
-  ELEMENT *tree
-    = unregister_document_merge_with_document (gdt_document,
-                                               document);
-  return tree;
+  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
+
+  translated_string_tree
+    = html_cache_translate_string (self, string, lang_translation,
+                                   translation_context);
+
+  if (!translated_string_tree->tree)
+    {
+      DOCUMENT *translation_document;
+      DOCUMENT *document = self->document;
+      const char *translated_string = translated_string_tree->translation;
+
+      if (!translated_string)
+        translated_string = string;
+
+      translation_document
+        = replace_convert_substrings (translated_string, replaced_substrings,
+                                      debug_level);
+      translated_string_tree->tree
+        = unregister_document_merge_with_document (translation_document,
+                                                   document);
+    }
+
+  result_tree = copy_tree (translated_string_tree->tree, 0);
+
+  if (replaced_substrings)
+    {
+      substitute (result_tree, replaced_substrings);
+    }
+
+  free_lang_translation (lang_translation);
+  free (lang_translation);
+
+  return result_tree;
 }
 
 /* same as cdt_tree with html_gdt_tree called instead of gdt_tree */
@@ -186,15 +279,26 @@ html_cdt_string (const char *string, CONVERTER *self,
                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                  const char *translation_context)
 {
-  char *translated_string;
+  const TRANSLATION_TREE *translated_string_tree;
+  const char *translated_string;
   char *result;
-  const char *lang = self->conf->documentlanguage.o.string;
 
-  translated_string = html_translate_string (self, string, lang,
-                                             translation_context);
+  const char *lang = self->conf->documentlanguage.o.string;
+  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
+
+  translated_string_tree
+    = html_cache_translate_string (self, string, lang_translation,
+                                   translation_context);
+
+  free_lang_translation (lang_translation);
+  free (lang_translation);
+
+  translated_string = translated_string_tree->translation;
+
+  if (!translated_string)
+    translated_string = string;
 
   result = replace_substrings (translated_string, replaced_substrings);
-  free (translated_string);
   return result;
 }
 

@@ -2877,7 +2877,7 @@ sub _translate_names($)
 # redefined functions
 #
 # Texinfo::Translations::cache_translate_string redefined to call user defined function.
-sub html_translate_string($$$;$)
+sub html_cache_translate_string($$$;$)
 {
   my ($self, $string, $lang_translations, $translation_context) = @_;
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
@@ -2947,7 +2947,7 @@ sub cdt($$;$$)
                                     $replaced_substrings,
                                     $self->get_conf('DEBUG'),
                                     $translation_context, $self,
-                                    \&html_translate_string);
+                                    \&html_cache_translate_string);
 }
 
 sub cdt_string($$;$$)
@@ -2958,7 +2958,7 @@ sub cdt_string($$;$$)
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $translation_context, $self,
-                                    \&html_translate_string);
+                                    \&html_cache_translate_string);
 }
 
 sub converter_defaults($;$)

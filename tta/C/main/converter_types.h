@@ -875,6 +875,7 @@ typedef struct CONVERTER {
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **main_units_direction_names;
+    LANG_TRANSLATION *translation_cache;
 
     /* set for a document */
     size_t output_units_descriptors[OUDT_external_nodes_units+1];
