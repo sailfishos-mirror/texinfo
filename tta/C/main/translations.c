@@ -443,43 +443,43 @@ free_lang_translation (LANG_TRANSLATION *lang_translation)
 // msgfmt --statistics po_document/*.pot
 #define TEXINFO_TRANSLATED_STRINGS_NR 243
 
-static LANG_TRANSLATION *translation_cache;
+LANG_TRANSLATION **translation_cache;
 
-LANG_TRANSLATION_TREE_LIST *
-get_lang_translation (LANG_TRANSLATION **lang_translations_ptr,
+LANG_TRANSLATION *
+get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang)
 {
   size_t i = 0;
-  LANG_TRANSLATION *lang_translations = *lang_translations_ptr;
+  LANG_TRANSLATION **lang_translations = *lang_translations_ptr;
 
   if (lang_translations)
     {
-      for (i = 0; lang_translations[i].lang; i++)
+      for (i = 0; lang_translations[i]; i++)
         {
-          if (!strcmp (lang_translations[i].lang, lang))
+          if (!strcmp (lang_translations[i]->lang, lang))
             {
-              return lang_translations[i].translations;
+              return lang_translations[i];
             }
         }
     }
 
-  *lang_translations_ptr = (LANG_TRANSLATION *)
+  *lang_translations_ptr = (LANG_TRANSLATION **)
     realloc (*lang_translations_ptr,
-             (i+2) * sizeof (LANG_TRANSLATION));
+             (i+2) * sizeof (LANG_TRANSLATION *));
 
   lang_translations = *lang_translations_ptr;
 
-  memset (&lang_translations[i+1], 0, sizeof (LANG_TRANSLATION));
+  lang_translations[i+1] = 0;
+  lang_translations[i] = new_lang_translation (lang);
 
-  lang_translations[i].lang = strdup (lang);
-  lang_translations[i].translations = (LANG_TRANSLATION_TREE_LIST *)
+  lang_translations[i]->translations = (LANG_TRANSLATION_TREE_LIST *)
      malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
-   memset (lang_translations[i].translations, 0,
+   memset (lang_translations[i]->translations, 0,
            sizeof (LANG_TRANSLATION_TREE_LIST));
-  lang_translations[i].translations->hash
+  lang_translations[i]->translations->hash
     = init_c_hashmap (TEXINFO_TRANSLATED_STRINGS_NR);
 
-  return lang_translations[i].translations;
+  return lang_translations[i];
 }
 
 TRANSLATION_TREE *
@@ -541,10 +541,14 @@ cache_translate_string (const char *string,
   xasprintf (&translated_context_string, "%s-%s",
              string, translation_context_str);
 
-  if (!lang_translation->translations)
-    translations = get_lang_translation (&translation_cache, lang);
-  else
+  if (lang_translation && lang_translation->translations)
     translations = lang_translation->translations;
+  else
+    {
+      LANG_TRANSLATION *general_lang_translation
+        = get_lang_translation (&translation_cache, lang);
+      translations = general_lang_translation->translations;
+    }
 
   string_nr = (uintptr_t) c_hashmap_value (translations->hash,
                                            translated_context_string, &found);
@@ -766,13 +770,12 @@ replace_convert_substrings (const char *translated_string,
    if one knows that there won't be small strings (the general case) */
 ELEMENT *
 gdt_tree (const char *string, DOCUMENT *document,
-          const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          LANG_TRANSLATION *lang_translation,
+          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context)
 {
   TRANSLATION_TREE *translated_string_tree;
   ELEMENT *result_tree;
-
-  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
 
   translated_string_tree
     = cache_translate_string (string, lang_translation, translation_context);
@@ -807,9 +810,6 @@ gdt_tree (const char *string, DOCUMENT *document,
       free (result_texi);
     }
 
-  free_lang_translation (lang_translation);
-  free (lang_translation);
-
   return result_tree;
 }
 
@@ -841,11 +841,11 @@ gdt_string (const char *string, const char *lang,
 
 ELEMENT *
 pgdt_tree (const char *translation_context, const char *string,
-           DOCUMENT *document, const char *lang,
+           DOCUMENT *document, LANG_TRANSLATION *lang_translation,
            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
            int debug_level)
 {
-  return gdt_tree (string, document, lang, replaced_substrings,
+  return gdt_tree (string, document, lang_translation, replaced_substrings,
                    debug_level, translation_context);
 }
 

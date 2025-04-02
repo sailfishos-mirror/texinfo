@@ -58,8 +58,29 @@ element_associated_processing_encoding (const ELEMENT *element)
   return input_encoding;
 }
 
+LANG_TRANSLATION *
+switch_lang_translations (LANG_TRANSLATION ***lang_translations,
+                          const char *in_lang,
+                          LANG_TRANSLATION *current_lang_translations)
+{
+  const char *lang;
+  LANG_TRANSLATION *lang_translation;
+
+  if (in_lang)
+    lang = in_lang;
+  else
+    lang = "";
+
+  if (current_lang_translations
+      && !strcmp(current_lang_translations->lang, lang))
+    return current_lang_translations;
+
+  lang_translation = get_lang_translation (lang_translations, lang);
+  return lang_translation;
+}
+
 ELEMENT *
-expand_today (int test, const char *lang,
+expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -97,7 +118,7 @@ expand_today (int test, const char *lang,
 
   year = time_tm->tm_year + 1900;
 
-  if ((converter && cdt_tree_fn) || lang)
+  if ((converter && cdt_tree_fn) || lang_translation)
     {
       NAMED_STRING_ELEMENT_LIST *substrings;
       ELEMENT *month_tree;
@@ -118,7 +139,7 @@ expand_today (int test, const char *lang,
       else
         {
           month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon],
-                                 0, lang, 0, debug, 0);
+                                 0, lang_translation, 0, debug, 0);
         }
       substrings = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,
@@ -135,7 +156,7 @@ expand_today (int test, const char *lang,
         }
       else
         {
-          result = gdt_tree ("{month} {day}, {year}", 0, lang,
+          result = gdt_tree ("{month} {day}, {year}", 0, lang_translation,
                              substrings, debug, 0);
         }
       destroy_named_string_element_list (substrings);
@@ -627,7 +648,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
    specific translation function */
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
-                          const char *lang,
+                          LANG_TRANSLATION *lang_translation,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -692,20 +713,26 @@ definition_category_tree (const ELEMENT *current,
           result = cdt_tree_fn ("{category} on @code{{class}}", converter,
                                 substrings, 0);
         }
-      else if (lang)
+      else if (lang_translation)
         {
     /*
      TRANSLATORS: association of a method or operation name with a class
      in descriptions of object-oriented programming methods or operations. */
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             lang, substrings, debug, 0);
+                             lang_translation, substrings, debug, 0);
         }
       else
         {
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
+          LANG_TRANSLATION *lang_translation
+           = new_lang_translation (documentlanguage);
+
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             documentlanguage, substrings, 0, 0);
+                             lang_translation, substrings, 0, 0);
+
+          free_lang_translation (lang_translation);
+          free (lang_translation);
         }
       destroy_named_string_element_list (substrings);
     } else if (!strcmp (def_command, "defivar")
@@ -725,21 +752,27 @@ definition_category_tree (const ELEMENT *current,
           result = cdt_tree_fn ("{category} of @code{{class}}", converter,
                                 substrings, 0);
         }
-      else if (lang)
+      else if (lang_translation)
         {
     /*
       TRANSLATORS: association of a variable or instance variable with
       a class in descriptions of object-oriented programming variables
       or instance variable. */
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             lang, substrings, debug, 0);
+                             lang_translation, substrings, debug, 0);
         }
       else
         {
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
+          LANG_TRANSLATION *lang_translation
+           = new_lang_translation (documentlanguage);
+
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             documentlanguage, substrings, 0, 0);
+                             lang_translation, substrings, 0, 0);
+
+          free_lang_translation (lang_translation);
+          free (lang_translation);
         }
       destroy_named_string_element_list (substrings);
     }
@@ -747,20 +780,21 @@ definition_category_tree (const ELEMENT *current,
 }
 
 ELEMENT *
-cdt_tree (const char * string, CONVERTER *self,
+cdt_tree (const char *string, CONVERTER *self,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           const char *translation_context)
 {
-  const char *lang = self->conf->documentlanguage.o.string;
   int debug_level = self->conf->DEBUG.o.integer;
 
-  return gdt_tree (string, self->document, lang, replaced_substrings,
+  return gdt_tree (string, self->document, self->current_lang_translations,
+                   replaced_substrings,
                    debug_level, translation_context);
 }
 
 ELEMENT *
 translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
-                         enum command_id cmd, const char *lang,
+                         enum command_id cmd,
+                         LANG_TRANSLATION *lang_translation,
                          int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -781,7 +815,7 @@ translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                                   converter, 0, 0);
           else
             result = gdt_tree (translated_command->translation,
-                               0, lang, 0, debug, 0);
+                               0, lang_translation, 0, debug, 0);
           return result;
         }
     }

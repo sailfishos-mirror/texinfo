@@ -379,6 +379,8 @@ resolve_indices_merged_in (const INDEX_LIST *indices_info)
     }
 }
 
+static LANG_TRANSLATION **lang_translations;
+
 /* complete some @def* index information that require translations.
    Done in a separate function and not inside the main parser loop because
    it requires parsing Texinfo code in gdt_tree too */
@@ -386,6 +388,8 @@ void
 complete_indices (DOCUMENT *document, int debug_level)
 {
   INDEX_LIST *indices;
+  const char *current_lang = 0;
+  LANG_TRANSLATION *current_lang_translations;
   size_t i;
 
   indices = &document->indices_info;
@@ -435,7 +439,8 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      char *lang = lookup_extra_string (main_entry_element,
+                      const char *lang
+                            = lookup_extra_string (main_entry_element,
                                                        AI_key_documentlanguage);
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
@@ -450,6 +455,16 @@ complete_indices (DOCUMENT *document, int debug_level)
                       ELEMENT *ref_name_copy = copy_tree (name, 0);
                       ELEMENT *ref_class_copy = copy_tree (class, 0);
 
+                      if (!lang)
+                        lang = "";
+
+                      if (!current_lang || strcmp (lang, current_lang))
+                        {
+                          current_lang_translations
+                           = get_lang_translation (&lang_translations, lang);
+                          current_lang = lang;
+                        }
+
                       add_element_to_named_string_element_list (substrings,
                                                            "name", name_copy);
                       add_element_to_named_string_element_list (substrings,
@@ -460,8 +475,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                           || def_command == CM_deftypemethod)
                         {
                           index_entry = gdt_tree ("{name} on {class}",
-                                                  document, lang, substrings,
-                                                  debug_level, 0);
+                                          document, current_lang_translations,
+                                          substrings, debug_level, 0);
 
                           text_append (text_element->e.text, " on ");
                         }
@@ -471,8 +486,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                                || def_command == CM_deftypecv)
                         {
                           index_entry = gdt_tree ("{name} of {class}",
-                                                  document, lang, substrings,
-                                                  debug_level, 0);
+                                          document, current_lang_translations,
+                                          substrings, debug_level, 0);
 
                           text_append (text_element->e.text, " of ");
                         }

@@ -793,6 +793,7 @@ typedef struct CONVERTER {
     COMMAND_OPTION_VALUE commands_init_conf[BUILTIN_CMD_NUMBER];
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND_LIST translated_commands;
+    LANG_TRANSLATION *current_lang_translations;
 
     ERROR_MESSAGE_LIST error_messages;
     /* for error messages registered in the converter */
@@ -875,7 +876,7 @@ typedef struct CONVERTER {
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **main_units_direction_names;
-    LANG_TRANSLATION *translation_cache;
+    LANG_TRANSLATION **translation_cache;
 
     /* set for a document */
     size_t output_units_descriptors[OUDT_external_nodes_units+1];

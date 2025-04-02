@@ -119,6 +119,10 @@ copy_options_for_convert_text (OPTIONS *options)
     text_options->documentlanguage
       = strdup (options->documentlanguage.o.string);
 
+  text_options->current_lang_translations
+    = switch_lang_translations (&translation_cache,
+                                text_options->documentlanguage, 0);
+
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
     text_options->INPUT_FILE_NAME_ENCODING
       = strdup (options->INPUT_FILE_NAME_ENCODING.o.string);
@@ -227,6 +231,11 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
     text_options->documentlanguage = strdup (lang);
   else
     text_options->documentlanguage = 0;
+
+  text_options->current_lang_translations
+    = switch_lang_translations (&translation_cache,
+                                text_options->documentlanguage, 0);
+
 }
 
 
@@ -434,7 +443,8 @@ convert_def_line (const ELEMENT *element, TEXT_OPTIONS *text_options,
 {
   PARSED_DEF *parsed_def = definition_arguments_content (element);
   ELEMENT *parsed_definition_category
-     = definition_category_tree (element, text_options->documentlanguage,
+     = definition_category_tree (element,
+                                 text_options->current_lang_translations,
                                  text_options->DEBUG, 0, 0);
   if (parsed_definition_category)
     {
@@ -656,7 +666,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             {
               ELEMENT *today_element
                 = expand_today (text_options->TEST,
-                                text_options->documentlanguage,
+                                text_options->current_lang_translations,
                                 text_options->DEBUG, 0, 0);
               convert_to_text_internal (today_element,
                                         text_options, result);
@@ -669,8 +679,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           char *brace_no_args_text;
           ELEMENT *tree
             = translated_command_tree (&text_options->translated_commands,
-               data_cmd, text_options->documentlanguage, text_options->DEBUG,
-               0, 0);
+               data_cmd, text_options->current_lang_translations,
+               text_options->DEBUG, 0, 0);
 
           if (tree)
             {
@@ -1035,7 +1045,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
        another documentlanguage, for instance the documentlanguage at
        the end of the preamble, so we let the caller set it.
         */
-          tree = gdt_tree (category_text, 0, text_options->documentlanguage,
+          tree = gdt_tree (category_text, 0,
+                           text_options->current_lang_translations,
                            0, text_options->DEBUG, translation_context);
         }
       else
@@ -1045,14 +1056,19 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
           const char *documentlanguage
             = lookup_extra_string (element, AI_key_documentlanguage);
+          LANG_TRANSLATION *lang_translation
+             = new_lang_translation (documentlanguage);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However
              it is very unlikely to have small strings given that the
              converted tree should be very simple and is a string only,
              no macro, no file */
-          tree = gdt_tree (category_text, 0, documentlanguage,
+          tree = gdt_tree (category_text, 0, lang_translation,
                            0, 0, translation_context);
+
+          free_lang_translation (lang_translation);
+          free (lang_translation);
         }
 
       if (tree)

@@ -165,13 +165,15 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       LANG_TRANSLATION_TREE_LIST *translations;
       char *translated_context_string;
       TRANSLATION_TREE *result;
+      LANG_TRANSLATION *lang_translation;
       uintptr_t string_nr;
       int found;
 
       if (!lang)
         lang = "";
 
-      translations = get_lang_translation (&self->translation_cache, lang);
+      lang_translation = get_lang_translation (&self->translation_cache, lang);
+      translations = lang_translation->translations;
 
       if (translation_context)
         translation_context_str = translation_context;
@@ -664,6 +666,11 @@ html_translate_names (CONVERTER *self)
 
   text_set_language (self->convert_text_options,
                      self->conf->documentlanguage.o.string);
+
+  self->current_lang_translations =
+    switch_lang_translations (&translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations);
 
   if (self->conf->DEBUG.o.integer > 0)
     {

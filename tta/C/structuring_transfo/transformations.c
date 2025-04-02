@@ -34,6 +34,7 @@
 #include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
+#include "translations.h"
 #include "builtin_commands.h"
 #include "errors.h"
 #include "debug.h"
@@ -1176,6 +1177,15 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   OPTIONS *options = document->options;
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
+  LANG_TRANSLATION *lang_translation = 0;
+  int debug_level = 0;
+
+  if (options)
+    {
+      lang_translation = new_lang_translation (
+                                 options->documentlanguage.o.string);
+      debug_level = options->DEBUG.o.integer;
+    }
   size_t i;
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
@@ -1188,7 +1198,8 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
           ELEMENT *section = (ELEMENT *)lookup_extra_element (node,
                                                    AI_key_associated_section);
           ELEMENT *current_menu = new_complete_node_menu (node, document,
-                                                      options, use_sections);
+                                                    lang_translation,
+                                                 debug_level, use_sections);
           if (current_menu)
             {
               prepend_new_menu_in_node_section (node, section, current_menu);
@@ -1197,6 +1208,11 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
         }
     }
   destroy_list (non_automatic_nodes);
+  if (lang_translation)
+    {
+      free_lang_translation (lang_translation);
+      free (lang_translation);
+    }
 }
 
 int
@@ -1211,6 +1227,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   const ELEMENT *last_content;
   size_t i;
   size_t index;
+  LANG_TRANSLATION *lang_translation = 0;
 
   if (top_node)
     {
@@ -1221,9 +1238,20 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   else
     return 0;
 
+  if (document->options)
+    lang_translation = new_lang_translation (
+                    document->options->documentlanguage.o.string);
+
   new_detailmenu_e = new_detailmenu (&document->error_messages,
-                                    document->options, identifiers_target,
+                                    document->options,
+                                    lang_translation, identifiers_target,
                                     menus, use_sections);
+
+  if (lang_translation)
+    {
+      free_lang_translation (lang_translation);
+      free (lang_translation);
+    }
 
   /* no need for a master menu */
   if (!new_detailmenu_e)

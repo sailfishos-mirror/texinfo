@@ -19,14 +19,18 @@ void number_floats (DOCUMENT *document);
 
 ELEMENT *new_node_menu_entry (const ELEMENT *node, int use_sections);
 ELEMENT *new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
-                                 const OPTIONS *options, int use_sections);
+                        LANG_TRANSLATION *lang_translations,
+                        int debug_level, int use_sections);
 void new_block_command (ELEMENT *element);
-ELEMENT *new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
+ELEMENT *new_detailmenu (
+                 ERROR_MESSAGE_LIST *error_messages,
                  const OPTIONS *options,
+                 LANG_TRANSLATION *lang_translation,
                  const LABEL_LIST *identifiers_target,
                  const CONST_ELEMENT_LIST *menus, int use_sections);
 ELEMENT *new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
+                               LANG_TRANSLATION *lang_translations,
                                const LABEL_LIST *identifiers_target,
                                const ELEMENT *node);
 

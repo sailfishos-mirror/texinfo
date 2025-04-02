@@ -1912,7 +1912,8 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
 
 ELEMENT *
 new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
-                        const OPTIONS *options, int use_sections)
+                        LANG_TRANSLATION *lang_translations,
+                        int debug_level, int use_sections)
 {
   CONST_ELEMENT_LIST *node_childs
     = get_node_node_childs_from_sectioning (node);
@@ -1942,7 +1943,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
         }
     }
 
-  if (section && section->e.c->cmd == CM_top && options)
+  if (section && section->e.c->cmd == CM_top && lang_translations)
     {
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
       if (normalized && !strcmp (normalized, "Top"))
@@ -1982,8 +1983,8 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
                       part_title
                         = gdt_tree ("Part: {part_title}", document,
-                                    options->documentlanguage.o.string,
-                                    substrings, options->DEBUG.o.integer, 0);
+                                    lang_translations,
+                                    substrings, debug_level, 0);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index, part_title,
@@ -1999,8 +2000,8 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                     {
                       ELEMENT *appendix_title
                         = gdt_tree ("Appendices", document,
-                                    options->documentlanguage.o.string,
-                                    0, options->DEBUG.o.integer, 0);
+                                    lang_translations,
+                                    0, debug_level, 0);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index,
@@ -2044,7 +2045,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
     {
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */
-      new_current_menu = new_complete_node_menu (node, 0, 0, use_sections);
+      new_current_menu = new_complete_node_menu (node, 0, 0, 0, use_sections);
       if (new_current_menu)
         {
           menus = new_const_element_list ();
@@ -2178,6 +2179,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 ELEMENT *
 new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const OPTIONS *options,
+                LANG_TRANSLATION *lang_translation,
                 const LABEL_LIST *identifiers_target,
                 const CONST_ELEMENT_LIST *menus, int use_sections)
 {
@@ -2240,7 +2242,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
           ELEMENT *master_menu_title;
           master_menu_title
             = gdt_tree (" --- The Detailed Node Listing ---", 0,
-                        options->documentlanguage.o.string, 0,
+                        lang_translation, 0,
                         options->DEBUG.o.integer, 0);
 
           for (i = 0; i < master_menu_title->e.c->contents.number; i++)
@@ -2274,10 +2276,12 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
 ELEMENT *
 new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
+                               LANG_TRANSLATION *lang_translations,
                                const LABEL_LIST *identifiers_target,
                                const ELEMENT *node)
 {
-  ELEMENT *menu_node = new_complete_node_menu (node, 0, options, 0);
+  ELEMENT *menu_node = new_complete_node_menu (node, 0, lang_translations,
+                                               options->DEBUG.o.integer, 0);
 
   if (menu_node)
     {
@@ -2292,6 +2296,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
 
           add_to_const_element_list (menus, menu_node);
           detailmenu = new_detailmenu (error_messages, options,
+                                       lang_translations,
                                        identifiers_target, menus, 0);
           destroy_const_element_list (menus);
 

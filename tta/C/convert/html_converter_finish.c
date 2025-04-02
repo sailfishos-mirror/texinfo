@@ -187,8 +187,11 @@ html_reset_converter (CONVERTER *self)
 
   if (self->translation_cache)
     {
-      for (i = 0; self->translation_cache[i].lang; i++)
-        free_lang_translation (&self->translation_cache[i]);
+      for (i = 0; self->translation_cache[i]; i++)
+        {
+          free_lang_translation (self->translation_cache[i]);
+          free (self->translation_cache[i]);
+        }
       free (self->translation_cache);
       self->translation_cache = 0;
     }

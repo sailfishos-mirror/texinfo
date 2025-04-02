@@ -31,7 +31,12 @@ typedef struct PARSED_DEF {
     ELEMENT *args;
 } PARSED_DEF;
 
-ELEMENT *expand_today (int test, const char *lang,
+LANG_TRANSLATION *switch_lang_translations (
+                          LANG_TRANSLATION ***lang_translations,
+                          const char *in_lang,
+                          LANG_TRANSLATION *current_lang_translations);
+
+ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -57,7 +62,7 @@ ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (const ELEMENT *current,
-                          const char *lang,
+                          LANG_TRANSLATION *lang_translation,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -69,7 +74,8 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    const char *translation_context);
 
 ELEMENT *translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
-                         enum command_id cmd, const char *lang,
+                         enum command_id cmd,
+                         LANG_TRANSLATION *lang_translation,
                          int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

@@ -21,12 +21,14 @@ typedef struct NAMED_STRING_ELEMENT_LIST {
     NAMED_STRING_ELEMENT *list;
 } NAMED_STRING_ELEMENT_LIST;
 
+extern LANG_TRANSLATION **translation_cache;
+
 void configure_output_strings_translations (const char *localesdir,
                                             const char *strings_textdomain_in,
                                          int use_external_translate_string_in);
 
-LANG_TRANSLATION_TREE_LIST *get_lang_translation (
-                      LANG_TRANSLATION **lang_translations_ptr,
+LANG_TRANSLATION *get_lang_translation (
+                      LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang);
 LANG_TRANSLATION *new_lang_translation (const char *lang);
 TRANSLATION_TREE *add_translation_tree (
@@ -47,7 +49,7 @@ char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
-                   const char *lang,
+                   LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context);
 
@@ -56,7 +58,8 @@ char *gdt_string (const char *string, const char *lang,
                   const char *translation_context);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
-                    DOCUMENT *document, const char *lang,
+                    DOCUMENT *document,
+                    LANG_TRANSLATION *lang_translation,
                     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                     int debug_level);
 

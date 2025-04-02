@@ -364,6 +364,13 @@ set_converter_init_information (CONVERTER *converter,
   set_expanded_formats_from_options (converter->expanded_formats,
                                      converter->conf);
 
+  if (converter->conf->documentlanguage.o.string)
+    {
+      converter->current_lang_translations
+       = switch_lang_translations (&translation_cache,
+                         converter->conf->documentlanguage.o.string, 0);
+    }
+
   /*
   fprintf (stderr, "C|CONVERTER Fill conf: %d; %s, %s\n",
                    converter->converter_descriptor,
@@ -1024,7 +1031,7 @@ converter_expand_today (CONVERTER *converter,
 {
   int test = converter->conf->TEST.o.integer;
 
-  return expand_today (test, converter->conf->documentlanguage.o.string,
+  return expand_today (test, converter->current_lang_translations,
                        converter->conf->DEBUG.o.integer, converter, cdt_tree_fn);
 }
 
@@ -1036,7 +1043,7 @@ converter_translated_command_tree (CONVERTER *self, enum command_id cmd,
                         )
 {
   return translated_command_tree (&self->translated_commands, cmd,
-                                  self->conf->documentlanguage.o.string,
+                                  self->current_lang_translations,
                                   self->conf->DEBUG.o.integer,
                                   self, cdt_tree_fn);
 }

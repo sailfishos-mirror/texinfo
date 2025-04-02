@@ -7342,12 +7342,15 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                       if (format_menu == 1)
                         menu_node
                        = new_complete_menu_master_menu (&self->error_messages,
-                         self->conf, &self->document->identifiers_target, node);
+                            self->conf,
+                            self->current_lang_translations,
+                            &self->document->identifiers_target, node);
                       else
                          /* menu_no_detailmenu */
                         menu_node
                           = new_complete_node_menu (node, self->document,
-                                                    self->conf, 0);
+                                        self->current_lang_translations,
+                                        self->conf->DEBUG.o.integer, 0);
                       if (menu_node)
                         {
                           add_tree_to_build (self, menu_node);
@@ -12411,7 +12414,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
     {
       ELEMENT *def_category_tree
          = definition_category_tree (element,
-                            self->conf->documentlanguage.o.string,
+                            self->current_lang_translations,
                             self->conf->DEBUG.o.integer, self,
                             &html_cdt_tree);
 
