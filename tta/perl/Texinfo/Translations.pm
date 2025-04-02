@@ -283,7 +283,7 @@ sub cache_translate_string($$;$)
   # tree
   if ($lang eq '') {
     my $result = [undef];
-    $strings_cache->{$lang} = $result;
+    $strings_cache->{$string} = $result;
     return $result;
   }
 
@@ -297,8 +297,6 @@ sub cache_translate_string($$;$)
   #print STDERR "_GDT '$string' '$translated_string'\n";
   return $result;
 }
-
-our %cached_translation_trees;
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
