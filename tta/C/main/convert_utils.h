@@ -47,7 +47,7 @@ ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
 struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (const ELEMENT *current, char *text,
-                          int numbered, const char *lang);
+                          int numbered, LANG_TRANSLATION *lang_translation);
 
 ELEMENT *expand_verbatiminclude (const char *input_file_name_encoding,
                         int doc_encoding_for_input_file_name,

@@ -812,7 +812,7 @@ gdt_tree (const char *string, DOCUMENT *document,
 }
 
 char *
-gdt_string (const char *string, const char *lang,
+gdt_string (const char *string, LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context)
 {
@@ -820,13 +820,8 @@ gdt_string (const char *string, const char *lang,
   const char *translated_string;
   char *result;
 
-  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
-
   translated_string_tree
     = cache_translate_string (string, lang_translation, translation_context);
-
-  free_lang_translation (lang_translation);
-  free (lang_translation);
 
   translated_string = translated_string_tree->translation;
 

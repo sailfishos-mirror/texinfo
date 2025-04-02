@@ -66,7 +66,8 @@ ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context);
 
-char *gdt_string (const char *string, const char *lang,
+char *gdt_string (const char *string,
+                  LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context);
 

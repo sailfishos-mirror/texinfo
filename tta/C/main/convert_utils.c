@@ -255,7 +255,7 @@ find_innermost_accent_contents (const ELEMENT *element)
 /* return value to be freed by caller */
 char *
 add_heading_number (const ELEMENT *current, char *text,
-                    int numbered, const char *lang)
+                    int numbered, LANG_TRANSLATION *lang_translation)
 {
   TEXT result;
   char *number = 0;
@@ -264,7 +264,7 @@ add_heading_number (const ELEMENT *current, char *text,
 
   text_init (&result);
 
-  if (lang)
+  if (lang_translation)
     {
       if (number)
         {
@@ -285,13 +285,13 @@ add_heading_number (const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 lang, substrings, 0);
+                                 lang_translation, substrings, 0);
                 }
             }
           if (!numbered_heading)
             numbered_heading
               = gdt_string ("{number} {section_title}",
-                            lang, substrings, 0);
+                            lang_translation, substrings, 0);
 
           destroy_named_string_element_list (substrings);
 

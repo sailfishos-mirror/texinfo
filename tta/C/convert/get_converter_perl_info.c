@@ -183,6 +183,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **LOCALE_ENCODING_sv;
   SV **translated_commands_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
+  const char *documentlanguage = 0;
 
   dTHX;
 
@@ -226,8 +227,19 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   FETCH(documentlanguage)
   if (documentlanguage_sv)
-    text_options->documentlanguage
-      = non_perl_strdup (SvPVutf8_nolen (*documentlanguage_sv));
+    documentlanguage
+      = SvPVutf8_nolen (*documentlanguage_sv);
+
+  /* call text_set_language to switch translations cache based on the
+     documentlanguage coming from the converter, as in Perl.
+     Only if there is actually a documentlanguage such that if there
+     is no explicit language the documentlanguage in tree information
+     is used.  It should not be possible to get back to an undefined
+     documentlanguage, so it is not a problem not to be able to
+     reset to an unspecified language after setting to another language.
+   */
+  if (documentlanguage)
+    text_set_language (text_options, documentlanguage);
 
   FETCH(DEBUG)
   if (DEBUG_sv && SvOK (*DEBUG_sv))
