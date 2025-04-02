@@ -1,5 +1,12 @@
 2025-04-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_gdt_tree, html_cdt_string):
+	pass a LANG_TRANSLATION to html_gdt_tree, use converter
+	current_lang_translations in html_cdt_string such that switching
+	translations cache language is controlled by the converter.
+
+2025-04-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/get_converter_perl_info.c
 	(copy_sv_options_for_convert_text): call text_set_language to switch
 	translated cache language.

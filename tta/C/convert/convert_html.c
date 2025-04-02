@@ -218,7 +218,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
 /* same as gdt_tree with html_translate_string called instead of translate_string */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
-               const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               LANG_TRANSLATION *lang_translation,
+               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
   int debug_level = 0;
@@ -228,8 +229,6 @@ html_gdt_tree (const char *string, CONVERTER *self,
 
   if (options && options->DEBUG.o.integer >= 0)
     debug_level = options->DEBUG.o.integer;
-
-  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
 
   translated_string_tree
     = html_cache_translate_string (self, string, lang_translation,
@@ -259,9 +258,6 @@ html_gdt_tree (const char *string, CONVERTER *self,
       substitute (result_tree, replaced_substrings);
     }
 
-  free_lang_translation (lang_translation);
-  free (lang_translation);
-
   return result_tree;
 }
 
@@ -271,9 +267,7 @@ html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
-  const char *lang = self->conf->documentlanguage.o.string;
-
-  return html_gdt_tree (string, self, lang,
+  return html_gdt_tree (string, self, self->current_lang_translations,
                         replaced_substrings, translation_context);
 }
 
@@ -286,15 +280,10 @@ html_cdt_string (const char *string, CONVERTER *self,
   const char *translated_string;
   char *result;
 
-  const char *lang = self->conf->documentlanguage.o.string;
-  LANG_TRANSLATION *lang_translation = new_lang_translation (lang);
-
   translated_string_tree
-    = html_cache_translate_string (self, string, lang_translation,
+    = html_cache_translate_string (self, string,
+                                   self->current_lang_translations,
                                    translation_context);
-
-  free_lang_translation (lang_translation);
-  free (lang_translation);
 
   translated_string = translated_string_tree->translation;
 
