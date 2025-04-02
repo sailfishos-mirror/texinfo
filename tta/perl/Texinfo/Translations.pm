@@ -347,7 +347,8 @@ sub gdt($;$$$$$$)
   $result_tree = dclone($translated_string_tree->[1]);
 
   if ($replaced_substrings) {
-    $result_tree = _substitute($result_tree, $replaced_substrings);
+    $result_tree = _substitute_substrings_in_tree($result_tree,
+                                                  $replaced_substrings);
   }
 
   if ($debug_level) {
@@ -454,7 +455,7 @@ sub _replace_convert_substrings($;$$)
   return $tree;
 }
 
-sub _substitute($$);
+sub _substitute_substrings_in_tree($$);
 sub _substitute_element_array($$) {
   my $array = shift;
   my $replaced_substrings = shift;
@@ -471,7 +472,7 @@ sub _substitute_element_array($$) {
           $array->[$idx] = $replaced_substrings->{$name};
         }
       } else {
-        _substitute($element, $replaced_substrings);
+        _substitute_substrings_in_tree($element, $replaced_substrings);
       }
     }
   }
@@ -479,7 +480,7 @@ sub _substitute_element_array($$) {
 
 # Recursively substitute @txiinternalvalue elements in $TREE with
 # their values given in $CONTEXT.
-sub _substitute($$) {
+sub _substitute_substrings_in_tree($$) {
   my $tree = shift;
   my $replaced_substrings = shift;
 

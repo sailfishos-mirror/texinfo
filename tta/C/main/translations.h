@@ -56,7 +56,7 @@ TRANSLATION_TREE *cache_translate_string (const char *string,
 DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                           int debug_level);
-ELEMENT *substitute (ELEMENT *tree,
+ELEMENT *substitute_substrings_in_tree (ELEMENT *tree,
                      NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);

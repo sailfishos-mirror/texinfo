@@ -635,9 +635,9 @@ replace_substrings (const char *string,
   return substituted.text;
 }
 
-/* TODO rename */
 ELEMENT *
-substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+substitute_substrings_in_tree (ELEMENT *tree,
+                        NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 void
 substitute_element_array (ELEMENT_LIST *list,
@@ -666,13 +666,14 @@ substitute_element_array (ELEMENT_LIST *list,
                 }
             }
           else
-            substitute (e, replaced_substrings);
+            substitute_substrings_in_tree (e, replaced_substrings);
         }
     }
 }
 
 ELEMENT *
-substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+substitute_substrings_in_tree (ELEMENT *tree,
+                               NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   if (tree->e.c->contents.number > 0)
     substitute_element_array (&tree->e.c->contents, replaced_substrings);
@@ -798,7 +799,7 @@ gdt_tree (const char *string, DOCUMENT *document,
 
   if (replaced_substrings)
     {
-      substitute (result_tree, replaced_substrings);
+      substitute_substrings_in_tree (result_tree, replaced_substrings);
     }
 
   if (debug_level > 0)

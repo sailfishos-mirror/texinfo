@@ -255,7 +255,7 @@ html_gdt_tree (const char *string, CONVERTER *self,
 
   if (replaced_substrings)
     {
-      substitute (result_tree, replaced_substrings);
+      substitute_substrings_in_tree (result_tree, replaced_substrings);
     }
 
   return result_tree;
