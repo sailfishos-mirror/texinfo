@@ -1,3 +1,13 @@
+2025-04-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/HTML.pm (html_cache_translate_string):
+	remove impossible case code.  Minor change in code to shorten and
+	improve the code.
+
+	* tta/C/convert/convert_html.c (html_cache_translate_string),
+	tta/perl/Texinfo/Translations.pm: change a variable name, change in
+	spacing and comments.
+
 2025-04-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/translations.c (substitute_substrings_in_tree),

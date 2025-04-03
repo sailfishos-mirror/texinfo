@@ -479,7 +479,7 @@ sub _substitute_element_array($$) {
 }
 
 # Recursively substitute @txiinternalvalue elements in $TREE with
-# their values given in $CONTEXT.
+# their values given in $REPLACED_SUBSTRINGS.
 sub _substitute_substrings_in_tree($$) {
   my $tree = shift;
   my $replaced_substrings = shift;

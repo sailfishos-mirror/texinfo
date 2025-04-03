@@ -165,16 +165,16 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       LANG_TRANSLATION_TREE_LIST *translations;
       char *translated_context_string;
       TRANSLATION_TREE *result;
-      LANG_TRANSLATION *lang_translation;
+      LANG_TRANSLATION *user_lang_transl;
       uintptr_t string_nr;
       int found;
 
       if (!lang)
         lang = "";
 
-      lang_translation = get_lang_translation (&self->translation_cache, lang,
+      user_lang_transl = get_lang_translation (&self->translation_cache, lang,
                                                TXI_CONVERT_STRINGS_NR);
-      translations = lang_translation->translations;
+      translations = user_lang_transl->translations;
 
       if (translation_context)
         translation_context_str = translation_context;
@@ -195,6 +195,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
               free (translated_string);
               return result;
             }
+          /* the translated string has changed, invalidate the cached tree
+             and replace translated string */
           if (result->tree)
             {
               destroy_element_and_children (result->tree);
@@ -204,10 +206,12 @@ html_cache_translate_string (CONVERTER *self, const char *string,
           result->translation = translated_string;
           return result;
         }
-      result = add_translation_tree (translations, translated_context_string);
 
+      result = add_translation_tree (translations, translated_context_string);
       result->translation = translated_string;
+
       free (translated_context_string);
+
       return result;
     }
 

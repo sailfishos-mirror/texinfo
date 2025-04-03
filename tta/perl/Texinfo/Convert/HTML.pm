@@ -2881,20 +2881,13 @@ sub html_cache_translate_string($$$;$)
 {
   my ($self, $string, $lang_translations, $translation_context) = @_;
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
-    my $format_lang_translations = $lang_translations;
-    $format_lang_translations = $self->{'current_lang_translations'}
-                           if ($self and !defined($format_lang_translations));
-
-    my $lang;
-    my $translations;
-    if ($format_lang_translations) {
-      $lang = $format_lang_translations->[0];
-    }
+    my $lang = $lang_translations->[0];
     my $translated_string
       = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
                                          $string, $lang, $translation_context);
 
     if (defined($translated_string)) {
+      my $translations;
       $lang = '' if (!defined($lang));
       if (!$self->{'translation_cache'}->{$lang}) {
         $self->{'translation_cache'}->{$lang} = {};
@@ -2909,20 +2902,21 @@ sub html_cache_translate_string($$$;$)
       } else {
         $translation_context_str = '';
       }
-      my $strings_cache;
-      if ($translations->{$translation_context_str}) {
-        if (defined($translations->{$translation_context_str}->{$string})) {
-          my $translated_string_tree
-            = $translations->{$translation_context_str}->{$string};
-          my $cached_translated_string = $translated_string_tree->[0];
-          if ($cached_translated_string eq $translated_string) {
+
+      my $strings_cache = $translations->{$translation_context_str};
+      if ($strings_cache) {
+        my $translated_string_tree = $strings_cache->{$string};
+        if (defined($translated_string_tree)) {
+          if ($translated_string_tree->[0] eq $translated_string) {
             return $translated_string_tree;
           }
+          # if the string has changed, the cache is invalidated by
+          # resetting the cached string array reference just below.
         }
       } else {
-        $translations->{$translation_context_str} = {};
+        $strings_cache = {};
+        $translations->{$translation_context_str} = $strings_cache;
       }
-      $strings_cache = $translations->{$translation_context_str};
 
       my $result = [$translated_string];
 
