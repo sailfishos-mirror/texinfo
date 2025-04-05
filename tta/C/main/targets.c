@@ -29,12 +29,26 @@
 #include "debug.h"
 #include "builtin_commands.h"
 #include "extra.h"
+#include "hashmap.h"
 /* for get_label_element */
 #include "utils.h"
 #include "convert_to_texinfo.h"
 /* for retrieve_document */
 #include "document.h"
 #include "targets.h"
+
+size_t identifiers_target_number_l (const LABEL_LIST *identifiers_target)
+{
+  return identifiers_target->number;
+}
+
+size_t identifiers_target_number_h (const struct C_HASHMAP *identifiers_target)
+{
+  if (identifiers_target)
+    return (c_hashmap_count (identifiers_target));
+
+  return 0;
+}
 
 static int
 compare_targets (const void *a, const void *b)
@@ -46,8 +60,8 @@ compare_targets (const void *a, const void *b)
 }
 
 ELEMENT *
-find_identifier_target (const LABEL_LIST *identifiers_target,
-                        const char *normalized)
+find_identifier_target_l (const LABEL_LIST *identifiers_target,
+                          const char *normalized)
 {
   static LABEL target_key;
   LABEL *result;
@@ -117,6 +131,39 @@ register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
   labels_list->number++;
 }
 
+#ifdef USE_TARGET_IDENTIFIER_LIST
+#define add_target_in_identifiers_target add_target_in_identifiers_target_l
+#else
+#define add_target_in_identifiers_target add_target_in_identifiers_target_h
+#endif
+
+void
+add_target_in_identifiers_target_h (C_HASHMAP *identifiers_target,
+                                    ELEMENT *element, char *normalized)
+{
+  c_hashmap_register (identifiers_target, normalized,
+                      element);
+}
+
+void
+add_target_in_identifiers_target_l (LABEL_LIST *identifiers_target,
+                                    ELEMENT *element, char *normalized)
+{
+  LABEL *sorted_identifiers_target;
+
+  register_label_in_list (identifiers_target, element,
+                          normalized);
+  sorted_identifiers_target
+    = sort_labels_identifiers_target (identifiers_target->list,
+                                      identifiers_target->number);
+  free (identifiers_target->list);
+  identifiers_target->list = sorted_identifiers_target;
+  /* knowing that space is the same as number requires looking at
+     sort_labels_identifiers_target to figure out the total space
+     allocated for sorted_identifiers_target */
+  identifiers_target->space = identifiers_target->number;
+}
+
 /* *STATUS 0 means success, 1 or 2 means error */
 static char *
 add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
@@ -126,25 +173,16 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
   *status = 2;
   if (normalized)
     {
-      LABEL_LIST *identifiers_target = &document->identifiers_target;
+      IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
       ELEMENT *target = find_identifier_target (identifiers_target,
                                                 normalized);
       if (!target)
         {
-          LABEL *sorted_identifiers_target;
-
           element->flags |= EF_is_target;
-          register_label_in_list (identifiers_target, element,
-                                  normalized);
-          sorted_identifiers_target
-            = sort_labels_identifiers_target (identifiers_target->list,
-                                              identifiers_target->number);
-          free (identifiers_target->list);
-          identifiers_target->list = sorted_identifiers_target;
-          /* knowing that space is the same as number requires looking at
-             sort_labels_identifiers_target to figure out the total space
-             allocated for sorted_identifiers_target */
-          identifiers_target->space = identifiers_target->number;
+
+          add_target_in_identifiers_target (identifiers_target,
+                                            element, normalized);
+
           *status = 0;
           document->modified_information |= F_DOCM_labels_list
                                    | F_DOCM_identifiers_target;
@@ -200,4 +238,17 @@ register_label_element (size_t document_descriptor, ELEMENT *element,
   register_label_in_list (&document->labels_list, element,
                           normalized);
   return !status;
+}
+
+ELEMENT *
+find_identifier_target_h (const struct C_HASHMAP *identifiers_target,
+                          const char *normalized)
+{
+  int found;
+  ELEMENT *result;
+
+  /* discard const */
+  result = (ELEMENT *)c_hashmap_value (identifiers_target, normalized, &found);
+
+  return result;
 }

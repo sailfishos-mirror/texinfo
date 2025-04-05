@@ -34,6 +34,8 @@ struct OPTIONS;
 /* same with convert_to_text.h */
 struct TEXT_OPTIONS;
 
+struct C_HASHMAP;
+
 #define F_DOCM_tree                      0x0001
 #define F_DOCM_index_names               0x0002
 #define F_DOCM_floats                    0x0004
@@ -262,8 +264,11 @@ typedef struct DOCUMENT {
     LISTOFFLOATS_TYPE_LIST listoffloats;
     ELEMENT_LIST internal_references;
     LABEL_LIST labels_list;
-  /* Array of target elements with unique identifiers, sorted by identifier */
-    LABEL_LIST identifiers_target;
+  /* target elements with unique identifiers, sorted/hashed by identifier */
+    IDENTIFIER_TARGET identifiers_target;
+     /*
+    C_HASHMAP identifiers_target_h;
+      */
   /* Information that is not local to where it is set in the Texinfo input,
    for example document language and encoding. */
     GLOBAL_INFO global_info;

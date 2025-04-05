@@ -25,6 +25,7 @@
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
+#include "hashmap.h"
 /* for whitespace_chars count_multibyte */
 #include "utils.h"
 /* for parse_node_manual */
@@ -108,8 +109,8 @@ check_register_target_element_label (ELEMENT *label_element,
    elements are easy to find.
    Called from parser */
 void
-set_labels_identifiers_target (const LABEL_LIST *labels,
-                               LABEL_LIST *result)
+set_labels_identifiers_target_l (const LABEL_LIST *labels,
+                                 LABEL_LIST *result)
 {
   size_t labels_number = labels->number;
   LABEL *targets = malloc (labels_number * sizeof (LABEL));
@@ -177,6 +178,53 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
   result->list = targets;
   result->number = targets_number;
   result->space = labels_number;
+}
+
+void
+set_labels_identifiers_target_h (const LABEL_LIST *labels,
+                                 C_HASHMAP *hashmap)
+{
+  size_t i;
+  size_t labels_number = labels->number;
+
+  for (i = 0; i < labels_number; i++)
+    {
+      LABEL *l = &labels->list[i];
+      const ELEMENT *found_element;
+      int found;
+
+      if (l->identifier == 0)
+        continue;
+
+      if (!hashmap->arena)
+        init_c_hashmap (hashmap, labels_number);
+
+      found_element = c_hashmap_value (hashmap, l->identifier, &found);
+
+      if (found)
+        {
+          const ELEMENT *label_element = get_label_element (l->element);
+          char *texi_str = convert_contents_to_texinfo (label_element);
+          l->reference = found_element;
+
+          line_error_ext (MSG_error, 0,
+                          &l->element->e.c->source_info,
+                          "@%s `%s' previously defined",
+                          element_command_name (l->element),
+                          texi_str);
+          free (texi_str);
+          line_error_ext (MSG_error, 1,
+                          &found_element->e.c->source_info,
+                          "here is the previous definition as @%s",
+                          element_command_name (found_element));
+        }
+      else
+        {
+          l->element->flags |= EF_is_target;
+
+          c_hashmap_register (hashmap, l->identifier, l->element);
+        }
+    }
 }
 
 

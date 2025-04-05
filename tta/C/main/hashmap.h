@@ -17,15 +17,24 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-struct C_HASHMAP;
+#include <stddef.h>
 
-struct C_HASHMAP *init_c_hashmap (size_t nbuckets);
-int is_c_hashmap_registered (struct C_HASHMAP *H, const char *in_string);
-void c_hashmap_register (struct C_HASHMAP *H, const char *in_string,
+#include "tree_types.h"
+
+struct BUCKET_ARENA_ITERATOR;
+
+C_HASHMAP *new_c_hashmap (size_t nbuckets);
+void init_c_hashmap (C_HASHMAP *H, size_t nbuckets);
+int is_c_hashmap_registered (C_HASHMAP *H, const char *in_string);
+void c_hashmap_register (C_HASHMAP *H, const char *in_string,
                          const void *value);
-const void *c_hashmap_value (struct C_HASHMAP *H, const char *in_string,
+const void *c_hashmap_value (const C_HASHMAP *H, const char *in_string,
                              int *found);
-void clear_c_hashmap (struct C_HASHMAP *H);
+void clear_c_hashmap (C_HASHMAP *H);
+size_t c_hashmap_count (const C_HASHMAP *H);
 
+const void *next_c_hashmap_iterator_value (const C_HASHMAP *H,
+                               struct BUCKET_ARENA_ITERATOR **hash_iterator,
+                               const char **key);
 
 #endif

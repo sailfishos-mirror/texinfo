@@ -26,12 +26,12 @@ ELEMENT *new_detailmenu (
                  ERROR_MESSAGE_LIST *error_messages,
                  const OPTIONS *options,
                  LANG_TRANSLATION *lang_translation,
-                 const LABEL_LIST *identifiers_target,
+                 const IDENTIFIER_TARGET *identifiers_target,
                  const CONST_ELEMENT_LIST *menus, int use_sections);
 ELEMENT *new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
                                LANG_TRANSLATION *lang_translations,
-                               const LABEL_LIST *identifiers_target,
+                               const IDENTIFIER_TARGET *identifiers_target,
                                const ELEMENT *node);
 
 #endif

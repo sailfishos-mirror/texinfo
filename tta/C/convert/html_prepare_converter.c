@@ -4524,7 +4524,7 @@ static void
 set_root_commands_targets_node_files (CONVERTER *self)
 {
 
-  if (self->document->identifiers_target.number > 0)
+  if (identifiers_target_number (&self->document->identifiers_target))
     {
       const char *extension = 0;
 
@@ -4959,7 +4959,7 @@ ids_hashmap_predicted_values (CONVERTER *self)
     }
 
   return special_units->number + associated_special_units->number
-   + self->document->identifiers_target.number
+   + identifiers_target_number (&self->document->identifiers_target)
    + 3 * sectioning_commands_nr
    + heading_commands_nr
    + index_entries_nr
@@ -4977,7 +4977,7 @@ html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
   size_t predicted_values = ids_hashmap_predicted_values (self);
-  self->registered_ids_c_hashmap = init_c_hashmap (predicted_values);
+  self->registered_ids_c_hashmap = new_c_hashmap (predicted_values);
 
   /*
    Do that before the other elements, to be sure that special page ids
@@ -5411,7 +5411,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       size_t i;
 
       /* first determine the top node file name. */
-      if (self->document->identifiers_target.number > 0)
+      if (identifiers_target_number (&self->document->identifiers_target))
         node_top = find_identifier_target (&self->document->identifiers_target,
                                            "Top");
 

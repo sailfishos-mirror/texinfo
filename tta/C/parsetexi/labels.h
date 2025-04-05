@@ -20,13 +20,21 @@
 
 #include "tree_types.h"
 
+#ifdef USE_TARGET_IDENTIFIER_LIST
+#define set_labels_identifiers_target set_labels_identifiers_target_l
+#else
+#define set_labels_identifiers_target set_labels_identifiers_target_h
+#endif
+
 /* declaration of extern data is in parser.h to avoid exposure
    to code including labels.h */
 
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
-void set_labels_identifiers_target (const LABEL_LIST *labels,
-                                    LABEL_LIST *result);
+void set_labels_identifiers_target_l (const LABEL_LIST *labels,
+                                      LABEL_LIST *result);
+void set_labels_identifiers_target_h (const LABEL_LIST *labels,
+                                      C_HASHMAP *result);
 
 
 

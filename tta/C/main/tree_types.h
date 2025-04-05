@@ -409,6 +409,24 @@ typedef struct LANG_TRANSLATION {
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;
 
+struct BUCKET;
+struct BUCKET_ARENA;
+typedef struct C_HASHMAP {
+  struct BUCKET **bucket;
+  size_t num_buckets;
+  size_t count;
+
+  struct BUCKET_ARENA *arena;
+} C_HASHMAP;
+
+#define USE_TARGET_IDENTIFIER_LIST 1
+
+#ifdef USE_TARGET_IDENTIFIER_LIST
+#define IDENTIFIER_TARGET LABEL_LIST
+#else
+#define IDENTIFIER_TARGET C_HASHMAP
+#endif
+
 /* tree element flags */
 /* in info in Perl */
 #define EF_inserted                      0x0001

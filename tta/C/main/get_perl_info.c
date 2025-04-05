@@ -1211,7 +1211,8 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
             }
         }
 
-      if (document && document->identifiers_target.number)
+      if (document
+          && identifiers_target_number (&document->identifiers_target))
         {
           SV **normalized_sv;
           EXTRA(normalized)

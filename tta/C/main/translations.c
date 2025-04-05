@@ -474,7 +474,7 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
    memset (lang_translations[i]->translations, 0,
            sizeof (LANG_TRANSLATION_TREE_LIST));
 
-  lang_translations[i]->translations->hash = init_c_hashmap (cache_size);
+  lang_translations[i]->translations->hash = new_c_hashmap (cache_size);
 
   return lang_translations[i];
 }

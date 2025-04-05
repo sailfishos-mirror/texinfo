@@ -19,6 +19,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "tree_types.h"
+
 #include "hashmap.h"
 
 typedef struct BUCKET {
@@ -37,13 +39,10 @@ typedef struct BUCKET_ARENA {
   struct BUCKET_ARENA *next;
 } BUCKET_ARENA;
 
-typedef struct C_HASHMAP {
-  BUCKET **bucket;
-  size_t num_buckets;
-  size_t count;
-
+typedef struct BUCKET_ARENA_ITERATOR {
+  int index;
   BUCKET_ARENA *arena;
-} C_HASHMAP;
+} BUCKET_ARENA_ITERATOR;
 
 static BUCKET *
 new_bucket (C_HASHMAP *H)
@@ -63,7 +62,7 @@ new_bucket (C_HASHMAP *H)
 
 
 static unsigned long
-hash_string (const char *string, C_HASHMAP *H)
+hash_string (const char *string, const C_HASHMAP *H)
 {
   unsigned int hash = 0;
 
@@ -82,10 +81,9 @@ hash_string (const char *string, C_HASHMAP *H)
 }
 
 #define NBUCKETS 256
-C_HASHMAP *
-init_c_hashmap (size_t nbuckets)
+void
+init_c_hashmap (C_HASHMAP *H, size_t nbuckets)
 {
-  C_HASHMAP *H = malloc (sizeof (C_HASHMAP));
   memset (H, 0, sizeof (C_HASHMAP));
 
   H->arena = malloc (sizeof (BUCKET_ARENA));
@@ -97,6 +95,13 @@ init_c_hashmap (size_t nbuckets)
   H->num_buckets = nbuckets;
   H->bucket = malloc (sizeof (BUCKET *) * nbuckets);
   memset (H->bucket, 0, sizeof (BUCKET *) * nbuckets);
+}
+
+C_HASHMAP *
+new_c_hashmap (size_t nbuckets)
+{
+  C_HASHMAP *H = malloc (sizeof (C_HASHMAP));
+  init_c_hashmap (H, nbuckets);
 
   return H;
 }
@@ -118,10 +123,19 @@ is_c_hashmap_registered (C_HASHMAP *H, const char *in_string)
 }
 
 const void *
-c_hashmap_value (C_HASHMAP * H, const char *in_string, int *found)
+c_hashmap_value (const C_HASHMAP *H, const char *in_string, int *found)
 {
-  unsigned int hash = hash_string(in_string, H);
-  BUCKET *B = H->bucket[hash];
+  unsigned int hash;
+  BUCKET *B;
+
+  if (!H->count)
+    {
+      *found = 0;
+      return 0;
+    }
+
+  hash = hash_string(in_string, H);
+  B = H->bucket[hash];
 
   while (B)
     {
@@ -180,3 +194,61 @@ clear_c_hashmap (C_HASHMAP *H)
   memset (H, 0, sizeof (C_HASHMAP));
 }
 
+size_t
+c_hashmap_count (const C_HASHMAP *H)
+{
+  return H->count;
+}
+
+static BUCKET_ARENA_ITERATOR *
+new_c_hashmap_iterator (const C_HASHMAP *H)
+{
+  BUCKET_ARENA_ITERATOR *result = (BUCKET_ARENA_ITERATOR *)
+                       malloc (sizeof (BUCKET_ARENA_ITERATOR));
+  result->index = 0;
+  result->arena = H->arena;
+  return result;
+}
+
+const void *
+next_c_hashmap_iterator_value (const C_HASHMAP *H,
+                               BUCKET_ARENA_ITERATOR **hash_iterator,
+                               const char **key)
+{
+  const void *result;
+  BUCKET_ARENA_ITERATOR *iterator;
+
+  if (!*hash_iterator)
+    {
+      if (H && H->arena)
+        *hash_iterator = new_c_hashmap_iterator (H);
+      else
+        {
+          *key = 0;
+          return 0;
+        }
+    }
+  iterator = *hash_iterator;
+
+  if (iterator->index >= iterator->arena->used)
+    {
+      if (iterator->arena->next)
+        {
+          iterator->arena = iterator->arena->next;
+          iterator->index = 0;
+        }
+      else
+        {
+          *key = 0;
+          free (*hash_iterator);
+          *hash_iterator = 0;
+          return 0;
+        }
+    }
+
+  result = iterator->arena->buckets[iterator->index].value;
+  *key = iterator->arena->buckets[iterator->index].string;
+  iterator->index++;
+
+  return result;
+}

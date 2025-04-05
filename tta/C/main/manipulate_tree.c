@@ -1951,7 +1951,7 @@ normalized_menu_entry_internal_node (const ELEMENT *entry)
 
 ELEMENT *
 normalized_entry_associated_internal_node (const ELEMENT *entry,
-                                           const LABEL_LIST *identifiers_target)
+                                  const IDENTIFIER_TARGET *identifiers_target)
 {
   const char *normalized_entry_node = normalized_menu_entry_internal_node (entry);
   if (normalized_entry_node)
@@ -1964,7 +1964,8 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 }
 
 const ELEMENT *
-first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
+first_menu_node (const ELEMENT *node,
+                 const IDENTIFIER_TARGET *identifiers_target)
 {
   const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
   if (menus)

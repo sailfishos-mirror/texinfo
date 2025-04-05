@@ -67,6 +67,7 @@
 #include "tree.h"
 /* for element_command_name */
 #include "builtin_commands.h"
+#include "hashmap.h"
 /* for xasprintf get_encoding_conversion output_conversions
    direction_names expanded_formats_number output_unit_type_names
    informative_command_value get_global_document_command */
@@ -1297,7 +1298,39 @@ build_target_elements_list (const LABEL_LIST *labels_list)
 }
 
 static HV *
-build_identifiers_target (const LABEL_LIST *identifiers_target)
+build_identifiers_target_h (const struct C_HASHMAP *identifiers_target)
+{
+  HV* hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (identifiers_target)
+    {
+      struct BUCKET_ARENA_ITERATOR *hash_iterator = 0;
+      while (1)
+        {
+          const char *key;
+          const ELEMENT *e = next_c_hashmap_iterator_value (identifiers_target,
+                                                      &hash_iterator, &key);
+          if (!key)
+            break;
+          SV *sv = newRV_inc (e->hv);
+          hv_store (hv, key, strlen (key), sv, 0);
+        }
+    }
+  return hv;
+}
+
+#ifdef USE_TARGET_IDENTIFIER_LIST
+#define build_identifiers_target build_identifiers_target_l
+#else
+#define build_identifiers_target build_identifiers_target_h
+#endif
+
+static HV *
+build_identifiers_target_l (const LABEL_LIST *identifiers_target)
 {
   HV* hv;
 

@@ -13187,7 +13187,7 @@ html_output_internal_links (CONVERTER *self)
             }
         }
 
-      if (self->document->identifiers_target.number > 0)
+      if (identifiers_target_number (&self->document->identifiers_target))
         {
           /* use labels_list and not identifiers_target to process in the
              document order */

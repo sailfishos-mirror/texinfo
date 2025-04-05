@@ -64,6 +64,7 @@
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"
+#include "targets.h"
 /* txi_paths_info create_destination_directory
    set_global_document_commands clear_tree_added_elements
    register_normalize_case_filename converter_translated_command_tree */
@@ -2944,7 +2945,7 @@ html_node_redirections (CONVERTER *self,
 {
   FILE_SOURCE_INFO_LIST *files_source_info = &self->files_source_info;
   int redirection_files_done = 0;
-  if (self->document->identifiers_target.number > 0
+  if (identifiers_target_number (&self->document->identifiers_target)
       && self->conf->NODE_FILES.o.integer > 0
       && strlen (output_file) > 0)
     {
