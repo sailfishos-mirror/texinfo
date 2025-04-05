@@ -340,6 +340,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
               user_defined_command_data[user_data_cmd].flags |= CF_REGISTERED;
             }
         }
+      free (value);
 
       /* if strlen is not used to guard against checking after the end of q,
          for some reason, valgrind does not find that the *(q+1) could be

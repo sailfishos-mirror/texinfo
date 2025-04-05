@@ -421,6 +421,7 @@ free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
   size_t i;
 
   clear_c_hashmap (translations->hash);
+  free (translations->hash);
   for (i = 0; i < translations->number; i++)
     {
       TRANSLATION_TREE *translation_tree = translations->list[i];
@@ -430,6 +431,7 @@ free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
         destroy_element_and_children (translation_tree->tree);
       free (translation_tree);
     }
+  free (translations->list);
 }
 
 void
@@ -437,7 +439,10 @@ free_lang_translation (LANG_TRANSLATION *lang_translation)
 {
   free (lang_translation->lang);
   if (lang_translation->translations)
-    free_lang_translation_tree_list (lang_translation->translations);
+    {
+      free_lang_translation_tree_list (lang_translation->translations);
+      free (lang_translation->translations);
+    }
 }
 
 LANG_TRANSLATION **translation_cache;

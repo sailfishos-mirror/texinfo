@@ -1,5 +1,19 @@
 2025-04-05  Patrice Dumas  <pertusus@free.fr>
 
+	Fix memory leaks found with valgrind
+
+	* tta/C/parsetexi/handle_commands.c (parse_rawline_command): free
+	clickstyle argument command name.
+
+	* tta/C/main/translations.c (free_lang_translation_tree_list): free
+	LANG_TRANSLATION_TREE_LIST hash and list.
+
+	* tta/C/main/translations.c (free_lang_translation): free the
+	LANG_TRANSLATION_TREE_LIST translations field pointer in
+	lang_translation.
+
+2025-04-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/hashmap.c (c_hashmap_iterator_next_value): rename
 	next_c_hashmap_iterator_value to c_hashmap_iterator_next_value.
 	Update caller.
