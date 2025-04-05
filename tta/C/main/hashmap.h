@@ -33,7 +33,7 @@ const void *c_hashmap_value (const C_HASHMAP *H, const char *in_string,
 void clear_c_hashmap (C_HASHMAP *H);
 size_t c_hashmap_count (const C_HASHMAP *H);
 
-const void *next_c_hashmap_iterator_value (const C_HASHMAP *H,
+const void *c_hashmap_iterator_next_value (const C_HASHMAP *H,
                                struct BUCKET_ARENA_ITERATOR **hash_iterator,
                                const char **key);
 

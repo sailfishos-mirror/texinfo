@@ -1,5 +1,11 @@
 2025-04-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/hashmap.c (c_hashmap_iterator_next_value): rename
+	next_c_hashmap_iterator_value to c_hashmap_iterator_next_value.
+	Update caller.
+
+2025-04-05  Patrice Dumas  <pertusus@free.fr>
+
 	Remove identifiers target implementation as sorted lists in C
 
 	* tta/C/main/build_perl_info.c (build_identifiers_target),

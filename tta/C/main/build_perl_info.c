@@ -1312,7 +1312,7 @@ build_identifiers_target (const struct C_HASHMAP *identifiers_target)
       while (1)
         {
           const char *key;
-          const ELEMENT *e = next_c_hashmap_iterator_value (identifiers_target,
+          const ELEMENT *e = c_hashmap_iterator_next_value (identifiers_target,
                                                       &hash_iterator, &key);
           if (!key)
             break;

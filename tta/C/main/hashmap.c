@@ -210,8 +210,14 @@ new_c_hashmap_iterator (const C_HASHMAP *H)
   return result;
 }
 
+/* the first time this function is called it should be called with
+   (*HASH_ITERATOR) set to NULL.
+   The last value is detected by *KEY being NULL.
+   The caller does not need to free (*HASH_ITERATOR) if a NULL *KEY
+   has been returned.
+ */
 const void *
-next_c_hashmap_iterator_value (const C_HASHMAP *H,
+c_hashmap_iterator_next_value (const C_HASHMAP *H,
                                BUCKET_ARENA_ITERATOR **hash_iterator,
                                const char **key)
 {
