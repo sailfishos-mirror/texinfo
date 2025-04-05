@@ -564,10 +564,13 @@ sub set_labels_identifiers_target($$;$)
       }
     }
   }
-  # use identifiers order to have the same error messages order as in XS parser
+  # when a sorted list is used for identifiers in C code, use identifiers
+  # order to have the same error messages order, otherwise document order
+  # should be used
   if (scalar(@elements_with_error) > 0) {
     my @sorted
-     = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
+    # use document order since C code default is hashmap for identifiers.
+     = #sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {
       _existing_label_error($self, $element, $self->{'registrar'}, $debug);

@@ -208,51 +208,6 @@ Text, float1
 
 $result_errors{'double_node_anchor_float'} = [
   {
-    'error_line' => '@node `anchor1\' previously defined
-',
-    'line_nr' => 9,
-    'text' => '@node `anchor1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @anchor
-',
-    'line_nr' => 7,
-    'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@float `anchor1\' previously defined
-',
-    'line_nr' => 14,
-    'text' => '@float `anchor1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @anchor
-',
-    'line_nr' => 7,
-    'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@node `float1\' previously defined
-',
-    'line_nr' => 20,
-    'text' => '@node `float1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @float
-',
-    'line_nr' => 17,
-    'text' => 'here is the previous definition as @float',
-    'type' => 'error'
-  },
-  {
     'error_line' => '@node `node1\' previously defined
 ',
     'line_nr' => 3,
@@ -283,6 +238,21 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
+    'error_line' => '@node `anchor1\' previously defined
+',
+    'line_nr' => 9,
+    'text' => '@node `anchor1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @anchor
+',
+    'line_nr' => 7,
+    'text' => 'here is the previous definition as @anchor',
+    'type' => 'error'
+  },
+  {
     'error_line' => '@float `node1\' previously defined
 ',
     'line_nr' => 11,
@@ -295,6 +265,36 @@ $result_errors{'double_node_anchor_float'} = [
 ',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@float `anchor1\' previously defined
+',
+    'line_nr' => 14,
+    'text' => '@float `anchor1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @anchor
+',
+    'line_nr' => 7,
+    'text' => 'here is the previous definition as @anchor',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@node `float1\' previously defined
+',
+    'line_nr' => 20,
+    'text' => '@node `float1\' previously defined',
+    'type' => 'error'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'here is the previous definition as @float
+',
+    'line_nr' => 17,
+    'text' => 'here is the previous definition as @float',
     'type' => 'error'
   },
   {
