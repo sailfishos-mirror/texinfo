@@ -534,11 +534,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free (document->internal_references.list);
   free_listoffloats_list (&document->listoffloats);
   free (document->labels_list.list);
-#ifdef USE_TARGET_IDENTIFIER_LIST
-  free (document->identifiers_target.list);
-#else
   clear_c_hashmap (&document->identifiers_target);
-#endif
   free_indices_info (&document->indices_info);
   wipe_error_message_list (&document->error_messages);
   wipe_error_message_list (&document->parser_error_messages);

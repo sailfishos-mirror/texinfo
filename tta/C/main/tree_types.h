@@ -419,17 +419,6 @@ typedef struct C_HASHMAP {
   struct BUCKET_ARENA *arena;
 } C_HASHMAP;
 
-/* if using a sorted list as implementation for identifier_target, the
-   error messages of multiple defined nodes are in the sorted identifiers
-   order, when using an hashmap they are in the document order */
-//#define USE_TARGET_IDENTIFIER_LIST 1
-
-#ifdef USE_TARGET_IDENTIFIER_LIST
-#define IDENTIFIER_TARGET LABEL_LIST
-#else
-#define IDENTIFIER_TARGET C_HASHMAP
-#endif
-
 /* tree element flags */
 /* in info in Perl */
 #define EF_inserted                      0x0001

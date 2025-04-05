@@ -588,7 +588,7 @@ ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           DOCUMENT *document)
 {
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   size_t document_descriptor = document->descriptor;
   int empty_node = 0;
   int appended_number;
@@ -1219,7 +1219,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const CONST_ELEMENT_LIST *menus;

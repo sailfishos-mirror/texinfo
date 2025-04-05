@@ -37,42 +37,12 @@
 #include "document.h"
 #include "targets.h"
 
-size_t identifiers_target_number_l (const LABEL_LIST *identifiers_target)
-{
-  return identifiers_target->number;
-}
-
-size_t identifiers_target_number_h (const struct C_HASHMAP *identifiers_target)
+size_t identifiers_target_number (const struct C_HASHMAP *identifiers_target)
 {
   if (identifiers_target)
     return (c_hashmap_count (identifiers_target));
 
   return 0;
-}
-
-static int
-compare_targets (const void *a, const void *b)
-{
-  const LABEL *label_a = (const LABEL *) a;
-  const LABEL *label_b = (const LABEL *) b;
-
-  return strcmp (label_a->identifier, label_b->identifier);
-}
-
-ELEMENT *
-find_identifier_target_l (const LABEL_LIST *identifiers_target,
-                          const char *normalized)
-{
-  static LABEL target_key;
-  LABEL *result;
-  target_key.identifier = (char *) normalized;
-  result = (LABEL *)bsearch (&target_key, identifiers_target->list,
-                             identifiers_target->number, sizeof (LABEL),
-                             compare_targets);
-  if (result)
-    return result->element;
-  else
-    return 0;
 }
 
 int
@@ -98,19 +68,6 @@ compare_labels (const void *a, const void *b)
     return 1;
 }
 
-static LABEL *
-sort_labels_identifiers_target (const LABEL *list_of_labels,
-                                size_t labels_number)
-{
-  LABEL *targets = malloc (labels_number * sizeof (LABEL));
-
-  memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
-  qsort (targets, labels_number, sizeof (LABEL), compare_labels);
-
-  return targets;
-}
-
-
 static void
 register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
                         char *normalized)
@@ -131,37 +88,12 @@ register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
   labels_list->number++;
 }
 
-#ifdef USE_TARGET_IDENTIFIER_LIST
-#define add_target_in_identifiers_target add_target_in_identifiers_target_l
-#else
-#define add_target_in_identifiers_target add_target_in_identifiers_target_h
-#endif
-
 void
-add_target_in_identifiers_target_h (C_HASHMAP *identifiers_target,
-                                    ELEMENT *element, char *normalized)
+add_target_in_identifiers_target (C_HASHMAP *identifiers_target,
+                                  ELEMENT *element, char *normalized)
 {
   c_hashmap_register (identifiers_target, normalized,
                       element);
-}
-
-void
-add_target_in_identifiers_target_l (LABEL_LIST *identifiers_target,
-                                    ELEMENT *element, char *normalized)
-{
-  LABEL *sorted_identifiers_target;
-
-  register_label_in_list (identifiers_target, element,
-                          normalized);
-  sorted_identifiers_target
-    = sort_labels_identifiers_target (identifiers_target->list,
-                                      identifiers_target->number);
-  free (identifiers_target->list);
-  identifiers_target->list = sorted_identifiers_target;
-  /* knowing that space is the same as number requires looking at
-     sort_labels_identifiers_target to figure out the total space
-     allocated for sorted_identifiers_target */
-  identifiers_target->space = identifiers_target->number;
 }
 
 /* *STATUS 0 means success, 1 or 2 means error */
@@ -173,7 +105,7 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
   *status = 2;
   if (normalized)
     {
-      IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+      C_HASHMAP *identifiers_target = &document->identifiers_target;
       ELEMENT *target = find_identifier_target (identifiers_target,
                                                 normalized);
       if (!target)
@@ -241,8 +173,8 @@ register_label_element (size_t document_descriptor, ELEMENT *element,
 }
 
 ELEMENT *
-find_identifier_target_h (const struct C_HASHMAP *identifiers_target,
-                          const char *normalized)
+find_identifier_target (const struct C_HASHMAP *identifiers_target,
+                        const char *normalized)
 {
   int found;
   ELEMENT *result;

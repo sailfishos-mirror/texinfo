@@ -1298,7 +1298,7 @@ build_target_elements_list (const LABEL_LIST *labels_list)
 }
 
 static HV *
-build_identifiers_target_h (const struct C_HASHMAP *identifiers_target)
+build_identifiers_target (const struct C_HASHMAP *identifiers_target)
 {
   HV* hv;
 
@@ -1318,35 +1318,6 @@ build_identifiers_target_h (const struct C_HASHMAP *identifiers_target)
             break;
           SV *sv = newRV_inc (e->hv);
           hv_store (hv, key, strlen (key), sv, 0);
-        }
-    }
-  return hv;
-}
-
-#ifdef USE_TARGET_IDENTIFIER_LIST
-#define build_identifiers_target build_identifiers_target_l
-#else
-#define build_identifiers_target build_identifiers_target_h
-#endif
-
-static HV *
-build_identifiers_target_l (const LABEL_LIST *identifiers_target)
-{
-  HV* hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (identifiers_target->number > 0)
-    {
-      size_t i;
-      for (i = 0; i < identifiers_target->number; i++)
-        {
-          SV *sv = newRV_inc (identifiers_target->list[i].element->hv);
-          hv_store (hv, identifiers_target->list[i].identifier,
-                    strlen (identifiers_target->list[i].identifier),
-                    sv, 0);
         }
     }
   return hv;

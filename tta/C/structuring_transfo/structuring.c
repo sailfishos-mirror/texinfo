@@ -434,7 +434,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   const ELEMENT *menu_content, const ELEMENT *menu_entry_node)
 {
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
-  IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  C_HASHMAP *identifiers_target = &document->identifiers_target;
   OPTIONS *options = document->options;
 
   const char *normalized_menu_node = lookup_extra_string (menu_entry_node,
@@ -595,7 +595,7 @@ void
 check_nodes_are_referenced (DOCUMENT *document)
 {
   const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -869,7 +869,7 @@ set_menus_node_directions (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;
   const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1072,7 +1072,7 @@ void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
   const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1380,7 +1380,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 CONST_ELEMENT_LIST *
 construct_nodes_tree (DOCUMENT *document)
 {
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT *root = document->tree;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -1573,7 +1573,7 @@ construct_nodes_tree (DOCUMENT *document)
 void
 associate_internal_references (DOCUMENT *document)
 {
-  const IDENTIFIER_TARGET *identifiers_target = &document->identifiers_target;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -2029,7 +2029,7 @@ static ELEMENT_LIST *
 print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   ERROR_MESSAGE_LIST *error_messages,
                   const OPTIONS *options,
-                  const IDENTIFIER_TARGET *identifiers_target,
+                  const C_HASHMAP *identifiers_target,
                   int use_sections)
 {
   ELEMENT_LIST *master_menu_contents = new_list ();
@@ -2180,7 +2180,7 @@ ELEMENT *
 new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const OPTIONS *options,
                 LANG_TRANSLATION *lang_translation,
-                const IDENTIFIER_TARGET *identifiers_target,
+                const C_HASHMAP *identifiers_target,
                 const CONST_ELEMENT_LIST *menus, int use_sections)
 {
   /* only holds contents here, will add spaces and end in
@@ -2277,7 +2277,7 @@ ELEMENT *
 new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
                                LANG_TRANSLATION *lang_translations,
-                               const IDENTIFIER_TARGET *identifiers_target,
+                               const C_HASHMAP *identifiers_target,
                                const ELEMENT *node)
 {
   ELEMENT *menu_node = new_complete_node_menu (node, 0, lang_translations,

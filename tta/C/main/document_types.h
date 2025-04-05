@@ -265,10 +265,7 @@ typedef struct DOCUMENT {
     ELEMENT_LIST internal_references;
     LABEL_LIST labels_list;
   /* target elements with unique identifiers, sorted/hashed by identifier */
-    IDENTIFIER_TARGET identifiers_target;
-     /*
-    C_HASHMAP identifiers_target_h;
-      */
+    C_HASHMAP identifiers_target;
   /* Information that is not local to where it is set in the Texinfo input,
    for example document language and encoding. */
     GLOBAL_INFO global_info;

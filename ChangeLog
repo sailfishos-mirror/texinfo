@@ -1,5 +1,27 @@
 2025-04-05  Patrice Dumas  <pertusus@free.fr>
 
+	Remove identifiers target implementation as sorted lists in C
+
+	* tta/C/main/build_perl_info.c (build_identifiers_target),
+	tta/C/main/document.c (destroy_document_information_except_tree),
+	tta/C/main/document_types.h (DOCUMENT), tta/C/main/targets.c
+	(identifiers_target_number, find_identifier_target)
+	(add_target_in_identifiers_target), tta/C/parsetexi/labels.c
+	(set_labels_identifiers_target): replace IDENTIFIER_TARGET by
+	C_HASHMAP.  Rename build_identifiers_target_h to
+	build_identifiers_target, identifiers_target_number_h to
+	identifiers_target_number, find_identifier_target_h to
+	find_identifier_target, add_target_in_identifiers_target_h to
+	add_target_in_identifiers_target and set_labels_identifiers_target_h
+	to set_labels_identifiers_target.  Remove USE_TARGET_IDENTIFIER_LIST
+	define, remove build_identifiers_target_l,
+	identifiers_target_number_l, find_identifier_target_l,
+	add_target_in_identifiers_target_l and
+	set_labels_identifiers_target_l. Remove now unused compare_targets and
+	sort_labels_identifiers_target. 
+
+2025-04-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree_types.h, tta/perl/Texinfo/Document.pm
 	(set_labels_identifiers_target): use hashmap for C for
 	identifiers_target.  This changes the order of messages for nodes
