@@ -40,7 +40,7 @@
 #include "errors_parser.h"
 #include "context_stack.h"
 #include "input.h"
-/* check_register_target_element_label and remember_internal_xref */
+/* check_register_target_element_label */
 #include "labels.h"
 /* for fetch_value */
 #include "macro.h"
@@ -363,7 +363,8 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 {
                   /* we use the @*ref command here and not the label
                      command to have more information for messages */
-                  remember_internal_xref (ref);
+                  add_to_element_list (
+                          &parsed_document->internal_references, ref);
                 }
               free (ref_label_info);
             }

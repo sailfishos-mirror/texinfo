@@ -37,7 +37,6 @@
 #include "debug_parser.h"
 #include "errors_parser.h"
 #include "source_marks.h"
-#include "labels.h"
 /* isolate_last_space whitespace_chars_except_newline ... */
 #include "parser.h"
 
@@ -102,7 +101,8 @@ enter_menu_entry_node (ELEMENT *current)
 
   menu_entry_node = register_extra_menu_entry_information (current);
   if (menu_entry_node)
-    remember_internal_xref (menu_entry_node);
+    add_to_element_list (&parsed_document->internal_references,
+                         menu_entry_node);
 
   description = new_element (ET_menu_entry_description);
   add_to_element_contents (current, description);

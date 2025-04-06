@@ -16,20 +16,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <stddef.h>
-
 #include "tree_types.h"
-
-/* declaration of extern data is in parser.h to avoid exposure
-   to code including labels.h */
 
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
 void set_labels_identifiers_target (const LABEL_LIST *labels,
-                                    C_HASHMAP *result);
-
-
-
-void remember_internal_xref (ELEMENT *element);
+                                    C_HASHMAP *hashmap);
 
 #endif

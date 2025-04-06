@@ -86,8 +86,7 @@ check_register_target_element_label (ELEMENT *label_element,
 
 /* called from parser */
 void
-set_labels_identifiers_target (const LABEL_LIST *labels,
-                               C_HASHMAP *hashmap)
+set_labels_identifiers_target (const LABEL_LIST *labels, C_HASHMAP *hashmap)
 {
   size_t i;
   size_t labels_number = labels->number;
@@ -141,12 +140,3 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
         }
     }
 }
-
-
-
-void
-remember_internal_xref (ELEMENT *element)
-{
-  add_to_element_list (&parsed_document->internal_references, element);
-}
-
