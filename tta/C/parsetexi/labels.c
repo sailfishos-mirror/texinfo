@@ -28,10 +28,10 @@
 #include "hashmap.h"
 /* for whitespace_chars count_multibyte */
 #include "utils.h"
+/* for register_label_in_list */
+#include "targets.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
-/* for compare_labels */
-#include "targets.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 #include "errors_parser.h"
@@ -43,29 +43,6 @@
 /* Register a target element associated to a label that may be the target of
    a reference and must be unique in the document.  Corresponds to @node,
    @*anchor, and @float (float label corresponds to the second argument). */
-void
-register_label (ELEMENT *target_element, char *normalized)
-{
-  LABEL_LIST *labels_list = &parsed_document->labels_list;
-  LABEL *label;
-  /* register the element in the list. */
-  if (labels_list->number == labels_list->space)
-    {
-      labels_list->space += 1;
-      labels_list->space *= 1.5;
-      labels_list->list = realloc (labels_list->list,
-                                   labels_list->space * sizeof (LABEL));
-      if (!labels_list)
-        fatal ("realloc failed");
-    }
-  label = &labels_list->list[labels_list->number];
-  label->element = target_element;
-  label->label_number = labels_list->number;
-  label->identifier = normalized;
-  label->reference = 0;
-  labels_list->number++;
-}
-
 void
 check_register_target_element_label (ELEMENT *label_element,
                                      ELEMENT *target_element)
@@ -102,7 +79,9 @@ check_register_target_element_label (ELEMENT *label_element,
           add_extra_string (target_element, AI_key_normalized, normalized);
         }
     }
-  register_label (target_element, normalized);
+
+  register_label_in_list (&parsed_document->labels_list, target_element,
+                          normalized);
 }
 
 /* called from parser */
@@ -113,7 +92,20 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
   size_t i;
   size_t labels_number = labels->number;
 
+  /* determine if there is a non NULL identifier to initialize hashmap */
   for (i = 0; i < labels_number; i++)
+    {
+      LABEL *l = &labels->list[i];
+
+      if (l->identifier == 0)
+        continue;
+
+      init_c_hashmap (hashmap, labels_number);
+      break;
+    }
+
+  /* process labels */
+  for (; i < labels_number; i++)
     {
       LABEL *l = &labels->list[i];
       const ELEMENT *found_element;
@@ -121,9 +113,6 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
 
       if (l->identifier == 0)
         continue;
-
-      if (!hashmap->arena)
-        init_c_hashmap (hashmap, labels_number);
 
       found_element = c_hashmap_value (hashmap, l->identifier, &found);
 

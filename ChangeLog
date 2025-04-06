@@ -1,5 +1,31 @@
 2025-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/targets.c: move find_identifier_target code up.
+
+	* tta/C/main/targets.c (add_element_to_identifiers_target): inline
+	add_target_in_identifiers_target, minor changes in code.  Remove
+	add_target_in_identifiers_target.
+
+	* tta/C/main/targets.c (register_label_element): use DOCUMENT in
+	argument.  Update caller.
+
+	* tta/C/main/targets.c (register_label_element)
+	(add_element_to_identifiers_target): set F_DOCM_labels_list in
+	modified information in register_label_element where the labels list
+	is actually modified.
+
+	* tta/C/main/targets.c (register_label_in_list),
+	tta/C/parsetexi/labels.c (check_register_target_element_label): merge
+	code from register_label in label.c to register_label_in_list in
+	targets.c and use register_label_in_list in
+	check_register_target_element_label.  Remove register_label.
+
+	* tta/C/parsetexi/labels.c (set_labels_identifiers_target): separate a
+	first loop to determine if there is any non NULL identifier and
+	initialize hashmap.
+
+2025-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_identifiers_target): move
 	variables definition up.
 
@@ -45,7 +71,7 @@
 	identifiers_target_number_l, find_identifier_target_l,
 	add_target_in_identifiers_target_l and
 	set_labels_identifiers_target_l. Remove now unused compare_targets and
-	sort_labels_identifiers_target. 
+	sort_labels_identifiers_target.
 
 2025-04-05  Patrice Dumas  <pertusus@free.fr>
 
@@ -525,7 +551,7 @@
 	tta/perl/Texinfo/Convert/DocBook.pm (%defaults),
 	tta/perl/Texinfo/Convert/IXINSXML.pm (%defaults),
 	tta/perl/Texinfo/Convert/LaTeX.pm (%defaults),
-	tta/perl/Texinfo/Convert/Plaintext.pm (%defaults), 
+	tta/perl/Texinfo/Convert/Plaintext.pm (%defaults),
 	tta/perl/Texinfo/Convert/TexinfoSXML.pm (%defaults),
 	tta/perl/Texinfo/Convert/TexinfoXML.pm (%defaults): remove default
 	documentlanguage setting to undef, as it is the default everywhere.
@@ -635,7 +661,7 @@
 
 2025-03-27  Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/main/manipulate_tree.c (itemize_item_prepended_element), 
+	* tta/C/main/manipulate_tree.c (itemize_item_prepended_element),
 	tta/perl/Texinfo/Common.pm (itemize_item_prepended_element: rename
 	itemize_block_line_argument_command as itemize_item_prepended_element.
 	Rename associated variables.  Update callers.
@@ -723,7 +749,7 @@
 	tta/perl/Texinfo/Common.pm (find_float_caption_shortcaption): add to
 	find caption and shortcaption of float based on tree information.
 
-	* tta/C/convert/format_html.c (html_convert_listoffloats_command), 
+	* tta/C/convert/format_html.c (html_convert_listoffloats_command),
 	tta/perl/Texinfo/Convert/Converter.pm (float_name_caption),
 	tta/C/convert/converter.c (float_name_caption), tta/C/main/floats.c
 	(print_listoffloats_types), tta/perl/Texinfo/Convert/HTML.pm
@@ -1818,7 +1844,7 @@
 	* tta/perl/Makefile.tres, tta/perl/t/30sectioning.t
 	(automatic_menu_with_heading), tta/perl/t/html_tests.t
 	(heading_node_after_chap, headings_nodes_before_chapter)
-	(node_heading_between, heading_between): tests of @*heading and 
+	(node_heading_between, heading_between): tests of @*heading and
 	splitting and automatic menus.  Mainly from Gavin.
 
 	* tta/perl/t/test_utils.pl (test): use is_diff instead of is for

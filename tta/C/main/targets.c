@@ -45,6 +45,20 @@ size_t identifiers_target_number (const struct C_HASHMAP *identifiers_target)
   return 0;
 }
 
+ELEMENT *
+find_identifier_target (const struct C_HASHMAP *identifiers_target,
+                        const char *normalized)
+{
+  int found;
+  ELEMENT *result;
+
+  /* discard const */
+  result = (ELEMENT *)c_hashmap_value (identifiers_target, normalized, &found);
+
+  return result;
+}
+
+/* unused */
 int
 compare_labels (const void *a, const void *b)
 {
@@ -68,60 +82,59 @@ compare_labels (const void *a, const void *b)
     return 1;
 }
 
-static void
+void
 register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
-                        char *normalized)
+                        const char *normalized)
 {
-  size_t labels_number = labels_list->number;
-  if (labels_number == labels_list->space)
+  LABEL *label;
+
+  if (labels_list->number == labels_list->space)
    {
       labels_list->space += 1;
       labels_list->space *= 1.5;
       labels_list->list = realloc (labels_list->list,
-                             labels_list->space * sizeof (LABEL));
+                                   labels_list->space * sizeof (LABEL));
       if (!labels_list->list)
         fatal ("realloc failed");
     }
-  labels_list->list[labels_number].element = element;
-  labels_list->list[labels_number].label_number = labels_number;
-  labels_list->list[labels_number].identifier = normalized;
+  label = &labels_list->list[labels_list->number];
+
+  label->element = element;
+  label->label_number = labels_list->number;
+  label->identifier = normalized;
+  label->reference = 0;
+
   labels_list->number++;
 }
 
-void
-add_target_in_identifiers_target (C_HASHMAP *identifiers_target,
-                                  ELEMENT *element, char *normalized)
-{
-  c_hashmap_register (identifiers_target, normalized,
-                      element);
-}
-
 /* *STATUS 0 means success, 1 or 2 means error */
-static char *
+static const char *
 add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
                                    int *status)
 {
-  char *normalized = lookup_extra_string (element, AI_key_normalized);
-  *status = 2;
+  const char *normalized = lookup_extra_string (element, AI_key_normalized);
+
   if (normalized)
     {
       C_HASHMAP *identifiers_target = &document->identifiers_target;
-      ELEMENT *target = find_identifier_target (identifiers_target,
-                                                normalized);
+      const ELEMENT *target = find_identifier_target (identifiers_target,
+                                                      normalized);
       if (!target)
         {
           element->flags |= EF_is_target;
 
-          add_target_in_identifiers_target (identifiers_target,
-                                            element, normalized);
+          c_hashmap_register (identifiers_target, normalized,
+                              element);
+
+          document->modified_information |= F_DOCM_identifiers_target;
 
           *status = 0;
-          document->modified_information |= F_DOCM_labels_list
-                                   | F_DOCM_identifiers_target;
-          return normalized;
         }
-      *status = 1;
+      else
+        *status = 1;
     }
+  else
+    *status = 2;
   return normalized;
 }
 
@@ -130,7 +143,8 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
    target element with the same normalized identifier.
    */
 static void
-existing_label_error (DOCUMENT *document, ELEMENT *element, char *normalized,
+existing_label_error (const DOCUMENT *document, const ELEMENT *element,
+                      const char *normalized,
                       ERROR_MESSAGE_LIST *error_messages)
 {
   if (normalized && error_messages)
@@ -155,32 +169,22 @@ existing_label_error (DOCUMENT *document, ELEMENT *element, char *normalized,
 
 /* return value is 1 for success, 0 for failure */
 int
-register_label_element (size_t document_descriptor, ELEMENT *element,
+register_label_element (DOCUMENT *document, ELEMENT *element,
                         ERROR_MESSAGE_LIST *error_messages)
 {
   int status;
-  DOCUMENT *document = retrieve_document (document_descriptor);
 
-  char *normalized = add_element_to_identifiers_target (document, element,
-                                                        &status);
+  const char *normalized
+     = add_element_to_identifiers_target (document, element, &status);
   if (status)
     {
       existing_label_error (document, element, normalized, error_messages);
     }
+
   register_label_in_list (&document->labels_list, element,
                           normalized);
+  document->modified_information |= F_DOCM_labels_list;
+
   return !status;
 }
 
-ELEMENT *
-find_identifier_target (const struct C_HASHMAP *identifiers_target,
-                        const char *normalized)
-{
-  int found;
-  ELEMENT *result;
-
-  /* discard const */
-  result = (ELEMENT *)c_hashmap_value (identifiers_target, normalized, &found);
-
-  return result;
-}

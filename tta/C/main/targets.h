@@ -7,9 +7,10 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-int register_label_element (size_t document_descriptor, ELEMENT *element,
+void register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
+                             const char *normalized);
+int register_label_element (DOCUMENT *document, ELEMENT *element,
                             ERROR_MESSAGE_LIST *error_messages);
-int compare_labels (const void *a, const void *b);
 
 size_t identifiers_target_number (const struct C_HASHMAP *identifiers_target);
 ELEMENT *find_identifier_target (const struct C_HASHMAP *identifiers_target,

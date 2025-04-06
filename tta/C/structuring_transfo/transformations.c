@@ -589,7 +589,6 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           DOCUMENT *document)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
-  size_t document_descriptor = document->descriptor;
   int empty_node = 0;
   int appended_number;
   int new_line_at_end = 0;
@@ -715,7 +714,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
   add_extra_string (node, AI_key_normalized, normalized);
 
-  register_label_element (document_descriptor, node, error_messages);
+  register_label_element (document, node, error_messages);
 
   free (spaces_after_argument.text);
 
