@@ -32,7 +32,7 @@ typedef struct TEXT_OPTIONS {
                               converter, XS is used and there is no C
                               converter */
     LANG_TRANSLATION *current_lang_translations;
-    size_t document_descriptor;
+    DOCUMENT *document;
 } TEXT_OPTIONS;
 
 /* in cmd_text.c */

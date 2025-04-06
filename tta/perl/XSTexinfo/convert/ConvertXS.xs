@@ -715,7 +715,7 @@ text_convert_tree (SV *options_in, SV *tree_in)
             else
               text_options = new_text_options ();
 
-            text_options->document_descriptor = document->descriptor;
+            text_options->document = document;
 
             result = convert_to_text (document->tree, text_options);
 

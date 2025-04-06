@@ -990,11 +990,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               int debug = text_options->DEBUG;
               GLOBAL_INFO *global_information = 0;
 
-              if (text_options->document_descriptor) {
-                DOCUMENT *document
-                  = retrieve_document (text_options->document_descriptor);
-                if (document)
-                  global_information = &document->global_info;
+              if (text_options->document) {
+                global_information = &text_options->document->global_info;
               }
 
               verbatim_include_verbatim

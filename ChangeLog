@@ -1,5 +1,12 @@
 2025-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/convert_to_text.h (TEXT_OPTIONS),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (text_convert_tree),
+	tta/C/main/convert_to_text.c (convert_to_text_internal): replace the
+	document_descriptor TEXT_OPTIONS field by a document field.
+
+2025-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/labels.c, tta/C/parsetexi/menus.c
 	(enter_menu_entry_node), tta/C/parsetexi/separator.c
 	(handle_close_brace): inline remember_internal_xref in callers.
