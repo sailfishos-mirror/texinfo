@@ -1,5 +1,13 @@
 2025-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/parser.c (rearrange_tree_beginning)
+	(parse_texi_document, parse_texi): use DOCUMENT as
+	rearrange_tree_beginning argument.  Use parsed_document to get the
+	current document in parse_texi_document.  Do not have parse_texi
+	return the document descriptor.
+
+2025-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c: add some const.
 
 2025-04-06  Patrice Dumas  <pertusus@free.fr>

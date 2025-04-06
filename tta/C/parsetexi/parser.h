@@ -65,7 +65,7 @@ typedef struct {
 } CONDITIONAL_STACK_ITEM;
 
 ELEMENT *setup_document_root_and_before_node_section (void);
-size_t parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
+void parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void parse_texi_document (void);
 
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);

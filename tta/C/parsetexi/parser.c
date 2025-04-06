@@ -434,9 +434,8 @@ setup_document_root_and_before_node_section (void)
    a preamble for informative commands */
 static void
 rearrange_tree_beginning (ELEMENT *before_node_section,
-                          size_t document_descriptor)
+                          DOCUMENT *document)
 {
-  DOCUMENT *document = retrieve_document (document_descriptor);
   ELEMENT *informational_preamble;
   /* temporary placeholder */
   ELEMENT_LIST *first_types = new_list ();
@@ -511,7 +510,7 @@ rearrange_tree_beginning (ELEMENT *before_node_section,
 void
 parse_texi_document (void)
 {
-  size_t document_descriptor;
+  DOCUMENT *document = parsed_document;
   char *line = 0;
   const char *linep;
 
@@ -551,7 +550,7 @@ parse_texi_document (void)
   if (preamble_before_beginning)
     add_to_element_contents (before_node_section, preamble_before_beginning);
 
-  document_descriptor = parse_texi (document_root, before_node_section);
+  parse_texi (document_root, before_node_section);
 
   /* TODO the document structure lists use more memory than needed
      when space > number.  We could realloc here the diverse lists
@@ -562,7 +561,7 @@ parse_texi_document (void)
      documents only.
    */
 
-  rearrange_tree_beginning (before_node_section, document_descriptor);
+  rearrange_tree_beginning (before_node_section, document);
 }
 
 
@@ -2668,17 +2667,15 @@ check_line_directive (const char *line)
 
 /* Pass in a ROOT_ELT root of "Texinfo tree".  Starting point for adding
    to the tree is CURRENT_ELT.
-   Returns a stored DOCUMENT_DESCRIPTOR, though caller could also take it
-   directly from parsed_document.
   */
-size_t
+void
 parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
+  DOCUMENT *document;
   static char *allocated_line;
   const char *line;
   int status = STILL_MORE_TO_PROCESS;
-  DOCUMENT *document = parsed_document;
   enum context top_context;
 
   /* Read input file line-by-line. */
@@ -2734,8 +2731,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
               debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
               /* If we are in an empty line, we want to end the line as usual.
                  If we are after an opening brace or comma or after an empty
-                 string, there won't be any more output to abort those unfinished
-                 constructs, so we call abort_empty_line here */
+                 string, there won't be any more output to abort those
+                 unfinished constructs, so we call abort_empty_line here */
               if (!(last_element
                     && last_element->type == ET_empty_line
                     && last_element->e.text->end > 0))
@@ -2814,19 +2811,22 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   /* update merged_in.  Only needed for merging happening after first
      index merge */
-  resolve_indices_merged_in (&document->indices_info);
+  resolve_indices_merged_in (&parsed_document->indices_info);
 
-  set_labels_identifiers_target (&document->labels_list,
-                                 &document->identifiers_target);
+  set_labels_identifiers_target (&parsed_document->labels_list,
+                                 &parsed_document->identifiers_target);
 
-  document->tree = current;
+  parsed_document->tree = current;
 
   float_list_to_listoffloats_list (&parser_float_records,
-                                   &document->listoffloats);
+                                   &parsed_document->listoffloats);
 
+  document = parsed_document;
+
+  /* set to 0 before calling complete_indices to make clear that
+     parsed_document is not the just parsed document anymore since parsing
+     is called by complete_indices through gdt */
   parsed_document = 0;
 
   complete_indices (document, global_parser_conf.debug);
-
-  return document->descriptor;
 }
