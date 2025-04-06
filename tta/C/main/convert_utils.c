@@ -50,10 +50,10 @@ char *convert_utils_month_name[12] = {
 };
 
 /* in Texinfo::Common */
-char *
+static const char *
 element_associated_processing_encoding (const ELEMENT *element)
 {
-  char *input_encoding = lookup_extra_string (element,
+  const char *input_encoding = lookup_extra_string (element,
                                               AI_key_input_encoding_name);
   return input_encoding;
 }
@@ -323,7 +323,8 @@ add_heading_number (const ELEMENT *current, char *text,
 }
 
 static char *
-convert_to_utf8_verbatiminclude (char *s, ENCODING_CONVERSION *conversion,
+convert_to_utf8_verbatiminclude (char *s,
+                                 const ENCODING_CONVERSION *conversion,
                                  const SOURCE_INFO *source_info)
 {
   char *result;
@@ -455,7 +456,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
                         const char *locale_encoding,
                         const STRING_LIST *include_directories,
                         int debug, ERROR_MESSAGE_LIST *error_messages,
-                        GLOBAL_INFO *global_information,
+                        const GLOBAL_INFO *global_information,
                         const ELEMENT *current)
 {
   ELEMENT *verbatiminclude = 0;
@@ -463,7 +464,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
   char *file_name_text = lookup_extra_string (current, AI_key_text_arg);
   char *file_name;
   char *file;
-  char *input_encoding;
+  const char *input_encoding;
   int warn;
 
   if (!file_name_text)
@@ -484,7 +485,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
   if (file)
     {
       FILE *stream = 0;
-      ENCODING_CONVERSION *conversion;
+      const ENCODING_CONVERSION *conversion;
 
       stream = fopen (file, "r");
       if (!stream)
@@ -568,8 +569,9 @@ expand_verbatiminclude (const char *input_file_name_encoding,
 
 ELEMENT *
 converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options, GLOBAL_INFO *global_information,
-                         const ELEMENT *current)
+                                  const OPTIONS *options,
+                                  const GLOBAL_INFO *global_information,
+                                  const ELEMENT *current)
 {
   const char *input_file_name_encoding = 0;
   int doc_encoding_for_input_file_name = -1;

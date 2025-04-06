@@ -54,10 +54,11 @@ ELEMENT *expand_verbatiminclude (const char *input_file_name_encoding,
                         const char *locale_encoding,
                         const STRING_LIST *include_directories,
                         int debug, ERROR_MESSAGE_LIST *error_messages,
-                        GLOBAL_INFO *global_information,
+                        const GLOBAL_INFO *global_information,
                         const ELEMENT *current);
 ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options, GLOBAL_INFO *global_information,
+                         const OPTIONS *options,
+                         const GLOBAL_INFO *global_information,
                          const ELEMENT *current);
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
