@@ -1,3 +1,10 @@
+2025-04-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (build_identifiers_target): move
+	variables definition up.
+
+	Changes in comments.
+
 2025-04-05  Patrice Dumas  <pertusus@free.fr>
 
 	Fix memory leaks found with valgrind

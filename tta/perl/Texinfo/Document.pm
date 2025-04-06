@@ -564,12 +564,12 @@ sub set_labels_identifiers_target($$;$)
       }
     }
   }
-  # when a sorted list is used for identifiers in C code, use identifiers
-  # order to have the same error messages order, otherwise document order
-  # should be used
+  # when a sorted list was used for identifiers in C code, identifiers
+  # order was used to have the same error messages order; otherwise document
+  # order should be used
   if (scalar(@elements_with_error) > 0) {
     my @sorted
-    # use document order since C code default is hashmap for identifiers.
+    # use document order since C code uses hashmap for identifiers.
      = #sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {

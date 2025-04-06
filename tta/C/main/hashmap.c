@@ -24,7 +24,7 @@
 #include "hashmap.h"
 
 typedef struct BUCKET {
-  /* Linked list of strings. */
+  /* Linked list of string key and pointer for a value. */
   char *string;
   const void *value;
   struct BUCKET *next;
@@ -39,10 +39,12 @@ typedef struct BUCKET_ARENA {
   struct BUCKET_ARENA *next;
 } BUCKET_ARENA;
 
+/* used to iterate over arena and over buckets list oa an arena */
 typedef struct BUCKET_ARENA_ITERATOR {
   int index;
   BUCKET_ARENA *arena;
 } BUCKET_ARENA_ITERATOR;
+
 
 static BUCKET *
 new_bucket (C_HASHMAP *H)
@@ -151,6 +153,9 @@ c_hashmap_value (const C_HASHMAP *H, const char *in_string, int *found)
   return 0;
 }
 
+/* the VALUE memory is not handled by the hashmap code, it is the
+   caller responsibility to make sure that the memory remains properly
+   allocated */
 void
 c_hashmap_register (C_HASHMAP *H, const char *in_string,
                     const void *value)
@@ -210,11 +215,13 @@ new_c_hashmap_iterator (const C_HASHMAP *H)
   return result;
 }
 
-/* the first time this function is called it should be called with
+/* The first time this function is called it should be called with
    (*HASH_ITERATOR) set to NULL.
-   The last value is detected by *KEY being NULL.
+   No more value is detected by *KEY being NULL.
    The caller does not need to free (*HASH_ITERATOR) if a NULL *KEY
    has been returned.
+   Returns the next value in the hash map as return value and the
+   associated string in *KEY.
  */
 const void *
 c_hashmap_iterator_next_value (const C_HASHMAP *H,

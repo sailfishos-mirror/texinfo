@@ -1309,14 +1309,16 @@ build_identifiers_target (const struct C_HASHMAP *identifiers_target)
   if (identifiers_target)
     {
       struct BUCKET_ARENA_ITERATOR *hash_iterator = 0;
+      const char *key;
+      const ELEMENT *element;
+
       while (1)
         {
-          const char *key;
-          const ELEMENT *e = c_hashmap_iterator_next_value (identifiers_target,
-                                                      &hash_iterator, &key);
+          element = c_hashmap_iterator_next_value (identifiers_target,
+                                                   &hash_iterator, &key);
           if (!key)
             break;
-          SV *sv = newRV_inc (e->hv);
+          SV *sv = newRV_inc (element->hv);
           hv_store (hv, key, strlen (key), sv, 0);
         }
     }
