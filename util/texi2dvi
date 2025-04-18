@@ -81,6 +81,7 @@ IFS="$space$tab$newline"
 
 if test -n "$COMSPEC$ComSpec" \
    && uname | $EGREP -iv 'cygwin|msys' >/dev/null \
+   && test "$OSTYPE" != cygwin \
    && test "$OSTYPE" != msys ; then
   path_sep=";"
 else

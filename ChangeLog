@@ -1,3 +1,9 @@
+2025-04-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/texi2dvi: If OSTYPE is equal to "cygwin" then use colon
+	path separator.  This is for MSYS2 where "cygwin" is not present
+	in the output of "uname".  Report from Vincent Belaïche.
+
 2025-04-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/parser.c (rearrange_tree_beginning)
