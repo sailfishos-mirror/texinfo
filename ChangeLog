@@ -1,3 +1,9 @@
+2025-05-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/texi2dvi, util/texi2pdf:
+	Do not switch to ksh under Ultrix, which presumably is not a
+	relevant system any more.  (Code added 2005-01-28.)
+
 2025-04-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/texi2dvi: If OSTYPE is equal to "cygwin" then use colon

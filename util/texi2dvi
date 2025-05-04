@@ -22,11 +22,6 @@
 # If possible, please send a copy of the output of the script called with
 # the `--debug' option when making a bug report.
 
-test -f /bin/ksh && test -z "$RUNNING_KSH" \
-  && { UNAMES=`uname -s`; test "x$UNAMES" = xULTRIX; } 2>/dev/null \
-  && { RUNNING_KSH=true; export RUNNING_KSH; exec /bin/ksh $0 ${1+"$@"}; }
-unset RUNNING_KSH
-
 # No failure shall remain unpunished.
 set -e
 
