@@ -15,6 +15,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_node:[E0]
  |section_childs:EC[E4|E13]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -69,6 +71,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[next->E12|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -85,8 +88,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_node:[E3]
  |section_childs:EC[E11]
  |section_directions:D[next->E13|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E13|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C4
@@ -162,6 +166,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[up->E3]
+ |node_number:{3}
  |normalized:{secc1}
   *arguments_line C1
    *line_arg C1
@@ -177,8 +182,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -390,6 +396,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |is_target:{1}
  |menus:EC[E14]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{4}
  |normalized:{chap1}
   *arguments_line C1
    *line_arg C1
@@ -406,8 +413,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_node:[E12]
  |section_childs:EC[E16]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{4}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -510,6 +518,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |is_target:{1}
  |menu_directions:D[next->E2|up->E12]
  |node_directions:D[next->E2|up->E12]
+ |node_number:{5}
  |normalized:{secc2}
   *arguments_line C1
    *line_arg C1
@@ -525,8 +534,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_directions:D[up->E13]
+ |section_heading_number:{2.1}
  |section_level:{2}
- |section_number:{2.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO

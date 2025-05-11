@@ -58,6 +58,7 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |EXTRA
  |section_directions:D[next->E1]
  |section_level:{1}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -130,6 +131,7 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |section_childs:EC[E2]
  |section_directions:D[next->E3|prev->E0]
  |section_level:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E3|prev->E0]
   *arguments_line C1
    *line_arg C1
@@ -247,6 +249,7 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |EXTRA
  |section_directions:D[up->E1]
  |section_level:{2}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -311,8 +314,9 @@ $result_tree_text{'index_no_node'} = '*document_root C7
   |{ }
  |EXTRA
  |section_directions:D[next->E4|prev->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{4}
  |toplevel_directions:D[next->E4|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -366,8 +370,9 @@ $result_tree_text{'index_no_node'} = '*document_root C7
   |{ }
  |EXTRA
  |section_directions:D[prev->E3]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{5}
  |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1

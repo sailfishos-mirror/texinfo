@@ -15,6 +15,7 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
  |menu_directions:D[up->E0]
  |menus:EC[E1]
  |node_directions:D[next->E0]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

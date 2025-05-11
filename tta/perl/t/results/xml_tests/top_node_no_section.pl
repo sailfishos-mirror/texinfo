@@ -12,6 +12,7 @@ $result_tree_text{'top_node_no_section'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

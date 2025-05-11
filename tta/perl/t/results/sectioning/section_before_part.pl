@@ -12,6 +12,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
@@ -33,6 +34,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

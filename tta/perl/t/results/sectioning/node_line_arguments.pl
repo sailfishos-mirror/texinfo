@@ -13,6 +13,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{one-arg1}
   *arguments_line C1
    *line_arg C1
@@ -26,6 +27,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{2}
  |normalized:{one-arg2}
   *arguments_line C2
    *line_arg C1
@@ -46,6 +48,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{3}
  |normalized:{one-arg3}
   *arguments_line C3
    *line_arg C1
@@ -74,6 +77,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{4}
  |normalized:{one-arg4}
   *arguments_line C4
    *line_arg C1
@@ -110,6 +114,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{5}
  |normalized:{one-arg5}
   *arguments_line C4
    *line_arg C1
@@ -147,6 +152,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{6}
  |normalized:{comment}
   *arguments_line C1
    *line_arg C1
@@ -164,6 +170,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{7}
  |normalized:{arg1-_002c-arg2}
   *arguments_line C3
    *line_arg C3

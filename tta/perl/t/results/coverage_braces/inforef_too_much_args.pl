@@ -12,6 +12,7 @@ $result_tree_text{'inforef_too_much_args'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1

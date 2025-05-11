@@ -14,6 +14,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{one-node}
   *arguments_line C1
    *line_arg C1
@@ -28,6 +29,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
+ |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
  |sectioning_root:

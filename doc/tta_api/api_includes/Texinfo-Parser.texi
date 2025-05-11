@@ -1317,7 +1317,7 @@ if there is an associated external manual name, and a @emph{normalized} key for 
 normalized label, built as specified in the @emph{HTML Xref} Texinfo documentation
 node.
 
-If you called @ref{Texinfo@asis{::}Structuring $nodes_list = construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
+If you called @ref{Texinfo@asis{::}Structuring construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
 the @emph{node_directions} hash in the @code{@@node} element @code{extra} associates
 @emph{up}, @emph{next} and @emph{prev} keys to the elements corresponding to the node
 line directions.
@@ -1378,7 +1378,7 @@ The part preceding the command is in @emph{associated_part}.
 If the level of the document was modified by @code{@@raisections}
 or @code{@@lowersections}, the differential level is in @emph{level_modifier}.
 
-Other @code{extra} keys are set when you call @ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, Texinfo::Structuring::sectioning_structure}.
+Other @code{extra} keys are set when you call @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, Texinfo::Structuring::sectioning_structure}.
 
 @item @code{untranslated_def_line_arg}
 @anchor{Texinfo@asis{::}Parser @code{untranslated_def_line_arg} 1}

@@ -172,7 +172,7 @@ new_document (void)
   document->modified_information |= F_DOCM_tree | F_DOCM_index_names
      | F_DOCM_floats | F_DOCM_internal_references | F_DOCM_labels_list
      | F_DOCM_identifiers_target | F_DOCM_global_info
-     | F_DOCM_global_commands;
+     | F_DOCM_global_commands | F_DOCM_nodes_list | F_DOCM_sections_list;
 
   /*
   fprintf (stderr, "NEW DOCUMENT %zu %p\n", document_index +1, document);
@@ -538,10 +538,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free_indices_info (&document->indices_info);
   wipe_error_message_list (&document->error_messages);
   wipe_error_message_list (&document->parser_error_messages);
-  if (document->nodes_list)
-    destroy_const_element_list (document->nodes_list);
-  if (document->sections_list)
-    destroy_const_element_list (document->sections_list);
+  free (document->nodes_list.list);
+  free (document->headings_list.list);
+  free (document->sections_list.list);
   if (document->sorted_options)
     {
       size_t i;

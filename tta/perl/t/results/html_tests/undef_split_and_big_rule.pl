@@ -16,6 +16,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |EXTRA
  |section_childs:EC[E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -37,6 +38,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -53,8 +55,9 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |associated_node:[E1]
  |section_childs:EC[E4]
  |section_directions:D[up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -72,6 +75,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->E1]
+ |node_number:{2}
  |normalized:{sec}
   *arguments_line C1
    *line_arg C1
@@ -87,8 +91,9 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E2]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO

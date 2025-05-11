@@ -32,6 +32,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "structure_list.h"
 /* for whitespace_chars read_flag_len
    indices_info_index_by_name ultimate_index */
 #include "utils.h"
@@ -1529,6 +1530,7 @@ end_line_misc_line (ELEMENT *current)
       size_t i;
       /* arguments_line type element */
       ELEMENT *arguments_line = current->e.c->contents.list[0];
+      char *node_normalized;
 
       for (i = 1; i < arguments_line->e.c->contents.number && i < 4; i++)
         {
@@ -1564,6 +1566,13 @@ end_line_misc_line (ELEMENT *current)
                           "empty argument in @%s", command_name (cmd));
         }
       check_register_target_element_label (line_arg, current);
+      node_normalized = lookup_extra_string (current, AI_key_normalized);
+      if (node_normalized)
+        {
+          add_to_node_structure_list (&parsed_document->nodes_list, current);
+          add_extra_integer (current, AI_key_node_number,
+                             parsed_document->nodes_list.number);
+        }
 
       if (current_part
           && !lookup_extra_element (current_part,
@@ -1821,11 +1830,23 @@ end_line_misc_line (ELEMENT *current)
                          "associated with nodes");
             }
         }
+
+      if (cmd != CM_node)
+        {
+          add_to_section_structure_list (
+                            &parsed_document->sections_list, current);
+          add_extra_integer (current, AI_key_section_number,
+                             parsed_document->sections_list.number);
+        }
     }
   /* only *heading as sectioning commands are handled just before */
   else if (command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
+     add_to_heading_structure_list (&parsed_document->headings_list,
+                                    command_element);
+     add_extra_integer (command_element, AI_key_heading_number,
+                        parsed_document->headings_list.number);
      associate_title_command_anchor (current_node, command_element);
    }
 

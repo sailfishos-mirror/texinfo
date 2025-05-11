@@ -16,6 +16,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E8]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -110,6 +112,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Node-_0028with-parentheses_0029}
   *arguments_line C1
    *line_arg C1
@@ -125,8 +128,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -148,6 +152,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{Other-node}
   *arguments_line C1
    *line_arg C1
@@ -163,8 +168,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -205,6 +211,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E0]
+ |node_number:{4}
  |normalized:{_0028manual_0029node}
   *arguments_line C1
    *line_arg C1
@@ -220,8 +227,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[prev->E6|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{4}
  |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1

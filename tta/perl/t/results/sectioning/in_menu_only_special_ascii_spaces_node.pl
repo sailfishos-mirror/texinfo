@@ -17,6 +17,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -33,6 +34,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -95,8 +97,9 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -122,8 +125,9 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1

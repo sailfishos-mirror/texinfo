@@ -13,6 +13,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1

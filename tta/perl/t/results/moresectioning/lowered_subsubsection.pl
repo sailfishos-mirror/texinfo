@@ -16,6 +16,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -29,6 +30,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -81,6 +83,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |menu_directions:D[up->E0]
  |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -97,8 +100,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -147,6 +151,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |menu_directions:D[up->E3]
  |menus:EC[E8]
  |node_directions:D[up->E3]
+ |node_number:{3}
  |normalized:{Section}
   *arguments_line C1
    *line_arg C1
@@ -163,8 +168,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E6]
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -212,6 +218,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |menu_directions:D[up->E6]
  |menus:EC[E11]
  |node_directions:D[up->E6]
+ |node_number:{4}
  |normalized:{Subsection}
   *arguments_line C1
    *line_arg C1
@@ -228,8 +235,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E9]
  |section_childs:EC[E13|E15|E18]
  |section_directions:D[up->E7]
+ |section_heading_number:{1.1.1}
  |section_level:{3}
- |section_number:{1.1.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -287,6 +295,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |is_target:{1}
  |menu_directions:D[next->E14|up->E9]
  |node_directions:D[next->E14|up->E9]
+ |node_number:{5}
  |normalized:{Subsubsection}
   *arguments_line C1
    *line_arg C1
@@ -302,8 +311,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[next->E15|up->E10]
+ |section_heading_number:{1.1.1.1}
  |section_level:{4}
- |section_number:{1.1.1.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -324,6 +334,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |menu_directions:D[prev->E12|up->E9]
  |menus:EC[E16]
  |node_directions:D[next->E17|prev->E12|up->E9]
+ |node_number:{6}
  |normalized:{Lowered-subsec}
   *arguments_line C1
    *line_arg C1
@@ -340,8 +351,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E14]
  |level_modifier:{-1}
  |section_directions:D[next->E18|prev->E13|up->E10]
+ |section_heading_number:{1.1.1.2}
  |section_level:{4}
- |section_number:{1.1.1.2}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -388,6 +400,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |is_target:{1}
  |menu_directions:D[up->E14]
  |node_directions:D[prev->E14|up->E9]
+ |node_number:{7}
  |normalized:{Lowered-subsubsection}
   *arguments_line C1
    *line_arg C1
@@ -404,8 +417,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |associated_node:[E17]
  |level_modifier:{-1}
  |section_directions:D[prev->E15|up->E10]
+ |section_heading_number:{1.1.1.3}
  |section_level:{4}
- |section_number:{1.1.1.3}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C1
    |INFO

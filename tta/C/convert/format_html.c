@@ -1922,7 +1922,8 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 {
                   const char *section_number;
                   section_number
-                    = lookup_extra_string (command, AI_key_section_number);
+                    = lookup_extra_string (command,
+                                           AI_key_section_heading_number);
 
                   if (section_number
                       && self->conf->NUMBER_SECTIONS.o.integer != 0)
@@ -3031,10 +3032,9 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   text_init (&result);
   text_append (&result, "");
 
-  if (self->document->sections_list
-      && self->document->sections_list->number > 0)
+  if (self->document->sections_list.number > 0)
     {
-      const ELEMENT *first = self->document->sections_list->list[0];
+      const ELEMENT *first = self->document->sections_list.list[0]->element;
       section_root = lookup_extra_element_oot (first, AI_key_sectioning_root);
       /* this should not happen with $sections_list as set from Structuring
          sectioning_structure, but could happen with another source.
@@ -5618,8 +5618,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 static void
 contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
 {
-  if (self->document->sections_list
-      && self->document->sections_list->number > 0
+  if (self->document->sections_list.number > 0
       && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_title"))
     {
@@ -7281,8 +7280,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (element->e.c->cmd == CM_top
       && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_top")
-      && self->document->sections_list
-      && self->document->sections_list->number > 1)
+      && self->document->sections_list.number > 1)
     {
       enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
       int i;
@@ -10946,8 +10944,7 @@ html_convert_contents_command (CONVERTER *self, const enum command_id cmd,
       && ((used_cmd == CM_contents && self->conf->contents.o.integer > 0)
           || (used_cmd == CM_shortcontents
               && self->conf->shortcontents.o.integer > 0))
-      && self->document->sections_list
-      && self->document->sections_list->number > 1)
+      && self->document->sections_list.number > 1)
     {
       char *contents = contents_inline_element (self, used_cmd, element);
       if (contents)
@@ -13146,12 +13143,14 @@ html_output_internal_links (CONVERTER *self)
 
   if (self->document)
     {
-      if (self->document->sections_list->number > 0)
+      if (self->document->sections_list.number > 0)
         {
           size_t i;
-          for (i = 0; i < self->document->sections_list->number; i++)
+          for (i = 0; i < self->document->sections_list.number; i++)
             {
-              const ELEMENT *command = self->document->sections_list->list[i];
+              const SECTION_STRUCTURE *section_structure
+                = self->document->sections_list.list[i];
+              const ELEMENT *command = section_structure->element;
               char *href = html_command_href (self, command, "", 0, 0);
               char *text = 0;
               TREE_ADDED_ELEMENTS *command_tree

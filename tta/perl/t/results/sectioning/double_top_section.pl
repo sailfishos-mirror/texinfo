@@ -13,6 +13,7 @@ $result_tree_text{'double_top_section'} = '*document_root C3
  |EXTRA
  |section_directions:D[next->E1]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -36,6 +37,7 @@ $result_tree_text{'double_top_section'} = '*document_root C3
  |EXTRA
  |section_directions:D[prev->E0]
  |section_level:{0}
+ |section_number:{2}
  |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1

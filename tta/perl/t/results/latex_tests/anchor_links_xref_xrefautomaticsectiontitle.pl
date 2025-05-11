@@ -13,6 +13,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{node-before}
   *arguments_line C1
    *line_arg C1
@@ -40,6 +41,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E7]
+ |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -56,6 +58,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |associated_node:[E2]
  |section_childs:EC[E8]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -85,6 +88,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{3}
  |normalized:{after}
   *arguments_line C1
    *line_arg C1
@@ -112,6 +116,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E2]
+ |node_number:{4}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -127,8 +132,9 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[up->E3]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E3|up->E3]
   *arguments_line C1
    *line_arg C1

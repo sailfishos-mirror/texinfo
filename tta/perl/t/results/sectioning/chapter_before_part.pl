@@ -16,6 +16,7 @@ Forward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -42,6 +43,7 @@ Back: [U0]
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

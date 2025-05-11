@@ -20,6 +20,7 @@ NodeForward: [U1]
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C4
    *line_arg C1
@@ -83,6 +84,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{second-node}
   *arguments_line C4
    *line_arg C1

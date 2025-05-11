@@ -13,6 +13,7 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1
@@ -74,6 +75,7 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{aaa}
   *arguments_line C1
    *line_arg C1

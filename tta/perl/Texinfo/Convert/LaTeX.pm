@@ -1895,7 +1895,7 @@ sub _begin_document($)
       $sections_list = $self->{'document'}->sections_list();
     }
 
-    if ($sections_list) {
+    if ($sections_list and scalar(@$sections_list)) {
       if ($global_commands->{'titlepage'}
           or $global_commands->{'shorttitlepage'}) {
         $result .= _set_headings($self, 'pagenum');
@@ -4318,7 +4318,7 @@ sub _convert($$)
 
       if (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
           and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
-          and $sections_list
+          and $sections_list and scalar(@$sections_list)
           and not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
         $result .= "\\tableofcontents\\newpage\n";
       }
@@ -4329,7 +4329,7 @@ sub _convert($$)
         $sections_list = $self->{'document'}->sections_list();
       }
 
-      if ($sections_list) {
+      if ($sections_list and scalar(@$sections_list)) {
         # TODO see notes at the beginning
         $result .= '';
       }

@@ -789,14 +789,11 @@ to the same document with @-commands that refer to node, anchors or floats.
 
 =item $nodes_list = nodes_list($document)
 
-Returns an array reference containing the document nodes.  In general set to
-the nodes list constructed by L<Texinfo::Structuring
-construct_nodes_tree|Texinfo::Structuring/$nodes_list = construct_nodes_tree($document)>.
+Returns an array reference containing the document nodes.
 
 =item $sections_list = sections_list($document)
 
-Returns an array reference containing the document sections.  In general set to the sections list determined by
-L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
+Returns an array reference containing the document sections.
 
 =back
 

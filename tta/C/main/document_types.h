@@ -271,8 +271,9 @@ typedef struct DOCUMENT {
     GLOBAL_INFO global_info;
     GLOBAL_COMMANDS global_commands;
 
-    CONST_ELEMENT_LIST *nodes_list;
-    CONST_ELEMENT_LIST *sections_list;
+    NODE_STRUCTURE_LIST nodes_list;
+    HEADING_STRUCTURE_LIST headings_list;
+    SECTION_STRUCTURE_LIST sections_list;
 
     MERGED_INDICES *merged_indices;
     INDICES_SORT_STRINGS *indices_sort_strings;

@@ -13,6 +13,7 @@ $result_tree_text{'node_up_direction_for_top_with_manual'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C4]]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C4
    *line_arg C1

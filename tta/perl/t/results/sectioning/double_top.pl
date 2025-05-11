@@ -13,6 +13,7 @@ $result_tree_text{'double_top'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->E0]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C2
    *line_arg C1
@@ -34,6 +35,7 @@ $result_tree_text{'double_top'} = '*document_root C3
   |{ }
  |EXTRA
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Top}
   *arguments_line C4
    *line_arg C1

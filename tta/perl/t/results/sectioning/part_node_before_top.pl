@@ -19,6 +19,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
+ |node_number:{1}
  |normalized:{part-node-before-top}
   *arguments_line C4
    *line_arg C1
@@ -50,6 +51,7 @@ NodeBack: [U0]
  |part_following_node:[E2]
  |section_directions:D[next->E3]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -72,6 +74,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E0]
+ |node_number:{2}
  |node_preceding_part:[E1]
  |normalized:{Top}
   *arguments_line C1
@@ -90,6 +93,7 @@ NodeBack: [U0]
  |associated_part:[E1]
  |section_directions:D[prev->E1]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -25,6 +25,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Cap-1}
   *arguments_line C1
    *line_arg C1
@@ -40,6 +41,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -75,6 +77,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{Cap-2}
   *arguments_line C1
    *line_arg C1
@@ -90,6 +93,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[prev->E1]
+ |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
  |toplevel_directions:D[prev->E1]
@@ -107,6 +111,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |EXTRA
  |associated_title_command:[E5]
  |is_target:{1}
+ |node_number:{3}
  |normalized:{Node-1}
   *arguments_line C1
    *line_arg C1
@@ -121,6 +126,7 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
   |EXTRA
   |associated_anchor_command:[E4]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:

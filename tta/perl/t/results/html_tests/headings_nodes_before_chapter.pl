@@ -26,6 +26,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |is_target:{1}
  |menu_directions:D[next->E2|up->E4]
  |node_directions:D[next->E2|up->E4]
+ |node_number:{1}
  |normalized:{Node-1}
   *arguments_line C1
    *line_arg C1
@@ -40,6 +41,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |EXTRA
   |associated_anchor_command:[E0]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -55,6 +57,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |is_target:{1}
  |menu_directions:D[prev->E0|up->E4]
  |node_directions:D[prev->E0|up->E4]
+ |node_number:{2}
  |normalized:{Node-2}
   *arguments_line C1
    *line_arg C1
@@ -69,6 +72,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |EXTRA
   |associated_anchor_command:[E2]
   |global_command_number:{2}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -85,6 +89,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[next->E7]
+ |node_number:{3}
  |normalized:{Cap-1}
   *arguments_line C1
    *line_arg C1
@@ -100,6 +105,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[next->E8]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -164,6 +170,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E4]
+ |node_number:{4}
  |normalized:{Cap-2}
   *arguments_line C1
    *line_arg C1
@@ -179,6 +186,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[prev->E5]
+ |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
  |toplevel_directions:D[prev->E5]

@@ -16,6 +16,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_node:[E0]
  |section_childs:EC[E4|E9]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -137,6 +139,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -153,8 +156,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E9|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -202,6 +206,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E8|up->E3]
  |node_directions:D[next->E11|prev->E8|up->E3]
+ |node_number:{3}
  |normalized:{section}
   *arguments_line C1
    *line_arg C1
@@ -217,8 +222,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -237,6 +243,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |menu_directions:D[next->E6|prev->E3|up->E0]
  |menus:EC[E10]
  |node_directions:D[next->E6|prev->E3|up->E0]
+ |node_number:{4}
  |normalized:{chapter-2}
   *arguments_line C1
    *line_arg C1
@@ -253,8 +260,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_node:[E8]
  |section_childs:EC[E12|E14]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{4}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -313,6 +321,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E6|up->E8]
  |node_directions:D[next->E13|prev->E6|up->E8]
+ |node_number:{5}
  |normalized:{section-chap-2}
   *arguments_line C1
    *line_arg C1
@@ -328,8 +337,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E14|up->E9]
+ |section_heading_number:{2.1}
  |section_level:{2}
- |section_number:{2.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -347,6 +357,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |is_target:{1}
  |menu_directions:D[prev->E11|up->E8]
  |node_directions:D[prev->E11|up->E8]
+ |node_number:{6}
  |normalized:{unnumberedsec}
   *arguments_line C1
    *line_arg C1
@@ -363,6 +374,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |associated_node:[E13]
  |section_directions:D[prev->E12|up->E9]
  |section_level:{2}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO

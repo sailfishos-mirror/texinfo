@@ -243,6 +243,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -259,6 +260,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |associated_node:[E5]
  |section_childs:EC[E8]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -281,6 +283,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E5]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -296,8 +299,9 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[up->E6]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E6|up->E6]
   *arguments_line C1
    *line_arg C1

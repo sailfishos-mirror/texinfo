@@ -3956,8 +3956,7 @@ prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
   self->output_units_descriptors[OUDT_associated_special_units]
      = associated_special_units_descriptor;
 
-  if (self->document->sections_list
-      && self->document->sections_list->number > 1)
+  if (self->document->sections_list.number > 1)
     {
       enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
       int i;
@@ -4607,14 +4606,15 @@ set_root_commands_targets_node_files (CONVERTER *self)
         }
     }
 
-  if (self->document->sections_list)
+  if (self->document->sections_list.number > 0)
     {
-      const CONST_ELEMENT_LIST *sections_list = self->document->sections_list;
       size_t i;
-      for (i = 0; i < sections_list->number; i++)
+      for (i = 0; i < self->document->sections_list.number; i++)
         {
-          const ELEMENT *root_element = sections_list->list[i];
-          new_sectioning_command_target (self, root_element);
+          const SECTION_STRUCTURE *section_structure
+            = self->document->sections_list.list[i];
+          const ELEMENT *section_element = section_structure->element;
+          new_sectioning_command_target (self, section_element);
         }
     }
 }
@@ -4929,7 +4929,7 @@ sort_cmd_targets (CONVERTER *self)
 static size_t
 ids_hashmap_predicted_values (CONVERTER *self)
 {
-  size_t sectioning_commands_nr = 0;
+  size_t sectioning_commands_nr;
   size_t index_entries_nr = 0;
   size_t heading_commands_nr = 0;
   size_t i;
@@ -4940,8 +4940,7 @@ ids_hashmap_predicted_values (CONVERTER *self)
    (self->document,
     self->output_units_descriptors[OUDT_associated_special_units]);
 
-  if (self->document->sections_list)
-    sectioning_commands_nr = self->document->sections_list->number;
+  sectioning_commands_nr = self->document->sections_list.number;
 
   if (self->document->indices_info.number > 0)
     {

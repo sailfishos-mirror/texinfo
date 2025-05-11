@@ -21,6 +21,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -34,6 +35,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |associated_node:[E0]
  |section_childs:EC[E4|E15]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -96,6 +98,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |menu_directions:D[next->E14|up->E0]
  |menus:EC[E5]
  |node_directions:D[next->E14|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -112,8 +115,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E15|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E15|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -256,6 +260,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |menu_directions:D[up->E3]
  |menus:EC[E8]
  |node_directions:D[up->E3]
+ |node_number:{3}
  |normalized:{Chapter-in-included-file}
   *arguments_line C1
    *line_arg C1
@@ -273,8 +278,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |level_modifier:{-1}
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -322,6 +328,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |menu_directions:D[up->E6]
  |menus:EC[E11]
  |node_directions:D[up->E6]
+ |node_number:{4}
  |normalized:{Section}
   *arguments_line C1
    *line_arg C1
@@ -339,8 +346,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |level_modifier:{-1}
  |section_childs:EC[E13]
  |section_directions:D[up->E7]
+ |section_heading_number:{1.1.1}
  |section_level:{3}
- |section_number:{1.1.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -387,6 +395,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[up->E9]
  |node_directions:D[up->E9]
+ |node_number:{5}
  |normalized:{Subsection}
   *arguments_line C1
    *line_arg C1
@@ -403,8 +412,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |associated_node:[E12]
  |level_modifier:{-1}
  |section_directions:D[up->E10]
+ |section_heading_number:{1.1.1.1}
  |section_level:{4}
- |section_number:{1.1.1.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -498,6 +508,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{6}
  |normalized:{Second-chapter}
   *arguments_line C1
    *line_arg C1
@@ -513,8 +524,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{6}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1

@@ -12,6 +12,7 @@ $result_tree_text{'on_subheading_line'} = '*document_root C1
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C9
     *@noindent l1
     {ignorable_spaces_after_command: }

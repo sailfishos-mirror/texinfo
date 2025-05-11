@@ -1638,19 +1638,19 @@ sub format_contents($$$)
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
       my $section_title_tree;
-      if (defined($section->{'extra'}->{'section_number'})
+      if (defined($section->{'extra'}->{'section_heading_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
         if ($section->{'cmdname'} eq 'appendix'
             and $section->{'extra'}->{'section_level'} == 1) {
           $section_title_tree = $self->cdt('Appendix {number} {section_title}',
                {'number' => {'text'
-                               => $section->{'extra'}->{'section_number'}},
+                      => $section->{'extra'}->{'section_heading_number'}},
                 'section_title' => $line_arg});
         } else {
           $section_title_tree = $self->cdt('{number} {section_title}',
                {'number' => {'text'
-                               => $section->{'extra'}->{'section_number'}},
+                      => $section->{'extra'}->{'section_heading_number'}},
                 'section_title' => $line_arg});
         }
       } else {
@@ -2504,9 +2504,9 @@ sub _text_heading($$$;$$)
 
   my $number;
   if ($current->{'extra'}
-      and defined($current->{'extra'}->{'section_number'})
+      and defined($current->{'extra'}->{'section_heading_number'})
       and ($numbered or !defined($numbered))) {
-    $number = $current->{'extra'}->{'section_number'};
+    $number = $current->{'extra'}->{'section_heading_number'};
   }
 
   my ($heading, undef) = $self->convert_line_new_context (
@@ -3955,8 +3955,8 @@ sub _convert($$)
         $sections_list = $self->{'document'}->sections_list();
       }
 
-      if ($sections_list) {
-        my $sectioning_root = $sections_list->[0]
+      if ($sections_list and scalar(@$sections_list)) {
+        my $sectioning_root = $sections_list->[0]->{'element'}
                                 ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'contents');
       }
@@ -3967,8 +3967,8 @@ sub _convert($$)
         $sections_list = $self->{'document'}->sections_list();
       }
 
-      if ($sections_list) {
-        my $sectioning_root = $sections_list->[0]
+      if ($sections_list and scalar(@$sections_list)) {
+        my $sectioning_root = $sections_list->[0]->{'element'}
                                 ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'shortcontents');
       }

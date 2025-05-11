@@ -24,6 +24,7 @@ NodeForward: [U1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -40,6 +41,7 @@ NodeForward: [U1]
  |associated_node:[E0]
  |section_childs:EC[E4|E8]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -118,6 +120,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
   *arguments_line C1
    *line_arg C1
@@ -133,8 +136,9 @@ NodeBack: [U0]
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E8|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -149,6 +153,7 @@ NodeBack: [U0]
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -232,6 +237,7 @@ NodeBack: [U0]
    |{ }
   |EXTRA
   |global_command_number:{2}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -299,6 +305,7 @@ NodeBack: [U1]
  |menu_directions:D[prev->E3|up->E0]
  |menus:EC[E9]
  |node_directions:D[next->E10|prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{other-nodes}
   *arguments_line C4
    *line_arg C1
@@ -337,8 +344,9 @@ NodeBack: [U1]
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -418,6 +426,7 @@ NodeBack: [U2]
  |is_target:{1}
  |menu_directions:D[next->E11|up->E7]
  |node_directions:D[next->E11|prev->E7|up->E7]
+ |node_number:{4}
  |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
   *arguments_line C4
    *line_arg C1
@@ -469,6 +478,7 @@ NodeBack: [U3]
  |is_target:{1}
  |menu_directions:D[next->E12|prev->E10|up->E7]
  |node_directions:D[next->E12|prev->E10|up->E7]
+ |node_number:{5}
  |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
   *arguments_line C4
    *line_arg C1
@@ -512,6 +522,7 @@ NodeBack: [U4]
  |is_target:{1}
  |menu_directions:D[prev->E11|up->E7]
  |node_directions:D[prev->E11|up->E7]
+ |node_number:{6}
  |normalized:{local-node}
   *arguments_line C4
    *line_arg C1

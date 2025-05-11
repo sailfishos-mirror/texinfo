@@ -83,6 +83,9 @@ enum directions {
   ai_key(max_columns, integer) \
   ai_key(row_number, integer) \
   ai_key(section_level, integer) \
+  ai_key(node_number, integer) \
+  ai_key(heading_number, integer) \
+  ai_key(section_number, integer) \
   \
   ai_key(begin, string) \
   ai_key(def_command, string) \
@@ -98,7 +101,7 @@ enum directions {
   ai_key(macro_name, string) \
   ai_key(normalized, string) \
   ai_key(original_def_cmdname, string) \
-  ai_key(section_number, string) \
+  ai_key(section_heading_number, string) \
   ai_key(sortas, string) \
   ai_key(text_arg, string) \
   ai_key(translation_context, string) \
@@ -273,6 +276,36 @@ typedef struct ELEMENT {
     void *hv;
 
 } ELEMENT;
+
+typedef struct NODE_STRUCTURE {
+    const ELEMENT *element;
+} NODE_STRUCTURE;
+
+typedef struct NODE_STRUCTURE_LIST {
+    struct NODE_STRUCTURE **list;
+    size_t number;
+    size_t space;
+} NODE_STRUCTURE_LIST;
+
+typedef struct HEADING_STRUCTURE {
+    const ELEMENT *element;
+} HEADING_STRUCTURE;
+
+typedef struct HEADING_STRUCTURE_LIST {
+    struct HEADING_STRUCTURE **list;
+    size_t number;
+    size_t space;
+} HEADING_STRUCTURE_LIST;
+
+typedef struct SECTION_STRUCTURE {
+    const ELEMENT *element;
+} SECTION_STRUCTURE;
+
+typedef struct SECTION_STRUCTURE_LIST {
+    struct SECTION_STRUCTURE **list;
+    size_t number;
+    size_t space;
+} SECTION_STRUCTURE_LIST;
 
 typedef struct IGNORED_CHARS {
     int backslash;

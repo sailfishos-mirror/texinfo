@@ -17,6 +17,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -82,6 +84,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |menu_directions:D[up->E0]
  |menus:EC[E4]
  |node_directions:D[up->E7]
+ |node_number:{2}
  |normalized:{chap-node-up}
   *arguments_line C4
    *line_arg C1
@@ -135,6 +138,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |menu_directions:D[up->E3]
  |menus:EC[E6]
  |node_directions:D[up->E3]
+ |node_number:{3}
  |normalized:{node-middle}
   *arguments_line C4
    *line_arg C1
@@ -187,6 +191,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |is_target:{1}
  |menu_directions:D[up->E5]
  |node_directions:D[up->E5]
+ |node_number:{4}
  |normalized:{node-down}
   *arguments_line C1
    *line_arg C1

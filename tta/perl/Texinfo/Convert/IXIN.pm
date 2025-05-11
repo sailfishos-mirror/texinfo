@@ -608,7 +608,7 @@ sub output_ixin($$)
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($sections_list) {
-    my $section_root = $sections_list->[0]
+    my $section_root = $sections_list->[0]->{'element'}
                                    ->{'extra'}->{'sectioning_root'};
     foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
       my $section = $top_section;

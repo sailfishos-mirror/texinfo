@@ -12,6 +12,7 @@ $result_tree_text{'footnote_no_node'} = '*document_root C2
   |{ }
  |EXTRA
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

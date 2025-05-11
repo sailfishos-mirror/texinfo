@@ -18,6 +18,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top_2002}
   *arguments_line C1
    *line_arg C1
@@ -34,6 +35,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -57,6 +59,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c}
   *arguments_line C1
    *line_arg C1
@@ -72,8 +75,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -197,6 +201,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E6|up->E2]
  |node_directions:D[next->E6|up->E2]
+ |node_number:{3}
  |normalized:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
   *arguments_line C1
    *line_arg C1
@@ -213,6 +218,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E5|up->E2]
  |node_directions:D[next->E7|prev->E5|up->E2]
+ |node_number:{4}
  |normalized:{CARRIAGE-RETURN_007c-_007c}
   *arguments_line C1
    *line_arg C1
@@ -229,6 +235,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E8|prev->E6|up->E2]
  |node_directions:D[next->E8|prev->E6|up->E2]
+ |node_number:{5}
  |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
   *arguments_line C1
    *line_arg C1
@@ -245,6 +252,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E7|up->E2]
  |node_directions:D[next->E9|prev->E7|up->E2]
+ |node_number:{6}
  |normalized:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
   *arguments_line C1
    *line_arg C1
@@ -261,6 +269,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E10|prev->E8|up->E2]
  |node_directions:D[next->E10|prev->E8|up->E2]
+ |node_number:{7}
  |normalized:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
   *arguments_line C1
    *line_arg C1
@@ -277,6 +286,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E9|up->E2]
  |node_directions:D[next->E11|prev->E9|up->E2]
+ |node_number:{8}
  |normalized:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
   *arguments_line C1
    *line_arg C1
@@ -293,6 +303,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[next->E12|prev->E10|up->E2]
  |node_directions:D[next->E12|prev->E10|up->E2]
+ |node_number:{9}
  |normalized:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
   *arguments_line C1
    *line_arg C1
@@ -309,6 +320,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |is_target:{1}
  |menu_directions:D[prev->E11|up->E2]
  |node_directions:D[prev->E11|up->E2]
+ |node_number:{10}
  |normalized:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
   *arguments_line C1
    *line_arg C1

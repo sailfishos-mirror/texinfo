@@ -21,6 +21,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -105,6 +106,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |is_target:{1}
  |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{_00e1}
   *arguments_line C1
    *line_arg C1
@@ -141,6 +143,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |is_target:{1}
  |menu_directions:D[next->E4|prev->E2|up->E0]
  |node_directions:D[next->E4|prev->E2|up->E0]
+ |node_number:{3}
  |normalized:{_00e2}
   *arguments_line C1
    *line_arg C1
@@ -180,6 +183,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |menu_directions:D[next->E7|prev->E3|up->E0]
  |menus:EC[E6]
  |node_directions:D[next->E7|prev->E3|up->E0]
+ |node_number:{4}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -194,6 +198,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E4]
  |associated_node:[E4]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -247,6 +252,7 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |is_target:{1}
  |menu_directions:D[prev->E4|up->E4]
  |node_directions:D[prev->E4|up->E4]
+ |node_number:{5}
  |normalized:{_00e0}
   *arguments_line C1
    *line_arg C1

@@ -12,6 +12,7 @@ $result_tree_text{'node_empty_direction'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{name}
   *arguments_line C2
    *line_arg C1

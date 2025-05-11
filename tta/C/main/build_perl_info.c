@@ -979,6 +979,56 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   return list_av;
 }
 
+AV *
+build_node_structure_list (const NODE_STRUCTURE_LIST *list)
+{
+  AV *list_av;
+  SV *sv;
+  size_t i;
+
+  dTHX;
+
+  list_av = newAV ();
+
+  av_unshift (list_av, list->number);
+
+  for (i = 0; i < list->number; i++)
+    {
+      NODE_STRUCTURE *node = list->list[i];
+      HV *node_hv = newHV ();
+      sv = newRV_inc ((SV *) node->element->hv);
+      hv_store (node_hv, "element", strlen ("element"), sv, 0);
+      av_store (list_av, i, newRV_noinc ((SV *) node_hv));
+    }
+
+  return list_av;
+}
+
+AV *
+build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
+{
+  AV *list_av;
+  SV *sv;
+  size_t i;
+
+  dTHX;
+
+  list_av = newAV ();
+
+  av_unshift (list_av, list->number);
+
+  for (i = 0; i < list->number; i++)
+    {
+      SECTION_STRUCTURE *section = list->list[i];
+      HV *section_hv = newHV ();
+      sv = newRV_inc ((SV *) section->element->hv);
+      hv_store (section_hv, "element", strlen ("element"), sv, 0);
+      av_store (list_av, i, newRV_noinc ((SV *) section_hv));
+    }
+
+  return list_av;
+}
+
 /* currently unused */
 AV *
 build_integer_stack (const INTEGER_STACK *integer_stack)
@@ -1736,11 +1786,11 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 
   av_labels_list = build_target_elements_list (&document->labels_list);
 
-  if (document->nodes_list)
-    av_nodes_list = build_elements_list (document->nodes_list);
+  if (document->nodes_list.number > 0)
+    av_nodes_list = build_node_structure_list (&document->nodes_list);
 
-  if (document->sections_list)
-    av_sections_list = build_elements_list (document->sections_list);
+  if (document->sections_list.number > 0)
+    av_sections_list = build_section_structure_list (&document->sections_list);
 
   if (document->indices_sort_strings)
     hv_indices_sort_strings = build_indices_sort_strings (
@@ -2317,10 +2367,14 @@ BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
 
 
 
+/*
 BUILD_PERL_DOCUMENT_ITEM(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_elements_list,AV)
+ */
 
+/*
 BUILD_PERL_DOCUMENT_ITEM(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_elements_list,AV)
 
+ */
 #undef BUILD_PERL_DOCUMENT_ITEM
 
 #define BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV) \
@@ -2366,6 +2420,10 @@ funcname (SV *document_in) \
 /*
 BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV)
 */
+
+BUILD_PERL_DOCUMENT_LIST(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_node_structure_list,AV)
+
+BUILD_PERL_DOCUMENT_LIST(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_section_structure_list,AV)
 
 BUILD_PERL_DOCUMENT_LIST(document_floats_information,listoffloats,"listoffloats_list",F_DOCM_floats,build_listoffloats_list,HV)
 

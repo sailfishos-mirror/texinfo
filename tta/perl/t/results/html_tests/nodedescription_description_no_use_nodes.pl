@@ -16,6 +16,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |associated_node:[E0]
  |section_childs:EC[E3|E7|E10]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -56,6 +58,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |node_description:[E4]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_long_description:[E5]
+ |node_number:{2}
  |normalized:{toto}
   *arguments_line C1
    *line_arg C1
@@ -71,8 +74,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E7|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -146,6 +150,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |node_description:[E8]
  |node_directions:D[next->E9|prev->E2|up->E0]
  |node_long_description:[E8]
+ |node_number:{3}
  |normalized:{titi}
   *arguments_line C1
    *line_arg C1
@@ -161,8 +166,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E10|prev->E3|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E10|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -203,6 +209,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |is_target:{1}
  |node_description:[E11]
  |node_directions:D[prev->E6|up->E0]
+ |node_number:{4}
  |normalized:{other}
   *arguments_line C1
    *line_arg C1
@@ -218,8 +225,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[prev->E7|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{4}
  |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1

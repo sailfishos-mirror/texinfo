@@ -17,6 +17,7 @@ $result_tree_text{'style_not_closed_before_first_node'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

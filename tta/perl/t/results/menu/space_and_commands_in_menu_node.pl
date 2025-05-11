@@ -16,6 +16,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -195,6 +197,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  |is_target:{1}
  |menu_directions:D[next->E3|prev->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap-b}
   *arguments_line C1
    *line_arg C3
@@ -212,8 +215,9 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1

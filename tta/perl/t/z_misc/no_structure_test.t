@@ -147,7 +147,6 @@ my $html_converter = Texinfo::Convert::HTML->converter(
                          'SUBDIR' => $html_test_out_dir,
                          'SPLIT' => ''});
 
-# Note that there are no contents, as there is no sections_list
 _do_format_test_file($test_name, $format, $html_converter, $document,
                       $html_test_out_dir, $html_reference_dir);
 
@@ -190,6 +189,7 @@ my $latex_converter = Texinfo::Convert::LaTeX->converter();
 my $latex_text = $latex_converter->convert($document);
 is($latex_text, '
 \begin{document}
+\tableofcontents\newpage
 \part*{{First File}}
 \label{anchor:Top}%
 \chapter{{Chap}}

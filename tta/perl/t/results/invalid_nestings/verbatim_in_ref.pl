@@ -12,6 +12,7 @@ $result_tree_text{'verbatim_in_ref'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1

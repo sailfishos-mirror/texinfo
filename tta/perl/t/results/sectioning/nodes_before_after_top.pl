@@ -13,6 +13,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{node-before}
   *arguments_line C1
    *line_arg C1
@@ -33,6 +34,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E4]
+ |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -49,6 +51,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  |associated_node:[E1]
  |section_childs:EC[E5]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -71,6 +74,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{3}
  |normalized:{after}
   *arguments_line C1
    *line_arg C1
@@ -91,6 +95,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E1|up->E1]
+ |node_number:{4}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -106,8 +111,9 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E2]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1

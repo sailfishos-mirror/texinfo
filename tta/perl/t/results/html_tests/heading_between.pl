@@ -24,6 +24,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -39,6 +40,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -59,6 +61,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -74,6 +77,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{Section}
   *arguments_line C1
    *line_arg C1
@@ -89,8 +93,9 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E1]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

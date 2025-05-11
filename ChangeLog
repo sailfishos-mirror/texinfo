@@ -1,3 +1,59 @@
+2025-05-11  Patrice Dumas  <pertusus@free.fr>
+
+	Structure node, section and heading list different from elements
+
+	* tta/C/main/tree_types.h (enum directions), : rename section_number
+	extra key to section_heading_number.  Update users.
+
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/C/main/structure_list.c (new_node_structure)
+	(new_section_structure, new_heading_structure)
+	(setup_reallocate_structure_list, add_to_node_structure_list)
+	(add_to_section_structure_list, add_to_heading_structure_list)
+	(insert_into_node_structure_list), tta/C/main/build_perl_info.c
+	(build_node_structure_list, build_section_structure_list)
+	(fill_document_hv), tta/C/main/document.c (new_document)
+	(destroy_document_information_except_tree),
+	tta/C/main/document_types.h (DOCUMENT), tta/C/main/tree_types.h
+	(enum directions, NODE_STRUCTURE, NODE_STRUCTURE_LIST)
+	(HEADING_STRUCTURE, HEADING_STRUCTURE_LIST, SECTION_STRUCTURE)
+	(SECTION_STRUCTURE_LIST), tta/C/parsetexi/end_line.c
+	(end_line_misc_line), tta/C/structuring_transfo/structuring.c
+	(sectioning_structure, construct_nodes_tree),
+	tta/perl/Texinfo/ParserNonXS.pm (_add_to_structure_list)
+	(_end_line_misc_line), tta/perl/Texinfo/Structuring.pm
+	(sectioning_structure, construct_nodes_tree): do not use tree
+	element in nodes_list and sections_list, but refer to the tree
+	element.  Populate nodes_list and sections_list during parsing, and
+	also populate headings_list.  Add NODE_STRUCTURE,
+	HEADING_STRUCTURE, SECTION_STRUCTURE structs in C and associated
+	lists. Add code to manage those lists for nodes_list and sections_list
+	in the new file main/structure_list.c.  Add node_number,
+	section_number and heading_number extra information in elements to be
+	able to retrieve the list structure information.
+
+	* tta/C/convert/format_html.c (html_default_format_contents)
+	(contents_shortcontents_in_title, html_convert_heading_command)
+	(html_convert_contents_command, html_output_internal_links),
+	tta/C/convert/html_prepare_converter.c (prepare_special_units)
+	(set_root_commands_targets_node_files, ids_hashmap_predicted_values),
+	tta/C/structuring_transfo/structuring.c (check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus),
+	tta/C/structuring_transfo/transformations.c
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_set_root_commands_targets_node_files, _default_format_contents)
+	(output_internal_links), tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/LaTeX.pm (_begin_document, _convert),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Structuring.pm (check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus),
+	tta/perl/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands), tta/perl/ext/epub3.pm,
+	tta/perl/init/book.pm (book_unit_file_name), tta/perl/init/chm.pm,
+	tta/perl/init/documentation_examples.pm: update converters,
+	structuring and transformations for the new structures.
+
 2025-05-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* install-info/tests/defs.in: Update test for path separator from

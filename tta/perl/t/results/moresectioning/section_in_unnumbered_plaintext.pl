@@ -19,6 +19,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -35,6 +36,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E0]
  |section_childs:EC[E4|E9|E14|E33|E64]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -140,6 +142,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -156,8 +159,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E9|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -205,6 +209,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
+ |node_number:{3}
  |normalized:{section-in-chapter}
   *arguments_line C1
    *line_arg C1
@@ -220,8 +225,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -240,6 +246,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E13|prev->E3|up->E0]
  |menus:EC[E10]
  |node_directions:D[next->E13|prev->E3|up->E0]
+ |node_number:{4}
  |normalized:{unnumbered}
   *arguments_line C1
    *line_arg C1
@@ -257,6 +264,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E12]
  |section_directions:D[next->E14|prev->E4|up->E1]
  |section_level:{1}
+ |section_number:{4}
  |toplevel_directions:D[next->E14|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -304,6 +312,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
+ |node_number:{5}
  |normalized:{section-in-unnumbered}
   *arguments_line C1
    *line_arg C1
@@ -320,6 +329,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E11]
  |section_directions:D[up->E9]
  |section_level:{2}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -338,6 +348,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E32|prev->E8|up->E0]
  |menus:EC[E15]
  |node_directions:D[next->E32|prev->E8|up->E0]
+ |node_number:{6}
  |normalized:{chapter-2}
   *arguments_line C1
    *line_arg C1
@@ -354,8 +365,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E13]
  |section_childs:EC[E17|E28]
  |section_directions:D[next->E33|prev->E9|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{6}
  |toplevel_directions:D[next->E33|prev->E9|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -415,6 +427,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E27|up->E13]
  |menus:EC[E18]
  |node_directions:D[next->E27|up->E13]
+ |node_number:{7}
  |normalized:{unnumberedsec-2}
   *arguments_line C1
    *line_arg C1
@@ -432,6 +445,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E20|E22|E24|E26]
  |section_directions:D[next->E28|up->E14]
  |section_level:{2}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -511,6 +525,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E21|up->E16]
  |node_directions:D[next->E21|up->E16]
+ |node_number:{8}
  |normalized:{unnumbered-sub-2}
   *arguments_line C1
    *line_arg C1
@@ -527,6 +542,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E19]
  |section_directions:D[next->E22|up->E17]
  |section_level:{3}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -544,6 +560,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E23|prev->E19|up->E16]
  |node_directions:D[next->E23|prev->E19|up->E16]
+ |node_number:{9}
  |normalized:{numbered-sub-2}
   *arguments_line C1
    *line_arg C1
@@ -560,6 +577,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E21]
  |section_directions:D[next->E24|prev->E20|up->E17]
  |section_level:{3}
+ |section_number:{9}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -577,6 +595,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E21|up->E16]
  |node_directions:D[next->E25|prev->E21|up->E16]
+ |node_number:{10}
  |normalized:{unnumbered-sub2-2}
   *arguments_line C1
    *line_arg C1
@@ -593,6 +612,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E23]
  |section_directions:D[next->E26|prev->E22|up->E17]
  |section_level:{3}
+ |section_number:{10}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -610,6 +630,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[prev->E23|up->E16]
  |node_directions:D[prev->E23|up->E16]
+ |node_number:{11}
  |normalized:{numbered-sub2-2}
   *arguments_line C1
    *line_arg C1
@@ -626,6 +647,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E25]
  |section_directions:D[prev->E24|up->E17]
  |section_level:{3}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -644,6 +666,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[prev->E16|up->E13]
  |menus:EC[E29]
  |node_directions:D[prev->E16|up->E13]
+ |node_number:{12}
  |normalized:{unnumberedsec-2_002d1}
   *arguments_line C1
    *line_arg C1
@@ -661,6 +684,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E31]
  |section_directions:D[prev->E17|up->E14]
  |section_level:{2}
+ |section_number:{12}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -707,6 +731,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E27]
  |node_directions:D[up->E27]
+ |node_number:{13}
  |normalized:{numbered-sub-2_002d1}
   *arguments_line C1
    *line_arg C1
@@ -723,6 +748,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E30]
  |section_directions:D[up->E28]
  |section_level:{3}
+ |section_number:{13}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -742,6 +768,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E63|prev->E13|up->E0]
  |menus:EC[E34]
  |node_directions:D[next->E63|prev->E13|up->E0]
+ |node_number:{14}
  |normalized:{chapter-3}
   *arguments_line C1
    *line_arg C1
@@ -758,8 +785,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E32]
  |section_childs:EC[E36|E47|E49|E54|E59]
  |section_directions:D[next->E64|prev->E14|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{14}
  |toplevel_directions:D[next->E64|prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -852,6 +880,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E46|up->E32]
  |menus:EC[E37]
  |node_directions:D[next->E46|up->E32]
+ |node_number:{15}
  |normalized:{unnumberedsec-3}
   *arguments_line C1
    *line_arg C1
@@ -869,6 +898,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E39|E41|E43|E45]
  |section_directions:D[next->E47|up->E33]
  |section_level:{2}
+ |section_number:{15}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -948,6 +978,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E40|up->E35]
  |node_directions:D[next->E40|up->E35]
+ |node_number:{16}
  |normalized:{unnumbered-sub-3}
   *arguments_line C1
    *line_arg C1
@@ -964,6 +995,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E38]
  |section_directions:D[next->E41|up->E36]
  |section_level:{3}
+ |section_number:{16}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -981,6 +1013,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E42|prev->E38|up->E35]
  |node_directions:D[next->E42|prev->E38|up->E35]
+ |node_number:{17}
  |normalized:{numbered-sub-3}
   *arguments_line C1
    *line_arg C1
@@ -997,6 +1030,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E40]
  |section_directions:D[next->E43|prev->E39|up->E36]
  |section_level:{3}
+ |section_number:{17}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1014,6 +1048,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E44|prev->E40|up->E35]
  |node_directions:D[next->E44|prev->E40|up->E35]
+ |node_number:{18}
  |normalized:{unnumbered-sub2-3}
   *arguments_line C1
    *line_arg C1
@@ -1030,6 +1065,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E42]
  |section_directions:D[next->E45|prev->E41|up->E36]
  |section_level:{3}
+ |section_number:{18}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1047,6 +1083,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[prev->E42|up->E35]
  |node_directions:D[prev->E42|up->E35]
+ |node_number:{19}
  |normalized:{numbered-sub2-3}
   *arguments_line C1
    *line_arg C1
@@ -1063,6 +1100,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E44]
  |section_directions:D[prev->E43|up->E36]
  |section_level:{3}
+ |section_number:{19}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1080,6 +1118,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E48|prev->E35|up->E32]
  |node_directions:D[next->E48|prev->E35|up->E32]
+ |node_number:{20}
  |normalized:{section-3_002d1}
   *arguments_line C1
    *line_arg C1
@@ -1095,8 +1134,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_anchor_command:[E46]
  |associated_node:[E46]
  |section_directions:D[next->E49|prev->E36|up->E33]
+ |section_heading_number:{3.1}
  |section_level:{2}
- |section_number:{3.1}
+ |section_number:{20}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1115,6 +1155,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E53|prev->E46|up->E32]
  |menus:EC[E50]
  |node_directions:D[next->E53|prev->E46|up->E32]
+ |node_number:{21}
  |normalized:{unnumberedsec-3_002d2}
   *arguments_line C1
    *line_arg C1
@@ -1132,6 +1173,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E52]
  |section_directions:D[next->E54|prev->E47|up->E33]
  |section_level:{2}
+ |section_number:{21}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1178,6 +1220,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E48]
  |node_directions:D[up->E48]
+ |node_number:{22}
  |normalized:{numbered-sub-3_002d2}
   *arguments_line C1
    *line_arg C1
@@ -1194,6 +1237,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E51]
  |section_directions:D[up->E49]
  |section_level:{3}
+ |section_number:{22}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1212,6 +1256,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[next->E58|prev->E48|up->E32]
  |menus:EC[E55]
  |node_directions:D[next->E58|prev->E48|up->E32]
+ |node_number:{23}
  |normalized:{section-3_002d3}
   *arguments_line C1
    *line_arg C1
@@ -1228,8 +1273,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E53]
  |section_childs:EC[E57]
  |section_directions:D[next->E59|prev->E49|up->E33]
+ |section_heading_number:{3.2}
  |section_level:{2}
- |section_number:{3.2}
+ |section_number:{23}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1276,6 +1322,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E53]
  |node_directions:D[up->E53]
+ |node_number:{24}
  |normalized:{subsection-3_002d3}
   *arguments_line C1
    *line_arg C1
@@ -1291,8 +1338,9 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_anchor_command:[E56]
  |associated_node:[E56]
  |section_directions:D[up->E54]
+ |section_heading_number:{3.2.1}
  |section_level:{3}
- |section_number:{3.2.1}
+ |section_number:{24}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1311,6 +1359,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[prev->E53|up->E32]
  |menus:EC[E60]
  |node_directions:D[prev->E53|up->E32]
+ |node_number:{25}
  |normalized:{unnumberedsec-3_002d4}
   *arguments_line C1
    *line_arg C1
@@ -1328,6 +1377,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E62]
  |section_directions:D[prev->E54|up->E33]
  |section_level:{2}
+ |section_number:{25}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1374,6 +1424,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[up->E58]
  |node_directions:D[up->E58]
+ |node_number:{26}
  |normalized:{numbered-sub-3_002d4}
   *arguments_line C1
    *line_arg C1
@@ -1390,6 +1441,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E61]
  |section_directions:D[up->E59]
  |section_level:{3}
+ |section_number:{26}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1408,6 +1460,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[prev->E32|up->E0]
  |menus:EC[E65]
  |node_directions:D[prev->E32|up->E0]
+ |node_number:{27}
  |normalized:{unnumbered-4}
   *arguments_line C1
    *line_arg C1
@@ -1425,6 +1478,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E67]
  |section_directions:D[prev->E33|up->E1]
  |section_level:{1}
+ |section_number:{27}
  |toplevel_directions:D[prev->E33|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -1473,6 +1527,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |menu_directions:D[up->E63]
  |menus:EC[E68]
  |node_directions:D[up->E63]
+ |node_number:{28}
  |normalized:{unnumberedsec-4}
   *arguments_line C1
    *line_arg C1
@@ -1490,6 +1545,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |section_childs:EC[E70|E72|E74|E76]
  |section_directions:D[up->E64]
  |section_level:{2}
+ |section_number:{28}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1569,6 +1625,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E71|up->E66]
  |node_directions:D[next->E71|up->E66]
+ |node_number:{29}
  |normalized:{unnumbered-sub-4}
   *arguments_line C1
    *line_arg C1
@@ -1585,6 +1642,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E69]
  |section_directions:D[next->E72|up->E67]
  |section_level:{3}
+ |section_number:{29}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1602,6 +1660,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E73|prev->E69|up->E66]
  |node_directions:D[next->E73|prev->E69|up->E66]
+ |node_number:{30}
  |normalized:{numbered-sub-4}
   *arguments_line C1
    *line_arg C1
@@ -1618,6 +1677,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E71]
  |section_directions:D[next->E74|prev->E70|up->E67]
  |section_level:{3}
+ |section_number:{30}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1635,6 +1695,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[next->E75|prev->E71|up->E66]
  |node_directions:D[next->E75|prev->E71|up->E66]
+ |node_number:{31}
  |normalized:{unnumbered-sub2-4}
   *arguments_line C1
    *line_arg C1
@@ -1651,6 +1712,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E73]
  |section_directions:D[next->E76|prev->E72|up->E67]
  |section_level:{3}
+ |section_number:{31}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1668,6 +1730,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |is_target:{1}
  |menu_directions:D[prev->E73|up->E66]
  |node_directions:D[prev->E73|up->E66]
+ |node_number:{32}
  |normalized:{numbered-sub2-4}
   *arguments_line C1
    *line_arg C1
@@ -1684,6 +1747,7 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |associated_node:[E75]
  |section_directions:D[prev->E74|up->E67]
  |section_level:{3}
+ |section_number:{32}
   *arguments_line C1
    *line_arg C1
    |INFO

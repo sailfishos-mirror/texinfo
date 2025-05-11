@@ -16,6 +16,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

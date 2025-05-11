@@ -20,6 +20,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E6]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -36,6 +37,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |associated_node:[E0]
  |section_childs:EC[E7]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -84,6 +86,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -266,6 +269,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
    |{ }
   |EXTRA
   |global_command_number:{2}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -320,6 +324,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
    |{ }
   |EXTRA
   |global_command_number:{3}
+  |heading_number:{3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -480,6 +485,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |menu_directions:D[up->E0]
  |menus:EC[E8]
  |node_directions:D[next->E9|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{other-nodes}
   *arguments_line C4
    *line_arg C1
@@ -518,8 +524,9 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -644,6 +651,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[next->E10|up->E6]
  |node_directions:D[next->E10|prev->E6|up->E6]
+ |node_number:{3}
  |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
   *arguments_line C4
    *line_arg C1
@@ -702,6 +710,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E9|up->E6]
  |node_directions:D[next->E11|prev->E9|up->E6]
+ |node_number:{4}
  |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
   *arguments_line C4
    *line_arg C1
@@ -754,6 +763,7 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[prev->E10|up->E6]
  |node_directions:D[prev->E10|up->E6]
+ |node_number:{5}
  |normalized:{local-node}
   *arguments_line C4
    *line_arg C1

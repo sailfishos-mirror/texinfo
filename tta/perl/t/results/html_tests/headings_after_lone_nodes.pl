@@ -15,6 +15,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -53,6 +55,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -68,8 +71,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -85,6 +89,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |associated_title_command:[E5]
  |is_target:{1}
+ |node_number:{3}
  |normalized:{Qt}
   *arguments_line C1
    *line_arg C1
@@ -99,6 +104,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E4]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -116,6 +122,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_title_command:[E9]
  |is_target:{1}
  |node_description:[E8]
+ |node_number:{4}
  |normalized:{Other}
   *arguments_line C1
    *line_arg C1
@@ -232,6 +239,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E6]
   |global_command_number:{1}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -245,6 +253,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |associated_title_command:[E11]
  |is_target:{1}
+ |node_number:{5}
  |normalized:{Not-associated}
   *arguments_line C1
    *line_arg C1
@@ -263,6 +272,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E10]
   |global_command_number:{1}
+  |heading_number:{3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -276,6 +286,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |associated_title_command:[E13]
  |is_target:{1}
+ |node_number:{6}
  |normalized:{2-not}
   *arguments_line C1
    *line_arg C1
@@ -311,6 +322,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E12]
   |global_command_number:{2}
+  |heading_number:{4}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -324,6 +336,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |associated_title_command:[E15]
  |is_target:{1}
+ |node_number:{7}
  |normalized:{3-not}
   *arguments_line C1
    *line_arg C1
@@ -359,6 +372,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E14]
   |global_command_number:{3}
+  |heading_number:{5}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -372,6 +386,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |associated_title_command:[E17]
  |is_target:{1}
+ |node_number:{8}
  |normalized:{4-not}
   *arguments_line C1
    *line_arg C1
@@ -399,6 +414,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E16]
   |global_command_number:{4}
+  |heading_number:{6}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -413,6 +429,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |associated_title_command:[E20]
  |is_target:{1}
  |menus:EC[E19]
+ |node_number:{9}
  |normalized:{5-not}
   *arguments_line C1
    *line_arg C1
@@ -457,6 +474,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |EXTRA
   |associated_anchor_command:[E18]
   |global_command_number:{5}
+  |heading_number:{7}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -470,6 +488,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E18]
+ |node_number:{10}
  |normalized:{subnode}
   *arguments_line C1
    *line_arg C1

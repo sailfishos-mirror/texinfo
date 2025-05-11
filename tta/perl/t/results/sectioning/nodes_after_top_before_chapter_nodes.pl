@@ -20,6 +20,7 @@ NodeForward: [U1]
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -88,6 +89,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{second-node}
   *arguments_line C4
    *line_arg C1
@@ -135,6 +137,7 @@ NodeBack: [U1]
  |is_target:{1}
  |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
+ |node_number:{3}
  |normalized:{third-node}
   *arguments_line C4
    *line_arg C1
@@ -160,6 +163,7 @@ NodeBack: [U1]
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:

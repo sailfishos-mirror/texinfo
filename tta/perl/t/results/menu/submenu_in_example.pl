@@ -13,6 +13,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
  |EXTRA
  |associated_title_command:[E5]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1
@@ -131,6 +132,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
      |EXTRA
      |associated_anchor_command:[E0]
      |global_command_number:{1}
+     |heading_number:{1}
       *line_arg C1
       |INFO
       |spaces_after_argument:

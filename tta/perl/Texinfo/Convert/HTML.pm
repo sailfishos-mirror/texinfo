@@ -1355,9 +1355,9 @@ sub _internal_command_tree($$$)
         }
         if ($line_arg->{'contents'}) {
           my $section_number;
-          $section_number = $command->{'extra'}->{'section_number'}
+          $section_number = $command->{'extra'}->{'section_heading_number'}
             if ($command->{'extra'}
-                and defined($command->{'extra'}->{'section_number'}));
+                and defined($command->{'extra'}->{'section_heading_number'}));
           if ($section_number
               and ($self->get_conf('NUMBER_SECTIONS')
                    or !defined($self->get_conf('NUMBER_SECTIONS')))) {
@@ -10043,8 +10043,9 @@ sub _set_root_commands_targets_node_files($)
   }
 
   if ($sections_list) {
-    foreach my $root_element (@{$sections_list}) {
-      $self->_new_sectioning_command_target($root_element);
+    foreach my $section_structure (@{$sections_list}) {
+      my $section_element = $section_structure->{'element'};
+      $self->_new_sectioning_command_target($section_element);
     }
   }
 }
@@ -11406,10 +11407,11 @@ sub _default_format_contents($$;$$)
        # We consider that if sectioning_root is set as usual, all the
        # fields are set consistently with what sectioning_structure would
        # have set.
-       or !$sections_list->[0]->{'extra'}
-       or !defined($sections_list->[0]->{'extra'}->{'sectioning_root'}));
+       or !$sections_list->[0]->{'element'}->{'extra'}
+       or !defined($sections_list->[0]->{'element'}
+                            ->{'extra'}->{'sectioning_root'}));
 
-  my $section_root = $sections_list->[0]
+  my $section_root = $sections_list->[0]->{'element'}
                                    ->{'extra'}->{'sectioning_root'};
   my $is_contents;
   $is_contents = 1 if ($cmdname eq 'contents');
@@ -12921,7 +12923,8 @@ sub output_internal_links($)
 
   if ($self->{'document'}) {
     my $sections_list = $self->{'document'}->sections_list();
-    foreach my $command (@{$sections_list}) {
+    foreach my $section_structure (@{$sections_list}) {
+      my $command = $section_structure->{'element'};
       my $href = $self->command_href($command, '');
       my $tree = $self->command_tree($command);
       my $text;

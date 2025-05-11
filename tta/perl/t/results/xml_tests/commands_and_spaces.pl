@@ -43,6 +43,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{a}
   *arguments_line C4
    *line_arg C1

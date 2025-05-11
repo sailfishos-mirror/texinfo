@@ -64,6 +64,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
   |{ }
  |EXTRA
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

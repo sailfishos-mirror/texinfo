@@ -14,6 +14,7 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  |EXTRA
  |section_childs:EC[E1]
  |section_level:{1}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -32,6 +33,7 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  |EXTRA
  |section_directions:D[up->E0]
  |section_level:{2}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

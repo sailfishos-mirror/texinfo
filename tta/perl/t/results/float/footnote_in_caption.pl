@@ -14,6 +14,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->E1]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -28,6 +29,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

@@ -13,6 +13,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

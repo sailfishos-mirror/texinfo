@@ -13,6 +13,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -29,6 +30,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
+ |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -43,6 +45,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |EXTRA
  |associated_anchor_command:[E1]
  |associated_node:[E1]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -67,6 +70,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |part_associated_section:[E4]
  |section_directions:D[next->E4]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -82,6 +86,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |associated_part:[E3]
  |section_directions:D[prev->E3]
  |section_level:{0}
+ |section_number:{3}
  |toplevel_directions:D[prev->E2]
   *arguments_line C1
    *line_arg C1

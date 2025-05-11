@@ -16,6 +16,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -83,6 +85,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{_0028manual_0029-name}
   *arguments_line C1
    *line_arg C2

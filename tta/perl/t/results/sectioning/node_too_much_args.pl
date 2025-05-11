@@ -13,6 +13,7 @@ $result_tree_text{'node_too_much_args'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C4
    *line_arg C1

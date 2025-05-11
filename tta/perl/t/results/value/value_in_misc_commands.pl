@@ -21,6 +21,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -36,6 +37,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -62,6 +64,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{chap}
  >SOURCEMARKS
  >value_expansion<end;43>
@@ -79,6 +82,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   |EXTRA
   |associated_anchor_command:[E2]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:

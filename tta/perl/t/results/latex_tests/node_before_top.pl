@@ -13,6 +13,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{before-Top}
   *arguments_line C1
    *line_arg C1
@@ -30,6 +31,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E3]
+ |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -46,6 +48,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  |associated_node:[E1]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -68,6 +71,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[prev->E1|up->E1]
+ |node_number:{3}
  |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
@@ -83,8 +87,9 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E2]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1

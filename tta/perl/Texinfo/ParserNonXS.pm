@@ -3639,6 +3639,20 @@ sub _text_contents_to_plain_text {
   return ($text, $superfluous_arg);
 }
 
+sub _add_to_structure_list($$$)
+{
+  my $document = shift;
+  my $type = shift;
+  my $element = shift;
+
+  my $list_key = $type.'s_list';
+  my $number_key = $type.'_number';
+
+  push @{$document->{$list_key}}, {'element' => $element};
+  $element->{'extra'} = {} if (!$element->{'extra'});
+  $element->{'extra'}->{$number_key} = scalar(@{$document->{$list_key}});
+}
+
 sub _associate_title_command_anchor($$)
 {
   my $self = shift;
@@ -3915,6 +3929,10 @@ sub _end_line_misc_line($$$)
     _check_register_target_element_label($self, $line_arg,
                                          $current, $source_info);
 
+    if ($current->{'extra'}
+        and defined($current->{'extra'}->{'normalized'})) {
+      _add_to_structure_list($document, 'node', $current);
+    }
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
       if (not $part->{'extra'}
@@ -4116,9 +4134,13 @@ sub _end_line_misc_line($$$)
                                   $command), $source_info);
       }
     }
+    if ($command ne 'node') {
+      _add_to_structure_list($document, 'section', $command_element);
+    }
     # only *heading as sectioning commands are handled just before
   } elsif ($sectioning_heading_commands{$data_cmdname}
            or $data_cmdname eq 'xrefname') {
+    _add_to_structure_list($document, 'heading', $command_element);
     _associate_title_command_anchor($self, $command_element);
   }
   return $current;
@@ -9458,7 +9480,7 @@ if there is an associated external manual name, and a I<normalized> key for the
 normalized label, built as specified in the I<HTML Xref> Texinfo documentation
 node.
 
-If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/$nodes_list = construct_nodes_tree($document)>,
+If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/construct_nodes_tree($document)>,
 the I<node_directions> hash in the C<@node> element C<extra> associates
 I<up>, I<next> and I<prev> keys to the elements corresponding to the node
 line directions.
@@ -9511,7 +9533,7 @@ The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<level_modifier>.
 
-Other C<extra> keys are set when you call L<Texinfo::Structuring::sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
+Other C<extra> keys are set when you call L<Texinfo::Structuring::sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
 
 =item C<untranslated_def_line_arg>
 

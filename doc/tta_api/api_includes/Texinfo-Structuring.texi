@@ -141,12 +141,12 @@ Returns the Texinfo tree corresponding to a single menu entry pointing to
 @emph{$node}.  If @emph{$use_sections} is set, use the section name for the menu
 entry name.  Returns @code{undef} if the node argument is missing.
 
-@item $nodes_list = construct_nodes_tree($document)
-@anchor{Texinfo@asis{::}Structuring $nodes_list = construct_nodes_tree($document)}
+@item construct_nodes_tree($document)
+@anchor{Texinfo@asis{::}Structuring construct_nodes_tree($document)}
 @cindex @code{construct_nodes_tree}
 
 Goes through nodes in @emph{$document} tree and set directions.  Set the list of
-nodes in the @emph{$document}.  Returns the list of nodes.
+nodes in the @emph{$document}.
 
 This functions sets, in the @code{extra} node element hash:
 
@@ -175,14 +175,13 @@ Return the sectioning command name corresponding to the sectioning
 element @emph{$element}, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-@item $sections_list = sectioning_structure($document)
-@anchor{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document)}
+@item sectioning_structure($document)
+@anchor{Texinfo@asis{::}Structuring sectioning_structure($document)}
 @cindex @code{sectioning_structure}
 
 This function goes through the parsed document tree and gather information
 on the document structure for sectioning commands.  It sets the sections
-elements list in the document and returns a reference
-on the sections elements list.
+elements list in the document.
 
 It sets section elements @code{extra} hash values:
 

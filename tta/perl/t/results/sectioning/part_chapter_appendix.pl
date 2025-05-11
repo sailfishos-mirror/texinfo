@@ -17,6 +17,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |section_childs:EC[E1]
  |section_directions:D[next->E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -36,8 +37,9 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |EXTRA
  |associated_part:[E0]
  |section_directions:D[up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
@@ -52,8 +54,9 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
   |{ }
  |EXTRA
  |section_directions:D[prev->E0]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{3}
  |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1

@@ -16,6 +16,7 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -83,8 +85,9 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |EXTRA
  |section_childs:EC[E5]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -106,6 +109,7 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{section-node}
   *arguments_line C4
    *line_arg C1
@@ -128,8 +132,9 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E3]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO

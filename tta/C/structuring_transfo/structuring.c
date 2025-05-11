@@ -82,10 +82,9 @@ new_block_command (ELEMENT *element)
   add_to_element_contents (element, end);
 }
 
-CONST_ELEMENT_LIST *
+void
 sectioning_structure (DOCUMENT *document)
 {
-  const ELEMENT *root = document->tree;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -95,7 +94,6 @@ sectioning_structure (DOCUMENT *document)
   int in_appendix = 0;
   /* lowest level with a number.  This is the lowest level above 0. */
   int number_top_level = 0;
-  CONST_ELEMENT_LIST *sections_list = new_const_element_list ();
   const ELEMENT *section_top = 0;
   size_t i;
   TEXT section_number;
@@ -107,18 +105,13 @@ sectioning_structure (DOCUMENT *document)
   /* keep track of the unnumbered */
   int command_unnumbered[5] = {0, 0, 0, 0, 0};
 
-  for (i = 0; i < root->e.c->contents.number; i++)
+  for (i = 0; i < document->sections_list.number; i++)
     {
-      ELEMENT *content = root->e.c->contents.list[i];
+      SECTION_STRUCTURE *section_structure = document->sections_list.list[i];
+      ELEMENT *content = (ELEMENT *)section_structure->element;
       int level;
 
-      if (!content->e.c->cmd || content->e.c->cmd == CM_node
-          || content->e.c->cmd == CM_bye)
-        continue;
-
       document->modified_information |= F_DOCM_tree;
-
-      add_to_const_element_list (sections_list, content);
 
       if (content->e.c->cmd == CM_top && !section_top)
         section_top = content;
@@ -354,7 +347,7 @@ sectioning_structure (DOCUMENT *document)
                     }
                 }
               if (section_number.end > 0)
-                add_extra_string_dup (content, AI_key_section_number,
+                add_extra_string_dup (content, AI_key_section_heading_number,
                                       section_number.text);
             }
         }
@@ -397,17 +390,9 @@ sectioning_structure (DOCUMENT *document)
         }
     }
 
-  if (sections_list->number == 0)
-    {
-      destroy_const_element_list (sections_list);
-      return 0;
-    }
   free (section_number.text);
 
-  document->sections_list = sections_list;
   document->modified_information |= F_DOCM_sections_list;
-
-  return sections_list;
 }
 
 void
@@ -594,7 +579,7 @@ compare_strings (const void *a, const void *b)
 void
 check_nodes_are_referenced (DOCUMENT *document)
 {
-  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
@@ -611,7 +596,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   const ELEMENT *top_node;
 
-  if (!nodes_list || nodes_list->number <= 0)
+  if (nodes_list->number < 1)
     return;
 
   referenced_identifier_space = nodes_list->number * 2;
@@ -622,7 +607,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                                      "Top");
   if (!top_node)
     {
-      top_node = nodes_list->list[0];
+      top_node = nodes_list->list[0]->element;
       char *normalized = lookup_extra_string (top_node, AI_key_normalized);
       if (normalized)
         referenced_identifiers[0] = normalized;
@@ -634,7 +619,8 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      const ELEMENT *node = nodes_list->list[i];
+      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      const ELEMENT *node = node_structure->element;
       int is_target = (node->flags & EF_is_target);
       const ELEMENT * const *node_directions = lookup_extra_directions (node,
                                                    AI_key_node_directions);
@@ -805,7 +791,8 @@ check_nodes_are_referenced (DOCUMENT *document)
      referenced nodes that are not in menu, except for the Top node */
   for (i = 0; i < nodes_list->number; i++)
     {
-      const ELEMENT *node = nodes_list->list[i];
+      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      const ELEMENT *node = node_structure->element;
       int is_target = (node->flags & EF_is_target);
 
       if (is_target)
@@ -868,7 +855,7 @@ void
 set_menus_node_directions (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;
-  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -876,7 +863,7 @@ set_menus_node_directions (DOCUMENT *document)
   int check_menu_entries = 1;
   size_t i;
 
-  if (!nodes_list || nodes_list->number <= 0)
+  if (nodes_list->number < 1)
     return;
 
   if (options && (options->novalidate.o.integer > 0
@@ -896,7 +883,9 @@ set_menus_node_directions (DOCUMENT *document)
   for (i = 0; i < nodes_list->number; i++)
     {
       size_t j;
-      const ELEMENT *node = nodes_list->list[i];
+      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      const ELEMENT *node = node_structure->element;
+
       const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
 
       if (!menus)
@@ -1071,7 +1060,7 @@ section_direction_associated_node (const ELEMENT *section,
 void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
-  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -1080,7 +1069,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   const ELEMENT *top_node = 0;
   const ELEMENT *top_node_next = 0;
 
-  if (!nodes_list || nodes_list->number <= 0)
+  if (nodes_list->number < 1)
     return;
 
   document->modified_information |= F_DOCM_tree;
@@ -1089,9 +1078,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
+      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
     /* as an exception to the rule we modify an element of the nodes list,
        so use a cast to remove const */
-      ELEMENT *node = (ELEMENT *)nodes_list->list[i];
+      ELEMENT *node = (ELEMENT *)node_structure->element;
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
       const ELEMENT * const *menu_directions = lookup_extra_directions (node,
                                                  AI_key_menu_directions);
@@ -1237,8 +1227,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
                   size_t j;
                   for (j = 0; j < nodes_list->number; j++)
                     {
-                      const ELEMENT *first_non_top_node
+                      const NODE_STRUCTURE *first_non_top_node_structure
                         = nodes_list->list[j];
+                      const ELEMENT *first_non_top_node
+                        = first_non_top_node_structure->element;
                       if (first_non_top_node != node)
                         {
                           top_node_next = first_non_top_node;
@@ -1377,11 +1369,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
 }
 
 /* set node directions based on sectioning and @node explicit directions */
-CONST_ELEMENT_LIST *
+void
 construct_nodes_tree (DOCUMENT *document)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
-  const ELEMENT *root = document->tree;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1391,9 +1382,10 @@ construct_nodes_tree (DOCUMENT *document)
 
   size_t i;
 
-  for (i = 0; i < root->e.c->contents.number; i++)
+  for (i = 0; i < document->nodes_list.number; i++)
     {
-      ELEMENT *node = root->e.c->contents.list[i];
+      const NODE_STRUCTURE *node_structure = document->nodes_list.list[i];
+      ELEMENT *node = (ELEMENT *)node_structure->element;
       ELEMENT *arguments_line;
       const char *normalized;
       int is_target;
@@ -1564,10 +1556,7 @@ construct_nodes_tree (DOCUMENT *document)
         }
     }
 
-  document->nodes_list = nodes_list;
   document->modified_information |= F_DOCM_nodes_list;
-
-  return nodes_list;
 }
 
 void
@@ -1733,7 +1722,7 @@ number_floats (DOCUMENT *document)
               if (!(command_other_flags (up) & CF_unnumbered))
                 {
                   const char *section_number
-                       = lookup_extra_string (up, AI_key_section_number);
+                    = lookup_extra_string (up, AI_key_section_heading_number);
                   nr_in_chapter++;
                   text_printf (&number, "%s.%zu", section_number,
                                                   nr_in_chapter);

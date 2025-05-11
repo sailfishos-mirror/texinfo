@@ -12,6 +12,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
   |{ }
  |EXTRA
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -30,6 +31,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |isindex:{1}
+ |node_number:{1}
  |normalized:{index-node}
   *arguments_line C1
    *line_arg C1

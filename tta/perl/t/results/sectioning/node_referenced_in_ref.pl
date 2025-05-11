@@ -14,6 +14,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -68,6 +69,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap-first-level-node}
   *arguments_line C1
    *line_arg C1
@@ -82,6 +84,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{3}
  |normalized:{second-level-node}
   *arguments_line C1
    *line_arg C1

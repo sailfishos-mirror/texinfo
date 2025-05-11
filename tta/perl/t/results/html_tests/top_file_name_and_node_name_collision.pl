@@ -16,6 +16,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{my-node}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -55,6 +57,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{other-node}
   *arguments_line C1
    *line_arg C1
@@ -70,6 +73,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E4|prev->E1]
+ |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
  |toplevel_directions:D[next->E4|prev->E1]
@@ -87,6 +91,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |EXTRA
  |section_directions:D[prev->E3]
  |section_level:{1}
+ |section_number:{3}
  |toplevel_directions:D[prev->E3]
   *arguments_line C1
    *line_arg C1

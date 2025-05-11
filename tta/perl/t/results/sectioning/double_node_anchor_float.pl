@@ -12,6 +12,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{node1}
   *arguments_line C1
    *line_arg C1
@@ -25,6 +26,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |node_number:{2}
  |normalized:{node1}
   *arguments_line C1
    *line_arg C1
@@ -53,6 +55,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |node_number:{3}
  |normalized:{anchor1}
   *arguments_line C1
    *line_arg C1
@@ -160,6 +163,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |node_number:{4}
  |normalized:{float1}
   *arguments_line C1
    *line_arg C1

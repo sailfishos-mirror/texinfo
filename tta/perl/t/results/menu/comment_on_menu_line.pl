@@ -16,6 +16,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -64,6 +65,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -85,6 +87,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1

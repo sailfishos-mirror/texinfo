@@ -15,6 +15,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E3]
+ |node_number:{1}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -29,6 +30,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:

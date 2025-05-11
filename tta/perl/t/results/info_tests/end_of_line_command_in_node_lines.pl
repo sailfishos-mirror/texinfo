@@ -17,6 +17,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -33,6 +34,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |associated_node:[E0]
  |section_childs:EC[E4|E7]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -101,6 +103,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |isindex:{1}
  |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap-f-nl-Something_003f-After-punct}
   *arguments_line C1
    *line_arg C5
@@ -120,8 +123,9 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E7|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -188,6 +192,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |menu_directions:D[prev->E3|up->E0]
  |menus:EC[E8]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{new-n}
   *arguments_line C1
    *line_arg C1
@@ -203,8 +208,9 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1

@@ -18,6 +18,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
     |{ }
    |EXTRA
    |global_command_number:{1}
+   |heading_number:{1}
     *line_arg C4
     |INFO
     |spaces_after_argument:

@@ -13,6 +13,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->E1]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -29,6 +30,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -43,6 +45,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
   |EXTRA
   |associated_anchor_command:[E1]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -3607,6 +3610,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -3631,6 +3635,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |{ }
   |EXTRA
   |global_command_number:{2}
+  |heading_number:{3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -3655,6 +3660,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |{ }
   |EXTRA
   |global_command_number:{3}
+  |heading_number:{4}
    *line_arg C1
    |INFO
    |spaces_after_argument:

@@ -38,7 +38,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 @code{$add_section_names_in_entries} argument is set, a menu entry
 name is added using the section name.  This function should be
-called after @ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, sectioning_structure}.
+called after @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, sectioning_structure}.
 
 @item complete_tree_nodes_missing_menu($document, $use_section_names_in_entries)
 @anchor{Texinfo@asis{::}Transformations complete_tree_nodes_missing_menu($document@comma{} $use_section_names_in_entries)}
@@ -48,7 +48,7 @@ Add whole menus for nodes associated with sections and without menu,
 based on the @emph{$document} sectioning tree.
 If the optional @emph{$add_section_names_in_entries} argument is set, a menu entry
 name is added using the section name.  This function should be
-called after @ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, sectioning_structure}.
+called after @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, sectioning_structure}.
 
 @item fill_gaps_in_sectioning_in_document($document, $commands_heading_tree)
 @anchor{Texinfo@asis{::}Transformations fill_gaps_in_sectioning_in_document($document@comma{} $commands_heading_tree)}

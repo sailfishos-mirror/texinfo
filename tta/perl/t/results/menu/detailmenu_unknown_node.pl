@@ -13,6 +13,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

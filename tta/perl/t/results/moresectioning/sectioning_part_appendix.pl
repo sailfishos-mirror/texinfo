@@ -20,6 +20,7 @@ Next: [U5]
  |section_childs:EC[E1]
  |section_directions:D[next->E5]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -49,8 +50,9 @@ Up: [U0]
  |EXTRA
  |section_childs:EC[E2]
  |section_directions:D[up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -75,8 +77,9 @@ Up: [U1]
  |EXTRA
  |section_childs:EC[E3]
  |section_directions:D[up->E1]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -100,8 +103,9 @@ Up: [U2]
  |EXTRA
  |section_childs:EC[E4]
  |section_directions:D[up->E2]
+ |section_heading_number:{1.1.1}
  |section_level:{3}
- |section_number:{1.1.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -124,8 +128,9 @@ Up: [U3]
   |{ }
  |EXTRA
  |section_directions:D[up->E3]
+ |section_heading_number:{1.1.1.1}
  |section_level:{4}
- |section_number:{1.1.1.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -152,6 +157,7 @@ Next: [U6]
  |section_childs:EC[E6|E7|E8]
  |section_directions:D[next->E9|prev->E0]
  |section_level:{0}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -166,8 +172,9 @@ Next: [U6]
  |EXTRA
  |associated_part:[E5]
  |section_directions:D[next->E7|up->E5]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{7}
  |toplevel_directions:D[next->E7|prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -193,8 +200,9 @@ Up: [U5]
   |{ }
  |EXTRA
  |section_directions:D[next->E8|prev->E6|up->E5]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{8}
  |toplevel_directions:D[next->E8|prev->E6|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -220,6 +228,7 @@ Up: [U5]
  |EXTRA
  |section_directions:D[prev->E7|up->E5]
  |section_level:{1}
+ |section_number:{9}
  |toplevel_directions:D[next->E9|prev->E7|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -243,8 +252,9 @@ Prev: [U5]
  |EXTRA
  |section_childs:EC[E10]
  |section_directions:D[prev->E5]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{10}
  |toplevel_directions:D[prev->E8|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -266,8 +276,9 @@ Up: [U8]
   |{ }
  |EXTRA
  |section_directions:D[up->E9]
+ |section_heading_number:{A.1}
  |section_level:{2}
- |section_number:{A.1}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO

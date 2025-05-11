@@ -28,6 +28,7 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

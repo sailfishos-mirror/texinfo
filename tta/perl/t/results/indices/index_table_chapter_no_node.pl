@@ -20,6 +20,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -36,6 +37,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E8]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -109,6 +111,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{node-with-ftable-and-vtable}
   *arguments_line C1
    *line_arg C1
@@ -124,8 +127,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -298,6 +302,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |isindex:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{node-with-printindex}
   *arguments_line C1
    *line_arg C1
@@ -313,8 +318,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -372,6 +378,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |menu_directions:D[prev->E5|up->E0]
  |menus:EC[E9]
  |node_directions:D[prev->E5|up->E0]
+ |node_number:{4}
  |normalized:{indices-refs}
   *arguments_line C1
    *line_arg C1
@@ -388,8 +395,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_node:[E7]
  |section_childs:EC[E11]
  |section_directions:D[prev->E6|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{4}
  |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -2116,6 +2124,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[up->E7]
+ |node_number:{5}
  |normalized:{node}
   *arguments_line C4
    *line_arg C1
@@ -2134,8 +2143,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[up->E8]
+ |section_heading_number:{3.1}
  |section_level:{2}
- |section_number:{3.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO

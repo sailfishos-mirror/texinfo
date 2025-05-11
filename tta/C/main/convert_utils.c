@@ -260,7 +260,7 @@ add_heading_number (const ELEMENT *current, char *text,
   TEXT result;
   char *number = 0;
   if (numbered != 0)
-    number = lookup_extra_string (current, AI_key_section_number);
+    number = lookup_extra_string (current, AI_key_section_heading_number);
 
   text_init (&result);
 

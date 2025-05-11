@@ -12,6 +12,7 @@ $result_tree_text{'no_node_but_top'} = '*document_root C2
   |{ }
  |EXTRA
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

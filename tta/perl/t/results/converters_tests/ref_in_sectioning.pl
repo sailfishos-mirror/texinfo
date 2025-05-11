@@ -21,6 +21,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -37,6 +38,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -132,6 +134,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{node}
   *arguments_line C1
    *line_arg C1
@@ -147,8 +150,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C2
@@ -185,6 +189,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -201,8 +206,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |associated_node:[E5]
  |section_childs:EC[E7|E8|E9|E10|E11|E12|E13|E14|E15|E16|E17|E18|E19]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C2
@@ -223,8 +229,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E8|up->E6]
+ |section_heading_number:{2.1}
  |section_level:{2}
- |section_number:{2.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C7
    |INFO
@@ -270,8 +277,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E9|prev->E7|up->E6]
+ |section_heading_number:{2.2}
  |section_level:{2}
- |section_number:{2.2}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -296,8 +304,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E10|prev->E8|up->E6]
+ |section_heading_number:{2.3}
  |section_level:{2}
- |section_number:{2.3}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -327,8 +336,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E11|prev->E9|up->E6]
+ |section_heading_number:{2.4}
  |section_level:{2}
- |section_number:{2.4}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -356,8 +366,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E12|prev->E10|up->E6]
+ |section_heading_number:{2.5}
  |section_level:{2}
- |section_number:{2.5}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -386,8 +397,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E13|prev->E11|up->E6]
+ |section_heading_number:{2.6}
  |section_level:{2}
- |section_number:{2.6}
+ |section_number:{9}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -416,8 +428,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E14|prev->E12|up->E6]
+ |section_heading_number:{2.7}
  |section_level:{2}
- |section_number:{2.7}
+ |section_number:{10}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -443,8 +456,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E15|prev->E13|up->E6]
+ |section_heading_number:{2.8}
  |section_level:{2}
- |section_number:{2.8}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -467,8 +481,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E16|prev->E14|up->E6]
+ |section_heading_number:{2.9}
  |section_level:{2}
- |section_number:{2.9}
+ |section_number:{12}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -497,8 +512,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E17|prev->E15|up->E6]
+ |section_heading_number:{2.10}
  |section_level:{2}
- |section_number:{2.10}
+ |section_number:{13}
   *arguments_line C1
    *line_arg C3
    |INFO
@@ -532,8 +548,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E18|prev->E16|up->E6]
+ |section_heading_number:{2.11}
  |section_level:{2}
- |section_number:{2.11}
+ |section_number:{14}
   *arguments_line C1
    *line_arg C3
    |INFO
@@ -559,8 +576,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[next->E19|prev->E17|up->E6]
+ |section_heading_number:{2.12}
  |section_level:{2}
- |section_number:{2.12}
+ |section_number:{15}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -583,8 +601,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_directions:D[prev->E18|up->E6]
+ |section_heading_number:{2.13}
  |section_level:{2}
- |section_number:{2.13}
+ |section_number:{16}
   *arguments_line C1
    *line_arg C2
    |INFO

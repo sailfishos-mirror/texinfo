@@ -14,6 +14,7 @@ $result_tree_text{'multiple_menus'} = '*document_root C2
  |is_target:{1}
  |menus:EC[E1|E2]
  |node_directions:D[next->MISSING: (menu_entry_node)[C4]]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

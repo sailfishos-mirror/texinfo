@@ -484,9 +484,9 @@ sub book_unit_file_name($$$$)
   return (undef, undef) unless ($command);
   if ($converter->unit_is_top_output_unit($output_unit)) {
     $new_file_name = "${prefix}_top.html";
-  } elsif (defined($command->{'extra'}->{'section_number'})
-           and ($command->{'extra'}->{'section_number'} ne '')) {
-    my $number = $command->{'extra'}->{'section_number'};
+  } elsif (defined($command->{'extra'}->{'section_heading_number'})
+           and ($command->{'extra'}->{'section_heading_number'} ne '')) {
+    my $number = $command->{'extra'}->{'section_heading_number'};
     $number .= '.' unless ($number =~ /\.$/);
     $new_file_name = "${prefix}_$number" . 'html';
   } else {

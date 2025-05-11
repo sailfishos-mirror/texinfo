@@ -18,6 +18,7 @@ FastForward: [U1]
  |EXTRA
  |section_childs:EC[E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -50,6 +51,7 @@ NodeUp: (dir)
  |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -73,8 +75,9 @@ NodeUp: (dir)
  |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_directions:D[up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1

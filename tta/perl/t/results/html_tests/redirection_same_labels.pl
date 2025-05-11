@@ -24,6 +24,7 @@ NodeForward: [U1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -40,6 +41,7 @@ NodeForward: [U1]
  |associated_node:[E0]
  |section_childs:EC[E4|E9]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -127,6 +129,7 @@ NodeBack: [U0]
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{umlaut}
   *arguments_line C1
    *line_arg C1
@@ -142,8 +145,9 @@ NodeBack: [U0]
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E9|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -206,6 +210,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E3]
  |node_directions:D[next->E7|up->E3]
+ |node_number:{3}
  |normalized:{_00ef}
   *arguments_line C1
    *line_arg C1
@@ -224,6 +229,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E3]
  |node_directions:D[prev->E6|up->E3]
+ |node_number:{4}
  |normalized:{_0129}
   *arguments_line C1
    *line_arg C1
@@ -259,6 +265,7 @@ NodeBack: [U2]
  |menu_directions:D[prev->E3|up->E0]
  |menus:EC[E10]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{5}
  |normalized:{circumflex}
   *arguments_line C1
    *line_arg C1
@@ -274,8 +281,9 @@ NodeBack: [U2]
  |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -323,6 +331,7 @@ NodeBack: [U2]
  |is_target:{1}
  |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
+ |node_number:{6}
  |normalized:{_00ee}
   *arguments_line C1
    *line_arg C1

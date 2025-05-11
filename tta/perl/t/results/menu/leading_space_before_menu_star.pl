@@ -13,6 +13,7 @@ $result_tree_text{'leading_space_before_menu_star'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{a-node}
   *arguments_line C1
    *line_arg C1

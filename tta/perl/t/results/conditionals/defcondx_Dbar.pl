@@ -24,6 +24,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
   |{ }
  |EXTRA
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

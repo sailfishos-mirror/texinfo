@@ -16,6 +16,7 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{n1}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -60,6 +62,7 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
+ |node_number:{2}
  |normalized:{n2}
   *arguments_line C1
    *line_arg C1
@@ -75,6 +78,7 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[prev->E1]
+ |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
  |toplevel_directions:D[prev->E1]

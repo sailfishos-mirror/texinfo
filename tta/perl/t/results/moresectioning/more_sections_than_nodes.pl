@@ -16,6 +16,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E8|E14|E19]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -102,8 +104,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[next->E5|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -122,6 +125,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{n-c2}
   *arguments_line C1
    *line_arg C1
@@ -138,8 +142,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |associated_node:[E4]
  |section_childs:EC[E6]
  |section_directions:D[next->E8|prev->E3|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E8|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -154,8 +159,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[up->E5]
+ |section_heading_number:{2.1}
  |section_level:{2}
- |section_number:{2.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -174,6 +180,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |menu_directions:D[next->E17|prev->E4|up->E0]
  |menus:EC[E9]
  |node_directions:D[next->E17|prev->E4|up->E0]
+ |node_number:{3}
  |normalized:{n-c3}
   *arguments_line C4
    *line_arg C1
@@ -213,8 +220,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |associated_node:[E7]
  |section_childs:EC[E10|E12|E13]
  |section_directions:D[next->E14|prev->E5|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{5}
  |toplevel_directions:D[next->E14|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -258,8 +266,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[next->E12|up->E8]
+ |section_heading_number:{3.1}
  |section_level:{2}
- |section_number:{3.1}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -277,6 +286,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |is_target:{1}
  |menu_directions:D[up->E7]
  |node_directions:D[up->E7]
+ |node_number:{4}
  |normalized:{n-c3-s-2}
   *arguments_line C1
    *line_arg C1
@@ -292,8 +302,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E13|prev->E10|up->E8]
+ |section_heading_number:{3.2}
  |section_level:{2}
- |section_number:{3.2}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -307,8 +318,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[prev->E12|up->E8]
+ |section_heading_number:{3.3}
  |section_level:{2}
- |section_number:{3.3}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -323,8 +335,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |EXTRA
  |section_childs:EC[E15]
  |section_directions:D[next->E19|prev->E8|up->E1]
+ |section_heading_number:{4}
  |section_level:{1}
- |section_number:{4}
+ |section_number:{9}
  |toplevel_directions:D[next->E19|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -340,8 +353,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |EXTRA
  |section_childs:EC[E16|E18]
  |section_directions:D[up->E14]
+ |section_heading_number:{4.1}
  |section_level:{2}
- |section_number:{4.1}
+ |section_number:{10}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -355,8 +369,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[next->E18|up->E15]
+ |section_heading_number:{4.1.1}
  |section_level:{3}
- |section_number:{4.1.1}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -374,6 +389,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |is_target:{1}
  |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
+ |node_number:{5}
  |normalized:{n-c3-s1-s2}
   *arguments_line C4
    *line_arg C1
@@ -400,8 +416,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |associated_anchor_command:[E17]
  |associated_node:[E17]
  |section_directions:D[prev->E16|up->E15]
+ |section_heading_number:{4.1.2}
  |section_level:{3}
- |section_number:{4.1.2}
+ |section_number:{12}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -415,8 +432,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |section_directions:D[prev->E14|up->E1]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{13}
  |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1

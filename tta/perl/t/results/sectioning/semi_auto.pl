@@ -16,6 +16,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -96,6 +98,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Chap1}
   *arguments_line C1
    *line_arg C1
@@ -112,8 +115,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |associated_node:[E3]
  |section_childs:EC[E7|E9]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -161,6 +165,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[next->E8|up->E3]
+ |node_number:{3}
  |normalized:{Sec-in-chapter}
   *arguments_line C1
    *line_arg C1
@@ -176,8 +181,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E9|up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -195,6 +201,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{4}
  |normalized:{Section-non-auto}
   *arguments_line C4
    *line_arg C1
@@ -226,8 +233,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E7|up->E4]
+ |section_heading_number:{1.2}
  |section_level:{2}
- |section_number:{1.2}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO

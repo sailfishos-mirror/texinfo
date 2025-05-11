@@ -17,6 +17,7 @@ FastForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -47,6 +48,7 @@ FastBack: [U0]
  |part_associated_section:[E2]
  |section_childs:EC[E2]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,8 +63,9 @@ FastBack: [U0]
  |EXTRA
  |associated_part:[E1]
  |section_directions:D[up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1

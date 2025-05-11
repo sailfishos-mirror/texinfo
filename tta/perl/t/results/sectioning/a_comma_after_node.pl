@@ -12,6 +12,7 @@ $result_tree_text{'a_comma_after_node'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Commands}
   *arguments_line C3
    *line_arg C1

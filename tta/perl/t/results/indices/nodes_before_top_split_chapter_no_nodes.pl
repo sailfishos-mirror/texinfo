@@ -23,6 +23,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |isindex:{1}
  |menus:EC[E1]
  |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{first-before-top}
   *arguments_line C4
    *line_arg C1
@@ -113,6 +114,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |isindex:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{node-in-menu-before-top}
   *arguments_line C4
    *line_arg C1
@@ -180,6 +182,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |isindex:{1}
  |menus:EC[E4]
  |node_directions:D[prev->E0]
+ |node_number:{3}
  |normalized:{Top}
   *arguments_line C3
    *line_arg C1
@@ -291,6 +294,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |menu_directions:D[up->E3]
  |menus:EC[E6]
  |node_directions:D[prev->E3|up->E3]
+ |node_number:{4}
  |normalized:{chap-first}
   *arguments_line C4
    *line_arg C1
@@ -405,6 +409,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |menu_directions:D[up->E5]
  |menus:EC[E8]
  |node_directions:D[up->E5]
+ |node_number:{5}
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -480,6 +485,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |is_target:{1}
  |menu_directions:D[prev->E10|up->E7]
  |node_directions:D[prev->E10|up->E7]
+ |node_number:{6}
  |normalized:{another}
   *arguments_line C4
    *line_arg C1
@@ -556,6 +562,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
  |isindex:{1}
  |menu_directions:D[next->E9|up->E7]
  |node_directions:D[next->E9|up->E7]
+ |node_number:{7}
  |normalized:{a-node}
   *arguments_line C4
    *line_arg C1

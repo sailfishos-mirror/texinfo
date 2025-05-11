@@ -16,6 +16,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_node:[E0]
  |section_childs:EC[E4|E8|E11|E14|E18]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -136,6 +138,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |node_description:[E5]
  |node_directions:D[next->E7|prev->E0|up->E0]
  |node_long_description:[E6]
+ |node_number:{2}
  |normalized:{toto}
   *arguments_line C1
    *line_arg C1
@@ -151,8 +154,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E8|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -227,6 +231,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |node_description:[E9]
  |node_directions:D[next->E10|prev->E3|up->E0]
  |node_long_description:[E9]
+ |node_number:{3}
  |normalized:{titi}
   *arguments_line C1
    *line_arg C1
@@ -242,8 +247,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[next->E11|prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E11|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -286,6 +292,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |node_description:[E12]
  |node_directions:D[next->E13|prev->E7|up->E0]
  |node_long_description:[E12]
+ |node_number:{4}
  |normalized:{other}
   *arguments_line C1
    *line_arg C1
@@ -301,8 +308,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[next->E14|prev->E8|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{4}
  |toplevel_directions:D[next->E14|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -368,6 +376,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |node_description:[E16]
  |node_directions:D[next->E17|prev->E10|up->E0]
  |node_long_description:[E15]
+ |node_number:{5}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
    *line_arg C1
@@ -383,8 +392,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E18|prev->E11|up->E1]
+ |section_heading_number:{4}
  |section_level:{1}
- |section_number:{4}
+ |section_number:{5}
  |toplevel_directions:D[next->E18|prev->E11|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -439,6 +449,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |node_description:[E19]
  |node_directions:D[prev->E13|up->E0]
  |node_long_description:[E19]
+ |node_number:{6}
  |normalized:{node-double-nodedescriptionblock}
   *arguments_line C1
    *line_arg C1
@@ -454,8 +465,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |associated_anchor_command:[E17]
  |associated_node:[E17]
  |section_directions:D[prev->E14|up->E1]
+ |section_heading_number:{5}
  |section_level:{1}
- |section_number:{5}
+ |section_number:{6}
  |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1

@@ -42,6 +42,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -58,6 +59,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10|E12|E14|E16|E18|E20|E22|E24|E26|E28|E30|E32|E34|E36|E38|E40|E42|E44|E46|E48|E50|E52|E54|E56]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -832,6 +834,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{-_007b-_007d}
   *arguments_line C1
    *line_arg C5
@@ -851,8 +854,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C5
@@ -875,6 +879,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{-_0021-_002e-_002e-_003f-_0040}
   *arguments_line C1
    *line_arg C17
@@ -906,8 +911,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C17
@@ -942,6 +948,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
+ |node_number:{4}
  |normalized:{_0040-_007b-_007d-_005c-_0023}
   *arguments_line C1
    *line_arg C9
@@ -970,8 +977,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{4}
  |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C9
@@ -1003,6 +1011,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E7|up->E0]
  |node_directions:D[next->E11|prev->E7|up->E0]
+ |node_number:{5}
  |normalized:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
   *arguments_line C1
    *line_arg C13
@@ -1037,8 +1046,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[next->E12|prev->E8|up->E1]
+ |section_heading_number:{4}
  |section_level:{1}
- |section_number:{4}
+ |section_number:{5}
  |toplevel_directions:D[next->E12|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C13
@@ -1076,6 +1086,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E9|up->E0]
  |node_directions:D[next->E13|prev->E9|up->E0]
+ |node_number:{6}
  |normalized:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
   *arguments_line C1
    *line_arg C11
@@ -1107,8 +1118,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E14|prev->E10|up->E1]
+ |section_heading_number:{5}
  |section_level:{1}
- |section_number:{5}
+ |section_number:{6}
  |toplevel_directions:D[next->E14|prev->E10|up->E1]
   *arguments_line C1
    *line_arg C11
@@ -1143,6 +1155,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E11|up->E0]
  |node_directions:D[next->E15|prev->E11|up->E0]
+ |node_number:{7}
  |normalized:{_2265-_2264-_2192}
   *arguments_line C1
    *line_arg C5
@@ -1165,8 +1178,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E16|prev->E12|up->E1]
+ |section_heading_number:{6}
  |section_level:{1}
- |section_number:{6}
+ |section_number:{7}
  |toplevel_directions:D[next->E16|prev->E12|up->E1]
   *arguments_line C1
    *line_arg C5
@@ -1192,6 +1206,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E17|prev->E13|up->E0]
  |node_directions:D[next->E17|prev->E13|up->E0]
+ |node_number:{8}
  |normalized:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
   *arguments_line C1
    *line_arg C13
@@ -1226,8 +1241,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_directions:D[next->E18|prev->E14|up->E1]
+ |section_heading_number:{7}
  |section_level:{1}
- |section_number:{7}
+ |section_number:{8}
  |toplevel_directions:D[next->E18|prev->E14|up->E1]
   *arguments_line C1
    *line_arg C13
@@ -1265,6 +1281,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E19|prev->E15|up->E0]
  |node_directions:D[next->E19|prev->E15|up->E0]
+ |node_number:{9}
  |normalized:{_21d2-_00b0-a-b-_00e5}
   *arguments_line C1
    *line_arg C9
@@ -1293,8 +1310,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E17]
  |associated_node:[E17]
  |section_directions:D[next->E20|prev->E16|up->E1]
+ |section_heading_number:{8}
  |section_level:{1}
- |section_number:{8}
+ |section_number:{9}
  |toplevel_directions:D[next->E20|prev->E16|up->E1]
   *arguments_line C1
    *line_arg C9
@@ -1326,6 +1344,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E21|prev->E17|up->E0]
  |node_directions:D[next->E21|prev->E17|up->E0]
+ |node_number:{10}
  |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
   *arguments_line C1
    *line_arg C27
@@ -1381,8 +1400,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E19]
  |associated_node:[E19]
  |section_directions:D[next->E22|prev->E18|up->E1]
+ |section_heading_number:{9}
  |section_level:{1}
- |section_number:{9}
+ |section_number:{10}
  |toplevel_directions:D[next->E22|prev->E18|up->E1]
   *arguments_line C1
    *line_arg C27
@@ -1441,6 +1461,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E23|prev->E19|up->E0]
  |node_directions:D[next->E23|prev->E19|up->E0]
+ |node_number:{11}
  |normalized:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
   *arguments_line C1
    *line_arg C21
@@ -1500,8 +1521,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E21]
  |associated_node:[E21]
  |section_directions:D[next->E24|prev->E20|up->E1]
+ |section_heading_number:{10}
  |section_level:{1}
- |section_number:{10}
+ |section_number:{11}
  |toplevel_directions:D[next->E24|prev->E20|up->E1]
   *arguments_line C1
    *line_arg C21
@@ -1564,6 +1586,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E21|up->E0]
  |node_directions:D[next->E25|prev->E21|up->E0]
+ |node_number:{12}
  |normalized:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
   *arguments_line C1
    *line_arg C13
@@ -1605,8 +1628,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E23]
  |associated_node:[E23]
  |section_directions:D[next->E26|prev->E22|up->E1]
+ |section_heading_number:{11}
  |section_level:{1}
- |section_number:{11}
+ |section_number:{12}
  |toplevel_directions:D[next->E26|prev->E22|up->E1]
   *arguments_line C1
    *line_arg C13
@@ -1651,6 +1675,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E27|prev->E23|up->E0]
  |node_directions:D[next->E27|prev->E23|up->E0]
+ |node_number:{13}
  |normalized:{_0131-_1e14-_1e08}
   *arguments_line C1
    *line_arg C5
@@ -1680,8 +1705,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E25]
  |associated_node:[E25]
  |section_directions:D[next->E28|prev->E24|up->E1]
+ |section_heading_number:{12}
  |section_level:{1}
- |section_number:{12}
+ |section_number:{13}
  |toplevel_directions:D[next->E28|prev->E24|up->E1]
   *arguments_line C1
    *line_arg C5
@@ -1714,6 +1740,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E29|prev->E25|up->E0]
  |node_directions:D[next->E29|prev->E25|up->E0]
+ |node_number:{14}
  |normalized:{_201c-_201d-_2018-_2019-_201e-_201a}
   *arguments_line C1
    *line_arg C11
@@ -1745,8 +1772,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E27]
  |associated_node:[E27]
  |section_directions:D[next->E30|prev->E26|up->E1]
+ |section_heading_number:{13}
  |section_level:{1}
- |section_number:{13}
+ |section_number:{14}
  |toplevel_directions:D[next->E30|prev->E26|up->E1]
   *arguments_line C1
    *line_arg C11
@@ -1781,6 +1809,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E31|prev->E27|up->E0]
  |node_directions:D[next->E31|prev->E27|up->E0]
+ |node_number:{15}
  |normalized:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
   *arguments_line C1
    *line_arg C11
@@ -1812,8 +1841,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E29]
  |associated_node:[E29]
  |section_directions:D[next->E32|prev->E28|up->E1]
+ |section_heading_number:{14}
  |section_level:{1}
- |section_number:{14}
+ |section_number:{15}
  |toplevel_directions:D[next->E32|prev->E28|up->E1]
   *arguments_line C1
    *line_arg C11
@@ -1848,6 +1878,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E33|prev->E29|up->E0]
  |node_directions:D[next->E33|prev->E29|up->E0]
+ |node_number:{16}
  |normalized:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
   *arguments_line C1
    *line_arg C1
@@ -1863,8 +1894,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E31]
  |associated_node:[E31]
  |section_directions:D[next->E34|prev->E30|up->E1]
+ |section_heading_number:{15}
  |section_level:{1}
- |section_number:{15}
+ |section_number:{16}
  |toplevel_directions:D[next->E34|prev->E30|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -1883,6 +1915,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E35|prev->E31|up->E0]
  |node_directions:D[next->E35|prev->E31|up->E0]
+ |node_number:{17}
  |normalized:{AAA-AAA-BBB}
   *arguments_line C1
    *line_arg C5
@@ -1913,8 +1946,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E33]
  |associated_node:[E33]
  |section_directions:D[next->E36|prev->E32|up->E1]
+ |section_heading_number:{16}
  |section_level:{1}
- |section_number:{16}
+ |section_number:{17}
  |toplevel_directions:D[next->E36|prev->E32|up->E1]
   *arguments_line C1
    *line_arg C5
@@ -1948,6 +1982,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E37|prev->E33|up->E0]
  |node_directions:D[next->E37|prev->E33|up->E0]
+ |node_number:{18}
  |normalized:{CCC-CCC-DDD}
   *arguments_line C1
   >SOURCEMARKS
@@ -1986,8 +2021,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E35]
  |associated_node:[E35]
  |section_directions:D[next->E38|prev->E34|up->E1]
+ |section_heading_number:{17}
  |section_level:{1}
- |section_number:{17}
+ |section_number:{18}
  |toplevel_directions:D[next->E38|prev->E34|up->E1]
   *arguments_line C1
   >SOURCEMARKS
@@ -2034,6 +2070,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E39|prev->E35|up->E0]
  |node_directions:D[next->E39|prev->E35|up->E0]
+ |node_number:{19}
  |normalized:{someone_0040somewher-no_005fexplain_0040there}
   *arguments_line C1
    *line_arg C3
@@ -2064,8 +2101,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E37]
  |associated_node:[E37]
  |section_directions:D[next->E40|prev->E36|up->E1]
+ |section_heading_number:{18}
  |section_level:{1}
- |section_number:{18}
+ |section_number:{19}
  |toplevel_directions:D[next->E40|prev->E36|up->E1]
   *arguments_line C1
    *line_arg C3
@@ -2099,6 +2137,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E41|prev->E37|up->E0]
  |node_directions:D[next->E41|prev->E37|up->E0]
+ |node_number:{20}
  |normalized:{f_002d_002dile1-f_002d_002dile}
   *arguments_line C1
   >SOURCEMARKS
@@ -2140,8 +2179,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E39]
  |associated_node:[E39]
  |section_directions:D[next->E42|prev->E38|up->E1]
+ |section_heading_number:{19}
  |section_level:{1}
- |section_number:{19}
+ |section_number:{20}
  |toplevel_directions:D[next->E42|prev->E38|up->E1]
   *arguments_line C1
   >SOURCEMARKS
@@ -2191,6 +2231,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E43|prev->E39|up->E0]
  |node_directions:D[next->E43|prev->E39|up->E0]
+ |node_number:{21}
  |normalized:{-_0040-_007b_007d-_002e-}
   *arguments_line C1
   >SOURCEMARKS
@@ -2218,8 +2259,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E41]
  |associated_node:[E41]
  |section_directions:D[next->E44|prev->E40|up->E1]
+ |section_heading_number:{20}
  |section_level:{1}
- |section_number:{20}
+ |section_number:{21}
  |toplevel_directions:D[next->E44|prev->E40|up->E1]
   *arguments_line C1
   >SOURCEMARKS
@@ -2255,6 +2297,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E45|prev->E41|up->E0]
  |node_directions:D[next->E45|prev->E41|up->E0]
+ |node_number:{22}
  |normalized:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
   *arguments_line C1
    *line_arg C17
@@ -2312,8 +2355,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E43]
  |associated_node:[E43]
  |section_directions:D[next->E46|prev->E42|up->E1]
+ |section_heading_number:{21}
  |section_level:{1}
- |section_number:{21}
+ |section_number:{22}
  |toplevel_directions:D[next->E46|prev->E42|up->E1]
   *arguments_line C1
    *line_arg C17
@@ -2374,6 +2418,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E47|prev->E43|up->E0]
  |node_directions:D[next->E47|prev->E43|up->E0]
+ |node_number:{23}
  |normalized:{env-code-option-samp-command-file-C_002dx-ESC}
   *arguments_line C1
    *line_arg C13
@@ -2418,8 +2463,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E45]
  |associated_node:[E45]
  |section_directions:D[next->E48|prev->E44|up->E1]
+ |section_heading_number:{22}
  |section_level:{1}
- |section_number:{22}
+ |section_number:{23}
  |toplevel_directions:D[next->E48|prev->E44|up->E1]
   *arguments_line C1
    *line_arg C13
@@ -2467,6 +2513,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E49|prev->E45|up->E0]
  |node_directions:D[next->E49|prev->E45|up->E0]
+ |node_number:{24}
  |normalized:{8_002e27in}
   *arguments_line C1
    *line_arg C2
@@ -2485,8 +2532,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E47]
  |associated_node:[E47]
  |section_directions:D[next->E50|prev->E46|up->E1]
+ |section_heading_number:{23}
  |section_level:{1}
- |section_number:{23}
+ |section_number:{24}
  |toplevel_directions:D[next->E50|prev->E46|up->E1]
   *arguments_line C1
    *line_arg C2
@@ -2508,6 +2556,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E51|prev->E47|up->E0]
  |node_directions:D[next->E51|prev->E47|up->E0]
+ |node_number:{25}
  |normalized:{sansserif-slanted}
   *arguments_line C1
    *line_arg C3
@@ -2529,8 +2578,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E49]
  |associated_node:[E49]
  |section_directions:D[next->E52|prev->E48|up->E1]
+ |section_heading_number:{24}
  |section_level:{1}
- |section_number:{24}
+ |section_number:{25}
  |toplevel_directions:D[next->E52|prev->E48|up->E1]
   *arguments_line C1
    *line_arg C3
@@ -2555,6 +2605,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E53|prev->E49|up->E0]
  |node_directions:D[next->E53|prev->E49|up->E0]
+ |node_number:{26}
  |normalized:{indicateurl}
   *arguments_line C1
    *line_arg C1
@@ -2572,8 +2623,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E51]
  |associated_node:[E51]
  |section_directions:D[next->E54|prev->E50|up->E1]
+ |section_heading_number:{25}
  |section_level:{1}
- |section_number:{25}
+ |section_number:{26}
  |toplevel_directions:D[next->E54|prev->E50|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -2594,6 +2646,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[next->E55|prev->E51|up->E0]
  |node_directions:D[next->E55|prev->E51|up->E0]
+ |node_number:{27}
  |normalized:{gH-3rd}
   *arguments_line C1
    *line_arg C3
@@ -2615,8 +2668,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E53]
  |associated_node:[E53]
  |section_directions:D[next->E56|prev->E52|up->E1]
+ |section_heading_number:{26}
  |section_level:{1}
- |section_number:{26}
+ |section_number:{27}
  |toplevel_directions:D[next->E56|prev->E52|up->E1]
   *arguments_line C1
    *line_arg C3
@@ -2641,6 +2695,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |is_target:{1}
  |menu_directions:D[prev->E53|up->E0]
  |node_directions:D[prev->E53|up->E0]
+ |node_number:{28}
  |normalized:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
   *arguments_line C1
    *line_arg C5
@@ -2674,8 +2729,9 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  |associated_anchor_command:[E55]
  |associated_node:[E55]
  |section_directions:D[prev->E54|up->E1]
+ |section_heading_number:{27}
  |section_level:{1}
- |section_number:{27}
+ |section_number:{28}
  |toplevel_directions:D[prev->E54|up->E1]
   *arguments_line C1
    *line_arg C5

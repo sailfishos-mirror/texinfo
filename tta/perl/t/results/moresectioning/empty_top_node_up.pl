@@ -16,6 +16,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -80,6 +82,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

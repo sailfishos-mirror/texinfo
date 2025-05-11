@@ -23,6 +23,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |{ }
  |EXTRA
  |section_directions:D[next->E1]
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
@@ -56,6 +57,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |{ }
  |EXTRA
  |section_directions:D[next->E2|prev->E0]
+ |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
  |toplevel_directions:D[next->E2|prev->E0]
@@ -78,6 +80,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |{ }
  |EXTRA
  |section_directions:D[next->E3|prev->E1]
+ |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
  |toplevel_directions:D[next->E3|prev->E1]
@@ -104,6 +107,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
   |{ }
  |EXTRA
  |section_directions:D[prev->E2]
+ |section_heading_number:{4}
  |section_level:{2}
  |section_number:{4}
  |toplevel_directions:D[prev->E2]

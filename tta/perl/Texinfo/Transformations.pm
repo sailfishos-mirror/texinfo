@@ -450,10 +450,12 @@ sub insert_nodes_for_sectioning_commands($)
 
   my $customization_information = $document;
   my $root = $document->tree();
+  my $nodes_list = $document->nodes_list();
 
   my @added_nodes;
   my $previous_node;
   my $contents_nr = scalar(@{$root->{'contents'}});
+  my $node_idx = 0;
   for (my $idx = 0; $idx < $contents_nr; $idx++) {
     my $content = $root->{'contents'}->[$idx];
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
@@ -477,22 +479,29 @@ sub insert_nodes_for_sectioning_commands($)
         splice(@{$root->{'contents'}}, $idx, 0, $new_node);
         $idx++;
         $contents_nr++;
-        push @added_nodes, $new_node;
+        # insert in nodes list
+        my $new_list_node = {'element' => $new_node};
+        splice(@{$nodes_list}, $node_idx, 0, $new_list_node);
+        $node_idx++;
+        $new_node->{'extra'}->{'node_number'} = $node_idx;
         $new_node->{'extra'}->{'associated_section'} = $content;
         $content->{'extra'} = {} if (!$content->{'extra'});
         $content->{'extra'}->{'associated_node'} = $new_node;
         $new_node->{'parent'} = $content->{'parent'};
+        push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
                                              [$new_node, $previous_node]);
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
-    $previous_node = $content
-      if ($content->{'cmdname'}
-          and $content->{'cmdname'} eq 'node'
-          and $content->{'extra'}
-          and $content->{'extra'}->{'is_target'});
+    if ($content->{'cmdname'}
+        and $content->{'cmdname'} eq 'node'
+        and $content->{'extra'}
+        and $content->{'extra'}->{'is_target'}) {
+      $previous_node = $content;
+      $node_idx++;
+    }
   }
   return \@added_nodes;
 }
@@ -1007,7 +1016,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
+called after L<sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
 
 =item complete_tree_nodes_missing_menu($document, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
@@ -1016,7 +1025,7 @@ Add whole menus for nodes associated with sections and without menu,
 based on the I<$document> sectioning tree.
 If the optional I<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
+called after L<sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
 
 =item fill_gaps_in_sectioning_in_document($document, $commands_heading_tree)
 X<C<fill_gaps_in_sectioning_in_document>>

@@ -14,6 +14,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
   |{ }
  |EXTRA
  |level_modifier:{-1}
+ |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
  |sectioning_root:
@@ -33,6 +34,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
   |level_modifier:{-1}
    *line_arg C1
    |INFO

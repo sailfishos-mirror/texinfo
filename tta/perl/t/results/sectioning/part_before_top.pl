@@ -18,6 +18,7 @@ This: [U0]
  |part_associated_section:[E1]
  |section_directions:D[next->E1]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -38,6 +39,7 @@ This: [U0]
  |associated_part:[E0]
  |section_directions:D[prev->E0]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

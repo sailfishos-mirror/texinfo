@@ -13,6 +13,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->MISSING: (line_arg)[C8]]
+ |node_number:{1}
  |normalized:{a}
   *arguments_line C2
    *line_arg C1

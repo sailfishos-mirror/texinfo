@@ -25,6 +25,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -41,6 +42,7 @@ NodeBack: [U0]
  |associated_node:[E0]
  |section_directions:D[next->E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -90,6 +92,7 @@ NodeBack: [U0]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap-part-node-after-top}
   *arguments_line C1
    *line_arg C1
@@ -112,6 +115,7 @@ Prev: [U0]
  |global_command_number:{1}
  |section_directions:D[prev->E1]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

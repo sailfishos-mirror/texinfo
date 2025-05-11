@@ -134,7 +134,8 @@ sub _set_appendix_direction_node_name
     return 0;
   }
 
-  foreach my $section (@{$sections_list}) {
+  foreach my $section_structure (@{$sections_list}) {
+    my $section = $section_structure->{'element'};
     if ($section->{'cmdname'} eq 'appendix') {
       if ($section->{'extra'}
           and $section->{'extra'}->{'associated_node'}) {

@@ -31,6 +31,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -47,6 +48,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -102,6 +104,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap1}
   *arguments_line C1
    *line_arg C1
@@ -117,8 +120,9 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1

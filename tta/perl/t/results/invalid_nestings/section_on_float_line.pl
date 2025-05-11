@@ -31,6 +31,7 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:

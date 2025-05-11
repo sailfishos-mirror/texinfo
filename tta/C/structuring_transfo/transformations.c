@@ -34,6 +34,7 @@
 #include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
+#include "structure_list.h"
 #include "translations.h"
 #include "builtin_commands.h"
 #include "errors.h"
@@ -815,6 +816,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
   ELEMENT_LIST *added_nodes = new_list ();
   size_t idx;
   ELEMENT *previous_node = 0;
+  size_t node_idx = 0;
 
   for (idx = 0; idx < root->e.c->contents.number; idx++)
     {
@@ -858,7 +860,11 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   ELEMENT_LIST *new_previous = new_list ();
                   insert_into_contents (root, added_node, idx);
                   idx++;
-                  add_to_element_list (added_nodes, added_node);
+                  insert_into_node_structure_list (&document->nodes_list,
+                                                   added_node, node_idx);
+                  node_idx++;
+                  add_extra_integer (added_node, AI_key_node_number,
+                                     node_idx);
                   add_extra_element (added_node, AI_key_associated_section,
                                      content);
                   add_extra_element (content, AI_key_associated_node, added_node);
@@ -869,6 +875,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   modify_tree (content, &reassociate_to_node,
                                (void *)new_previous);
                   destroy_list (new_previous);
+                  add_to_element_list (added_nodes, added_node);
                 }
             }
         }
@@ -876,7 +883,10 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
         {
           int is_target = (content->flags & EF_is_target);
           if (is_target)
-            previous_node = content;
+            {
+              previous_node = content;
+              node_idx++;
+            }
         }
     }
   return added_nodes;

@@ -1037,12 +1037,13 @@ sub _convert($$;$)
             # having a label (empty) is important.
             my $label = '';
             if ($opened_element->{'extra'}
-                and defined($opened_element->{'extra'}->{'section_number'})
+                and defined($opened_element->{'extra'}
+                                        ->{'section_heading_number'})
                 and ($self->get_conf('NUMBER_SECTIONS')
                      or !defined($self->get_conf('NUMBER_SECTIONS')))) {
               # Looking at docbook2html output, Appendix is appended in the
               # section title, so only the letter is used.
-              $label = $opened_element->{'extra'}->{'section_number'};
+              $label = $opened_element->{'extra'}->{'section_heading_number'};
             }
             my $docbook_sectioning_element
                = _docbook_section_element($self, $opened_element);

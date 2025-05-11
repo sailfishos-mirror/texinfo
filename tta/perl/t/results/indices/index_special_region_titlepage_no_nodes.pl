@@ -189,6 +189,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E8]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -205,6 +206,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |associated_node:[E4]
  |section_childs:EC[E6|E9]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -223,8 +225,9 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   |{ }
  |EXTRA
  |section_directions:D[next->E9|up->E5]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E9|prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
@@ -403,6 +406,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |isindex:{1}
  |menu_directions:D[up->E4]
  |node_directions:D[prev->E4|up->E4]
+ |node_number:{2}
  |normalized:{Copying-and-indices}
   *arguments_line C1
    *line_arg C1
@@ -418,8 +422,9 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E6|up->E5]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{3}
  |toplevel_directions:D[prev->E6|up->E5]
   *arguments_line C1
    *line_arg C1

@@ -17,6 +17,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
+ |node_number:{1}
  |normalized:{section-node}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
@@ -58,6 +60,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |menu_directions:D[up->E5]
  |menus:EC[E4]
  |node_directions:D[next->E5|prev->E0|up->E5]
+ |node_number:{2}
  |normalized:{chapter-node}
   *arguments_line C1
    *line_arg C1
@@ -73,6 +76,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E6|prev->E1]
+ |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1]
@@ -122,6 +126,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E2]
+ |node_number:{3}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -138,6 +143,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |associated_node:[E5]
  |section_directions:D[prev->E3]
  |section_level:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E3]
   *arguments_line C1
    *line_arg C1

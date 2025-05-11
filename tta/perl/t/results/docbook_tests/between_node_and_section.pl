@@ -15,6 +15,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -30,6 +31,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E6]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -53,6 +55,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|up->E0]
+ |node_number:{2}
  |normalized:{sec1}
   *arguments_line C1
    *line_arg C1
@@ -68,8 +71,9 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -86,6 +90,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
+ |node_number:{3}
  |normalized:{sec2}
   *arguments_line C1
    *line_arg C1
@@ -108,8 +113,9 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
+ |section_heading_number:{1.2}
  |section_level:{2}
- |section_number:{1.2}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO

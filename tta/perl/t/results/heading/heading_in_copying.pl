@@ -19,6 +19,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
     |{ }
    |EXTRA
    |global_command_number:{1}
+   |heading_number:{1}
     *line_arg C4
     |INFO
     |spaces_after_argument:
@@ -49,6 +50,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
     |{ }
    |EXTRA
    |global_command_number:{1}
+   |heading_number:{2}
     *line_arg C4
     |INFO
     |spaces_after_argument:
@@ -78,6 +80,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -92,6 +95,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |node_directions:D[prev->E2]
+ |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

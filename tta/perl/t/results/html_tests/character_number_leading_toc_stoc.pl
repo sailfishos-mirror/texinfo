@@ -13,6 +13,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  |EXTRA
  |section_childs:EC[E1|E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -31,8 +32,9 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
   |{ }
  |EXTRA
  |section_directions:D[next->E2|up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E2|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -48,6 +50,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  |section_childs:EC[E3]
  |section_directions:D[prev->E1|up->E0]
  |section_level:{1}
+ |section_number:{3}
  |toplevel_directions:D[prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
@@ -62,6 +65,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  |EXTRA
  |section_directions:D[up->E2]
  |section_level:{2}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO

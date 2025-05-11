@@ -20,6 +20,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -35,6 +36,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

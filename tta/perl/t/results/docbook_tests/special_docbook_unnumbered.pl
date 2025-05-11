@@ -16,6 +16,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -120,6 +122,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Dedication}
   *arguments_line C1
    *line_arg C1
@@ -136,6 +139,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_level:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -157,6 +161,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{preface}
   *arguments_line C1
    *line_arg C1
@@ -173,6 +178,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_level:{1}
+ |section_number:{3}
  |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -194,6 +200,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
+ |node_number:{4}
  |normalized:{colophon}
   *arguments_line C1
    *line_arg C1
@@ -210,6 +217,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
  |section_level:{1}
+ |section_number:{4}
  |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -231,6 +239,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |is_target:{1}
  |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
+ |node_number:{5}
  |normalized:{acknowledgements}
   *arguments_line C1
    *line_arg C1
@@ -246,8 +255,9 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[prev->E8|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{5}
  |toplevel_directions:D[prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1

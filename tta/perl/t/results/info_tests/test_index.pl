@@ -16,6 +16,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E11|E12]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -311,6 +313,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{name}
   *arguments_line C1
    *line_arg C1
@@ -326,8 +329,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -659,6 +663,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |isindex:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{3}
  |normalized:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   *arguments_line C1
    *line_arg C1
@@ -675,8 +680,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |associated_node:[E5]
  |section_childs:EC[E7]
  |section_directions:D[next->E11|prev->E4|up->E1]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{3}
  |toplevel_directions:D[next->E11|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -752,8 +758,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |EXTRA
  |section_childs:EC[E8]
  |section_directions:D[up->E6]
+ |section_heading_number:{A.1}
  |section_level:{2}
- |section_number:{A.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -768,8 +775,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |EXTRA
  |section_childs:EC[E9]
  |section_directions:D[up->E7]
+ |section_heading_number:{A.1.1}
  |section_level:{3}
- |section_number:{A.1.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -783,8 +791,9 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |section_directions:D[up->E8]
+ |section_heading_number:{A.1.1.1}
  |section_level:{4}
- |section_number:{A.1.1.1}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -798,6 +807,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -811,6 +821,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |EXTRA
  |section_directions:D[next->E12|prev->E6|up->E1]
  |section_level:{1}
+ |section_number:{7}
  |toplevel_directions:D[next->E12|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -825,8 +836,9 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |section_directions:D[prev->E11|up->E1]
+ |section_heading_number:{B}
  |section_level:{1}
- |section_number:{B}
+ |section_number:{8}
  |toplevel_directions:D[prev->E11|up->E1]
   *arguments_line C1
    *line_arg C1

@@ -45,6 +45,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -61,6 +62,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E12|E15|E18|E21|E25]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -88,6 +90,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{in-main}
   *arguments_line C1
    *line_arg C1
@@ -103,8 +106,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -176,6 +180,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[prev->E2|up->E0]
+ |node_number:{3}
  |normalized:{Chapter-in-included-file}
   *arguments_line C1
    *line_arg C1
@@ -192,8 +197,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_node:[E4]
  |section_childs:EC[E8]
  |section_directions:D[next->E12|prev->E3|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[next->E12|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -242,6 +248,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |menu_directions:D[up->E4]
  |menus:EC[E9]
  |node_directions:D[up->E4]
+ |node_number:{4}
  |normalized:{Section}
   *arguments_line C1
    *line_arg C1
@@ -258,8 +265,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_node:[E7]
  |section_childs:EC[E11]
  |section_directions:D[up->E5]
+ |section_heading_number:{2.1}
  |section_level:{2}
- |section_number:{2.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -306,6 +314,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |is_target:{1}
  |menu_directions:D[up->E7]
  |node_directions:D[up->E7]
+ |node_number:{5}
  |normalized:{Subsection}
   *arguments_line C1
    *line_arg C1
@@ -321,8 +330,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[up->E8]
+ |section_heading_number:{2.1.1}
  |section_level:{3}
- |section_number:{2.1.1}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -408,8 +418,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E13]
  |section_directions:D[next->E15|prev->E5|up->E1]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{6}
  |toplevel_directions:D[next->E15|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -425,8 +436,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E14]
  |section_directions:D[up->E12]
+ |section_heading_number:{3.1}
  |section_level:{2}
- |section_number:{3.1}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -440,8 +452,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |section_directions:D[up->E13]
+ |section_heading_number:{3.1.1}
  |section_level:{3}
- |section_number:{3.1.1}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -498,8 +511,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E16]
  |section_directions:D[next->E18|prev->E12|up->E1]
+ |section_heading_number:{4}
  |section_level:{1}
- |section_number:{4}
+ |section_number:{9}
  |toplevel_directions:D[next->E18|prev->E12|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -515,8 +529,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E17]
  |section_directions:D[up->E15]
+ |section_heading_number:{4.1}
  |section_level:{2}
- |section_number:{4.1}
+ |section_number:{10}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -530,8 +545,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |section_directions:D[up->E16]
+ |section_heading_number:{4.1.1}
  |section_level:{3}
- |section_number:{4.1.1}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -588,8 +604,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E19]
  |section_directions:D[next->E21|prev->E15|up->E1]
+ |section_heading_number:{5}
  |section_level:{1}
- |section_number:{5}
+ |section_number:{12}
  |toplevel_directions:D[next->E21|prev->E15|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -605,8 +622,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E20]
  |section_directions:D[up->E18]
+ |section_heading_number:{5.1}
  |section_level:{2}
- |section_number:{5.1}
+ |section_number:{13}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -620,8 +638,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |section_directions:D[up->E19]
+ |section_heading_number:{5.1.1}
  |section_level:{3}
- |section_number:{5.1.1}
+ |section_number:{14}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -681,8 +700,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E22]
  |section_directions:D[next->E25|prev->E18|up->E1]
+ |section_heading_number:{6}
  |section_level:{1}
- |section_number:{6}
+ |section_number:{15}
  |toplevel_directions:D[next->E25|prev->E18|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -698,8 +718,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |EXTRA
  |section_childs:EC[E23]
  |section_directions:D[up->E21]
+ |section_heading_number:{6.1}
  |section_level:{2}
- |section_number:{6.1}
+ |section_number:{16}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -713,8 +734,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |section_directions:D[up->E22]
+ |section_heading_number:{6.1.1}
  |section_level:{3}
- |section_number:{6.1.1}
+ |section_number:{17}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -759,6 +781,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_title_command:[E25]
  |is_target:{1}
  |node_directions:D[up->E0]
+ |node_number:{6}
  |normalized:{last-chap}
   *arguments_line C1
    *line_arg C1
@@ -774,8 +797,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |associated_anchor_command:[E24]
  |associated_node:[E24]
  |section_directions:D[prev->E21|up->E1]
+ |section_heading_number:{7}
  |section_level:{1}
- |section_number:{7}
+ |section_number:{18}
  |toplevel_directions:D[prev->E21|up->E1]
   *arguments_line C1
    *line_arg C1

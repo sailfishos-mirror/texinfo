@@ -14,6 +14,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -73,6 +74,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  |menu_directions:D[next->E8|prev->E4|up->E2]
  |menus:EC[E3]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap-node}
   *arguments_line C4
    *line_arg C1
@@ -141,6 +143,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  |menu_directions:D[next->E2|up->E4]
  |menus:EC[E5]
  |node_directions:D[up->E2]
+ |node_number:{3}
  |normalized:{other-node}
   *arguments_line C4
    *line_arg C1
@@ -194,6 +197,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  |menu_directions:D[up->E8]
  |menus:EC[E7]
  |node_directions:D[up->E8]
+ |node_number:{4}
  |normalized:{node-up-node-following-second}
   *arguments_line C4
    *line_arg C1
@@ -249,6 +253,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  |menu_directions:D[prev->E2|up->E6]
  |menus:EC[E9]
  |node_directions:D[up->E6]
+ |node_number:{5}
  |normalized:{node-following-second}
   *arguments_line C4
    *line_arg C1

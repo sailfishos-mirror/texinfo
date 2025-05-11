@@ -12,6 +12,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
   |{ }
  |EXTRA
  |section_directions:D[next->E1]
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
@@ -33,6 +34,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
   |{ }
  |EXTRA
  |section_directions:D[next->E2|prev->E0]
+ |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
  |toplevel_directions:D[next->E2|prev->E0]
@@ -50,6 +52,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
  |EXTRA
  |section_directions:D[prev->E1]
  |section_level:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1

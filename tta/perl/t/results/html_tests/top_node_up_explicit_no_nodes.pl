@@ -16,6 +16,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C4
    *line_arg C1
@@ -58,6 +59,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -113,6 +115,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
@@ -128,8 +131,9 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1

@@ -19,6 +19,7 @@ Next: [U1]
  |EXTRA
  |section_directions:D[next->E2]
  |section_level:{1}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -50,6 +51,7 @@ Prev: [U0]
  |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -66,6 +68,7 @@ Prev: [U0]
  |associated_node:[E1]
  |section_directions:D[prev->E0]
  |section_level:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1

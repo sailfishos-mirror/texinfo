@@ -539,9 +539,9 @@ sub add_heading_number($$;$$)
 
   my $number;
   if ($current->{'extra'}
-      and defined($current->{'extra'}->{'section_number'})
+      and defined($current->{'extra'}->{'section_heading_number'})
       and ($numbered or !defined($numbered))) {
-    $number = $current->{'extra'}->{'section_number'};
+    $number = $current->{'extra'}->{'section_heading_number'};
   }
 
   my $result;

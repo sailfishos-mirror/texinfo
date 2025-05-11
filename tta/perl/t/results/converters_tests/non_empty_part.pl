@@ -16,6 +16,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |part_following_node:[E1]
  |section_directions:D[next->E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -41,6 +42,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E7]
+ |node_number:{1}
  |node_preceding_part:[E0]
  |normalized:{Top}
   *arguments_line C1
@@ -59,6 +61,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |associated_part:[E0]
  |section_directions:D[next->E4|prev->E0]
  |section_level:{0}
+ |section_number:{2}
  |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
@@ -117,6 +120,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |section_childs:EC[E5]
  |section_directions:D[next->E6|prev->E2]
  |section_level:{0}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,8 +138,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |associated_part:[E4]
  |section_directions:D[up->E4]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{4}
  |toplevel_directions:D[next->E9|prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
@@ -153,6 +158,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |part_following_node:[E7]
  |section_directions:D[next->E8|prev->E4]
  |section_level:{0}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -173,6 +179,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |is_target:{1}
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E1|up->E1]
+ |node_number:{2}
  |node_preceding_part:[E6]
  |normalized:{part-chapter-node}
   *arguments_line C1
@@ -191,6 +198,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |section_childs:EC[E9]
  |section_directions:D[next->E10|prev->E6]
  |section_level:{0}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -210,8 +218,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |associated_node:[E7]
  |associated_part:[E8]
  |section_directions:D[up->E8]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{7}
  |toplevel_directions:D[next->E12|prev->E5|up->E2]
   *arguments_line C1
    *line_arg C1
@@ -228,6 +237,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |global_command_number:{5}
  |section_directions:D[next->E11|prev->E8]
  |section_level:{0}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -248,6 +258,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |section_childs:EC[E12]
  |section_directions:D[next->E13|prev->E10]
  |section_level:{0}
+ |section_number:{9}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -265,8 +276,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |associated_part:[E11]
  |section_directions:D[up->E11]
+ |section_heading_number:{3}
  |section_level:{1}
- |section_number:{3}
+ |section_number:{10}
  |toplevel_directions:D[next->E15|prev->E9|up->E2]
   *arguments_line C1
    *line_arg C1
@@ -286,6 +298,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |section_childs:EC[E15]
  |section_directions:D[prev->E11]
  |section_level:{0}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -305,6 +318,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |associated_title_command:[E15]
  |is_target:{1}
  |node_directions:D[up->E1]
+ |node_number:{3}
  |node_preceding_part:[E13]
  |normalized:{node-between-part-and-chapter}
   *arguments_line C1
@@ -323,8 +337,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |associated_node:[E14]
  |associated_part:[E13]
  |section_directions:D[up->E13]
+ |section_heading_number:{4}
  |section_level:{1}
- |section_number:{4}
+ |section_number:{12}
  |toplevel_directions:D[prev->E12|up->E2]
   *arguments_line C1
    *line_arg C1

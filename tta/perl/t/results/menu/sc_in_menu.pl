@@ -14,6 +14,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |menus:EC[E1]
+ |node_number:{1}
  |normalized:{first}
   *arguments_line C1
    *line_arg C1
@@ -113,6 +114,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
+ |node_number:{2}
  |normalized:{node}
   *arguments_line C1
    *line_arg C1

@@ -17,6 +17,7 @@ This: [U0]
  |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -34,6 +35,7 @@ This: [U0]
  |part_associated_section:[E2]
  |section_directions:D[next->E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -56,6 +58,7 @@ This: [U0]
  |associated_part:[E1]
  |section_directions:D[prev->E1]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO

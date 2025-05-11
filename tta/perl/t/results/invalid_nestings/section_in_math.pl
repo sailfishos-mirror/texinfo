@@ -22,6 +22,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   |{ }
  |EXTRA
  |section_directions:D[next->E1]
+ |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
  |sectioning_root:
@@ -52,6 +53,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   |{ }
  |EXTRA
  |section_directions:D[prev->E0]
+ |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
  |toplevel_directions:D[prev->E0]

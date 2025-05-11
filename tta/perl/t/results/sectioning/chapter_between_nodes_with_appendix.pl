@@ -16,6 +16,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E4]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -32,6 +33,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |associated_node:[E0]
  |section_childs:EC[E2|E5]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -50,8 +52,9 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
   |{ }
  |EXTRA
  |section_directions:D[next->E5|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -101,6 +104,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Additional}
   *arguments_line C1
    *line_arg C1
@@ -116,8 +120,9 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[prev->E2|up->E1]
+ |section_heading_number:{A}
  |section_level:{1}
- |section_number:{A}
+ |section_number:{3}
  |toplevel_directions:D[prev->E2|up->E1]
   *arguments_line C1
    *line_arg C1

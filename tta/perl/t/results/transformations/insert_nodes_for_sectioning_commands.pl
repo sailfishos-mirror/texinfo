@@ -14,6 +14,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -29,6 +30,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_node:[E0]
  |section_directions:D[next->E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -52,6 +54,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |section_childs:EC[E4|E18]
  |section_directions:D[prev->E1]
  |section_level:{0}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,6 +70,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E4]
  |is_target:{1}
  |node_directions:D[next->E17|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{chap_002c-a-chap}
   *arguments_line C1
    *line_arg C4
@@ -89,8 +93,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_part:[E2]
  |section_childs:EC[E6|E8|E14|E16]
  |section_directions:D[next->E18|up->E2]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{3}
  |toplevel_directions:D[next->E18|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C2
@@ -111,6 +116,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7|up->E3]
+ |node_number:{1}
  |normalized:{a-node}
   *arguments_line C1
    *line_arg C1
@@ -126,8 +132,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E8|up->E4]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -143,6 +150,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E8]
  |is_target:{1}
  |node_directions:D[next->E13|prev->E5|up->E3]
+ |node_number:{4}
  |normalized:{truc}
   *arguments_line C1
    *line_arg C1
@@ -158,8 +166,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_node:[E7]
  |section_childs:EC[E10|E12]
  |section_directions:D[next->E14|prev->E6|up->E4]
+ |section_heading_number:{1.2}
  |section_level:{2}
- |section_number:{1.2}
+ |section_number:{5}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -174,6 +183,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E10]
  |is_target:{1}
  |node_directions:D[next->E11|up->E7]
+ |node_number:{5}
  |normalized:{sub1}
   *arguments_line C1
    *line_arg C1
@@ -188,8 +198,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |associated_node:[E9]
  |section_directions:D[next->E12|up->E8]
+ |section_heading_number:{1.2.1}
  |section_level:{3}
- |section_number:{1.2.1}
+ |section_number:{6}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -208,6 +219,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E12]
  |is_target:{1}
  |node_directions:D[prev->E9|up->E7]
+ |node_number:{6}
  |normalized:{sub2}
   *arguments_line C1
    *line_arg C1
@@ -222,8 +234,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |associated_node:[E11]
  |section_directions:D[prev->E10|up->E8]
+ |section_heading_number:{1.2.2}
  |section_level:{3}
- |section_number:{1.2.2}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -242,6 +255,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E14]
  |is_target:{1}
  |node_directions:D[next->E15|prev->E7|up->E3]
+ |node_number:{7}
  |normalized:{section}
   *arguments_line C1
    *line_arg C1
@@ -256,8 +270,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |associated_node:[E13]
  |section_directions:D[next->E16|prev->E8|up->E4]
+ |section_heading_number:{1.3}
  |section_level:{2}
- |section_number:{1.3}
+ |section_number:{8}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -273,6 +288,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E16]
  |is_target:{1}
  |node_directions:D[prev->E13|up->E3]
+ |node_number:{8}
  |normalized:{section-1}
   *arguments_line C1
    *line_arg C2
@@ -288,8 +304,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |associated_node:[E15]
  |section_directions:D[prev->E14|up->E4]
+ |section_heading_number:{1.4}
  |section_level:{2}
- |section_number:{1.4}
+ |section_number:{9}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -305,6 +322,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E18]
  |is_target:{1}
  |node_directions:D[prev->E3|up->E0]
+ |node_number:{9}
  |normalized:{-1}
   *arguments_line C1
    *line_arg C2
@@ -319,6 +337,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |section_childs:EC[E20]
  |section_directions:D[prev->E4|up->E2]
  |section_level:{1}
+ |section_number:{10}
  |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg
@@ -334,6 +353,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_section:[E20]
  |is_target:{1}
  |node_directions:D[up->E17]
+ |node_number:{10}
  |normalized:{-2}
   *arguments_line C1
    *line_arg C2
@@ -351,6 +371,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |associated_node:[E19]
  |section_directions:D[up->E18]
  |section_level:{2}
+ |section_number:{11}
   *arguments_line C1
    *line_arg C1
    |INFO

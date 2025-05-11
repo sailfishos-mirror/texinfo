@@ -84,6 +84,7 @@ $result_tree_text{'commands'} = '*document_root C1
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg C2
    |INFO
    |spaces_after_argument:

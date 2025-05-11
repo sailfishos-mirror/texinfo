@@ -16,6 +16,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  |section_childs:EC[E1]
  |section_directions:D[next->E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -35,8 +36,9 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  |EXTRA
  |associated_part:[E0]
  |section_directions:D[up->E0]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -52,6 +54,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  |global_command_number:{2}
  |section_directions:D[prev->E0]
  |section_level:{0}
+ |section_number:{3}
   *arguments_line C1
    *line_arg C1
    |INFO

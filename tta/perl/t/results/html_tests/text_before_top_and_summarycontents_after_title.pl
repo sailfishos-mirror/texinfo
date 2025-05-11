@@ -18,6 +18,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -34,6 +35,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
  |associated_node:[E0]
  |section_childs:EC[E2]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -56,8 +58,9 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
   |{ }
  |EXTRA
  |section_directions:D[up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1

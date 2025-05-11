@@ -19,6 +19,7 @@ NodeUp: [U0]
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -66,6 +67,7 @@ NodeUp: [U0]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{First}
   *arguments_line C1
    *line_arg C1
@@ -80,6 +82,7 @@ NodeUp: [U0]
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:

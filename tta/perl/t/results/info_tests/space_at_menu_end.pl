@@ -14,6 +14,7 @@ $result_tree_text{'space_at_menu_end'} = '*document_root C2
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->MISSING: (menu_entry_node)[C3]]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1

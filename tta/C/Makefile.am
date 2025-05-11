@@ -88,6 +88,8 @@ C_libtexinfo_sources = \
 		      main/errors.h \
 		      main/extra.c \
 		      main/extra.h \
+		      main/structure_list.c \
+		      main/structure_list.h \
 		      main/convert_to_texinfo.c \
 		      main/convert_to_texinfo.h \
 		      main/convert_to_text.c \

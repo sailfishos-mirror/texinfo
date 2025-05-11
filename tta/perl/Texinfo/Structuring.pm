@@ -112,7 +112,7 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'section_level'
-# 'section_number'
+# 'section_heading_number'
 # 'section_childs'
 # 'section_directions'
 # 'toplevel_directions'
@@ -122,7 +122,6 @@ sub sectioning_structure($)
 
   my $customization_information = $document;
 
-  my $root = $document->tree();
   my $registrar = $document->registrar();
 
   my $sec_root;
@@ -134,19 +133,14 @@ sub sectioning_structure($)
   my $number_top_level;
 
   my $section_top;
-  my @sections_list;
 
   # holds the current number for all the levels.  It is not possible to use
   # something like the last child index, because of @unnumbered.
   my @command_numbers;
   # keep track of the unnumbered
   my @command_unnumbered;
-  foreach my $content (@{$root->{'contents'}}) {
-    if (!$content->{'cmdname'} or $content->{'cmdname'} eq 'node'
-        or $content->{'cmdname'} eq 'bye') {
-      next;
-    }
-    push @sections_list, $content;
+  foreach my $section_structure (@{$document->{'sections_list'}}) {
+    my $content = $section_structure->{'element'};
     if ($content->{'cmdname'} eq 'top' and not $section_top) {
       $section_top = $content;
     }
@@ -308,7 +302,7 @@ sub sectioning_structure($)
           }
         }
         if (defined($section_number)) {
-          $content->{'extra'}->{'section_number'} = $section_number;
+          $content->{'extra'}->{'section_heading_number'} = $section_number;
         }
       }
     }
@@ -335,12 +329,6 @@ sub sectioning_structure($)
                 $content->{'cmdname'}), $content->{'source_info'}, 0,
                            $customization_information->get_conf('DEBUG'));
     }
-  }
-  if (scalar(@sections_list) == 0) {
-    return undef;
-  } else {
-    $document->{'sections_list'} = \@sections_list;
-    return \@sections_list;
   }
 }
 
@@ -506,10 +494,11 @@ sub check_nodes_are_referenced($)
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
   my $top_node = $identifier_target->{'Top'};
-  $top_node = $nodes_list->[0] if (!$top_node);
+  $top_node = $nodes_list->[0]->{'element'} if (!$top_node);
 
   my %referenced_nodes = ($top_node => 1);
-  foreach my $node (@{$nodes_list}) {
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node = $node_structure->{'element'};
     next if (!$node->{'extra'});
     # gather referenced nodes based on node pointers
     my $node_directions = $node->{'extra'}->{'node_directions'};
@@ -559,7 +548,8 @@ sub check_nodes_are_referenced($)
     }
   }
 
-  foreach my $node (@{$nodes_list}) {
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node = $node_structure->{'element'};
     # it is normal that a redundant node is not referenced
     if ($node->{'extra'}->{'is_target'}) {
       if (not exists($referenced_nodes{$node})) {
@@ -615,7 +605,8 @@ sub set_menus_node_directions($)
   # another command such as @format, may be treated slightly
   # differently; at least, there are no error messages for them.
   #
-  foreach my $node (@{$nodes_list}) {
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node = $node_structure->{'element'};
     if ($node->{'extra'}->{'menus'}) {
       if (@{$node->{'extra'}->{'menus'}} > 1) {
         foreach my $menu (@{$node->{'extra'}->{'menus'}}[1 .. $#{$node->{'extra'}->{'menus'}}]) {
@@ -740,14 +731,15 @@ sub complete_node_tree_with_menus($)
   my $identifier_target = $document->labels_information();
   my $registrar = $document->registrar();
 
-  return unless ($nodes_list and @{$nodes_list});
+  return unless ($nodes_list and scalar(@{$nodes_list}));
 
   my $top_node_next;
   my $top_node;
 
   my %cached_menu_nodes;
   # Go through all the nodes
-  foreach my $node (@{$nodes_list}) {
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node = $node_structure->{'element'};
     my $arguments_line = $node->{'contents'}->[0];
     my $automatic_directions
       = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
@@ -854,7 +846,9 @@ sub complete_node_tree_with_menus($)
           $top_node_next = $menu_child;
         } else {
           # use the first non top node as next for Top
-          foreach my $first_non_top_node (@{$nodes_list}) {
+          foreach my $first_non_top_node_structure (@{$nodes_list}) {
+            my $first_non_top_node
+              = $first_non_top_node_structure->{'element'};
             if ($first_non_top_node ne $node) {
               $top_node_next = $first_non_top_node;
               last;
@@ -946,21 +940,15 @@ sub construct_nodes_tree($)
   my $document = shift;
 
   my $customization_information = $document;
-  my $root = $document->tree();
   my $identifier_target = $document->labels_information();
   my $registrar = $document->registrar();
 
   my $top_node = $identifier_target->{'Top'};
   my $top_node_section_child;
-  my @nodes_list = ();
   # Go through all the nodes and set directions.
-  foreach my $node (@{$root->{'contents'}}) {
-    if (!$node->{'cmdname'} or $node->{'cmdname'} ne 'node'
-        or !$node->{'extra'}
-        or !defined($node->{'extra'}->{'normalized'})) {
-      next;
-    }
-    push @nodes_list, $node;
+  my $nodes_list = $document->nodes_list();
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node = $node_structure->{'element'};
 
     my $arguments_line = $node->{'contents'}->[0];
     my $automatic_directions
@@ -1068,10 +1056,6 @@ sub construct_nodes_tree($)
       }
     }
   }
-
-  $document->{'nodes_list'} = \@nodes_list;
-
-  return \@nodes_list;
 }
 
 # For each internal reference command, set the 'normalized' key, in the
@@ -1182,7 +1166,7 @@ sub number_floats($)
         }
         if (!$unnumbered_commands{$up->{'cmdname'}}) {
           $nr_in_chapter++;
-          $number = $up->{'extra'}->{'section_number'} .
+          $number = $up->{'extra'}->{'section_heading_number'} .
             '.' . $nr_in_chapter;
         }
       }
@@ -1781,11 +1765,11 @@ Returns the Texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $nodes_list = construct_nodes_tree($document)
+=item construct_nodes_tree($document)
 X<C<construct_nodes_tree>>
 
 Goes through nodes in I<$document> tree and set directions.  Set the list of
-nodes in the I<$document>.  Returns the list of nodes.
+nodes in the I<$document>.
 
 This functions sets, in the C<extra> node element hash:
 
@@ -1812,13 +1796,12 @@ Return the sectioning command name corresponding to the sectioning
 element I<$element>, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-=item $sections_list = sectioning_structure($document)
+=item sectioning_structure($document)
 X<C<sectioning_structure>>
 
 This function goes through the parsed document tree and gather information
 on the document structure for sectioning commands.  It sets the sections
-elements list in the document and returns a reference
-on the sections elements list.
+elements list in the document.
 
 It sets section elements C<extra> hash values:
 

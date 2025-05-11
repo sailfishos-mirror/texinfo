@@ -156,6 +156,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -172,6 +173,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |associated_node:[E4]
  |section_childs:EC[E7]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -194,6 +196,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E4]
+ |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -209,8 +212,9 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[up->E5]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1

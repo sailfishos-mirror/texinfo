@@ -13,6 +13,7 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
   |{ }
  |EXTRA
  |section_childs:EC[E1]
+ |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -30,8 +31,9 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
  *1 @section C1 l3
  |EXTRA
  |section_directions:D[up->E0]
+ |section_heading_number:{1.1}
  |section_level:{2}
- |section_number:{1.1}
+ |section_number:{2}
   *arguments_line C1
    *line_arg
    |INFO

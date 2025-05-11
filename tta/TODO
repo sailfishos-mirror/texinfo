@@ -66,6 +66,10 @@ converter_customization_options, unique_at_command_options.
 Texinfo tree reader
 ===================
 
+Separate tree information from structuring information.  For that, add
+structures for nodes, sections and headings (including xrefname)
+separate from the tree.
+
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
 

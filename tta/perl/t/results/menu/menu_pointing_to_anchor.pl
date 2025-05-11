@@ -16,6 +16,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
  |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA

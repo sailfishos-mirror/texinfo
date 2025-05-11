@@ -23,6 +23,7 @@ NodeUp: (dir)
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |node_number:{1}
  |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
@@ -47,6 +48,7 @@ NodeUp: (dir)
  |associated_node:[E0]
  |section_directions:D[next->E2]
  |section_level:{1}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -80,6 +82,7 @@ Prev: [U0]
  |EXTRA
  |section_directions:D[next->E4|prev->E1]
  |section_level:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E4|prev->E1]
   *arguments_line C1
    *line_arg C1
@@ -107,6 +110,7 @@ NodeUp: (dir)
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |node_number:{2}
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -130,8 +134,9 @@ NodeUp: (dir)
  |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[prev->E2]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{3}
  |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1

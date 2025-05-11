@@ -2,6 +2,8 @@
 #ifndef TREE_H
 #define TREE_H
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 /* Array of "associated info" key names. */

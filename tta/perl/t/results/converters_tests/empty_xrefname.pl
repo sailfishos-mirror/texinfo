@@ -15,6 +15,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
+ |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,6 +32,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |associated_node:[E0]
  |section_childs:EC[E3|E9]
  |section_level:{0}
+ |section_number:{1}
  |sectioning_root:
   |*
   ||EXTRA
@@ -54,6 +56,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E8|prev->E0|up->E0]
+ |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
@@ -69,8 +72,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E9|up->E1]
+ |section_heading_number:{1}
  |section_level:{1}
- |section_number:{1}
+ |section_number:{2}
  |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
@@ -117,6 +121,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
+ |node_number:{3}
  |normalized:{entiti}
   *arguments_line C1
    *line_arg C1
@@ -128,6 +133,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |EXTRA
   |associated_anchor_command:[E5]
   |global_command_number:{1}
+  |heading_number:{1}
    *line_arg
    |INFO
    |spaces_after_argument:
@@ -139,6 +145,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |{ }
   |EXTRA
   |global_command_number:{1}
+  |heading_number:{2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -154,6 +161,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
+ |node_number:{4}
  |normalized:{chip}
   *arguments_line C1
    *line_arg C1
@@ -169,8 +177,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E3|up->E1]
+ |section_heading_number:{2}
  |section_level:{1}
- |section_number:{2}
+ |section_number:{3}
  |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1

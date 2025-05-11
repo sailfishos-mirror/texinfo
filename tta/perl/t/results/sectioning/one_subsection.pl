@@ -12,6 +12,7 @@ $result_tree_text{'one_subsection'} = '*document_root C2
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
  |sectioning_root:
