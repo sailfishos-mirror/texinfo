@@ -105,7 +105,7 @@ Css: span.bar-css {text-decoration:overline;}
 Css: img.cdots{vertical-align:middle;}
 Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 Css: .index-item, .index-subitem, .index-subsubitem {display:block}
-Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
 Css: h1.partHead{text-align: center}
 Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
