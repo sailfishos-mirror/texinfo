@@ -1,5 +1,9 @@
 2025-05-11  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@anchor}): fix a typo.
+
+2025-05-11  Patrice Dumas  <pertusus@free.fr>
+
 	Structure node, section and heading list different from elements
 
 	* tta/C/main/tree_types.h (enum directions), : rename section_number

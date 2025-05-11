@@ -4454,7 +4454,7 @@ By default, links to anchors are unaffected by the
 will be used as label text in the cross-reference.
 
 @findex namedanchor
-However, you can defined a @dfn{named anchor} using @code{@@namedanchor}.
+However, you can define a @dfn{named anchor} using @code{@@namedanchor}.
 The template is:
 
 @example
