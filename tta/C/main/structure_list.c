@@ -112,7 +112,7 @@ add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list, ELEMENT *e)
   return heading;
 }
 
-/* Add the element E into the LIST at index WHERE. */
+/* Add a node structure for the element E into the LIST at index WHERE. */
 NODE_STRUCTURE *
 insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
                                  ELEMENT *e, size_t where)
@@ -129,6 +129,33 @@ insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
   list->number++;
 
   return node;
+}
+
+void
+free_node_structure_list (NODE_STRUCTURE_LIST *list)
+{
+  size_t i;
+  for (i = 0; i < list->number; i++)
+    free (list->list[i]);
+  free (list->list);
+}
+
+void
+free_section_structure_list (SECTION_STRUCTURE_LIST *list)
+{
+  size_t i;
+  for (i = 0; i < list->number; i++)
+    free (list->list[i]);
+  free (list->list);
+}
+
+void
+free_heading_structure_list (HEADING_STRUCTURE_LIST *list)
+{
+  size_t i;
+  for (i = 0; i < list->number; i++)
+    free (list->list[i]);
+  free (list->list);
 }
 
 static char *

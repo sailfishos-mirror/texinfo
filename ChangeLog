@@ -1,5 +1,14 @@
 2025-05-12  Patrice Dumas  <pertusus@free.fr>
 
+	Properly free sections, nodes and headings lists in document
+
+	* tta/C/main/document.c (destroy_document_information_except_tree),
+	tta/C/main/structure_list.c (free_node_structure_list)
+	(free_section_structure_list, free_heading_structure_list): free
+	the elements of the sections, nodes and headings structure lists.
+
+2025-05-12  Patrice Dumas  <pertusus@free.fr>
+
 	associated_node and associated_section in structure info out of tree
 
 	* tta/C/main/build_perl_info.c (build_node_structure_list)

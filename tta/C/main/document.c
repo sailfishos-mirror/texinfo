@@ -33,6 +33,7 @@
 /* for delete_global_info wipe_index setup_structuring_data */
 #include "utils.h"
 #include "customization_options.h"
+#include "structure_list.h"
 /* for library initialization, not for document code.
    set_element_type_name_info */
 #include "builtin_commands.h"
@@ -538,9 +539,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free_indices_info (&document->indices_info);
   wipe_error_message_list (&document->error_messages);
   wipe_error_message_list (&document->parser_error_messages);
-  free (document->nodes_list.list);
-  free (document->headings_list.list);
-  free (document->sections_list.list);
+  free_node_structure_list (&document->nodes_list);
+  free_section_structure_list (&document->sections_list);
+  free_heading_structure_list (&document->headings_list);
   if (document->sorted_options)
     {
       size_t i;

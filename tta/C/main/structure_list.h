@@ -18,6 +18,10 @@ HEADING_STRUCTURE *add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list,
 NODE_STRUCTURE *insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
                                                  ELEMENT *e, size_t where);
 
+void free_node_structure_list (NODE_STRUCTURE_LIST *list);
+void free_section_structure_list (SECTION_STRUCTURE_LIST *list);
+void free_heading_structure_list (HEADING_STRUCTURE_LIST *list);
+
 char *print_sections_list (const DOCUMENT *document);
 char *print_nodes_list (const DOCUMENT *document);
 
