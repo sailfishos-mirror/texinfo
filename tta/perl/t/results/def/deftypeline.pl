@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -94,6 +94,10 @@ $result_texts{'deftypeline'} = 'Function: long int foo (int bar, int baz)
 
 $result_errors{'deftypeline'} = [];
 
+
+$result_nodes_list{'deftypeline'} = '';
+
+$result_sections_list{'deftypeline'} = '';
 
 
 $result_converted{'plaintext'}->{'deftypeline'} = ' -- Function: long int foo (int BAR, int BAZ)

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -14,7 +14,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -32,7 +31,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -54,7 +52,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
@@ -72,7 +69,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -107,7 +103,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -126,7 +121,6 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -228,6 +222,22 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
   }
 ];
 
+
+$result_nodes_list{'reference_to_only_special_spaces_node'} = '1|Top
+ associated_section: top
+2|   
+ associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
+3|@code{   }
+ associated_section: 2 @code{EN QUAD| | EM QUAD| | EN SPACE| |}
+';
+
+$result_sections_list{'reference_to_only_special_spaces_node'} = '1|top
+ associated_node: Top
+2|EN QUAD| | EM QUAD| | EN SPACE| |
+ associated_node:    
+3|@code{EN QUAD| | EM QUAD| | EN SPACE| |}
+ associated_node: @code{   }
+';
 
 
 $result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.

@@ -1004,12 +1004,14 @@ sub _prepare_conversion($;$)
   delete($self->{'index_entries'});
 
   my $global_commands;
+  my $nodes_list;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
+    $nodes_list = $self->{'document'}->nodes_list()
   }
 
   if (defined($root)) {
-    $self->_associate_other_nodes_to_sections($root);
+    $self->_associate_other_nodes_to_sections($root, $nodes_list);
   }
 
   if ($global_commands and $global_commands->{'settitle'}) {
@@ -1023,9 +1025,9 @@ sub _prepare_conversion($;$)
   $self->_prepare_indices();
 }
 
-sub _associate_other_nodes_to_sections($$)
+sub _associate_other_nodes_to_sections($$$)
 {
-  my ($self, $root) = @_;
+  my ($self, $root, $nodes_list) = @_;
 
   # associate lone nodes with sectioning commands
   my $additional_node_section_associations = {};
@@ -1037,10 +1039,19 @@ sub _associate_other_nodes_to_sections($$)
 
   foreach my $element_content (@{$root->{'contents'}}) {
     if ($element_content->{'cmdname'}
-        and $element_content->{'cmdname'} eq 'node') {
+        and $element_content->{'cmdname'} eq 'node'
+        and $element_content->{'extra'}
+        and defined($element_content->{'extra'}->{'normalized'})) {
+      my $associated_section;
       if ($element_content->{'extra'}
-          and not $element_content->{'extra'}->{'associated_section'}
           and defined($element_content->{'extra'}->{'normalized'})) {
+        if ($nodes_list) {
+          my $node_structure
+            = $nodes_list->[$element_content->{'extra'}->{'node_number'} -1];
+          $associated_section = $node_structure->{'associated_section'};
+        }
+      }
+      if (!$associated_section) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
               ->{$element_content->{'extra'}->{'normalized'}}
@@ -3479,12 +3490,16 @@ sub _convert($$)
                   if ($current->{'cmdname'} ne 'node') {
                     $section_command = $current;
                   } else {
-                    if ($current->{'extra'}->{'associated_section'}) {
-                      $section_command
-                           = $current->{'extra'}->{'associated_section'};
-                    } elsif (exists($current->{'extra'}->{'normalized'})
+                    if ($self->{'document'}) {
+                      my $nodes_list = $self->{'document'}->nodes_list();
+                      my $node_structure
+                        = $nodes_list->[$current->{'extra'}->{'node_number'} -1];
+                      $section_command = $node_structure->{'associated_section'};
+                    }
+                    if (!$section_command
+                        and (exists($current->{'extra'}->{'normalized'})
                              and $self->{'normalized_nodes_associated_section'}
-                                        ->{$current->{'extra'}->{'normalized'}}) {
+                                      ->{$current->{'extra'}->{'normalized'}})) {
                       $section_command
                         = $self->{'normalized_nodes_associated_section'}
                                            ->{$current->{'extra'}->{'normalized'}};
@@ -4018,8 +4033,16 @@ sub _convert($$)
       }
       if ($cmdname eq 'node') {
         # add the label only if not associated with a section
-        if (!$element->{'extra'}
-            or not $element->{'extra'}->{'associated_section'}) {
+        my $associated_section;
+        if ($self->{'document'} and $element->{'extra'}
+           # FIXME check $element->{'extra'} only?
+           and defined($element->{'extra'}->{'normalized'})) {
+          my $nodes_list = $self->{'document'}->nodes_list();
+          my $node_structure
+            = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+          $associated_section = $node_structure->{'associated_section'};
+        }
+        if (!$associated_section) {
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
           my $line_arg = $arguments_line->{'contents'}->[0];
@@ -4070,14 +4093,23 @@ sub _convert($$)
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).
-        if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
-          my $associated_node = $element->{'extra'}->{'associated_node'};
-          # arguments_line type element
-          my $arguments_line = $associated_node->{'contents'}->[0];
-          my $line_arg = $arguments_line->{'contents'}->[0];
-          my $node_label
-            = _tree_anchor_label($line_arg->{'contents'});
-          $result .= "\\label{$node_label}%\n";
+        my $sections_list;
+        if ($self->{'document'}) {
+          $sections_list = $self->{'document'}->sections_list();
+        }
+        if ($sections_list and $element->{'extra'}
+            and $element->{'extra'}->{'section_number'}) {
+          my $section_structure
+            = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+          if ($section_structure->{'associated_node'}) {
+            my $associated_node = $section_structure->{'associated_node'};
+            # arguments_line type element
+            my $arguments_line = $associated_node->{'contents'}->[0];
+            my $line_arg = $arguments_line->{'contents'}->[0];
+            my $node_label
+              = _tree_anchor_label($line_arg->{'contents'});
+            $result .= "\\label{$node_label}%\n";
+          }
         }
       }
       return $result unless ($root_commands{$element->{'cmdname'}});

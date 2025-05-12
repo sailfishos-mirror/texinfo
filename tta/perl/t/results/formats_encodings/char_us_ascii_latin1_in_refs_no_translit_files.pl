@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -29,7 +29,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |isindex:{1}
@@ -49,7 +48,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10|E12]
  |section_level:{0}
  |section_number:{1}
@@ -157,7 +155,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
@@ -176,7 +173,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -194,7 +190,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
@@ -213,7 +208,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -231,7 +225,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E5|up->E0]
@@ -250,7 +243,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -268,7 +260,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E7|up->E0]
@@ -287,7 +278,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -305,7 +295,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[prev->E9|up->E0]
@@ -324,7 +313,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   |{ }
  |EXTRA
  |associated_anchor_command:[E11]
- |associated_node:[E11]
  |section_directions:D[prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -544,6 +532,34 @@ accented char in latin1 in refs
 
 $result_errors{'char_us_ascii_latin1_in_refs_no_translit_files'} = [];
 
+
+$result_nodes_list{'char_us_ascii_latin1_in_refs_no_translit_files'} = '1|Top
+ associated_section: accented char in latin1 in refs
+2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+3|é
+ associated_section: 2 é
+4|à è ù
+ associated_section: 3 à è ù
+5|â ê î ô û Â Ê Î Ô Û
+ associated_section: 4 â ê î ô û Â Ê Î Ô Û
+6|ç
+ associated_section: 5 ç
+';
+
+$result_sections_list{'char_us_ascii_latin1_in_refs_no_translit_files'} = '1|accented char in latin1 in refs
+ associated_node: Top
+2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ associated_node: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+3|é
+ associated_node: é
+4|à è ù
+ associated_node: à è ù
+5|â ê î ô û Â Ê Î Ô Û
+ associated_node: â ê î ô û Â Ê Î Ô Û
+6|ç
+ associated_node: ç
+';
 
 $result_indices_sort_strings{'char_us_ascii_latin1_in_refs_no_translit_files'} = 'cp:
  Ä Ë Ï Ö Ü

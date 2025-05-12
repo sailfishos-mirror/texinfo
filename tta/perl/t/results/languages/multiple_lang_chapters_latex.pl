@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -83,7 +83,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -102,7 +101,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10|E12]
  |section_level:{0}
  |section_number:{1}
@@ -209,7 +207,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
@@ -228,7 +225,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -332,7 +328,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
@@ -351,7 +346,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -455,7 +449,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E5|up->E0]
@@ -474,7 +467,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -569,7 +561,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E7|up->E0]
@@ -588,7 +579,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -618,7 +608,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[prev->E9|up->E0]
@@ -637,7 +626,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E11]
- |associated_node:[E11]
  |section_directions:D[prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -753,6 +741,34 @@ In brazilian. chapter ja.
 
 $result_errors{'multiple_lang_chapters_latex'} = [];
 
+
+$result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
+ associated_section: Multi language file
+2|chapter ja
+ associated_section: 1 ja
+3|chapter en
+ associated_section: 2 en
+4|chapter fr_FR
+ associated_section: 3 fr_FR
+5|chapter de
+ associated_section: 4 de
+6|chapter pt_BR
+ associated_section: 5 pt_bR
+';
+
+$result_sections_list{'multiple_lang_chapters_latex'} = '1|Multi language file
+ associated_node: Top
+2|ja
+ associated_node: chapter ja
+3|en
+ associated_node: chapter en
+4|fr_FR
+ associated_node: chapter fr_FR
+5|de
+ associated_node: chapter de
+6|pt_bR
+ associated_node: chapter pt_BR
+';
 
 $result_indices_sort_strings{'multiple_lang_chapters_latex'} = 'vr:
  BBB de AAA

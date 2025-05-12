@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -62,6 +62,10 @@ asis in code a. c
 
 $result_errors{'punctuation_in_command'} = [];
 
+
+$result_nodes_list{'punctuation_in_command'} = '';
+
+$result_sections_list{'punctuation_in_command'} = '';
 
 
 $result_converted{'plaintext'}->{'punctuation_in_command'} = 'Text.  Email a.  b <a. b> dmn 1. 2 and text.  indicateurl ‘i. u’ and

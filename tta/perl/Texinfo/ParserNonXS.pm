@@ -3648,9 +3648,11 @@ sub _add_to_structure_list($$$)
   my $list_key = $type.'s_list';
   my $number_key = $type.'_number';
 
-  push @{$document->{$list_key}}, {'element' => $element};
+  my $structure_info = {'element' => $element};
+  push @{$document->{$list_key}}, $structure_info;
   $element->{'extra'} = {} if (!$element->{'extra'});
   $element->{'extra'}->{$number_key} = scalar(@{$document->{$list_key}});
+  return $structure_info;
 }
 
 sub _associate_title_command_anchor($$)
@@ -3929,9 +3931,13 @@ sub _end_line_misc_line($$$)
     _check_register_target_element_label($self, $line_arg,
                                          $current, $source_info);
 
+    my $node_structure;
     if ($current->{'extra'}
         and defined($current->{'extra'}->{'normalized'})) {
-      _add_to_structure_list($document, 'node', $current);
+      $node_structure
+        = _add_to_structure_list($document, 'node', $current);
+      # TODO no empty node as current_node?
+      #$self->{'current_node'} = $current;
     }
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
@@ -4096,19 +4102,27 @@ sub _end_line_misc_line($$$)
   } elsif ($root_commands{$data_cmdname}) {
     $current = $current->{'contents'}->[-1];
     delete $current->{'remaining_args'};
+    my $section_structure;
+
+    if ($command ne 'node') {
+      $section_structure
+        = _add_to_structure_list($document, 'section', $command_element);
+    }
 
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       # associate section with the current node as its title.
       _associate_title_command_anchor($self, $current);
-      if ($self->{'current_node'}
-         and (!$self->{'current_node'}->{'extra'}
-              or !$self->{'current_node'}->{'extra'}->{'associated_section'})) {
-        $self->{'current_node'}->{'extra'} = {}
-          if (!$self->{'current_node'}->{'extra'});
-        $self->{'current_node'}->{'extra'}->{'associated_section'} = $current;
-        $current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'associated_node'} = $self->{'current_node'};
+      if ($self->{'current_node'} and $self->{'current_node'}->{'extra'}
+          # FIXME check $self->{'current_node'}->{'extra'} only?
+          and defined($self->{'current_node'}->{'extra'}->{'normalized'})) {
+        my $nodes_list = $document->nodes_list();
+        my $node_structure
+          = $nodes_list->[$self->{'current_node'}->{'extra'}->{'node_number'} -1];
+        if (!$node_structure->{'associated_section'}) {
+          $node_structure->{'associated_section'} = $current;
+          $section_structure->{'associated_node'} = $self->{'current_node'};
+        }
       }
       if ($self->{'current_part'}) {
         $current->{'extra'} = {} if (!defined($current->{'extra'}));
@@ -4126,16 +4140,16 @@ sub _end_line_misc_line($$$)
       $self->{'current_section'} = $current;
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $current;
-      if ($self->{'current_node'}
-         and (!$self->{'current_node'}->{'extra'}
-              or !$self->{'current_node'}->{'extra'}->{'associated_section'})) {
-        $self->_line_warn(sprintf(__(
-         "\@node precedes \@%s, but parts may not be associated with nodes"),
-                                  $command), $source_info);
+      if ($self->{'current_node'}) {
+        my $nodes_list = $document->nodes_list();
+        my $node_structure
+          = $nodes_list->[$self->{'current_node'}->{'extra'}->{'node_number'} -1];
+        if (!$node_structure->{'associated_section'}) {
+          $self->_line_warn(sprintf(__(
+      "\@node precedes \@%s, but parts may not be associated with nodes"),
+                                    $command), $source_info);
+        }
       }
-    }
-    if ($command ne 'node') {
-      _add_to_structure_list($document, 'section', $command_element);
     }
     # only *heading as sectioning commands are handled just before
   } elsif ($sectioning_heading_commands{$data_cmdname}

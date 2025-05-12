@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -16,7 +16,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -35,7 +34,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
@@ -129,7 +127,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
@@ -148,7 +145,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -184,7 +180,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
@@ -203,7 +198,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_childs:EC[E7|E8|E9|E10|E11|E12|E13|E14|E15|E16|E17|E18|E19]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
@@ -736,6 +730,35 @@ $result_errors{'ref_in_sectioning'} = [
   }
 ];
 
+
+$result_nodes_list{'ref_in_sectioning'} = '1|Top
+ associated_section: for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+2|node
+ associated_section: 1 @xref{node,,title, file name, Manual}.
+3|chap
+ associated_section: 2 @ref{node} just node
+';
+
+$result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ associated_node: Top
+2|@xref{node,,title, file name, Manual}.
+ associated_node: node
+3|@ref{node} just node
+ associated_node: chap
+4|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+5|@ref{node, cross ref name}  node, crossref arg2
+6|@ref{@code{node},, @samp{title}}  code node, samptitle arg3
+7|@ref{@code{node},,, file name} code node, file name
+8|@ref{node,,,, Manual } node and manual
+9|@ref{Top,,,, Manual } Top and manual
+10|@ref{,,,, Manual } no node just manual
+11|@ref{,,, file name} no node just file name
+12|@inforef{a, b, c} inforef a b c
+13|(@pxref{ Top ,,, file name }) pxref Top file name, spaces
+14|(@pxref{,,, file name }) pxref file name only, spaces
+15|@xref{Top,,,filename}, xref Top filename only, no spaces
+16|@xref{,,,filename}. xref filename only, no spaces
+';
 
 
 $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example node (see node) (see (file)Top)

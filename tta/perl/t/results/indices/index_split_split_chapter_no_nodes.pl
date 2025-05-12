@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -15,7 +15,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |isindex:{1}
@@ -36,7 +35,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E21]
  |section_level:{0}
  |section_number:{1}
@@ -164,7 +162,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
@@ -281,7 +278,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_childs:EC[E7|E14|E16]
  |section_directions:D[next->E21|up->E1]
  |section_heading_number:{1}
@@ -423,7 +419,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
@@ -444,7 +439,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_childs:EC[E10|E12]
  |section_directions:D[next->E14|up->E4]
  |section_heading_number:{1.1}
@@ -545,7 +539,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|up->E6]
@@ -564,7 +557,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[next->E12|up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -584,7 +576,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |associated_title_command:[E12]
  |is_target:{1}
  |isindex:{1}
@@ -604,7 +595,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E11]
- |associated_node:[E11]
  |section_directions:D[prev->E10|up->E7]
  |section_heading_number:{1.1.2}
  |section_level:{3}
@@ -665,7 +655,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
  |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E6|up->E3]
@@ -684,7 +673,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E13]
- |associated_node:[E13]
  |section_directions:D[next->E16|prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -704,7 +692,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E16]
  |associated_title_command:[E16]
  |is_target:{1}
  |isindex:{1}
@@ -724,7 +711,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E15]
- |associated_node:[E15]
  |section_directions:D[prev->E14|up->E4]
  |section_heading_number:{1.3}
  |section_level:{2}
@@ -945,7 +931,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E21]
  |associated_title_command:[E21]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
@@ -964,7 +949,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_anchor_command:[E20]
- |associated_node:[E20]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -1198,6 +1182,45 @@ $result_errors{'index_split_split_chapter_no_nodes'} = [
   }
 ];
 
+
+$result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
+ associated_section: split indices
+2|first
+ associated_section: 1 First chapter
+3|section 1
+ associated_section: 1.1 Section 1
+4|subsection 1
+ associated_section: 1.1.1 Subsection 1
+5|subsection 2
+ associated_section: 1.1.2 Subsection 2
+6|section 2
+ associated_section: 1.2 Section 2
+7|section 3
+ associated_section: 1.3 Section 3
+8|node in section 3
+9|node 2 in section 3
+10|node 3 in section 3
+11|second chapter
+ associated_section: 2 Second chapter
+';
+
+$result_sections_list{'index_split_split_chapter_no_nodes'} = '1|split indices
+ associated_node: Top
+2|First chapter
+ associated_node: first
+3|Section 1
+ associated_node: section 1
+4|Subsection 1
+ associated_node: subsection 1
+5|Subsection 2
+ associated_node: subsection 2
+6|Section 2
+ associated_node: section 2
+7|Section 3
+ associated_node: section 3
+8|Second chapter
+ associated_node: second chapter
+';
 
 $result_indices_sort_strings{'index_split_split_chapter_no_nodes'} = 'cp:
  ! entry in node

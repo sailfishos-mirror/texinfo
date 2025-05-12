@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -29,7 +28,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +50,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E5|prev->E0|up->E0]
@@ -83,7 +80,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E2]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -101,7 +97,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -119,7 +114,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -221,6 +215,22 @@ xrefautomaticsectiontitle on ntiti.
 
 $result_errors{'xrefname'} = [];
 
+
+$result_nodes_list{'xrefname'} = '1|Top
+ associated_section: top
+2|ntiti
+ associated_section: 1 chap
+3|chip
+ associated_section: A app
+';
+
+$result_sections_list{'xrefname'} = '1|top
+ associated_node: Top
+2|chap
+ associated_node: ntiti
+3|app
+ associated_node: chip
+';
 
 
 $result_converted{'plaintext'}->{'xrefname'} = 'top

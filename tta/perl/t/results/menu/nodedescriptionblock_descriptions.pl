@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -30,7 +29,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E8|E11|E14|E18]
  |section_level:{0}
  |section_number:{1}
@@ -131,7 +129,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
@@ -152,7 +149,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E8|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -224,7 +220,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E10|prev->E3|up->E0]
@@ -245,7 +240,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E11|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -285,7 +279,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
  |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E7|up->E0]
@@ -306,7 +299,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E10]
- |associated_node:[E10]
  |section_directions:D[next->E14|prev->E8|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -369,7 +361,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
  |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E17|prev->E10|up->E0]
@@ -390,7 +381,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E13]
- |associated_node:[E13]
  |section_directions:D[next->E18|prev->E11|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -442,7 +432,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E18]
  |associated_title_command:[E18]
  |is_target:{1}
  |menu_directions:D[prev->E13|up->E0]
@@ -463,7 +452,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_anchor_command:[E17]
- |associated_node:[E17]
  |section_directions:D[prev->E14|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -639,6 +627,34 @@ $result_errors{'nodedescriptionblock_descriptions'} = [
   }
 ];
 
+
+$result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
+ associated_section: test of nodedescriptionblock used in menu
+2|toto
+ associated_section: 1 Toto
+3|titi
+ associated_section: 2 Titi
+4|other
+ associated_section: 3 Other
+5|a somewhat long node without description nor following space
+ associated_section: 4 Somewhat long
+6|node double nodedescriptionblock
+ associated_section: 5 test double
+';
+
+$result_sections_list{'nodedescriptionblock_descriptions'} = '1|test of nodedescriptionblock used in menu
+ associated_node: Top
+2|Toto
+ associated_node: toto
+3|Titi
+ associated_node: titi
+4|Other
+ associated_node: other
+5|Somewhat long
+ associated_node: a somewhat long node without description nor following space
+6|test double
+ associated_node: node double nodedescriptionblock
+';
 
 
 $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of nodedescriptionblock used in menu

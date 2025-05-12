@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -29,7 +28,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +49,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -69,7 +66,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_childs:EC[E5|E7]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -88,7 +84,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|up->E2]
@@ -106,7 +101,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[next->E7|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -134,7 +128,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E2]
@@ -155,7 +148,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[prev->E5|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -216,6 +208,26 @@ In text GHJ.
 
 $result_errors{'acronym_in_node_and_section'} = [];
 
+
+$result_nodes_list{'acronym_in_node_and_section'} = '1|top
+ associated_section: top
+2|chap
+ associated_section: 1 chap
+3|sec define
+ associated_section: 1.1 define
+4|sec here is @acronym{GHJ}
+ associated_section: 1.2 here is @acronym{GHJ}
+';
+
+$result_sections_list{'acronym_in_node_and_section'} = '1|top
+ associated_node: top
+2|chap
+ associated_node: chap
+3|define
+ associated_node: sec define
+4|here is @acronym{GHJ}
+ associated_node: sec here is @acronym{GHJ}
+';
 
 
 $result_converted{'html'}->{'acronym_in_node_and_section'} = '<!DOCTYPE html>

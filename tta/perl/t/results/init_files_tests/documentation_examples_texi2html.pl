@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -48,7 +48,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -66,7 +65,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5|E7|E9]
  |section_level:{0}
  |section_number:{1}
@@ -88,7 +86,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
@@ -106,7 +103,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -370,7 +366,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E2|up->E0]
@@ -388,7 +383,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -429,7 +423,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
@@ -448,7 +441,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -479,7 +471,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
  |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E0]
@@ -497,7 +488,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E8]
- |associated_node:[E8]
  |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
@@ -640,6 +630,30 @@ $result_errors{'documentation_examples_texi2html'} = [
   }
 ];
 
+
+$result_nodes_list{'documentation_examples_texi2html'} = '1|Top
+ associated_section: top
+2|chapter
+ associated_section: 1 Chapter
+3|my node
+ associated_section: 2 New node
+4|Index
+ associated_section: A Index
+5|Second appendix
+ associated_section: B Second appendix
+';
+
+$result_sections_list{'documentation_examples_texi2html'} = '1|top
+ associated_node: Top
+2|Chapter
+ associated_node: chapter
+3|New node
+ associated_node: my node
+4|Index
+ associated_node: Index
+5|Second appendix
+ associated_node: Second appendix
+';
 
 $result_indices_sort_strings{'documentation_examples_texi2html'} = 'cp:
  e1

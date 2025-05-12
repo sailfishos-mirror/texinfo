@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -98,6 +98,13 @@ $result_errors{'section_chapter_before_top'} = [
   }
 ];
 
+
+$result_nodes_list{'section_chapter_before_top'} = '';
+
+$result_sections_list{'section_chapter_before_top'} = '1|section
+2|chapter
+3|top
+';
 
 
 $result_converted{'xml'}->{'section_chapter_before_top'} = '<section spaces=" "><sectiontitle>section </sectiontitle>

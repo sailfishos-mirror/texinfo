@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -14,7 +14,6 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -58,7 +57,6 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E5]
  |section_level:{0}
  |section_number:{1}
@@ -201,7 +199,6 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
@@ -240,7 +237,6 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -308,6 +304,19 @@ a
 
 $result_errors{'check_htmlxref_menu'} = [];
 
+
+$result_nodes_list{'check_htmlxref_menu'} = '1|Top
+ associated_section: top
+2|first
+3|chapter
+ associated_section: 1 Chapter
+';
+
+$result_sections_list{'check_htmlxref_menu'} = '1|top
+ associated_node: Top
+2|Chapter
+ associated_node: chapter
+';
 
 $result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
   {

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -35,6 +35,10 @@ $result_texts{'space_command_in_image'} = 'f--ile f--ile';
 
 $result_errors{'space_command_in_image'} = [];
 
+
+$result_nodes_list{'space_command_in_image'} = '';
+
+$result_sections_list{'space_command_in_image'} = '';
 
 
 $result_converted{'plaintext'}->{'space_command_in_image'} = 'Image description""\\. Image description""\\.

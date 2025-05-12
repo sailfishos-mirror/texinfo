@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -105,6 +105,10 @@ $result_texts{'menu_entry_node'} = '* (f)a1::
 
 $result_errors{'menu_entry_node'} = [];
 
+
+$result_nodes_list{'menu_entry_node'} = '';
+
+$result_sections_list{'menu_entry_node'} = '';
 
 
 $result_converted{'plaintext'}->{'menu_entry_node'} = '* Menu:

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -124,6 +124,12 @@ node name
 
 $result_errors{'ref_in_preformatted'} = [];
 
+
+$result_nodes_list{'ref_in_preformatted'} = '1|Top
+2|chap nnn the node name
+';
+
+$result_sections_list{'ref_in_preformatted'} = '';
 
 
 $result_converted{'html_text'}->{'ref_in_preformatted'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>

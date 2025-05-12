@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -41,6 +41,10 @@ $result_texts{'defblock_no_defline'} = 'misc text inside
 
 $result_errors{'defblock_no_defline'} = [];
 
+
+$result_nodes_list{'defblock_no_defline'} = '';
+
+$result_sections_list{'defblock_no_defline'} = '';
 
 
 $result_converted{'plaintext'}->{'defblock_no_defline'} = '     misc text inside

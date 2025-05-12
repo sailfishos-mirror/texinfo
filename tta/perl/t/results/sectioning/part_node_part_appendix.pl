@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -19,7 +19,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -38,7 +37,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -119,7 +117,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
@@ -139,7 +136,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{1}
@@ -235,6 +231,21 @@ Appendix A Appendix
 
 $result_errors{'part_node_part_appendix'} = [];
 
+
+$result_nodes_list{'part_node_part_appendix'} = '1|Top
+ associated_section: top
+2|chapter node
+ associated_section: 1 chapter
+';
+
+$result_sections_list{'part_node_part_appendix'} = '1|top
+ associated_node: Top
+2|Part 1
+3|chapter
+ associated_node: chapter node
+4|Part Appendix
+5|Appendix
+';
 
 
 $result_converted{'info'}->{'part_node_part_appendix'} = 'This is , produced from .

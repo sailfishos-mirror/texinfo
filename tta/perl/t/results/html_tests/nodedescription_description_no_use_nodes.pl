@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -30,7 +29,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E7|E10]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +50,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_description:[E4]
@@ -72,7 +69,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -144,7 +140,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |node_description:[E8]
@@ -164,7 +159,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[next->E10|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -204,7 +198,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |node_description:[E11]
@@ -223,7 +216,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -303,5 +295,25 @@ $result_errors{'nodedescription_description_no_use_nodes'} = [
   }
 ];
 
+
+$result_nodes_list{'nodedescription_description_no_use_nodes'} = '1|Top
+ associated_section: test of descriptions with nodedescription*
+2|toto
+ associated_section: 1 Toto
+3|titi
+ associated_section: 2 Titi
+4|other
+ associated_section: 3 Other
+';
+
+$result_sections_list{'nodedescription_description_no_use_nodes'} = '1|test of descriptions with nodedescription*
+ associated_node: Top
+2|Toto
+ associated_node: toto
+3|Titi
+ associated_node: titi
+4|Other
+ associated_node: other
+';
 
 1;

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -42,6 +42,10 @@ $result_texts{'uref_with_commands_characters'} = 'http://my-host.com/~toto%5Cs\'
 
 $result_errors{'uref_with_commands_characters'} = [];
 
+
+$result_nodes_list{'uref_with_commands_characters'} = '';
+
+$result_sections_list{'uref_with_commands_characters'} = '';
 
 
 $result_converted{'plaintext'}->{'uref_with_commands_characters'} = 'see that *LaTeX* (http://my-host.com/~*toto*%5Cs\'q"a&e?b}b{ba@s\\s

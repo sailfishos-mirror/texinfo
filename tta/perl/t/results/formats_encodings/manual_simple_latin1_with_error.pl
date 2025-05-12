@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -29,7 +29,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
@@ -47,7 +46,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -84,7 +82,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -102,7 +99,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -168,5 +164,18 @@ $result_errors{'manual_simple_latin1_with_error'} = [
   }
 ];
 
+
+$result_nodes_list{'manual_simple_latin1_with_error'} = '1|Top
+ associated_section: Testé
+2|ésseulé
+3|Chapitré
+ associated_section: 1 Chapitré
+';
+
+$result_sections_list{'manual_simple_latin1_with_error'} = '1|Testé
+ associated_node: Top
+2|Chapitré
+ associated_node: Chapitré
+';
 
 1;

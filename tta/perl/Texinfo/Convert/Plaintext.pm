@@ -699,7 +699,9 @@ sub output($$)
     $output_units = Texinfo::OutputUnits::split_by_section($document);
   }
 
-  Texinfo::OutputUnits::split_pages($output_units, $self->get_conf('SPLIT'));
+  my $nodes_list = $document->nodes_list();
+  Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
+                                    $self->get_conf('SPLIT'));
 
   # There are no XS overrides, the changes are in Perl only, no need
   # to rebuild Perl data from C.
@@ -4530,16 +4532,17 @@ sub _convert($$)
       my $node = $self->{'current_node'};
       my $arguments_line = $node->{'contents'}->[0];
       my $automatic_directions = (scalar(@{$arguments_line->{'contents'}}) <= 1);
-      if ($automatic_directions and !$self->{'seenmenus'}->{$node}) {
-        my $identifiers_target;
-        if ($self->{'document'}) {
-          $identifiers_target = $self->{'document'}->labels_information();
-        }
+      if ($automatic_directions and !$self->{'seenmenus'}->{$node}
+          and $self->{'document'}) {
+        my $identifiers_target = $self->{'document'}->labels_information();
+        my $nodes_list = $self->{'document'}->nodes_list();
+        my $sections_list = $self->{'document'}->sections_list();
 
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                              $identifiers_target, $node);
+                                    $identifiers_target, $nodes_list,
+                                    $sections_list, $node);
         if ($menu_node) {
           _convert($self, $menu_node);
           _add_newline_if_needed($self);

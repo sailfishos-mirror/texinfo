@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -263,6 +263,18 @@ $result_texts{'chapter_sections'} = 'unnumbered
 
 $result_errors{'chapter_sections'} = [];
 
+
+$result_nodes_list{'chapter_sections'} = '';
+
+$result_sections_list{'chapter_sections'} = '1|unnumbered
+2|First chapter
+3|second
+4|Chapter
+5|Section of chapter
+6|subsection 1
+7|subsection 2
+8|Chapter 2
+';
 
 
 $result_converted{'xml'}->{'chapter_sections'} = '<unnumbered spaces=" "><sectiontitle>unnumbered</sectiontitle>

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'section_part_epub'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
@@ -29,7 +28,6 @@ $result_tree_text{'section_part_epub'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -93,6 +91,15 @@ $result_errors{'section_part_epub'} = [
   }
 ];
 
+
+$result_nodes_list{'section_part_epub'} = '1|Top
+ associated_section: 1 section
+';
+
+$result_sections_list{'section_part_epub'} = '1|section
+ associated_node: Top
+2|part
+';
 
 $result_converted_errors{'file_epub'}->{'section_part_epub'} = [
   {

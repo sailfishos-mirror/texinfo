@@ -88,6 +88,10 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::check_nodes_are_referenced",
   "Texinfo::Structuring::number_floats"
     => "Texinfo::StructTransfXS::number_floats",
+  "Texinfo::Structuring::print_nodes_list"
+    => "Texinfo::StructTransfXS::print_nodes_list",
+  "Texinfo::Structuring::print_sections_list"
+    => "Texinfo::StructTransfXS::print_sections_list",
 );
 
 our $module_loaded = 0;
@@ -345,6 +349,51 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
+sub _print_root_command($)
+{
+  my $element = shift;
+  my $argument_line = $element->{'contents'}->[0];
+  if ($argument_line->{'contents'}
+      and $argument_line->{'contents'}->[0]->{'contents'}) {
+    my $root_command_texi
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+    return $root_command_texi;
+  }
+  return undef;
+}
+
+# used in t/*.t tests
+sub print_sections_list($)
+{
+  my $document = shift;
+
+  my $sections_list = $document->sections_list();
+
+  my $result = '';
+
+  my $idx = 1;
+
+  foreach my $section_structure (@$sections_list) {
+    my $element = $section_structure->{'element'};
+    my $root_command_texi = _print_root_command($element);
+    if (!defined($root_command_texi)) {
+      $result .= "$idx\n";
+    } else {
+      $result .= "$idx|$root_command_texi\n";
+    }
+    foreach my $node_key (('associated_node')) {
+      if ($section_structure->{$node_key}) {
+        $result .= " $node_key: "
+          ._print_root_command($section_structure->{$node_key})."\n";
+      }
+    }
+    $idx++;
+  }
+
+  return $result;
+}
+
 sub warn_non_empty_parts($)
 {
   my $document = shift;
@@ -433,21 +482,31 @@ sub _register_menu_node_targets($$$)
 }
 
 # Should be called after sectioning_structure.
-sub get_node_node_childs_from_sectioning
+sub get_node_node_childs_from_sectioning($$$)
 {
-  my ($node) = @_;
+  my ($node, $nodes_list, $sections_list) = @_;
 
   my @node_childs;
 
-  if ($node->{'extra'}
-      and $node->{'extra'}->{'associated_section'}) {
-    my $associated_section = $node->{'extra'}->{'associated_section'};
+  # FIXME there are some namedanchor.  Remove in caller?
+  return @node_childs unless ($node->{'cmdname'}
+                              and $node->{'cmdname'} eq 'node'
+                              # empty node name
+                              and $node->{'extra'}
+                              and defined($node->{'extra'}->{'normalized'}));
+
+  my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+
+  if ($node_structure->{'associated_section'}) {
+    my $associated_section = $node_structure->{'associated_section'};
 
     if ($associated_section->{'extra'}
         and $associated_section->{'extra'}->{'section_childs'}) {
       foreach my $child (@{$associated_section->{'extra'}->{'section_childs'}}) {
-        if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-          push @node_childs, $child->{'extra'}->{'associated_node'};
+        my $child_structure
+          = $sections_list->[$child->{'extra'}->{'section_number'} -1];
+        if ($child_structure->{'associated_node'}) {
+          push @node_childs, $child_structure->{'associated_node'};
         }
       }
     }
@@ -461,16 +520,21 @@ sub get_node_node_childs_from_sectioning
         if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
           if ($current->{'extra'}->{'section_childs'}) {
             foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
-              if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
-                push @node_childs, $child->{'extra'}->{'associated_node'};
+              my $child_structure
+                = $sections_list->[$child->{'extra'}->{'section_number'} -1];
+              if ($child_structure->{'associated_node'}) {
+                push @node_childs, $child_structure->{'associated_node'};
               }
             }
           }
-        } elsif ($current->{'extra'}
-                 and $current->{'extra'}->{'associated_node'}) {
-          # for @appendix, and what follows, as it stops a @part, but is
-          # not below @top
-          push @node_childs, $current->{'extra'}->{'associated_node'};
+        } else {
+          my $current_structure
+            = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+          if ($current_structure->{'associated_node'}) {
+            # for @appendix, and what follows, as it stops a @part, but is
+            # not below @top
+            push @node_childs, $current_structure->{'associated_node'};
+          }
         }
       }
     }
@@ -487,6 +551,7 @@ sub check_nodes_are_referenced($)
 
   my $customization_information = $document;
   my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
   my $registrar = $document->registrar();
@@ -523,7 +588,8 @@ sub check_nodes_are_referenced($)
       my $automatic_directions
         = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
       if ($automatic_directions) {
-        my @node_childs = get_node_node_childs_from_sectioning($node);
+        my @node_childs = get_node_node_childs_from_sectioning($node,
+                                              $nodes_list, $sections_list);
         foreach my $node_child (@node_childs) {
           $referenced_nodes{$node_child} = 1;
         }
@@ -565,7 +631,7 @@ sub check_nodes_are_referenced($)
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions
           = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-        my $section = $node->{'extra'}->{'associated_section'};
+        my $section = $node_structure->{'associated_section'};
         my $menu_directions = $node->{'extra'}->{'menu_directions'};
         if (not (($section and $automatic_directions)
                  or ($menu_directions and $menu_directions->{'up'}))) {
@@ -694,8 +760,9 @@ sub set_menus_node_directions($)
 # from section_directions.  It could also be from
 # toplevel_directions if going through parts, except for @top
 # as prev or next.
-sub _section_direction_associated_node($$)
+sub _section_direction_associated_node($$$)
 {
+  my $sections_list = shift;
   my $section = shift;
   my $direction = shift;
 
@@ -706,11 +773,14 @@ sub _section_direction_associated_node($$)
         and ($direction_base ne 'toplevel'
              or $direction eq 'up'
              or $section->{'extra'}->{$direction_base.'_directions'}->{$direction}
-                                                         ->{'cmdname'} ne 'top')
-       and $section->{'extra'}->{$direction_base.'_directions'}->{$direction}
-                                             ->{'extra'}->{'associated_node'}) {
-         return $section->{'extra'}->{$direction_base.'_directions'}->{$direction}
-                                               ->{'extra'}->{'associated_node'};
+                                                         ->{'cmdname'} ne 'top')) {
+      my $direction_element
+        = $section->{'extra'}->{$direction_base.'_directions'}->{$direction};
+      my $direction_structure
+        = $sections_list->[$direction_element->{'extra'}->{'section_number'} -1];
+       if ($direction_structure->{'associated_node'}) {
+        return $direction_structure->{'associated_node'};
+      }
     }
   }
   return undef;
@@ -728,6 +798,7 @@ sub complete_node_tree_with_menus($)
 
   my $customization_information = $document;
   my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
   my $identifier_target = $document->labels_information();
   my $registrar = $document->registrar();
 
@@ -764,7 +835,7 @@ sub complete_node_tree_with_menus($)
             }
             next;
           }
-          my $section = $node->{'extra'}->{'associated_section'};
+          my $section = $node_structure->{'associated_section'};
           if ($section
               and $customization_information->get_conf(
                                              'CHECK_NORMAL_MENU_STRUCTURE')) {
@@ -777,7 +848,8 @@ sub complete_node_tree_with_menus($)
                 = $section->{'extra'}->{'part_associated_section'};
             }
             my $direction_associated_node
-              = _section_direction_associated_node($direction_section, $direction);
+              = _section_direction_associated_node($sections_list,
+                                                   $direction_section, $direction);
             if ($direction_associated_node) {
               my $section_directions
                  = $direction_section->{'extra'}->{'section_directions'};
@@ -786,10 +858,11 @@ sub complete_node_tree_with_menus($)
               if ($section_directions
                   and $section_directions->{'up'}) {
                 my $up_sec = $section_directions->{'up'};
+                my $up_structure
+                 = $sections_list->[$up_sec->{'extra'}->{'section_number'} -1];
 
-                if ($up_sec->{'extra'}
-                    and $up_sec->{'extra'}->{'associated_node'}) {
-                  my $up_node = $up_sec->{'extra'}->{'associated_node'};
+                if ($up_structure->{'associated_node'}) {
+                  my $up_node = $up_structure->{'associated_node'};
                   if ($up_node and $up_node->{'extra'}
                       and $up_node->{'extra'}->{'menus'}
                       and scalar(@{$up_node->{'extra'}->{'menus'}})) {
@@ -945,6 +1018,7 @@ sub construct_nodes_tree($)
 
   my $top_node = $identifier_target->{'Top'};
   my $top_node_section_child;
+  my $sections_list = $document->sections_list();
   # Go through all the nodes and set directions.
   my $nodes_list = $document->nodes_list();
   foreach my $node_structure (@{$nodes_list}) {
@@ -965,8 +1039,8 @@ sub construct_nodes_tree($)
             $node->{'extra'}->{'node_directions'}->{'prev'} = $top_node;
             next;
           }
-          if ($node->{'extra'}->{'associated_section'}) {
-            my $section = $node->{'extra'}->{'associated_section'};
+          if ($node_structure->{'associated_section'}) {
+            my $section = $node_structure->{'associated_section'};
 
             # Prefer the section associated with a @part for node directions.
             if ($section->{'extra'}->{'part_associated_section'}) {
@@ -974,7 +1048,8 @@ sub construct_nodes_tree($)
             }
 
             my $direction_associated_node
-              = _section_direction_associated_node($section, $direction);
+              = _section_direction_associated_node($sections_list,
+                                                   $section, $direction);
             if ($direction_associated_node) {
               $node->{'extra'}->{'node_directions'} = {}
                  if (!$node->{'extra'}->{'node_directions'});
@@ -985,25 +1060,23 @@ sub construct_nodes_tree($)
         }
       } else {
         # Special case for Top node, use first section
-        if ($node->{'extra'}->{'associated_section'}
-            and $node->{'extra'}->{'associated_section'}
+        if ($node_structure->{'associated_section'}
+            and $node_structure->{'associated_section'}
                                  ->{'extra'}->{'section_childs'}
-            and $node->{'extra'}->{'associated_section'}
-                                 ->{'extra'}->{'section_childs'}->[0]
-            and $node->{'extra'}->{'associated_section'}
-                             ->{'extra'}->{'section_childs'}->[0]->{'extra'}
-            and $node->{'extra'}->{'associated_section'}
-                          ->{'extra'}->{'section_childs'}->[0]
-                                             ->{'extra'}->{'associated_node'}) {
-          $top_node_section_child
-            = $node->{'extra'}->{'associated_section'}
-                        ->{'extra'}->{'section_childs'}->[0]
-                                             ->{'extra'}->{'associated_node'};
-          $node->{'extra'}->{'node_directions'} = {}
-              if (! $node->{'extra'}->{'node_directions'});
-          $node->{'extra'}->{'node_directions'}->{'next'}
+            and $node_structure->{'associated_section'}
+                                 ->{'extra'}->{'section_childs'}->[0]) {
+          my $section_child = $node_structure->{'associated_section'}
+                                 ->{'extra'}->{'section_childs'}->[0];
+          my $section_child_structure
+         = $sections_list->[$section_child->{'extra'}->{'section_number'} -1];
+          if ($section_child_structure->{'associated_node'}) {
+            $top_node_section_child
+              = $section_child_structure->{'associated_node'};
+            $node->{'extra'}->{'node_directions'} = {}
+                if (! $node->{'extra'}->{'node_directions'});
+            $node->{'extra'}->{'node_directions'}->{'next'}
              = $top_node_section_child;
-
+          }
         }
       }
     } else { # explicit directions
@@ -1056,6 +1129,60 @@ sub construct_nodes_tree($)
       }
     }
   }
+}
+
+sub _print_section_command($)
+{
+  my $element = shift;
+
+  my $root_command_texi = _print_root_command($element);
+
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'section_heading_number'})
+      and $element->{'extra'}->{'section_heading_number'} ne '') {
+    my $result = $element->{'extra'}->{'section_heading_number'};
+    if (defined($root_command_texi)) {
+      $result .= ' '.$root_command_texi;
+    }
+    return $result;
+  }
+
+  return $root_command_texi;
+}
+
+sub print_nodes_list($)
+{
+  my $document = shift;
+
+  my $nodes_list = $document->nodes_list();
+
+  my $result = '';
+
+  my $idx = 1;
+
+  foreach my $node_structure (@$nodes_list) {
+    my $element = $node_structure->{'element'};
+    my $root_command_texi = _print_root_command($element);
+    if (!defined($root_command_texi)) {
+      $result .= "$idx\n";
+    } else {
+      $result .= "$idx|$root_command_texi\n";
+    }
+    foreach my $section_key (('associated_section')) {
+      if ($node_structure->{$section_key}) {
+        my $section_command
+          = _print_section_command($node_structure->{$section_key});
+        if (!defined($section_command)) {
+          $result .= " $section_key\n";
+        } else {
+          $result .= " $section_key: ".$section_command."\n";
+        }
+      }
+    }
+    $idx++;
+  }
+
+  return $result;
 }
 
 # For each internal reference command, set the 'normalized' key, in the
@@ -1364,20 +1491,23 @@ sub _insert_menu_comment_content($$$;$)
 
 # Creates a new @menu element based on $NODE sectioning information.
 # $LANG_TRANSLATIONS and $DEBUG are only used for the top menu.
-sub new_complete_node_menu
+sub new_complete_node_menu($$$;$$$)
 {
-  my ($node, $lang_translations, $debug,
+  my ($node, $nodes_list, $sections_list, $lang_translations, $debug,
       $use_sections) = @_;
 
-  my @node_childs = get_node_node_childs_from_sectioning($node);
+  my @node_childs = get_node_node_childs_from_sectioning($node,
+                                   $nodes_list, $sections_list);
 
   if (not scalar(@node_childs)) {
     return undef;
   }
 
+  my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+  my $section = $node_structure->{'associated_section'};
+
   # only holds contents here, will be turned into a proper block
   # command in new_block_command below
-  my $section = $node->{'extra'}->{'associated_section'};
   my $new_menu = {'contents' => []};
   foreach my $child (@node_childs) {
     my $entry = new_node_menu_entry($child, $use_sections);
@@ -1399,8 +1529,9 @@ sub new_complete_node_menu
       if (!$child->{'extra'} or !$child->{'extra'}->{'is_target'}) {
         next;
       }
+      my $child_structure = $nodes_list->[$child->{'extra'}->{'node_number'} -1];
 
-      my $child_section = $child->{'extra'}->{'associated_section'};
+      my $child_section = $child_structure->{'associated_section'};
       if ($child_section) {
         my $part_added = 0;
         my $associated_part = $child_section->{'extra'}->{'associated_part'};
@@ -1443,18 +1574,23 @@ sub new_complete_node_menu
 # Create a new @detailmenu element.
 # used in tree transformations.  Used in converters through
 # new_complete_menu_master_menu.
-sub new_detailmenu($$$$$;$)
+sub new_detailmenu($$$$$$$;$)
 {
   my $lang_translations = shift;
   my $customization_information = shift;
   my $registrar = shift;
   my $identifier_target = shift;
+  my $nodes_list = shift;
+  my $sections_list = shift;
   my $menus = shift;
   my $use_sections = shift;
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command
   my $new_detailmenu = {'contents' => []};
+  if (defined($menus) and ref($menus) ne 'ARRAY') {
+    cluck();
+  }
   if (defined($menus) and scalar(@$menus)) {
     foreach my $menu (@$menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
@@ -1467,7 +1603,9 @@ sub new_detailmenu($$$$$;$)
                          _print_down_menus($node, undef,
                                            $customization_information,
                                            $registrar,
-                                           $identifier_target, $use_sections);
+                                           $identifier_target,
+                                           $nodes_list, $sections_list,
+                                           $use_sections);
           }
         }
       }
@@ -1502,51 +1640,58 @@ sub new_detailmenu($$$$$;$)
 # Returns a @menu element for $NODE, formatted with a master menu with a
 # @detailmenu if $NODE is the Top node.
 # $SELF should be a converter.
-sub new_complete_menu_master_menu($$$)
+sub new_complete_menu_master_menu($$$$$)
 {
   my $self = shift;
   my $labels = shift;
+  my $nodes_list = shift;
+  my $sections_list = shift;
   my $node = shift;
 
   my $menu_node
-    = new_complete_node_menu($node,
+    = new_complete_node_menu($node, $nodes_list, $sections_list,
                         $self->{'current_lang_translations'},
                         $self->get_conf('DEBUG'));
   if ($menu_node
       and $node->{'extra'}->{'normalized'}
-      and $node->{'extra'}->{'normalized'} eq 'Top'
-      and $node->{'extra'}->{'associated_section'}
-      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
-                                    $self, undef, $labels, [$menu_node]);
-    if ($detailmenu) {
-      # add a blank line before the detailed node listing
-      my $menu_comment = {'type' => 'menu_comment',
-                          'parent' => $menu_node};
-      push @{$menu_node->{'contents'}}, $menu_comment;
-      my $preformatted = {'type' => 'preformatted',
-                          'parent' => $menu_comment};
-      push @{$menu_comment->{'contents'}}, $preformatted;
-      my $empty_line = {'type' => 'after_menu_description_line',
-                        'text' => "\n", 'parent' => $preformatted};
-      push @{$preformatted->{'contents'}}, $empty_line;
+      and $node->{'extra'}->{'normalized'} eq 'Top') {
+    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+    if ($node_structure->{'associated_section'}
+        and $node_structure->{'associated_section'}->{'cmdname'} eq 'top') {
+      my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
+                                      $self, undef, $labels, $nodes_list,
+                                      $sections_list, [$menu_node]);
+      if ($detailmenu) {
+        # add a blank line before the detailed node listing
+        my $menu_comment = {'type' => 'menu_comment',
+                            'parent' => $menu_node};
+        push @{$menu_node->{'contents'}}, $menu_comment;
+        my $preformatted = {'type' => 'preformatted',
+                            'parent' => $menu_comment};
+        push @{$menu_comment->{'contents'}}, $preformatted;
+        my $empty_line = {'type' => 'after_menu_description_line',
+                          'text' => "\n", 'parent' => $preformatted};
+        push @{$preformatted->{'contents'}}, $empty_line;
 
-      $detailmenu->{'parent'} = $menu_node;
-      push @{$menu_node->{'contents'}}, $detailmenu;
+        $detailmenu->{'parent'} = $menu_node;
+        push @{$menu_node->{'contents'}}, $detailmenu;
+      }
     }
   }
   return $menu_node;
 }
 
 # returns menu contents
-sub _print_down_menus($$$$$;$);
-sub _print_down_menus($$$$$;$)
+sub _print_down_menus($$$$$$$;$);
+sub _print_down_menus($$$$$$$;$)
 {
   my $node = shift;
   my $up_nodes = shift;
   my $customization_information = shift;
   my $registrar = shift;
   my $identifier_target = shift;
+  my $nodes_list = shift;
+  my $sections_list = shift;
   my $use_sections = shift;
 
   # NOTE the menus are not used directly, the entry of the menus are copied
@@ -1560,7 +1705,8 @@ sub _print_down_menus($$$$$;$)
     @menus = @{$node->{'extra'}->{'menus'}};
   } else {
     my $current_menu
-      = new_complete_node_menu($node, undef, undef, $use_sections);
+      = new_complete_node_menu($node, $nodes_list, $sections_list, undef,
+                               undef, $use_sections);
     if (defined($current_menu)) {
       @menus = ( $current_menu );
     } else {
@@ -1587,8 +1733,9 @@ sub _print_down_menus($$$$$;$)
   if (scalar(@master_menu_contents)) {
     # Prepend node title
     my $node_name_element;
-    if ($node->{'extra'}->{'associated_section'}) {
-      my $associated_section = $node->{'extra'}->{'associated_section'};
+    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+    if ($node_structure->{'associated_section'}) {
+      my $associated_section = $node_structure->{'associated_section'};
       my $arguments_line = $associated_section->{'contents'}->[0];
       $node_name_element = $arguments_line->{'contents'}->[0];
     } else {
@@ -1626,7 +1773,9 @@ sub _print_down_menus($$$$$;$)
                                            $up_nodes,
                                            $customization_information,
                                            $registrar,
-                                           $identifier_target, $use_sections);
+                                           $identifier_target,
+                                           $nodes_list, $sections_list,
+                                           $use_sections);
       }
     }
     pop @$up_nodes;
@@ -1714,10 +1863,12 @@ Complete nodes directions with menu directions and I<Top> node first node
 directions.  Check consistency of menus, sectionning and nodes direction
 structures.
 
-=item @children_nodes = get_node_node_childs_from_sectioning($node)
+=item @children_nodes = get_node_node_childs_from_sectioning($node, $nodes_list, $sections_list)
 X<C<get_node_node_childs_from_sectioning>>
 
-I<$node> is a node tree element.  Find the node I<$node> children based
+I<$node> is a node tree element.  I<$nodes_list> and I<$sections_list> are
+the nodes and section lists structure information, usually obtained through
+C<Texinfo::Document>. Find the node I<$node> children based
 on the sectioning structure.  For the node associated with C<@top>
 sectioning command, the sections associated with parts are considered.
 
@@ -1727,12 +1878,14 @@ X<C<new_block_command>>
 Complete I<$element> by adding the I<$command_name>, the command line
 argument and C<@end> to turn the element to a proper block command.
 
-=item $new_menu = new_complete_node_menu($node, $lang_translations, $debug_level, $use_sections)
+=item $new_menu = new_complete_node_menu($node, $nodes_list, $sections_list, $lang_translations, $debug_level, $use_sections)
 X<C<new_complete_node_menu>>
 
 Returns a C<@menu> Texinfo tree element for node I<$node>, pointing to the
-children of the node obtained with the sectioning structure.  If
-I<$use_sections> is set, use section names for the menu entry names.  The
+children of the node obtained with the sectioning structure.
+I<$nodes_list> and I<$sections_list> are the list of nodes and sections
+structure information.
+If I<$use_sections> is set, use section names for the menu entry names.  The
 I<$lang_translations> argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
 The second element, if set, should be an hash reference holding
@@ -1741,7 +1894,7 @@ similar to the C<DEBUG> customization variable.  If set, it is supplied to the
 function called for translations.  Translations are only needed when generating
 the top node menu.
 
-=item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $menus)
+=item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $nodes_list, $menus)
 X<C<new_detailmenu>>
 
 Returns a detailmenu tree element formatted as a master node.

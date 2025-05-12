@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -14,7 +14,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -33,7 +32,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10|E12|E14]
  |section_level:{0}
  |section_number:{1}
@@ -134,11 +132,10 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E9|up->E0]
- |node_directions:D[next->E5|prev->E0|up->E0]
+ |node_directions:D[next->E9|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_2002_2003_2002}
   *arguments_line C1
@@ -153,7 +150,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -168,7 +164,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   {empty_line:\\n}
  *5 @node C1 in_menu_only_special_spaces_node.texi:l19
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
   *arguments_line C1
    *line_arg
@@ -181,7 +176,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -196,7 +190,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   {empty_line:\\n}
  *7 @node C1 in_menu_only_special_spaces_node.texi:l22
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
   *arguments_line C1
    *line_arg
@@ -209,7 +202,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -227,11 +219,10 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E3|up->E0]
- |node_directions:D[next->E11|prev->E7|up->E0]
+ |node_directions:D[next->E11|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{_0085_00a0_1680}
   *arguments_line C1
@@ -246,7 +237,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -264,7 +254,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E9|up->E0]
@@ -283,7 +272,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E11]
- |associated_node:[E11]
  |section_directions:D[next->E14|prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -301,7 +289,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
  |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[prev->E11|up->E0]
@@ -320,7 +307,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E13]
- |associated_node:[E13]
  |section_directions:D[prev->E12|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
@@ -452,23 +438,49 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => "warning: node next pointer for `\x{2000}\x{2001}\x{2002}' is `' but next is `\x{85}\x{a0}\x{1680}' in menu
+    'error_line' => "warning: node `\x{85}\x{a0}\x{1680}' is next for `\x{2000}\x{2001}\x{2002}' in menu but not in sectioning
 ",
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 16,
-    'text' => "node next pointer for `\x{2000}\x{2001}\x{2002}' is `' but next is `\x{85}\x{a0}\x{1680}' in menu",
+    'text' => "node `\x{85}\x{a0}\x{1680}' is next for `\x{2000}\x{2001}\x{2002}' in menu but not in sectioning",
     'type' => 'warning'
   },
   {
-    'error_line' => "warning: node prev pointer for `\x{85}\x{a0}\x{1680}' is `' but prev is `\x{2000}\x{2001}\x{2002}' in menu
+    'error_line' => "warning: node `\x{2000}\x{2001}\x{2002}' is prev for `\x{85}\x{a0}\x{1680}' in menu but not in sectioning
 ",
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 25,
-    'text' => "node prev pointer for `\x{85}\x{a0}\x{1680}' is `' but prev is `\x{2000}\x{2001}\x{2002}' in menu",
+    'text' => "node `\x{2000}\x{2001}\x{2002}' is prev for `\x{85}\x{a0}\x{1680}' in menu but not in sectioning",
     'type' => 'warning'
   }
 ];
 
+
+$result_nodes_list{'in_menu_only_special_spaces_node'} = '1|Top
+ associated_section: top
+2|   
+ associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
+3|  
+ associated_section: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+4|᠎ 
+ associated_section: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+5|         　
+ associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+';
+
+$result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
+ associated_node: Top
+2|EN QUAD| | EM QUAD| | EN SPACE| |
+ associated_node:    
+3|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+4|CARRIAGE RETURN|'."\r".'|
+5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ associated_node:   
+6|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ associated_node: ᠎ 
+7|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ associated_node:          　
+';
 
 
 $result_converted{'info'}->{'in_menu_only_special_spaces_node'} = 'This is , produced from in_menu_only_special_spaces_node.texi.
@@ -489,7 +501,7 @@ top
 *          　::
 
 
-File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
+File: ,  Node:    ,  Next:   ,  Prev: Top,  Up: Top
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************
@@ -501,7 +513,7 @@ File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
 ********************
 
 
-File: ,  Node:   ,  Next: ᠎ ,  Prev: ,  Up: Top
+File: ,  Node:   ,  Next: ᠎ ,  Prev:    ,  Up: Top
 
 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
 *********************************************************
@@ -522,9 +534,9 @@ File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 Tag Table:
 Node: Top64
 Node:    181
-Node:   467
-Node: ᠎ 637
-Node:          　785
+Node:   470
+Node: ᠎ 643
+Node:          　791
 
 End Tag Table
 
@@ -581,26 +593,26 @@ Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUA
 <div class="chapter-level-extent" id="g_t_2002_2003_2002">
 <div class="nav-panel">
 <p>
-Next: CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#g_t_0085_00a0_1680" accesskey="n" rel="next">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent">
-<h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"> &para;</a></span></h2>
+<div class="chapter-level-extent" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c">
+<h2 class="chapter"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent">
-<h2 class="chapter" id="CARRIAGE-RETURN_007c-_007c"><span>3 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h2>
+<div class="chapter-level-extent" id="CARRIAGE-RETURN_007c-_007c">
+<h2 class="chapter"><span>3 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_0085_00a0_1680">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Previous: CARRIAGE RETURN|'."\r".'|, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Previous: <a href="#g_t_2002_2003_2002" accesskey="p" rel="prev">EN QUAD| | EM QUAD| | EN SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"><span>4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |<a class="copiable-link" href="#NEXT-LINE-_0028NEL_0029_007c_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"> &para;</a></span></h2>
 
@@ -649,7 +661,7 @@ $result_converted{'xml'}->{'in_menu_only_special_spaces_node'} = '<preamblebefor
 
 
 </top>
-<node identifier="_2002_2003_2002" spaces=" "><nodename>   </nodename><nodenext automatic="on"></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_2002_2003_2002" spaces=" "><nodename>   </nodename><nodenext automatic="on">  </nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>EN QUAD| | EM QUAD| | EN SPACE| |</sectiontitle>
 
 </chapter>
@@ -661,7 +673,7 @@ $result_converted{'xml'}->{'in_menu_only_special_spaces_node'} = '<preamblebefor
 <chapter spaces=" "><sectiontitle>CARRIAGE RETURN|'."\r".'|</sectiontitle>
 
 </chapter>
-<node identifier="_0085_00a0_1680" spaces=" "><nodename>  </nodename><nodenext automatic="on">᠎ </nodenext><nodeprev automatic="on"></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_0085_00a0_1680" spaces=" "><nodename>  </nodename><nodenext automatic="on">᠎ </nodenext><nodeprev automatic="on">   </nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</sectiontitle>
 
 </chapter>

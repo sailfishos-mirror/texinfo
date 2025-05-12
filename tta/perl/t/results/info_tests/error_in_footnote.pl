@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -165,6 +165,11 @@ $result_floats{'error_in_footnote'} = 'Text: 1
    Now footnote@footnote{@LaTeX. 
    and strong @strong{Note footnote}.}
 ';
+
+$result_nodes_list{'error_in_footnote'} = '1|Top
+';
+
+$result_sections_list{'error_in_footnote'} = '';
 
 
 $result_converted{'info'}->{'error_in_footnote'} = 'This is , produced from .

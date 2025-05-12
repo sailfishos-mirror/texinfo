@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -21,7 +21,6 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +37,6 @@ $result_tree_text{'heading_between'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_heading_number:{1}
  |section_level:{1}
@@ -73,7 +71,6 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->E0]
@@ -91,7 +88,6 @@ $result_tree_text{'heading_between'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -131,5 +127,17 @@ Topic
 
 $result_errors{'heading_between'} = [];
 
+
+$result_nodes_list{'heading_between'} = '1|Chapter
+ associated_section: 1 Chapter
+2|Section
+ associated_section: 1.1 Section
+';
+
+$result_sections_list{'heading_between'} = '1|Chapter
+ associated_node: Chapter
+2|Section
+ associated_node: Section
+';
 
 1;

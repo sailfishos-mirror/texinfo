@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -152,7 +152,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6]
@@ -170,7 +169,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_childs:EC[E7]
  |section_level:{0}
  |section_number:{1}
@@ -192,7 +190,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E4]
@@ -210,7 +207,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[up->E5]
  |section_heading_number:{1}
  |section_level:{1}
@@ -332,6 +328,18 @@ $result_errors{'placed_things_before_node'} = [
 
 $result_floats{'placed_things_before_node'} = ': 1
  F1: {float-anchor}
+';
+
+$result_nodes_list{'placed_things_before_node'} = '1|Top
+ associated_section: top section
+2|chapter
+ associated_section: 1 Chapter
+';
+
+$result_sections_list{'placed_things_before_node'} = '1|top section
+ associated_node: Top
+2|Chapter
+ associated_node: chapter
 ';
 
 $result_indices_sort_strings{'placed_things_before_node'} = 'cp:

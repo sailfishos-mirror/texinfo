@@ -1783,9 +1783,18 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (command_data(data_cmd).flags & CF_root)
     {
+      SECTION_STRUCTURE *section_structure = 0;
       current = last_contents_child (current);
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
+
+      if (cmd != CM_node)
+        {
+          section_structure = add_to_section_structure_list (
+                            &parsed_document->sections_list, current);
+          add_extra_integer (current, AI_key_section_number,
+                             parsed_document->sections_list.number);
+        }
 
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
@@ -1794,13 +1803,19 @@ end_line_misc_line (ELEMENT *current)
           associate_title_command_anchor (current_node, current);
           if (current_node)
             {
-              if (!lookup_extra_element (current_node,
-                                         AI_key_associated_section))
+              int status;
+              size_t node_number
+                = lookup_extra_integer (current_node,
+                                        AI_key_node_number, &status);
+              if (node_number)
                 {
-                  add_extra_element
-                    (current_node, AI_key_associated_section, current);
-                  add_extra_element
-                    (current, AI_key_associated_node, current_node);
+                  NODE_STRUCTURE *node_structure
+                    = parsed_document->nodes_list.list[node_number -1];
+                  if (!node_structure->associated_section)
+                    {
+                      node_structure->associated_section = current;
+                      section_structure->associated_node = current_node;
+                    }
                 }
             }
 
@@ -1822,22 +1837,20 @@ end_line_misc_line (ELEMENT *current)
       else if (cmd == CM_part)
         {
           current_part = current;
-          if (current_node
-              && !lookup_extra_element (current_node,
-                                        AI_key_associated_section))
+          if (current_node)
             {
-              line_warn ("@node precedes @part, but parts may not be "
-                         "associated with nodes");
+              int status;
+              size_t node_number
+                = lookup_extra_integer (current_node,
+                                        AI_key_node_number, &status);
+              NODE_STRUCTURE *node_structure
+                = parsed_document->nodes_list.list[node_number -1];
+              if (!(node_structure->associated_section))
+                line_warn ("@node precedes @part, but parts may not be "
+                           "associated with nodes");
             }
         }
 
-      if (cmd != CM_node)
-        {
-          add_to_section_structure_list (
-                            &parsed_document->sections_list, current);
-          add_extra_integer (current, AI_key_section_number,
-                             parsed_document->sections_list.number);
-        }
     }
   /* only *heading as sectioning commands are handled just before */
   else if (command_data(data_cmd).flags & CF_sectioning_heading

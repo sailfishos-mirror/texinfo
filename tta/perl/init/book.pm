@@ -43,8 +43,16 @@ texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 sub book_in_contents_button {
   my ($self, $direction, $element) = @_;
 
-  if ($element->{'extra'}->{'associated_section'}) {
-    $element = $element->{'extra'}->{'associated_section'};
+  if ($element->{'cmdname'} and $element->{'cmdname'} eq 'node') {
+    my $document = $self->get_info('document');
+    if ($document) {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      if ($node_structure->{'associated_section'}) {
+        $element = $node_structure->{'associated_section'};
+      }
+    }
   }
 
   my $href = $self->command_contents_href($element, 'contents');
@@ -307,22 +315,34 @@ sub book_convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node'
-      and $element->{'extra'}
-      and $element->{'extra'}->{'associated_section'}) {
-    $opening_section = $element->{'extra'}->{'associated_section'};
-    $level_corrected_opening_section_cmdname
-     = Texinfo::Structuring::section_level_adjusted_command_name(
+  if ($cmdname eq 'node') {
+    if ($document) {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      if ($node_structure->{'associated_section'}) {
+        $opening_section = $node_structure->{'associated_section'};
+        $level_corrected_opening_section_cmdname
+          = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
-  } elsif ($cmdname ne 'node'
-           # if there is an associated node, it is not a section opening
-           # the section was opened before when the node was encountered
-           and (not $element->{'extra'}
-                or not $element->{'extra'}->{'associated_node'})
-           # to avoid *heading* @-commands
-           and $Texinfo::Commands::root_commands{$cmdname}) {
-    $opening_section = $element;
-    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
+      }
+    }
+    # to avoid *heading* @-commands
+  } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
+    my $associated_node;
+    if ($sections_list) {
+      my $section_structure
+        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+      if ($section_structure->{'associated_node'}) {
+        $associated_node = $section_structure->{'associated_node'};
+      }
+    }
+    # if there is an associated node, it is not a section opening
+    # the section was opened before when the node was encountered
+    if (!$associated_node) {
+      $opening_section = $element;
+      $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
+    }
   }
 
   # could use empty args information also, to avoid calling command_text

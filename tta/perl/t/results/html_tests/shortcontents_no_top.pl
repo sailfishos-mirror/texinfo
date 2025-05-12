@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -92,6 +92,13 @@ $result_texts{'shortcontents_no_top'} = '1 chap
 
 $result_errors{'shortcontents_no_top'} = [];
 
+
+$result_nodes_list{'shortcontents_no_top'} = '';
+
+$result_sections_list{'shortcontents_no_top'} = '1|chap
+2|chap2
+3|sec
+';
 
 
 $result_converted{'html'}->{'shortcontents_no_top'} = '<!DOCTYPE html>

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -92,6 +92,10 @@ $result_texts{'uref_url'} = '--a (-b)
 
 $result_errors{'uref_url'} = [];
 
+
+$result_nodes_list{'uref_url'} = '';
+
+$result_sections_list{'uref_url'} = '';
 
 
 $result_converted{'plaintext'}->{'uref_url'} = '-b (--a) <--c> -d -g -i -k -l -n (--m) -q

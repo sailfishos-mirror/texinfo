@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -162,6 +162,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx no:de
 
 $result_errors{'del_quote_linebreaking'} = [];
 
+
+$result_nodes_list{'del_quote_linebreaking'} = '';
+
+$result_sections_list{'del_quote_linebreaking'} = '';
 
 
 $result_converted{'info'}->{'del_quote_linebreaking'} = 'This is , produced from .

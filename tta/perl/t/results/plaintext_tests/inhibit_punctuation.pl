@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -52,6 +52,10 @@ but , ,
 
 $result_errors{'inhibit_punctuation'} = [];
 
+
+$result_nodes_list{'inhibit_punctuation'} = '';
+
+$result_sections_list{'inhibit_punctuation'} = '';
 
 
 $result_converted{'plaintext'}->{'inhibit_punctuation'} = 'foo vs. bar.  colon :And something else.  semi colon ;.  And ?  ?.  ?

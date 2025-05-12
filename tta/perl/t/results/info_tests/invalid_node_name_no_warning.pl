@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -224,6 +224,14 @@ bidule:.
 
 $result_errors{'invalid_node_name_no_warning'} = [];
 
+
+$result_nodes_list{'invalid_node_name_no_warning'} = '1|Top
+2|@asis{nodename. a}
+3|node@comma{}comma
+4|@asis{bidule:}
+';
+
+$result_sections_list{'invalid_node_name_no_warning'} = '';
 
 
 $result_converted{'info'}->{'invalid_node_name_no_warning'} = 'This is , produced from .

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -18,7 +18,6 @@ $result_tree_text{'pagetype'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -36,7 +35,6 @@ $result_tree_text{'pagetype'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E4]
  |section_level:{0}
  |section_number:{1}
@@ -58,7 +56,6 @@ $result_tree_text{'pagetype'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -76,7 +73,6 @@ $result_tree_text{'pagetype'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E4|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -189,6 +185,19 @@ $result_errors{'pagetype'} = [
   }
 ];
 
+
+$result_nodes_list{'pagetype'} = '1|Top
+ associated_section: section top
+2|chapter
+ associated_section: 1 Chapter
+';
+
+$result_sections_list{'pagetype'} = '1|section top
+ associated_node: Top
+2|Chapter
+ associated_node: chapter
+3|afourpaper reset
+';
 
 
 $result_converted{'latex_text'}->{'pagetype'} = '\\geometry{papername=a4paper}%

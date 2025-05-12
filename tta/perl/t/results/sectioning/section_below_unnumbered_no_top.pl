@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -56,6 +56,12 @@ S
 
 $result_errors{'section_below_unnumbered_no_top'} = [];
 
+
+$result_nodes_list{'section_below_unnumbered_no_top'} = '';
+
+$result_sections_list{'section_below_unnumbered_no_top'} = '1|U
+2|S
+';
 
 
 $result_converted{'plaintext'}->{'section_below_unnumbered_no_top'} = 'U

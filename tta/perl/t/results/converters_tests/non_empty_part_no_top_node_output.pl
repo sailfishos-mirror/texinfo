@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -37,7 +37,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
  |menus:EC[E3]
@@ -57,7 +56,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E1]
- |associated_node:[E1]
  |associated_part:[E0]
  |section_directions:D[next->E4|prev->E0]
  |section_level:{0}
@@ -174,7 +172,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
  |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[up->E1]
@@ -215,7 +212,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |associated_part:[E8]
  |section_directions:D[up->E8]
  |section_heading_number:{2}
@@ -314,7 +310,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
  |associated_title_command:[E15]
  |is_target:{1}
  |node_directions:D[up->E1]
@@ -334,7 +329,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E14]
- |associated_node:[E14]
  |associated_part:[E13]
  |section_directions:D[up->E13]
  |section_heading_number:{4}
@@ -558,6 +552,31 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   }
 ];
 
+
+$result_nodes_list{'non_empty_part_no_top_node_output'} = '1|Top
+ associated_section: top
+2|part chapter node
+ associated_section: 2 chapter with part node
+3|node between part and chapter
+ associated_section: 4 chapter after part node
+';
+
+$result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
+2|top
+ associated_node: Top
+3|part I
+4|chap in Top node
+5|Part II
+6|part III
+7|chapter with part node
+ associated_node: part chapter node
+8|Part IV
+9|Part V
+10|with part no node
+11|Part VI
+12|chapter after part node
+ associated_node: node between part and chapter
+';
 
 
 $result_converted{'html_text'}->{'non_empty_part_no_top_node_output'} = '<a class="part" id="part-before"></a><a class="node" id="Top"></a><a class="top" id="top"></a><div class="part-level-extent" id="part-I">

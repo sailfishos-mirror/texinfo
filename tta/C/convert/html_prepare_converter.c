@@ -5014,6 +5014,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   int i;
   int all_special_units_nr = 0;
   int s;
+
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
    (self->document, self->output_units_descriptors[OUDT_units]);
 
@@ -5051,11 +5052,15 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           const ELEMENT *root_command = root_unit->root;
           if (root_command && root_command->e.c->cmd == CM_node)
             {
-              const ELEMENT *associated_section
-                = lookup_extra_element (root_command,
-                                        AI_key_associated_section);
-              if (associated_section)
-                root_command = associated_section;
+              int status;
+              size_t node_number
+                = lookup_extra_integer (root_command,
+                                        AI_key_node_number, &status);
+              const NODE_STRUCTURE *node_structure
+                = self->document->nodes_list.list[node_number -1];
+
+              if (node_structure->associated_section)
+                root_command = node_structure->associated_section;
             }
        /* find the first level 1 sectioning element to associate the printindex
            with */
@@ -5890,13 +5895,15 @@ html_prepare_units_directions_files (CONVERTER *self,
   OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
     (self->document,
      self->output_units_descriptors[OUDT_associated_special_units]);
+  const NODE_STRUCTURE_LIST *nodes_list = &self->document->nodes_list;
+  const SECTION_STRUCTURE_LIST *sections_list = &self->document->sections_list;
 
    self->output_units_descriptors[OUDT_external_nodes_units]
      = external_nodes_units_descriptor;
 
   html_prepare_output_units_global_targets (self);
 
-  split_pages (output_units, self->conf->SPLIT.o.string);
+  split_pages (output_units, nodes_list, self->conf->SPLIT.o.string);
 
   if (strlen (output_file))
     {
@@ -5908,7 +5915,8 @@ html_prepare_units_directions_files (CONVERTER *self,
   else
     html_setup_output_simple_page (self, output_filename);
 
-  units_directions (&self->document->identifiers_target, output_units,
+  units_directions (&self->document->identifiers_target,
+                    nodes_list, sections_list, output_units,
                     external_node_target_units,
                     self->conf->DEBUG.o.integer);
 

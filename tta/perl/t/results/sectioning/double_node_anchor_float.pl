@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -316,6 +316,14 @@ $result_floats{'double_node_anchor_float'} = 'Text: 3
  F2: {anchor1}
  F3: {float1}
 ';
+
+$result_nodes_list{'double_node_anchor_float'} = '1|node1
+2|node1
+3|anchor1
+4|float1
+';
+
+$result_sections_list{'double_node_anchor_float'} = '';
 
 
 $result_converted{'info'}->{'double_node_anchor_float'} = 'This is , produced from .

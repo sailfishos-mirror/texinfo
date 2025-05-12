@@ -44,10 +44,16 @@ sub _set_index_global_direction_from_index_name
         if ($top_level_element) {
           if ($top_level_element->{'cmdname'} eq 'node') {
             $index_printindex_top_level_node = $top_level_element;
-          } elsif ($top_level_element->{'extra'}
-                   and $top_level_element->{'extra'}->{'associated_node'}) {
-            $index_printindex_top_level_node
-              = $top_level_element->{'extra'}->{'associated_node'};
+          } else {
+            my $sections_list = $document->sections_list();
+            if ($sections_list) {
+              my $section_structure
+         = $sections_list->[$top_level_element->{'extra'}->{'section_number'}];
+              if ($section_structure->{'associated_node'}) {
+                $index_printindex_top_level_node
+                  = $section_structure->{'associated_node'};
+              }
+            }
           }
           last if ($index_printindex_top_level_node);
         }

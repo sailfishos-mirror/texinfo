@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -112,6 +112,10 @@ flush then example
 
 $result_errors{'flushright_example_nested'} = [];
 
+
+$result_nodes_list{'flushright_example_nested'} = '';
+
+$result_sections_list{'flushright_example_nested'} = '';
 
 
 $result_converted{'plaintext'}->{'flushright_example_nested'} = '                                                    in   --- flushright

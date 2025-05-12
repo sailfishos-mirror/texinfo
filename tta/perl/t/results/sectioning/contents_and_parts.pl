@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -31,7 +30,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -123,7 +121,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[next->E6|up->E0]
@@ -143,7 +140,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |associated_part:[E3]
  |section_directions:D[next->E7|up->E3]
  |section_heading_number:{1}
@@ -162,7 +158,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E4|up->E0]
@@ -181,7 +176,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[prev->E5|up->E3]
  |section_heading_number:{2}
  |section_level:{1}
@@ -218,7 +212,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E0]
@@ -238,7 +231,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |associated_part:[E8]
  |section_directions:D[up->E8]
  |section_heading_number:{3}
@@ -316,6 +308,28 @@ part2: part2
 
 $result_errors{'contents_and_parts'} = [];
 
+
+$result_nodes_list{'contents_and_parts'} = '1|Top
+ associated_section: top
+2|chapter 1 node
+ associated_section: 1 chapter 1
+3|chapter 2 node
+ associated_section: 2 chapter 2
+4|chapter 3 node
+ associated_section: 3 chapter 3
+';
+
+$result_sections_list{'contents_and_parts'} = '1|top
+ associated_node: Top
+2|part 1: part 1
+3|chapter 1
+ associated_node: chapter 1 node
+4|chapter 2
+ associated_node: chapter 2 node
+5|part2: part2
+6|chapter 3
+ associated_node: chapter 3 node
+';
 
 
 $result_converted{'plaintext'}->{'contents_and_parts'} = 'top

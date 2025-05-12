@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -28,7 +28,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -47,7 +46,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -115,7 +113,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
@@ -136,7 +133,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -306,7 +302,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
@@ -326,7 +321,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
@@ -401,7 +395,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[up->E6]
@@ -420,7 +413,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -548,6 +540,26 @@ In subsection 1
 
 $result_errors{'split_chapter_index'} = [];
 
+
+$result_nodes_list{'split_chapter_index'} = '1|Top
+ associated_section: split indices
+2|first
+ associated_section: 1 First chapter
+3|section 1
+ associated_section: 1.1 Section 1
+4|subsection 1
+ associated_section: 1.1.1 Subsection 1
+';
+
+$result_sections_list{'split_chapter_index'} = '1|split indices
+ associated_node: Top
+2|First chapter
+ associated_node: first
+3|Section 1
+ associated_node: section 1
+4|Subsection 1
+ associated_node: subsection 1
+';
 
 $result_indices_sort_strings{'split_chapter_index'} = 'cp:
  ! entry in node

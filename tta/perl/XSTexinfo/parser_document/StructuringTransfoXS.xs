@@ -28,6 +28,7 @@
 #include "document_types.h"
 #include "tree.h"
 #include "utils.h"
+#include "structure_list.h"
 #include "manipulate_tree.h"
 #include "document.h"
 #include "transformations.h"
@@ -480,7 +481,7 @@ split_pages (SV *output_units_in, char *split)
           {
             OUTPUT_UNIT_LIST *output_units = retrieve_output_units (document,
                                                     output_units_descriptor);
-            split_pages (output_units, split);
+            split_pages (output_units, &document->nodes_list, split);
           }
 
 # for tests only
@@ -565,3 +566,47 @@ print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_enc
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+print_sections_list (SV *document_in)
+   PREINIT:
+        const DOCUMENT *document = 0;
+        SV *result_sv = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "print_sections_list");
+        if (document)
+          {
+            char *result = print_sections_list (document);
+            result_sv = newSVpv_utf8 (result, 0);
+            free (result);
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+print_nodes_list (SV *document_in)
+   PREINIT:
+        const DOCUMENT *document = 0;
+        SV *result_sv = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "print_nodes_list");
+        if (document)
+          {
+            char *result = print_nodes_list (document);
+            result_sv = newSVpv_utf8 (result, 0);
+            free (result);
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+

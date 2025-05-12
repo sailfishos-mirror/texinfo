@@ -606,13 +606,17 @@ sub _docbook_section_element($$)
   my $level_adjusted_cmdname
      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   if ($level_adjusted_cmdname eq 'unnumbered'
-      and $element->{'extra'}
-      and $element->{'extra'}->{'associated_node'}
-      and $element->{'extra'}->{'associated_node'}->{'extra'}
-      and $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}
-      and $docbook_special_unnumbered{lc(
-           $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})}) {
-    return lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'});
+      and $self->{'document'}) {
+    my $sections_list = $self->{'document'}->sections_list();
+    my $section_structure
+      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    if ($section_structure->{'associated_node'}
+        and $section_structure->{'associated_node'}->{'extra'}
+        and $section_structure->{'associated_node'}->{'extra'}->{'normalized'}
+        and $docbook_special_unnumbered{lc(
+      $section_structure->{'associated_node'}->{'extra'}->{'normalized'})}) {
+    return lc($section_structure->{'associated_node'}->{'extra'}->{'normalized'});
+    }
   }
 
   if (defined($docbook_sections{$level_adjusted_cmdname})) {
@@ -992,18 +996,29 @@ sub _convert($$;$)
             }
           }
         }
-        if ($cmdname eq 'node'
-            and (not $element->{'extra'}
-                 or not $element->{'extra'}->{'associated_section'})) {
-          my $anchor = _output_anchor($element);
-          $result .= $anchor . "\n" if ($anchor ne '');
-        } else {
+        my $anchor;
+        my $node_structure;
+        if ($cmdname eq 'node' and $self->{'document'}
+            and $element->{'extra'}
+            # FIXME check only $element->{'extra'}?
+            and defined($element->{'extra'}->{'normalized'})) {
+          my $nodes_list = $self->{'document'}->nodes_list();
+          $node_structure
+            = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+          if (not $node_structure->{'associated_section'}) {
+            $anchor = _output_anchor($element);
+            $result .= $anchor . "\n" if ($anchor ne '');
+          }
+        }
+        if (!defined($anchor)) {
           # start the section at the associated node or part, or at the
           # sectioning command if there is no associated node nor part
           my $section_element;
           my $part;
           if ($cmdname eq 'node') {
-            $section_element = $element->{'extra'}->{'associated_section'};
+            if ($node_structure) {
+              $section_element = $node_structure->{'associated_section'};
+            }
           } elsif ($cmdname eq 'part') {
             $part = $element;
             if ($element->{'extra'}->{'part_associated_section'}) {
@@ -1050,14 +1065,18 @@ sub _convert($$;$)
             if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
               $section_attribute .= " label=\"$label\"";
             }
-            if ($opened_element->{'extra'}
-                and $opened_element->{'extra'}->{'associated_node'}
-                and $opened_element->{'extra'}->{'associated_node'}->{'extra'}
-                and defined($opened_element->{'extra'}->{'associated_node'}
+            if ($self->{'document'}) {
+              my $sections_list = $self->{'document'}->sections_list();
+              my $section_structure
+            = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
+              if ($section_structure->{'associated_node'}
+                  and $section_structure->{'associated_node'}->{'extra'}
+                  and defined($section_structure->{'associated_node'}
                                                 ->{'extra'}->{'normalized'})) {
-              # FIXME DocBook 5 id -> xml:id
-              $section_attribute
-    .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+                # FIXME DocBook 5 id -> xml:id
+                $section_attribute
+    .= " id=\"$section_structure->{'associated_node'}->{'extra'}->{'normalized'}\"";
+              }
             }
             my $language = '';
             my $documentlanguage = $self->get_conf('documentlanguage');

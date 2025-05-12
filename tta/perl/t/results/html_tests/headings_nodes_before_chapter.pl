@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -84,7 +84,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E6]
@@ -103,7 +102,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[next->E8]
  |section_heading_number:{1}
  |section_level:{1}
@@ -166,7 +164,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E4]
@@ -184,7 +181,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[prev->E5]
  |section_heading_number:{2}
  |section_level:{1}
@@ -239,5 +235,19 @@ Topic Two
 
 $result_errors{'headings_nodes_before_chapter'} = [];
 
+
+$result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
+2|Node 2
+3|Cap 1
+ associated_section: 1 Chapter One
+4|Cap 2
+ associated_section: 2 Chapter Two
+';
+
+$result_sections_list{'headings_nodes_before_chapter'} = '1|Chapter One
+ associated_node: Cap 1
+2|Chapter Two
+ associated_node: Cap 2
+';
 
 1;

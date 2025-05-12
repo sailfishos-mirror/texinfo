@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -72,6 +72,11 @@ ref to ref ref.
 
 $result_errors{'one_node_explicit_directions_anchor'} = [];
 
+
+$result_nodes_list{'one_node_explicit_directions_anchor'} = '1|one node
+';
+
+$result_sections_list{'one_node_explicit_directions_anchor'} = '';
 
 
 $result_converted{'info'}->{'one_node_explicit_directions_anchor'} = 'This is , produced from .

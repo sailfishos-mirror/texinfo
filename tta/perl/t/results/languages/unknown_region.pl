@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -150,6 +150,12 @@ $result_errors{'unknown_region'} = [
   }
 ];
 
+
+$result_nodes_list{'unknown_region'} = '1|Top
+2|chap
+';
+
+$result_sections_list{'unknown_region'} = '';
 
 $result_indices_sort_strings{'unknown_region'} = 'vr:
  BBB de AAA

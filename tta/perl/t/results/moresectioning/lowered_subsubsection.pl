@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -27,7 +26,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *1 @top C4 l2
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -77,7 +75,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
@@ -97,7 +94,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -145,7 +141,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
@@ -165,7 +160,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
@@ -212,7 +206,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[up->E6]
@@ -232,7 +225,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_childs:EC[E13|E15|E18]
  |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
@@ -290,7 +282,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E13]
  |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[next->E14|up->E9]
@@ -309,7 +300,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E12]
- |associated_node:[E12]
  |section_directions:D[next->E15|up->E10]
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
@@ -328,7 +318,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
  |associated_title_command:[E15]
  |is_target:{1}
  |menu_directions:D[prev->E12|up->E9]
@@ -348,7 +337,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E14]
- |associated_node:[E14]
  |level_modifier:{-1}
  |section_directions:D[next->E18|prev->E13|up->E10]
  |section_heading_number:{1.1.1.2}
@@ -395,7 +383,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E18]
  |associated_title_command:[E18]
  |is_target:{1}
  |menu_directions:D[up->E14]
@@ -414,7 +401,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_anchor_command:[E17]
- |associated_node:[E17]
  |level_modifier:{-1}
  |section_directions:D[prev->E15|up->E10]
  |section_heading_number:{1.1.1.3}
@@ -550,5 +536,37 @@ $result_errors{'lowered_subsubsection'} = [
   }
 ];
 
+
+$result_nodes_list{'lowered_subsubsection'} = '1|Top
+ associated_section
+2|Chapter
+ associated_section: 1 Chapter
+3|Section
+ associated_section: 1.1 Section
+4|Subsection
+ associated_section: 1.1.1 Subsection
+5|Subsubsection
+ associated_section: 1.1.1.1 Subsubsection
+6|Lowered subsec
+ associated_section: 1.1.1.2 Lowered subsec
+7|Lowered subsubsection
+ associated_section: 1.1.1.3 Lowered subsubsection
+';
+
+$result_sections_list{'lowered_subsubsection'} = '1
+ associated_node: Top
+2|Chapter
+ associated_node: Chapter
+3|Section
+ associated_node: Section
+4|Subsection
+ associated_node: Subsection
+5|Subsubsection
+ associated_node: Subsubsection
+6|Lowered subsec
+ associated_node: Lowered subsec
+7|Lowered subsubsection
+ associated_node: Lowered subsubsection
+';
 
 1;

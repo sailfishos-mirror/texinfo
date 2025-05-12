@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -30,7 +29,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +50,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -70,7 +67,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_childs:EC[E6|E8|E10]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -97,7 +93,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7|up->E2]
@@ -115,7 +110,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -132,7 +126,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[next->E9|prev->E5|up->E2]
@@ -150,7 +143,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -167,7 +159,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |node_directions:D[prev->E7|up->E2]
@@ -185,7 +176,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[prev->E8|up->E3]
  |section_heading_number:{1.3}
  |section_level:{2}
@@ -263,5 +253,29 @@ Foo
 
 $result_errors{'file_name_case_insensitive_conflict_node_no_redirections'} = [];
 
+
+$result_nodes_list{'file_name_case_insensitive_conflict_node_no_redirections'} = '1|Top
+ associated_section: top section
+2|chap
+ associated_section: 1 Chapter
+3|Foo
+ associated_section: 1.1 Foo
+4|Bar
+ associated_section: 1.2 Bar
+5|foo
+ associated_section: 1.3 foo
+';
+
+$result_sections_list{'file_name_case_insensitive_conflict_node_no_redirections'} = '1|top section
+ associated_node: Top
+2|Chapter
+ associated_node: chap
+3|Foo
+ associated_node: Foo
+4|Bar
+ associated_node: Bar
+5|foo
+ associated_node: foo
+';
 
 1;

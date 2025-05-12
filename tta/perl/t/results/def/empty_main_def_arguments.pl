@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -53,5 +53,9 @@ $result_errors{'empty_main_def_arguments'} = [
   }
 ];
 
+
+$result_nodes_list{'empty_main_def_arguments'} = '';
+
+$result_sections_list{'empty_main_def_arguments'} = '';
 
 1;

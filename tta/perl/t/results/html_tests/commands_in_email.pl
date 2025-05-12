@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -26,6 +26,10 @@ $result_texts{'commands_in_email'} = 'endots ... in code';
 
 $result_errors{'commands_in_email'} = [];
 
+
+$result_nodes_list{'commands_in_email'} = '';
+
+$result_sections_list{'commands_in_email'} = '';
 
 
 $result_converted{'html_text'}->{'commands_in_email'} = '<p><a class="email" href="mailto:endots%20...%20in%20code">endots ... in code</a></p>';

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -94,6 +94,11 @@ Hey ((m) in pxref) and continue ((m) in pxref) and end.
 
 $result_errors{'pxref_test'} = [];
 
+
+$result_nodes_list{'pxref_test'} = '1|Top
+';
+
+$result_sections_list{'pxref_test'} = '';
 
 
 $result_converted{'info'}->{'pxref_test'} = 'This is , produced from .

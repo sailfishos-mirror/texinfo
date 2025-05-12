@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -30,7 +29,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5|E7]
  |section_level:{0}
  |section_number:{1}
@@ -52,10 +50,9 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
+ |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_2002_2003}
   *arguments_line C1
@@ -70,7 +67,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -85,7 +81,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   {empty_line:\\n}
  *4 @node C1 simple_only_special_spaces_node.texi:l7
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
   *arguments_line C1
    *line_arg
@@ -98,7 +93,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -116,10 +110,9 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
- |node_directions:D[prev->E4|up->E0]
+ |node_directions:D[up->E0]
  |node_number:{3}
  |normalized:{_2004_2005}
   *arguments_line C1
@@ -134,7 +127,6 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -190,5 +182,22 @@ $result_errors{'simple_only_special_spaces_node_no_translit_files'} = [
   }
 ];
 
+
+$result_nodes_list{'simple_only_special_spaces_node_no_translit_files'} = '1|Top
+ associated_section: top
+2|  
+ associated_section: 1 EN QUAD| |
+3|  
+ associated_section: 3 THREE-PER-EM SPACE
+';
+
+$result_sections_list{'simple_only_special_spaces_node_no_translit_files'} = '1|top
+ associated_node: Top
+2|EN QUAD| |
+ associated_node:   
+3|CARRIAGE RETURN|'."\r".'|
+4|THREE-PER-EM SPACE
+ associated_node:   
+';
 
 1;

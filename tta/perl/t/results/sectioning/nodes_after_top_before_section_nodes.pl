@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -132,7 +132,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[prev->E2|up->E0]
@@ -162,7 +161,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
@@ -209,6 +207,16 @@ second node
 
 $result_errors{'nodes_after_top_before_section_nodes'} = [];
 
+
+$result_nodes_list{'nodes_after_top_before_section_nodes'} = '1|Top
+2|chap node
+3|third node
+ associated_section: 1 subsection
+';
+
+$result_sections_list{'nodes_after_top_before_section_nodes'} = '1|subsection
+ associated_node: third node
+';
 
 
 $result_converted{'info'}->{'nodes_after_top_before_section_nodes'} = 'This is , produced from .

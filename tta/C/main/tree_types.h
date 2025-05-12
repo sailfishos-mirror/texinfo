@@ -107,9 +107,7 @@ enum directions {
   ai_key(translation_context, string) \
   \
   ai_key(associated_anchor_command, element)\
-  ai_key(associated_node, element) \
   ai_key(associated_part, element) \
-  ai_key(associated_section, element) \
   ai_key(associated_title_command, element) \
   ai_key(element_node, element) \
   ai_key(float_section, element) \
@@ -279,6 +277,7 @@ typedef struct ELEMENT {
 
 typedef struct NODE_STRUCTURE {
     const ELEMENT *element;
+    ELEMENT *associated_section;
 } NODE_STRUCTURE;
 
 typedef struct NODE_STRUCTURE_LIST {
@@ -299,6 +298,7 @@ typedef struct HEADING_STRUCTURE_LIST {
 
 typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
+    ELEMENT *associated_node;
 } SECTION_STRUCTURE;
 
 typedef struct SECTION_STRUCTURE_LIST {

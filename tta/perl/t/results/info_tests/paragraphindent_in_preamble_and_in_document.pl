@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -51,7 +51,6 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
@@ -68,7 +67,6 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -158,6 +156,14 @@ Third para after second paragraphindent.
 
 $result_errors{'paragraphindent_in_preamble_and_in_document'} = [];
 
+
+$result_nodes_list{'paragraphindent_in_preamble_and_in_document'} = '1|Top
+ associated_section: test @@paragraphindent in preamble effect in preamble
+';
+
+$result_sections_list{'paragraphindent_in_preamble_and_in_document'} = '1|test @@paragraphindent in preamble effect in preamble
+ associated_node: Top
+';
 
 
 $result_converted{'info'}->{'paragraphindent_in_preamble_and_in_document'} = 'This is , produced from .

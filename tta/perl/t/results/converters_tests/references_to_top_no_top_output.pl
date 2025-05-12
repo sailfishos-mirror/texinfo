@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -56,7 +56,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E9]
@@ -74,7 +73,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E1]
- |associated_node:[E1]
  |section_childs:EC[E10]
  |section_level:{0}
  |section_number:{1}
@@ -207,7 +205,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |isindex:{1}
@@ -226,7 +223,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[up->E2]
  |section_heading_number:{1}
  |section_level:{1}
@@ -464,6 +460,18 @@ $result_floats{'references_to_top_no_top_output'} = 'list: 2
   C: Caption Flist. @anchor{a in caption}
  F1.1: {Main-Flist}
   C: Caption Main
+';
+
+$result_nodes_list{'references_to_top_no_top_output'} = '1|Top
+ associated_section: top
+2|chapter
+ associated_section: 1 Chap
+';
+
+$result_sections_list{'references_to_top_no_top_output'} = '1|top
+ associated_node: Top
+2|Chap
+ associated_node: chapter
 ';
 
 $result_indices_sort_strings{'references_to_top_no_top_output'} = 'cp:

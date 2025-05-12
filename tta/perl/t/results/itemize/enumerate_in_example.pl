@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -81,6 +81,10 @@ still second
 
 $result_errors{'enumerate_in_example'} = [];
 
+
+$result_nodes_list{'enumerate_in_example'} = '';
+
+$result_sections_list{'enumerate_in_example'} = '';
 
 
 $result_converted{'plaintext'}->{'enumerate_in_example'} = '       1. first item

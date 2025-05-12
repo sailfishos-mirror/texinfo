@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -585,6 +585,15 @@ Text and then index entries
 
 $result_errors{'index_nodes'} = [];
 
+
+$result_nodes_list{'index_nodes'} = '1|Top
+2|chap first
+3|second
+4|another
+5|a node
+';
+
+$result_sections_list{'index_nodes'} = '';
 
 $result_indices_sort_strings{'index_nodes'} = 'cp:
  ! entry in node

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -51,5 +51,9 @@ outside.
 
 $result_errors{'ignored_value_definition'} = [];
 
+
+$result_nodes_list{'ignored_value_definition'} = '';
+
+$result_sections_list{'ignored_value_definition'} = '';
 
 1;

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -29,7 +28,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +49,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_description:[E4]
@@ -70,7 +67,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_childs:EC[E6|E9]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -100,7 +96,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |node_description:[E7]
@@ -119,7 +114,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E9|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -147,7 +141,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
  |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E2]
@@ -165,7 +158,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E8]
- |associated_node:[E8]
  |section_directions:D[prev->E6|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -210,6 +202,26 @@ $result_texts{'automatic_menus_format_menu_no_detailmenu'} = 'top
 
 $result_errors{'automatic_menus_format_menu_no_detailmenu'} = [];
 
+
+$result_nodes_list{'automatic_menus_format_menu_no_detailmenu'} = '1|Top
+ associated_section: top
+2|chap
+ associated_section: 1 Chap
+3|sec
+ associated_section: 1.1 A section
+4|sec after
+ associated_section: 1.2 Sec after
+';
+
+$result_sections_list{'automatic_menus_format_menu_no_detailmenu'} = '1|top
+ associated_node: Top
+2|Chap
+ associated_node: chap
+3|A section
+ associated_node: sec
+4|Sec after
+ associated_node: sec after
+';
 
 
 $result_converted{'html'}->{'automatic_menus_format_menu_no_detailmenu'} = '<!DOCTYPE html>

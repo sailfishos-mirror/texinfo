@@ -451,6 +451,7 @@ sub insert_nodes_for_sectioning_commands($)
   my $customization_information = $document;
   my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
 
   my @added_nodes;
   my $previous_node;
@@ -460,9 +461,12 @@ sub insert_nodes_for_sectioning_commands($)
     my $content = $root->{'contents'}->[$idx];
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
-        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}
-        and not ($content->{'extra'}
-                 and $content->{'extra'}->{'associated_node'})) {
+        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+      my $section_structure
+        = $sections_list->[$content->{'extra'}->{'section_number'} -1];
+      if ($section_structure->{'associated_node'}) {
+        next;
+      }
       my $new_node_tree;
       if ($content->{'cmdname'} eq 'top') {
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
@@ -480,13 +484,12 @@ sub insert_nodes_for_sectioning_commands($)
         $idx++;
         $contents_nr++;
         # insert in nodes list
-        my $new_list_node = {'element' => $new_node};
-        splice(@{$nodes_list}, $node_idx, 0, $new_list_node);
+        my $new_node_structure = {'element' => $new_node,
+                                  'associated_section' => $content};
+        splice(@{$nodes_list}, $node_idx, 0, $new_node_structure);
         $node_idx++;
         $new_node->{'extra'}->{'node_number'} = $node_idx;
-        $new_node->{'extra'}->{'associated_section'} = $content;
-        $content->{'extra'} = {} if (!$content->{'extra'});
-        $content->{'extra'}->{'associated_node'} = $new_node;
+        $section_structure->{'associated_node'} = $new_node;
         $new_node->{'parent'} = $content->{'parent'};
         push @added_nodes, $new_node;
         # reassociate index entries and menus
@@ -523,13 +526,16 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$node->{'extra'}->{'menus'}}, $current_menu;
 }
 
-sub complete_node_menu($;$)
+sub complete_node_menu($$$;$)
 {
   my $node = shift;
+  my $nodes_list = shift;
+  my $sections_list = shift;
   my $use_sections = shift;
 
   my @node_childs
-      = Texinfo::Structuring::get_node_node_childs_from_sectioning($node);
+   = Texinfo::Structuring::get_node_node_childs_from_sectioning($node,
+                                            $nodes_list, $sections_list);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
@@ -580,7 +586,8 @@ sub complete_node_menu($;$)
     }
     if (scalar(@pending)) {
       if (!$current_menu) {
-        my $section = $node->{'extra'}->{'associated_section'};
+        my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+        my $section = $node_structure->{'associated_section'};
         $current_menu = {'contents' => \@pending, 'parent' => $section};
         Texinfo::Structuring::new_block_command($current_menu, 'menu');
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
@@ -605,14 +612,14 @@ sub _get_non_automatic_nodes_with_sections($)
   my $document = shift;
 
   my $root = $document->tree();
+  my $nodes_list = $document->nodes_list();
 
   my @non_automatic_nodes;
-  foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and not (scalar(@{$content->{'contents'}->[0]->{'contents'}}) > 1)
-        and $content->{'extra'}
-        and $content->{'extra'}->{'associated_section'}) {
-      push @non_automatic_nodes, $content;
+  foreach my $node_structure (@{$nodes_list}) {
+    my $node_element = $node_structure->{'element'};
+    if (not (scalar(@{$node_element->{'contents'}->[0]->{'contents'}}) > 1)
+        and $node_structure->{'associated_section'}) {
+      push @non_automatic_nodes, $node_element;
     }
   }
   return [ @non_automatic_nodes ];
@@ -624,9 +631,12 @@ sub complete_tree_nodes_menus_in_document($;$)
   my $document = shift;
   my $use_sections = shift;
 
+  my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
+
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node (@{$non_automatic_nodes}) {
-    complete_node_menu($node, $use_sections);
+    complete_node_menu($node, $nodes_list, $sections_list, $use_sections);
   }
 }
 
@@ -639,14 +649,18 @@ sub complete_tree_nodes_missing_menu($;$)
 
   my $lang_translations = [$document->get_conf('documentlanguage')];
   my $debug = $document->get_conf('DEBUG');
+  my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node (@{$non_automatic_nodes}) {
     if (not $node->{'extra'}->{'menus'}
         or not scalar(@{$node->{'extra'}->{'menus'}})) {
-      my $section = $node->{'extra'}->{'associated_section'};
+      my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+      my $section = $node_structure->{'associated_section'};
       my $current_menu
-        = Texinfo::Structuring::new_complete_node_menu($node,
+        = Texinfo::Structuring::new_complete_node_menu($node, $nodes_list,
+                                 $sections_list,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
@@ -662,6 +676,8 @@ sub regenerate_master_menu($;$)
   my $use_sections = shift;
 
   my $identifier_target = $document->labels_information();
+  my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
 
   my $top_node = $identifier_target->{'Top'};
 
@@ -674,7 +690,8 @@ sub regenerate_master_menu($;$)
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
                       $document, $document->registrar(),
-                      $identifier_target, $top_node->{'extra'}->{'menus'},
+                      $identifier_target, $nodes_list, $sections_list,
+                      $top_node->{'extra'}->{'menus'},
                       $use_sections);
   # no need for a master menu
   return undef if (!defined($new_detailmenu));

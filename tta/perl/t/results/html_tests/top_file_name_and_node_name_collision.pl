@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -30,7 +29,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_directions:D[next->E3]
  |section_heading_number:{1}
  |section_level:{1}
@@ -53,7 +51,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
@@ -71,7 +68,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E4|prev->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -135,5 +131,18 @@ $result_errors{'top_file_name_and_node_name_collision'} = [
   }
 ];
 
+
+$result_nodes_list{'top_file_name_and_node_name_collision'} = '1|my node
+ associated_section: 1 chap my node
+2|other node
+ associated_section: 2 chapter
+';
+
+$result_sections_list{'top_file_name_and_node_name_collision'} = '1|chap my node
+ associated_node: my node
+2|chapter
+ associated_node: other node
+3|top
+';
 
 1;

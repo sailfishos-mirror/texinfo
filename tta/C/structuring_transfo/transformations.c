@@ -812,6 +812,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   ELEMENT *root = document->tree;
   ELEMENT_LIST *added_nodes = new_list ();
   size_t idx;
@@ -827,9 +828,14 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
       if (data_cmd && data_cmd != CM_node && data_cmd != CM_part
           && flags & CF_root)
         {
-          const ELEMENT *associated_node = lookup_extra_element (content,
-                                                    AI_key_associated_node);
-          if (!associated_node)
+          int status;
+          size_t section_number
+            = lookup_extra_integer (content,
+                                    AI_key_section_number, &status);
+          SECTION_STRUCTURE *section_structure
+            = sections_list->list[section_number -1];
+
+          if (!section_structure->associated_node)
             {
               ELEMENT *added_node;
               /* NOTE new_node_tree content is copied in new_node */
@@ -858,16 +864,17 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
               if (added_node)
                 {
                   ELEMENT_LIST *new_previous = new_list ();
+                  NODE_STRUCTURE *new_node_structure;
                   insert_into_contents (root, added_node, idx);
                   idx++;
-                  insert_into_node_structure_list (&document->nodes_list,
-                                                   added_node, node_idx);
+                  new_node_structure
+                    = insert_into_node_structure_list (&document->nodes_list,
+                                                       added_node, node_idx);
+                  new_node_structure->associated_section = content;
                   node_idx++;
                   add_extra_integer (added_node, AI_key_node_number,
                                      node_idx);
-                  add_extra_element (added_node, AI_key_associated_section,
-                                     content);
-                  add_extra_element (content, AI_key_associated_node, added_node);
+                  section_structure->associated_node = added_node;
                   added_node->parent = content->parent;
                   /* reassociate index entries and menus */
                   add_to_element_list (new_previous, added_node);
@@ -996,10 +1003,13 @@ typedef struct EXISTING_ENTRY {
 } EXISTING_ENTRY;
 
 void
-complete_node_menu (ELEMENT *node, int use_sections)
+complete_node_menu (ELEMENT *node,
+                    const NODE_STRUCTURE_LIST *nodes_list,
+                    const SECTION_STRUCTURE_LIST *sections_list,
+                    int use_sections)
 {
   CONST_ELEMENT_LIST *node_childs
-    = get_node_node_childs_from_sectioning (node);
+    = get_node_node_childs_from_sectioning (node, nodes_list, sections_list);
 
   if (node_childs->number)
     {
@@ -1106,8 +1116,14 @@ complete_node_menu (ELEMENT *node, int use_sections)
             {
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-              ELEMENT *section = (ELEMENT *)lookup_extra_element (node,
-                                                  AI_key_associated_section);
+              int status;
+              size_t node_number
+                = lookup_extra_integer (node,
+                                        AI_key_node_number, &status);
+              const NODE_STRUCTURE *node_structure
+                = nodes_list->list[node_number -1];
+
+              ELEMENT *section = node_structure->associated_section;
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
@@ -1143,21 +1159,21 @@ complete_node_menu (ELEMENT *node, int use_sections)
 }
 
 static ELEMENT_LIST *
-get_non_automatic_nodes_with_sections (const ELEMENT *root)
+get_non_automatic_nodes_with_sections (const DOCUMENT *document)
 {
   ELEMENT_LIST *non_automatic_nodes = new_list ();
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   size_t i;
 
-  for (i = 0; i < root->e.c->contents.number; i++)
+  for (i = 0; i < nodes_list->number; i++)
     {
-      ELEMENT *content = root->e.c->contents.list[i];
-      if (content->e.c->cmd && content->e.c->cmd == CM_node
-          && content->e.c->contents.list[0]->e.c->contents.number <= 1)
+      NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      /* cast to discard const */
+      ELEMENT *node_element = (ELEMENT *)node_structure->element;
+      if (node_element->e.c->contents.list[0]->e.c->contents.number <= 1
+          && node_structure->associated_section)
         {
-          const ELEMENT *associated_section
-            = lookup_extra_element (content, AI_key_associated_section);
-          if (associated_section)
-            add_to_element_list (non_automatic_nodes, content);
+          add_to_element_list (non_automatic_nodes, node_element);
         }
     }
   return non_automatic_nodes;
@@ -1167,14 +1183,16 @@ get_non_automatic_nodes_with_sections (const ELEMENT *root)
 void
 complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 {
-  const ELEMENT *root = document->tree;
   ELEMENT_LIST *non_automatic_nodes
-     = get_non_automatic_nodes_with_sections (root);
+     = get_non_automatic_nodes_with_sections (document);
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   size_t i;
+
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       ELEMENT *node = non_automatic_nodes->list[i];
-      complete_node_menu (node, use_sections);
+      complete_node_menu (node, nodes_list, sections_list, use_sections);
       document->modified_information |= F_DOCM_tree;
     }
   destroy_list (non_automatic_nodes);
@@ -1183,10 +1201,11 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 void
 complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
-  const ELEMENT *root = document->tree;
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   OPTIONS *options = document->options;
   ELEMENT_LIST *non_automatic_nodes
-     = get_non_automatic_nodes_with_sections (root);
+     = get_non_automatic_nodes_with_sections (document);
   LANG_TRANSLATION *lang_translation = 0;
   int debug_level = 0;
 
@@ -1203,12 +1222,19 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
       const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
       if (!(menus && menus->number > 0))
         {
+          int status;
+          size_t node_number
+                = lookup_extra_integer (node,
+                                        AI_key_node_number, &status);
+          const NODE_STRUCTURE *node_structure
+            = nodes_list->list[node_number -1];
+
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-          ELEMENT *section = (ELEMENT *)lookup_extra_element (node,
-                                                   AI_key_associated_section);
-          ELEMENT *current_menu = new_complete_node_menu (node, document,
-                                                    lang_translation,
+          ELEMENT *section = (ELEMENT *)node_structure->associated_section;
+          ELEMENT *current_menu = new_complete_node_menu (node,
+                                                 nodes_list, sections_list,
+                                                 document, lang_translation,
                                                  debug_level, use_sections);
           if (current_menu)
             {
@@ -1229,6 +1255,8 @@ int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
+  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const CONST_ELEMENT_LIST *menus;
@@ -1255,6 +1283,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options,
                                     lang_translation, identifiers_target,
+                                    nodes_list, sections_list,
                                     menus, use_sections);
 
   if (lang_translation)

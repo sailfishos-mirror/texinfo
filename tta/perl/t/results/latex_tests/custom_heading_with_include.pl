@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -41,7 +41,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -59,7 +58,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5|E12|E15|E18|E21|E25]
  |section_level:{0}
  |section_number:{1}
@@ -86,7 +84,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
@@ -104,7 +101,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -175,7 +171,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E6]
@@ -194,7 +189,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_childs:EC[E8]
  |section_directions:D[next->E12|prev->E3|up->E1]
  |section_heading_number:{2}
@@ -242,7 +236,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[up->E4]
@@ -262,7 +255,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_childs:EC[E11]
  |section_directions:D[up->E5]
  |section_heading_number:{2.1}
@@ -309,7 +301,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E11]
  |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[up->E7]
@@ -328,7 +319,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E10]
- |associated_node:[E10]
  |section_directions:D[up->E8]
  |section_heading_number:{2.1.1}
  |section_level:{3}
@@ -777,7 +767,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E25]
  |associated_title_command:[E25]
  |is_target:{1}
  |node_directions:D[up->E0]
@@ -795,7 +784,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_anchor_command:[E24]
- |associated_node:[E24]
  |section_directions:D[prev->E21|up->E1]
  |section_heading_number:{7}
  |section_level:{1}
@@ -971,6 +959,46 @@ Now include file
 
 $result_errors{'custom_heading_with_include'} = [];
 
+
+$result_nodes_list{'custom_heading_with_include'} = '1|Top
+ associated_section: top sectionning
+2|in main
+ associated_section: 1 chap in main
+3|Chapter in included file
+ associated_section: 2 Chapter in included file
+4|Section
+ associated_section: 2.1 Section
+5|Subsection
+ associated_section: 2.1.1 Subsection
+6|last chap
+ associated_section: 7 A last
+';
+
+$result_sections_list{'custom_heading_with_include'} = '1|top sectionning
+ associated_node: Top
+2|chap in main
+ associated_node: in main
+3|Chapter in included file
+ associated_node: Chapter in included file
+4|Section
+ associated_node: Section
+5|Subsection
+ associated_node: Subsection
+6|Chapter in included file
+7|Section
+8|Subsection
+9|Chapter in included file Include
+10|Section Include
+11|Subsection Include
+12|Chapter in included file
+13|Section
+14|Subsection
+15|Chapter in included file
+16|Section
+17|Subsection
+18|A last
+ associated_node: last chap
+';
 
 
 $result_converted{'latex_text'}->{'custom_heading_with_include'} = '\\pagestyle{double}%

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -59,6 +59,11 @@ $result_texts{'leading_space_before_menu_star'} = '
 
 $result_errors{'leading_space_before_menu_star'} = [];
 
+
+$result_nodes_list{'leading_space_before_menu_star'} = '1|a node
+';
+
+$result_sections_list{'leading_space_before_menu_star'} = '';
 
 
 $result_converted{'plaintext'}->{'leading_space_before_menu_star'} = '* Menu:

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -48,6 +48,10 @@ Some text.
 
 $result_errors{'empty_lines_at_beginning_no_setfilename_no_element'} = [];
 
+
+$result_nodes_list{'empty_lines_at_beginning_no_setfilename_no_element'} = '';
+
+$result_sections_list{'empty_lines_at_beginning_no_setfilename_no_element'} = '';
 
 
 $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename_no_element'} = '<!DOCTYPE html>

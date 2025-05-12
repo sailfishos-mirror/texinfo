@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -37,7 +37,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -56,7 +55,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6|E8|E10|E12|E14|E16|E18|E20|E22|E24|E26|E28|E30|E32|E34|E36|E38|E40|E42|E44|E46|E48|E50|E52|E54|E56]
  |section_level:{0}
  |section_number:{1}
@@ -829,7 +827,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
@@ -852,7 +849,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -874,7 +870,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
@@ -909,7 +904,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -943,7 +937,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E5|up->E0]
@@ -975,7 +968,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -1006,7 +998,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E7|up->E0]
@@ -1044,7 +1035,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E9]
- |associated_node:[E9]
  |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -1081,7 +1071,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E9|up->E0]
@@ -1116,7 +1105,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E11]
- |associated_node:[E11]
  |section_directions:D[next->E14|prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -1150,7 +1138,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
  |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E11|up->E0]
@@ -1176,7 +1163,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E13]
- |associated_node:[E13]
  |section_directions:D[next->E16|prev->E12|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
@@ -1201,7 +1187,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E16]
  |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E17|prev->E13|up->E0]
@@ -1239,7 +1224,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E15]
- |associated_node:[E15]
  |section_directions:D[next->E18|prev->E14|up->E1]
  |section_heading_number:{7}
  |section_level:{1}
@@ -1276,7 +1260,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E18]
  |associated_title_command:[E18]
  |is_target:{1}
  |menu_directions:D[next->E19|prev->E15|up->E0]
@@ -1308,7 +1291,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E17]
- |associated_node:[E17]
  |section_directions:D[next->E20|prev->E16|up->E1]
  |section_heading_number:{8}
  |section_level:{1}
@@ -1339,7 +1321,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E20]
  |associated_title_command:[E20]
  |is_target:{1}
  |menu_directions:D[next->E21|prev->E17|up->E0]
@@ -1398,7 +1379,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E19]
- |associated_node:[E19]
  |section_directions:D[next->E22|prev->E18|up->E1]
  |section_heading_number:{9}
  |section_level:{1}
@@ -1456,7 +1436,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E22]
  |associated_title_command:[E22]
  |is_target:{1}
  |menu_directions:D[next->E23|prev->E19|up->E0]
@@ -1519,7 +1498,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{  }
  |EXTRA
  |associated_anchor_command:[E21]
- |associated_node:[E21]
  |section_directions:D[next->E24|prev->E20|up->E1]
  |section_heading_number:{10}
  |section_level:{1}
@@ -1581,7 +1559,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E24]
  |associated_title_command:[E24]
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E21|up->E0]
@@ -1626,7 +1603,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E23]
- |associated_node:[E23]
  |section_directions:D[next->E26|prev->E22|up->E1]
  |section_heading_number:{11}
  |section_level:{1}
@@ -1670,7 +1646,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E26]
  |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[next->E27|prev->E23|up->E0]
@@ -1703,7 +1678,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E25]
- |associated_node:[E25]
  |section_directions:D[next->E28|prev->E24|up->E1]
  |section_heading_number:{12}
  |section_level:{1}
@@ -1735,7 +1709,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E28]
  |associated_title_command:[E28]
  |is_target:{1}
  |menu_directions:D[next->E29|prev->E25|up->E0]
@@ -1770,7 +1743,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E27]
- |associated_node:[E27]
  |section_directions:D[next->E30|prev->E26|up->E1]
  |section_heading_number:{13}
  |section_level:{1}
@@ -1804,7 +1776,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E30]
  |associated_title_command:[E30]
  |is_target:{1}
  |menu_directions:D[next->E31|prev->E27|up->E0]
@@ -1839,7 +1810,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E29]
- |associated_node:[E29]
  |section_directions:D[next->E32|prev->E28|up->E1]
  |section_heading_number:{14}
  |section_level:{1}
@@ -1873,7 +1843,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E32]
  |associated_title_command:[E32]
  |is_target:{1}
  |menu_directions:D[next->E33|prev->E29|up->E0]
@@ -1892,7 +1861,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E31]
- |associated_node:[E31]
  |section_directions:D[next->E34|prev->E30|up->E1]
  |section_heading_number:{15}
  |section_level:{1}
@@ -1910,7 +1878,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E34]
  |associated_title_command:[E34]
  |is_target:{1}
  |menu_directions:D[next->E35|prev->E31|up->E0]
@@ -1944,7 +1911,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E33]
- |associated_node:[E33]
  |section_directions:D[next->E36|prev->E32|up->E1]
  |section_heading_number:{16}
  |section_level:{1}
@@ -1977,7 +1943,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E36]
  |associated_title_command:[E36]
  |is_target:{1}
  |menu_directions:D[next->E37|prev->E33|up->E0]
@@ -2019,7 +1984,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E35]
- |associated_node:[E35]
  |section_directions:D[next->E38|prev->E34|up->E1]
  |section_heading_number:{17}
  |section_level:{1}
@@ -2065,7 +2029,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E38]
  |associated_title_command:[E38]
  |is_target:{1}
  |menu_directions:D[next->E39|prev->E35|up->E0]
@@ -2099,7 +2062,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E37]
- |associated_node:[E37]
  |section_directions:D[next->E40|prev->E36|up->E1]
  |section_heading_number:{18}
  |section_level:{1}
@@ -2132,7 +2094,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E40]
  |associated_title_command:[E40]
  |is_target:{1}
  |menu_directions:D[next->E41|prev->E37|up->E0]
@@ -2177,7 +2138,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E39]
- |associated_node:[E39]
  |section_directions:D[next->E42|prev->E38|up->E1]
  |section_heading_number:{19}
  |section_level:{1}
@@ -2226,7 +2186,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E42]
  |associated_title_command:[E42]
  |is_target:{1}
  |menu_directions:D[next->E43|prev->E39|up->E0]
@@ -2257,7 +2216,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E41]
- |associated_node:[E41]
  |section_directions:D[next->E44|prev->E40|up->E1]
  |section_heading_number:{20}
  |section_level:{1}
@@ -2292,7 +2250,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E44]
  |associated_title_command:[E44]
  |is_target:{1}
  |menu_directions:D[next->E45|prev->E41|up->E0]
@@ -2353,7 +2310,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E43]
- |associated_node:[E43]
  |section_directions:D[next->E46|prev->E42|up->E1]
  |section_heading_number:{21}
  |section_level:{1}
@@ -2413,7 +2369,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E46]
  |associated_title_command:[E46]
  |is_target:{1}
  |menu_directions:D[next->E47|prev->E43|up->E0]
@@ -2461,7 +2416,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E45]
- |associated_node:[E45]
  |section_directions:D[next->E48|prev->E44|up->E1]
  |section_heading_number:{22}
  |section_level:{1}
@@ -2508,7 +2462,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E48]
  |associated_title_command:[E48]
  |is_target:{1}
  |menu_directions:D[next->E49|prev->E45|up->E0]
@@ -2530,7 +2483,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E47]
- |associated_node:[E47]
  |section_directions:D[next->E50|prev->E46|up->E1]
  |section_heading_number:{23}
  |section_level:{1}
@@ -2551,7 +2503,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E50]
  |associated_title_command:[E50]
  |is_target:{1}
  |menu_directions:D[next->E51|prev->E47|up->E0]
@@ -2576,7 +2527,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E49]
- |associated_node:[E49]
  |section_directions:D[next->E52|prev->E48|up->E1]
  |section_heading_number:{24}
  |section_level:{1}
@@ -2600,7 +2550,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E52]
  |associated_title_command:[E52]
  |is_target:{1}
  |menu_directions:D[next->E53|prev->E49|up->E0]
@@ -2621,7 +2570,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E51]
- |associated_node:[E51]
  |section_directions:D[next->E54|prev->E50|up->E1]
  |section_heading_number:{25}
  |section_level:{1}
@@ -2641,7 +2589,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E54]
  |associated_title_command:[E54]
  |is_target:{1}
  |menu_directions:D[next->E55|prev->E51|up->E0]
@@ -2666,7 +2613,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E53]
- |associated_node:[E53]
  |section_directions:D[next->E56|prev->E52|up->E1]
  |section_heading_number:{26}
  |section_level:{1}
@@ -2690,7 +2636,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E56]
  |associated_title_command:[E56]
  |is_target:{1}
  |menu_directions:D[prev->E53|up->E0]
@@ -2727,7 +2672,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |associated_anchor_command:[E55]
- |associated_node:[E55]
  |section_directions:D[prev->E54|up->E1]
  |section_heading_number:{27}
  |section_level:{1}
@@ -3855,6 +3799,122 @@ $result_errors{'at_commands_in_refs_utf8'} = [
   }
 ];
 
+
+$result_nodes_list{'at_commands_in_refs_utf8'} = '1|Top
+ associated_section: Top
+2|@- @{ @}
+ associated_section: 1 @- @{ @}
+3|@  @	 @! @* @. @: .@: @? @@
+ associated_section: 2 @  @	 @! @* @. @: .@: @? @@
+4|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+ associated_section: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+ associated_section: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+ associated_section: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+7|@geq{} @leq{} @arrow{}
+ associated_section: 6 @geq{} @leq{} @arrow{}
+8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+ associated_section: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
+ associated_section: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
+10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+ associated_section: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+ associated_section: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+ associated_section: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+13|@dotless{i} @`{@=E} @,{@\'C}
+ associated_section: 12 @dotless{i} @`{@=E} @,{@\'C}
+14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+ associated_section: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+ associated_section: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+16|`` \'\' --- -- ` \'
+ associated_section: 15 `` \'\' --- -- ` \'
+17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+ associated_section: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+ associated_section: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+19|@email{someone@@somewher, the someone} @email{no_explain@@there}
+ associated_section: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
+20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+ associated_section: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+21|@verb{. @ {} . .}
+ associated_section: 20 @verb{. @ {} . .}
+22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+ associated_section: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+ associated_section: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+24|8.27@dmn{in}
+ associated_section: 23 8.27@dmn{in}
+25|@sansserif{sansserif} @slanted{slanted}
+ associated_section: 24 @sansserif{sansserif} @slanted{slanted}
+26|@indicateurl{indicateurl}
+ associated_section: 25 @indicateurl{indicateurl}
+27|@sub{g}H 3@sup{rd}
+ associated_section: 26 @sub{g}H 3@sup{rd}
+28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ associated_section: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+';
+
+$result_sections_list{'at_commands_in_refs_utf8'} = '1|Top
+ associated_node: Top
+2|@- @{ @}
+ associated_node: @- @{ @}
+3|@  @	 @! @* @. @: .@: @? @@
+ associated_node: @  @	 @! @* @. @: .@: @? @@
+4|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+ associated_node: @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+ associated_node: @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+ associated_node: @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+7|@geq{} @leq{} @arrow{}
+ associated_node: @geq{} @leq{} @arrow{}
+8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+ associated_node: @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
+ associated_node: @result{} @textdegree{} a@tie{}b @today{} @aa{}
+10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+ associated_node: @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+ associated_node: @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+ associated_node: @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+13|@dotless{i} @`{@=E} @,{@\'C}
+ associated_node: @dotless{i} @`{@=E} @,{@\'C}
+14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+ associated_node: @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+ associated_node: @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+16|`` \'\' --- -- ` \'
+ associated_node: `` \'\' --- -- ` \'
+17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+ associated_node: @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+ associated_node: @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+19|@email{someone@@somewher, the someone} @email{no_explain@@there}
+ associated_node: @email{someone@@somewher, the someone} @email{no_explain@@there}
+20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+ associated_node: @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+21|@verb{. @ {} . .}
+ associated_node: @verb{. @ {} . .}
+22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+ associated_node: @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+ associated_node: @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+24|8.27@dmn{in}
+ associated_node: 8.27@dmn{in}
+25|@sansserif{sansserif} @slanted{slanted}
+ associated_node: @sansserif{sansserif} @slanted{slanted}
+26|@indicateurl{indicateurl}
+ associated_node: @indicateurl{indicateurl}
+27|@sub{g}H 3@sup{rd}
+ associated_node: @sub{g}H 3@sup{rd}
+28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ associated_node: @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+';
 
 $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
   {

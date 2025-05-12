@@ -1089,14 +1089,17 @@ sub command_node($$)
       # such an element exists
       my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
-      if (defined($root_command)) {
-        if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
+      if (defined($root_command) and $root_command->{'cmdname'}) {
+        if ($root_command->{'cmdname'} eq 'node') {
           $target->{'node_command'} = $root_command;
-        }
-        if ($root_command->{'extra'}
-            and $root_command->{'extra'}->{'associated_node'}) {
-          $target->{'node_command'}
-                = $root_command->{'extra'}->{'associated_node'};
+        } elsif ($self->{'document'}) {
+          my $sections_list = $self->{'document'}->sections_list();
+          my $section_structure
+            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+          if ($section_structure->{'associated_node'}) {
+            $target->{'node_command'}
+              = $section_structure->{'associated_node'};
+          }
         }
       } else {
         $target->{'node_command'} = undef;
@@ -1132,12 +1135,20 @@ sub _internal_command_href($$;$$)
     # @xrefname name for my node
     #
     # @chapter Chapter without directly associated node
-    if ($command->{'extra'} and $command->{'extra'}->{'associated_node'}) {
-      $target_command = $command->{'extra'}->{'associated_node'};
+    my $section_structure;
+    if ($command->{'extra'} and $command->{'extra'}->{'section_number'}
+        and $self->{'document'}) {
+      my $sections_list = $self->{'document'}->sections_list();
+      $section_structure
+        = $sections_list->[$command->{'extra'}->{'section_number'} -1];
+    }
+    if ($section_structure and $section_structure->{'associated_node'}) {
+      $target_command = $section_structure->{'associated_node'};
     } elsif ($command->{'extra'}
              and $command->{'extra'}->{'associated_anchor_command'}) {
       $target_command = $command->{'extra'}->{'associated_anchor_command'};
     }
+
     my $target_information = $self->_get_target($target_command);
     $target = $target_information->{'target'} if ($target_information);
   }
@@ -1164,17 +1175,28 @@ sub _internal_command_href($$;$$)
       my $command_root_element_command
                = $self->command_root_element_command($command);
       if (defined($source_filename)
-          and defined($command_root_element_command)
-          and ($command_root_element_command eq $command
-               or (defined($command_root_element_command->{'extra'})
-                   and defined($command_root_element_command->{'extra'}
-                                                    ->{'associated_section'})
-                   and $command_root_element_command->{'extra'}->{'associated_section'}
-                    eq $command))) {
-        my $count_elements_in_file
-           = $self->count_elements_in_filename('total', $target_filename);
-        if (defined($count_elements_in_file) and $count_elements_in_file == 1) {
-          $target = '';
+          and defined($command_root_element_command)) {
+        my $possible_empty_target = 0;
+        if ($command_root_element_command eq $command) {
+          $possible_empty_target = 1;
+        } elsif ($command_root_element_command->{'cmdname'}
+                 and $command_root_element_command->{'cmdname'} eq 'node'
+                 and $self->{'document'}) {
+          my $nodes_list = $self->{'document'}->nodes_list();
+          my $node_structure
+            = $nodes_list->[$command_root_element_command
+                                      ->{'extra'}->{'node_number'} -1];
+          if ($node_structure->{'associated_section'}
+              and $node_structure->{'associated_section'} eq $command) {
+            $possible_empty_target = 1;
+          }
+        }
+        if ($possible_empty_target) {
+          my $count_elements_in_file
+             = $self->count_elements_in_filename('total', $target_filename);
+          if (defined($count_elements_in_file) and $count_elements_in_file == 1) {
+            $target = '';
+          }
         }
       }
     }
@@ -1710,11 +1732,17 @@ sub command_description($$;$)
     }
     my $node;
 
-    if ($command->{'cmdname'} and $command->{'cmdname'} eq 'node') {
-      $node = $command;
-    } elsif ($command->{'extra'}
-             and $command->{'extra'}->{'associated_node'}) {
-      $node = $command->{'extra'}->{'associated_node'};
+    if ($command->{'cmdname'}) {
+      if ($command->{'cmdname'} eq 'node') {
+        $node = $command;
+      } elsif ($self->{'document'}) {
+        my $sections_list = $self->{'document'}->sections_list();
+        my $section_structure
+          = $sections_list->[$command->{'extra'}->{'section_number'} -1];
+        if ($section_structure->{'associated_node'}) {
+          $node = $section_structure->{'associated_node'};
+        }
+      }
     }
 
     if (!$node or !$node->{'extra'}) {
@@ -1832,17 +1860,28 @@ sub get_element_root_command_element($$)
     = _html_get_tree_root_element($self, $element);
   if (defined($root_command)) {
     if ($self->get_conf('USE_NODES')) {
-      if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
-        return ($output_unit, $root_command);
-      } elsif ($root_command->{'extra'}
-               and $root_command->{'extra'}->{'associated_node'}) {
-        return ($output_unit, $root_command->{'extra'}->{'associated_node'});
+      if ($root_command->{'cmdname'}) {
+        if ($root_command->{'cmdname'} eq 'node') {
+          return ($output_unit, $root_command);
+        } elsif ($self->{'document'}) {
+          my $sections_list = $self->{'document'}->sections_list();
+          my $section_structure
+            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+          if ($section_structure->{'associated_node'}) {
+            return ($output_unit, $section_structure->{'associated_node'});
+          }
+        }
       }
     } elsif ($root_command->{'cmdname'}
-             and $root_command->{'cmdname'} eq 'node'
-             and $root_command->{'extra'}
-             and $root_command->{'extra'}->{'associated_section'}) {
-      return ($output_unit, $root_command->{'extra'}->{'associated_section'});
+             and $root_command->{'cmdname'} eq 'node') {
+      if ($self->{'document'}) {
+        my $nodes_list = $self->{'document'}->nodes_list();
+        my $node_structure
+          = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
+        if ($node_structure->{'associated_section'}) {
+          return ($output_unit, $node_structure->{'associated_section'});
+        }
+      }
     }
   }
   return ($output_unit, $root_command);
@@ -1966,14 +2005,18 @@ sub from_element_direction($$$;$$$)
       }
     } elsif ($type eq 'node') {
       if ($target_unit->{'unit_command'}) {
-        if ($target_unit->{'unit_command'}->{'cmdname'}
-            and $target_unit->{'unit_command'}->{'cmdname'} eq 'node') {
-          $command = $target_unit->{'unit_command'};
-        } elsif ($target_unit->{'unit_command'}->{'extra'}
-                 and $target_unit->{'unit_command'}
-                                      ->{'extra'}->{'associated_node'}) {
-          $command = $target_unit->{'unit_command'}
-                                      ->{'extra'}->{'associated_node'};
+        if ($target_unit->{'unit_command'}->{'cmdname'}) {
+          if ($target_unit->{'unit_command'}->{'cmdname'} eq 'node') {
+            $command = $target_unit->{'unit_command'};
+          } elsif ($self->{'document'}) {
+            my $section_element = $target_unit->{'unit_command'};
+            my $sections_list = $self->{'document'}->sections_list();
+            my $section_structure
+          = $sections_list->[$section_element->{'extra'}->{'section_number'} -1];
+            if ($section_structure->{'associated_node'}) {
+              $command = $section_structure->{'associated_node'};
+            }
+          }
         }
       }
       $type = 'text';
@@ -1981,11 +2024,14 @@ sub from_element_direction($$$;$$$)
       if ($target_unit->{'unit_command'}) {
         if ($target_unit->{'unit_command'}->{'cmdname'} ne 'node') {
           $command = $target_unit->{'unit_command'};
-        } elsif ($target_unit->{'unit_command'}->{'extra'}
-                 and $target_unit->{'unit_command'}
-                                         ->{'extra'}->{'associated_section'}) {
-          $command = $target_unit->{'unit_command'}
-                                        ->{'extra'}->{'associated_section'};
+        } elsif ($self->{'document'}) {
+          my $node_element = $target_unit->{'unit_command'};
+          my $nodes_list = $self->{'document'}->nodes_list();
+          my $node_structure
+            = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
+          if ($node_structure->{'associated_section'}) {
+            $command = $node_structure->{'associated_section'};
+          }
         }
       }
       if ($type eq 'section_nonumber') {
@@ -4755,8 +4801,15 @@ sub _convert_heading_command($$$$$)
     if ($format_menu eq 'sectiontoc') {
       $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $element);
     } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
-      my $node = $element->{'extra'}->{'associated_node'}
-        if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
+      my $node;
+      if ($sections_list and $cmdname ne 'node'
+          and $Texinfo::Commands::root_commands{$cmdname}) {
+        my $section_structure
+         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+        if ($section_structure->{'associated_node'}) {
+          $node = $section_structure->{'associated_node'};
+        }
+      }
 
       if ($node) {
         # arguments_line type element
@@ -4768,19 +4821,21 @@ sub _convert_heading_command($$$$$)
 
         if ($node->{'extra'}
             and not $node->{'extra'}->{'menus'}
-            and $automatic_directions) {
-          my $identifiers_target;
-          if ($document) {
-            $identifiers_target = $document->labels_information();
-          }
+            and $automatic_directions and $document) {
+          my $identifiers_target = $document->labels_information();
+          my $nodes_list = $document->nodes_list();
+          my $sections_list = $document->sections_list();
+
           my $menu_node;
           if ($format_menu eq 'menu') {
             $menu_node
               = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                                 $identifiers_target, $node);
+                                    $identifiers_target, $nodes_list,
+                                    $sections_list, $node);
           } else { # $format_menu eq 'menu_no_detailmenu'
             $menu_node
               = Texinfo::Structuring::new_complete_node_menu($node,
+                                $nodes_list, $sections_list,
                                 $self->{'current_lang_translations'},
                                  $self->get_conf('DEBUG'));
           }
@@ -4824,22 +4879,36 @@ sub _convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node'
-      and $element->{'extra'}
-      and $element->{'extra'}->{'associated_section'}) {
-    $opening_section = $element->{'extra'}->{'associated_section'};
-    $level_corrected_opening_section_cmdname
-     = Texinfo::Structuring::section_level_adjusted_command_name(
+  if ($cmdname eq 'node') {
+    if ($document and $element->{'extra'}
+        # FIXME check only $element->{'extra'}
+        and defined($element->{'extra'}->{'normalized'})) {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      if ($node_structure->{'associated_section'}) {
+        $opening_section = $node_structure->{'associated_section'};
+        $level_corrected_opening_section_cmdname
+          = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
-  } elsif ($cmdname ne 'node'
-           # if there is an associated node, it is not a section opening
-           # the section was opened before when the node was encountered
-           and (not $element->{'extra'}
-                or not $element->{'extra'}->{'associated_node'})
-           # to avoid *heading* @-commands
-           and $Texinfo::Commands::root_commands{$cmdname}) {
-    $opening_section = $element;
-    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
+      }
+    }
+    # to avoid *heading* @-commands
+  } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
+    my $associated_node;
+    if ($sections_list) {
+      my $section_structure
+        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+      if ($section_structure->{'associated_node'}) {
+        $associated_node = $section_structure->{'associated_node'};
+      }
+    }
+    # if there is an associated node, it is not a section opening
+    # the section was opened before when the node was encountered
+    if (!$associated_node) {
+      $opening_section = $element;
+      $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
+    }
   }
 
   # could use empty args information also, to avoid calling command_text
@@ -6055,9 +6124,20 @@ sub _convert_xref_commands($$$$)
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $target_root = $self->command_root_element_command($target_node);
-    $target_root = $target_node
-         if (!$target_node->{'extra'}->{'associated_section'}
-             or $target_node->{'extra'}->{'associated_section'} ne $target_root);
+    my $document = $self->get_info('document');
+
+    my $associated_section;
+    if ($document and $target_node->{'cmdname'} eq 'node') {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$target_node->{'extra'}->{'node_number'} -1];
+      if ($node_structure->{'associated_section'}) {
+        $associated_section = $node_structure->{'associated_section'};
+      }
+    }
+    if (!$associated_section or $associated_section ne $target_root) {
+      $target_root = $target_node;
+    }
 
     my $href;
     if (!in_string($self)) {
@@ -10525,14 +10605,19 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   my $identifiers_target;
+  my $sections_list;
+  my $nodes_list;
   if ($self->{'document'}) {
     $identifiers_target = $self->{'document'}->labels_information();
+    $sections_list = $self->{'document'}->sections_list();
+    $nodes_list = $self->{'document'}->nodes_list();
   }
 
   $self->_prepare_output_units_global_targets($output_units, $special_units,
                                               $associated_special_units);
 
-  Texinfo::OutputUnits::split_pages($output_units, $self->get_conf('SPLIT'));
+  Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
+                                    $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
@@ -10545,7 +10630,8 @@ sub _prepare_units_directions_files($$$$$$$$)
   }
 
   # do output units directions.
-  Texinfo::OutputUnits::units_directions($identifiers_target, $output_units,
+  Texinfo::OutputUnits::units_directions($identifiers_target, $nodes_list,
+                                         $sections_list, $output_units,
                                          $self->get_conf('DEBUG'));
 
   _prepare_special_units_directions($self, $special_units);
@@ -10865,8 +10951,10 @@ sub _prepare_output_units_global_targets($$$$)
     = _get_top_unit($self, $output_units);
 
   my $global_commands;
+  my $nodes_list;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
+    $nodes_list = $self->{'document'}->nodes_list();
   }
 
   # Associate Index with the last @printindex.  According to Werner Lemberg,
@@ -10883,8 +10971,12 @@ sub _prepare_output_units_global_targets($$$$)
                                $global_commands->{'printindex'}->[-1]);
     if (defined($document_unit)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node'
-          and $root_command->{'extra'}->{'associated_section'}) {
-        $root_command = $root_command->{'extra'}->{'associated_section'};
+          and $nodes_list) {
+        my $node_structure
+          = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
+        if ($node_structure->{'associated_section'}) {
+          $root_command = $node_structure->{'associated_section'};
+        }
       }
       # find the first level 1 sectioning element to associate the printindex
       # with.  May not work correctly if structuring was not done
@@ -11458,6 +11550,8 @@ sub _default_format_contents($$;$$)
     my $section = $top_section;
  SECTION:
     while ($section) {
+      my $section_structure
+        = $sections_list->[$section->{'extra'}->{'section_number'} -1];
       if ($section->{'cmdname'} ne 'top') {
         my $text = $self->command_text($section);
         my $href;
@@ -11481,10 +11575,9 @@ sub _default_format_contents($$;$$)
             if (defined($href)) {
               $result .= " href=\"$href\"";
             }
-            if ($section->{'extra'}
-                and $section->{'extra'}->{'associated_node'}
-                and $section->{'extra'}->{'associated_node'}->{'extra'}
-                and $section->{'extra'}->{'associated_node'}->{'extra'}->{'isindex'}) {
+            if ($section_structure->{'associated_node'}
+                and $section_structure->{'associated_node'}->{'extra'}
+                and $section_structure->{'associated_node'}->{'extra'}->{'isindex'}) {
               $result .= ' rel="index"';
             }
             $result .= ">$text</a>";
@@ -11873,11 +11966,19 @@ sub _default_format_begin_file($$$)
   if ($output_unit) {
     $element_command = $output_unit->{'unit_command'};
     $node_command = $element_command;
+    my $document = $self->get_info('document');
+    my $sections_list;
+    if ($document) {
+      $sections_list = $document->sections_list();
+    }
     if ($element_command and $element_command->{'cmdname'}
         and $element_command->{'cmdname'} ne 'node'
-        and $element_command->{'extra'}
-        and $element_command->{'extra'}->{'associated_node'}) {
-      $node_command = $element_command->{'extra'}->{'associated_node'};
+        and $sections_list) {
+      my $section_structure
+        = $sections_list->[$element_command->{'extra'}->{'section_number'} -1];
+      if ($section_structure->{'associated_node'}) {
+        $node_command = $section_structure->{'associated_node'};
+      }
     }
 
     if ($self->get_conf('SPLIT') and defined($element_command)) {

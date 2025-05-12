@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -52,6 +52,11 @@ This is a very simple texi manual   <>.
 
 $result_errors{'simplest_test_prefix'} = [];
 
+
+$result_nodes_list{'simplest_test_prefix'} = '1|Top
+';
+
+$result_sections_list{'simplest_test_prefix'} = '';
 
 $result_converted_errors{'file_html'}->{'simplest_test_prefix'} = [
   {

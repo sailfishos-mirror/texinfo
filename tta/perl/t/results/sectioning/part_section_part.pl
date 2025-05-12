@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -99,5 +99,12 @@ $result_errors{'part_section_part'} = [
   }
 ];
 
+
+$result_nodes_list{'part_section_part'} = '';
+
+$result_sections_list{'part_section_part'} = '1|Part1
+2|section 1
+3|Part 2
+';
 
 1;

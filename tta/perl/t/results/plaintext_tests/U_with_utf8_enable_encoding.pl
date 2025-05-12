@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -37,6 +37,10 @@ $result_texts{'U_with_utf8_enable_encoding'} = '00FF (should be a real y-dieresi
 
 $result_errors{'U_with_utf8_enable_encoding'} = [];
 
+
+$result_nodes_list{'U_with_utf8_enable_encoding'} = '';
+
+$result_sections_list{'U_with_utf8_enable_encoding'} = '';
 
 
 $result_converted{'plaintext'}->{'U_with_utf8_enable_encoding'} = 'ÿ (should be a real y-dieresis in UTF-8).

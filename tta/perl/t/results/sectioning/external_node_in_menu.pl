@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -30,7 +29,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
@@ -107,7 +105,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|up->E0]
@@ -126,7 +123,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -144,7 +140,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C4]|up->E0]
@@ -163,7 +158,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -211,6 +205,22 @@ $result_texts{'external_node_in_menu'} = 'top
 
 $result_errors{'external_node_in_menu'} = [];
 
+
+$result_nodes_list{'external_node_in_menu'} = '1|Top
+ associated_section: top
+2|nchapter1
+ associated_section: 1 chap1
+3|nchapter2
+ associated_section: 2 chap2
+';
+
+$result_sections_list{'external_node_in_menu'} = '1|top
+ associated_node: Top
+2|chap1
+ associated_node: nchapter1
+3|chap2
+ associated_node: nchapter2
+';
 
 
 $result_converted{'info'}->{'external_node_in_menu'} = 'This is , produced from .

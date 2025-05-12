@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -140,6 +140,10 @@ $result_texts{'menu_entry_name_comment'} = '* a: (f)b
 
 $result_errors{'menu_entry_name_comment'} = [];
 
+
+$result_nodes_list{'menu_entry_name_comment'} = '';
+
+$result_sections_list{'menu_entry_name_comment'} = '';
 
 
 $result_converted{'plaintext'}->{'menu_entry_name_comment'} = '* Menu:

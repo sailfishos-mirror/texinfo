@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -48,6 +48,10 @@ Comment at the end of the line ';
 
 $result_errors{'comments_in_text'} = [];
 
+
+$result_nodes_list{'comments_in_text'} = '';
+
+$result_sections_list{'comments_in_text'} = '';
 
 
 $result_converted{'plaintext'}->{'comments_in_text'} = 'Text line followed by a comment on the same line and another below Text

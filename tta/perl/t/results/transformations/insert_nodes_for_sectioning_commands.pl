@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
  |node_number:{1}
@@ -27,7 +26,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E0]
  |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
@@ -67,7 +65,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |is_target:{1}
  |node_directions:D[next->E17|prev->E0|up->E0]
  |node_number:{2}
@@ -89,7 +86,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E3]
  |associated_part:[E2]
  |section_childs:EC[E6|E8|E14|E16]
  |section_directions:D[next->E18|up->E2]
@@ -112,7 +108,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7|up->E3]
@@ -130,7 +125,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -147,7 +141,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |is_target:{1}
  |node_directions:D[next->E13|prev->E5|up->E3]
  |node_number:{4}
@@ -163,7 +156,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E7]
  |section_childs:EC[E10|E12]
  |section_directions:D[next->E14|prev->E6|up->E4]
  |section_heading_number:{1.2}
@@ -180,7 +172,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
  |is_target:{1}
  |node_directions:D[next->E11|up->E7]
  |node_number:{5}
@@ -196,7 +187,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E9]
  |section_directions:D[next->E12|up->E8]
  |section_heading_number:{1.2.1}
  |section_level:{3}
@@ -216,7 +206,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E12]
  |is_target:{1}
  |node_directions:D[prev->E9|up->E7]
  |node_number:{6}
@@ -232,7 +221,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E11]
  |section_directions:D[prev->E10|up->E8]
  |section_heading_number:{1.2.2}
  |section_level:{3}
@@ -252,7 +240,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
  |is_target:{1}
  |node_directions:D[next->E15|prev->E7|up->E3]
  |node_number:{7}
@@ -268,7 +255,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E13]
  |section_directions:D[next->E16|prev->E8|up->E4]
  |section_heading_number:{1.3}
  |section_level:{2}
@@ -285,7 +271,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E16]
  |is_target:{1}
  |node_directions:D[prev->E13|up->E3]
  |node_number:{8}
@@ -302,7 +287,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E15]
  |section_directions:D[prev->E14|up->E4]
  |section_heading_number:{1.4}
  |section_level:{2}
@@ -319,7 +303,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E18]
  |is_target:{1}
  |node_directions:D[prev->E3|up->E0]
  |node_number:{9}
@@ -333,7 +316,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     { 1}
  *18 @unnumbered C2 l21
  |EXTRA
- |associated_node:[E17]
  |section_childs:EC[E20]
  |section_directions:D[prev->E4|up->E2]
  |section_level:{1}
@@ -350,7 +332,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E20]
  |is_target:{1}
  |node_directions:D[up->E17]
  |node_number:{10}
@@ -368,7 +349,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_node:[E19]
  |section_directions:D[up->E18]
  |section_level:{2}
  |section_number:{11}
@@ -461,5 +441,50 @@ $result_errors{'insert_nodes_for_sectioning_commands'} = [
   }
 ];
 
+
+$result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
+ associated_section: top section
+2|chap@comma{} @code{a chap}
+ associated_section: 1 chap, @code{a chap}
+3|a node
+ associated_section: 1.1 section
+4|truc
+ associated_section: 1.2 truc
+5|sub1
+ associated_section: 1.2.1 sub1
+6|sub2
+ associated_section: 1.2.2 sub2
+7|section
+ associated_section: 1.3 section
+8|section 1
+ associated_section: 1.4 section
+9| 1
+ associated_section
+10|@asis{} 2
+ associated_section: @asis{}
+';
+
+$result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
+ associated_node: Top
+2|part
+3|chap, @code{a chap}
+ associated_node: chap@comma{} @code{a chap}
+4|section
+ associated_node: a node
+5|truc
+ associated_node: truc
+6|sub1
+ associated_node: sub1
+7|sub2
+ associated_node: sub2
+8|section
+ associated_node: section
+9|section
+ associated_node: section 1
+10
+ associated_node:  1
+11|@asis{}
+ associated_node: @asis{} 2
+';
 
 1;

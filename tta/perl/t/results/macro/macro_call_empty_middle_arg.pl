@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -129,5 +129,9 @@ third p,
 
 $result_errors{'macro_call_empty_middle_arg'} = [];
 
+
+$result_nodes_list{'macro_call_empty_middle_arg'} = '';
+
+$result_sections_list{'macro_call_empty_middle_arg'} = '';
 
 1;

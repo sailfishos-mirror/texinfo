@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -384,5 +384,14 @@ $result_errors{'rec_nodes'} = [
   }
 ];
 
+
+$result_nodes_list{'rec_nodes'} = '1|Top
+2|chap node
+3|other node
+4|node up node following second
+5|node following second
+';
+
+$result_sections_list{'rec_nodes'} = '';
 
 1;

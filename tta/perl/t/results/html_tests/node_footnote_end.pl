@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -177,7 +177,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
@@ -197,7 +196,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -378,6 +376,18 @@ $result_errors{'node_footnote_end'} = [
   }
 ];
 
+
+$result_nodes_list{'node_footnote_end'} = '1|Top
+2|@\'a
+3|@^a
+4|chapter
+ associated_section: 1 chapter
+5|@`a
+';
+
+$result_sections_list{'node_footnote_end'} = '1|chapter
+ associated_node: chapter
+';
 
 $result_converted_errors{'file_html'}->{'node_footnote_end'} = [
   {

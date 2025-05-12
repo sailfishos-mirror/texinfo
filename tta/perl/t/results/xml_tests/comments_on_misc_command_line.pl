@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -121,6 +121,10 @@ $result_errors{'comments_on_misc_command_line'} = [
   }
 ];
 
+
+$result_nodes_list{'comments_on_misc_command_line'} = '';
+
+$result_sections_list{'comments_on_misc_command_line'} = '';
 
 
 $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info" spaces="  ">comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->

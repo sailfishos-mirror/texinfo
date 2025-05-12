@@ -174,14 +174,17 @@ sub split_by_section($)
 
   my $output_units;
 
+  my $nodes_list = $document->nodes_list();
+
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     my $new_section;
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and $content->{'extra'}
-        and $content->{'extra'}->{'associated_section'}) {
-      $new_section = $content->{'extra'}->{'associated_section'};
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node') {
+      my $node_structure = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
+      if ($node_structure->{'associated_section'}) {
+        $new_section = $node_structure->{'associated_section'};
+      }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'part'
              and $content->{'extra'}
              and $content->{'extra'}->{'part_associated_section'}) {
@@ -244,9 +247,10 @@ sub rebuild_output_units($$)
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
-sub split_pages($$)
+sub split_pages($$$)
 {
   my $output_units = shift;
+  my $nodes_list = shift;
   my $split = shift;
 
   return if (!$output_units or !scalar(@$output_units));
@@ -268,7 +272,7 @@ sub split_pages($$)
   my $current_first_in_page;
   foreach my $output_unit (@$output_units) {
     my $level;
-    my $section = _output_unit_section($output_unit);
+    my $section = _output_unit_section($output_unit, $nodes_list);
     if (defined($section)) {
       $level = $section->{'extra'}->{'section_level'};
     }
@@ -303,17 +307,24 @@ sub _label_target_unit_element($)
   }
 }
 
-sub _output_unit_section($)
+sub _output_unit_section($$)
 {
   my $output_unit = shift;
+  my $nodes_list = shift;
+
   if (not defined($output_unit->{'unit_command'})) {
     return undef;
   }
   my $element = $output_unit->{'unit_command'};
   if ($element->{'cmdname'} eq 'node') {
-    if ($element->{'extra'}
-        and $element->{'extra'}->{'associated_section'}) {
-      return $element->{'extra'}->{'associated_section'};
+    if (!$element->{'extra'}
+        # FIXME check only $element->{'extra'}?
+        or !$element->{'extra'}->{'normalized'}) {
+      return undef;
+    }
+    my $node_structure = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+    if ($node_structure->{'associated_section'}) {
+      return $node_structure->{'associated_section'};
     } else {
       return undef;
     }
@@ -322,19 +333,27 @@ sub _output_unit_section($)
   }
 }
 
-sub _output_unit_node($)
+sub _output_unit_node($$)
 {
   my $output_unit = shift;
+  my $sections_list = shift;
+
   if (not defined($output_unit->{'unit_command'})) {
     return undef;
   }
   my $element = $output_unit->{'unit_command'};
   if ($element->{'cmdname'} eq 'node') {
+    if (!$element->{'extra'}
+        # FIXME check only $element->{'extra'}?
+        or !defined($element->{'extra'}->{'normalized'})) {
+      return undef;
+    }
     return $element;
   } else {
-    if ($element->{'extra'}
-        and $element->{'extra'}->{'associated_node'}) {
-      return $element->{'extra'}->{'associated_node'}
+    my $section_structure
+      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    if ($section_structure->{'associated_node'}) {
+      return $section_structure->{'associated_node'}
     } else {
       return undef;
     }
@@ -343,9 +362,11 @@ sub _output_unit_node($)
 
 # Do output units directions and store them in 'directions'.
 # The directions are only created if pointing to other output units.
-sub units_directions($$;$)
+sub units_directions($$$$;$)
 {
   my $identifier_target = shift;
+  my $nodes_list = shift;
+  my $sections_list = shift;
   my $output_units = shift;
   my $print_debug = shift;
 
@@ -369,8 +390,9 @@ sub units_directions($$;$)
                                                                ->{'unit_type'})
           and $output_unit->{'tree_unit_directions'}->{'prev'}
                                                      ->{'unit_type'} eq 'unit');
-    my $node = _output_unit_node($output_unit);
+    my $node = _output_unit_node($output_unit, $sections_list);
     if (defined($node)) {
+      my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
         $directions->{$direction->[0]}
@@ -384,9 +406,8 @@ sub units_directions($$;$)
       my $argument = $node->{'contents'}->[0];
       my $automatic_directions
         = (scalar(@{$argument->{'contents'}}) <= 1);
-      if ($automatic_directions and $node->{'extra'}
-          and $node->{'extra'}->{'associated_section'}) {
-        $associated_section = $node->{'extra'}->{'associated_section'};
+      if ($automatic_directions and $node_structure->{'associated_section'}) {
+        $associated_section = $node_structure->{'associated_section'};
       }
       my $menu_child = Texinfo::ManipulateTree::first_menu_node($node,
                                                     $identifier_target);
@@ -437,7 +458,7 @@ sub units_directions($$;$)
                                        ->{'NodeBack'} = $output_unit;
       }
     }
-    my $section = _output_unit_section($output_unit);
+    my $section = _output_unit_section($output_unit, $nodes_list);
     if (not defined($section)) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
@@ -447,7 +468,7 @@ sub units_directions($$;$)
       while ($current_unit->{'tree_unit_directions'}
              and $current_unit->{'tree_unit_directions'}->{'prev'}) {
         $current_unit = $current_unit->{'tree_unit_directions'}->{'prev'};
-        $section = _output_unit_section($current_unit);
+        $section = _output_unit_section($current_unit, $nodes_list);
         if (defined($section)) {
           $section_output_unit = $current_unit;
           last;
@@ -639,12 +660,15 @@ sub do_units_directions_pages($$;$$)
   } elsif ($units_split_type == 0) {
     $output_units = split_by_section($document);
   }
+  my $nodes_list = $document->nodes_list();
   if ($output_units) {
     my $identifier_target = $document->labels_information();
-    units_directions($identifier_target, $output_units, $debug);
+    my $sections_list = $document->sections_list;
+    units_directions($identifier_target, $nodes_list,
+                     $sections_list, $output_units, $debug);
   }
   if (defined($split_pages)) {
-    split_pages($output_units, $split_pages);
+    split_pages($output_units, $nodes_list, $split_pages);
   }
 
   return $output_units;
@@ -871,8 +895,11 @@ Texinfo::OutputUnits - setup and manage Texinfo document output units
   } else {
     $output_units = split_by_section($document);
   }
-  split_pages($output_units, $split);
+  my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
+  split_pages($output_units, $nodes_list, $split);
   units_directions($identifier_target, $output_units,
+                   $nodes_list, $sections_list,
                    $document->get_conf('DEBUG'));
   units_file_directions($output_units);
 
@@ -983,11 +1010,12 @@ You can call C<split_pages> to group together output units:
 
 =over
 
-=item split_pages($output_units, $split)
+=item split_pages($output_units, $nodes_list, $split)
 X<C<split_pages>>
 
 Add the I<first_in_page> key to each output unit in the array
 reference argument I<$output_units>, set to the first output unit in the group.
+I<$nodes_list> is the node sctructure information list.
 
 The first output unit in the group is based on the value of I<$split>:
 
@@ -1019,12 +1047,14 @@ You can call the following methods to set output units directions:
 
 =over
 
-=item units_directions($identifier_target, $output_units, $print_debug)
+=item units_directions($identifier_target, $nodes_list, $sections_list, $output_units, $print_debug)
 X<C<units_directions>>
 
 The I<$identifier_target> argument associates identifiers with target elements
 and is generally obtained from a parsed document,
 L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
+The I<$nodes_list> and I<$sections_list> arguments holds nodes and section
+structures information, and are also generally obtained from a parsed document.
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated
 with the I<directions> key. In this hash, keys correspond to directions

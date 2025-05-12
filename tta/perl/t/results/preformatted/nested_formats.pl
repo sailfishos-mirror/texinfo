@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -115,6 +115,10 @@ in -- example/format
 
 $result_errors{'nested_formats'} = [];
 
+
+$result_nodes_list{'nested_formats'} = '';
+
+$result_sections_list{'nested_formats'} = '';
 
 
 $result_converted{'plaintext'}->{'nested_formats'} = '

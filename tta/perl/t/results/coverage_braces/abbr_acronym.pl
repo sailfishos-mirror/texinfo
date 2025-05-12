@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -88,6 +88,10 @@ E\'-a. ,A.
 
 $result_errors{'abbr_acronym'} = [];
 
+
+$result_nodes_list{'abbr_acronym'} = '';
+
+$result_sections_list{'abbr_acronym'} = '';
 
 
 $result_converted{'plaintext'}->{'abbr_acronym'} = '-a (an accronym) -a -a (an accronym , ...)

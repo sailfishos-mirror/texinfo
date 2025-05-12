@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -68,5 +68,9 @@ in verbatim
 
 $result_errors{'space_macro_after_end_verbatim'} = [];
 
+
+$result_nodes_list{'space_macro_after_end_verbatim'} = '';
+
+$result_sections_list{'space_macro_after_end_verbatim'} = '';
 
 1;

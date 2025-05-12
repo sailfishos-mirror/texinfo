@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -92,6 +92,13 @@ Subheading
 
 $result_errors{'no_empty_line_between_headings'} = [];
 
+
+$result_nodes_list{'no_empty_line_between_headings'} = '';
+
+$result_sections_list{'no_empty_line_between_headings'} = '1|Top
+2|Chapter
+3|Section
+';
 
 
 $result_converted{'plaintext'}->{'no_empty_line_between_headings'} = 'Top

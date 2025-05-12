@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -234,6 +234,12 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
 $result_floats{'equivalent_nodes_defined_linked'} = 'Figure: 1
  F1: {chap}
 ';
+
+$result_nodes_list{'equivalent_nodes_defined_linked'} = '1|Top
+2|chap
+';
+
+$result_sections_list{'equivalent_nodes_defined_linked'} = '';
 
 
 $result_converted{'info'}->{'equivalent_nodes_defined_linked'} = 'This is , produced from .

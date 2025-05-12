@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -24,6 +24,10 @@ end para';
 
 $result_errors{'comment_between_text'} = [];
 
+
+$result_nodes_list{'comment_between_text'} = '';
+
+$result_sections_list{'comment_between_text'} = '';
 
 
 $result_converted{'plaintext'}->{'comment_between_text'} = 'text end para

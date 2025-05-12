@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -276,6 +276,10 @@ item e^[
 
 $result_errors{'itemize_tieaccent'} = [];
 
+
+$result_nodes_list{'itemize_tieaccent'} = '';
+
+$result_sections_list{'itemize_tieaccent'} = '';
 
 $result_converted_errors{'file_html'}->{'itemize_tieaccent'} = [
   {

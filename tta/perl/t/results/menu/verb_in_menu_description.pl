@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'verb_in_menu_description'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -29,7 +28,6 @@ $result_tree_text{'verb_in_menu_description'} = '*document_root C3
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -111,6 +109,14 @@ $result_texts{'verb_in_menu_description'} = 'top
 
 $result_errors{'verb_in_menu_description'} = [];
 
+
+$result_nodes_list{'verb_in_menu_description'} = '1|first
+ associated_section: top
+';
+
+$result_sections_list{'verb_in_menu_description'} = '1|top
+ associated_node: first
+';
 
 
 $result_converted{'plaintext'}->{'verb_in_menu_description'} = 'top

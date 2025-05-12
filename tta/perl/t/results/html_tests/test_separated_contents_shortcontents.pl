@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -17,7 +17,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -35,7 +34,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -57,7 +55,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
@@ -75,7 +72,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -93,7 +89,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -111,7 +106,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -160,5 +154,21 @@ Appendix A appendix
 
 $result_errors{'test_separated_contents_shortcontents'} = [];
 
+
+$result_nodes_list{'test_separated_contents_shortcontents'} = '1|Top
+ associated_section: top
+2|chap
+ associated_section: 1 chapter
+3|app
+ associated_section: A appendix
+';
+
+$result_sections_list{'test_separated_contents_shortcontents'} = '1|top
+ associated_node: Top
+2|chapter
+ associated_node: chap
+3|appendix
+ associated_node: app
+';
 
 1;

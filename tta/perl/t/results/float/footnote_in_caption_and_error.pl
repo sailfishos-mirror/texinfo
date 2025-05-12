@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -139,6 +139,12 @@ $result_floats{'footnote_in_caption_and_error'} = 'fl: 1
  F1: {label}
   C: in caption@footnote{in footnote @error}
 ';
+
+$result_nodes_list{'footnote_in_caption_and_error'} = '1|Top
+2|chap
+';
+
+$result_sections_list{'footnote_in_caption_and_error'} = '';
 
 
 $result_converted{'plaintext'}->{'footnote_in_caption_and_error'} = '* Menu:

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -15,7 +15,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -34,7 +33,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -88,7 +86,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
@@ -108,7 +105,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -163,7 +159,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
@@ -182,7 +177,6 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_anchor_command:[E6]
- |associated_node:[E6]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -255,5 +249,21 @@ Section.
 
 $result_errors{'contents_in_middle_chapter_inline'} = [];
 
+
+$result_nodes_list{'contents_in_middle_chapter_inline'} = '1|Top
+ associated_section: Contents in chapter
+2|chapter
+ associated_section: 1 Chapter 1
+3|section
+ associated_section: 1.1 section
+';
+
+$result_sections_list{'contents_in_middle_chapter_inline'} = '1|Contents in chapter
+ associated_node: Top
+2|Chapter 1
+ associated_node: chapter
+3|section
+ associated_node: section
+';
 
 1;

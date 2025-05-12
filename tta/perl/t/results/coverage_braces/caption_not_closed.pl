@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -87,5 +87,9 @@ $result_floats{'caption_not_closed'} = 'Text: 1
    as much as possible is closed in order to find the @@float beginning.
    
 ';
+
+$result_nodes_list{'caption_not_closed'} = '';
+
+$result_sections_list{'caption_not_closed'} = '';
 
 1;

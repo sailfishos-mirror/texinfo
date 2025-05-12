@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -30,7 +29,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |section_number:{1}
@@ -107,7 +105,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
@@ -126,7 +123,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -147,7 +143,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
  |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|prev->E3|up->E0]
@@ -166,7 +161,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E5]
- |associated_node:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -207,7 +201,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E0]
@@ -225,7 +218,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -350,5 +342,25 @@ $result_errors{'nodename_parentheses'} = [
   }
 ];
 
+
+$result_nodes_list{'nodename_parentheses'} = '1|Top
+ associated_section: The top node
+2|Node (with parentheses)
+ associated_section: 1 Section (nodename with parentheses)
+3|Other node
+ associated_section: 2 Section (nodename without parentheses)
+4|(manual)node
+ associated_section: 3 (manual)node
+';
+
+$result_sections_list{'nodename_parentheses'} = '1|The top node
+ associated_node: Top
+2|Section (nodename with parentheses)
+ associated_node: Node (with parentheses)
+3|Section (nodename without parentheses)
+ associated_node: Other node
+4|(manual)node
+ associated_node: (manual)node
+';
 
 1;

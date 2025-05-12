@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -69,6 +69,10 @@ $result_texts{'second_level_lone_braces_in_html_not_expanded'} = '
 
 $result_errors{'second_level_lone_braces_in_html_not_expanded'} = [];
 
+
+$result_nodes_list{'second_level_lone_braces_in_html_not_expanded'} = '';
+
+$result_sections_list{'second_level_lone_braces_in_html_not_expanded'} = '';
 
 
 $result_converted{'plaintext'}->{'second_level_lone_braces_in_html_not_expanded'} = '';

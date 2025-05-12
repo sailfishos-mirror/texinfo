@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -39,6 +39,10 @@ AA e^ -- - \'` " "';
 
 $result_errors{'utf8_use_numeric_entity'} = [];
 
+
+$result_nodes_list{'utf8_use_numeric_entity'} = '';
+
+$result_sections_list{'utf8_use_numeric_entity'} = '';
 
 
 $result_converted{'html_text'}->{'utf8_use_numeric_entity'} = '

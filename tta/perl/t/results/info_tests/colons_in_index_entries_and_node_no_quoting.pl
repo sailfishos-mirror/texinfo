@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -279,6 +279,13 @@ node one
 
 $result_errors{'colons_in_index_entries_and_node_no_quoting'} = [];
 
+
+$result_nodes_list{'colons_in_index_entries_and_node_no_quoting'} = '1|Top
+2|One@asis{::}node@comma{} with entries.
+3|Concept Index
+';
+
+$result_sections_list{'colons_in_index_entries_and_node_no_quoting'} = '';
 
 $result_indices_sort_strings{'colons_in_index_entries_and_node_no_quoting'} = 'cp:
  :

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -11,7 +11,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -30,7 +29,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -85,7 +83,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
@@ -104,7 +101,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -185,5 +181,17 @@ $result_errors{'style_not_closed_no_newline_root_commands'} = [
   }
 ];
 
+
+$result_nodes_list{'style_not_closed_no_newline_root_commands'} = '1|Top
+ associated_section: top
+2|chapter
+ associated_section: 1 chapter
+';
+
+$result_sections_list{'style_not_closed_no_newline_root_commands'} = '1|top
+ associated_node: Top
+2|chapter
+ associated_node: chapter
+';
 
 1;

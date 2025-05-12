@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -33,7 +33,6 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E2]
  |associated_title_command:[E2]
  |is_target:{1}
  |node_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_anchor_command:[E1]
- |associated_node:[E1]
  |section_directions:D[next->E3|prev->E0]
  |section_level:{1}
  |section_number:{2}
@@ -117,6 +115,16 @@ $result_errors{'section_before_after_top_node'} = [
   }
 ];
 
+
+$result_nodes_list{'section_before_after_top_node'} = '1|Top
+ associated_section: top section
+';
+
+$result_sections_list{'section_before_after_top_node'} = '1|before
+2|top section
+ associated_node: Top
+3|Chapter
+';
 
 
 $result_converted{'info'}->{'section_before_after_top_node'} = 'This is , produced from section_before_after_top_node.texi.

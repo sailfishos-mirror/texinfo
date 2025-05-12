@@ -998,6 +998,12 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
       HV *node_hv = newHV ();
       sv = newRV_inc ((SV *) node->element->hv);
       hv_store (node_hv, "element", strlen ("element"), sv, 0);
+      if (node->associated_section)
+        {
+          sv = newRV_inc ((SV *) node->associated_section->hv);
+          hv_store (node_hv, "associated_section",
+                    strlen ("associated_section"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) node_hv));
     }
 
@@ -1023,6 +1029,12 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
       HV *section_hv = newHV ();
       sv = newRV_inc ((SV *) section->element->hv);
       hv_store (section_hv, "element", strlen ("element"), sv, 0);
+      if (section->associated_node)
+        {
+          sv = newRV_inc ((SV *) section->associated_node->hv);
+          hv_store (section_hv, "associated_node", strlen ("associated_node"),
+                    sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) section_hv));
     }
 

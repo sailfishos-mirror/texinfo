@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -22,7 +22,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
@@ -40,7 +39,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -77,7 +75,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
@@ -95,7 +92,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_anchor_command:[E2]
- |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -124,7 +120,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
  |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -142,7 +137,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E4]
- |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -244,6 +238,22 @@ $result_errors{'transliterated_names_conflicts'} = [];
 
 $result_floats{'transliterated_names_conflicts'} = 'Figure: 1
  F2.1: {Pr_00e8s}
+';
+
+$result_nodes_list{'transliterated_names_conflicts'} = '1|Top
+ associated_section: Same transliterated names
+2|Prés
+ associated_section: 1 Prés
+3|Other node
+ associated_section: 2 Other chapter
+';
+
+$result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated names
+ associated_node: Top
+2|Prés
+ associated_node: Prés
+3|Other chapter
+ associated_node: Other node
 ';
 
 1;

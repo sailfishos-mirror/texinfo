@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -19,7 +19,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
@@ -38,7 +37,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4|E8]
  |section_level:{0}
  |section_number:{1}
@@ -115,7 +113,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
@@ -134,7 +131,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[next->E8|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -299,7 +295,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
  |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
@@ -342,7 +337,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |associated_anchor_command:[E7]
- |associated_node:[E7]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -632,5 +626,24 @@ local   node
 
 $result_errors{'character_and_spaces_in_refs_out'} = [];
 
+
+$result_nodes_list{'character_and_spaces_in_refs_out'} = '1|Top
+ associated_section: Test refs
+2|node to avoid DocBook or LaTeX ignored
+ associated_section: 1 first chapter
+3|other nodes
+ associated_section: 2 Chapter with nodes
+4|!_"#$%&\'()*+-.
+5|/;<=>?[\\]^_`|~
+6|local   node
+';
+
+$result_sections_list{'character_and_spaces_in_refs_out'} = '1|Test refs
+ associated_node: Top
+2|first chapter
+ associated_node: node to avoid DocBook or LaTeX ignored
+3|Chapter with nodes
+ associated_node: other nodes
+';
 
 1;

@@ -4,13 +4,21 @@
 
 #include <stddef.h>
 
+#include "text.h"
 #include "tree_types.h"
+#include "document_types.h"
 
-void add_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e);
-void add_to_section_structure_list (SECTION_STRUCTURE_LIST *list, ELEMENT *e);
-void add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list, ELEMENT *e);
+NODE_STRUCTURE *add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
+                                            ELEMENT *e);
+SECTION_STRUCTURE *add_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                                                  ELEMENT *e);
+HEADING_STRUCTURE *add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list,
+                                                  ELEMENT *e);
 
-void insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
-                                      ELEMENT *e, size_t where);
+NODE_STRUCTURE *insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
+                                                 ELEMENT *e, size_t where);
+
+char *print_sections_list (const DOCUMENT *document);
+char *print_nodes_list (const DOCUMENT *document);
 
 #endif

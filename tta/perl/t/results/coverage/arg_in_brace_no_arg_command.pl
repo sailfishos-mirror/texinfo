@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -31,5 +31,9 @@ $result_errors{'arg_in_brace_no_arg_command'} = [
   }
 ];
 
+
+$result_nodes_list{'arg_in_brace_no_arg_command'} = '';
+
+$result_sections_list{'arg_in_brace_no_arg_command'} = '';
 
 1;

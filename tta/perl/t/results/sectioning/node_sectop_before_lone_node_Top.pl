@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
-   %result_indices %result_floats %result_converted %result_converted_errors
-   %result_indices_sort_strings);
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
 
@@ -12,7 +12,6 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
@@ -30,7 +29,6 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E0]
- |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +72,6 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->E0]
@@ -92,7 +89,6 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_anchor_command:[E3]
- |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -142,6 +138,19 @@ in chap
 
 $result_errors{'node_sectop_before_lone_node_Top'} = [];
 
+
+$result_nodes_list{'node_sectop_before_lone_node_Top'} = '1|node before
+ associated_section: top sectionning
+2|Top
+3|chap
+ associated_section: 1 chap
+';
+
+$result_sections_list{'node_sectop_before_lone_node_Top'} = '1|top sectionning
+ associated_node: node before
+2|chap
+ associated_node: chap
+';
 
 
 $result_converted{'plaintext'}->{'node_sectop_before_lone_node_Top'} = 'top sectionning
