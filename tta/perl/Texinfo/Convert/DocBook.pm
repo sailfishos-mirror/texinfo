@@ -1000,8 +1000,7 @@ sub _convert($$;$)
         my $node_structure;
         if ($cmdname eq 'node' and $self->{'document'}
             and $element->{'extra'}
-            # FIXME check only $element->{'extra'}?
-            and defined($element->{'extra'}->{'normalized'})) {
+            and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
           $node_structure
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];

@@ -318,8 +318,7 @@ sub _output_unit_section($$)
   my $element = $output_unit->{'unit_command'};
   if ($element->{'cmdname'} eq 'node') {
     if (!$element->{'extra'}
-        # FIXME check only $element->{'extra'}?
-        or !$element->{'extra'}->{'normalized'}) {
+        or !$element->{'extra'}->{'node_number'}) {
       return undef;
     }
     my $node_structure = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
@@ -344,7 +343,6 @@ sub _output_unit_node($$)
   my $element = $output_unit->{'unit_command'};
   if ($element->{'cmdname'} eq 'node') {
     if (!$element->{'extra'}
-        # FIXME check only $element->{'extra'}?
         or !defined($element->{'extra'}->{'normalized'})) {
       return undef;
     }

@@ -4035,8 +4035,7 @@ sub _convert($$)
         # add the label only if not associated with a section
         my $associated_section;
         if ($self->{'document'} and $element->{'extra'}
-           # FIXME check $element->{'extra'} only?
-           and defined($element->{'extra'}->{'normalized'})) {
+            and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
           my $node_structure
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];

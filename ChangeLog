@@ -1,5 +1,15 @@
 2025-05-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_convert),
+	tta/perl/Texinfo/OutputUnits.pm (_output_unit_section),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): check
+	node_number instead of normalized to determine if a node structure
+	information can be found for a node tree element.
+
+2025-05-12  Patrice Dumas  <pertusus@free.fr>
+
 	Properly free sections, nodes and headings lists in document
 
 	* tta/C/main/document.c (destroy_document_information_except_tree),

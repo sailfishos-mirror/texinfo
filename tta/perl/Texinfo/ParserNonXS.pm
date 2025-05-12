@@ -4114,14 +4114,14 @@ sub _end_line_misc_line($$$)
       # associate section with the current node as its title.
       _associate_title_command_anchor($self, $current);
       if ($self->{'current_node'} and $self->{'current_node'}->{'extra'}
-          # FIXME check $self->{'current_node'}->{'extra'} only?
-          and defined($self->{'current_node'}->{'extra'}->{'normalized'})) {
+          and $self->{'current_node'}->{'extra'}->{'node_number'}) {
+        my $current_node = $self->{'current_node'};
         my $nodes_list = $document->nodes_list();
         my $node_structure
-          = $nodes_list->[$self->{'current_node'}->{'extra'}->{'node_number'} -1];
+          = $nodes_list->[$current_node->{'extra'}->{'node_number'} -1];
         if (!$node_structure->{'associated_section'}) {
           $node_structure->{'associated_section'} = $current;
-          $section_structure->{'associated_node'} = $self->{'current_node'};
+          $section_structure->{'associated_node'} = $current_node;
         }
       }
       if ($self->{'current_part'}) {

@@ -4881,8 +4881,7 @@ sub _convert_heading_command($$$$$)
   my $level_corrected_opening_section_cmdname;
   if ($cmdname eq 'node') {
     if ($document and $element->{'extra'}
-        # FIXME check only $element->{'extra'}
-        and defined($element->{'extra'}->{'normalized'})) {
+        and $element->{'extra'}->{'node_number'}) {
       my $nodes_list = $document->nodes_list();
       my $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
