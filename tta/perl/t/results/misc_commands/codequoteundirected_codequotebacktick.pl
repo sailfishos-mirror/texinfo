@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -383,7 +384,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -399,7 +399,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -421,7 +420,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -437,7 +435,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -1310,15 +1307,21 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
 
 $result_nodes_list{'codequoteundirected_codequotebacktick'} = '1|Top
  associated_section: test quotes
+ associated_title_command: test quotes
 2|chap
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 ';
 
 $result_sections_list{'codequoteundirected_codequotebacktick'} = '1|test quotes
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: chap
  associated_node: chap
 ';
+
+$result_headings_list{'codequoteundirected_codequotebacktick'} = '';
 
 
 $result_converted{'plaintext'}->{'codequoteundirected_codequotebacktick'} = 'test quotes

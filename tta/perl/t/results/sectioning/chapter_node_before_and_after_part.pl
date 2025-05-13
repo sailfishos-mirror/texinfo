@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -29,7 +29,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -98,7 +97,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -116,7 +114,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{2}
@@ -181,16 +178,22 @@ $result_errors{'chapter_node_before_and_after_part'} = [
 
 $result_nodes_list{'chapter_node_before_and_after_part'} = '1|Top
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 2|after
  associated_section: 2 chapter 2
+ associated_title_command: 2 chapter 2
 ';
 
 $result_sections_list{'chapter_node_before_and_after_part'} = '1|chapter
+ associated_anchor_command: Top
  associated_node: Top
 2|part
 3|chapter 2
+ associated_anchor_command: after
  associated_node: after
 ';
+
+$result_headings_list{'chapter_node_before_and_after_part'} = '';
 
 
 $result_converted{'plaintext'}->{'chapter_node_before_and_after_part'} = '1 chapter

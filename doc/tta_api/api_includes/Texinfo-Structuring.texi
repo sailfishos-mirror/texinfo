@@ -85,11 +85,13 @@ Complete nodes directions with menu directions and @emph{Top} node first node
 directions.  Check consistency of menus, sectionning and nodes direction
 structures.
 
-@item @@children_nodes = get_node_node_childs_from_sectioning($node)
-@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node)}
+@item @@children_nodes = get_node_node_childs_from_sectioning($node, $nodes_list, $sections_list)
+@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node@comma{} $nodes_list@comma{} $sections_list)}
 @cindex @code{get_node_node_childs_from_sectioning}
 
-@emph{$node} is a node tree element.  Find the node @emph{$node} children based
+@emph{$node} is a node tree element.  @emph{$nodes_list} and @emph{$sections_list} are
+the nodes and section lists structure information, usually obtained through
+@code{Texinfo::Document}. Find the node @emph{$node} children based
 on the sectioning structure.  For the node associated with @code{@@top}
 sectioning command, the sections associated with parts are considered.
 
@@ -100,13 +102,15 @@ sectioning command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node, $lang_translations, $debug_level, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node, $nodes_list, $sections_list, $lang_translations, $debug_level, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $nodes_list@comma{} $sections_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
 Returns a @code{@@menu} Texinfo tree element for node @emph{$node}, pointing to the
-children of the node obtained with the sectioning structure.  If
-@emph{$use_sections} is set, use section names for the menu entry names.  The
+children of the node obtained with the sectioning structure.
+@emph{$nodes_list} and @emph{$sections_list} are the list of nodes and sections
+structure information.
+If @emph{$use_sections} is set, use section names for the menu entry names.  The
 @emph{$lang_translations} argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
 The second element, if set, should be an hash reference holding
@@ -115,8 +119,8 @@ similar to the @code{DEBUG} customization variable.  If set, it is supplied to t
 function called for translations.  Translations are only needed when generating
 the top node menu.
 
-@item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $menus)
-@anchor{Texinfo@asis{::}Structuring $detailmenu = new_detailmenu($lang_translations@comma{} $customization_information@comma{} $registrar@comma{} $identifier_target@comma{} $menus)}
+@item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $nodes_list, $menus)
+@anchor{Texinfo@asis{::}Structuring $detailmenu = new_detailmenu($lang_translations@comma{} $customization_information@comma{} $registrar@comma{} $identifier_target@comma{} $nodes_list@comma{} $menus)}
 @cindex @code{new_detailmenu}
 
 Returns a detailmenu tree element formatted as a master node.
@@ -133,12 +137,13 @@ assumed to be a converter, and error reporting uses converters error
 messages reporting functions (@ref{Texinfo@asis{::}Convert@asis{::}Converter Registering error
 and warning messages}).
 
-@item $entry = new_node_menu_entry($node, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $entry = new_node_menu_entry($node@comma{} $use_sections)}
+@item $entry = new_node_menu_entry($node, $nodes_list, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $entry = new_node_menu_entry($node@comma{} $nodes_list@comma{} $use_sections)}
 @cindex @code{new_node_menu_entry}
 
 Returns the Texinfo tree corresponding to a single menu entry pointing to
-@emph{$node}.  If @emph{$use_sections} is set, use the section name for the menu
+@emph{$node}.  @emph{$nodes_list} is the list of nodes structure information.
+If @emph{$use_sections} is set, use the section name for the menu
 entry name.  Returns @code{undef} if the node argument is missing.
 
 @item construct_nodes_tree($document)

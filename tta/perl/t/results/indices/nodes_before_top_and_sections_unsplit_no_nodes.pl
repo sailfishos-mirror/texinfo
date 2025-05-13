@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -193,7 +194,6 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
  |menus:EC[E5]
@@ -277,7 +277,6 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E13]
  |section_level:{0}
  |section_number:{1}
@@ -736,7 +735,6 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E13]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E14|prev->E6|up->E3]
@@ -765,7 +763,6 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
  |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
@@ -1002,20 +999,26 @@ $result_nodes_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '1|first 
 2|node in menu before top
 3|Top
  associated_section: top section
+ associated_title_command: top section
 4|first
 5|second
 6|another
 7|a node
 8|chapter
  associated_section: 1 A chapter
+ associated_title_command: 1 A chapter
 9|node in chapter
 ';
 
 $result_sections_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '1|top section
+ associated_anchor_command: Top
  associated_node: Top
 2|A chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 ';
+
+$result_headings_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '';
 
 $result_indices_sort_strings{'nodes_before_top_and_sections_unsplit_no_nodes'} = 'cp:
  ! entry in node

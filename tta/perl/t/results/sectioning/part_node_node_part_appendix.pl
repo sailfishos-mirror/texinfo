@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -19,7 +20,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -36,7 +36,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -130,7 +129,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
@@ -148,7 +146,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{1}
@@ -176,7 +173,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[prev->E4|up->E0]
@@ -211,7 +207,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |associated_part:[E7]
  |section_directions:D[up->E7]
  |section_heading_number:{A}
@@ -279,21 +274,29 @@ $result_errors{'part_node_node_part_appendix'} = [
 
 $result_nodes_list{'part_node_node_part_appendix'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter node
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 3|appendix part
  associated_section: A Appendix
+ associated_title_command: A Appendix
 ';
 
 $result_sections_list{'part_node_node_part_appendix'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Part 1
 3|chapter
+ associated_anchor_command: chapter node
  associated_node: chapter node
 4|Part Appendix
 5|Appendix
+ associated_anchor_command: appendix part
  associated_node: appendix part
 ';
+
+$result_headings_list{'part_node_node_part_appendix'} = '';
 
 
 $result_converted{'info'}->{'part_node_node_part_appendix'} = 'This is , produced from .

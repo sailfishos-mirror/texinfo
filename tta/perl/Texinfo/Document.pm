@@ -77,6 +77,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::document_nodes_list",
   "Texinfo::Document::sections_list"
     => "Texinfo::DocumentXS::document_sections_list",
+  "Texinfo::Document::headings_list"
+    => "Texinfo::DocumentXS::document_headings_list",
   "Texinfo::Document::floats_information"
     => "Texinfo::DocumentXS::document_floats_information",
   "Texinfo::Document::internal_references_information"
@@ -207,6 +209,12 @@ sub sections_list($)
 {
   my $self = shift;
   return $self->{'sections_list'};
+}
+
+sub headings_list($)
+{
+  my $self = shift;
+  return $self->{'headings_list'};
 }
 
 # No XS override, no need

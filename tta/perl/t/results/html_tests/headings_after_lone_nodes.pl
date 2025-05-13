@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -49,7 +48,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -65,7 +63,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -83,7 +80,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_number:{3}
  |normalized:{Qt}
@@ -98,7 +94,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E4]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -115,7 +110,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_description:[E8]
  |node_number:{4}
@@ -233,7 +227,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E6]
   |global_command_number:{1}
   |heading_number:{2}
    *line_arg C1
@@ -247,7 +240,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E11]
  |is_target:{1}
  |node_number:{5}
  |normalized:{Not-associated}
@@ -266,7 +258,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E10]
   |global_command_number:{1}
   |heading_number:{3}
    *line_arg C1
@@ -280,7 +271,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E13]
  |is_target:{1}
  |node_number:{6}
  |normalized:{2-not}
@@ -316,7 +306,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E12]
   |global_command_number:{2}
   |heading_number:{4}
    *line_arg C1
@@ -330,7 +319,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E15]
  |is_target:{1}
  |node_number:{7}
  |normalized:{3-not}
@@ -366,7 +354,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E14]
   |global_command_number:{3}
   |heading_number:{5}
    *line_arg C1
@@ -380,7 +367,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E17]
  |is_target:{1}
  |node_number:{8}
  |normalized:{4-not}
@@ -408,7 +394,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E16]
   |global_command_number:{4}
   |heading_number:{6}
    *line_arg C1
@@ -422,7 +407,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E20]
  |is_target:{1}
  |menus:EC[E19]
  |node_number:{9}
@@ -468,7 +452,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E18]
   |global_command_number:{5}
   |heading_number:{7}
    *line_arg C1
@@ -633,22 +616,49 @@ $result_errors{'headings_after_lone_nodes'} = [];
 
 $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap
  associated_section: 1 Chap
+ associated_title_command: 1 Chap
 3|Qt
+ associated_title_command: @subheading heading Qt
 4|Other
+ associated_title_command: @subsubheading Finally!
 5|Not associated
+ associated_title_command: @heading should not be associated
 6|2 not
+ associated_title_command: @heading should not be associated
 7|3 not
+ associated_title_command: @heading should not be associated
 8|4 not
+ associated_title_command: @heading should not be associated
 9|5 not
+ associated_title_command: @heading should not be associated
 10|subnode
 ';
 
 $result_sections_list{'headings_after_lone_nodes'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chap
+ associated_anchor_command: chap
  associated_node: chap
+';
+
+$result_headings_list{'headings_after_lone_nodes'} = '1|heading Qt
+ associated_anchor_command: Qt
+2|Finally!
+ associated_anchor_command: Other
+3|should not be associated
+ associated_anchor_command: Not associated
+4|should not be associated
+ associated_anchor_command: 2 not
+5|should not be associated
+ associated_anchor_command: 3 not
+6|should not be associated
+ associated_anchor_command: 4 not
+7|should not be associated
+ associated_anchor_command: 5 not
 ';
 
 

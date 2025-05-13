@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7]
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -66,7 +64,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -80,8 +77,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
     {EN QUAD| |}
   {empty_line:\\n}
  *4 @node C1 simple_only_special_spaces_node.texi:l7
- |EXTRA
- |associated_title_command:[E5]
   *arguments_line C1
    *line_arg
    |INFO
@@ -92,7 +87,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -110,7 +104,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[up->E0]
  |node_number:{3}
@@ -126,7 +119,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -185,19 +177,27 @@ $result_errors{'simple_only_special_spaces_node'} = [
 
 $result_nodes_list{'simple_only_special_spaces_node'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|  
  associated_section: 1 EN QUAD| |
+ associated_title_command: 1 EN QUAD| |
 3|  
  associated_section: 3 THREE-PER-EM SPACE
+ associated_title_command: 3 THREE-PER-EM SPACE
 ';
 
 $result_sections_list{'simple_only_special_spaces_node'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|EN QUAD| |
+ associated_anchor_command:   
  associated_node:   
 3|CARRIAGE RETURN|'."\r".'|
 4|THREE-PER-EM SPACE
+ associated_anchor_command:   
  associated_node:   
 ';
+
+$result_headings_list{'simple_only_special_spaces_node'} = '';
 
 1;

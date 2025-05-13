@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E7|E10|E13|E16|E19|E22]
  |section_level:{0}
  |section_number:{1}
@@ -154,7 +153,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E6|up->E0]
  |node_description:[E5]
@@ -172,7 +170,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -222,7 +219,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E3|up->E0]
  |node_description:[E8]
@@ -240,7 +236,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E10|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -270,7 +265,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E12|prev->E6|up->E0]
  |node_description:[E11]
@@ -288,7 +282,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
  |section_directions:D[next->E13|prev->E7|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -318,7 +311,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E9|up->E0]
  |node_description:[E14]
@@ -336,7 +328,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
  |section_directions:D[next->E16|prev->E10|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -366,7 +357,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E18|prev->E12|up->E0]
  |node_description:[E17]
@@ -384,7 +374,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
  |section_directions:D[next->E19|prev->E13|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -414,7 +403,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E19]
  |is_target:{1}
  |menu_directions:D[next->E21|prev->E15|up->E0]
  |node_description:[E20]
@@ -432,7 +420,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E18]
  |section_directions:D[next->E22|prev->E16|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
@@ -462,7 +449,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E22]
  |is_target:{1}
  |menu_directions:D[prev->E18|up->E0]
  |node_description:[E23]
@@ -480,7 +466,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E21]
  |section_directions:D[prev->E19|up->E1]
  |section_heading_number:{7}
  |section_level:{1}
@@ -612,39 +597,57 @@ $result_errors{'nodedescription_descriptions'} = [
 
 $result_nodes_list{'nodedescription_descriptions'} = '1|Top
  associated_section: test of nodedescription used in menu
+ associated_title_command: test of nodedescription used in menu
 2|toto
  associated_section: 1 Toto
+ associated_title_command: 1 Toto
 3|titi
  associated_section: 2 Titi
+ associated_title_command: 2 Titi
 4|other
  associated_section: 3 Other
+ associated_title_command: 3 Other
 5|last
  associated_section: 4 Last
+ associated_title_command: 4 Last
 6|a somewhat long node without description nor following space
  associated_section: 5 Somewhat long
+ associated_title_command: 5 Somewhat long
 7|a very long node without description with very little space left for
  associated_section: 6 Very long
+ associated_title_command: 6 Very long
 8|very very long node extending past the max columns and without description
  associated_section: 7 Past max columns
+ associated_title_command: 7 Past max columns
 ';
 
 $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescription used in menu
+ associated_anchor_command: Top
  associated_node: Top
 2|Toto
+ associated_anchor_command: toto
  associated_node: toto
 3|Titi
+ associated_anchor_command: titi
  associated_node: titi
 4|Other
+ associated_anchor_command: other
  associated_node: other
 5|Last
+ associated_anchor_command: last
  associated_node: last
 6|Somewhat long
+ associated_anchor_command: a somewhat long node without description nor following space
  associated_node: a somewhat long node without description nor following space
 7|Very long
+ associated_anchor_command: a very long node without description with very little space left for
  associated_node: a very long node without description with very little space left for
 8|Past max columns
+ associated_anchor_command: very very long node extending past the max columns and without description
  associated_node: very very long node extending past the max columns and without description
 ';
+
+$result_headings_list{'nodedescription_descriptions'} = '';
 
 
 $result_converted{'plaintext'}->{'nodedescription_descriptions'} = 'test of nodedescription used in menu

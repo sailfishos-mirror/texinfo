@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -19,7 +20,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -35,7 +35,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -72,7 +71,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -88,7 +86,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -126,7 +123,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -142,7 +138,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -215,18 +210,26 @@ $result_errors{'footnotestyle_separate_late'} = [];
 
 $result_nodes_list{'footnotestyle_separate_late'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap f
  associated_section: 1 Chapter f
+ associated_title_command: 1 Chapter f
 3|chap s
  associated_section: 2 Chapter s
+ associated_title_command: 2 Chapter s
 ';
 
 $result_sections_list{'footnotestyle_separate_late'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter f
+ associated_anchor_command: chap f
  associated_node: chap f
 3|Chapter s
+ associated_anchor_command: chap s
  associated_node: chap s
 ';
+
+$result_headings_list{'footnotestyle_separate_late'} = '';
 
 1;

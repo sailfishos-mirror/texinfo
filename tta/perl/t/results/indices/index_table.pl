@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,7 +32,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |section_number:{1}
@@ -104,7 +103,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
@@ -121,7 +119,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -292,7 +289,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
@@ -310,7 +306,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -365,7 +360,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E8]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E5|up->E0]
@@ -384,7 +378,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
  |section_childs:EC[E11]
  |section_directions:D[prev->E6|up->E1]
  |section_heading_number:{3}
@@ -2112,7 +2105,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[up->E7]
  |node_number:{5}
@@ -2131,7 +2123,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
  |section_directions:D[up->E8]
  |section_heading_number:{3.1}
  |section_level:{2}
@@ -2408,27 +2399,39 @@ $result_errors{'index_table'} = [
 
 $result_nodes_list{'index_table'} = '1|Top
  associated_section: Test for indices
+ associated_title_command: Test for indices
 2|node with ftable and vtable
  associated_section: 1 first node chapter, with ftable and vtable
+ associated_title_command: 1 first node chapter, with ftable and vtable
 3|node with printindex
  associated_section: 2 node with printindex
+ associated_title_command: 2 node with printindex
 4|indices refs
  associated_section: 3 Indices refs
+ associated_title_command: 3 Indices refs
 5|node
  associated_section: 3.1 node
+ associated_title_command: 3.1 node
 ';
 
 $result_sections_list{'index_table'} = '1|Test for indices
+ associated_anchor_command: Top
  associated_node: Top
 2|first node chapter, with ftable and vtable
+ associated_anchor_command: node with ftable and vtable
  associated_node: node with ftable and vtable
 3|node with printindex
+ associated_anchor_command: node with printindex
  associated_node: node with printindex
 4|Indices refs
+ associated_anchor_command: indices refs
  associated_node: indices refs
 5|node
+ associated_anchor_command: node
  associated_node: node
 ';
+
+$result_headings_list{'index_table'} = '';
 
 $result_indices_sort_strings{'index_table'} = 'cp:
  ,oncept

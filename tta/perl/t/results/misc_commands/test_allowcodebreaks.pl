@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -656,6 +657,8 @@ $result_nodes_list{'test_allowcodebreaks'} = '1|Top
 ';
 
 $result_sections_list{'test_allowcodebreaks'} = '';
+
+$result_headings_list{'test_allowcodebreaks'} = '';
 
 
 $result_converted{'plaintext'}->{'test_allowcodebreaks'} = 'Before first allowcodebreaks Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’

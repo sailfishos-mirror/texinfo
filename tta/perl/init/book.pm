@@ -354,13 +354,22 @@ sub book_convert_heading_command($$$$$)
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
+    my $associated_title_command;
+    if ($document and $element->{'extra'}
+        and $element->{'extra'}->{'node_number'}) {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      $associated_title_command
+        = $node_structure->{'associated_title_command'};
+    }
     # NOTE: if USE_NODES = 0 and there are no sectioning commands,
     # $output_unit->{'unit_command'} does not exist.
     if ($output_unit->{'unit_command'}
         and $output_unit->{'unit_command'} eq $element
         and $element->{'extra'}
-        and not $element->{'extra'}->{'associated_title_command'}
-        and defined($element->{'extra'}->{'normalized'})) {
+        and defined($element->{'extra'}->{'normalized'})
+        and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {

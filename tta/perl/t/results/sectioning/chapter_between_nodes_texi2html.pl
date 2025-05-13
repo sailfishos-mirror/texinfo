@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -28,7 +28,6 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -102,7 +101,6 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
@@ -126,7 +124,6 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -192,16 +189,22 @@ $result_errors{'chapter_between_nodes_texi2html'} = [];
 
 $result_nodes_list{'chapter_between_nodes_texi2html'} = '1|Top
  associated_section: top section
+ associated_title_command: top section
 2|section node
  associated_section: 1.1 section
+ associated_title_command: 1.1 section
 ';
 
 $result_sections_list{'chapter_between_nodes_texi2html'} = '1|top section
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
 3|section
+ associated_anchor_command: section node
  associated_node: section node
 ';
+
+$result_headings_list{'chapter_between_nodes_texi2html'} = '';
 
 
 $result_converted{'info'}->{'chapter_between_nodes_texi2html'} = 'This is , produced from .

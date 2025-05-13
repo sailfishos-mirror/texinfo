@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -25,7 +25,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
     {Top}
  *1 @top C2 l2
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -46,7 +45,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -62,7 +60,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -305,7 +302,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -322,7 +318,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -631,19 +626,27 @@ $result_errors{'sorted_subentries'} = [
 
 $result_nodes_list{'sorted_subentries'} = '1|Top
  associated_section
+ associated_title_command
 2|chapter one
  associated_section: 1 one
+ associated_title_command: 1 one
 3|chapter second
  associated_section: 2 second
+ associated_title_command: 2 second
 ';
 
 $result_sections_list{'sorted_subentries'} = '1
+ associated_anchor_command: Top
  associated_node: Top
 2|one
+ associated_anchor_command: chapter one
  associated_node: chapter one
 3|second
+ associated_anchor_command: chapter second
  associated_node: chapter second
 ';
+
+$result_headings_list{'sorted_subentries'} = '';
 
 $result_indices_sort_strings{'sorted_subentries'} = 'cp:
  , aa

@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -48,7 +49,6 @@ Prev: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E2]
  |is_target:{1}
  |node_number:{1}
  |normalized:{Top}
@@ -63,7 +63,6 @@ Prev: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
  |section_directions:D[prev->E0]
  |section_level:{1}
  |section_number:{2}
@@ -112,12 +111,16 @@ $result_errors{'unnumbered_before_node_top_top'} = [
 
 $result_nodes_list{'unnumbered_before_node_top_top'} = '1|Top
  associated_section: top section
+ associated_title_command: top section
 ';
 
 $result_sections_list{'unnumbered_before_node_top_top'} = '1|before nodes
 2|top section
+ associated_anchor_command: Top
  associated_node: Top
 ';
+
+$result_headings_list{'unnumbered_before_node_top_top'} = '';
 
 
 $result_converted{'info'}->{'unnumbered_before_node_top_top'} = 'This is , produced from .

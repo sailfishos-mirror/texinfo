@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -19,7 +20,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -36,7 +36,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -170,7 +169,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[next->E4|up->E0]
@@ -204,7 +202,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{1}
@@ -258,17 +255,23 @@ $result_errors{'part_node_chapter_after_top'} = [];
 
 $result_nodes_list{'part_node_chapter_after_top'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|a node after part
 3|chapter
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 ';
 
 $result_sections_list{'part_node_chapter_after_top'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|part
 3|chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 ';
+
+$result_headings_list{'part_node_chapter_after_top'} = '';
 
 
 $result_converted{'info'}->{'part_node_chapter_after_top'} = 'This is , produced from .

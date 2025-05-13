@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E13]
  |section_level:{0}
  |section_number:{1}
@@ -65,7 +64,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[next->E12|prev->E0|up->E0]
  |node_number:{2}
@@ -81,7 +79,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E11]
  |section_directions:D[next->E13|up->E1]
  |section_heading_number:{1}
@@ -158,7 +155,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[up->E3]
  |node_number:{3}
@@ -174,7 +170,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -385,7 +380,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E13]
  |is_target:{1}
  |menus:EC[E14]
  |node_directions:D[prev->E3|up->E0]
@@ -402,7 +396,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
  |section_childs:EC[E16]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
@@ -505,7 +498,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E2|up->E12]
  |node_directions:D[next->E2|up->E12]
@@ -522,7 +514,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
  |section_directions:D[up->E13]
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -672,27 +663,39 @@ $result_errors{'namedanchor'} = [
 
 $result_nodes_list{'namedanchor'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap
  associated_section: 1 chapter @namedanchor{Not here!, There} after
+ associated_title_command: 1 chapter @namedanchor{Not here!, There} after
 3|secc1
  associated_section: 1.1 secc1
+ associated_title_command: 1.1 secc1
 4|chap1
  associated_section: 2 chap1
+ associated_title_command: 2 chap1
 5|secc2
  associated_section: 2.1 Secc2
+ associated_title_command: 2.1 Secc2
 ';
 
 $result_sections_list{'namedanchor'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chapter @namedanchor{Not here!, There} after
+ associated_anchor_command: chap
  associated_node: chap
 3|secc1
+ associated_anchor_command: secc1
  associated_node: secc1
 4|chap1
+ associated_anchor_command: chap1
  associated_node: chap1
 5|Secc2
+ associated_anchor_command: secc2
  associated_node: secc2
 ';
+
+$result_headings_list{'namedanchor'} = '';
 
 
 $result_converted{'plaintext'}->{'namedanchor'} = 'top

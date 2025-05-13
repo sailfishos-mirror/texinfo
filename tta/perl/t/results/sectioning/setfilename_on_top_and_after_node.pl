@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'setfilename_on_top_and_after_node'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
  |normalized:{Top}
@@ -28,7 +28,6 @@ $result_tree_text{'setfilename_on_top_and_after_node'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -119,12 +118,17 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 $result_nodes_list{'setfilename_on_top_and_after_node'} = '1|Top
  associated_section: In top @setfilename very badly placed setfilename
 
+ associated_title_command: In top @setfilename very badly placed setfilename
+
 ';
 
 $result_sections_list{'setfilename_on_top_and_after_node'} = '1|In top @setfilename very badly placed setfilename
 
+ associated_anchor_command: Top
  associated_node: Top
 ';
+
+$result_headings_list{'setfilename_on_top_and_after_node'} = '';
 
 
 $result_converted{'plaintext'}->{'setfilename_on_top_and_after_node'} = 'In top 

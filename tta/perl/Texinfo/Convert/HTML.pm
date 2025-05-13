@@ -1136,17 +1136,22 @@ sub _internal_command_href($$;$$)
     #
     # @chapter Chapter without directly associated node
     my $section_structure;
-    if ($command->{'extra'} and $command->{'extra'}->{'section_number'}
-        and $self->{'document'}) {
-      my $sections_list = $self->{'document'}->sections_list();
-      $section_structure
-        = $sections_list->[$command->{'extra'}->{'section_number'} -1];
+    if ($self->{'document'} and $command->{'extra'}) {
+      if ($command->{'extra'}->{'section_number'}) {
+        my $sections_list = $self->{'document'}->sections_list();
+        $section_structure
+          = $sections_list->[$command->{'extra'}->{'section_number'} -1];
+      } elsif ($command->{'extra'}->{'heading_number'}) {
+        my $headings_list = $self->{'document'}->headings_list();
+        $section_structure
+          = $headings_list->[$command->{'extra'}->{'heading_number'} -1];
+      }
     }
     if ($section_structure and $section_structure->{'associated_node'}) {
       $target_command = $section_structure->{'associated_node'};
-    } elsif ($command->{'extra'}
-             and $command->{'extra'}->{'associated_anchor_command'}) {
-      $target_command = $command->{'extra'}->{'associated_anchor_command'};
+    } elsif ($section_structure
+             and $section_structure->{'associated_anchor_command'}) {
+      $target_command = $section_structure->{'associated_anchor_command'};
     }
 
     my $target_information = $self->_get_target($target_command);
@@ -1181,6 +1186,8 @@ sub _internal_command_href($$;$$)
           $possible_empty_target = 1;
         } elsif ($command_root_element_command->{'cmdname'}
                  and $command_root_element_command->{'cmdname'} eq 'node'
+                 and $command_root_element_command->{'extra'}
+                 and $command_root_element_command->{'extra'}->{'node_number'}
                  and $self->{'document'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
           my $node_structure
@@ -4919,13 +4926,22 @@ sub _convert_heading_command($$$$$)
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
+    my $associated_title_command;
+    if ($document and $element->{'extra'}
+        and $element->{'extra'}->{'node_number'}) {
+      my $nodes_list = $document->nodes_list();
+      my $node_structure
+        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      $associated_title_command
+        = $node_structure->{'associated_title_command'};
+    }
     # NOTE: if USE_NODES = 0 and there are no sectioning commands,
     # $output_unit->{'unit_command'} does not exist.
     if ($output_unit->{'unit_command'}
         and $output_unit->{'unit_command'} eq $element
         and $element->{'extra'}
-        and not $element->{'extra'}->{'associated_title_command'}
-        and defined($element->{'extra'}->{'normalized'})) {
+        and defined($element->{'extra'}->{'normalized'})
+        and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
@@ -6126,13 +6142,15 @@ sub _convert_xref_commands($$$$)
     my $document = $self->get_info('document');
 
     my $associated_section;
+    my $associated_title_command;
     if ($document and $target_node->{'cmdname'} eq 'node') {
       my $nodes_list = $document->nodes_list();
       my $node_structure
         = $nodes_list->[$target_node->{'extra'}->{'node_number'} -1];
-      if ($node_structure->{'associated_section'}) {
-        $associated_section = $node_structure->{'associated_section'};
-      }
+
+      $associated_section = $node_structure->{'associated_section'};
+      $associated_title_command
+        = $node_structure->{'associated_title_command'};
     }
     if (!$associated_section or $associated_section ne $target_root) {
       $target_root = $target_node;
@@ -6145,8 +6163,7 @@ sub _convert_xref_commands($$$$)
 
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
-         and $target_node->{'extra'}
-         and $target_node->{'extra'}->{'associated_title_command'}
+          and $associated_title_command
          # this condition avoids infinite recursions, indeed in that case
          # the node will be used and not the section.  There should not be
          # @*ref in nodes, and even if there are, it does not seems to be
@@ -6154,9 +6171,7 @@ sub _convert_xref_commands($$$$)
          # as the node must both be a reference target and refer to a specific
          # target at the same time, which is not possible.
          and not _command_is_in_referred_command_stack($self,
-                 $target_node->{'extra'}->{'associated_title_command'})) {
-        my $associated_title_command
-         = $target_node->{'extra'}->{'associated_title_command'};
+                                               $associated_title_command)) {
         if (in_string($self)) {
           $name = $self->command_text($associated_title_command, 'string');
         } else {
@@ -7686,12 +7701,19 @@ sub _convert_menu_entry_type($$$)
     my $node = $self->label_command($menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
       # if !NODE_NAME_IN_MENU, we pick the associated title command element
+      if (!$self->get_conf('NODE_NAME_IN_MENU')
+          and $node->{'cmdname'} eq 'node') {
+        my $document = $self->get_info('document');
+        if ($document) {
+          my $nodes_list = $document->nodes_list();
+          my $node_structure
+            = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+          $associated_title_command
+            = $node_structure->{'associated_title_command'};
+        }
+      }
 
-      if ($node->{'extra'}
-          and $node->{'extra'}->{'associated_title_command'}
-          and !$self->get_conf('NODE_NAME_IN_MENU')) {
-        $associated_title_command
-         = $node->{'extra'}->{'associated_title_command'};
+      if ($associated_title_command) {
         $href = $self->command_href($associated_title_command,
                                     undef, $element);
       } else {
@@ -11741,13 +11763,22 @@ sub _file_header_information($$;$)
     if (defined($command_string) and $command_string ne ''
         and $command_string ne $self->get_info('title_string')) {
       my $element_tree;
+      my $associated_title_command;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
-          and $command->{'extra'}
-          and $command->{'extra'}->{'associated_title_command'}){
+          and $command->{'cmdname'} and $command->{'cmdname'} eq 'node') {
+        my $document = $self->get_info('document');
+        if ($document) {
+          my $nodes_list = $document->nodes_list();
+          my $node_structure
+            = $nodes_list->[$command->{'extra'}->{'node_number'} -1];
+          $associated_title_command
+            = $node_structure->{'associated_title_command'};
+        }
+      }
+      if ($associated_title_command) {
         # associated section arguments_line type element
         my $arguments_line
-          = $command->{'extra'}->{'associated_title_command'}
-                                                 ->{'contents'}->[0];
+          = $associated_title_command->{'contents'}->[0];
         # line_arg type element containing the sectioning command line argument
         $element_tree = $arguments_line->{'contents'}->[0];
       } else {

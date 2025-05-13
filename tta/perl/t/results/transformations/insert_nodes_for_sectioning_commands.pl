@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -108,7 +109,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7|up->E3]
  |node_number:{1}
@@ -124,7 +124,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[next->E8|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -448,6 +447,7 @@ $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
  associated_section: 1 chap, @code{a chap}
 3|a node
  associated_section: 1.1 section
+ associated_title_command: 1.1 section
 4|truc
  associated_section: 1.2 truc
 5|sub1
@@ -470,6 +470,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
 3|chap, @code{a chap}
  associated_node: chap@comma{} @code{a chap}
 4|section
+ associated_anchor_command: a node
  associated_node: a node
 5|truc
  associated_node: truc
@@ -486,5 +487,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
 11|@asis{}
  associated_node: @asis{} 2
 ';
+
+$result_headings_list{'insert_nodes_for_sectioning_commands'} = '';
 
 1;

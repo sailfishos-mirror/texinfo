@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -127,6 +128,8 @@ $result_floats{'float_with_at_commands'} = 'entrée: 1
 $result_nodes_list{'float_with_at_commands'} = '';
 
 $result_sections_list{'float_with_at_commands'} = '';
+
+$result_headings_list{'float_with_at_commands'} = '';
 
 
 $result_converted{'plaintext'}->{'float_with_at_commands'} = 'Ceci est notre première entrée.

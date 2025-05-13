@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E9]
  |section_level:{0}
  |section_number:{1}
@@ -171,7 +170,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
@@ -189,7 +187,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
@@ -237,7 +234,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
@@ -254,7 +250,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -271,7 +266,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |menus:EC[E10]
@@ -289,7 +283,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_childs:EC[E12|E14]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
@@ -348,7 +341,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E13|up->E8]
  |node_directions:D[next->E13|up->E8]
@@ -365,7 +357,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
  |section_directions:D[next->E14|up->E9]
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -382,7 +373,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[prev->E11|up->E8]
  |node_directions:D[prev->E11|up->E8]
@@ -399,7 +389,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
  |section_directions:D[prev->E12|up->E9]
  |section_level:{2}
  |section_number:{6}
@@ -496,31 +485,45 @@ $result_errors{'detailmenu_on_subnodes'} = [];
 
 $result_nodes_list{'detailmenu_on_subnodes'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 3|section
  associated_section: 1.1 section
+ associated_title_command: 1.1 section
 4|chapter 2
  associated_section: 2 chapter 2
+ associated_title_command: 2 chapter 2
 5|section chap 2
  associated_section: 2.1 section chap 2
+ associated_title_command: 2.1 section chap 2
 6|unnumberedsec
  associated_section: unnumberedsec
+ associated_title_command: unnumberedsec
 ';
 
 $result_sections_list{'detailmenu_on_subnodes'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 3|section
+ associated_anchor_command: section
  associated_node: section
 4|chapter 2
+ associated_anchor_command: chapter 2
  associated_node: chapter 2
 5|section chap 2
+ associated_anchor_command: section chap 2
  associated_node: section chap 2
 6|unnumberedsec
+ associated_anchor_command: unnumberedsec
  associated_node: unnumberedsec
 ';
+
+$result_headings_list{'detailmenu_on_subnodes'} = '';
 
 
 $result_converted{'plaintext'}->{'detailmenu_on_subnodes'} = 'top

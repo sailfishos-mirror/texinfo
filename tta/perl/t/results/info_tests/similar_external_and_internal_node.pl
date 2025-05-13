@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -118,6 +119,8 @@ $result_nodes_list{'similar_external_and_internal_node'} = '1|aa
 ';
 
 $result_sections_list{'similar_external_and_internal_node'} = '';
+
+$result_headings_list{'similar_external_and_internal_node'} = '';
 
 
 $result_converted{'info'}->{'similar_external_and_internal_node'} = 'This is , produced from .

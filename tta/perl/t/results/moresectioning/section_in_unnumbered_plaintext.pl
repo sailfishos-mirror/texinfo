@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -14,7 +15,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -31,7 +31,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E9|E14|E33|E64]
  |section_level:{0}
  |section_number:{1}
@@ -134,7 +133,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
@@ -152,7 +150,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
@@ -200,7 +197,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
@@ -217,7 +213,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -234,7 +229,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E3|up->E0]
  |menus:EC[E10]
@@ -252,7 +246,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_childs:EC[E12]
  |section_directions:D[next->E14|prev->E4|up->E1]
  |section_level:{1}
@@ -299,7 +292,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
@@ -316,7 +308,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
  |section_directions:D[up->E9]
  |section_level:{2}
  |section_number:{5}
@@ -332,7 +323,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E32|prev->E8|up->E0]
  |menus:EC[E15]
@@ -350,7 +340,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
  |section_childs:EC[E17|E28]
  |section_directions:D[next->E33|prev->E9|up->E1]
  |section_heading_number:{2}
@@ -409,7 +398,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[next->E27|up->E13]
  |menus:EC[E18]
@@ -427,7 +415,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E16]
  |section_childs:EC[E20|E22|E24|E26]
  |section_directions:D[next->E28|up->E14]
  |section_level:{2}
@@ -506,7 +493,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E20]
  |is_target:{1}
  |menu_directions:D[next->E21|up->E16]
  |node_directions:D[next->E21|up->E16]
@@ -523,7 +509,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E19]
  |section_directions:D[next->E22|up->E17]
  |section_level:{3}
  |section_number:{8}
@@ -539,7 +524,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E22]
  |is_target:{1}
  |menu_directions:D[next->E23|prev->E19|up->E16]
  |node_directions:D[next->E23|prev->E19|up->E16]
@@ -556,7 +540,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E21]
  |section_directions:D[next->E24|prev->E20|up->E17]
  |section_level:{3}
  |section_number:{9}
@@ -572,7 +555,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E24]
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E21|up->E16]
  |node_directions:D[next->E25|prev->E21|up->E16]
@@ -589,7 +571,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E23]
  |section_directions:D[next->E26|prev->E22|up->E17]
  |section_level:{3}
  |section_number:{10}
@@ -605,7 +586,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[prev->E23|up->E16]
  |node_directions:D[prev->E23|up->E16]
@@ -622,7 +602,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E25]
  |section_directions:D[prev->E24|up->E17]
  |section_level:{3}
  |section_number:{11}
@@ -638,7 +617,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E28]
  |is_target:{1}
  |menu_directions:D[prev->E16|up->E13]
  |menus:EC[E29]
@@ -656,7 +634,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E27]
  |section_childs:EC[E31]
  |section_directions:D[prev->E17|up->E14]
  |section_level:{2}
@@ -702,7 +679,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E31]
  |is_target:{1}
  |menu_directions:D[up->E27]
  |node_directions:D[up->E27]
@@ -719,7 +695,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E30]
  |section_directions:D[up->E28]
  |section_level:{3}
  |section_number:{13}
@@ -736,7 +711,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E33]
  |is_target:{1}
  |menu_directions:D[next->E63|prev->E13|up->E0]
  |menus:EC[E34]
@@ -754,7 +728,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E32]
  |section_childs:EC[E36|E47|E49|E54|E59]
  |section_directions:D[next->E64|prev->E14|up->E1]
  |section_heading_number:{3}
@@ -846,7 +819,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E36]
  |is_target:{1}
  |menu_directions:D[next->E46|up->E32]
  |menus:EC[E37]
@@ -864,7 +836,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E35]
  |section_childs:EC[E39|E41|E43|E45]
  |section_directions:D[next->E47|up->E33]
  |section_level:{2}
@@ -943,7 +914,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E39]
  |is_target:{1}
  |menu_directions:D[next->E40|up->E35]
  |node_directions:D[next->E40|up->E35]
@@ -960,7 +930,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E38]
  |section_directions:D[next->E41|up->E36]
  |section_level:{3}
  |section_number:{16}
@@ -976,7 +945,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E41]
  |is_target:{1}
  |menu_directions:D[next->E42|prev->E38|up->E35]
  |node_directions:D[next->E42|prev->E38|up->E35]
@@ -993,7 +961,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E40]
  |section_directions:D[next->E43|prev->E39|up->E36]
  |section_level:{3}
  |section_number:{17}
@@ -1009,7 +976,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E43]
  |is_target:{1}
  |menu_directions:D[next->E44|prev->E40|up->E35]
  |node_directions:D[next->E44|prev->E40|up->E35]
@@ -1026,7 +992,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E42]
  |section_directions:D[next->E45|prev->E41|up->E36]
  |section_level:{3}
  |section_number:{18}
@@ -1042,7 +1007,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E45]
  |is_target:{1}
  |menu_directions:D[prev->E42|up->E35]
  |node_directions:D[prev->E42|up->E35]
@@ -1059,7 +1023,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E44]
  |section_directions:D[prev->E43|up->E36]
  |section_level:{3}
  |section_number:{19}
@@ -1075,7 +1038,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E47]
  |is_target:{1}
  |menu_directions:D[next->E48|prev->E35|up->E32]
  |node_directions:D[next->E48|prev->E35|up->E32]
@@ -1092,7 +1054,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E46]
  |section_directions:D[next->E49|prev->E36|up->E33]
  |section_heading_number:{3.1}
  |section_level:{2}
@@ -1109,7 +1070,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E49]
  |is_target:{1}
  |menu_directions:D[next->E53|prev->E46|up->E32]
  |menus:EC[E50]
@@ -1127,7 +1087,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E48]
  |section_childs:EC[E52]
  |section_directions:D[next->E54|prev->E47|up->E33]
  |section_level:{2}
@@ -1173,7 +1132,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E52]
  |is_target:{1}
  |menu_directions:D[up->E48]
  |node_directions:D[up->E48]
@@ -1190,7 +1148,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E51]
  |section_directions:D[up->E49]
  |section_level:{3}
  |section_number:{22}
@@ -1206,7 +1163,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E54]
  |is_target:{1}
  |menu_directions:D[next->E58|prev->E48|up->E32]
  |menus:EC[E55]
@@ -1224,7 +1180,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E53]
  |section_childs:EC[E57]
  |section_directions:D[next->E59|prev->E49|up->E33]
  |section_heading_number:{3.2}
@@ -1271,7 +1226,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E57]
  |is_target:{1}
  |menu_directions:D[up->E53]
  |node_directions:D[up->E53]
@@ -1288,7 +1242,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E56]
  |section_directions:D[up->E54]
  |section_heading_number:{3.2.1}
  |section_level:{3}
@@ -1305,7 +1258,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E59]
  |is_target:{1}
  |menu_directions:D[prev->E53|up->E32]
  |menus:EC[E60]
@@ -1323,7 +1275,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E58]
  |section_childs:EC[E62]
  |section_directions:D[prev->E54|up->E33]
  |section_level:{2}
@@ -1369,7 +1320,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E62]
  |is_target:{1}
  |menu_directions:D[up->E58]
  |node_directions:D[up->E58]
@@ -1386,7 +1336,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E61]
  |section_directions:D[up->E59]
  |section_level:{3}
  |section_number:{26}
@@ -1402,7 +1351,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E64]
  |is_target:{1}
  |menu_directions:D[prev->E32|up->E0]
  |menus:EC[E65]
@@ -1420,7 +1368,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E63]
  |section_childs:EC[E67]
  |section_directions:D[prev->E33|up->E1]
  |section_level:{1}
@@ -1467,7 +1414,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E67]
  |is_target:{1}
  |menu_directions:D[up->E63]
  |menus:EC[E68]
@@ -1485,7 +1431,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E66]
  |section_childs:EC[E70|E72|E74|E76]
  |section_directions:D[up->E64]
  |section_level:{2}
@@ -1564,7 +1509,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E70]
  |is_target:{1}
  |menu_directions:D[next->E71|up->E66]
  |node_directions:D[next->E71|up->E66]
@@ -1581,7 +1525,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E69]
  |section_directions:D[next->E72|up->E67]
  |section_level:{3}
  |section_number:{29}
@@ -1597,7 +1540,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E72]
  |is_target:{1}
  |menu_directions:D[next->E73|prev->E69|up->E66]
  |node_directions:D[next->E73|prev->E69|up->E66]
@@ -1614,7 +1556,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E71]
  |section_directions:D[next->E74|prev->E70|up->E67]
  |section_level:{3}
  |section_number:{30}
@@ -1630,7 +1571,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E74]
  |is_target:{1}
  |menu_directions:D[next->E75|prev->E71|up->E66]
  |node_directions:D[next->E75|prev->E71|up->E66]
@@ -1647,7 +1587,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E73]
  |section_directions:D[next->E76|prev->E72|up->E67]
  |section_level:{3}
  |section_number:{31}
@@ -1663,7 +1602,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E76]
  |is_target:{1}
  |menu_directions:D[prev->E73|up->E66]
  |node_directions:D[prev->E73|up->E66]
@@ -1680,7 +1618,6 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E75]
  |section_directions:D[prev->E74|up->E67]
  |section_level:{3}
  |section_number:{32}
@@ -2017,135 +1954,201 @@ $result_errors{'section_in_unnumbered_plaintext'} = [];
 
 $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_section: Test section in unnumbered
+ associated_title_command: Test section in unnumbered
 2|chapter
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 3|section in chapter
  associated_section: 1.1 section in chapter
+ associated_title_command: 1.1 section in chapter
 4|unnumbered
  associated_section: unnumbered
+ associated_title_command: unnumbered
 5|section in unnumbered
  associated_section: section in unnumbered
+ associated_title_command: section in unnumbered
 6|chapter 2
  associated_section: 2 chapter 2
+ associated_title_command: 2 chapter 2
 7|unnumberedsec 2
  associated_section: unnumbered section 2
+ associated_title_command: unnumbered section 2
 8|unnumbered sub 2
  associated_section: unnumbered subsection 2
+ associated_title_command: unnumbered subsection 2
 9|numbered sub 2
  associated_section: numbered subsection 2
+ associated_title_command: numbered subsection 2
 10|unnumbered sub2 2
  associated_section: unnumbered subsection2 2
+ associated_title_command: unnumbered subsection2 2
 11|numbered sub2 2
  associated_section: numbered subsection2 2
+ associated_title_command: numbered subsection2 2
 12|unnumberedsec 2-1
  associated_section: unnumberedsec 2-1
+ associated_title_command: unnumberedsec 2-1
 13|numbered sub 2-1
  associated_section: numbered subsection 2-1
+ associated_title_command: numbered subsection 2-1
 14|chapter 3
  associated_section: 3 chapter 3
+ associated_title_command: 3 chapter 3
 15|unnumberedsec 3
  associated_section: unnumbered section 3
+ associated_title_command: unnumbered section 3
 16|unnumbered sub 3
  associated_section: unnumbered subsection 3
+ associated_title_command: unnumbered subsection 3
 17|numbered sub 3
  associated_section: numbered subsection 3
+ associated_title_command: numbered subsection 3
 18|unnumbered sub2 3
  associated_section: unnumbered subsection2 3
+ associated_title_command: unnumbered subsection2 3
 19|numbered sub2 3
  associated_section: numbered subsection2 3
+ associated_title_command: numbered subsection2 3
 20|section 3-1
  associated_section: 3.1 section 3-1
+ associated_title_command: 3.1 section 3-1
 21|unnumberedsec 3-2
  associated_section: unnumberedsec 3-2
+ associated_title_command: unnumberedsec 3-2
 22|numbered sub 3-2
  associated_section: numbered subsection 3-2
+ associated_title_command: numbered subsection 3-2
 23|section 3-3
  associated_section: 3.2 section 3-3
+ associated_title_command: 3.2 section 3-3
 24|subsection 3-3
  associated_section: 3.2.1 subsection 3-3
+ associated_title_command: 3.2.1 subsection 3-3
 25|unnumberedsec 3-4
  associated_section: unnumberedsec 3-4
+ associated_title_command: unnumberedsec 3-4
 26|numbered sub 3-4
  associated_section: numbered subsection 3-4
+ associated_title_command: numbered subsection 3-4
 27|unnumbered 4
  associated_section: unnumbered  4
+ associated_title_command: unnumbered  4
 28|unnumberedsec 4
  associated_section: unnumbered section 4
+ associated_title_command: unnumbered section 4
 29|unnumbered sub 4
  associated_section: unnumbered subsection 4
+ associated_title_command: unnumbered subsection 4
 30|numbered sub 4
  associated_section: numbered subsection 4
+ associated_title_command: numbered subsection 4
 31|unnumbered sub2 4
  associated_section: unnumbered subsection2 4
+ associated_title_command: unnumbered subsection2 4
 32|numbered sub2 4
  associated_section: numbered subsection2 4
+ associated_title_command: numbered subsection2 4
 ';
 
 $result_sections_list{'section_in_unnumbered_plaintext'} = '1|Test section in unnumbered
+ associated_anchor_command: Top
  associated_node: Top
 2|chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 3|section in chapter
+ associated_anchor_command: section in chapter
  associated_node: section in chapter
 4|unnumbered
+ associated_anchor_command: unnumbered
  associated_node: unnumbered
 5|section in unnumbered
+ associated_anchor_command: section in unnumbered
  associated_node: section in unnumbered
 6|chapter 2
+ associated_anchor_command: chapter 2
  associated_node: chapter 2
 7|unnumbered section 2
+ associated_anchor_command: unnumberedsec 2
  associated_node: unnumberedsec 2
 8|unnumbered subsection 2
+ associated_anchor_command: unnumbered sub 2
  associated_node: unnumbered sub 2
 9|numbered subsection 2
+ associated_anchor_command: numbered sub 2
  associated_node: numbered sub 2
 10|unnumbered subsection2 2
+ associated_anchor_command: unnumbered sub2 2
  associated_node: unnumbered sub2 2
 11|numbered subsection2 2
+ associated_anchor_command: numbered sub2 2
  associated_node: numbered sub2 2
 12|unnumberedsec 2-1
+ associated_anchor_command: unnumberedsec 2-1
  associated_node: unnumberedsec 2-1
 13|numbered subsection 2-1
+ associated_anchor_command: numbered sub 2-1
  associated_node: numbered sub 2-1
 14|chapter 3
+ associated_anchor_command: chapter 3
  associated_node: chapter 3
 15|unnumbered section 3
+ associated_anchor_command: unnumberedsec 3
  associated_node: unnumberedsec 3
 16|unnumbered subsection 3
+ associated_anchor_command: unnumbered sub 3
  associated_node: unnumbered sub 3
 17|numbered subsection 3
+ associated_anchor_command: numbered sub 3
  associated_node: numbered sub 3
 18|unnumbered subsection2 3
+ associated_anchor_command: unnumbered sub2 3
  associated_node: unnumbered sub2 3
 19|numbered subsection2 3
+ associated_anchor_command: numbered sub2 3
  associated_node: numbered sub2 3
 20|section 3-1
+ associated_anchor_command: section 3-1
  associated_node: section 3-1
 21|unnumberedsec 3-2
+ associated_anchor_command: unnumberedsec 3-2
  associated_node: unnumberedsec 3-2
 22|numbered subsection 3-2
+ associated_anchor_command: numbered sub 3-2
  associated_node: numbered sub 3-2
 23|section 3-3
+ associated_anchor_command: section 3-3
  associated_node: section 3-3
 24|subsection 3-3
+ associated_anchor_command: subsection 3-3
  associated_node: subsection 3-3
 25|unnumberedsec 3-4
+ associated_anchor_command: unnumberedsec 3-4
  associated_node: unnumberedsec 3-4
 26|numbered subsection 3-4
+ associated_anchor_command: numbered sub 3-4
  associated_node: numbered sub 3-4
 27|unnumbered  4
+ associated_anchor_command: unnumbered 4
  associated_node: unnumbered 4
 28|unnumbered section 4
+ associated_anchor_command: unnumberedsec 4
  associated_node: unnumberedsec 4
 29|unnumbered subsection 4
+ associated_anchor_command: unnumbered sub 4
  associated_node: unnumbered sub 4
 30|numbered subsection 4
+ associated_anchor_command: numbered sub 4
  associated_node: numbered sub 4
 31|unnumbered subsection2 4
+ associated_anchor_command: unnumbered sub2 4
  associated_node: unnumbered sub2 4
 32|numbered subsection2 4
+ associated_anchor_command: numbered sub2 4
  associated_node: numbered sub2 4
 ';
+
+$result_headings_list{'section_in_unnumbered_plaintext'} = '';
 
 
 $result_converted{'plaintext'}->{'section_in_unnumbered_plaintext'} = 'Test section in unnumbered

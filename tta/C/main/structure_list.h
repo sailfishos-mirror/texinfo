@@ -24,5 +24,6 @@ void free_heading_structure_list (HEADING_STRUCTURE_LIST *list);
 
 char *print_sections_list (const DOCUMENT *document);
 char *print_nodes_list (const DOCUMENT *document);
+char *print_headings_list (const DOCUMENT *document);
 
 #endif

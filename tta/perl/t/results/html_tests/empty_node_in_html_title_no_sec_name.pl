@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
  |normalized:{Top}
@@ -27,7 +27,6 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -45,8 +44,6 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
     {top}
   {empty_line:\\n}
  *2 @node C1 l4
- |EXTRA
- |associated_title_command:[E3]
   *arguments_line C1
    *line_arg
    |INFO
@@ -57,7 +54,6 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -100,11 +96,15 @@ $result_errors{'empty_node_in_html_title_no_sec_name'} = [
 
 $result_nodes_list{'empty_node_in_html_title_no_sec_name'} = '1|Top
  associated_section: top
+ associated_title_command: top
 ';
 
 $result_sections_list{'empty_node_in_html_title_no_sec_name'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chap
 ';
+
+$result_headings_list{'empty_node_in_html_title_no_sec_name'} = '';
 
 1;

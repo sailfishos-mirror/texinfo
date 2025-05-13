@@ -1,3 +1,42 @@
+2025-05-13  Patrice Dumas  <pertusus@free.fr>
+
+	associated_anchor_command and associated_title_command in structure out of tree
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list)
+	(build_section_structure_list, build_heading_structure_list)
+	(fill_document_hv), tta/C/main/document.c (new_document),
+	tta/C/main/structure_list.c (print_sections_list)
+	(print_title_command_command, print_nodes_list),
+	tta/C/main/tree_types.h (enum directions, NODE_STRUCTURE)
+	(HEADING_STRUCTURE, SECTION_STRUCTURE), tta/C/parsetexi/end_line.c
+	(associate_title_command_anchor, get_current_node_structure)
+	(end_line_misc_line), tta/perl/Texinfo/Document.pm (headings_list),
+	tta/perl/Texinfo/ParserNonXS.pm (_associate_title_command_anchor)
+	(_get_current_node_structure, _end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list)
+	(_print_title_command_command, print_nodes_list): put
+	associated_anchor_command and associated_title_command in structure
+	info instead of in tree.  Pass headings_list from document.
+
+	* tta/C/convert/format_html.c (html_internal_command_href)
+	(file_header_information, html_convert_heading_command)
+	(html_convert_xref_command, html_convert_menu_entry_type),
+	tta/C/structuring_transfo/structuring.c (new_node_menu_entry),
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_href)
+	(_convert_heading_command, _convert_xref_commands)
+	(_convert_menu_entry_type, _file_header_information),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_convert),
+	tta/perl/Texinfo/Structuring.pm (new_node_menu_entry),
+	tta/perl/init/book.pm (book_convert_heading_command):
+	update for associated_anchor_command and associated_title_command in
+	structure info instead of in tree.
+
+	* tta/C/main/structure_list.c (print_headings_list),
+	tta/perl/Texinfo/Structuring.pm (print_headings_list),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(print_headings_list), tta/perl/t/test_utils.pl (test): output a
+	textual representation of headings list in tests.
+
 2025-05-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/DocBook.pm (_convert),
@@ -2435,7 +2474,7 @@
 	* tta/perl/t/test_utils.pl (test): always generate and compare
 	$tree_text.
 
-	* tta/perl/t/test_utils.pl (is_with_diff): handle better undefined 
+	* tta/perl/t/test_utils.pl (is_with_diff): handle better undefined
 	result.
 
 	* tta/perl/t/test_utils.pl (test): move code around, in particular
@@ -2809,7 +2848,7 @@
 	Output units detailed print
 
 	* tta/C/main/manipulate_tree.c (set_element_tree_numbers)
-	(print_element_details, remove_element_tree_numbers): rename 
+	(print_element_details, remove_element_tree_numbers): rename
 	setup_element_number as set_element_tree_numbers, print_element as
 	print_element_details, remove_element_number as
 	remove_element_tree_numbers.

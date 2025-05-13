@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -90,7 +89,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
@@ -108,7 +106,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7|E9]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -156,7 +153,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[next->E8|up->E3]
@@ -173,7 +169,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -190,7 +185,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
@@ -223,7 +217,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -298,22 +291,32 @@ $result_errors{'semi_auto'} = [
 
 $result_nodes_list{'semi_auto'} = '1|Top
  associated_section: Top
+ associated_title_command: Top
 2|Chap1
  associated_section: 1 Chapter 1
+ associated_title_command: 1 Chapter 1
 3|Sec in chapter
  associated_section: 1.1 Sec in chapter
+ associated_title_command: 1.1 Sec in chapter
 4|Section non auto
  associated_section: 1.2 Section
+ associated_title_command: 1.2 Section
 ';
 
 $result_sections_list{'semi_auto'} = '1|Top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter 1
+ associated_anchor_command: Chap1
  associated_node: Chap1
 3|Sec in chapter
+ associated_anchor_command: Sec in chapter
  associated_node: Sec in chapter
 4|Section
+ associated_anchor_command: Section non auto
  associated_node: Section non auto
 ';
+
+$result_headings_list{'semi_auto'} = '';
 
 1;

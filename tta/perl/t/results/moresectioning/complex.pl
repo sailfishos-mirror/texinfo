@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -20,7 +21,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3|prev->MISSING: (line_arg)[C3]]
@@ -45,7 +45,6 @@ NodeForward: [U1]
     {)}
  *1 @top C3 complex_sectioning_case.texi:l2
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E26|E28|E30]
  |section_level:{0}
  |section_number:{1}
@@ -163,7 +162,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E24|up->E0]
  |menus:EC[E5]
@@ -192,7 +190,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7|E18|E23]
  |section_directions:D[next->E26|up->E1]
  |section_heading_number:{1}
@@ -281,7 +278,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E17|up->E3]
  |menus:EC[E8]
@@ -299,7 +295,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_childs:EC[E10|E12|E14|E16]
  |section_directions:D[next->E18|up->E4]
  |section_level:{2}
@@ -392,7 +387,6 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E11|up->E6]
  |node_directions:D[next->E11|up->E6]
@@ -409,7 +403,6 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
  |section_directions:D[next->E12|up->E7]
  |section_level:{3}
  |section_number:{4}
@@ -441,7 +434,6 @@ NodeBack: [U3]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E9|up->E6]
  |node_directions:D[next->E13|prev->E9|up->E6]
@@ -458,7 +450,6 @@ NodeBack: [U3]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
  |section_directions:D[next->E14|prev->E10|up->E7]
  |section_level:{3}
  |section_number:{5}
@@ -490,7 +481,6 @@ NodeBack: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E11|up->E6]
  |node_directions:D[next->E15|prev->E11|up->E6]
@@ -507,7 +497,6 @@ NodeBack: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
  |section_directions:D[next->E16|prev->E12|up->E7]
  |section_level:{3}
  |section_number:{6}
@@ -537,7 +526,6 @@ NodeBack: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[prev->E13|up->E6]
  |node_directions:D[prev->E13|up->E6]
@@ -554,7 +542,6 @@ NodeBack: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
  |section_directions:D[prev->E14|up->E7]
  |section_level:{3}
  |section_number:{7}
@@ -586,7 +573,6 @@ NodeBack: [U6]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E18]
  |is_target:{1}
  |menu_directions:D[next->E22|prev->E6|up->E3]
  |menus:EC[E19]
@@ -604,7 +590,6 @@ NodeBack: [U6]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E17]
  |section_childs:EC[E21]
  |section_directions:D[next->E23|prev->E7|up->E4]
  |section_level:{2}
@@ -662,7 +647,6 @@ NodeBack: [U7]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E21]
  |is_target:{1}
  |menu_directions:D[up->E17]
  |node_directions:D[up->E17]
@@ -679,7 +663,6 @@ NodeBack: [U7]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E20]
  |section_directions:D[up->E18]
  |section_level:{3}
  |section_number:{9}
@@ -709,7 +692,6 @@ NodeBack: [U8]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E23]
  |is_target:{1}
  |menu_directions:D[prev->E17|up->E3]
  |node_directions:D[prev->E17|up->E3]
@@ -726,7 +708,6 @@ NodeBack: [U8]
  |spaces_before_argument:
   |{  }
  |EXTRA
- |associated_anchor_command:[E22]
  |section_directions:D[prev->E18|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -784,7 +765,6 @@ NodeForward: [U11]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[next->E27|prev->E24|up->E0]
  |node_directions:D[next->E27|up->E0]
@@ -816,7 +796,6 @@ NodeForward: [U11]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E25]
  |section_directions:D[next->E28|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -853,7 +832,6 @@ NodeBack: [U10]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E28]
  |is_target:{1}
  |menu_directions:D[next->E29|prev->E25|up->E0]
  |node_directions:D[next->E29|prev->E25|up->E0]
@@ -870,7 +848,6 @@ NodeBack: [U10]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E27]
  |section_directions:D[next->E30|prev->E26|up->E1]
  |section_level:{1}
  |section_number:{12}
@@ -903,7 +880,6 @@ NodeBack: [U11]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E30]
  |is_target:{1}
  |menu_directions:D[next->E31|prev->E27|up->E0]
  |node_directions:D[next->E27|prev->E31|up->E0]
@@ -943,7 +919,6 @@ NodeBack: [U11]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E29]
  |section_directions:D[prev->E28|up->E1]
  |section_level:{1}
  |section_number:{13}
@@ -1179,60 +1154,88 @@ $result_errors{'complex'} = [
 
 $result_nodes_list{'complex'} = '1|Top
  associated_section
+ associated_title_command
 2|First node
  associated_section: 1 first node chapter
+ associated_title_command: 1 first node chapter
 3|unnumbered
  associated_section: unnumbered section
+ associated_title_command: unnumbered section
 4|unnumbered sub
  associated_section: unnumbered subsection
+ associated_title_command: unnumbered subsection
 5|numbered sub
  associated_section: numbered subsection
+ associated_title_command: numbered subsection
 6|unnumbered sub2
  associated_section: unnumbered subsection2
+ associated_title_command: unnumbered subsection2
 7|numbered sub2
  associated_section: numbered subsection2
+ associated_title_command: numbered subsection2
 8|unnumbered2
  associated_section: unnumbered section2
+ associated_title_command: unnumbered section2
 9|numbered sub3
  associated_section: numbered subsection3
+ associated_title_command: numbered subsection3
 10|numbered
  associated_section: 1.1 numbered section
+ associated_title_command: 1.1 numbered section
 11|between node
 12|Second node
  associated_section: 2 second node chapter
+ associated_title_command: 2 second node chapter
 13|Third node unnumbered
  associated_section: unnumbered chapter
+ associated_title_command: unnumbered chapter
 14|continuity
  associated_section: unnumbered continuity
+ associated_title_command: unnumbered continuity
 15|Last node no description
 ';
 
 $result_sections_list{'complex'} = '1
+ associated_anchor_command: Top
  associated_node: Top
 2|first node chapter
+ associated_anchor_command: First node
  associated_node: First node
 3|unnumbered section
+ associated_anchor_command: unnumbered
  associated_node: unnumbered
 4|unnumbered subsection
+ associated_anchor_command: unnumbered sub
  associated_node: unnumbered sub
 5|numbered subsection
+ associated_anchor_command: numbered sub
  associated_node: numbered sub
 6|unnumbered subsection2
+ associated_anchor_command: unnumbered sub2
  associated_node: unnumbered sub2
 7|numbered subsection2
+ associated_anchor_command: numbered sub2
  associated_node: numbered sub2
 8|unnumbered section2
+ associated_anchor_command: unnumbered2
  associated_node: unnumbered2
 9|numbered subsection3
+ associated_anchor_command: numbered sub3
  associated_node: numbered sub3
 10|numbered section
+ associated_anchor_command: numbered
  associated_node: numbered
 11|second node chapter
+ associated_anchor_command: Second node
  associated_node: Second node
 12|unnumbered chapter
+ associated_anchor_command: Third node unnumbered
  associated_node: Third node unnumbered
 13|unnumbered continuity
+ associated_anchor_command: continuity
  associated_node: continuity
 ';
+
+$result_headings_list{'complex'} = '';
 
 1;

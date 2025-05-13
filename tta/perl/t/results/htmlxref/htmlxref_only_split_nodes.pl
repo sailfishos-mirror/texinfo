@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E6]
@@ -32,7 +32,6 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E7]
  |section_level:{0}
  |section_number:{1}
@@ -477,7 +476,6 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E8]
@@ -518,7 +516,6 @@ $result_tree_text{'htmlxref_only_split_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -980,17 +977,26 @@ $result_errors{'htmlxref_only_split_nodes'} = [];
 
 $result_nodes_list{'htmlxref_only_split_nodes'} = '1|Top
  associated_section: Test refs
+ associated_title_command: Test refs
 2|other nodes
  associated_section: 1 Chapter with nodes
+ associated_title_command: 1 Chapter with nodes
 3|!_"#$%&\'()*+-.
 4|/;<=>?[\\]^_`|~
 5|local   node
 ';
 
 $result_sections_list{'htmlxref_only_split_nodes'} = '1|Test refs
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter with nodes
+ associated_anchor_command: other nodes
  associated_node: other nodes
+';
+
+$result_headings_list{'htmlxref_only_split_nodes'} = '1|Testing distant nodes
+2|Testing manual name
+3|Testing local nodes
 ';
 
 1;

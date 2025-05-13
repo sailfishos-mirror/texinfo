@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -129,7 +130,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -146,7 +146,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |section_number:{1}
@@ -239,7 +238,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
@@ -256,7 +254,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -368,7 +365,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
@@ -385,7 +381,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -406,7 +401,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E8]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E5|up->E0]
@@ -424,7 +418,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
  |section_directions:D[prev->E6|up->E1]
  |section_level:{1}
  |section_number:{4}
@@ -570,23 +563,33 @@ $result_errors{'sample_utf8'} = [];
 
 $result_nodes_list{'sample_utf8'} = '1|Top
  associated_section: Texinfo中文示例
+ associated_title_command: Texinfo中文示例
 2|第一章（First Chapter）
  associated_section: 1 第一章（First Chapter）
+ associated_title_command: 1 第一章（First Chapter）
 3|Second Chapter AE ĄĘ ae ąę
  associated_section: 2 Chapter 2 AE ĄĘ ae ąę
+ associated_title_command: 2 Chapter 2 AE ĄĘ ae ąę
 4|Index node
  associated_section: Index
+ associated_title_command: Index
 ';
 
 $result_sections_list{'sample_utf8'} = '1|Texinfo中文示例
+ associated_anchor_command: Top
  associated_node: Top
 2|第一章（First Chapter）
+ associated_anchor_command: 第一章（First Chapter）
  associated_node: 第一章（First Chapter）
 3|Chapter 2 AE ĄĘ ae ąę
+ associated_anchor_command: Second Chapter AE ĄĘ ae ąę
  associated_node: Second Chapter AE ĄĘ ae ąę
 4|Index
+ associated_anchor_command: Index node
  associated_node: Index node
 ';
+
+$result_headings_list{'sample_utf8'} = '';
 
 $result_indices_sort_strings{'sample_utf8'} = 'cp:
  ĄĘ ae ąę

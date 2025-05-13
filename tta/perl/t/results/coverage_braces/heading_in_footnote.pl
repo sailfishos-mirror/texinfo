@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -73,6 +74,9 @@ $result_errors{'heading_in_footnote'} = [
 $result_nodes_list{'heading_in_footnote'} = '';
 
 $result_sections_list{'heading_in_footnote'} = '';
+
+$result_headings_list{'heading_in_footnote'} = '1|H1
+';
 
 $result_indices_sort_strings{'heading_in_footnote'} = 'cp:
  ind e

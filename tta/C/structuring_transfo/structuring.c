@@ -1781,7 +1781,8 @@ number_floats (DOCUMENT *document)
   to NODE.
   if USE_SECTIONS is set, use the section name as menu entry name. */
 ELEMENT *
-new_node_menu_entry (const ELEMENT *node, int use_sections)
+new_node_menu_entry (const ELEMENT *node,
+                     const NODE_STRUCTURE_LIST *nodes_list, int use_sections)
 {
   ELEMENT *node_name_element = 0;
   ELEMENT *menu_entry_name;
@@ -1804,12 +1805,16 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       size_t i;
       ELEMENT *name_element;
-      const ELEMENT *associated_title_command
-        = lookup_extra_element (node, AI_key_associated_title_command);
-      if (associated_title_command)
+      int status;
+      size_t node_number
+        = lookup_extra_integer (node, AI_key_node_number, &status);
+      const NODE_STRUCTURE *node_structure
+        = nodes_list->list[node_number -1];
+
+      if (node_structure->associated_title_command)
         {
           const ELEMENT *arguments_line
-            = associated_title_command->e.c->contents.list[0];
+            = node_structure->associated_title_command->e.c->contents.list[0];
           name_element = arguments_line->e.c->contents.list[0];
         }
       else
@@ -1975,7 +1980,7 @@ new_complete_node_menu (const ELEMENT *node,
   for (i = 0; i < node_childs->number; i++)
     {
       const ELEMENT *child = node_childs->list[i];
-      ELEMENT *entry = new_node_menu_entry (child, use_sections);
+      ELEMENT *entry = new_node_menu_entry (child, nodes_list, use_sections);
       if (entry)
         {
           add_to_element_contents (new_menu, entry);

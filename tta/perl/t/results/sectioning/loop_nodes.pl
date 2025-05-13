@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -29,7 +29,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -249,14 +248,18 @@ $result_errors{'loop_nodes'} = [
 
 $result_nodes_list{'loop_nodes'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap node up
 3|node middle
 4|node down
 ';
 
 $result_sections_list{'loop_nodes'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 ';
+
+$result_headings_list{'loop_nodes'} = '';
 
 
 $result_converted{'latex_text'}->{'loop_nodes'} = '\\begin{document}

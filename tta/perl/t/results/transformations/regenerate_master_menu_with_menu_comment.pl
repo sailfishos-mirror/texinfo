@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -120,7 +119,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -137,7 +135,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E6]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -156,7 +153,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[up->E3]
  |node_number:{3}
@@ -172,7 +168,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -236,18 +231,26 @@ $result_errors{'regenerate_master_menu_with_menu_comment'} = [];
 
 $result_nodes_list{'regenerate_master_menu_with_menu_comment'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 3|sec
  associated_section: 1.1 Sec
+ associated_title_command: 1.1 Sec
 ';
 
 $result_sections_list{'regenerate_master_menu_with_menu_comment'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: chap
  associated_node: chap
 3|Sec
+ associated_anchor_command: sec
  associated_node: sec
 ';
+
+$result_headings_list{'regenerate_master_menu_with_menu_comment'} = '';
 
 1;

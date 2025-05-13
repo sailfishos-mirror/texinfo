@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -79,7 +78,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E5]
@@ -97,7 +95,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -156,7 +153,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E9|up->E3]
  |menus:EC[E8]
@@ -174,7 +170,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
  |section_heading_number:{1.1}
@@ -221,7 +216,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E6]
  |node_directions:D[prev->E6|up->E6]
@@ -238,7 +232,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
  |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -319,23 +312,33 @@ $result_errors{'next_in_menu_is_below'} = [
 
 $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 3|section
  associated_section: 1.1 section
+ associated_title_command: 1.1 section
 4|subsection
  associated_section: 1.1.1 subsection
+ associated_title_command: 1.1.1 subsection
 ';
 
 $result_sections_list{'next_in_menu_is_below'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 3|section
+ associated_anchor_command: section
  associated_node: section
 4|subsection
+ associated_anchor_command: subsection
  associated_node: subsection
 ';
+
+$result_headings_list{'next_in_menu_is_below'} = '';
 
 
 $result_converted{'info'}->{'next_in_menu_is_below'} = 'This is , produced from .

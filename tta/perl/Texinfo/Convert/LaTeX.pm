@@ -3464,9 +3464,19 @@ sub _convert($$)
           my $reference_node_content = $label_element->{'contents'};
 
           my $section_command;
-          if ($reference->{'extra'}->{'associated_title_command'}) {
-            $section_command
-             = $reference->{'extra'}->{'associated_title_command'};
+          my $associated_title_command;
+          if ($reference->{'cmdname'} eq 'node' and $self->{'document'}
+              and $reference->{'extra'}
+              and $reference->{'extra'}->{'node_number'}) {
+            my $nodes_list = $self->{'document'}->nodes_list();
+            my $node_structure
+             = $nodes_list->[$reference->{'extra'}->{'node_number'} -1];
+            $associated_title_command
+              = $node_structure->{'associated_title_command'};
+          }
+
+          if ($associated_title_command) {
+            $section_command = $associated_title_command;
           } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
               = $node_arg->{'extra'}->{'normalized'};

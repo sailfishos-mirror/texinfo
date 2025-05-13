@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
@@ -29,7 +29,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E3]
  |section_heading_number:{1}
  |section_level:{2}
@@ -52,7 +51,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |menu_directions:D[up->E5]
  |menus:EC[E4]
@@ -70,7 +68,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E6|prev->E1]
  |section_heading_number:{2}
  |section_level:{2}
@@ -117,7 +114,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E2]
@@ -134,7 +130,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[prev->E3]
  |section_level:{2}
  |section_number:{3}
@@ -247,19 +242,27 @@ $result_errors{'section_chapter_before_top_nodes'} = [
 
 $result_nodes_list{'section_chapter_before_top_nodes'} = '1|section node
  associated_section: 1 section
+ associated_title_command: 1 section
 2|chapter node
  associated_section: 2 chapter
+ associated_title_command: 2 chapter
 3|Top
  associated_section: top
+ associated_title_command: top
 ';
 
 $result_sections_list{'section_chapter_before_top_nodes'} = '1|section
+ associated_anchor_command: section node
  associated_node: section node
 2|chapter
+ associated_anchor_command: chapter node
  associated_node: chapter node
 3|top
+ associated_anchor_command: Top
  associated_node: Top
 ';
+
+$result_headings_list{'section_chapter_before_top_nodes'} = '';
 
 
 $result_converted{'info'}->{'section_chapter_before_top_nodes'} = 'This is , produced from section_chapter_before_top_nodes.texi.

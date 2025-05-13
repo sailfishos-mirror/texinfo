@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_number:{1}
  |normalized:{first}
@@ -130,7 +130,6 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |associated_anchor_command:[E0]
      |global_command_number:{1}
      |heading_number:{1}
       *line_arg C1
@@ -276,9 +275,14 @@ $result_errors{'submenu_in_example'} = [
 
 
 $result_nodes_list{'submenu_in_example'} = '1|first
+ associated_title_command: @subheading subheading in menu
 ';
 
 $result_sections_list{'submenu_in_example'} = '';
+
+$result_headings_list{'submenu_in_example'} = '1|subheading in menu
+ associated_anchor_command: first
+';
 
 
 $result_converted{'plaintext'}->{'submenu_in_example'} = '

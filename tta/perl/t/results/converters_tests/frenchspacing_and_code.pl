@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -25,7 +26,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -41,7 +41,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -63,7 +62,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -79,7 +77,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -306,7 +303,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -322,7 +318,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -622,19 +617,27 @@ $result_errors{'frenchspacing_and_code'} = [];
 
 $result_nodes_list{'frenchspacing_and_code'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter frenchspacing
  associated_section: 1 Chap frenchspacing
+ associated_title_command: 1 Chap frenchspacing
 3|chap no
  associated_section: 2 Chap no
+ associated_title_command: 2 Chap no
 ';
 
 $result_sections_list{'frenchspacing_and_code'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chap frenchspacing
+ associated_anchor_command: chapter frenchspacing
  associated_node: chapter frenchspacing
 3|Chap no
+ associated_anchor_command: chap no
  associated_node: chap no
 ';
+
+$result_headings_list{'frenchspacing_and_code'} = '';
 
 $result_indices_sort_strings{'frenchspacing_and_code'} = 'fn:
  name? n. d on class: MyC. b

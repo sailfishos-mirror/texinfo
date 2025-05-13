@@ -23,8 +23,11 @@ Texinfo::OutputUnits - setup and manage Texinfo document output units
   } else {
     $output_units = split_by_section($document);
   }
-  split_pages($output_units, $split);
+  my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
+  split_pages($output_units, $nodes_list, $split);
   units_directions($identifier_target, $output_units,
+                   $nodes_list, $sections_list,
                    $document->get_conf('DEBUG'));
   units_file_directions($output_units);
 @end verbatim
@@ -144,12 +147,13 @@ with the output unit.
 You can call @code{split_pages} to group together output units:
 
 @table @asis
-@item split_pages($output_units, $split)
-@anchor{Texinfo@asis{::}OutputUnits split_pages($output_units@comma{} $split)}
+@item split_pages($output_units, $nodes_list, $split)
+@anchor{Texinfo@asis{::}OutputUnits split_pages($output_units@comma{} $nodes_list@comma{} $split)}
 @cindex @code{split_pages}
 
 Add the @emph{first_in_page} key to each output unit in the array
 reference argument @emph{$output_units}, set to the first output unit in the group.
+@emph{$nodes_list} is the node sctructure information list.
 
 The first output unit in the group is based on the value of @emph{$split}:
 
@@ -184,13 +188,15 @@ No splitting, all the output units are together.
 You can call the following methods to set output units directions:
 
 @table @asis
-@item units_directions($identifier_target, $output_units, $print_debug)
-@anchor{Texinfo@asis{::}OutputUnits units_directions($identifier_target@comma{} $output_units@comma{} $print_debug)}
+@item units_directions($identifier_target, $nodes_list, $sections_list, $output_units, $print_debug)
+@anchor{Texinfo@asis{::}OutputUnits units_directions($identifier_target@comma{} $nodes_list@comma{} $sections_list@comma{} $output_units@comma{} $print_debug)}
 @cindex @code{units_directions}
 
 The @emph{$identifier_target} argument associates identifiers with target elements
 and is generally obtained from a parsed document,
 @ref{Texinfo@asis{::}Document $identifier_target = labels_information($document),, @code{Texinfo::Document::labels_information}}.
+The @emph{$nodes_list} and @emph{$sections_list} arguments holds nodes and section
+structures information, and are also generally obtained from a parsed document.
 Directions are set up for the output units in the array reference
 @emph{$output_units} given in argument. The corresponding hash is associated
 with the @emph{directions} key. In this hash, keys correspond to directions

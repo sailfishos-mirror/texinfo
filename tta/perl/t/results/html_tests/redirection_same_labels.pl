@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -19,7 +20,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -36,7 +36,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E9]
  |section_level:{0}
  |section_number:{1}
@@ -121,7 +120,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
@@ -139,7 +137,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -255,7 +252,6 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |menus:EC[E10]
@@ -273,7 +269,6 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -398,21 +393,29 @@ $result_errors{'redirection_same_labels'} = [];
 
 $result_nodes_list{'redirection_same_labels'} = '1|Top
  associated_section: the top
+ associated_title_command: the top
 2|umlaut
  associated_section: 1 umlaut
+ associated_title_command: 1 umlaut
 3|@"i
 4|@~{@dotless{i}}
 5|circumflex
  associated_section: 2 circumflex
+ associated_title_command: 2 circumflex
 6|@^i
 ';
 
 $result_sections_list{'redirection_same_labels'} = '1|the top
+ associated_anchor_command: Top
  associated_node: Top
 2|umlaut
+ associated_anchor_command: umlaut
  associated_node: umlaut
 3|circumflex
+ associated_anchor_command: circumflex
  associated_node: circumflex
 ';
+
+$result_headings_list{'redirection_same_labels'} = '';
 
 1;

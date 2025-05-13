@@ -96,6 +96,7 @@ use Texinfo::Convert::DocBook;
 # of a file containing code setting those variables.
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 Locale::Messages->select_package('gettext_pp');
@@ -252,7 +253,7 @@ my $arg_debug;
 my $arg_complete;
 my $arg_output;
 my $nr_comparisons;
-$nr_comparisons = 9;
+$nr_comparisons = 10;
 
 Getopt::Long::Configure("gnu_getopt");
 # complete: output a complete texinfo file based on the test.  Does not
@@ -1274,6 +1275,7 @@ sub test($$)
   my $tree_text;
   my $nodes_list_text;
   my $sections_list_text;
+  my $headings_list_text;
   if ($output_units) {
     $tree_text
       = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
@@ -1285,9 +1287,11 @@ sub test($$)
 
   $float_text = Texinfo::Document::print_document_listoffloats($document);
 
+  $nodes_list_text = Texinfo::Structuring::print_nodes_list($document);
+
   $sections_list_text = Texinfo::Structuring::print_sections_list($document);
 
-  $nodes_list_text = Texinfo::Structuring::print_nodes_list($document);
+  $headings_list_text = Texinfo::Structuring::print_headings_list($document);
 
  COMPARE:
 
@@ -1317,6 +1321,7 @@ sub test($$)
     print OUT
      'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".
      '   %result_indices %result_floats %result_nodes_list %result_sections_list'."\n".
+     '   %result_headings_list'."\n".
      '   %result_converted %result_converted_errors %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
@@ -1378,6 +1383,11 @@ sub test($$)
                     . protect_perl_string($sections_list_text)."';\n\n";
     }
 
+    if (defined($headings_list_text)) {
+      $out_result .= '$result_headings_list{\''.$test_name.'\'} = \''
+                    . protect_perl_string($headings_list_text)."';\n\n";
+    }
+
     if (defined($indices_sorted_sort_strings)) {
       $out_result .= '$result_indices_sort_strings{\''.$test_name.'\'} = \''
              . protect_perl_string($indices_sorted_sort_strings)."';\n\n";
@@ -1420,6 +1430,9 @@ sub test($$)
 
     is_diff($sections_list_text, $result_sections_list{$test_name}, $test_name
              .' sections list');
+
+    is_diff($headings_list_text, $result_headings_list{$test_name}, $test_name
+             .' headings list');
 
     ok(Data::Compare::Compare($errors, $result_errors{$test_name}),
        $test_name.' errors');

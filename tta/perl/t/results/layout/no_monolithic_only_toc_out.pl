@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,7 +32,6 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -107,7 +106,6 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E0]
@@ -125,7 +123,6 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -214,15 +211,21 @@ $result_errors{'no_monolithic_only_toc_out'} = [];
 
 $result_nodes_list{'no_monolithic_only_toc_out'} = '1|Top
  associated_section: Not monolithic
+ associated_title_command: Not monolithic
 2|chapter
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 ';
 
 $result_sections_list{'no_monolithic_only_toc_out'} = '1|Not monolithic
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 ';
+
+$result_headings_list{'no_monolithic_only_toc_out'} = '';
 
 $result_indices_sort_strings{'no_monolithic_only_toc_out'} = 'cp:
  top

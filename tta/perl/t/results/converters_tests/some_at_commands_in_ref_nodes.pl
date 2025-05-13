@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -29,7 +29,6 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -120,7 +119,6 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -177,7 +175,6 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{  }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -351,15 +348,21 @@ $result_errors{'some_at_commands_in_ref_nodes'} = [];
 
 $result_nodes_list{'some_at_commands_in_ref_nodes'} = '1|Top
  associated_section: Top
+ associated_title_command: Top
 2|A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_section: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+ associated_title_command: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 ';
 
 $result_sections_list{'some_at_commands_in_ref_nodes'} = '1|Top
+ associated_anchor_command: Top
  associated_node: Top
 2|A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+ associated_anchor_command: A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_node: A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 ';
+
+$result_headings_list{'some_at_commands_in_ref_nodes'} = '';
 
 
 $result_converted{'plaintext'}->{'some_at_commands_in_ref_nodes'} = 'Top

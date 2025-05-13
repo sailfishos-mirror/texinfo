@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E6|E11|E12]
  |section_level:{0}
  |section_number:{1}
@@ -306,7 +305,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
@@ -323,7 +321,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -653,7 +650,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E3|up->E0]
@@ -671,7 +667,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_childs:EC[E7]
  |section_directions:D[next->E11|prev->E4|up->E1]
  |section_heading_number:{A}
@@ -1341,23 +1336,32 @@ $result_errors{'test_index'} = [
 
 $result_nodes_list{'test_index'} = '1|Top
  associated_section: Element top
+ associated_title_command: Element top
 2|name
  associated_section: 1 A chapter
+ associated_title_command: 1 A chapter
 3|name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
  associated_section: A Index
+ associated_title_command: A Index
 ';
 
 $result_sections_list{'test_index'} = '1|Element top
+ associated_anchor_command: Top
  associated_node: Top
 2|A chapter
+ associated_anchor_command: name
  associated_node: name
 3|Index
+ associated_anchor_command: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
  associated_node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
 4|appendixsec
 5|appendixsubsec
 6|appendixsubsubsec
 7|centerchap
 8|chapter end
+';
+
+$result_headings_list{'test_index'} = '1|chapheading
 ';
 
 $result_indices_sort_strings{'test_index'} = 'cp:

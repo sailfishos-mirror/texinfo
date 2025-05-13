@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
@@ -78,8 +77,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
      {menu}
   {empty_line:\\n}
  *3 @node C1 in_menu_only_special_ascii_spaces_node.texi:l9
- |EXTRA
- |associated_title_command:[E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -90,7 +87,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -104,8 +100,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
  *5 @node C1 in_menu_only_special_ascii_spaces_node.texi:l12
- |EXTRA
- |associated_title_command:[E6]
   *arguments_line C1
    *line_arg
    |INFO
@@ -116,7 +110,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -201,13 +194,17 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 
 $result_nodes_list{'in_menu_only_special_ascii_spaces_node'} = '1|Top
  associated_section: top
+ associated_title_command: top
 ';
 
 $result_sections_list{'in_menu_only_special_ascii_spaces_node'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|CARRIAGE RETURN|'."\r".'|
 3|CHARACTER TABULATION|	| FORM FEED||
 ';
+
+$result_headings_list{'in_menu_only_special_ascii_spaces_node'} = '';
 
 
 $result_converted{'info'}->{'in_menu_only_special_ascii_spaces_node'} = 'This is , produced from in_menu_only_special_ascii_spaces_node.texi.
@@ -272,8 +269,8 @@ span:hover a.copiable-link {visibility: visible}
 
 
 <ul class="mini-toc">
-<li>CARRIAGE RETURN|'."\r".'|</li>
-<li>CHARACTER TABULATION|	| FORM FEED|&#12;|</li>
+<li><a href="#CARRIAGE-RETURN_007c-_007c" accesskey="1">CARRIAGE RETURN|'."\r".'|</a></li>
+<li><a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c" accesskey="2">CHARACTER TABULATION|	| FORM FEED|&#12;|</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="CARRIAGE-RETURN_007c-_007c">

@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -184,7 +185,6 @@ $result_tree_text{'index_special_region'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E8]
@@ -201,7 +201,6 @@ $result_tree_text{'index_special_region'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_childs:EC[E6|E9]
  |section_level:{0}
  |section_number:{1}
@@ -398,7 +397,6 @@ $result_tree_text{'index_special_region'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E4]
@@ -416,7 +414,6 @@ $result_tree_text{'index_special_region'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E6|up->E5]
  |section_heading_number:{A}
  |section_level:{1}
@@ -706,16 +703,22 @@ $result_errors{'index_special_region'} = [
 
 $result_nodes_list{'index_special_region'} = '1|Top
  associated_section: Top
+ associated_title_command: Top
 2|Copying and indices
  associated_section: A Copying and indices
+ associated_title_command: A Copying and indices
 ';
 
 $result_sections_list{'index_special_region'} = '1|Top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
 3|Copying and indices
+ associated_anchor_command: Copying and indices
  associated_node: Copying and indices
 ';
+
+$result_headings_list{'index_special_region'} = '';
 
 $result_indices_sort_strings{'index_special_region'} = 'cp:
  Copying appendix

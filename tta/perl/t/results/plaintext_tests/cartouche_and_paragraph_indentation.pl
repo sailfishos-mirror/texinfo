@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -49,7 +48,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -65,7 +63,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -118,7 +115,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -134,7 +130,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -252,19 +247,27 @@ $result_errors{'cartouche_and_paragraph_indentation'} = [];
 
 $result_nodes_list{'cartouche_and_paragraph_indentation'} = '1|top
  associated_section: top
+ associated_title_command: top
 2|chap
  associated_section: 1 chap
+ associated_title_command: 1 chap
 3|chap2
  associated_section: 2 c2
+ associated_title_command: 2 c2
 ';
 
 $result_sections_list{'cartouche_and_paragraph_indentation'} = '1|top
+ associated_anchor_command: top
  associated_node: top
 2|chap
+ associated_anchor_command: chap
  associated_node: chap
 3|c2
+ associated_anchor_command: chap2
  associated_node: chap2
 ';
+
+$result_headings_list{'cartouche_and_paragraph_indentation'} = '';
 
 
 $result_converted{'plaintext'}->{'cartouche_and_paragraph_indentation'} = 'top

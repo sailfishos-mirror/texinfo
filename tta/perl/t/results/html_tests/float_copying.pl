@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -181,7 +182,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menus:EC[E5]
  |node_directions:D[next->E6]
@@ -198,7 +198,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7]
  |section_level:{0}
  |section_number:{1}
@@ -288,7 +287,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E3]
@@ -306,7 +304,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[up->E4]
  |section_heading_number:{A}
  |section_level:{1}
@@ -559,14 +556,22 @@ $result_floats{'float_copying'} = 'Copyright notice: 1
 
 $result_nodes_list{'float_copying'} = '1|Top
  associated_section: Top
+ associated_title_command: Top
 2|Copying and floats
  associated_section: A Copying and floats
+ associated_title_command: A Copying and floats
 ';
 
 $result_sections_list{'float_copying'} = '1|Top
+ associated_anchor_command: Top
  associated_node: Top
 2|Copying and floats
+ associated_anchor_command: Copying and floats
  associated_node: Copying and floats
+';
+
+$result_headings_list{'float_copying'} = '1|listoffloats
+2|printindex
 ';
 
 $result_indices_sort_strings{'float_copying'} = 'cp:

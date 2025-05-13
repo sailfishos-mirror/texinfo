@@ -1098,7 +1098,8 @@ complete_node_menu (ELEMENT *node,
                 }
               else
                 {
-                  entry = new_node_menu_entry (node_entry, use_sections);
+                  entry = new_node_menu_entry (node_entry, nodes_list,
+                                               use_sections);
              /*
               not set entry should mean an empty node.  We do not warn as
               we try, in general, to be silent in the transformations.

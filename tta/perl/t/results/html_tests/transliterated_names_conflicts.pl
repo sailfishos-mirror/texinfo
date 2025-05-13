@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -22,7 +23,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -38,7 +38,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -75,7 +74,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -91,7 +89,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -120,7 +117,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -136,7 +132,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -242,18 +237,26 @@ $result_floats{'transliterated_names_conflicts'} = 'Figure: 1
 
 $result_nodes_list{'transliterated_names_conflicts'} = '1|Top
  associated_section: Same transliterated names
+ associated_title_command: Same transliterated names
 2|Prés
  associated_section: 1 Prés
+ associated_title_command: 1 Prés
 3|Other node
  associated_section: 2 Other chapter
+ associated_title_command: 2 Other chapter
 ';
 
 $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated names
+ associated_anchor_command: Top
  associated_node: Top
 2|Prés
+ associated_anchor_command: Prés
  associated_node: Prés
 3|Other chapter
+ associated_anchor_command: Other node
  associated_node: Other node
 ';
+
+$result_headings_list{'transliterated_names_conflicts'} = '';
 
 1;

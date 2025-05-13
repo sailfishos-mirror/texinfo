@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -62,7 +63,6 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -79,7 +79,6 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -129,11 +128,15 @@ $result_errors{'lone_Top_node'} = [
 $result_nodes_list{'lone_Top_node'} = '1|Top
 2|First
  associated_section: 1 chap
+ associated_title_command: 1 chap
 ';
 
 $result_sections_list{'lone_Top_node'} = '1|chap
+ associated_anchor_command: First
  associated_node: First
 ';
+
+$result_headings_list{'lone_Top_node'} = '';
 
 
 $result_converted{'latex_text'}->{'lone_Top_node'} = '\\begin{document}

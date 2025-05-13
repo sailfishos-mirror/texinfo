@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -21,7 +22,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
  |normalized:{Chapter}
@@ -36,7 +36,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E5]
  |section_heading_number:{1}
  |section_level:{1}
@@ -58,7 +57,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_number:{2}
  |normalized:{Topic}
@@ -73,7 +71,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E2]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -87,7 +84,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[up->E0]
  |node_number:{3}
@@ -103,7 +99,6 @@ $result_tree_text{'node_heading_between'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -157,15 +152,24 @@ $result_errors{'node_heading_between'} = [];
 
 $result_nodes_list{'node_heading_between'} = '1|Chapter
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 2|Topic
+ associated_title_command: @subsubheading Topic
 3|Section
  associated_section: 1.1 Section
+ associated_title_command: 1.1 Section
 ';
 
 $result_sections_list{'node_heading_between'} = '1|Chapter
+ associated_anchor_command: Chapter
  associated_node: Chapter
 2|Section
+ associated_anchor_command: Section
  associated_node: Section
+';
+
+$result_headings_list{'node_heading_between'} = '1|Topic
+ associated_anchor_command: Topic
 ';
 
 1;

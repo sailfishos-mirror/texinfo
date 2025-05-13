@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7|E9]
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -66,7 +64,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -124,7 +121,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[next->E6|prev->E2|up->E0]
@@ -141,7 +137,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -172,7 +167,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[next->E8|prev->E4|up->E0]
@@ -189,7 +183,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
@@ -220,7 +213,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E6|up->E0]
@@ -237,7 +229,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{C}
  |section_level:{1}
@@ -317,27 +308,39 @@ $result_errors{'printindex_set_direction'} = [];
 
 $result_nodes_list{'printindex_set_direction'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|Chapter
  associated_section: 1 chap
+ associated_title_command: 1 chap
 3|Vindex
  associated_section: A Vindex
+ associated_title_command: A Vindex
 4|Cindex
  associated_section: B Cindex
+ associated_title_command: B Cindex
 5|Findex
  associated_section: C Findex
+ associated_title_command: C Findex
 ';
 
 $result_sections_list{'printindex_set_direction'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chap
+ associated_anchor_command: Chapter
  associated_node: Chapter
 3|Vindex
+ associated_anchor_command: Vindex
  associated_node: Vindex
 4|Cindex
+ associated_anchor_command: Cindex
  associated_node: Cindex
 5|Findex
+ associated_anchor_command: Findex
  associated_node: Findex
 ';
+
+$result_headings_list{'printindex_set_direction'} = '';
 
 $result_indices_sort_strings{'printindex_set_direction'} = 'cp:
  CC

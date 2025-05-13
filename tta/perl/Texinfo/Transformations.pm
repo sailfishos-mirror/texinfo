@@ -578,6 +578,7 @@ sub complete_node_menu($$$;$)
         }
       } else {
         my $entry = Texinfo::Structuring::new_node_menu_entry($node_entry,
+                                                              $nodes_list,
                                                               $use_sections);
         # not defined $entry should mean an empty node.  We do not warn as
         # we try, in general, to be silent in the transformations.

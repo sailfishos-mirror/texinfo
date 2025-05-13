@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -82,7 +81,6 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -99,7 +97,6 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -151,15 +148,21 @@ $result_errors{'space_in_menu'} = [];
 
 $result_nodes_list{'space_in_menu'} = '1|Top
  associated_section: Element
+ associated_title_command: Element
 2|node
  associated_section: 1 node
+ associated_title_command: 1 node
 ';
 
 $result_sections_list{'space_in_menu'} = '1|Element
+ associated_anchor_command: Top
  associated_node: Top
 2|node
+ associated_anchor_command: node
  associated_node: node
 ';
+
+$result_headings_list{'space_in_menu'} = '';
 
 
 $result_converted{'info'}->{'space_in_menu'} = 'This is , produced from .

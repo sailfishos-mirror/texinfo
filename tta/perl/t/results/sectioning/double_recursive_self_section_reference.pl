@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E3]
  |section_heading_number:{1}
  |section_level:{1}
@@ -56,7 +55,6 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |node_number:{2}
@@ -72,7 +70,6 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[prev->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -112,15 +109,21 @@ $result_errors{'double_recursive_self_section_reference'} = [];
 
 $result_nodes_list{'double_recursive_self_section_reference'} = '1|n1
  associated_section: 1 @ref{n2}
+ associated_title_command: 1 @ref{n2}
 2|n2
  associated_section: 2 @ref{n1}
+ associated_title_command: 2 @ref{n1}
 ';
 
 $result_sections_list{'double_recursive_self_section_reference'} = '1|@ref{n2}
+ associated_anchor_command: n1
  associated_node: n1
 2|@ref{n1}
+ associated_anchor_command: n2
  associated_node: n2
 ';
+
+$result_headings_list{'double_recursive_self_section_reference'} = '';
 
 
 $result_converted{'plaintext'}->{'double_recursive_self_section_reference'} = '1 n2

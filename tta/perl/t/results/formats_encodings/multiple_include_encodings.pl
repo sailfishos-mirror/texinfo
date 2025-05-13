@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -111,7 +112,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -127,7 +127,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7|E9|E14|E16]
  |section_level:{0}
  |section_number:{1}
@@ -167,7 +166,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -183,7 +181,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -241,7 +238,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
@@ -257,7 +253,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -282,7 +277,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|prev->E4|up->E0]
  |node_number:{4}
@@ -298,7 +292,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -349,7 +342,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |menus:EC[E10]
@@ -367,7 +359,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_childs:EC[E12]
  |section_directions:D[next->E14|prev->E7|up->E1]
  |section_heading_number:{4}
@@ -439,7 +430,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
@@ -456,7 +446,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
  |section_directions:D[up->E9]
  |section_heading_number:{4.1}
  |section_level:{2}
@@ -517,7 +506,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E14]
  |is_target:{1}
  |node_directions:D[next->E15|prev->E8|up->E0]
  |node_number:{7}
@@ -533,7 +521,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
  |section_directions:D[next->E16|prev->E9|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -621,7 +608,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E16]
  |is_target:{1}
  |node_directions:D[prev->E13|up->E0]
  |node_number:{8}
@@ -637,7 +623,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
  |section_directions:D[prev->E14|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
@@ -974,39 +959,57 @@ $result_errors{'multiple_include_encodings'} = [
 
 $result_nodes_list{'multiple_include_encodings'} = '1|Top
  associated_section: include files with multiple encodings
+ associated_title_command: include files with multiple encodings
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 3|Preface
  associated_section: 2 Preface
+ associated_title_command: 2 Preface
 4|Introduction
  associated_section: 3 Introduction
+ associated_title_command: 3 Introduction
 5|char latin2 latin2
  associated_section: 4 char latin2 latin2 in refs
+ associated_title_command: 4 char latin2 latin2 in refs
 6|Ą ą ˛ Ę ę
  associated_section: 4.1 Ą ą ˛ Ę ę
+ associated_title_command: 4.1 Ą ą ˛ Ę ę
 7|Mixed english and chinese EUC-CN
  associated_section: 5 Mixed english and chinese EUC-CN
+ associated_title_command: 5 Mixed english and chinese EUC-CN
 8|Mixed chinese and english utf-8
  associated_section: 6 Mixed chinese and english utf-8
+ associated_title_command: 6 Mixed chinese and english utf-8
 ';
 
 $result_sections_list{'multiple_include_encodings'} = '1|include files with multiple encodings
+ associated_anchor_command: Top
  associated_node: Top
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ associated_anchor_command: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_node: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 3|Preface
+ associated_anchor_command: Preface
  associated_node: Preface
 4|Introduction
+ associated_anchor_command: Introduction
  associated_node: Introduction
 5|char latin2 latin2 in refs
+ associated_anchor_command: char latin2 latin2
  associated_node: char latin2 latin2
 6|Ą ą ˛ Ę ę
+ associated_anchor_command: Ą ą ˛ Ę ę
  associated_node: Ą ą ˛ Ę ę
 7|Mixed english and chinese EUC-CN
+ associated_anchor_command: Mixed english and chinese EUC-CN
  associated_node: Mixed english and chinese EUC-CN
 8|Mixed chinese and english utf-8
+ associated_anchor_command: Mixed chinese and english utf-8
  associated_node: Mixed chinese and english utf-8
 ';
+
+$result_headings_list{'multiple_include_encodings'} = '';
 
 $result_indices_sort_strings{'multiple_include_encodings'} = 'cp:
  Ą ą ˛ Ę ę

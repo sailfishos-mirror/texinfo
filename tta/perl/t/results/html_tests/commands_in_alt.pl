@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -73,6 +74,8 @@ $result_errors{'commands_in_alt'} = [];
 $result_nodes_list{'commands_in_alt'} = '';
 
 $result_sections_list{'commands_in_alt'} = '';
+
+$result_headings_list{'commands_in_alt'} = '';
 
 
 $result_converted{'html'}->{'commands_in_alt'} = '<!DOCTYPE html>

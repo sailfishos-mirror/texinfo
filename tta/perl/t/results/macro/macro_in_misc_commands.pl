@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -55,7 +56,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |>|command_name:{Top}
     |>*brace_arg
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E4]
@@ -74,7 +74,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E5]
  |section_level:{0}
  |section_number:{1}
@@ -1521,7 +1520,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -1545,7 +1543,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -2055,14 +2052,21 @@ $result_errors{'macro_in_misc_commands'} = [
 
 $result_nodes_list{'macro_in_misc_commands'} = '1|Top
  associated_section: top atext
+ associated_title_command: top atext
 2|node atext
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 ';
 
 $result_sections_list{'macro_in_misc_commands'} = '1|top atext
+ associated_anchor_command: Top
  associated_node: Top
 2|chapter
+ associated_anchor_command: node atext
  associated_node: node atext
+';
+
+$result_headings_list{'macro_in_misc_commands'} = '1|Comment like: atext
 ';
 
 1;

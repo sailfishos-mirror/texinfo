@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E9]
  |section_level:{0}
  |section_number:{1}
@@ -49,7 +48,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E8|prev->E0|up->E0]
@@ -66,7 +64,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -113,7 +110,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
@@ -127,7 +123,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
     {entiti}
   *6 @xrefname C1 l12
   |EXTRA
-  |associated_anchor_command:[E5]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg
@@ -153,7 +148,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{4}
@@ -169,7 +163,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -284,19 +277,31 @@ $result_errors{'empty_xrefname'} = [];
 
 $result_nodes_list{'empty_xrefname'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|Chap
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 3|entiti
+ associated_title_command
 4|chip
  associated_section: 2 Chip
+ associated_title_command: 2 Chip
 ';
 
 $result_sections_list{'empty_xrefname'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: Chap
  associated_node: Chap
 3|Chip
+ associated_anchor_command: chip
  associated_node: chip
+';
+
+$result_headings_list{'empty_xrefname'} = '1
+ associated_anchor_command: entiti
+2|after empty
 ';
 
 

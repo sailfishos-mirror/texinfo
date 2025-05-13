@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -14,7 +15,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -30,7 +30,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7|E9|E11|E13]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +51,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -68,7 +66,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -82,8 +79,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
     {EN QUAD| | EM QUAD| | EN SPACE| |}
   {empty_line:\\n}
  *4 @node C1 only_special_spaces_node.texi:l8
- |EXTRA
- |associated_title_command:[E5]
   *arguments_line C1
    *line_arg
    |INFO
@@ -94,7 +89,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -108,8 +102,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
     {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
   {empty_line:\\n}
  *6 @node C1 only_special_spaces_node.texi:l11
- |EXTRA
- |associated_title_command:[E7]
   *arguments_line C1
    *line_arg
    |INFO
@@ -120,7 +112,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -138,7 +129,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[next->E10|up->E0]
  |node_number:{3}
@@ -154,7 +144,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[next->E11|prev->E7|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
@@ -172,7 +161,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[next->E12|prev->E8|up->E0]
  |node_number:{4}
@@ -188,7 +176,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E10]
  |section_directions:D[next->E13|prev->E9|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
@@ -206,7 +193,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E13]
  |is_target:{1}
  |node_directions:D[prev->E10|up->E0]
  |node_number:{5}
@@ -222,7 +208,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
  |section_directions:D[prev->E11|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
@@ -323,29 +308,41 @@ $result_errors{'only_special_spaces_node'} = [
 
 $result_nodes_list{'only_special_spaces_node'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|   
  associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
+ associated_title_command: 1 EN QUAD| | EM QUAD| | EN SPACE| |
 3|  
  associated_section: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ associated_title_command: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
 4|᠎ 
  associated_section: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ associated_title_command: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
 5|         　
  associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ associated_title_command: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 ';
 
 $result_sections_list{'only_special_spaces_node'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|EN QUAD| | EM QUAD| | EN SPACE| |
+ associated_anchor_command:    
  associated_node:    
 3|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
 4|CARRIAGE RETURN|'."\r".'|
 5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ associated_anchor_command:   
  associated_node:   
 6|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ associated_anchor_command: ᠎ 
  associated_node: ᠎ 
 7|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ associated_anchor_command:          　
  associated_node:          　
 ';
+
+$result_headings_list{'only_special_spaces_node'} = '';
 
 
 $result_converted{'info'}->{'only_special_spaces_node'} = 'This is , produced from only_special_spaces_node.texi.
@@ -444,8 +441,8 @@ Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUA
 
 <ul class="mini-toc">
 <li><a href="#g_t_2002_2003_2002" accesskey="1">EN QUAD| | EM QUAD| | EN SPACE| |</a></li>
-<li>CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</li>
-<li>CARRIAGE RETURN|'."\r".'|</li>
+<li><a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="2">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a></li>
+<li><a href="#CARRIAGE-RETURN_007c-_007c" accesskey="3">CARRIAGE RETURN|'."\r".'|</a></li>
 <li><a href="#g_t_0085_00a0_1680" accesskey="4">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></li>
 <li><a href="#g_t_180e_2003" accesskey="5">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></li>
 <li><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></li>

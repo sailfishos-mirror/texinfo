@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -88,6 +89,8 @@ vr C
 $result_nodes_list{'index_entries'} = '';
 
 $result_sections_list{'index_entries'} = '';
+
+$result_headings_list{'index_entries'} = '';
 
 $result_indices_sort_strings{'index_entries'} = 'cp:
  cindex entry

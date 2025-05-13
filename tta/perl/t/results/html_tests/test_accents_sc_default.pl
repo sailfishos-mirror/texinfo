@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'test_accents_sc_default'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -31,7 +31,6 @@ $result_tree_text{'test_accents_sc_default'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -53,7 +52,6 @@ $result_tree_text{'test_accents_sc_default'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -69,7 +67,6 @@ $result_tree_text{'test_accents_sc_default'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -312,15 +309,21 @@ $result_errors{'test_accents_sc_default'} = [];
 
 $result_nodes_list{'test_accents_sc_default'} = '1|top
  associated_section: top section
+ associated_title_command: top section
 2|node chap
  associated_section: 1 chapter
+ associated_title_command: 1 chapter
 ';
 
 $result_sections_list{'test_accents_sc_default'} = '1|top section
+ associated_anchor_command: top
  associated_node: top
 2|chapter
+ associated_anchor_command: node chap
  associated_node: node chap
 ';
+
+$result_headings_list{'test_accents_sc_default'} = '';
 
 
 $result_converted{'html_text'}->{'test_accents_sc_default'} = '<div class="top-level-extent" id="Top">

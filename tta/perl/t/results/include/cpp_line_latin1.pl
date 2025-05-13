@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -29,7 +30,6 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -42,7 +42,6 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
     {Top}
  *1 @top C2 cpp_line_latin1.texi:l6
  |EXTRA
- |associated_anchor_command:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -133,11 +132,15 @@ $result_errors{'cpp_line_latin1'} = [
 
 $result_nodes_list{'cpp_line_latin1'} = '1|Top
  associated_section
+ associated_title_command
 2|chap
 ';
 
 $result_sections_list{'cpp_line_latin1'} = '1
+ associated_anchor_command: Top
  associated_node: Top
 ';
+
+$result_headings_list{'cpp_line_latin1'} = '';
 
 1;

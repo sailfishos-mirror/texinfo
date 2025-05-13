@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -24,7 +25,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -40,7 +40,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -62,7 +61,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -78,7 +76,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -108,7 +105,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -124,7 +120,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_childs:EC[E7|E9]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
@@ -155,7 +150,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|up->E4]
  |node_number:{4}
@@ -171,7 +165,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|up->E5]
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -200,7 +193,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E4]
  |node_number:{5}
@@ -216,7 +208,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E7|up->E5]
  |section_heading_number:{2.2}
  |section_level:{2}
@@ -277,27 +268,39 @@ $result_errors{'multiple_documentlanguage'} = [];
 
 $result_nodes_list{'multiple_documentlanguage'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chap
  associated_section: 1 Chap no new language
+ associated_title_command: 1 Chap no new language
 3|chapter fr
  associated_section: 2 chapter fr
+ associated_title_command: 2 chapter fr
 4|subnode pt
  associated_section: 2.1 section pt
+ associated_title_command: 2.1 section pt
 5|subnode fr
  associated_section: 2.2 section fr
+ associated_title_command: 2.2 section fr
 ';
 
 $result_sections_list{'multiple_documentlanguage'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chap no new language
+ associated_anchor_command: chap
  associated_node: chap
 3|chapter fr
+ associated_anchor_command: chapter fr
  associated_node: chapter fr
 4|section pt
+ associated_anchor_command: subnode pt
  associated_node: subnode pt
 5|section fr
+ associated_anchor_command: subnode fr
  associated_node: subnode fr
 ';
+
+$result_headings_list{'multiple_documentlanguage'} = '';
 
 
 $result_converted{'docbook'}->{'multiple_documentlanguage'} = '<chapter label="1" id="chap" lang="ja">

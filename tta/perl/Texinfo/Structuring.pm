@@ -92,6 +92,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::print_nodes_list",
   "Texinfo::Structuring::print_sections_list"
     => "Texinfo::StructTransfXS::print_sections_list",
+  "Texinfo::Structuring::print_headings_list"
+    => "Texinfo::StructTransfXS::print_headings_list",
 );
 
 our $module_loaded = 0;
@@ -382,10 +384,46 @@ sub print_sections_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_node')) {
+    foreach my $node_key (('associated_anchor_command', 'associated_node')) {
       if ($section_structure->{$node_key}) {
         $result .= " $node_key: "
           ._print_root_command($section_structure->{$node_key})."\n";
+      }
+    }
+    $idx++;
+  }
+
+  return $result;
+}
+
+sub print_headings_list($)
+{
+  my $document = shift;
+
+  my $headings_list = $document->headings_list();
+
+  my $result = '';
+
+  my $idx = 1;
+
+  foreach my $heading_structure (@$headings_list) {
+    my $element = $heading_structure->{'element'};
+    my $root_command_texi;
+    if ($element->{'contents'}->[0]
+        and $element->{'contents'}->[0]->{'contents'}) {
+      $root_command_texi
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+    }
+    if (!defined($root_command_texi)) {
+      $result .= "$idx\n";
+    } else {
+      $result .= "$idx|$root_command_texi\n";
+    }
+    foreach my $node_key (('associated_anchor_command')) {
+      if ($heading_structure->{$node_key}) {
+        $result .= " $node_key: "
+          ._print_root_command($heading_structure->{$node_key})."\n";
       }
     }
     $idx++;
@@ -1150,6 +1188,24 @@ sub _print_section_command($)
   return $root_command_texi;
 }
 
+sub _print_title_command_command($)
+{
+  my $element = shift;
+
+  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}) {
+    return _print_section_command($element);
+  } else {
+    if ($element->{'contents'}->[0]
+        and $element->{'contents'}->[0]->{'contents'}) {
+      my $root_command_texi
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+      return '@'."$element->{'cmdname'} ".$root_command_texi;
+    }
+    return undef;
+  }
+}
+
 sub print_nodes_list($)
 {
   my $document = shift;
@@ -1172,6 +1228,17 @@ sub print_nodes_list($)
       if ($node_structure->{$section_key}) {
         my $section_command
           = _print_section_command($node_structure->{$section_key});
+        if (!defined($section_command)) {
+          $result .= " $section_key\n";
+        } else {
+          $result .= " $section_key: ".$section_command."\n";
+        }
+      }
+    }
+    foreach my $section_key (('associated_title_command')) {
+      if ($node_structure->{$section_key}) {
+        my $section_command
+          = _print_title_command_command($node_structure->{$section_key});
         if (!defined($section_command)) {
           $result .= " $section_key\n";
         } else {
@@ -1330,9 +1397,9 @@ sub section_level_adjusted_command_name($)
 # returns the Texinfo tree corresponding to a single menu entry pointing
 # to $NODE.
 # if $USE_SECTIONS is set, use the section name as menu entry name.
-sub new_node_menu_entry
+sub new_node_menu_entry($$;$)
 {
-  my ($node, $use_sections) = @_;
+  my ($node, $nodes_list, $use_sections) = @_;
 
   my $node_name_element;
   if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
@@ -1348,8 +1415,9 @@ sub new_node_menu_entry
     my $name_element;
     # use associated_title_command and not associated_section as
     # it is more logical here.
-    if (defined $node->{'extra'}->{'associated_title_command'}) {
-      my $arguments_line = $node->{'extra'}->{'associated_title_command'}
+    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+    if ($node_structure->{'associated_title_command'}) {
+      my $arguments_line = $node_structure->{'associated_title_command'}
                ->{'contents'}->[0];
       $name_element = $arguments_line->{'contents'}->[0];
     } else {
@@ -1510,7 +1578,7 @@ sub new_complete_node_menu($$$;$$$)
   # command in new_block_command below
   my $new_menu = {'contents' => []};
   foreach my $child (@node_childs) {
-    my $entry = new_node_menu_entry($child, $use_sections);
+    my $entry = new_node_menu_entry($child, $nodes_list, $use_sections);
     if (defined($entry)) {
       $entry->{'parent'} = $new_menu;
       push @{$new_menu->{'contents'}}, $entry;
@@ -1911,11 +1979,12 @@ assumed to be a converter, and error reporting uses converters error
 messages reporting functions (L<Texinfo::Convert::Converter/Registering error
 and warning messages>).
 
-=item $entry = new_node_menu_entry($node, $use_sections)
+=item $entry = new_node_menu_entry($node, $nodes_list, $use_sections)
 X<C<new_node_menu_entry>>
 
 Returns the Texinfo tree corresponding to a single menu entry pointing to
-I<$node>.  If I<$use_sections> is set, use the section name for the menu
+I<$node>.  I<$nodes_list> is the list of nodes structure information.
+If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
 =item construct_nodes_tree($document)

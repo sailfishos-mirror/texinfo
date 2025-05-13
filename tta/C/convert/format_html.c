@@ -1404,12 +1404,10 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
       if (section_structure && section_structure->associated_node)
         target_command = section_structure->associated_node;
-      else
+      else if (section_structure
+               && section_structure->associated_anchor_command)
         {
-          const ELEMENT *associated_anchor_command
-            = lookup_extra_element (command, AI_key_associated_anchor_command);
-          if (associated_anchor_command)
-            target_command = associated_anchor_command;
+          target_command = section_structure->associated_anchor_command;
         }
       target_info = html_get_target (self, target_command);
       if (target_info)
@@ -1469,12 +1467,15 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                     = lookup_extra_integer (command_root_element,
                                         AI_key_node_number, &status);
 
-                  const NODE_STRUCTURE *node_structure
-                    = self->document->nodes_list.list[node_number -1];
+                  if (node_number)
+                    {
+                      const NODE_STRUCTURE *node_structure
+                        = self->document->nodes_list.list[node_number -1];
 
-                  if (node_structure->associated_section
-                      && node_structure->associated_section == command)
-                    possible_empty_target = 1;
+                      if (node_structure->associated_section
+                         && node_structure->associated_section == command)
+                        possible_empty_target = 1;
+                    }
                 }
 
               if (possible_empty_target)
@@ -1483,7 +1484,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                     {
                       size_t count_in_file
                        = count_elements_in_file_number (self, CEFT_total,
-                                                  target_filename->file_number);
+                                                target_filename->file_number);
                       if (count_in_file == 1)
                         target = "";
                     }
@@ -3978,20 +3979,27 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           ELEMENT *element_tree_copy;
           ELEMENT *title_tree;
           ELEMENT *command_tree = 0;
+          const ELEMENT *associated_title_command = 0;
 
-          if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0)
+          if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0
+              && command->e.c->cmd == CM_node && self->document)
             {
-              const ELEMENT *associated_title_command
-                = lookup_extra_element (command,
-                                        AI_key_associated_title_command);
-              if (associated_title_command)
-                {
-                  /* associated section arguments_line type element */
-                  const ELEMENT *arguments_line
-                    = associated_title_command->e.c->contents.list[0];
+              int status;
+              size_t node_number
+                = lookup_extra_integer (command, AI_key_node_number, &status);
+              const NODE_STRUCTURE *node_structure
+                = self->document->nodes_list.list[node_number -1];
+              associated_title_command
+                = node_structure->associated_title_command;
+            }
+
+          if (associated_title_command)
+            {
+              /* associated section arguments_line type element */
+              const ELEMENT *arguments_line
+                = associated_title_command->e.c->contents.list[0];
     /* line_arg type element containing the sectioning command line argument */
-                  command_tree = arguments_line->e.c->contents.list[0];
-                }
+              command_tree = arguments_line->e.c->contents.list[0];
             }
 
           if (!command_tree)
@@ -7542,9 +7550,22 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   /* node is used as heading if there is nothing else. */
   if (cmd == CM_node)
     {
-      const ELEMENT *associated_title_command
-        = lookup_extra_element (element, AI_key_associated_title_command);
+      const ELEMENT *associated_title_command = 0;
       const char *normalized = lookup_extra_string (element, AI_key_normalized);
+      if (self->document)
+        {
+          int status;
+          size_t node_number
+            = lookup_extra_integer (element, AI_key_node_number, &status);
+          if (node_number)
+            {
+              const NODE_STRUCTURE *node_structure
+                = self->document->nodes_list.list[node_number -1];
+
+              associated_title_command
+                = node_structure->associated_title_command;
+            }
+        }
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
          output_unit->uc.unit_command is NUL (and not equal to element). */
       if (output_unit->uc.unit_command == element
@@ -7855,8 +7876,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
              = html_command_root_element_command (self, target_node);
 
       const ELEMENT *associated_section = 0;
-      const ELEMENT *associated_title_command
-        = lookup_extra_element (target_node, AI_key_associated_title_command);
+      const ELEMENT *associated_title_command = 0;
 
       if (self->document && target_node->e.c->cmd == CM_node)
         {
@@ -7868,6 +7888,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
             = self->document->nodes_list.list[node_number -1];
 
           associated_section = node_structure->associated_section;
+          associated_title_command = node_structure->associated_title_command;
         }
 
       reference_element = new_text_element (ET__converted);
@@ -11882,10 +11903,16 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                 /* if !NODE_NAME_IN_MENU, we pick the associated title
                    command element
                  */
-              if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0)
+              if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0
+                  && node->e.c->cmd == CM_node && self->document)
                 {
+                  int status;
+                  size_t node_number
+                    = lookup_extra_integer (node, AI_key_node_number, &status);
+                  const NODE_STRUCTURE *node_structure
+                    = self->document->nodes_list.list[node_number -1];
                   associated_title_command
-                   = lookup_extra_element (node, AI_key_associated_title_command);
+                    = node_structure->associated_title_command;
                 }
               if (associated_title_command)
                 href = html_command_href (self, associated_title_command,

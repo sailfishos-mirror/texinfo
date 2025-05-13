@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -66,7 +64,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_childs:EC[E5]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -85,7 +82,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[up->E2]
  |node_number:{3}
@@ -105,7 +101,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -159,18 +154,26 @@ $result_errors{'set_add_transliterated_redirection_files'} = [];
 
 $result_nodes_list{'set_add_transliterated_redirection_files'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|Chap
  associated_section: 1 chap
+ associated_title_command: 1 chap
 3|s@`{e}c
  associated_section: 1.1 g
+ associated_title_command: 1.1 g
 ';
 
 $result_sections_list{'set_add_transliterated_redirection_files'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chap
+ associated_anchor_command: Chap
  associated_node: Chap
 3|g
+ associated_anchor_command: s@`{e}c
  associated_node: s@`{e}c
 ';
+
+$result_headings_list{'set_add_transliterated_redirection_files'} = '';
 
 1;

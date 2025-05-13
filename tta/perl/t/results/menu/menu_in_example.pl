@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -193,6 +194,8 @@ $result_nodes_list{'menu_in_example'} = '1|first
 ';
 
 $result_sections_list{'menu_in_example'} = '';
+
+$result_headings_list{'menu_in_example'} = '';
 
 
 $result_converted{'plaintext'}->{'menu_in_example'} = '* Menu:

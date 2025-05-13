@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -24,7 +24,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
     {Top}
  *1 @top C2 l2
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7]
  |section_level:{0}
  |section_number:{1}
@@ -45,7 +44,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -61,7 +59,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -79,7 +76,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
@@ -95,7 +91,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -113,7 +108,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E0]
  |node_number:{4}
@@ -129,7 +123,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -174,23 +167,33 @@ $result_errors{'no_menu'} = [];
 
 $result_nodes_list{'no_menu'} = '1|Top
  associated_section
+ associated_title_command
 2|c1
  associated_section: 1 c1
+ associated_title_command: 1 c1
 3|c2
  associated_section: 2 c2
+ associated_title_command: 2 c2
 4|c3
  associated_section: 3 c3
+ associated_title_command: 3 c3
 ';
 
 $result_sections_list{'no_menu'} = '1
+ associated_anchor_command: Top
  associated_node: Top
 2|c1
+ associated_anchor_command: c1
  associated_node: c1
 3|c2
+ associated_anchor_command: c2
  associated_node: c2
 4|c3
+ associated_anchor_command: c3
  associated_node: c3
 ';
+
+$result_headings_list{'no_menu'} = '';
 
 
 $result_converted{'info'}->{'no_menu'} = 'This is , produced from .

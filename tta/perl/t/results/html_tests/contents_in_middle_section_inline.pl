@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,7 +32,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -86,7 +85,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E5]
@@ -104,7 +102,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7|E9]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
@@ -164,7 +161,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E3]
  |node_directions:D[next->E8|up->E3]
@@ -181,7 +177,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -205,7 +200,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E3]
  |node_directions:D[prev->E6|up->E3]
@@ -222,7 +216,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -308,22 +301,32 @@ $result_errors{'contents_in_middle_section_inline'} = [];
 
 $result_nodes_list{'contents_in_middle_section_inline'} = '1|Top
  associated_section: Contents in section
+ associated_title_command: Contents in section
 2|chapter
  associated_section: 1 Chapter 1
+ associated_title_command: 1 Chapter 1
 3|section
  associated_section: 1.1 section
+ associated_title_command: 1.1 section
 4|section1
  associated_section: 1.2 section 1
+ associated_title_command: 1.2 section 1
 ';
 
 $result_sections_list{'contents_in_middle_section_inline'} = '1|Contents in section
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter 1
+ associated_anchor_command: chapter
  associated_node: chapter
 3|section
+ associated_anchor_command: section
  associated_node: section
 4|section 1
+ associated_anchor_command: section1
  associated_node: section1
 ';
+
+$result_headings_list{'contents_in_middle_section_inline'} = '';
 
 1;

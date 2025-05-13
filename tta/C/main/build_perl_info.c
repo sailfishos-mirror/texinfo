@@ -1004,6 +1004,12 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
           hv_store (node_hv, "associated_section",
                     strlen ("associated_section"), sv, 0);
         }
+      if (node->associated_title_command)
+        {
+          sv = newRV_inc ((SV *) node->associated_title_command->hv);
+          hv_store (node_hv, "associated_title_command",
+                    strlen ("associated_title_command"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) node_hv));
     }
 
@@ -1035,7 +1041,44 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
           hv_store (section_hv, "associated_node", strlen ("associated_node"),
                     sv, 0);
         }
+      if (section->associated_anchor_command)
+        {
+          sv = newRV_inc ((SV *) section->associated_anchor_command->hv);
+          hv_store (section_hv, "associated_anchor_command",
+                    strlen ("associated_anchor_command"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) section_hv));
+    }
+
+  return list_av;
+}
+
+AV *
+build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
+{
+  AV *list_av;
+  SV *sv;
+  size_t i;
+
+  dTHX;
+
+  list_av = newAV ();
+
+  av_unshift (list_av, list->number);
+
+  for (i = 0; i < list->number; i++)
+    {
+      HEADING_STRUCTURE *heading = list->list[i];
+      HV *heading_hv = newHV ();
+      sv = newRV_inc ((SV *) heading->element->hv);
+      hv_store (heading_hv, "element", strlen ("element"), sv, 0);
+      if (heading->associated_anchor_command)
+        {
+          sv = newRV_inc ((SV *) heading->associated_anchor_command->hv);
+          hv_store (heading_hv, "associated_anchor_command",
+                    strlen ("associated_anchor_command"), sv, 0);
+        }
+      av_store (list_av, i, newRV_noinc ((SV *) heading_hv));
     }
 
   return list_av;
@@ -1775,6 +1818,7 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
   AV *av_labels_list;
   AV *av_nodes_list = 0;
   AV *av_sections_list = 0;
+  AV *av_headings_list = 0;
 
   dTHX;
 
@@ -1803,6 +1847,9 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 
   if (document->sections_list.number > 0)
     av_sections_list = build_section_structure_list (&document->sections_list);
+
+  if (document->headings_list.number > 0)
+    av_headings_list = build_heading_structure_list (&document->headings_list);
 
   if (document->indices_sort_strings)
     hv_indices_sort_strings = build_indices_sort_strings (
@@ -1840,6 +1887,12 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
     {
       STORE("sections_list", av_sections_list);
       document->modified_information &= ~F_DOCM_sections_list;
+    }
+
+  if (av_headings_list)
+    {
+      STORE("headings_list", av_headings_list);
+      document->modified_information &= ~F_DOCM_headings_list;
     }
 
   if (hv_indices_sort_strings)
@@ -2436,6 +2489,8 @@ BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV)
 BUILD_PERL_DOCUMENT_LIST(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_node_structure_list,AV)
 
 BUILD_PERL_DOCUMENT_LIST(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_section_structure_list,AV)
+
+BUILD_PERL_DOCUMENT_LIST(document_headings_list,headings_list,"headings_list",F_DOCM_headings_list,build_heading_structure_list,AV)
 
 BUILD_PERL_DOCUMENT_LIST(document_floats_information,listoffloats,"listoffloats_list",F_DOCM_floats,build_listoffloats_list,HV)
 

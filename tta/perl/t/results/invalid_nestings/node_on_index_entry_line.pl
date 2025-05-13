@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -116,6 +117,8 @@ $result_nodes_list{'node_on_index_entry_line'} = '1|a
 ';
 
 $result_sections_list{'node_on_index_entry_line'} = '';
+
+$result_headings_list{'node_on_index_entry_line'} = '';
 
 $result_indices_sort_strings{'node_on_index_entry_line'} = 'cp:
  entry

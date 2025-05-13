@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E3|up->MISSING: (line_arg)[C3]]
@@ -54,7 +54,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E5]
  |section_level:{0}
  |section_number:{1}
@@ -197,7 +196,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C4]]
@@ -234,7 +232,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -306,16 +303,22 @@ $result_errors{'check_htmlxref_ignore_ref_top_up'} = [];
 
 $result_nodes_list{'check_htmlxref_ignore_ref_top_up'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|first
 3|chapter
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 ';
 
 $result_sections_list{'check_htmlxref_ignore_ref_top_up'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 ';
+
+$result_headings_list{'check_htmlxref_ignore_ref_top_up'} = '';
 
 
 $result_converted{'html'}->{'check_htmlxref_ignore_ref_top_up'} = '<!DOCTYPE html>

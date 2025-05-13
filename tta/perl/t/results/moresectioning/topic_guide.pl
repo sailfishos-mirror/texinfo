@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,7 +32,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E17]
  |section_level:{0}
  |section_number:{1}
@@ -98,7 +97,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E16|up->E14]
  |menus:EC[E5]
@@ -116,7 +114,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E17|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -505,7 +502,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E14]
  |menus:EC[E18]
@@ -523,7 +519,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E16]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -740,8 +735,10 @@ $result_errors{'topic_guide'} = [];
 
 $result_nodes_list{'topic_guide'} = '1|Top
  associated_section: A example quide topic collection
+ associated_title_command: A example quide topic collection
 2|guide1
  associated_section: 1 guide 1
+ associated_title_command: 1 guide 1
 3|topic1
 4|topic2
 5|topic3
@@ -749,14 +746,20 @@ $result_nodes_list{'topic_guide'} = '1|Top
 7|topic5
 8|guide2
  associated_section: 2 guide 2
+ associated_title_command: 2 guide 2
 ';
 
 $result_sections_list{'topic_guide'} = '1|A example quide topic collection
+ associated_anchor_command: Top
  associated_node: Top
 2|guide 1
+ associated_anchor_command: guide1
  associated_node: guide1
 3|guide 2
+ associated_anchor_command: guide2
  associated_node: guide2
 ';
+
+$result_headings_list{'topic_guide'} = '';
 
 1;

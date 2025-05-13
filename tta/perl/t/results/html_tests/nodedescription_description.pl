@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -28,7 +28,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E7|E10]
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_description:[E4]
  |node_directions:D[next->E6|prev->E0|up->E0]
@@ -68,7 +66,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -140,7 +137,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_description:[E8]
  |node_directions:D[next->E9|prev->E2|up->E0]
@@ -158,7 +154,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E10|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -198,7 +193,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E10]
  |is_target:{1}
  |node_description:[E11]
  |node_directions:D[prev->E6|up->E0]
@@ -215,7 +209,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
  |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
@@ -298,22 +291,32 @@ $result_errors{'nodedescription_description'} = [
 
 $result_nodes_list{'nodedescription_description'} = '1|Top
  associated_section: test of descriptions with nodedescription*
+ associated_title_command: test of descriptions with nodedescription*
 2|toto
  associated_section: 1 Toto
+ associated_title_command: 1 Toto
 3|titi
  associated_section: 2 Titi
+ associated_title_command: 2 Titi
 4|other
  associated_section: 3 Other
+ associated_title_command: 3 Other
 ';
 
 $result_sections_list{'nodedescription_description'} = '1|test of descriptions with nodedescription*
+ associated_anchor_command: Top
  associated_node: Top
 2|Toto
+ associated_anchor_command: toto
  associated_node: toto
 3|Titi
+ associated_anchor_command: titi
  associated_node: titi
 4|Other
+ associated_anchor_command: other
  associated_node: other
 ';
+
+$result_headings_list{'nodedescription_description'} = '';
 
 1;

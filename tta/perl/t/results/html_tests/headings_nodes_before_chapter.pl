@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -22,7 +23,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menu_directions:D[next->E2|up->E4]
  |node_directions:D[next->E2|up->E4]
@@ -39,7 +39,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E0]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -53,7 +52,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |menu_directions:D[prev->E0|up->E4]
  |node_directions:D[prev->E0|up->E4]
@@ -70,7 +68,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E2]
   |global_command_number:{2}
   |heading_number:{2}
    *line_arg C1
@@ -84,7 +81,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[next->E7]
@@ -101,7 +97,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E8]
  |section_heading_number:{1}
  |section_level:{1}
@@ -164,7 +159,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E4]
  |node_number:{4}
@@ -180,7 +174,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
  |section_directions:D[prev->E5]
  |section_heading_number:{2}
  |section_level:{1}
@@ -237,17 +230,29 @@ $result_errors{'headings_nodes_before_chapter'} = [];
 
 
 $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
+ associated_title_command: @heading Topic One
 2|Node 2
+ associated_title_command: @heading Topic Two
 3|Cap 1
  associated_section: 1 Chapter One
+ associated_title_command: 1 Chapter One
 4|Cap 2
  associated_section: 2 Chapter Two
+ associated_title_command: 2 Chapter Two
 ';
 
 $result_sections_list{'headings_nodes_before_chapter'} = '1|Chapter One
+ associated_anchor_command: Cap 1
  associated_node: Cap 1
 2|Chapter Two
+ associated_anchor_command: Cap 2
  associated_node: Cap 2
+';
+
+$result_headings_list{'headings_nodes_before_chapter'} = '1|Topic One
+ associated_anchor_command: Node 1
+2|Topic Two
+ associated_anchor_command: Node 2
 ';
 
 1;

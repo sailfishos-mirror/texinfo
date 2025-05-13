@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +49,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
@@ -66,7 +64,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E2]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -97,7 +94,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
@@ -113,7 +109,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -218,18 +213,27 @@ $result_errors{'xrefname'} = [];
 
 $result_nodes_list{'xrefname'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|ntiti
  associated_section: 1 chap
+ associated_title_command: @xrefname titi
 3|chip
  associated_section: A app
+ associated_title_command: A app
 ';
 
 $result_sections_list{'xrefname'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chap
  associated_node: ntiti
 3|app
+ associated_anchor_command: chip
  associated_node: chip
+';
+
+$result_headings_list{'xrefname'} = '1|titi
+ associated_anchor_command: ntiti
 ';
 
 

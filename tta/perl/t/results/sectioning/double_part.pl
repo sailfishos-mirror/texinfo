@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -20,7 +21,6 @@ NodeForward: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E5]
@@ -37,7 +37,6 @@ NodeForward: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -145,7 +144,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -163,7 +161,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
  |associated_part:[E4]
  |section_directions:D[up->E4]
  |section_heading_number:{1}
@@ -244,17 +241,23 @@ $result_errors{'double_part'} = [
 
 $result_nodes_list{'double_part'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|node chapter
  associated_section: 1 chapter after 2 parts
+ associated_title_command: 1 chapter after 2 parts
 ';
 
 $result_sections_list{'double_part'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|part first
 3|part second
 4|chapter after 2 parts
+ associated_anchor_command: node chapter
  associated_node: node chapter
 ';
+
+$result_headings_list{'double_part'} = '';
 
 
 $result_converted{'plaintext'}->{'double_part'} = 'top

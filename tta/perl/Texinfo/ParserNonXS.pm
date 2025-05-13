@@ -3655,22 +3655,35 @@ sub _add_to_structure_list($$$)
   return $structure_info;
 }
 
-sub _associate_title_command_anchor($$)
+sub _associate_title_command_anchor($$$$)
 {
   my $self = shift;
+  my $current_node_structure = shift;
   my $current = shift;
+  my $section_structure = shift;
 
-  if ($self->{'current_node'}
-      and (!$self->{'current_node'}->{'extra'}
-       or !$self->{'current_node'}->{'extra'}->{'associated_title_command'})) {
-    $self->{'current_node'}->{'extra'} = {}
-      if (!$self->{'current_node'}->{'extra'});
-    $self->{'current_node'}->{'extra'}->{'associated_title_command'}
-                                                           = $current;
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'associated_anchor_command'}
+  if ($current_node_structure
+      and not $current_node_structure->{'associated_title_command'}) {
+    $current_node_structure->{'associated_title_command'} = $current;
+    $section_structure->{'associated_anchor_command'}
                                 = $self->{'current_node'};
   }
+}
+
+sub _get_current_node_structure($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  if ($self->{'current_node'} and $self->{'current_node'}->{'extra'}
+      and $self->{'current_node'}->{'extra'}->{'node_number'}) {
+    my $current_node = $self->{'current_node'};
+    my $nodes_list = $document->nodes_list();
+    my $node_structure
+      = $nodes_list->[$current_node->{'extra'}->{'node_number'} -1];
+    return $node_structure;
+  }
+  return undef;
 }
 
 sub _end_line_misc_line($$$)
@@ -4111,17 +4124,17 @@ sub _end_line_misc_line($$$)
 
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
+      my $current_node_structure
+        = _get_current_node_structure($self, $document);
+
       # associate section with the current node as its title.
-      _associate_title_command_anchor($self, $current);
-      if ($self->{'current_node'} and $self->{'current_node'}->{'extra'}
-          and $self->{'current_node'}->{'extra'}->{'node_number'}) {
+      _associate_title_command_anchor($self, $current_node_structure, $current,
+                                      $section_structure);
+      if ($current_node_structure) {
         my $current_node = $self->{'current_node'};
-        my $nodes_list = $document->nodes_list();
-        my $node_structure
-          = $nodes_list->[$current_node->{'extra'}->{'node_number'} -1];
-        if (!$node_structure->{'associated_section'}) {
-          $node_structure->{'associated_section'} = $current;
-          $section_structure->{'associated_node'} = $current_node;
+        if (!$current_node_structure->{'associated_section'}) {
+          $current_node_structure->{'associated_section'} = $current;
+          $section_structure->{'associated_node'} = $self->{'current_node'};
         }
       }
       if ($self->{'current_part'}) {
@@ -4154,8 +4167,12 @@ sub _end_line_misc_line($$$)
     # only *heading as sectioning commands are handled just before
   } elsif ($sectioning_heading_commands{$data_cmdname}
            or $data_cmdname eq 'xrefname') {
-    _add_to_structure_list($document, 'heading', $command_element);
-    _associate_title_command_anchor($self, $command_element);
+    my $heading_structure = _add_to_structure_list($document, 'heading',
+                                                   $command_element);
+    my $current_node_structure
+      = _get_current_node_structure($self, $document);
+    _associate_title_command_anchor($self, $current_node_structure,
+                                    $command_element, $heading_structure);
   }
   return $current;
 }

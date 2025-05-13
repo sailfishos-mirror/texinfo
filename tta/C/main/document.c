@@ -173,7 +173,8 @@ new_document (void)
   document->modified_information |= F_DOCM_tree | F_DOCM_index_names
      | F_DOCM_floats | F_DOCM_internal_references | F_DOCM_labels_list
      | F_DOCM_identifiers_target | F_DOCM_global_info
-     | F_DOCM_global_commands | F_DOCM_nodes_list | F_DOCM_sections_list;
+     | F_DOCM_global_commands | F_DOCM_nodes_list | F_DOCM_sections_list
+     | F_DOCM_headings_list;
 
   /*
   fprintf (stderr, "NEW DOCUMENT %zu %p\n", document_index +1, document);

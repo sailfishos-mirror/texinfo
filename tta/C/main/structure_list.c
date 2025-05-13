@@ -20,13 +20,17 @@
 #include <stddef.h>
 
 #include "text.h"
+#include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "base_utils.h"
 #include "extra.h"
+#include "builtin_commands.h"
 /* xasprintf */
 #include "utils.h"
 #include "convert_to_texinfo.h"
+#include "debug.h"
+#include "structure_list.h"
 
 NODE_STRUCTURE *
 new_node_structure (ELEMENT *element)
@@ -201,6 +205,15 @@ print_sections_list (const DOCUMENT *document)
         }
       text_append_n (&result, "\n", 1);
 
+      if (section_structure->associated_anchor_command)
+        {
+          char *associated_anchor_command_text
+            = print_root_command (section_structure->associated_anchor_command);
+          text_printf (&result, " associated_anchor_command: %s\n",
+                       associated_anchor_command_text);
+          free (associated_anchor_command_text);
+        }
+
       if (section_structure->associated_node)
         {
           char *associated_node_text
@@ -234,6 +247,29 @@ print_section_command (const ELEMENT *element)
       return strdup (section_heading_number);
     }
   return root_command_texi;
+}
+
+static char *
+print_title_command_command (const ELEMENT *element)
+{
+  if (builtin_command_data[element->e.c->cmd].flags & CF_root)
+    return print_section_command (element);
+  else
+    {
+      const ELEMENT *line_arg = element->e.c->contents.list[0];
+      if (line_arg->e.c->contents.number > 0)
+        {
+          char *result;
+          char *root_command_texi
+            = convert_contents_to_texinfo (line_arg);
+          xasprintf (&result , "@%s %s",
+                     builtin_command_name (element->e.c->cmd),
+                     root_command_texi);
+          free (root_command_texi);
+          return result;
+        }
+      return 0;
+    }
 }
 
 char *
@@ -275,9 +311,66 @@ print_nodes_list (const DOCUMENT *document)
             text_append (&result, " associated_section");
           text_append_n (&result, "\n", 1);
         }
+
+      if (node_structure->associated_title_command)
+        {
+          char *associated_title_command_text
+            = print_title_command_command (
+                              node_structure->associated_title_command);
+          if (associated_title_command_text)
+            {
+              text_printf (&result, " associated_title_command: %s",
+                           associated_title_command_text);
+              free (associated_title_command_text);
+            }
+          else
+            text_append (&result, " associated_title_command");
+          text_append_n (&result, "\n", 1);
+        }
     }
 
   return result.text;
 }
 
+char *
+print_headings_list (const DOCUMENT *document)
+{
+  size_t i;
 
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  for (i = 0; i < document->headings_list.number; i++)
+    {
+      const HEADING_STRUCTURE *heading_structure
+        = document->headings_list.list[i];
+      const ELEMENT *element = heading_structure->element;
+      const ELEMENT *line_arg = element->e.c->contents.list[0];
+      char *root_command_texi = 0;
+
+      if (line_arg->e.c->contents.number > 0)
+        root_command_texi = convert_contents_to_texinfo (line_arg);
+
+      if (!root_command_texi)
+        text_printf (&result, "%zu", i+1);
+      else
+        {
+          text_printf (&result, "%zu|%s", i+1, root_command_texi);
+          free (root_command_texi);
+        }
+      text_append_n (&result, "\n", 1);
+
+      if (heading_structure->associated_anchor_command)
+        {
+          char *associated_anchor_command_text
+            = print_root_command (heading_structure->associated_anchor_command);
+          text_printf (&result, " associated_anchor_command: %s\n",
+                       associated_anchor_command_text);
+          free (associated_anchor_command_text);
+        }
+    }
+
+  return result.text;
+}

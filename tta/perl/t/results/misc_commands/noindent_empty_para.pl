@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -30,6 +31,8 @@ $result_errors{'noindent_empty_para'} = [];
 $result_nodes_list{'noindent_empty_para'} = '';
 
 $result_sections_list{'noindent_empty_para'} = '';
+
+$result_headings_list{'noindent_empty_para'} = '';
 
 
 $result_converted{'plaintext'}->{'noindent_empty_para'} = 'aaa

@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -80,6 +81,8 @@ $result_nodes_list{'no_argument_and_contents'} = '';
 $result_sections_list{'no_argument_and_contents'} = '1|for example
 2|@asis{}
 ';
+
+$result_headings_list{'no_argument_and_contents'} = '';
 
 
 $result_converted{'plaintext'}->{'no_argument_and_contents'} = 'for example

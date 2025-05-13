@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
  |normalized:{start}
@@ -23,7 +23,6 @@ $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
     {start}
  *1 @top C1 l2
  |EXTRA
- |associated_anchor_command:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -51,11 +50,15 @@ $result_errors{'top_no_argument_and_node'} = [];
 
 $result_nodes_list{'top_no_argument_and_node'} = '1|start
  associated_section
+ associated_title_command
 ';
 
 $result_sections_list{'top_no_argument_and_node'} = '1
+ associated_anchor_command: start
  associated_node: start
 ';
+
+$result_headings_list{'top_no_argument_and_node'} = '';
 
 
 $result_converted{'info'}->{'top_no_argument_and_node'} = 'This is , produced from .

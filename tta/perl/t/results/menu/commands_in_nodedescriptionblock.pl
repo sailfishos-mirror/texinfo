@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,7 +28,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4|E9]
  |section_level:{0}
  |section_number:{1}
@@ -106,7 +105,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E8]
  |node_description:[E5]
@@ -125,7 +123,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -250,7 +247,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E3|up->E0]
@@ -269,7 +265,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -436,19 +431,27 @@ $result_floats{'commands_in_nodedescriptionblock'} = 'tfloat: 1
 
 $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  associated_section: test commands in nodedescriptionblock
+ associated_title_command: test commands in nodedescriptionblock
 2|node1
  associated_section: 1 chap1
+ associated_title_command: 1 chap1
 3|node2
  associated_section: 2 chap2
+ associated_title_command: 2 chap2
 ';
 
 $result_sections_list{'commands_in_nodedescriptionblock'} = '1|test commands in nodedescriptionblock
+ associated_anchor_command: Top
  associated_node: Top
 2|chap1
+ associated_anchor_command: node1
  associated_node: node1
 3|chap2
+ associated_anchor_command: node2
  associated_node: node2
 ';
+
+$result_headings_list{'commands_in_nodedescriptionblock'} = '';
 
 $result_indices_sort_strings{'commands_in_nodedescriptionblock'} = 'cp:
  in nodedescriptionblock

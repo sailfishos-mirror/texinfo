@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,7 +27,6 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E2]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0]
@@ -43,7 +43,6 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E1]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -3957,9 +3956,17 @@ $result_errors{'all_commands_delimiters_printindex'} = [
 
 $result_nodes_list{'all_commands_delimiters_printindex'} = '1|Top
 2|chap
+ associated_title_command: @xrefname chap
 ';
 
 $result_sections_list{'all_commands_delimiters_printindex'} = '';
+
+$result_headings_list{'all_commands_delimiters_printindex'} = '1|chap
+ associated_anchor_command: chap
+2|Functions
+3|Types
+4|Variables
+';
 
 $result_indices_sort_strings{'all_commands_delimiters_printindex'} = 'fn:
  ,expose on ,Window

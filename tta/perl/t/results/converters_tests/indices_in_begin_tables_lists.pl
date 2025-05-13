@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,7 +16,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -31,7 +31,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -53,7 +52,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -69,7 +67,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -1118,7 +1115,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -1135,7 +1131,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -1448,19 +1443,27 @@ $result_errors{'indices_in_begin_tables_lists'} = [
 
 $result_nodes_list{'indices_in_begin_tables_lists'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter
  associated_section: 1 chap
+ associated_title_command: 1 chap
 3|printindex
  associated_section: 2 printindex
+ associated_title_command: 2 printindex
 ';
 
 $result_sections_list{'indices_in_begin_tables_lists'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|chap
+ associated_anchor_command: chapter
  associated_node: chapter
 3|printindex
+ associated_anchor_command: printindex
  associated_node: printindex
 ';
+
+$result_headings_list{'indices_in_begin_tables_lists'} = '';
 
 $result_indices_sort_strings{'indices_in_begin_tables_lists'} = 'cp:
  also a cindex in itemize

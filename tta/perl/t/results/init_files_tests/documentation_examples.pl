@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -48,7 +49,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -64,7 +64,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5|E7|E9]
  |section_level:{0}
  |section_number:{1}
@@ -86,7 +85,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
@@ -102,7 +100,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -366,7 +363,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
@@ -382,7 +378,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -423,7 +418,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[next->E8|prev->E4|up->E0]
@@ -440,7 +434,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
@@ -471,7 +464,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E0]
  |node_number:{5}
@@ -487,7 +479,6 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
@@ -633,27 +624,39 @@ $result_errors{'documentation_examples'} = [
 
 $result_nodes_list{'documentation_examples'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 3|my node
  associated_section: 2 New node
+ associated_title_command: 2 New node
 4|Index
  associated_section: A Index
+ associated_title_command: A Index
 5|Second appendix
  associated_section: B Second appendix
+ associated_title_command: B Second appendix
 ';
 
 $result_sections_list{'documentation_examples'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
+ associated_anchor_command: chapter
  associated_node: chapter
 3|New node
+ associated_anchor_command: my node
  associated_node: my node
 4|Index
+ associated_anchor_command: Index
  associated_node: Index
 5|Second appendix
+ associated_anchor_command: Second appendix
  associated_node: Second appendix
 ';
+
+$result_headings_list{'documentation_examples'} = '';
 
 $result_indices_sort_strings{'documentation_examples'} = 'cp:
  e1

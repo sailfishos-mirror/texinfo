@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -11,7 +12,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -27,7 +27,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -71,7 +70,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
@@ -87,7 +85,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E2]
   |global_command_number:{1}
   |heading_number:{1}
    *line_arg C1
@@ -150,14 +147,21 @@ $result_errors{'automatic_menu_with_heading'} = [];
 
 $result_nodes_list{'automatic_menu_with_heading'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|heading or chapter
  associated_section: 1 Chapter
+ associated_title_command: @heading Heading
 ';
 
 $result_sections_list{'automatic_menu_with_heading'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chapter
  associated_node: heading or chapter
+';
+
+$result_headings_list{'automatic_menu_with_heading'} = '1|Heading
+ associated_anchor_command: heading or chapter
 ';
 
 

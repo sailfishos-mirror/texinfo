@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'accent'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_number:{1}
  |normalized:{first}
@@ -27,7 +27,6 @@ $result_tree_text{'accent'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -616,11 +615,15 @@ $result_errors{'accent'} = [];
 
 $result_nodes_list{'accent'} = '1|first
  associated_section: top
+ associated_title_command: top
 ';
 
 $result_sections_list{'accent'} = '1|top
+ associated_anchor_command: first
  associated_node: first
 ';
+
+$result_headings_list{'accent'} = '';
 
 
 $result_converted{'plaintext'}->{'accent'} = 'top

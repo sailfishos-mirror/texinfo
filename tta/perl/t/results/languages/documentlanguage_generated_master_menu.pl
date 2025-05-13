@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -38,7 +39,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
  |node_number:{1}
@@ -54,7 +54,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
@@ -95,7 +94,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
@@ -112,7 +110,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |associated_part:[E2]
  |section_directions:D[up->E2]
  |section_heading_number:{1}
@@ -163,7 +160,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|prev->E3|up->E0]
  |node_number:{3}
@@ -180,7 +176,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |associated_part:[E5]
  |section_directions:D[up->E5]
  |section_heading_number:{2}
@@ -212,7 +207,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E0]
  |node_number:{4}
@@ -228,7 +222,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_directions:D[prev->E5]
  |section_heading_number:{A}
  |section_level:{1}
@@ -297,25 +290,35 @@ $result_errors{'documentlanguage_generated_master_menu'} = [];
 
 $result_nodes_list{'documentlanguage_generated_master_menu'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|chapter
  associated_section: 1 Chap
+ associated_title_command: 1 Chap
 3|other chap
  associated_section: 2 Other chap
+ associated_title_command: 2 Other chap
 4|appendix
  associated_section: A App
+ associated_title_command: A App
 ';
 
 $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Part I
 3|Chap
+ associated_anchor_command: chapter
  associated_node: chapter
 4|Part II
 5|Other chap
+ associated_anchor_command: other chap
  associated_node: other chap
 6|App
+ associated_anchor_command: appendix
  associated_node: appendix
 ';
+
+$result_headings_list{'documentlanguage_generated_master_menu'} = '';
 
 
 $result_converted{'plaintext'}->{'documentlanguage_generated_master_menu'} = 'top

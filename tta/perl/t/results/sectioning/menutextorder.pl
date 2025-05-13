@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -51,7 +52,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E2]
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E8]
@@ -68,7 +68,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
  |section_childs:EC[E5|E7]
  |section_directions:D[next->E9]
  |section_heading_number:{1}
@@ -121,7 +120,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|up->E1]
  |node_number:{2}
@@ -137,7 +135,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[next->E7|up->E2]
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -154,7 +151,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E4|up->E1]
@@ -171,7 +167,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[prev->E5|up->E2]
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -189,7 +184,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E9]
  |is_target:{1}
  |menus:EC[E10]
  |node_directions:D[prev->E1]
@@ -206,7 +200,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
  |section_childs:EC[E12|E14|E16]
  |section_directions:D[prev->E2]
  |section_heading_number:{2}
@@ -276,7 +269,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E15|up->E8]
  |node_directions:D[next->E13|up->E8]
@@ -293,7 +285,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E11]
  |section_directions:D[next->E14|up->E9]
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -310,7 +301,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[prev->E15|up->E8]
  |node_directions:D[next->E15|prev->E11|up->E8]
@@ -327,7 +317,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
  |section_directions:D[next->E16|prev->E12|up->E9]
  |section_heading_number:{2.2}
  |section_level:{2}
@@ -344,7 +333,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E11|up->E8]
  |node_directions:D[next->E13|prev->E13|up->E8]
@@ -361,7 +349,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E15]
  |section_directions:D[prev->E14|up->E9]
  |section_heading_number:{2.3}
  |section_level:{2}
@@ -515,34 +502,50 @@ $result_errors{'menutextorder'} = [
 
 $result_nodes_list{'menutextorder'} = '1|bar
  associated_section: 1 bar
+ associated_title_command: 1 bar
 2|onesub1
  associated_section: 1.1 One sub 1
+ associated_title_command: 1.1 One sub 1
 3|onesub2
  associated_section: 1.2 One sub 2
+ associated_title_command: 1.2 One sub 2
 4|foo
  associated_section: 2 foo
+ associated_title_command: 2 foo
 5|sub1
  associated_section: 2.1 Sub1
+ associated_title_command: 2.1 Sub1
 6|sub2
  associated_section: 2.2 Sub2
+ associated_title_command: 2.2 Sub2
 7|sub3
  associated_section: 2.3 Sub3
+ associated_title_command: 2.3 Sub3
 ';
 
 $result_sections_list{'menutextorder'} = '1|bar
+ associated_anchor_command: bar
  associated_node: bar
 2|One sub 1
+ associated_anchor_command: onesub1
  associated_node: onesub1
 3|One sub 2
+ associated_anchor_command: onesub2
  associated_node: onesub2
 4|foo
+ associated_anchor_command: foo
  associated_node: foo
 5|Sub1
+ associated_anchor_command: sub1
  associated_node: sub1
 6|Sub2
+ associated_anchor_command: sub2
  associated_node: sub2
 7|Sub3
+ associated_anchor_command: sub3
  associated_node: sub3
 ';
+
+$result_headings_list{'menutextorder'} = '';
 
 1;

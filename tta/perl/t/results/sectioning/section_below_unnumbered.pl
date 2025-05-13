@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -19,7 +20,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -36,7 +36,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -91,7 +90,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E5]
@@ -109,7 +107,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
  |section_level:{1}
@@ -156,7 +153,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
@@ -173,7 +169,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
  |section_directions:D[up->E4]
  |section_level:{2}
  |section_number:{3}
@@ -247,19 +242,27 @@ $result_errors{'section_below_unnumbered'} = [];
 
 $result_nodes_list{'section_below_unnumbered'} = '1|Top
  associated_section: Top
+ associated_title_command: Top
 2|Unn
  associated_section: Unn
+ associated_title_command: Unn
 3|Sec
  associated_section: Sec
+ associated_title_command: Sec
 ';
 
 $result_sections_list{'section_below_unnumbered'} = '1|Top
+ associated_anchor_command: Top
  associated_node: Top
 2|Unn
+ associated_anchor_command: Unn
  associated_node: Unn
 3|Sec
+ associated_anchor_command: Sec
  associated_node: Sec
 ';
+
+$result_headings_list{'section_below_unnumbered'} = '';
 
 
 $result_converted{'plaintext'}->{'section_below_unnumbered'} = 'Top

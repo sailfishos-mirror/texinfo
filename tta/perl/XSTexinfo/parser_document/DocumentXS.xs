@@ -313,6 +313,9 @@ SV *
 document_sections_list (SV *document_in)
 
 SV *
+document_headings_list (SV *document_in)
+
+SV *
 document_floats_information (SV *document_in)
 
 SV *

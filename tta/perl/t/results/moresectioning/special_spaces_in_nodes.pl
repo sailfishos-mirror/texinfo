@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -14,7 +15,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -30,7 +30,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +51,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[up->E0]
@@ -69,7 +67,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -413,8 +410,10 @@ $result_errors{'special_spaces_in_nodes'} = [];
 
 $result_nodes_list{'special_spaces_in_nodes'} = '1|Top 
  associated_section: top
+ associated_title_command: top
 2|EN QUAD| | EM QUAD| | EN SPACE| |
  associated_section: 1 chap
+ associated_title_command: 1 chap
 3|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
 4|CARRIAGE RETURN|'."\r".'|
 5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
@@ -426,10 +425,14 @@ $result_nodes_list{'special_spaces_in_nodes'} = '1|Top 
 ';
 
 $result_sections_list{'special_spaces_in_nodes'} = '1|top
+ associated_anchor_command: Top 
  associated_node: Top 
 2|chap
+ associated_anchor_command: EN QUAD| | EM QUAD| | EN SPACE| |
  associated_node: EN QUAD| | EM QUAD| | EN SPACE| |
 ';
+
+$result_headings_list{'special_spaces_in_nodes'} = '';
 
 
 $result_converted{'info'}->{'special_spaces_in_nodes'} = 'This is , produced from special_spaces_in_nodes.texi.

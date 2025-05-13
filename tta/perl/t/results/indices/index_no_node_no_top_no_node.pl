@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -500,6 +501,8 @@ $result_sections_list{'index_no_node_no_top_no_node'} = '1|unnumbered
 4|Chapter
 5|Chapter 2
 ';
+
+$result_headings_list{'index_no_node_no_top_no_node'} = '';
 
 $result_indices_sort_strings{'index_no_node_no_top_no_node'} = 'cp:
  chapter

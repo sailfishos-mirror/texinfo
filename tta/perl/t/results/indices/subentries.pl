@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -12,7 +13,6 @@ $result_tree_text{'subentries'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |node_number:{1}
@@ -25,7 +25,6 @@ $result_tree_text{'subentries'} = '*document_root C5
     {Top}
  *1 @top C2 l2
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
@@ -46,7 +45,6 @@ $result_tree_text{'subentries'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -63,7 +61,6 @@ $result_tree_text{'subentries'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -342,15 +339,21 @@ $result_errors{'subentries'} = [
 
 $result_nodes_list{'subentries'} = '1|Top
  associated_section
+ associated_title_command
 2|chapter index
  associated_section: 1 Index
+ associated_title_command: 1 Index
 ';
 
 $result_sections_list{'subentries'} = '1
+ associated_anchor_command: Top
  associated_node: Top
 2|Index
+ associated_anchor_command: chapter index
  associated_node: chapter index
 ';
+
+$result_headings_list{'subentries'} = '';
 
 $result_indices_sort_strings{'subentries'} = 'cp:
  a--a

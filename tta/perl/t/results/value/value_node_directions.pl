@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -17,7 +18,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
@@ -65,7 +65,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
@@ -106,7 +105,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     |>*brace_container C1
      |>{a--foo}
  |EXTRA
- |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->MISSING: (line_arg)[C3]]
  |node_number:{2}
@@ -148,7 +146,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -166,7 +163,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->MISSING: (line_arg)[C3]]
  |node_number:{3}
@@ -209,7 +205,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -270,18 +265,26 @@ $result_errors{'value_node_directions'} = [
 
 $result_nodes_list{'value_node_directions'} = '1|Top
  associated_section: Var bar
+ associated_title_command: Var bar
 2|bar
  associated_section: 1 BarFoo
+ associated_title_command: 1 BarFoo
 3|BarFoo
  associated_section: 2 bar
+ associated_title_command: 2 bar
 ';
 
 $result_sections_list{'value_node_directions'} = '1|Var bar
+ associated_anchor_command: Top
  associated_node: Top
 2|BarFoo
+ associated_anchor_command: bar
  associated_node: bar
 3|bar
+ associated_anchor_command: BarFoo
  associated_node: BarFoo
 ';
+
+$result_headings_list{'value_node_directions'} = '';
 
 1;

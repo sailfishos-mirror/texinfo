@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -35,7 +36,6 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
@@ -59,7 +59,6 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
  |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
@@ -102,11 +101,15 @@ $result_errors{'top_without_node_texi2html_no_use_nodes'} = [];
 
 $result_nodes_list{'top_without_node_texi2html_no_use_nodes'} = '1|second
  associated_section: 1 Chapter
+ associated_title_command: 1 Chapter
 ';
 
 $result_sections_list{'top_without_node_texi2html_no_use_nodes'} = '1|top section
 2|Chapter
+ associated_anchor_command: second
  associated_node: second
 ';
+
+$result_headings_list{'top_without_node_texi2html_no_use_nodes'} = '';
 
 1;

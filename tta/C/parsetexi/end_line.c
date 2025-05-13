@@ -1166,19 +1166,39 @@ end_line_starting_block (ELEMENT *current)
 }
 
 static void
-associate_title_command_anchor (ELEMENT *current_node, ELEMENT *current)
+associate_title_command_anchor (ELEMENT *current_node,
+                       NODE_STRUCTURE *current_node_structure,
+                       ELEMENT *current, SECTION_STRUCTURE *section_structure,
+                       HEADING_STRUCTURE *heading_structure)
+{
+  if (current_node_structure
+      && !current_node_structure->associated_title_command)
+    {
+      current_node_structure->associated_title_command = current;
+      if (section_structure)
+        section_structure->associated_anchor_command = current_node;
+      else
+        heading_structure->associated_anchor_command = current_node;
+    }
+}
+
+static NODE_STRUCTURE *
+get_current_node_structure (ELEMENT *current_node)
 {
   if (current_node)
     {
-      if (!lookup_extra_element (current_node,
-                                 AI_key_associated_title_command))
+      int status;
+      size_t node_number
+        = lookup_extra_integer (current_node, AI_key_node_number, &status);
+      if (node_number)
         {
-          add_extra_element
-            (current_node, AI_key_associated_title_command, current);
-          add_extra_element
-            (current, AI_key_associated_anchor_command, current_node);
+          NODE_STRUCTURE *node_structure
+            = parsed_document->nodes_list.list[node_number -1];
+          return node_structure;
         }
     }
+
+  return 0;
 }
 
 /* Actions to be taken at the end of an argument to a line command
@@ -1799,23 +1819,18 @@ end_line_misc_line (ELEMENT *current)
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
+          NODE_STRUCTURE *current_node_structure
+            = get_current_node_structure (current_node);
          /* associate section with the current node as its title. */
-          associate_title_command_anchor (current_node, current);
-          if (current_node)
+          associate_title_command_anchor (current_node,
+                                          current_node_structure, current,
+                                          section_structure, 0);
+          if (current_node_structure)
             {
-              int status;
-              size_t node_number
-                = lookup_extra_integer (current_node,
-                                        AI_key_node_number, &status);
-              if (node_number)
+              if (!current_node_structure->associated_section)
                 {
-                  NODE_STRUCTURE *node_structure
-                    = parsed_document->nodes_list.list[node_number -1];
-                  if (!node_structure->associated_section)
-                    {
-                      node_structure->associated_section = current;
-                      section_structure->associated_node = current_node;
-                    }
+                  current_node_structure->associated_section = current;
+                  section_structure->associated_node = current_node;
                 }
             }
 
@@ -1856,11 +1871,15 @@ end_line_misc_line (ELEMENT *current)
   else if (command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
-     add_to_heading_structure_list (&parsed_document->headings_list,
-                                    command_element);
+     NODE_STRUCTURE *current_node_structure
+       = get_current_node_structure (current_node);
+     HEADING_STRUCTURE *heading_structure
+       = add_to_heading_structure_list (&parsed_document->headings_list,
+                                        command_element);
      add_extra_integer (command_element, AI_key_heading_number,
                         parsed_document->headings_list.number);
-     associate_title_command_anchor (current_node, command_element);
+     associate_title_command_anchor (current_node, current_node_structure,
+                                     command_element, 0, heading_structure);
    }
 
   return current;

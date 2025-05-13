@@ -1,5 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -75,7 +76,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E3]
  |node_number:{1}
@@ -91,7 +91,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E1]
  |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
@@ -113,7 +112,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
@@ -129,7 +127,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
  |section_directions:D[up->E2]
  |section_heading_number:{1}
  |section_level:{1}
@@ -211,15 +208,21 @@ $result_errors{'anchor_in_copying_insertcopying_titlepage_chap'} = [];
 
 $result_nodes_list{'anchor_in_copying_insertcopying_titlepage_chap'} = '1|Top
  associated_section: top
+ associated_title_command: top
 2|Chapter
  associated_section: 1 Chap
+ associated_title_command: 1 Chap
 ';
 
 $result_sections_list{'anchor_in_copying_insertcopying_titlepage_chap'} = '1|top
+ associated_anchor_command: Top
  associated_node: Top
 2|Chap
+ associated_anchor_command: Chapter
  associated_node: Chapter
 ';
+
+$result_headings_list{'anchor_in_copying_insertcopying_titlepage_chap'} = '';
 
 
 $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage_chap'} = '
