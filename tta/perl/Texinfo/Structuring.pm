@@ -1196,7 +1196,7 @@ sub _print_section_command($)
   return $root_command_texi;
 }
 
-sub _print_title_command_command($)
+sub _print_line_command($)
 {
   my $element = shift;
 
@@ -1211,6 +1211,19 @@ sub _print_title_command_command($)
       return '@'."$element->{'cmdname'} ".$root_command_texi;
     }
     return undef;
+  }
+}
+
+sub _print_line_command_key_element($$)
+{
+  my $key = shift;
+  my $element = shift;
+
+  my $line_command_text = _print_line_command($element);
+  if (!defined($line_command_text)) {
+    return " $key\n";
+  } else {
+    return " $key: ".$line_command_text."\n";
   }
 }
 
@@ -1245,13 +1258,18 @@ sub print_nodes_list($)
     }
     foreach my $section_key (('associated_title_command')) {
       if ($node_structure->{$section_key}) {
-        my $section_command
-          = _print_title_command_command($node_structure->{$section_key});
-        if (!defined($section_command)) {
-          $result .= " $section_key\n";
-        } else {
-          $result .= " $section_key: ".$section_command."\n";
-        }
+        $result .= _print_line_command_key_element($section_key,
+                                        $node_structure->{$section_key});
+      }
+    }
+    my $key = 'node_description';
+    if ($node_structure->{$key}) {
+      my $node_description = $node_structure->{$key};
+      if ($node_description->{'cmdname'} eq 'nodedescriptionblock') {
+        $result .= " $key: @".$node_description->{'cmdname'}."\n";
+      } else {
+        $result .= _print_line_command_key_element($key,
+                                        $node_structure->{$key});
       }
     }
     $idx++;

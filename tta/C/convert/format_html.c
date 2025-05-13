@@ -1587,8 +1587,17 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (!node)
             return 0;
 
-          node_description
-            = lookup_extra_element (node, AI_key_node_description);
+          if (self->document)
+            {
+              int status;
+              size_t node_number
+                = lookup_extra_integer (node,
+                                        AI_key_node_number, &status);
+              const NODE_STRUCTURE *node_structure
+                = self->document->nodes_list.list[node_number -1];
+
+              node_description = node_structure->node_description;
+            }
 
           if (!node_description)
             return 0;
@@ -11920,20 +11929,24 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                                      normalized);
           if (node)
             {
-              node_description
-                 = lookup_extra_element (node, AI_key_node_description);
+              const NODE_STRUCTURE *node_structure = 0;
+              if (node->e.c->cmd == CM_node && self->document)
+                {
+                  int status;
+                  size_t node_number
+                    = lookup_extra_integer (node, AI_key_node_number, &status);
+                  node_structure
+                    = self->document->nodes_list.list[node_number -1];
+
+                  node_description = node_structure->node_description;
+                }
 
                 /* if !NODE_NAME_IN_MENU, we pick the associated title
                    command element
                  */
               if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0
-                  && node->e.c->cmd == CM_node && self->document)
+                  && node_structure)
                 {
-                  int status;
-                  size_t node_number
-                    = lookup_extra_integer (node, AI_key_node_number, &status);
-                  const NODE_STRUCTURE *node_structure
-                    = self->document->nodes_list.list[node_number -1];
                   associated_title_command
                     = node_structure->associated_title_command;
                 }

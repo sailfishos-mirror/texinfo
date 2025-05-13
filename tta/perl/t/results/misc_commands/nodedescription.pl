@@ -59,7 +59,6 @@ $result_tree_text{'nodedescription'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_description:[E5]
  |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{chap}
@@ -173,6 +172,7 @@ $result_nodes_list{'nodedescription'} = '1|Top
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_description: @nodedescription @emph{first description} of chapter
 ';
 
 $result_sections_list{'nodedescription'} = '1|top

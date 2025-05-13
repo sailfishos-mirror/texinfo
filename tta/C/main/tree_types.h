@@ -108,8 +108,6 @@ enum directions {
   \
   ai_key(element_node, element) \
   ai_key(float_section, element) \
-  ai_key(node_description, element) \
-  ai_key(node_long_description, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \
@@ -275,6 +273,8 @@ typedef struct NODE_STRUCTURE {
     ELEMENT *associated_section;
     ELEMENT *associated_title_command;
     ELEMENT *node_preceding_part;
+    ELEMENT *node_description;
+    ELEMENT *node_long_description;
 } NODE_STRUCTURE;
 
 typedef struct NODE_STRUCTURE_LIST {

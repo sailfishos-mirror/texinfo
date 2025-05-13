@@ -1755,11 +1755,16 @@ sub command_description($$;$)
       }
     }
 
-    if (!$node or !$node->{'extra'}) {
+    if (!$node or !$node->{'extra'}
+        or !$node->{'extra'}->{'node_number'}
+        or !$self->{'document'}) {
       return undef;
     }
 
-    my $node_description = $node->{'extra'}->{'node_description'};
+    my $nodes_list = $self->{'document'}->nodes_list();
+    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+
+    my $node_description = $node_structure->{'node_description'};
 
     if (!$node_description) {
       return undef;
@@ -7708,17 +7713,19 @@ sub _convert_menu_entry_type($$$)
            and defined($menu_entry_node->{'extra'}->{'normalized'})) {
     my $node = $self->label_command($menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
-      # if !NODE_NAME_IN_MENU, we pick the associated title command element
-      if (!$self->get_conf('NODE_NAME_IN_MENU')
-          and $node->{'cmdname'} eq 'node') {
+      my $node_structure;
+      if ($node->{'cmdname'} eq 'node') {
         my $document = $self->get_info('document');
         if ($document) {
           my $nodes_list = $document->nodes_list();
-          my $node_structure
+          $node_structure
             = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
-          $associated_title_command
-            = $node_structure->{'associated_title_command'};
         }
+      }
+      # if !NODE_NAME_IN_MENU, we pick the associated title command element
+      if (!$self->get_conf('NODE_NAME_IN_MENU') and $node_structure) {
+        $associated_title_command
+          = $node_structure->{'associated_title_command'};
       }
 
       if ($associated_title_command) {
@@ -7732,7 +7739,7 @@ sub _convert_menu_entry_type($$$)
         # http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions
         $rel = ' rel="index"';
       }
-      if ($node->{'extra'} and $node->{'extra'}->{'node_description'}) {
+      if ($node_structure and $node_structure->{'node_description'}) {
         # not menu_description probably cannot happen
         if (not $menu_description
             # empty description
@@ -7746,7 +7753,7 @@ sub _convert_menu_entry_type($$$)
                                                  ->{'contents'}->[0]->{'text'})
                              and $menu_description->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
-          $node_description = $node->{'extra'}->{'node_description'};
+          $node_description = $node_structure->{'node_description'};
           $formatted_nodedescription_nr
             = _formatted_nodedescription_nr($self, $node_description);
         }

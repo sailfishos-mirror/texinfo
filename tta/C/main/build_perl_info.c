@@ -1010,6 +1010,8 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
       STORE_STRUCT_INFO(associated_section)
       STORE_STRUCT_INFO(associated_title_command)
       STORE_STRUCT_INFO(node_preceding_part)
+      STORE_STRUCT_INFO(node_description)
+      STORE_STRUCT_INFO(node_long_description)
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 

@@ -4155,15 +4155,22 @@ sub _convert($$)
             $identifiers_target = $self->{'document'}->labels_information();
           }
 
+          my $node_description;
           if ($menu_entry_node and $menu_entry_node->{'extra'}
               and defined($menu_entry_node->{'extra'}->{'normalized'})
               and $identifiers_target
-                ->{$menu_entry_node->{'extra'}->{'normalized'}}
-              and $identifiers_target
-                ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
-              and $identifiers_target
-                ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
-                                                       ->{'node_description'}) {
+                ->{$menu_entry_node->{'extra'}->{'normalized'}}) {
+            my $node_element = $identifiers_target
+                ->{$menu_entry_node->{'extra'}->{'normalized'}};
+            if ($node_element->{'cmdname'} eq 'node' and $self->{'document'}) {
+              my $nodes_list = $self->{'document'}->nodes_list();
+              my $node_structure
+                = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
+              $node_description = $node_structure->{'node_description'};
+            }
+          }
+
+          if ($node_description) {
             my $description_align_column;
             if (defined($self->get_conf('AUTO_MENU_DESCRIPTION_ALIGN_COLUMN'))) {
               $description_align_column
@@ -4175,14 +4182,11 @@ sub _convert($$)
             }
             my $description_indent_length = $description_align_column - 1;
 
-            my $description_element = $identifiers_target
-                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
-                                                       ->{'node_description'};
             if (! exists($self->{'seen_node_descriptions'}
-                                            ->{$description_element})) {
-              $self->{'seen_node_descriptions'}->{$description_element} = 0;
+                                            ->{$node_description})) {
+              $self->{'seen_node_descriptions'}->{$node_description} = 0;
             }
-            $self->{'seen_node_descriptions'}->{$description_element}++;
+            $self->{'seen_node_descriptions'}->{$node_description}++;
 
             # flush the current unfilled container
             _stream_output($self,
@@ -4190,7 +4194,8 @@ sub _convert($$)
                            $formatter->{'container'});
             my $formatted_elt;
             my $description_para;
-            my $text_count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+            my $text_count
+             = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
             if ($text_count >= $description_indent_length) {
               my $inserted_space = '  ';
@@ -4221,30 +4226,30 @@ sub _convert($$)
             push @{$self->{'text_element_context'}}, $text_element_context;
 
             # avoid messages if formatting the node description more than once
-            if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
+            if ($self->{'seen_node_descriptions'}->{$node_description} > 1) {
               $self->{'silent'} = 0 if (!defined($self->{'silent'}));
               $self->{'silent'}++;
             }
 
-            if ($description_element->{'cmdname'} eq 'nodedescription') {
+            if ($node_description->{'cmdname'} eq 'nodedescription') {
               # push a paragraph container to format the description.
               $description_para = new_formatter($self, 'paragraph',
                   { 'indent_length' => $description_indent_length });
               push @{$self->{'formatters'}}, $description_para;
-              $formatted_elt = $description_element->{'contents'}->[0];
+              $formatted_elt = $node_description->{'contents'}->[0];
             } else {
               push @{$self->{'format_context'}},
-               { 'cmdname' => $description_element->{'cmdname'},
+               { 'cmdname' => $node_description->{'cmdname'},
                  'paragraph_count' => 0,
                  'indent_length' => $description_indent_length,
                  # for block commands.  Not an exact value
                  'indent_level' => int($description_indent_length / $indent_length),
                };
 
-              $formatted_elt = {'contents' => $description_element->{'contents'}};
+              $formatted_elt = {'contents' => $node_description->{'contents'}};
             }
             _convert($self, $formatted_elt);
-            if ($description_element->{'cmdname'} eq 'nodedescription') {
+            if ($node_description->{'cmdname'} eq 'nodedescription') {
               _stream_output($self,
                  Texinfo::Convert::Paragraph::end($description_para->{'container'}),
                  $description_para->{'container'});
@@ -4253,7 +4258,7 @@ sub _convert($$)
               pop @{$self->{'format_context'}};
             }
             pop @{$self->{'text_element_context'}};
-            if ($self->{'seen_node_descriptions'}->{$description_element} > 1) {
+            if ($self->{'seen_node_descriptions'}->{$node_description} > 1) {
               $self->{'silent'}--;
             }
           } else {

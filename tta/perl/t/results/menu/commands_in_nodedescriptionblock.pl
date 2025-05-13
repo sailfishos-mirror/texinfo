@@ -107,9 +107,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E8|up->E8]
- |node_description:[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
- |node_long_description:[E5]
  |node_number:{2}
  |normalized:{node1}
   *arguments_line C1
@@ -435,6 +433,7 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
 2|node1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
+ node_description: @nodedescriptionblock
 3|node2
  associated_section: 2 chap2
  associated_title_command: 2 chap2

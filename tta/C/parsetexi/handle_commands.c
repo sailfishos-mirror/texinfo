@@ -806,22 +806,17 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               if (current_node)
                 {
                   const ELEMENT *e_description
-                    = lookup_extra_element (current_node->element,
-                                            AI_key_node_description);
+                    = current_node->node_description;
                   if (e_description)
                     {
                       if (e_description->e.c->cmd == cmd)
                         line_warn ("multiple node @nodedescription");
                       else
                         /* silently replace nodedescriptionblock */
-                        add_extra_element (current_node->element,
-                                           AI_key_node_description,
-                                           command_e);
+                        current_node->node_description = command_e;
                     }
                   else
-                    add_extra_element (current_node->element,
-                                       AI_key_node_description,
-                                       command_e);
+                    current_node->node_description = command_e;
                   add_extra_element (command_e, AI_key_element_node,
                                      current_node->element);
                 }
@@ -1156,22 +1151,18 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           if (current_node)
             {
               const ELEMENT *node_long_description
-                = lookup_extra_element (current_node->element,
-                                    AI_key_node_long_description);
+                = current_node->node_long_description;
               if (node_long_description)
                 line_warn ("multiple node @nodedescriptionblock");
                else
                 {
                   const ELEMENT *node_description
-                    = lookup_extra_element (current_node->element,
-                                            AI_key_node_description);
+                    = current_node->node_description;
 
                   if (!node_description)
-                    add_extra_element (current_node->element, AI_key_node_description,
-                                       block);
+                    current_node->node_description = block;
 
-                  add_extra_element (current_node->element, AI_key_node_long_description,
-                                     block);
+                  current_node->node_long_description = block;
                 }
               add_extra_element (block, AI_key_element_node, current_node->element);
             }

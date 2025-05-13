@@ -1,5 +1,29 @@
 2025-05-13  Patrice Dumas  <pertusus@free.fr>
 
+	node_description and node_long_description in structure out of tree
+
+	* tta/C/main/structure_list.c (print_line_command),
+	tta/perl/Texinfo/Structuring.pm (_print_line_command): rename
+	print_title_command_command as print_line_command.
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list)
+	(print_line_command_key_element, print_nodes_list),
+	tta/C/main/tree_types.h (enum directions, NODE_STRUCTURE),
+	tta/C/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_line_command, _handle_block_command),
+	tta/perl/Texinfo/Structuring.pm (_print_line_command_key_element)
+	(print_nodes_list): move node_description and node_long_description
+	to node structure information, out of tree.
+
+	* tta/C/convert/format_html.c (html_command_description)
+	(html_convert_menu_entry_type), tta/perl/Texinfo/Convert/HTML.pm
+	(command_description, _convert_menu_entry_type),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert): update for change
+	in information localtion.
+
+2025-05-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/end_line.c (associate_title_command_anchor),
 	tta/perl/Texinfo/ParserNonXS.pm (_associate_title_command_anchor): use
 	node structure element instead of passing current node element.  Check

@@ -265,7 +265,7 @@ print_section_command (const ELEMENT *element)
 }
 
 static char *
-print_title_command_command (const ELEMENT *element)
+print_line_command (const ELEMENT *element)
 {
   if (builtin_command_data[element->e.c->cmd].flags & CF_root)
     return print_section_command (element);
@@ -284,6 +284,20 @@ print_title_command_command (const ELEMENT *element)
           return result;
         }
       return 0;
+    }
+}
+
+static void
+print_line_command_key_element (TEXT *result, const char *key,
+                                const ELEMENT *element)
+{
+  char *line_command_text = print_line_command(element);
+  if (!line_command_text)
+    text_printf (result, " %s", key);
+  else
+    {
+      text_printf (result, " %s: %s", key, line_command_text);
+      free (line_command_text);
     }
 }
 
@@ -317,17 +331,19 @@ print_nodes_list (const DOCUMENT *document)
 
       if (structure->associated_title_command)
         {
-          char *associated_title_command_text
-            = print_title_command_command (
-                              structure->associated_title_command);
-          if (associated_title_command_text)
-            {
-              text_printf (&result, " associated_title_command: %s",
-                           associated_title_command_text);
-              free (associated_title_command_text);
-            }
+          print_line_command_key_element (&result, "associated_title_command",
+                                 structure->associated_title_command);
+          text_append_n (&result, "\n", 1);
+        }
+      if (structure->node_description)
+        {
+          const char *key = "node_description";
+          const ELEMENT *node_description = structure->node_description;
+          if (node_description->e.c->cmd == CM_nodedescriptionblock)
+            text_printf (&result, " %s: @%s", key,
+                         builtin_command_name (node_description->e.c->cmd));
           else
-            text_append (&result, " associated_title_command");
+            print_line_command_key_element (&result, key, node_description);
           text_append_n (&result, "\n", 1);
         }
     }

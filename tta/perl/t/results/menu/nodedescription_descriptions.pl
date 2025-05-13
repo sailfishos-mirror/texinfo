@@ -155,7 +155,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E6|up->E0]
- |node_description:[E5]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
@@ -221,7 +220,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E9|prev->E3|up->E0]
- |node_description:[E8]
  |node_directions:D[next->E9|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{titi}
@@ -267,7 +265,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E12|prev->E6|up->E0]
- |node_description:[E11]
  |node_directions:D[next->E12|prev->E6|up->E0]
  |node_number:{4}
  |normalized:{other}
@@ -313,7 +310,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E15|prev->E9|up->E0]
- |node_description:[E14]
  |node_directions:D[next->E15|prev->E9|up->E0]
  |node_number:{5}
  |normalized:{last}
@@ -359,7 +355,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E18|prev->E12|up->E0]
- |node_description:[E17]
  |node_directions:D[next->E18|prev->E12|up->E0]
  |node_number:{6}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
@@ -405,7 +400,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E21|prev->E15|up->E0]
- |node_description:[E20]
  |node_directions:D[next->E21|prev->E15|up->E0]
  |node_number:{7}
  |normalized:{a-very-long-node-without-description-with-very-little-space-left-for}
@@ -451,7 +445,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E18|up->E0]
- |node_description:[E23]
  |node_directions:D[prev->E18|up->E0]
  |node_number:{8}
  |normalized:{very-very-long-node-extending-past-the-max-columns-and-without-description}
@@ -601,24 +594,31 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto
+ node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
+ node_description: @nodedescription this describes titi
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
+ node_description: @nodedescription other comes here
 5|last
  associated_section: 4 Last
  associated_title_command: 4 Last
+ node_description: @nodedescription we are last
 6|a somewhat long node without description nor following space
  associated_section: 5 Somewhat long
  associated_title_command: 5 Somewhat long
+ node_description: @nodedescription not as long as the node
 7|a very long node without description with very little space left for
  associated_section: 6 Very long
  associated_title_command: 6 Very long
+ node_description: @nodedescription starting the desciption with a somewhat long word
 8|very very long node extending past the max columns and without description
  associated_section: 7 Past max columns
  associated_title_command: 7 Past max columns
+ node_description: @nodedescription Not long
 ';
 
 $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescription used in menu

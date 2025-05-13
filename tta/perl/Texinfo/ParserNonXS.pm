@@ -5926,22 +5926,19 @@ sub _handle_line_command($$$$$$)
           $command_e->{'extra'} = {} if (!defined($command_e->{'extra'}));
           $command_e->{'extra'}->{'element_node'}
             = $node_structure->{'element'};
-          if ($node_structure->{'element'}->{'extra'}
-              and $node_structure->{'element'}->{'extra'}->{'node_description'}) {
+          if ($node_structure->{'node_description'}) {
             my $set_description
-              = $node_structure->{'element'}->{'extra'}->{'node_description'};
+              = $node_structure->{'node_description'};
             if ($set_description->{'cmdname'} eq $command) {
               $self->_line_warn(__("multiple node \@nodedescription"),
                                 $source_info);
             } else {
               # silently replace nodedescriptionblock
-              $node_structure->{'element'}->{'extra'}->{'node_description'}
+              $node_structure->{'node_description'}
                 = $command_e;
             }
           } else {
-            $node_structure->{'element'}->{'extra'} = {}
-              if (!$node_structure->{'element'}->{'extra'});
-            $node_structure->{'element'}->{'extra'}->{'node_description'}
+            $node_structure->{'node_description'}
               = $command_e;
           }
         } else {
@@ -6205,17 +6202,14 @@ sub _handle_block_command($$$$$)
         my $node_structure = $self->{'current_node'};
         $block->{'extra'} = {} if (!defined($block->{'extra'}));
         $block->{'extra'}->{'element_node'} = $node_structure->{'element'};
-        if ($node_structure->{'element'}->{'extra'}
-            and $node_structure->{'element'}->{'extra'}->{'node_long_description'}) {
+        if ($node_structure->{'node_long_description'}) {
           $self->_line_warn(__("multiple node \@nodedescriptionblock"),
                             $source_info);
         } else {
-          $node_structure->{'element'}->{'extra'} = {}
-            if (!$node_structure->{'element'}->{'extra'});
-          $node_structure->{'element'}->{'extra'}->{'node_long_description'}
+          $node_structure->{'node_long_description'}
             = $block;
-          if (!$node_structure->{'element'}->{'extra'}->{'node_description'}) {
-            $node_structure->{'element'}->{'extra'}->{'node_description'}
+          if (!$node_structure->{'node_description'}) {
+            $node_structure->{'node_description'}
               = $block;
           }
         }
