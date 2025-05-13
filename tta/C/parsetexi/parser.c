@@ -236,7 +236,7 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 
 /* Current node, section and part. */
 
-ELEMENT *current_node = 0;
+NODE_STRUCTURE *current_node = 0;
 const ELEMENT *current_section = 0;
 SECTION_STRUCTURE *current_part = 0;
 

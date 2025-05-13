@@ -311,7 +311,7 @@ enter_index_entry (enum command_id index_type_cmd,
       add_extra_string_dup (element, AI_key_element_region, command_name (region));
     }
   else if (current_node)
-    add_extra_element (element, AI_key_element_node, current_node);
+    add_extra_element (element, AI_key_element_node, current_node->element);
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)

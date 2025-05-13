@@ -3552,7 +3552,7 @@ sub _enter_index_entry($$$$)
     $element->{'extra'}->{'element_region'}
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
-    $element->{'extra'}->{'element_node'} = $self->{'current_node'};
+    $element->{'extra'}->{'element_node'} = $self->{'current_node'}->{'element'};
   } elsif (!$self->{'current_section'}) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or
@@ -3655,18 +3655,17 @@ sub _add_to_structure_list($$$)
   return $structure_info;
 }
 
-sub _associate_title_command_anchor($$$$)
+# the caller makes sure that $current_node_structure is set
+sub _associate_title_command_anchor($$$)
 {
-  my $self = shift;
   my $current_node_structure = shift;
   my $current = shift;
   my $section_structure = shift;
 
-  if ($current_node_structure
-      and not $current_node_structure->{'associated_title_command'}) {
+  if (not $current_node_structure->{'associated_title_command'}) {
     $current_node_structure->{'associated_title_command'} = $current;
     $section_structure->{'associated_anchor_command'}
-                                = $self->{'current_node'};
+                        = $current_node_structure->{'element'};
   }
 }
 
@@ -3949,7 +3948,7 @@ sub _end_line_misc_line($$$)
         and defined($current->{'extra'}->{'normalized'})) {
       $node_structure
         = _add_to_structure_list($document, 'node', $current);
-      $self->{'current_node'} = $current;
+      $self->{'current_node'} = $node_structure;
     }
     if ($self->{'current_part'}) {
       my $part_structure = $self->{'current_part'};
@@ -4121,17 +4120,15 @@ sub _end_line_misc_line($$$)
 
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
-      my $current_node_structure
-        = _get_current_node_structure($self, $document);
-
       # associate section with the current node as its title.
-      _associate_title_command_anchor($self, $current_node_structure, $current,
-                                      $section_structure);
-      if ($current_node_structure) {
-        my $current_node = $self->{'current_node'};
-        if (!$current_node_structure->{'associated_section'}) {
-          $current_node_structure->{'associated_section'} = $current;
-          $section_structure->{'associated_node'} = $self->{'current_node'};
+      if ($self->{'current_node'}) {
+        my $node_structure = $self->{'current_node'};
+        _associate_title_command_anchor($node_structure, $current,
+                                        $section_structure);
+        if (!$node_structure->{'associated_section'}) {
+          $node_structure->{'associated_section'} = $current;
+          $section_structure->{'associated_node'}
+            = $node_structure->{'element'};
         }
       }
       if ($self->{'current_part'}) {
@@ -4148,9 +4145,7 @@ sub _end_line_misc_line($$$)
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $section_structure;
       if ($self->{'current_node'}) {
-        my $nodes_list = $document->nodes_list();
-        my $node_structure
-          = $nodes_list->[$self->{'current_node'}->{'extra'}->{'node_number'} -1];
+        my $node_structure = $self->{'current_node'};
         if (!$node_structure->{'associated_section'}) {
           $self->_line_warn(sprintf(__(
       "\@node precedes \@%s, but parts may not be associated with nodes"),
@@ -4163,10 +4158,10 @@ sub _end_line_misc_line($$$)
            or $data_cmdname eq 'xrefname') {
     my $heading_structure = _add_to_structure_list($document, 'heading',
                                                    $command_element);
-    my $current_node_structure
-      = _get_current_node_structure($self, $document);
-    _associate_title_command_anchor($self, $current_node_structure,
+    if ($self->{'current_node'}) {
+      _associate_title_command_anchor($self->{'current_node'},
                                     $command_element, $heading_structure);
+    }
   }
   return $current;
 }
@@ -5927,24 +5922,26 @@ sub _handle_line_command($$$$$$)
       $command_e = { 'cmdname' => $command, 'source_info' => {%$source_info} };
       if ($command eq 'nodedescription') {
         if ($self->{'current_node'}) {
+          my $node_structure = $self->{'current_node'};
           $command_e->{'extra'} = {} if (!defined($command_e->{'extra'}));
-          $command_e->{'extra'}->{'element_node'} = $self->{'current_node'};
-          if ($self->{'current_node'}->{'extra'}
-              and $self->{'current_node'}->{'extra'}->{'node_description'}) {
+          $command_e->{'extra'}->{'element_node'}
+            = $node_structure->{'element'};
+          if ($node_structure->{'element'}->{'extra'}
+              and $node_structure->{'element'}->{'extra'}->{'node_description'}) {
             my $set_description
-              = $self->{'current_node'}->{'extra'}->{'node_description'};
+              = $node_structure->{'element'}->{'extra'}->{'node_description'};
             if ($set_description->{'cmdname'} eq $command) {
               $self->_line_warn(__("multiple node \@nodedescription"),
                                 $source_info);
             } else {
               # silently replace nodedescriptionblock
-              $self->{'current_node'}->{'extra'}->{'node_description'}
+              $node_structure->{'element'}->{'extra'}->{'node_description'}
                 = $command_e;
             }
           } else {
-            $self->{'current_node'}->{'extra'} = {}
-              if (!$self->{'current_node'}->{'extra'});
-            $self->{'current_node'}->{'extra'}->{'node_description'}
+            $node_structure->{'element'}->{'extra'} = {}
+              if (!$node_structure->{'element'}->{'extra'});
+            $node_structure->{'element'}->{'extra'}->{'node_description'}
               = $command_e;
           }
         } else {
@@ -6071,9 +6068,10 @@ sub _handle_line_command($$$$$$)
       # Record that @printindex occurs in this node so we know it
       # is an index node.
       if ($self->{'current_node'}) {
-        $self->{'current_node'}->{'extra'} = {}
-           if (!$self->{'current_node'}->{'extra'});
-        $self->{'current_node'}->{'extra'}->{'isindex'} = 1;
+        my $node_structure = $self->{'current_node'};
+        $node_structure->{'element'}->{'extra'} = {}
+           if (!$node_structure->{'element'}->{'extra'});
+        $node_structure->{'element'}->{'extra'}->{'isindex'} = 1;
       }
     }
 
@@ -6186,11 +6184,12 @@ sub _handle_block_command($$$$$)
         } elsif ($command eq 'menu') {
           if (!(defined($current->{'cmdname'}))
               or $root_commands{$current->{'cmdname'}}) {
-            $self->{'current_node'}->{'extra'} = {}
-              if (!defined($self->{'current_node'}->{'extra'}));
-            $self->{'current_node'}->{'extra'}->{'menus'} = []
-              if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
-            push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $block;
+            my $node_structure = $self->{'current_node'};
+            $node_structure->{'element'}->{'extra'} = {}
+              if (!defined($node_structure->{'element'}->{'extra'}));
+            $node_structure->{'element'}->{'extra'}->{'menus'} = []
+              if (!defined($node_structure->{'element'}->{'extra'}->{'menus'}));
+            push @{$node_structure->{'element'}->{'extra'}->{'menus'}}, $block;
           } else {
             $self->_line_warn(__("\@menu in invalid context"),
                               $source_info);
@@ -6203,19 +6202,20 @@ sub _handle_block_command($$$$$)
       $block->{'items_count'} = 0;
     } elsif ($command eq 'nodedescriptionblock') {
       if ($self->{'current_node'}) {
+        my $node_structure = $self->{'current_node'};
         $block->{'extra'} = {} if (!defined($block->{'extra'}));
-        $block->{'extra'}->{'element_node'} = $self->{'current_node'};
-        if ($self->{'current_node'}->{'extra'}
-            and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
+        $block->{'extra'}->{'element_node'} = $node_structure->{'element'};
+        if ($node_structure->{'element'}->{'extra'}
+            and $node_structure->{'element'}->{'extra'}->{'node_long_description'}) {
           $self->_line_warn(__("multiple node \@nodedescriptionblock"),
                             $source_info);
         } else {
-          $self->{'current_node'}->{'extra'} = {}
-            if (!$self->{'current_node'}->{'extra'});
-          $self->{'current_node'}->{'extra'}->{'node_long_description'}
+          $node_structure->{'element'}->{'extra'} = {}
+            if (!$node_structure->{'element'}->{'extra'});
+          $node_structure->{'element'}->{'extra'}->{'node_long_description'}
             = $block;
-          if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
-            $self->{'current_node'}->{'extra'}->{'node_description'}
+          if (!$node_structure->{'element'}->{'extra'}->{'node_description'}) {
+            $node_structure->{'element'}->{'extra'}->{'node_description'}
               = $block;
           }
         }

@@ -1166,39 +1166,19 @@ end_line_starting_block (ELEMENT *current)
 }
 
 static void
-associate_title_command_anchor (ELEMENT *current_node,
-                       NODE_STRUCTURE *current_node_structure,
+associate_title_command_anchor (NODE_STRUCTURE *current_node_structure,
                        ELEMENT *current, SECTION_STRUCTURE *section_structure,
                        HEADING_STRUCTURE *heading_structure)
 {
-  if (current_node_structure
-      && !current_node_structure->associated_title_command)
+  if (!current_node_structure->associated_title_command)
     {
+      ELEMENT *current_node = current_node_structure->element;
       current_node_structure->associated_title_command = current;
       if (section_structure)
         section_structure->associated_anchor_command = current_node;
       else
         heading_structure->associated_anchor_command = current_node;
     }
-}
-
-static NODE_STRUCTURE *
-get_current_node_structure (ELEMENT *current_node)
-{
-  if (current_node)
-    {
-      int status;
-      size_t node_number
-        = lookup_extra_integer (current_node, AI_key_node_number, &status);
-      if (node_number)
-        {
-          NODE_STRUCTURE *node_structure
-            = parsed_document->nodes_list.list[node_number -1];
-          return node_structure;
-        }
-    }
-
-  return 0;
 }
 
 /* Actions to be taken at the end of an argument to a line command
@@ -1594,7 +1574,7 @@ end_line_misc_line (ELEMENT *current)
            = add_to_node_structure_list (&parsed_document->nodes_list, current);
           add_extra_integer (current, AI_key_node_number,
                              parsed_document->nodes_list.number);
-          current_node = current;
+          current_node = node_structure;
         }
 
       if (current_part && !current_part->part_associated_section
@@ -1605,7 +1585,7 @@ end_line_misc_line (ELEMENT *current)
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
           node_structure->node_preceding_part
-            = current_part->element;
+            = (ELEMENT *)current_part->element;
           current_part->part_following_node = current;
         }
     }
@@ -1820,24 +1800,23 @@ end_line_misc_line (ELEMENT *current)
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
-          NODE_STRUCTURE *current_node_structure
-            = get_current_node_structure (current_node);
          /* associate section with the current node as its title. */
-          associate_title_command_anchor (current_node,
-                                          current_node_structure, current,
-                                          section_structure, 0);
-          if (current_node_structure)
+          if (current_node)
             {
-              if (!current_node_structure->associated_section)
+              associate_title_command_anchor (current_node, current,
+                                              section_structure, 0);
+              if (!current_node->associated_section)
                 {
-                  current_node_structure->associated_section = current;
-                  section_structure->associated_node = current_node;
+                  current_node->associated_section = current;
+                  section_structure->associated_node
+                    = current_node->element;
                 }
             }
 
           if (current_part)
             {
-              section_structure->associated_part = current_part->element;
+              section_structure->associated_part
+                = (ELEMENT *)current_part->element;
               current_part->part_associated_section = current;
               if (current->e.c->cmd == CM_top)
                 {
@@ -1855,13 +1834,7 @@ end_line_misc_line (ELEMENT *current)
           current_part = section_structure;
           if (current_node)
             {
-              int status;
-              size_t node_number
-                = lookup_extra_integer (current_node,
-                                        AI_key_node_number, &status);
-              NODE_STRUCTURE *node_structure
-                = parsed_document->nodes_list.list[node_number -1];
-              if (!(node_structure->associated_section))
+              if (!(current_node->associated_section))
                 line_warn ("@node precedes @part, but parts may not be "
                            "associated with nodes");
             }
@@ -1872,15 +1845,14 @@ end_line_misc_line (ELEMENT *current)
   else if (command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
-     NODE_STRUCTURE *current_node_structure
-       = get_current_node_structure (current_node);
      HEADING_STRUCTURE *heading_structure
        = add_to_heading_structure_list (&parsed_document->headings_list,
                                         command_element);
      add_extra_integer (command_element, AI_key_heading_number,
                         parsed_document->headings_list.number);
-     associate_title_command_anchor (current_node, current_node_structure,
-                                     command_element, 0, heading_structure);
+     if (current_node)
+       associate_title_command_anchor (current_node, command_element,
+                                       0, heading_structure);
    }
 
   return current;

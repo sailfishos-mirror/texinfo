@@ -806,7 +806,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               if (current_node)
                 {
                   const ELEMENT *e_description
-                    = lookup_extra_element (current_node,
+                    = lookup_extra_element (current_node->element,
                                             AI_key_node_description);
                   if (e_description)
                     {
@@ -814,14 +814,16 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                         line_warn ("multiple node @nodedescription");
                       else
                         /* silently replace nodedescriptionblock */
-                        add_extra_element (current_node, AI_key_node_description,
+                        add_extra_element (current_node->element,
+                                           AI_key_node_description,
                                            command_e);
                     }
                   else
-                    add_extra_element (current_node, AI_key_node_description,
+                    add_extra_element (current_node->element,
+                                       AI_key_node_description,
                                        command_e);
                   add_extra_element (command_e, AI_key_element_node,
-                                     current_node);
+                                     current_node->element);
                 }
               else
                 line_warn ("@nodedescription outside of any node");
@@ -993,7 +995,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else if (cmd == CM_dircategory && current_node)
         line_warn ("@dircategory after first node");
       else if (cmd == CM_printindex && current_node)
-        current_node->flags |= EF_isindex;
+        current_node->element->flags |= EF_isindex;
 
 
       if (command_data(data_cmd).flags & CF_def)
@@ -1138,7 +1140,8 @@ handle_block_command (ELEMENT *current, const char **line_inout,
                   else
                     {
                       CONST_ELEMENT_LIST *l
-                        = add_extra_contents (current_node, AI_key_menus, 0);
+                        = add_extra_contents (current_node->element,
+                                              AI_key_menus, 0);
                       add_to_const_element_list (l, block);
                     }
                 }
@@ -1153,24 +1156,24 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           if (current_node)
             {
               const ELEMENT *node_long_description
-                = lookup_extra_element (current_node,
+                = lookup_extra_element (current_node->element,
                                     AI_key_node_long_description);
               if (node_long_description)
                 line_warn ("multiple node @nodedescriptionblock");
                else
                 {
                   const ELEMENT *node_description
-                    = lookup_extra_element (current_node,
+                    = lookup_extra_element (current_node->element,
                                             AI_key_node_description);
 
                   if (!node_description)
-                    add_extra_element (current_node, AI_key_node_description,
+                    add_extra_element (current_node->element, AI_key_node_description,
                                        block);
 
-                  add_extra_element (current_node, AI_key_node_long_description,
+                  add_extra_element (current_node->element, AI_key_node_long_description,
                                      block);
                 }
-              add_extra_element (block, AI_key_element_node, current_node);
+              add_extra_element (block, AI_key_element_node, current_node->element);
             }
           else
             line_warn ("@nodedescriptionblock outside of any node");

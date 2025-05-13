@@ -113,7 +113,7 @@ extern DOCUMENT *parsed_document;
 
 extern FLOAT_RECORD_LIST parser_float_records;
 
-extern ELEMENT *current_node;
+extern NODE_STRUCTURE *current_node;
 extern const ELEMENT *current_section;
 extern SECTION_STRUCTURE *current_part;
 

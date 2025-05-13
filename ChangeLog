@@ -1,5 +1,21 @@
 2025-05-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (associate_title_command_anchor),
+	tta/perl/Texinfo/ParserNonXS.pm (_associate_title_command_anchor): use
+	node structure element instead of passing current node element.  Check
+	in caller that current_node is set.
+
+	* tta/C/main/tree_types.h (NODE_STRUCTURE), tta/C/parsetexi/end_line.c
+	(end_line_misc_line), tta/C/parsetexi/handle_commands.c
+	(handle_line_command, handle_block_command), tta/C/parsetexi/indices.c
+	(enter_index_entry), tta/C/parsetexi/parser.c (current_node),
+	tta/perl/Texinfo/ParserNonXS.pm (_enter_index_entry)
+	(_end_line_misc_line, _handle_line_command, _handle_block_command):
+	set current_node to the node structure information.  Remove
+	get_current_node_structure.
+
+2025-05-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): set current
 	node only to a non-empty node.

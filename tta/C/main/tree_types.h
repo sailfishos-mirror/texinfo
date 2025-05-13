@@ -270,7 +270,8 @@ typedef struct ELEMENT {
 } ELEMENT;
 
 typedef struct NODE_STRUCTURE {
-    const ELEMENT *element;
+    /* TODO try to add const.  Not easy as it is used for current_node */
+    ELEMENT *element;
     ELEMENT *associated_section;
     ELEMENT *associated_title_command;
     ELEMENT *node_preceding_part;
