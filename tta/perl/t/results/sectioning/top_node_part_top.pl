@@ -31,7 +31,6 @@ This: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E2]
  |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +51,6 @@ This: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E1]
  |section_directions:D[prev->E1]
  |section_level:{0}
  |section_number:{2}
@@ -105,9 +103,11 @@ $result_nodes_list{'top_node_part_top'} = '1|Top
 ';
 
 $result_sections_list{'top_node_part_top'} = '1|part
+ part_associated_section: top
 2|top
  associated_anchor_command: Top
  associated_node: Top
+ associated_part: part
 ';
 
 $result_headings_list{'top_node_part_top'} = '';

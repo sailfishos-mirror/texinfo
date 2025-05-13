@@ -979,6 +979,15 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   return list_av;
 }
 
+#define STORE_STRUCT_INFO(keyname) \
+       if (structure->keyname) \
+        { \
+          sv = newRV_inc ((SV *) structure->keyname->hv); \
+          hv_store (structure_hv, #keyname, \
+                    strlen (#keyname), sv, 0); \
+        }
+
+
 AV *
 build_node_structure_list (const NODE_STRUCTURE_LIST *list)
 {
@@ -994,23 +1003,14 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      NODE_STRUCTURE *node = list->list[i];
-      HV *node_hv = newHV ();
-      sv = newRV_inc ((SV *) node->element->hv);
-      hv_store (node_hv, "element", strlen ("element"), sv, 0);
-      if (node->associated_section)
-        {
-          sv = newRV_inc ((SV *) node->associated_section->hv);
-          hv_store (node_hv, "associated_section",
-                    strlen ("associated_section"), sv, 0);
-        }
-      if (node->associated_title_command)
-        {
-          sv = newRV_inc ((SV *) node->associated_title_command->hv);
-          hv_store (node_hv, "associated_title_command",
-                    strlen ("associated_title_command"), sv, 0);
-        }
-      av_store (list_av, i, newRV_noinc ((SV *) node_hv));
+      NODE_STRUCTURE *structure = list->list[i];
+      HV *structure_hv = newHV ();
+      sv = newRV_inc ((SV *) structure->element->hv);
+      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
+      STORE_STRUCT_INFO(associated_section)
+      STORE_STRUCT_INFO(associated_title_command)
+      STORE_STRUCT_INFO(node_preceding_part)
+      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
   return list_av;
@@ -1031,23 +1031,16 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      SECTION_STRUCTURE *section = list->list[i];
-      HV *section_hv = newHV ();
-      sv = newRV_inc ((SV *) section->element->hv);
-      hv_store (section_hv, "element", strlen ("element"), sv, 0);
-      if (section->associated_node)
-        {
-          sv = newRV_inc ((SV *) section->associated_node->hv);
-          hv_store (section_hv, "associated_node", strlen ("associated_node"),
-                    sv, 0);
-        }
-      if (section->associated_anchor_command)
-        {
-          sv = newRV_inc ((SV *) section->associated_anchor_command->hv);
-          hv_store (section_hv, "associated_anchor_command",
-                    strlen ("associated_anchor_command"), sv, 0);
-        }
-      av_store (list_av, i, newRV_noinc ((SV *) section_hv));
+      SECTION_STRUCTURE *structure = list->list[i];
+      HV *structure_hv = newHV ();
+      sv = newRV_inc ((SV *) structure->element->hv);
+      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
+      STORE_STRUCT_INFO(associated_node)
+      STORE_STRUCT_INFO(associated_anchor_command)
+      STORE_STRUCT_INFO(associated_part)
+      STORE_STRUCT_INFO(part_associated_section)
+      STORE_STRUCT_INFO(part_following_node)
+      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
   return list_av;
@@ -1068,21 +1061,18 @@ build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      HEADING_STRUCTURE *heading = list->list[i];
-      HV *heading_hv = newHV ();
-      sv = newRV_inc ((SV *) heading->element->hv);
-      hv_store (heading_hv, "element", strlen ("element"), sv, 0);
-      if (heading->associated_anchor_command)
-        {
-          sv = newRV_inc ((SV *) heading->associated_anchor_command->hv);
-          hv_store (heading_hv, "associated_anchor_command",
-                    strlen ("associated_anchor_command"), sv, 0);
-        }
-      av_store (list_av, i, newRV_noinc ((SV *) heading_hv));
+      HEADING_STRUCTURE *structure = list->list[i];
+      HV *structure_hv = newHV ();
+      sv = newRV_inc ((SV *) structure->element->hv);
+      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
+      STORE_STRUCT_INFO(associated_anchor_command)
+      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
   return list_av;
 }
+
+#undef STORE_STRUCT_INFO
 
 /* currently unused */
 AV *

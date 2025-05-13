@@ -126,6 +126,8 @@ sub sectioning_structure($)
 {
   my $document = shift;
 
+  my $sections_list = $document->sections_list();
+
   my $customization_information = $document;
 
   my $registrar = $document->registrar();
@@ -145,7 +147,7 @@ sub sectioning_structure($)
   my @command_numbers;
   # keep track of the unnumbered
   my @command_unnumbered;
-  foreach my $section_structure (@{$document->{'sections_list'}}) {
+  foreach my $section_structure (@{$sections_list}) {
     my $content = $section_structure->{'element'};
     if ($content->{'cmdname'} eq 'top' and not $section_top) {
       $section_top = $content;
@@ -328,8 +330,8 @@ sub sectioning_structure($)
       }
       $previous_toplevel = $content;
     } elsif ($content->{'cmdname'} eq 'part'
-             and not ($content->{'extra'}
-                      and $content->{'extra'}->{'part_associated_section'})) {
+             and not $section_structure->{'part_associated_section'}) {
+
       $registrar->line_warn(
         sprintf(__("no sectioning command associated with \@%s"),
                 $content->{'cmdname'}), $content->{'source_info'}, 0,
@@ -384,7 +386,9 @@ sub print_sections_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_anchor_command', 'associated_node')) {
+    foreach my $node_key (('associated_anchor_command', 'associated_node',
+                           'associated_part',
+                           'part_associated_section', 'part_following_node')) {
       if ($section_structure->{$node_key}) {
         $result .= " $node_key: "
           ._print_root_command($section_structure->{$node_key})."\n";
@@ -877,13 +881,15 @@ sub complete_node_tree_with_menus($)
           if ($section
               and $customization_information->get_conf(
                                              'CHECK_NORMAL_MENU_STRUCTURE')) {
+            my $section_structure
+              = $sections_list->[$section->{'extra'}->{'section_number'} -1];
             # Check consistency with section and menu structure
             my $direction_section = $section;
 
             # Prefer the section associated with a @part for node directions.
-            if ($section->{'extra'}->{'part_associated_section'}) {
+            if ($section_structure->{'part_associated_section'}) {
               $direction_section
-                = $section->{'extra'}->{'part_associated_section'};
+                = $section_structure->{'part_associated_section'};
             }
             my $direction_associated_node
               = _section_direction_associated_node($sections_list,
@@ -1079,10 +1085,12 @@ sub construct_nodes_tree($)
           }
           if ($node_structure->{'associated_section'}) {
             my $section = $node_structure->{'associated_section'};
+            my $section_structure
+              = $sections_list->[$section->{'extra'}->{'section_number'} -1];
 
             # Prefer the section associated with a @part for node directions.
-            if ($section->{'extra'}->{'part_associated_section'}) {
-              $section = $section->{'extra'}->{'part_associated_section'};
+            if ($section_structure->{'part_associated_section'}) {
+              $section = $section_structure->{'part_associated_section'};
             }
 
             my $direction_associated_node
@@ -1224,7 +1232,7 @@ sub print_nodes_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $section_key (('associated_section')) {
+    foreach my $section_key (('associated_section', 'node_preceding_part')) {
       if ($node_structure->{$section_key}) {
         my $section_command
           = _print_section_command($node_structure->{$section_key});
@@ -1597,12 +1605,14 @@ sub new_complete_node_menu($$$;$$$)
       if (!$child->{'extra'} or !$child->{'extra'}->{'is_target'}) {
         next;
       }
-      my $child_structure = $nodes_list->[$child->{'extra'}->{'node_number'} -1];
+      my $node_structure = $nodes_list->[$child->{'extra'}->{'node_number'} -1];
 
-      my $child_section = $child_structure->{'associated_section'};
+      my $child_section = $node_structure->{'associated_section'};
       if ($child_section) {
         my $part_added = 0;
-        my $associated_part = $child_section->{'extra'}->{'associated_part'};
+        my $child_structure
+          = $sections_list->[$child_section->{'extra'}->{'section_number'} -1];
+        my $associated_part = $child_structure->{'associated_part'};
         if ($associated_part) {
           my $part_arguments_line = $associated_part->{'contents'}->[0];
           my $part_line_arg = $part_arguments_line->{'contents'}->[0];

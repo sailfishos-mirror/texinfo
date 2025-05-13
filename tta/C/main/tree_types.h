@@ -106,14 +106,10 @@ enum directions {
   ai_key(text_arg, string) \
   ai_key(translation_context, string) \
   \
-  ai_key(associated_part, element) \
   ai_key(element_node, element) \
   ai_key(float_section, element) \
   ai_key(node_description, element) \
   ai_key(node_long_description, element) \
-  ai_key(node_preceding_part, element) \
-  ai_key(part_associated_section, element) \
-  ai_key(part_following_node, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \
@@ -277,6 +273,7 @@ typedef struct NODE_STRUCTURE {
     const ELEMENT *element;
     ELEMENT *associated_section;
     ELEMENT *associated_title_command;
+    ELEMENT *node_preceding_part;
 } NODE_STRUCTURE;
 
 typedef struct NODE_STRUCTURE_LIST {
@@ -300,6 +297,9 @@ typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
     ELEMENT *associated_anchor_command;
     ELEMENT *associated_node;
+    ELEMENT *associated_part;
+    ELEMENT *part_associated_section;
+    ELEMENT *part_following_node;
 } SECTION_STRUCTURE;
 
 typedef struct SECTION_STRUCTURE_LIST {

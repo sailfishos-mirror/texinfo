@@ -46,7 +46,6 @@ FastBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E2]
  |section_childs:EC[E2]
  |section_level:{0}
  |section_number:{2}
@@ -62,7 +61,6 @@ FastBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E1]
  |section_directions:D[up->E1]
  |section_heading_number:{2}
  |section_level:{1}
@@ -110,7 +108,9 @@ $result_nodes_list{'chapter_before_and_after_part'} = '';
 
 $result_sections_list{'chapter_before_and_after_part'} = '1|chapter
 2|part
+ part_associated_section: chapter 2
 3|chapter 2
+ associated_part: part
 ';
 
 $result_headings_list{'chapter_before_and_after_part'} = '';

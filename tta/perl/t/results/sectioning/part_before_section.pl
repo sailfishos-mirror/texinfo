@@ -15,7 +15,6 @@ This: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E1]
  |section_childs:EC[E1]
  |section_level:{0}
  |section_number:{1}
@@ -36,7 +35,6 @@ This: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E0]
  |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
@@ -77,7 +75,9 @@ $result_errors{'part_before_section'} = [
 $result_nodes_list{'part_before_section'} = '';
 
 $result_sections_list{'part_before_section'} = '1|part
+ part_associated_section: section
 2|section
+ associated_part: part
 ';
 
 $result_headings_list{'part_before_section'} = '';

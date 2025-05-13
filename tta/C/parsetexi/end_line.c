@@ -1551,6 +1551,7 @@ end_line_misc_line (ELEMENT *current)
       /* arguments_line type element */
       ELEMENT *arguments_line = current->e.c->contents.list[0];
       char *node_normalized;
+      NODE_STRUCTURE *node_structure = 0;
 
       for (i = 1; i < arguments_line->e.c->contents.number && i < 4; i++)
         {
@@ -1589,22 +1590,22 @@ end_line_misc_line (ELEMENT *current)
       node_normalized = lookup_extra_string (current, AI_key_normalized);
       if (node_normalized)
         {
-          add_to_node_structure_list (&parsed_document->nodes_list, current);
+          node_structure
+           = add_to_node_structure_list (&parsed_document->nodes_list, current);
           add_extra_integer (current, AI_key_node_number,
                              parsed_document->nodes_list.number);
         }
 
-      if (current_part
-          && !lookup_extra_element (current_part,
-                                    AI_key_part_associated_section))
+      if (current_part && !current_part->part_associated_section
+          && node_structure)
         {
          /* we only associate a part to the following node if the
             part is not already associate to a sectioning command,
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
-          add_extra_element (current, AI_key_node_preceding_part, current_part);
-          add_extra_element (current_part, AI_key_part_following_node,
-                             current);
+          node_structure->node_preceding_part
+            = current_part->element;
+          current_part->part_following_node = current;
         }
       current_node = current;
     }
@@ -1836,12 +1837,12 @@ end_line_misc_line (ELEMENT *current)
 
           if (current_part)
             {
-              add_extra_element (current, AI_key_associated_part, current_part);
-              add_extra_element (current_part, AI_key_part_associated_section,
-                                 current);
+              section_structure->associated_part = current_part->element;
+              current_part->part_associated_section = current;
               if (current->e.c->cmd == CM_top)
                 {
-                  line_error_ext (MSG_warning, 0, &current_part->e.c->source_info,
+                  line_error_ext (MSG_warning, 0,
+                           &current_part->element->e.c->source_info,
                          "@part should not be associated with @top");
                 }
               current_part = 0;
@@ -1851,7 +1852,7 @@ end_line_misc_line (ELEMENT *current)
         }
       else if (cmd == CM_part)
         {
-          current_part = current;
+          current_part = section_structure;
           if (current_node)
             {
               int status;

@@ -48,8 +48,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E3]
- |part_following_node:[E2]
  |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +72,6 @@ NodeBack: [U0]
  |menus:EC[E4]
  |node_directions:D[next->E0]
  |node_number:{2}
- |node_preceding_part:[E1]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -87,7 +84,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E1]
  |section_directions:D[prev->E1]
  |section_level:{0}
  |section_number:{2}
@@ -171,13 +167,17 @@ $result_errors{'part_node_before_top'} = [
 $result_nodes_list{'part_node_before_top'} = '1|part node before top
 2|Top
  associated_section: top
+ node_preceding_part: part
  associated_title_command: top
 ';
 
 $result_sections_list{'part_node_before_top'} = '1|part
+ part_associated_section: top
+ part_following_node: Top
 2|top
  associated_anchor_command: Top
  associated_node: Top
+ associated_part: part
 ';
 
 $result_headings_list{'part_node_before_top'} = '';

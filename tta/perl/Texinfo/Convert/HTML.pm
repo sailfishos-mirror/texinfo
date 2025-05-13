@@ -1135,23 +1135,26 @@ sub _internal_command_href($$;$$)
     # @xrefname name for my node
     #
     # @chapter Chapter without directly associated node
-    my $section_structure;
     if ($self->{'document'} and $command->{'extra'}) {
       if ($command->{'extra'}->{'section_number'}) {
         my $sections_list = $self->{'document'}->sections_list();
-        $section_structure
+        my $section_structure
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
+
+        if ($section_structure->{'associated_node'}) {
+          $target_command = $section_structure->{'associated_node'};
+        } elsif ($section_structure->{'associated_anchor_command'}) {
+          $target_command = $section_structure->{'associated_anchor_command'};
+        }
       } elsif ($command->{'extra'}->{'heading_number'}) {
         my $headings_list = $self->{'document'}->headings_list();
-        $section_structure
+        my $heading_structure
           = $headings_list->[$command->{'extra'}->{'heading_number'} -1];
+
+        if ($heading_structure->{'associated_anchor_command'}) {
+          $target_command = $heading_structure->{'associated_anchor_command'};
+        }
       }
-    }
-    if ($section_structure and $section_structure->{'associated_node'}) {
-      $target_command = $section_structure->{'associated_node'};
-    } elsif ($section_structure
-             and $section_structure->{'associated_anchor_command'}) {
-      $target_command = $section_structure->{'associated_anchor_command'};
     }
 
     my $target_information = $self->_get_target($target_command);
@@ -7110,9 +7113,14 @@ sub _open_node_part_command($$$)
     my $node_element;
     if ($cmdname eq 'node') {
       $node_element = $element;
-    } elsif ($cmdname eq 'part' and $element->{'extra'}
-             and $element->{'extra'}->{'part_following_node'}) {
-      $node_element = $element->{'extra'}->{'part_following_node'};
+    } elsif ($cmdname eq 'part') {
+      my $document = $self->get_info('document');
+      if ($document) {
+        my $sections_list = $document->sections_list();
+        my $part_structure
+          = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+        $node_element = $part_structure->{'part_following_node'};
+      }
     }
     if ($node_element or $cmdname eq 'part') {
       if ($node_element and $node_element->{'extra'}

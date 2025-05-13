@@ -13,8 +13,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E2]
- |part_following_node:[E1]
  |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
@@ -42,7 +40,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |menus:EC[E3]
  |node_directions:D[next->E7]
  |node_number:{1}
- |node_preceding_part:[E0]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -55,7 +52,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E0]
  |section_directions:D[next->E4|prev->E0]
  |section_level:{0}
  |section_number:{2}
@@ -113,7 +109,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{2}
- |part_associated_section:[E5]
  |section_childs:EC[E5]
  |section_directions:D[next->E6|prev->E2]
  |section_level:{0}
@@ -133,7 +128,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E4]
  |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
@@ -152,7 +146,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{3}
- |part_following_node:[E7]
  |section_directions:D[next->E8|prev->E4]
  |section_level:{0}
  |section_number:{5}
@@ -175,7 +168,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
- |node_preceding_part:[E6]
  |normalized:{part-chapter-node}
   *arguments_line C1
    *line_arg C1
@@ -189,7 +181,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{4}
- |part_associated_section:[E9]
  |section_childs:EC[E9]
  |section_directions:D[next->E10|prev->E6]
  |section_level:{0}
@@ -209,7 +200,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E8]
  |section_directions:D[up->E8]
  |section_heading_number:{2}
  |section_level:{1}
@@ -247,7 +237,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{6}
- |part_associated_section:[E12]
  |section_childs:EC[E12]
  |section_directions:D[next->E13|prev->E10]
  |section_level:{0}
@@ -267,7 +256,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E11]
  |section_directions:D[up->E11]
  |section_heading_number:{3}
  |section_level:{1}
@@ -286,8 +274,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{7}
- |part_associated_section:[E15]
- |part_following_node:[E14]
  |section_childs:EC[E15]
  |section_directions:D[prev->E11]
  |section_level:{0}
@@ -310,7 +296,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |is_target:{1}
  |node_directions:D[up->E1]
  |node_number:{3}
- |node_preceding_part:[E13]
  |normalized:{node-between-part-and-chapter}
   *arguments_line C1
    *line_arg C1
@@ -324,7 +309,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E13]
  |section_directions:D[up->E13]
  |section_heading_number:{4}
  |section_level:{1}
@@ -550,33 +534,49 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
 
 $result_nodes_list{'non_empty_part_no_top_node_output'} = '1|Top
  associated_section: top
+ node_preceding_part: part before
  associated_title_command: top
 2|part chapter node
  associated_section: 2 chapter with part node
+ node_preceding_part: Part II
  associated_title_command: 2 chapter with part node
 3|node between part and chapter
  associated_section: 4 chapter after part node
+ node_preceding_part: Part VI
  associated_title_command: 4 chapter after part node
 ';
 
 $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
+ part_associated_section: top
+ part_following_node: Top
 2|top
  associated_anchor_command: Top
  associated_node: Top
+ associated_part: part before
 3|part I
+ part_associated_section: chap in Top node
 4|chap in Top node
+ associated_part: part I
 5|Part II
+ part_following_node: part chapter node
 6|part III
+ part_associated_section: chapter with part node
 7|chapter with part node
  associated_anchor_command: part chapter node
  associated_node: part chapter node
+ associated_part: part III
 8|Part IV
 9|Part V
+ part_associated_section: with part no node
 10|with part no node
+ associated_part: Part V
 11|Part VI
+ part_associated_section: chapter after part node
+ part_following_node: node between part and chapter
 12|chapter after part node
  associated_anchor_command: node between part and chapter
  associated_node: node between part and chapter
+ associated_part: Part VI
 ';
 
 $result_headings_list{'non_empty_part_no_top_node_output'} = '';

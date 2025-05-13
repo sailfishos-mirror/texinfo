@@ -180,6 +180,32 @@ print_root_command (const ELEMENT *element)
 }
 
 /* used in t/X.t tests */
+#define SECTION_STRUCT_PRINT_KEY(name) \
+      if (structure->name) \
+        { \
+          char *value \
+            = print_root_command (structure->name); \
+          text_printf (&result, " " #name ": %s\n", \
+                       value); \
+          free (value); \
+        }
+
+#define SECTION_STRUCT_PRINT_KEY_OR_NULL(name) \
+      if (structure->name) \
+        { \
+          char *value \
+            = print_section_command (structure->name); \
+          if (value) \
+            { \
+              text_printf (&result, " " #name ": %s", \
+                           value); \
+              free (value); \
+            } \
+          else \
+            text_append (&result, " " #name); \
+          text_append_n (&result, "\n", 1); \
+        }
+
 char *
 print_sections_list (const DOCUMENT *document)
 {
@@ -192,9 +218,9 @@ print_sections_list (const DOCUMENT *document)
 
   for (i = 0; i < document->sections_list.number; i++)
     {
-      const SECTION_STRUCTURE *section_structure
+      const SECTION_STRUCTURE *structure
         = document->sections_list.list[i];
-      const ELEMENT *element = section_structure->element;
+      const ELEMENT *element = structure->element;
       char *root_command_texi = print_root_command (element);
       if (!root_command_texi)
         text_printf (&result, "%zu", i+1);
@@ -205,22 +231,11 @@ print_sections_list (const DOCUMENT *document)
         }
       text_append_n (&result, "\n", 1);
 
-      if (section_structure->associated_anchor_command)
-        {
-          char *associated_anchor_command_text
-            = print_root_command (section_structure->associated_anchor_command);
-          text_printf (&result, " associated_anchor_command: %s\n",
-                       associated_anchor_command_text);
-          free (associated_anchor_command_text);
-        }
-
-      if (section_structure->associated_node)
-        {
-          char *associated_node_text
-            = print_root_command (section_structure->associated_node);
-          text_printf (&result, " associated_node: %s\n", associated_node_text);
-          free (associated_node_text);
-        }
+      SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
+      SECTION_STRUCT_PRINT_KEY(associated_node)
+      SECTION_STRUCT_PRINT_KEY(associated_part)
+      SECTION_STRUCT_PRINT_KEY(part_associated_section)
+      SECTION_STRUCT_PRINT_KEY(part_following_node)
     }
 
   return result.text;
@@ -284,9 +299,9 @@ print_nodes_list (const DOCUMENT *document)
 
   for (i = 0; i < document->nodes_list.number; i++)
     {
-      const NODE_STRUCTURE *node_structure
+      const NODE_STRUCTURE *structure
         = document->nodes_list.list[i];
-      const ELEMENT *element = node_structure->element;
+      const ELEMENT *element = structure->element;
       char *root_command_texi = print_root_command (element);
       if (!root_command_texi)
         text_printf (&result, "%zu", i+1);
@@ -297,26 +312,14 @@ print_nodes_list (const DOCUMENT *document)
         }
       text_append_n (&result, "\n", 1);
 
-      if (node_structure->associated_section)
-        {
-          char *associated_section_text
-            = print_section_command (node_structure->associated_section);
-          if (associated_section_text)
-            {
-              text_printf (&result, " associated_section: %s",
-                           associated_section_text);
-              free (associated_section_text);
-            }
-          else
-            text_append (&result, " associated_section");
-          text_append_n (&result, "\n", 1);
-        }
+      SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_section)
+      SECTION_STRUCT_PRINT_KEY_OR_NULL(node_preceding_part)
 
-      if (node_structure->associated_title_command)
+      if (structure->associated_title_command)
         {
           char *associated_title_command_text
             = print_title_command_command (
-                              node_structure->associated_title_command);
+                              structure->associated_title_command);
           if (associated_title_command_text)
             {
               text_printf (&result, " associated_title_command: %s",
@@ -344,9 +347,9 @@ print_headings_list (const DOCUMENT *document)
 
   for (i = 0; i < document->headings_list.number; i++)
     {
-      const HEADING_STRUCTURE *heading_structure
+      const HEADING_STRUCTURE *structure
         = document->headings_list.list[i];
-      const ELEMENT *element = heading_structure->element;
+      const ELEMENT *element = structure->element;
       const ELEMENT *line_arg = element->e.c->contents.list[0];
       char *root_command_texi = 0;
 
@@ -362,15 +365,11 @@ print_headings_list (const DOCUMENT *document)
         }
       text_append_n (&result, "\n", 1);
 
-      if (heading_structure->associated_anchor_command)
-        {
-          char *associated_anchor_command_text
-            = print_root_command (heading_structure->associated_anchor_command);
-          text_printf (&result, " associated_anchor_command: %s\n",
-                       associated_anchor_command_text);
-          free (associated_anchor_command_text);
-        }
+      SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
     }
 
   return result.text;
 }
+
+#undef SECTION_STRUCT_PRINT_KEY_OR_NULL
+#undef SECTION_STRUCT_PRINT_KEY

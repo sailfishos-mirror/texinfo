@@ -251,16 +251,22 @@ split_by_section (DOCUMENT *document)
           if (node_structure->associated_section)
             new_section = node_structure->associated_section;
         }
-      else if (data_cmd == CM_part)
+      else
         {
-          const ELEMENT *part_associated_section
-            = lookup_extra_element (content, AI_key_part_associated_section);
-          if (part_associated_section)
-            new_section = part_associated_section;
-        }
-      if (!new_section && data_cmd != CM_node && (CF_root & flags))
-        {
-          new_section = content;
+          if (data_cmd == CM_part)
+            {
+              int status;
+              size_t section_number
+                = lookup_extra_integer (content,
+                                        AI_key_section_number, &status);
+              const SECTION_STRUCTURE *part_structure
+                = document->sections_list.list[section_number -1];
+              new_section = part_structure->part_associated_section;
+            }
+          if (!new_section && (CF_root & flags))
+            {
+              new_section = content;
+            }
         }
       if (new_section)
         {

@@ -14,7 +14,6 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E1]
  |section_childs:EC[E1]
  |section_directions:D[next->E2]
  |section_level:{0}
@@ -36,7 +35,6 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E0]
  |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
@@ -94,7 +92,9 @@ $result_errors{'part_chapter_appendix'} = [];
 $result_nodes_list{'part_chapter_appendix'} = '';
 
 $result_sections_list{'part_chapter_appendix'} = '1|Part 1
+ part_associated_section: chapter
 2|chapter
+ associated_part: Part 1
 3|Appendix
 ';
 

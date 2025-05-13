@@ -104,7 +104,6 @@ $result_tree_text{'contents_and_shortcontents'} = '*document_root C12
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E6]
  |section_childs:EC[E6|E7|E8]
  |section_directions:D[next->E9|prev->E0]
  |section_level:{0}
@@ -121,7 +120,6 @@ $result_tree_text{'contents_and_shortcontents'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E5]
  |section_directions:D[next->E7|up->E5]
  |section_heading_number:{2}
  |section_level:{1}
@@ -288,7 +286,9 @@ $result_sections_list{'contents_and_shortcontents'} = '1|top
 4|subsection
 5|subsubsection
 6|part
+ part_associated_section: chapter in part
 7|chapter in part
+ associated_part: part
 8|second chapter in part
 9|unnumbered
 10|appendix

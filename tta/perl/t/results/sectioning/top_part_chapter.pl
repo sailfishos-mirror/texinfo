@@ -46,7 +46,6 @@ FastBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E2]
  |section_childs:EC[E2]
  |section_directions:D[prev->E0]
  |section_level:{0}
@@ -63,7 +62,6 @@ FastBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E1]
  |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
@@ -103,7 +101,9 @@ $result_nodes_list{'top_part_chapter'} = '';
 
 $result_sections_list{'top_part_chapter'} = '1|top
 2|part
+ part_associated_section: chapter
 3|chapter
+ associated_part: part
 ';
 
 $result_headings_list{'top_part_chapter'} = '';

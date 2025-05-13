@@ -96,8 +96,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E5]
- |part_following_node:[E4]
  |section_childs:EC[E5]
  |section_directions:D[prev->E1]
  |section_level:{0}
@@ -118,7 +116,6 @@ NodeBack: [U0]
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
- |node_preceding_part:[E3]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -131,7 +128,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{1}
  |section_level:{1}
@@ -180,6 +176,7 @@ $result_nodes_list{'part_chapter_after_top'} = '1|Top
  associated_title_command: top
 2|chapter
  associated_section: 1 chapter
+ node_preceding_part: part
  associated_title_command: 1 chapter
 ';
 
@@ -187,9 +184,12 @@ $result_sections_list{'part_chapter_after_top'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
 2|part
+ part_associated_section: chapter
+ part_following_node: chapter
 3|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ associated_part: part
 ';
 
 $result_headings_list{'part_chapter_after_top'} = '';

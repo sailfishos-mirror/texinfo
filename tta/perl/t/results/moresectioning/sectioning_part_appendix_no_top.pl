@@ -126,7 +126,6 @@ Next: [U5]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E5]
  |section_childs:EC[E5|E6|E7]
  |section_directions:D[next->E8]
  |section_level:{0}
@@ -143,7 +142,6 @@ Next: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E4]
  |section_directions:D[next->E6|up->E4]
  |section_heading_number:{2}
  |section_level:{1}
@@ -324,7 +322,9 @@ $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
 3|subsection
 4|subsubsection
 5|part
+ part_associated_section: chapter in part
 6|chapter in part
+ associated_part: part
 7|second chapter in part
 8|unnumbered
 9|appendix

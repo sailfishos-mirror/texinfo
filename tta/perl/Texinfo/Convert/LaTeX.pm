@@ -1136,9 +1136,11 @@ sub output($$)
       my $cmdname = $element_content->{'cmdname'};
       if ($cmdname eq 'node') {
         $node_element = $element_content;
-      } elsif ($cmdname eq 'part' and $element_content->{'extra'}
-               and $element_content->{'extra'}->{'part_following_node'}) {
-        $node_element = $element_content->{'extra'}->{'part_following_node'};
+      } elsif ($cmdname eq 'part' and $self->{'document'}) {
+        my $sections_list = $self->{'document'}->sections_list();
+        my $part_structure
+    = $sections_list->[$element_content->{'extra'}->{'section_number'} -1];
+        $node_element = $part_structure->{'part_following_node'};
       }
       if ($node_element or $cmdname eq 'part') {
         if ($node_element and $node_element->{'extra'}
@@ -2891,9 +2893,12 @@ sub _convert($$)
     my $node_element;
     if (defined($cmdname) and $cmdname eq 'node') {
       $node_element = $element;
-    } elsif (defined($cmdname) and $cmdname eq 'part' and $element->{'extra'}
-             and $element->{'extra'}->{'part_following_node'}) {
-      $node_element = $element->{'extra'}->{'part_following_node'};
+    } elsif (defined($cmdname) and $cmdname eq 'part'
+             and $self->{'document'}) {
+      my $sections_list = $self->{'document'}->sections_list();
+      my $part_structure
+       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+      $node_element = $part_structure->{'part_following_node'};
     }
     if (($node_element
          and not ($node_element->{'extra'}
@@ -4032,9 +4037,11 @@ sub _convert($$)
       my $node_element;
       if ($cmdname eq 'node') {
         $node_element = $element;
-      } elsif ($cmdname eq 'part' and $element->{'extra'}
-               and $element->{'extra'}->{'part_following_node'}) {
-        $node_element = $element->{'extra'}->{'part_following_node'};
+      } elsif ($cmdname eq 'part' and $self->{'document'}) {
+        my $sections_list = $self->{'document'}->sections_list();
+        my $part_structure
+          = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+        $node_element = $part_structure->{'part_following_node'};
       }
       if ($node_element and $node_element->{'extra'}
           and $node_element->{'extra'}->{'normalized'}

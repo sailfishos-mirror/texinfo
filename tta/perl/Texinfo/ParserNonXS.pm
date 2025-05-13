@@ -162,7 +162,7 @@ my %parser_document_state_initialization = (
   'source_mark_counters' => {},   #
   'current_node'    => undef,     # last seen node.
   'current_section' => undef,     # last seen section.
-  'current_part'    => undef,     # last seen part.
+  'current_part'    => undef,     # last seen part structure information.
   'internal_space_holder' => undef,
    # the element associated with the last internal spaces element added.
    # We know that there can only be one at a time as a non space
@@ -3953,17 +3953,16 @@ sub _end_line_misc_line($$$)
       #$self->{'current_node'} = $current;
     }
     if ($self->{'current_part'}) {
-      my $part = $self->{'current_part'};
-      if (not $part->{'extra'}
-         or not $part->{'extra'}->{'part_associated_section'}) {
+      my $part_structure = $self->{'current_part'};
+      if (not $part_structure->{'part_associated_section'}
+          and $node_structure) {
         # we only associate a part to the following node if the
         # part is not already associate to a sectioning command,
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
-        $current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'node_preceding_part'} = $part;
-        $part->{'extra'} = {} if (!defined($part->{'extra'}));
-        $part->{'extra'}->{'part_following_node'} = $current;
+        $node_structure->{'node_preceding_part'}
+          = $part_structure->{'element'};
+        $part_structure->{'part_following_node'} = $current;
       }
     }
     $self->{'current_node'} = $current;
@@ -4138,21 +4137,18 @@ sub _end_line_misc_line($$$)
         }
       }
       if ($self->{'current_part'}) {
-        $current->{'extra'} = {} if (!defined($current->{'extra'}));
-        $current->{'extra'}->{'associated_part'} = $self->{'current_part'};
-        $self->{'current_part'}->{'extra'} = {}
-          if (!defined($self->{'current_part'}->{'extra'}));
-        $self->{'current_part'}->{'extra'}->{'part_associated_section'}
-                                                 = $current;
+        my $part_structure = $self->{'current_part'};
+        $section_structure->{'associated_part'} = $part_structure->{'element'};
+        $part_structure->{'part_associated_section'} = $current;
         if ($current->{'cmdname'} eq 'top') {
           $self->_line_warn("\@part should not be associated with \@top",
-                           $self->{'current_part'}->{'source_info'});
+                          $part_structure->{'element'}->{'source_info'});
         }
         delete $self->{'current_part'};
       }
       $self->{'current_section'} = $current;
     } elsif ($command eq 'part') {
-      $self->{'current_part'} = $current;
+      $self->{'current_part'} = $section_structure;
       if ($self->{'current_node'}) {
         my $nodes_list = $document->nodes_list();
         my $node_structure

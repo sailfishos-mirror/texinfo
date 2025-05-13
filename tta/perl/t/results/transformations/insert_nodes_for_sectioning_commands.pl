@@ -49,7 +49,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E4]
  |section_childs:EC[E4|E18]
  |section_directions:D[prev->E1]
  |section_level:{0}
@@ -87,7 +86,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E2]
  |section_childs:EC[E6|E8|E14|E16]
  |section_directions:D[next->E18|up->E2]
  |section_heading_number:{1}
@@ -467,8 +465,10 @@ $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
 $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  associated_node: Top
 2|part
+ part_associated_section: chap, @code{a chap}
 3|chap, @code{a chap}
  associated_node: chap@comma{} @code{a chap}
+ associated_part: part
 4|section
  associated_anchor_command: a node
  associated_node: a node

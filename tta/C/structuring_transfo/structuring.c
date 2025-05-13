@@ -98,6 +98,7 @@ sectioning_structure (DOCUMENT *document)
   size_t i;
   TEXT section_number;
   text_init (&section_number);
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
 
   /* holds the current number for all the levels.  It is not possible to use
      something like the last child index, because of @unnumbered. */
@@ -105,9 +106,9 @@ sectioning_structure (DOCUMENT *document)
   /* keep track of the unnumbered */
   int command_unnumbered[5] = {0, 0, 0, 0, 0};
 
-  for (i = 0; i < document->sections_list.number; i++)
+  for (i = 0; i < sections_list->number; i++)
     {
-      SECTION_STRUCTURE *section_structure = document->sections_list.list[i];
+      SECTION_STRUCTURE *section_structure = sections_list->list[i];
       ELEMENT *content = (ELEMENT *)section_structure->element;
       int level;
 
@@ -375,18 +376,14 @@ sectioning_structure (DOCUMENT *document)
             }
           previous_toplevel = content;
         }
-      else if (content->e.c->cmd == CM_part)
+      else if (content->e.c->cmd == CM_part
+               && !section_structure->part_associated_section)
         {
-          const ELEMENT *part_associated_section
-            = lookup_extra_element (content, AI_key_part_associated_section);
-          if (!part_associated_section)
-            {
-              message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
-                             content,
-                            0, "no sectioning command associated with @%s",
-                                   builtin_command_name (content->e.c->cmd));
-            }
+          message_list_command_warn (error_messages,
+                            (options && options->DEBUG.o.integer > 0),
+                         content,
+                        0, "no sectioning command associated with @%s",
+                               builtin_command_name (content->e.c->cmd));
         }
     }
 
@@ -1149,13 +1146,17 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
                     {
                       const ELEMENT *node_direction_section = section;
-                      const ELEMENT *part_section;
                       const ELEMENT *direction_associated_node;
+                      int status;
+                      size_t section_number
+                        = lookup_extra_integer (section,
+                                         AI_key_section_number, &status);
+                      const SECTION_STRUCTURE *section_structure
+                        = sections_list->list[section_number -1];
           /* Prefer the section associated with a @part for node directions. */
-                      part_section = lookup_extra_element (section,
-                                               AI_key_part_associated_section);
-                      if (part_section)
-                        node_direction_section = part_section;
+                      if (section_structure->part_associated_section)
+                        node_direction_section
+                          = section_structure->part_associated_section;
                       direction_associated_node
                         = section_direction_associated_node (sections_list,
                                                   node_direction_section, d);
@@ -1451,7 +1452,6 @@ construct_nodes_tree (DOCUMENT *document)
             for (d = 0; d < directions_length; d++)
               {
                 const ELEMENT *section;
-                const ELEMENT *part_section;
                 const ELEMENT *direction_associated_node;
            /* prev defined as Top for the first Top node menu entry node */
                 if (d == D_prev && top_node_section_child
@@ -1466,11 +1466,16 @@ construct_nodes_tree (DOCUMENT *document)
                 section = node_structure->associated_section;
                 if (section)
                   {
+                    int status;
+                    size_t section_number
+                      = lookup_extra_integer (section,
+                                       AI_key_section_number, &status);
+                    const SECTION_STRUCTURE *section_structure
+                      = sections_list->list[section_number -1];
           /* Prefer the section associated with a @part for node directions. */
-                    part_section = lookup_extra_element (section,
-                                               AI_key_part_associated_section);
-                    if (part_section)
-                      section = part_section;
+                    if (section_structure->part_associated_section)
+                        section = section_structure->part_associated_section;
+
                     direction_associated_node
                       = section_direction_associated_node (sections_list,
                                                            section, d);
@@ -2001,22 +2006,28 @@ new_complete_node_menu (const ELEMENT *node,
               const ELEMENT *child_section;
               int status;
               size_t node_number;
-              const NODE_STRUCTURE *child_structure;
+              const NODE_STRUCTURE *node_structure;
 
               if (!is_target)
                 continue;
 
               node_number
                 = lookup_extra_integer (child, AI_key_node_number, &status);
-              child_structure = nodes_list->list[node_number -1];
-              child_section = child_structure->associated_section;
+              node_structure = nodes_list->list[node_number -1];
+              child_section = node_structure->associated_section;
 
               if (child_section)
                 {
                   int part_added = 0;
+                  int status;
+                  size_t section_number
+                    = lookup_extra_integer (child_section,
+                                         AI_key_section_number, &status);
+                  const SECTION_STRUCTURE *child_structure
+                    = sections_list->list[section_number -1];
+
                   const ELEMENT *associated_part
-                    = lookup_extra_element (child_section,
-                                            AI_key_associated_part);
+                    = child_structure->associated_part;
                   if (associated_part)
                     {
                       const ELEMENT *part_arguments_line

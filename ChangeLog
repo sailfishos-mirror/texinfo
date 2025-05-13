@@ -1,5 +1,47 @@
 2025-05-13  Patrice Dumas  <pertusus@free.fr>
 
+	move part related information in structure information out of tree
+
+	* tta/C/convert/format_html.c (html_internal_command_href),
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_href): handle
+	associated_anchor_command in heading in C and make Perl code more
+	similar.
+
+	* tta/C/main/build_perl_info.c (STORE_STRUCT_INFO)
+	(build_node_structure_list, build_section_structure_list)
+	(build_heading_structure_list), tta/C/main/structure_list.c
+	(SECTION_STRUCT_PRINT_KEY, SECTION_STRUCT_PRINT_KEY_OR_NULL)
+	(print_sections_list, print_nodes_list, print_headings_list): use
+	macros to avoid code duplication.
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list)
+	(build_section_structure_list), tta/C/main/structure_list.c
+	(print_sections_list, print_nodes_list), tta/C/main/tree_types.h
+	(enum directions, NODE_STRUCTURE, SECTION_STRUCTURE),
+	tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/C/parsetexi/parser.c (current_part),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list)
+	(print_nodes_list): move
+	associated_part, node_preceding_part, part_associated_section and
+	part_following_node to structure information.  Make current_part the
+	part structure information structure information.
+
+	* tta/C/convert/format_html.c (html_internal_command_href)
+	(html_open_node_part_command), tta/C/main/output_unit.c
+	(split_by_section), tta/C/structuring_transfo/structuring.c
+	(sectioning_structure, complete_node_tree_with_menus)
+	(construct_nodes_tree, new_complete_node_menu),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_open_node_part_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (output, _convert),
+	tta/perl/Texinfo/OutputUnits.pm (split_by_section),
+	tta/perl/Texinfo/Structuring.pm (sectioning_structure)
+	(complete_node_tree_with_menus, new_complete_node_menu): update for
+	change in tree and structure information.
+
+2025-05-13  Patrice Dumas  <pertusus@free.fr>
+
 	associated_anchor_command and associated_title_command in structure out of tree
 
 	* tta/C/main/build_perl_info.c (build_node_structure_list)
@@ -4440,7 +4482,7 @@
 
 	* doc/refcard/txivarcheck (main): rename tp_vars as t2a_vars,
 	tp_cmds_vars as t2a_cmds_vars, tp_vars_only as t2a_vars_only,
-	tp_cmds_vars_only as t2a_cmds_vars_only and read_tp as read_vars. 
+	tp_cmds_vars_only as t2a_cmds_vars_only and read_tp as read_vars.
 
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 

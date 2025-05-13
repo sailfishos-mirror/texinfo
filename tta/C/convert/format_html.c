@@ -1390,25 +1390,44 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
          @chapter Chapter without directly associated node
        */
-      const SECTION_STRUCTURE *section_structure = 0;
-      int status;
-      size_t section_number
-        = lookup_extra_integer (command, AI_key_section_number, &status);
-
-      if (section_number && self->document)
+      if (self->document)
         {
-          const SECTION_STRUCTURE_LIST *sections_list
-            = &self->document->sections_list;
-          section_structure = sections_list->list[section_number -1];
+          int status;
+          size_t section_number
+            = lookup_extra_integer (command, AI_key_section_number, &status);
+
+          if (section_number)
+            {
+              const SECTION_STRUCTURE_LIST *sections_list
+                = &self->document->sections_list;
+              const SECTION_STRUCTURE *section_structure
+                = sections_list->list[section_number -1];
+
+              if (section_structure->associated_node)
+                target_command = section_structure->associated_node;
+              else if (section_structure->associated_anchor_command)
+                target_command = section_structure->associated_anchor_command;
+            }
+          else
+            {
+              size_t heading_number
+                = lookup_extra_integer (command,
+                                        AI_key_heading_number, &status);
+
+              if (heading_number)
+                {
+                  const HEADING_STRUCTURE_LIST *headings_list
+                    = &self->document->headings_list;
+                  const HEADING_STRUCTURE *heading_structure
+                    = headings_list->list[heading_number -1];
+
+                  if (heading_structure->associated_anchor_command)
+                    target_command
+                       = heading_structure->associated_anchor_command;
+                }
+            }
         }
 
-      if (section_structure && section_structure->associated_node)
-        target_command = section_structure->associated_node;
-      else if (section_structure
-               && section_structure->associated_anchor_command)
-        {
-          target_command = section_structure->associated_anchor_command;
-        }
       target_info = html_get_target (self, target_command);
       if (target_info)
         target = target_info->target;
@@ -11209,12 +11228,16 @@ html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
 
       if (cmd == CM_node)
         node_element = element;
-      else if (cmd == CM_part)
+      else if (cmd == CM_part && self->document)
         {
-          const ELEMENT *part_following_node
-            = lookup_extra_element (element, AI_key_part_following_node);
-          if (part_following_node)
-            node_element = part_following_node;
+          int status;
+          size_t section_number
+            = lookup_extra_integer (element,
+                                    AI_key_section_number, &status);
+          const SECTION_STRUCTURE *part_structure
+            = self->document->sections_list.list[section_number -1];
+
+          node_element = part_structure->part_following_node;
         }
       if (node_element || cmd == CM_part)
         {

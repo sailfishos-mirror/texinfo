@@ -114,8 +114,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E8]
- |part_following_node:[E7]
  |section_childs:EC[E8]
  |section_directions:D[next->E9|prev->E1]
  |section_level:{0}
@@ -135,7 +133,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |is_target:{1}
  |node_directions:D[next->E10|prev->E2|up->E0]
  |node_number:{4}
- |node_preceding_part:[E6]
  |normalized:{chap2}
   *arguments_line C1
    *line_arg C1
@@ -148,7 +145,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E6]
  |section_directions:D[up->E6]
  |section_heading_number:{2}
  |section_level:{1}
@@ -167,8 +163,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |global_command_number:{2}
- |part_associated_section:[E11]
- |part_following_node:[E10]
  |section_childs:EC[E11]
  |section_directions:D[prev->E6]
  |section_level:{0}
@@ -188,7 +182,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |is_target:{1}
  |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
- |node_preceding_part:[E9]
  |normalized:{app}
   *arguments_line C1
    *line_arg C1
@@ -201,7 +194,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E9]
  |section_directions:D[up->E9]
  |section_heading_number:{A}
  |section_level:{1}
@@ -273,9 +265,11 @@ $result_nodes_list{'appendix_and_associated_part_in_generated_menu'} = '1|Top
  associated_title_command: 1.1 Sec
 4|chap2
  associated_section: 2 Chap 2
+ node_preceding_part: P1
  associated_title_command: 2 Chap 2
 5|app
  associated_section: A GGG
+ node_preceding_part: Final
  associated_title_command: A GGG
 ';
 
@@ -289,13 +283,19 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
  associated_anchor_command: sec
  associated_node: sec
 4|P1
+ part_associated_section: Chap 2
+ part_following_node: chap2
 5|Chap 2
  associated_anchor_command: chap2
  associated_node: chap2
+ associated_part: P1
 6|Final
+ part_associated_section: GGG
+ part_following_node: app
 7|GGG
  associated_anchor_command: app
  associated_node: app
+ associated_part: Final
 ';
 
 $result_headings_list{'appendix_and_associated_part_in_generated_menu'} = '';

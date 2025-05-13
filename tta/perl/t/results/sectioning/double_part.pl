@@ -124,8 +124,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{2}
- |part_associated_section:[E6]
- |part_following_node:[E5]
  |section_childs:EC[E6]
  |section_directions:D[prev->E3]
  |section_level:{0}
@@ -148,7 +146,6 @@ NodeBack: [U0]
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
- |node_preceding_part:[E4]
  |normalized:{node-chapter}
   *arguments_line C1
    *line_arg C1
@@ -161,7 +158,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E4]
  |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
@@ -244,6 +240,7 @@ $result_nodes_list{'double_part'} = '1|Top
  associated_title_command: top
 2|node chapter
  associated_section: 1 chapter after 2 parts
+ node_preceding_part: part second
  associated_title_command: 1 chapter after 2 parts
 ';
 
@@ -252,9 +249,12 @@ $result_sections_list{'double_part'} = '1|top
  associated_node: Top
 2|part first
 3|part second
+ part_associated_section: chapter after 2 parts
+ part_following_node: node chapter
 4|chapter after 2 parts
  associated_anchor_command: node chapter
  associated_node: node chapter
+ associated_part: part second
 ';
 
 $result_headings_list{'double_part'} = '';

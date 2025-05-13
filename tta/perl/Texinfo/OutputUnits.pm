@@ -180,18 +180,25 @@ sub split_by_section($)
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     my $new_section;
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node') {
-      my $node_structure = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
-      if ($node_structure->{'associated_section'}) {
-        $new_section = $node_structure->{'associated_section'};
+    if ($content->{'cmdname'}) {
+      if ($content->{'cmdname'} eq 'node') {
+        my $node_structure
+          = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
+        if ($node_structure->{'associated_section'}) {
+          $new_section = $node_structure->{'associated_section'};
+        }
+      } else {
+        if ($content->{'cmdname'} eq 'part') {
+          my $sections_list = $document->sections_list();
+          my $part_structure
+            = $sections_list->[$content->{'extra'}->{'section_number'} -1];
+          $new_section = $part_structure->{'part_associated_section'};
+        }
+        if (not $new_section
+            and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+          $new_section = $content;
+        }
       }
-    } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'part'
-             and $content->{'extra'}
-             and $content->{'extra'}->{'part_associated_section'}) {
-      $new_section = $content->{'extra'}->{'part_associated_section'};
-    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-             and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
-      $new_section = $content;
     }
     if ($new_section) {
       if (not defined($current->{'unit_command'})) {

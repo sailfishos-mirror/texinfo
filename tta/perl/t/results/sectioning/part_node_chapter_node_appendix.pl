@@ -111,8 +111,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E5]
- |part_following_node:[E4]
  |section_childs:EC[E5]
  |section_directions:D[next->E7|prev->E1]
  |section_level:{0}
@@ -133,7 +131,6 @@ NodeBack: [U0]
  |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
- |node_preceding_part:[E3]
  |normalized:{chapter-node}
   *arguments_line C1
    *line_arg C1
@@ -146,7 +143,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E3]
  |section_directions:D[up->E3]
  |section_heading_number:{1}
  |section_level:{1}
@@ -246,6 +242,7 @@ $result_nodes_list{'part_node_chapter_node_appendix'} = '1|Top
  associated_title_command: top
 2|chapter node
  associated_section: 1 chapter
+ node_preceding_part: Part 1
  associated_title_command: 1 chapter
 3|appendix node
  associated_section: A Appendix
@@ -256,9 +253,12 @@ $result_sections_list{'part_node_chapter_node_appendix'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
 2|Part 1
+ part_associated_section: chapter
+ part_following_node: chapter node
 3|chapter
  associated_anchor_command: chapter node
  associated_node: chapter node
+ associated_part: Part 1
 4|Appendix
  associated_anchor_command: appendix node
  associated_node: appendix node

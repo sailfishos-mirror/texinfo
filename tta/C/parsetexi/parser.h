@@ -115,7 +115,7 @@ extern FLOAT_RECORD_LIST parser_float_records;
 
 extern ELEMENT *current_node;
 extern const ELEMENT *current_section;
-extern ELEMENT *current_part;
+extern SECTION_STRUCTURE *current_part;
 
 extern char *global_documentlanguage;
 

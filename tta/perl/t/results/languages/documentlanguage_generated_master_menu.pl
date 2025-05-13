@@ -76,8 +76,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |global_command_number:{1}
- |part_associated_section:[E4]
- |part_following_node:[E3]
  |section_childs:EC[E4]
  |section_directions:D[next->E5|prev->E1]
  |section_level:{0}
@@ -97,7 +95,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |is_target:{1}
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
- |node_preceding_part:[E2]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -110,7 +107,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E2]
  |section_directions:D[up->E2]
  |section_heading_number:{1}
  |section_level:{1}
@@ -142,8 +138,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |global_command_number:{2}
- |part_associated_section:[E7]
- |part_following_node:[E6]
  |section_childs:EC[E7]
  |section_directions:D[next->E9|prev->E2]
  |section_level:{0}
@@ -163,7 +157,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |is_target:{1}
  |node_directions:D[next->E8|prev->E3|up->E0]
  |node_number:{3}
- |node_preceding_part:[E5]
  |normalized:{other-chap}
   *arguments_line C1
    *line_arg C1
@@ -176,7 +169,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_part:[E5]
  |section_directions:D[up->E5]
  |section_heading_number:{2}
  |section_level:{1}
@@ -293,9 +285,11 @@ $result_nodes_list{'documentlanguage_generated_master_menu'} = '1|Top
  associated_title_command: top
 2|chapter
  associated_section: 1 Chap
+ node_preceding_part: Part I
  associated_title_command: 1 Chap
 3|other chap
  associated_section: 2 Other chap
+ node_preceding_part: Part II
  associated_title_command: 2 Other chap
 4|appendix
  associated_section: A App
@@ -306,13 +300,19 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
 2|Part I
+ part_associated_section: Chap
+ part_following_node: chapter
 3|Chap
  associated_anchor_command: chapter
  associated_node: chapter
+ associated_part: Part I
 4|Part II
+ part_associated_section: Other chap
+ part_following_node: other chap
 5|Other chap
  associated_anchor_command: other chap
  associated_node: other chap
+ associated_part: Part II
 6|App
  associated_anchor_command: appendix
  associated_node: appendix
