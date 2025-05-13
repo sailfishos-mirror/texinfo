@@ -3949,8 +3949,7 @@ sub _end_line_misc_line($$$)
         and defined($current->{'extra'}->{'normalized'})) {
       $node_structure
         = _add_to_structure_list($document, 'node', $current);
-      # TODO no empty node as current_node?
-      #$self->{'current_node'} = $current;
+      $self->{'current_node'} = $current;
     }
     if ($self->{'current_part'}) {
       my $part_structure = $self->{'current_part'};
@@ -3965,7 +3964,6 @@ sub _end_line_misc_line($$$)
         $part_structure->{'part_following_node'} = $current;
       }
     }
-    $self->{'current_node'} = $current;
   } elsif ($command eq 'listoffloats') {
     _parse_float_type($current, $current->{'contents'}->[0]);
   } else {

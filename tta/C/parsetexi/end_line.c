@@ -1594,6 +1594,7 @@ end_line_misc_line (ELEMENT *current)
            = add_to_node_structure_list (&parsed_document->nodes_list, current);
           add_extra_integer (current, AI_key_node_number,
                              parsed_document->nodes_list.number);
+          current_node = current;
         }
 
       if (current_part && !current_part->part_associated_section
@@ -1607,7 +1608,6 @@ end_line_misc_line (ELEMENT *current)
             = current_part->element;
           current_part->part_following_node = current;
         }
-      current_node = current;
     }
   else if (current->e.c->cmd == CM_listoffloats)
     {
