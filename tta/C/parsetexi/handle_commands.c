@@ -817,8 +817,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                     }
                   else
                     current_node->node_description = command_e;
-                  add_extra_element (command_e, AI_key_element_node,
-                                     current_node->element);
                 }
               else
                 line_warn ("@nodedescription outside of any node");
@@ -1164,7 +1162,6 @@ handle_block_command (ELEMENT *current, const char **line_inout,
 
                   current_node->node_long_description = block;
                 }
-              add_extra_element (block, AI_key_element_node, current_node->element);
             }
           else
             line_warn ("@nodedescriptionblock outside of any node");

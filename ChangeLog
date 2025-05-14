@@ -1,5 +1,13 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_line_command, _handle_block_command): remove element_node
+	extra information associated to nodedescription and
+	nodedescriptionblock.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (new_node_menu_entry): handle the
 	case of source_info not set.
 

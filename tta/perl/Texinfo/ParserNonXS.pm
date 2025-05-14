@@ -5923,9 +5923,6 @@ sub _handle_line_command($$$$$$)
       if ($command eq 'nodedescription') {
         if ($self->{'current_node'}) {
           my $node_structure = $self->{'current_node'};
-          $command_e->{'extra'} = {} if (!defined($command_e->{'extra'}));
-          $command_e->{'extra'}->{'element_node'}
-            = $node_structure->{'element'};
           if ($node_structure->{'node_description'}) {
             my $set_description
               = $node_structure->{'node_description'};
@@ -6200,8 +6197,6 @@ sub _handle_block_command($$$$$)
     } elsif ($command eq 'nodedescriptionblock') {
       if ($self->{'current_node'}) {
         my $node_structure = $self->{'current_node'};
-        $block->{'extra'} = {} if (!defined($block->{'extra'}));
-        $block->{'extra'}->{'element_node'} = $node_structure->{'element'};
         if ($node_structure->{'node_long_description'}) {
           $self->_line_warn(__("multiple node \@nodedescriptionblock"),
                             $source_info);
@@ -9309,8 +9304,7 @@ X<Texinfo tree element extra key>
 =item element_node
 
 The node element in the parsed tree containing the element.
-Set for @-commands elements that have an associated
-index entry and for C<@nodedescription>.
+Set for @-commands elements that have an associated index entry.
 
 =item element_region
 

@@ -132,8 +132,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E6]
    *line_arg C1
    |INFO
    |spaces_after_argument:

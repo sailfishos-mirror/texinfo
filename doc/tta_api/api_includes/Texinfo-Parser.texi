@@ -1092,8 +1092,7 @@ associated with each argument element.
 @anchor{Texinfo@asis{::}Parser element_node}
 
 The node element in the parsed tree containing the element.
-Set for @@-commands elements that have an associated
-index entry and for @code{@@nodedescription}.
+Set for @@-commands elements that have an associated index entry.
 
 @item element_region
 @anchor{Texinfo@asis{::}Parser element_region}

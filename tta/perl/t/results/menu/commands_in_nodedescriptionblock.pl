@@ -134,8 +134,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     {chap1}
   {empty_line:\\n}
   *5 @nodedescriptionblock C10 l14
-  |EXTRA
-  |element_node:[E3]
    *arguments_line C1
     *block_line_arg
     |INFO

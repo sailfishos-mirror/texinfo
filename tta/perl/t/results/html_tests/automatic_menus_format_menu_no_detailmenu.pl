@@ -79,8 +79,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -121,8 +119,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E5]
    *line_arg C1
    |INFO
    |spaces_after_argument:

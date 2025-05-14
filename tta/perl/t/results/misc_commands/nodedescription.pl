@@ -89,8 +89,6 @@ $result_tree_text{'nodedescription'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E3]
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -104,8 +102,6 @@ $result_tree_text{'nodedescription'} = '*document_root C5
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E3]
    *line_arg C2
     {second description }
     *@\\n

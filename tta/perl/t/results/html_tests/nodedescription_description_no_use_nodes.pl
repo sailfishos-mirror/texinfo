@@ -80,8 +80,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E2]
    *line_arg C8
    |INFO
    |spaces_after_argument:
@@ -109,8 +107,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
     {nexpected}
   {empty_line:\\n}
   *5 @nodedescriptionblock C3 l9
-  |EXTRA
-  |element_node:[E2]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -163,8 +159,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
     {Titi}
   {empty_line:\\n}
   *8 @nodedescriptionblock C3 l16
-  |EXTRA
-  |element_node:[E6]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -220,8 +214,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E9]
    *line_arg C1
    |INFO
    |spaces_after_argument:

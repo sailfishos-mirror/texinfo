@@ -185,8 +185,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E3]
    *line_arg C8
    |INFO
    |spaces_after_argument:
@@ -250,8 +248,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E6]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -295,8 +291,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E9]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -340,8 +334,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -385,8 +377,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E15]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -430,8 +420,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E18]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -475,8 +463,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E21]
    *line_arg C1
    |INFO
    |spaces_after_argument:

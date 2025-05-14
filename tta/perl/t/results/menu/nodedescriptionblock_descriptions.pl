@@ -160,8 +160,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E3]
    *line_arg C8
    |INFO
    |spaces_after_argument:
@@ -189,8 +187,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     {nexpected}
   {empty_line:\\n}
   *6 @nodedescriptionblock C3 l18
-  |EXTRA
-  |element_node:[E3]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -244,8 +240,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     {Titi}
   {empty_line:\\n}
   *9 @nodedescriptionblock C3 l25
-  |EXTRA
-  |element_node:[E7]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -299,8 +293,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     {Other}
   {empty_line:\\n}
   *12 @nodedescriptionblock C7 l32
-  |EXTRA
-  |element_node:[E10]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -377,8 +369,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     {Somewhat long}
   {empty_line:\\n}
   *15 @nodedescriptionblock C3 l45
-  |EXTRA
-  |element_node:[E13]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -402,8 +392,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |element_node:[E13]
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -444,8 +432,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     {test double}
   {empty_line:\\n}
   *19 @nodedescriptionblock C3 l54
-  |EXTRA
-  |element_node:[E17]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -466,8 +452,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      {nodedescriptionblock}
   {empty_line:\\n}
   *20 @nodedescriptionblock C3 l58
-  |EXTRA
-  |element_node:[E17]
    *arguments_line C1
     *block_line_arg
     |INFO
