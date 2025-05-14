@@ -4156,6 +4156,7 @@ sub _convert($$)
           }
 
           my $node_description;
+          my $long_description = 0;
           if ($menu_entry_node and $menu_entry_node->{'extra'}
               and defined($menu_entry_node->{'extra'}->{'normalized'})
               and $identifiers_target
@@ -4166,7 +4167,12 @@ sub _convert($$)
               my $nodes_list = $self->{'document'}->nodes_list();
               my $node_structure
                 = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
-              $node_description = $node_structure->{'node_description'};
+              if ($node_structure->{'node_description'}) {
+                $node_description = $node_structure->{'node_description'};
+              } elsif ($node_structure->{'node_long_description'}) {
+                $node_description = $node_structure->{'node_long_description'};
+                $long_description = 1;
+              }
             }
           }
 
@@ -4231,7 +4237,7 @@ sub _convert($$)
               $self->{'silent'}++;
             }
 
-            if ($node_description->{'cmdname'} eq 'nodedescription') {
+            if (!$long_description) {
               # push a paragraph container to format the description.
               $description_para = new_formatter($self, 'paragraph',
                   { 'indent_length' => $description_indent_length });
@@ -4249,7 +4255,7 @@ sub _convert($$)
               $formatted_elt = {'contents' => $node_description->{'contents'}};
             }
             _convert($self, $formatted_elt);
-            if ($node_description->{'cmdname'} eq 'nodedescription') {
+            if (!$long_description) {
               _stream_output($self,
                  Texinfo::Convert::Paragraph::end($description_para->{'container'}),
                  $description_para->{'container'});

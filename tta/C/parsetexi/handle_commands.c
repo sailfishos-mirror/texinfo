@@ -808,13 +808,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   const ELEMENT *e_description
                     = current_node->node_description;
                   if (e_description)
-                    {
-                      if (e_description->e.c->cmd == cmd)
-                        line_warn ("multiple node @nodedescription");
-                      else
-                        /* silently replace nodedescriptionblock */
-                        current_node->node_description = command_e;
-                    }
+                    line_warn ("multiple node @nodedescription");
                   else
                     current_node->node_description = command_e;
                 }
@@ -1152,16 +1146,8 @@ handle_block_command (ELEMENT *current, const char **line_inout,
                 = current_node->node_long_description;
               if (node_long_description)
                 line_warn ("multiple node @nodedescriptionblock");
-               else
-                {
-                  const ELEMENT *node_description
-                    = current_node->node_description;
-
-                  if (!node_description)
-                    current_node->node_description = block;
-
-                  current_node->node_long_description = block;
-                }
+              else
+                current_node->node_long_description = block;
             }
           else
             line_warn ("@nodedescriptionblock outside of any node");

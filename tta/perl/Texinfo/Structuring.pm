@@ -1256,20 +1256,18 @@ sub print_nodes_list($)
         }
       }
     }
-    foreach my $section_key (('associated_title_command')) {
-      if ($node_structure->{$section_key}) {
-        $result .= _print_line_command_key_element($section_key,
-                                        $node_structure->{$section_key});
+    foreach my $line_cmd_key (('associated_title_command',
+                               'node_description')) {
+      if ($node_structure->{$line_cmd_key}) {
+        $result .= _print_line_command_key_element($line_cmd_key,
+                                  $node_structure->{$line_cmd_key});
       }
     }
-    my $key = 'node_description';
-    if ($node_structure->{$key}) {
-      my $node_description = $node_structure->{$key};
-      if ($node_description->{'cmdname'} eq 'nodedescriptionblock') {
-        $result .= " $key: @".$node_description->{'cmdname'}."\n";
-      } else {
-        $result .= _print_line_command_key_element($key,
-                                        $node_structure->{$key});
+
+    foreach my $command_key (('node_long_description')) {
+      if ($node_structure->{$command_key}) {
+        my $command_element = $node_structure->{$command_key};
+        $result .= " $command_key: @".$command_element->{'cmdname'}."\n";
       }
     }
     $idx++;

@@ -283,10 +283,11 @@ $result_nodes_list{'nodedescription_description'} = '1|Top
  associated_section: 1 Toto
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
+ node_long_description: @nodedescriptionblock
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
- node_description: @nodedescriptionblock
+ node_long_description: @nodedescriptionblock
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other

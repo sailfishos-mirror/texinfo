@@ -1555,6 +1555,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           char *explanation;
           char *context_name;
           const ELEMENT *node_description;
+          int long_description = 0;
           int formatted_nodedescription_nr = 0;
           HTML_TARGET *node_target_info;
           char *multiple_formatted = 0;
@@ -1596,7 +1597,13 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
               const NODE_STRUCTURE *node_structure
                 = self->document->nodes_list.list[node_number -1];
 
-              node_description = node_structure->node_description;
+              if (node_structure->node_description)
+                node_description = node_structure->node_description;
+              else if (node_structure->node_long_description)
+                {
+                  node_description = node_structure->node_long_description;
+                  long_description = 1;
+                }
             }
 
           if (!node_description)
@@ -1614,7 +1621,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->e.c->cmd == CM_nodedescription)
+          if (!long_description)
             description_element = node_description->e.c->contents.list[0];
           else
             {
@@ -1648,7 +1655,8 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->e.c->cmd != CM_nodedescription)
+
+          if (!long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -11882,6 +11890,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   const ELEMENT *menu_entry_separators[2];
   const ELEMENT *manual_content;
   const ELEMENT *node_description = 0;
+  int long_description = 0;
   const ELEMENT *associated_title_command = 0;
   size_t i;
   int entry_separators_nr = 0;
@@ -11938,7 +11947,13 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                   node_structure
                     = self->document->nodes_list.list[node_number -1];
 
-                  node_description = node_structure->node_description;
+                  if (node_structure->node_description)
+                    node_description = node_structure->node_description;
+                  else if (node_structure->node_long_description)
+                    {
+                      node_description = node_structure->node_long_description;
+                      long_description = 1;
+                    }
                 }
 
                 /* if !NODE_NAME_IN_MENU, we pick the associated title
@@ -12078,12 +12093,13 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->e.c->cmd == CM_nodedescription)
+          if (!long_description)
             description_element = node_description->e.c->contents.list[0];
           else
             {
               description_element = new_element (ET_NONE);
-              description_element->e.c->contents = node_description->e.c->contents;
+              description_element->e.c->contents
+                = node_description->e.c->contents;
               add_tree_to_build (self, description_element);
             }
 
@@ -12101,7 +12117,8 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->e.c->cmd != CM_nodedescription)
+
+          if (!long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -12228,7 +12245,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->e.c->cmd == CM_nodedescription)
+          if (!long_description)
             description_element = node_description->e.c->contents.list[0];
           else
             {
@@ -12245,7 +12262,8 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->e.c->cmd != CM_nodedescription)
+
+          if (!long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;

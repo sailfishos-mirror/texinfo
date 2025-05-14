@@ -1,5 +1,22 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/structure_list.c (print_nodes_list),
+	tta/C/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_line_command, _handle_block_command),
+	tta/perl/Texinfo/Structuring.pm (print_nodes_list): associate
+	nodedescription to node_description and nodedescriptionblock to
+	node_long_description in parser.
+
+	* tta/C/convert/format_html.c (html_command_description)
+	(html_convert_menu_entry_type), tta/perl/Texinfo/Convert/HTML.pm
+	(command_description, _convert_menu_entry_type),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert): determine
+	which of node_description or node_long_description is to be used in
+	converters.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/handle_commands.c (handle_line_command)
 	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm
 	(_handle_line_command, _handle_block_command): remove element_node
@@ -7104,7 +7121,7 @@
 
 2024-12-30  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/main/convert_utils.c (register_unclosed_file), 
+	* tp/Texinfo/XS/main/convert_utils.c (register_unclosed_file),
 	tp/Texinfo/XS/main/utils.c (new_output_files_information)
 	(allocate_file_stream): add allocate_file_stream based on
 	register_unclosed_file code, with code doing the allocation of a

@@ -598,22 +598,24 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: 1 Toto
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
+ node_long_description: @nodedescriptionblock
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
- node_description: @nodedescriptionblock
+ node_long_description: @nodedescriptionblock
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
- node_description: @nodedescriptionblock
+ node_long_description: @nodedescriptionblock
 5|a somewhat long node without description nor following space
  associated_section: 4 Somewhat long
  associated_title_command: 4 Somewhat long
  node_description: @nodedescription not as long as the node
+ node_long_description: @nodedescriptionblock
 6|node double nodedescriptionblock
  associated_section: 5 test double
  associated_title_command: 5 test double
- node_description: @nodedescriptionblock
+ node_long_description: @nodedescriptionblock
 ';
 
 $result_sections_list{'nodedescriptionblock_descriptions'} = '1|test of nodedescriptionblock used in menu

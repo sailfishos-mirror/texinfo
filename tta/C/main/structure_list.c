@@ -368,13 +368,16 @@ print_nodes_list (const DOCUMENT *document)
         }
       if (structure->node_description)
         {
-          const char *key = "node_description";
-          const ELEMENT *node_description = structure->node_description;
-          if (node_description->e.c->cmd == CM_nodedescriptionblock)
-            text_printf (&result, " %s: @%s", key,
-                         builtin_command_name (node_description->e.c->cmd));
-          else
-            print_line_command_key_element (&result, key, node_description);
+          print_line_command_key_element (&result, "node_description",
+                                 structure->node_description);
+          text_append_n (&result, "\n", 1);
+        }
+      if (structure->node_long_description)
+        {
+          const char *command_key = "node_long_description";
+          const ELEMENT *command_element = structure->node_long_description;
+          text_printf (&result, " %s: @%s", command_key,
+                       builtin_command_name (command_element->e.c->cmd));
           text_append_n (&result, "\n", 1);
         }
     }

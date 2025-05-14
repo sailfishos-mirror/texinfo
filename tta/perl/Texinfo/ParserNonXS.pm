@@ -5924,16 +5924,8 @@ sub _handle_line_command($$$$$$)
         if ($self->{'current_node'}) {
           my $node_structure = $self->{'current_node'};
           if ($node_structure->{'node_description'}) {
-            my $set_description
-              = $node_structure->{'node_description'};
-            if ($set_description->{'cmdname'} eq $command) {
-              $self->_line_warn(__("multiple node \@nodedescription"),
-                                $source_info);
-            } else {
-              # silently replace nodedescriptionblock
-              $node_structure->{'node_description'}
-                = $command_e;
-            }
+            $self->_line_warn(__("multiple node \@nodedescription"),
+                                  $source_info);
           } else {
             $node_structure->{'node_description'}
               = $command_e;
@@ -6203,10 +6195,6 @@ sub _handle_block_command($$$$$)
         } else {
           $node_structure->{'node_long_description'}
             = $block;
-          if (!$node_structure->{'node_description'}) {
-            $node_structure->{'node_description'}
-              = $block;
-          }
         }
       } else {
         $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
