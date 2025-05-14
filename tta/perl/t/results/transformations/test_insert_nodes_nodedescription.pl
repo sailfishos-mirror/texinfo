@@ -228,10 +228,12 @@ $result_errors{'test_insert_nodes_nodedescription'} = [
 
 $result_nodes_list{'test_insert_nodes_nodedescription'} = '1|Top
  associated_section: top
+ node_description: @nodedescription D1
 2|Chap
  associated_section: 1 Chap
 3|Sec
  associated_section: 1.1 Sec
+ node_description: @nodedescription D2
 4|Subsec
  associated_section: 1.1.1 Subsec
 ';
@@ -295,8 +297,7 @@ Next: <a href="#Chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 
 Chap
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#Sec" accesskey="2">Sec</a>:</td><td class="menu-entry-description">
-</td></tr>
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#Sec" accesskey="2">Sec</a>:</td><td class="menu-entry-description">D2</td></tr>
 <tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 Sec
@@ -314,8 +315,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h2 class="chapter" id="Chap-1"><span>1 Chap<a class="copiable-link" href="#Chap-1"> &para;</a></span></h2>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#Sec" accesskey="1">Sec</a>:</td><td class="menu-entry-description">
-</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#Sec" accesskey="1">Sec</a>:</td><td class="menu-entry-description">D2</td></tr>
 </table>
 <hr>
 <div class="section-level-extent" id="Sec">
@@ -367,7 +367,7 @@ top
 
 Chap
 
-* Sec::
+* Sec::                        D2
 
 Sec
 
@@ -381,7 +381,7 @@ File: ,  Node: Chap,  Prev: Top,  Up: Top
 
 * Menu:
 
-* Sec::
+* Sec::                        D2
 
 
 File: ,  Node: Sec,  Up: Chap
@@ -402,9 +402,9 @@ File: ,  Node: Subsec,  Up: Sec
 
 Tag Table:
 Node: Top27
-Node: Chap168
-Node: Sec246
-Node: Subsec317
+Node: Chap194
+Node: Sec298
+Node: Subsec369
 
 End Tag Table
 

@@ -459,6 +459,24 @@ sub _reassociate_to_node($$$)
                           $current->{'extra'}->{'element_node'})."\n";
     }
     $current->{'extra'}->{'element_node'} = $new_node;
+  } elsif ($current->{'cmdname'}
+           and $current->{'cmdname'} eq 'nodedescription'
+           and !$new_node_structure->{'node_description'}) {
+    $new_node_structure->{'node_description'} = $current;
+    if ($previous_node_structure
+        and $previous_node_structure->{'node_description'}
+        and $previous_node_structure->{'node_description'} eq $current) {
+      delete $previous_node_structure->{'node_description'};
+    }
+  } elsif ($current->{'cmdname'}
+           and $current->{'cmdname'} eq 'nodedescriptionblock'
+           and !$new_node_structure->{'node_long_description'}) {
+    $new_node_structure->{'node_long_description'} = $current;
+    if ($previous_node_structure
+        and $previous_node_structure->{'node_long_description'}
+        and $previous_node_structure->{'node_long_description'} eq $current) {
+      delete $previous_node_structure->{'node_long_description'};
+    }
   }
   return undef;
 }

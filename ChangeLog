@@ -1,5 +1,13 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c (reassociate_to_node),
+	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node): associate
+	nodedescription or nodedescriptionblock commands found in contents of
+	new node to the new node structure information, and remove association
+	to previous node if it existed.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/structure_list.c (print_nodes_list),
 	tta/C/parsetexi/handle_commands.c (handle_line_command)
 	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm

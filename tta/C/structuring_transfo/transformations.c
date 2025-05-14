@@ -733,89 +733,103 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   return node;
 }
 
-/* FIXME the association to the node structure information is not
-         re set for node_description associated to nodedescription */
 ELEMENT_LIST *
 reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 {
   NODE_STRUCTURE_LIST *new_previous = (NODE_STRUCTURE_LIST *) argument;
-  NODE_STRUCTURE *added_node_structure = new_previous->list[0];
+  NODE_STRUCTURE *new_node_structure = new_previous->list[0];
   NODE_STRUCTURE *previous_node_structure = new_previous->list[1];
-  ELEMENT *added_node = added_node_structure->element;
+  ELEMENT *added_node = new_node_structure->element;
   ELEMENT *previous_node = 0;
   if (previous_node_structure)
     previous_node = previous_node_structure->element;
 
-  if (!(type_data[current->type].flags & TF_text)
-      && current->e.c->cmd == CM_menu)
+  if (!(type_data[current->type].flags & TF_text))
     {
-      CONST_ELEMENT_LIST *added_node_menus;
-      if (previous_node)
+      if (current->e.c->cmd == CM_menu)
         {
-          CONST_ELEMENT_LIST *menus
-            = lookup_extra_contents (previous_node, AI_key_menus);
-          size_t previous_nr = 0;
-          if (menus)
+          CONST_ELEMENT_LIST *added_node_menus;
+          if (previous_node)
             {
-              size_t i;
-              for (i = 0; i < menus->number; i++)
+              CONST_ELEMENT_LIST *menus
+                = lookup_extra_contents (previous_node, AI_key_menus);
+              size_t previous_nr = 0;
+              if (menus)
                 {
-                  if (menus->list[i] == current)
+                  size_t i;
+                  for (i = 0; i < menus->number; i++)
                     {
-                      previous_nr = i + 1;
-                      break;
+                      if (menus->list[i] == current)
+                        {
+                          previous_nr = i + 1;
+                          break;
+                        }
+                    }
+                }
+              if (previous_nr == 0)
+                fprintf (stderr, "BUG: menu %p not in previous node %p\n",
+                                 current, previous_node);
+              else
+                {
+                  size_t previous_idx = previous_nr -1;
+                  /* removed element should be current */
+                  remove_from_const_element_list (menus, previous_idx);
+                  if (menus->number <= 0)
+                    {
+                      KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
+                      k->key = AI_key_none;
+                      destroy_const_element_list (menus);
                     }
                 }
             }
-          if (previous_nr == 0)
-            fprintf (stderr, "BUG: menu %p not in previous node %p\n",
-                             current, previous_node);
-          else
-            {
-              size_t previous_idx = previous_nr -1;
-              /* removed element should be current */
-              remove_from_const_element_list (menus, previous_idx);
-              if (menus->number <= 0)
-                {
-                  KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
-                  k->key = AI_key_none;
-                  destroy_const_element_list (menus);
-                }
-            }
+          added_node_menus = add_extra_contents (added_node, AI_key_menus, 0);
+          add_to_const_element_list (added_node_menus, current);
         }
-      added_node_menus = add_extra_contents (added_node, AI_key_menus, 0);
-      add_to_const_element_list (added_node_menus, current);
-    }
-  /* what is really important is to avoid commands without extra information,
-     such as text, though it is even better to be precise */
-  else if (!(type_data[current->type].flags & TF_text)
-           && (current->e.c->cmd == CM_nodedescription
-               || current->e.c->cmd == CM_nodedescriptionblock
            /* following for index entries */
-               || current->e.c->cmd == CM_item || current->e.c->cmd == CM_itemx
+      else if (current->e.c->cmd == CM_item || current->e.c->cmd == CM_itemx
                || current->type == ET_index_entry_command
-               || (current->parent && current->parent->flags & EF_def_line)))
-    {
-      const ELEMENT *element_node
-        = lookup_extra_element (current, AI_key_element_node);
-      if (element_node)
+               || (current->parent && current->parent->flags & EF_def_line))
         {
-          if (previous_node && element_node != previous_node)
+          const ELEMENT *element_node
+            = lookup_extra_element (current, AI_key_element_node);
+          if (element_node)
             {
-              char *element_debug = print_element_debug (current, 0);
-              char *previous_node_texi
-                = root_heading_command_to_texinfo (previous_node);
-              char *element_node_texi
-                = root_heading_command_to_texinfo (element_node);
-              fprintf (stderr, "BUG: element %p not in previous node %p; %s\n"
+              if (previous_node && element_node != previous_node)
+                {
+                  char *element_debug = print_element_debug (current, 0);
+                  char *previous_node_texi
+                    = root_heading_command_to_texinfo (previous_node);
+                  char *element_node_texi
+                    = root_heading_command_to_texinfo (element_node);
+                   fprintf (stderr,
+                       "BUG: element %p not in previous node %p; %s\n"
                        "  previous node: %s\n"
                        "  current node: %s\n", current, previous_node,
                        element_debug, previous_node_texi, element_node_texi);
-              free (element_debug);
-              free (previous_node_texi);
-              free (element_node_texi);
+                  free (element_debug);
+                  free (previous_node_texi);
+                  free (element_node_texi);
+                }
+              add_extra_element (current, AI_key_element_node, added_node);
             }
-          add_extra_element (current, AI_key_element_node, added_node);
+        }
+      else if (current->e.c->cmd == CM_nodedescription
+               && !new_node_structure->node_description)
+        {
+          new_node_structure->node_description = current;
+          if (previous_node_structure
+              && previous_node_structure->node_description
+              && previous_node_structure->node_description == current)
+            previous_node_structure->node_description = 0;
+        }
+      else if (current->e.c->cmd == CM_nodedescriptionblock
+               && !new_node_structure->node_long_description)
+        {
+          new_node_structure->node_long_description = current;
+          if (previous_node_structure
+              && previous_node_structure->node_long_description
+              && previous_node_structure->node_long_description == current)
+            previous_node_structure->node_long_description = 0;
         }
     }
   return 0;
