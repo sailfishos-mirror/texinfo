@@ -916,10 +916,8 @@ end_line_starting_block (ELEMENT *current)
                                      arguments_line->e.c->contents.list[0]);
 
       /* add to global 'floats' array */
-      add_to_float_record_list (&parser_float_records, float_type, current);
-
-      if (current_section)
-        add_extra_element (current, AI_key_float_section, current_section);
+      add_to_float_record_list (&parser_float_records, float_type, current,
+                                current_section);
     }
   else if (command_data(command).flags & CF_blockitem)
     {

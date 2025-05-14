@@ -51,7 +51,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}
@@ -101,7 +100,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{2}
    *arguments_line C1
@@ -141,7 +139,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E1]
   |float_type:{}
   |global_command_number:{3}
   |is_target:{1}
@@ -185,7 +182,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{2}
-  |float_section:[E1]
   |float_type:{}
   |global_command_number:{4}
   |is_target:{1}
@@ -215,7 +211,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *6 @float C4 l31
   |EXTRA
-  |float_section:[E1]
   |float_type:{}
   |global_command_number:{5}
    *arguments_line C1
@@ -240,7 +235,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *7 @float C7 l36
   |EXTRA
-  |float_section:[E1]
   |float_type:{}
   |global_command_number:{6}
    *arguments_line C1
@@ -278,7 +272,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{3}
-  |float_section:[E1]
   |float_type:{}
   |global_command_number:{7}
   |is_target:{1}
@@ -321,7 +314,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E1]
   |float_type:{Warning}
   |global_command_number:{8}
   |is_target:{1}
@@ -475,7 +467,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E12]
   |float_type:{Text}
   |global_command_number:{9}
   |is_target:{1}
@@ -516,7 +507,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.2}
-  |float_section:[E12]
   |float_type:{Text}
   |global_command_number:{10}
   |is_target:{1}
@@ -559,7 +549,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E12]
   |float_type:{théorème}
   |global_command_number:{11}
   |is_target:{1}
@@ -624,7 +613,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E12]
   |float_type:{}
   |global_command_number:{12}
   |is_target:{1}
@@ -667,7 +655,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E12]
   |float_type:{Warning}
   |global_command_number:{13}
   |is_target:{1}
@@ -774,7 +761,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{1.3}
-  |float_section:[E20]
   |float_type:{Text}
   |global_command_number:{14}
   |is_target:{1}
@@ -873,7 +859,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{5}
-  |float_section:[E23]
   |float_type:{Text}
   |global_command_number:{15}
   |is_target:{1}
@@ -917,7 +902,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{5}
-  |float_section:[E23]
   |float_type:{}
   |global_command_number:{16}
   |is_target:{1}
@@ -993,7 +977,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{6}
-  |float_section:[E28]
   |float_type:{Text}
   |global_command_number:{17}
   |is_target:{1}
@@ -1101,7 +1084,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{2.1}
-  |float_section:[E31]
   |float_type:{Text}
   |global_command_number:{18}
   |is_target:{1}
@@ -1177,7 +1159,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{2.2}
-  |float_section:[E35]
   |float_type:{Text}
   |global_command_number:{19}
   |is_target:{1}
@@ -1222,7 +1203,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{2.1}
-  |float_section:[E35]
   |float_type:{}
   |global_command_number:{20}
   |is_target:{1}
@@ -1298,7 +1278,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |{ }
   |EXTRA
   |float_number:{A.1}
-  |float_section:[E39]
   |float_type:{Text}
   |global_command_number:{21}
   |is_target:{1}

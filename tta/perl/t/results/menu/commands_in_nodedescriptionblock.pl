@@ -187,7 +187,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     |{ }
    |EXTRA
    |float_number:{1.1}
-   |float_section:[E4]
    |float_type:{tfloat}
    |global_command_number:{1}
    |is_target:{1}

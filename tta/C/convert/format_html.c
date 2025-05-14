@@ -9854,11 +9854,13 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
 
           for (j = 0; j < float_types->float_list.number; j++)
             {
+              const FLOAT_INFORMATION *float_info
+                = &float_types->float_list.list[j];
               char *caption_attribute_class;
               const ELEMENT *caption_element;
               const ELEMENT *caption_shortcaption[2];
               const STRING_LIST *caption_classes = 0;
-              const ELEMENT *float_elt = float_types->float_list.list[j];
+              const ELEMENT *float_elt = float_info->float_element;
               char *float_href = html_command_href (self, float_elt, 0, 0, 0);
               char *float_text;
 

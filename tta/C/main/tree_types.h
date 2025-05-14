@@ -107,7 +107,6 @@ enum directions {
   ai_key(translation_context, string) \
   \
   ai_key(element_node, element) \
-  ai_key(float_section, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \
@@ -366,11 +365,22 @@ typedef struct {
     LABEL *list;
 } LABEL_LIST;
 
+typedef struct {
+    ELEMENT *float_element;
+    const ELEMENT *float_section;
+} FLOAT_INFORMATION;
+
+typedef struct {
+    size_t number;
+    size_t space;
+    FLOAT_INFORMATION *list;
+} FLOAT_INFORMATION_LIST;
+
 /* The float elements are reference to tree elements, but they are not const
    because in number_floats they are found through the listoffloats list */
 typedef struct {
     char *type;
-    ELEMENT_LIST float_list;
+    FLOAT_INFORMATION_LIST float_list;
 } LISTOFFLOATS_TYPE;
 
 typedef struct {
@@ -384,6 +394,7 @@ typedef struct {
 typedef struct {
     const char *type;
     ELEMENT *element;
+    const ELEMENT *section;
 } FLOAT_RECORD;
 
 typedef struct {

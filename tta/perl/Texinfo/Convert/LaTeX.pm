@@ -919,7 +919,8 @@ sub _prepare_floats($)
     foreach my $normalized_float_type (sort(keys(%{$floats}))) {
       my $latex_variable_float_name;
       if (scalar(@{$floats->{$normalized_float_type}})) {
-        my $float = $floats->{$normalized_float_type}->[0];
+        my $float_and_section = $floats->{$normalized_float_type}->[0];
+        my ($float, $float_section) = @$float_and_section;
         $latex_variable_float_name
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
            {'contents' => $float->{'contents'}->[0]
@@ -1413,7 +1414,8 @@ sub _latex_header() {
         my $float_type = '';
         if ($normalized_float_type ne '') {
           _push_new_context($self, 'float_type '.$normalized_float_type);
-          my $float = $floats->{$normalized_float_type}->[0];
+          my $float_and_section = $floats->{$normalized_float_type}->[0];
+          my ($float, $float_section) = @$float_and_section;
           my $float_type
             = _convert($self,
                        $float->{'contents'}->[0]->{'contents'}->[0]);

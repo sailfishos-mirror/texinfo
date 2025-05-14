@@ -114,7 +114,6 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E1]
   |float_type:{float type! After punc}
   |global_command_number:{1}
   |is_target:{1}
@@ -154,7 +153,6 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
    |{ }
   |EXTRA
   |float_number:{2}
-  |float_section:[E1]
   |float_type:{float type! After punc}
   |global_command_number:{2}
   |is_target:{1}

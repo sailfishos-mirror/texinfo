@@ -82,7 +82,6 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E3]
   |float_type:{A < " `` ` \' \' \\aaa . --- in var}
   |global_command_number:{1}
   |is_target:{1}

@@ -1729,7 +1729,9 @@ number_floats (DOCUMENT *document)
       size_t j;
       for (j = 0; j < listoffloats->float_list.number; j++)
         {
-          ELEMENT *float_elt = listoffloats->float_list.list[j];
+          FLOAT_INFORMATION *float_info
+            = &listoffloats->float_list.list[j];
+          ELEMENT *float_elt = float_info->float_element;
           const char *normalized
             = lookup_extra_string (float_elt, AI_key_normalized);
           const ELEMENT *up;
@@ -1739,7 +1741,7 @@ number_floats (DOCUMENT *document)
 
           text_reset (&number);
           float_index++;
-          up = lookup_extra_element (float_elt, AI_key_float_section);
+          up = float_info->float_section;
           if (up)
             {
               while (1)

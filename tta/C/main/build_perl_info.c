@@ -1459,15 +1459,27 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
     {
       size_t j;
       LISTOFFLOATS_TYPE *listoffloat = &listoffloats->float_types[i];
-      ELEMENT_LIST *float_list = &listoffloat->float_list;
+      FLOAT_INFORMATION_LIST *float_list = &listoffloat->float_list;
       SV *float_type = newSVpv_utf8 (listoffloat->type, 0);
       AV *av = newAV ();
       hv_store_ent (float_hash, float_type,
                     newRV_noinc ((SV *)av), 0);
       for (j = 0; j < float_list->number; j++)
         {
-          sv = newRV_inc ((SV *)float_list->list[j]->hv);
-          av_push (av, sv);
+          const FLOAT_INFORMATION *float_info = &float_list->list[j];
+          const ELEMENT *float_elt = float_info->float_element;
+          const ELEMENT *float_section = float_info->float_section;
+          AV *float_section_av = newAV ();
+          sv = newRV_inc ((SV *)float_elt->hv);
+          av_push (float_section_av, sv);
+          if (float_section)
+            {
+              sv = newRV_inc ((SV *)float_section->hv);
+              av_push (float_section_av, sv);
+            }
+          else
+            av_push (float_section_av, newSV (0));
+          av_push (av, newRV_noinc ((SV *) float_section_av));
         }
     }
   return float_hash;

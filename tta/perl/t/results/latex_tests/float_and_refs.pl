@@ -82,7 +82,6 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E3]
   |float_type:{}
   |global_command_number:{1}
   |is_target:{1}
@@ -126,7 +125,6 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E3]
   |float_type:{Thing}
   |global_command_number:{2}
   |is_target:{1}
@@ -171,7 +169,6 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E3]
   |float_type:{Figure}
   |global_command_number:{3}
   |is_target:{1}

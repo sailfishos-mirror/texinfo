@@ -158,7 +158,6 @@ NodeBack: [U1]
    |{ }
   |EXTRA
   |float_number:{2.1}
-  |float_section:[E5]
   |float_type:{Figure}
   |global_command_number:{1}
   |is_target:{1}

@@ -39,7 +39,7 @@ parse_float_type (ELEMENT *current, ELEMENT *element)
 
 void
 add_to_float_record_list (FLOAT_RECORD_LIST *float_records, const char *type,
-                          ELEMENT *element)
+                          ELEMENT *element, const ELEMENT *section)
 {
   if (float_records->number == float_records->space)
     {
@@ -50,6 +50,7 @@ add_to_float_record_list (FLOAT_RECORD_LIST *float_records, const char *type,
   /* string stored in element extra */
   float_records->list[float_records->number].type = type;
   float_records->list[float_records->number].element = element;
+  float_records->list[float_records->number].section = section;
   float_records->number++;
 }
 
@@ -92,6 +93,30 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
   return result;
 }
 
+static FLOAT_INFORMATION *
+add_to_float_information_list (FLOAT_INFORMATION_LIST *float_list,
+                               ELEMENT *float_element,
+                               const ELEMENT *float_section)
+{
+  FLOAT_INFORMATION *result;
+  if (float_list->number == float_list->space)
+    {
+      float_list->list
+               = realloc (float_list->list,
+                  (float_list->space += 5) * sizeof (FLOAT_INFORMATION));
+    }
+
+  result = &float_list->list[float_list->number];
+  memset (result, 0, sizeof (FLOAT_INFORMATION));
+
+  result->float_element = float_element;
+  result->float_section = float_section;
+
+  float_list->number++;
+
+  return result;
+}
+
 static int
 compare_listoffloats_type (const void *a, const void *b)
 {
@@ -115,8 +140,9 @@ float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
       LISTOFFLOATS_TYPE *listoffloats_type
         = add_to_listoffloats_list (result, float_type);
 
-      add_to_element_list (&listoffloats_type->float_list,
-                           float_record->element);
+      add_to_float_information_list (&listoffloats_type->float_list,
+                                     float_record->element,
+                                     float_record->section);
     }
 
   qsort (result->float_types, result->number,
@@ -220,7 +246,9 @@ print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
 
       for (j = 0; j < listoffloats_type->float_list.number; j++)
         {
-          const ELEMENT *float_e = listoffloats_type->float_list.list[j];
+          const FLOAT_INFORMATION *float_info
+            = &listoffloats_type->float_list.list[j];
+          const ELEMENT *float_e = float_info->float_element;
           const ELEMENT *caption_shortcaption[2];
           const ELEMENT *caption;
           const ELEMENT *shortcaption;

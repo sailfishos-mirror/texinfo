@@ -1,5 +1,34 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	float_section in list of floats instead of tree
+
+	* tta/C/main/build_perl_info.c (build_listoffloats_list),
+	tta/C/main/floats.c (add_to_float_record_list)
+	(add_to_float_information_list, float_list_to_listoffloats_list)
+	(print_listoffloats_types), tta/C/main/tree_types.h (AI_KEYS_LIST)
+	(FLOAT_INFORMATION, FLOAT_INFORMATION_LIST, LISTOFFLOATS_TYPE)
+	(FLOAT_RECORD), tta/C/parsetexi/end_line.c (end_line_starting_block),
+	tta/C/structuring_transfo/structuring.c (number_floats), 
+	tta/perl/Texinfo/ManipulateTree.pm (print_listoffloats_types),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tta/perl/Texinfo/Structuring.pm (number_floats): put float section in
+	a two item array reference in list of floats information in Perl, and
+	in float record and in new structures FLOAT_INFORMATION and
+	FLOAT_INFORMATION_LIST in C. Do not put in extra information.  Update
+	number_floats, print_listoffloats_types and build_listoffloats_list.
+
+	* tta/C/convert/format_html.c (html_convert_listoffloats_command),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_listoffloats_command),
+	tta/perl/Texinfo/Convert/IXIN.pm, tta/perl/Texinfo/Convert/LaTeX.pm
+	(_prepare_floats, _latex_header),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert): update conversion
+	based on list of floats to use new information.
+
+	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document): remove a const.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/transformations.c (reassociate_to_node),
 	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node):
 	de-associate node_*description from previous node independently of
@@ -113,7 +142,7 @@
 
 	* tta/C/main/build_perl_info.c (build_node_structure_list)
 	(print_line_command_key_element, print_nodes_list),
-	tta/C/main/tree_types.h (enum directions, NODE_STRUCTURE),
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE),
 	tta/C/parsetexi/handle_commands.c (handle_line_command)
 	(handle_block_command), tta/perl/Texinfo/ParserNonXS.pm
 	(_handle_line_command, _handle_block_command),
@@ -168,7 +197,7 @@
 	* tta/C/main/build_perl_info.c (build_node_structure_list)
 	(build_section_structure_list), tta/C/main/structure_list.c
 	(print_sections_list, print_nodes_list), tta/C/main/tree_types.h
-	(enum directions, NODE_STRUCTURE, SECTION_STRUCTURE),
+	(AI_KEYS_LIST, NODE_STRUCTURE, SECTION_STRUCTURE),
 	tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/C/parsetexi/parser.c (current_part),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
@@ -200,7 +229,7 @@
 	(fill_document_hv), tta/C/main/document.c (new_document),
 	tta/C/main/structure_list.c (print_sections_list)
 	(print_title_command_command, print_nodes_list),
-	tta/C/main/tree_types.h (enum directions, NODE_STRUCTURE)
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE)
 	(HEADING_STRUCTURE, SECTION_STRUCTURE), tta/C/parsetexi/end_line.c
 	(associate_title_command_anchor, get_current_node_structure)
 	(end_line_misc_line), tta/perl/Texinfo/Document.pm (headings_list),
@@ -257,7 +286,7 @@
 	(build_section_structure_list), tta/C/main/structure_list.c
 	(add_to_node_structure_list, add_to_section_structure_list)
 	(add_to_heading_structure_list, insert_into_node_structure_list),
-	tta/C/main/tree_types.h (enum directions, NODE_STRUCTURE)
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE)
 	(SECTION_STRUCTURE), tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/C/structuring_transfo/transformations.c
 	(insert_nodes_for_sectioning_commands),
@@ -333,7 +362,7 @@
 
 	Structure node, section and heading list different from elements
 
-	* tta/C/main/tree_types.h (enum directions), : rename section_number
+	* tta/C/main/tree_types.h (AI_KEYS_LIST): rename section_number
 	extra key to section_heading_number.  Update users.
 
 	* tta/C/Makefile.am (C_libtexinfo_sources),
@@ -346,7 +375,7 @@
 	(fill_document_hv), tta/C/main/document.c (new_document)
 	(destroy_document_information_except_tree),
 	tta/C/main/document_types.h (DOCUMENT), tta/C/main/tree_types.h
-	(enum directions, NODE_STRUCTURE, NODE_STRUCTURE_LIST)
+	(AI_KEYS_LIST, NODE_STRUCTURE, NODE_STRUCTURE_LIST)
 	(HEADING_STRUCTURE, HEADING_STRUCTURE_LIST, SECTION_STRUCTURE)
 	(SECTION_STRUCTURE_LIST), tta/C/parsetexi/end_line.c
 	(end_line_misc_line), tta/C/structuring_transfo/structuring.c

@@ -5541,7 +5541,8 @@ sub _convert_listoffloats_command($$$$)
   if ($floats and $floats->{$listoffloats_name}
       and scalar(@{$floats->{$listoffloats_name}})) {
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
-    foreach my $float (@{$floats->{$listoffloats_name}}) {
+    foreach my $float_and_section (@{$floats->{$listoffloats_name}}) {
+      my ($float, $float_section) = @$float_and_section;
       my $float_href = $self->command_href($float);
       next if (!defined($float_href));
       $result .= '<dt>';

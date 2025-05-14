@@ -3837,7 +3837,8 @@ sub _convert($$)
         _add_newline_if_needed($self);
         _stream_output($self, "* Menu:\n\n");
         $lines_count += 2;
-        foreach my $float (@{$floats->{$float_type}}) {
+        foreach my $float_and_section (@{$floats->{$float_type}}) {
+          my ($float, $float_section) = @$float_and_section;
           next if (!$float->{'contents'}
                    or !scalar(@{$float->{'contents'}})
                    or !$float->{'contents'}->[0]->{'contents'}

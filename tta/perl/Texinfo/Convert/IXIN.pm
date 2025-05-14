@@ -818,7 +818,8 @@ sub output_ixin($$)
     if ($floats->{$type}) {
       my $float_nr = 0;
       my $float_text = '';
-      foreach my $float (@{$floats->{$type}}) {
+      foreach my $float_and_section (@{$floats->{$type}}) {
+        my ($float, $float_section) = @$float_and_section;
         $float_nr++;
         my $associated_node_id;
         # associated node already found when collecting labels
@@ -873,7 +874,8 @@ sub output_ixin($$)
       # determine type expandable string from first float if it was not
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
-        my $float_element = $floats->{$type}->[0];
+        my $float_and_section = $floats->{$type}->[0];
+        my ($float_element, $float_section) = @$float_and_section;
         if ($float_element->{'extra'}->{'float_type'} ne '') {
           my $argument = $float_element->{'contents'}->[0]:
           $floats_information{$type}->{'type'}

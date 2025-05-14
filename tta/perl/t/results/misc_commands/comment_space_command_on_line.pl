@@ -189,7 +189,6 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E3]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}

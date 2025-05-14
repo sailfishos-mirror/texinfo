@@ -4360,12 +4360,10 @@ sub _end_line_starting_block($$$)
 
     my $float_type = _parse_float_type($current,
                                        $arguments_line->{'contents'}->[0]);
-    push @{$document->{'listoffloats_list'}->{$float_type}}, $current;
 
-    if (defined($self->{'current_section'})) {
-      $current->{'extra'} = {} if (!defined($current->{'extra'}));
-      $current->{'extra'}->{'float_section'} = $self->{'current_section'};
-    }
+    my $float_section = $self->{'current_section'};
+    push @{$document->{'listoffloats_list'}->{$float_type}},
+                         [$current, $float_section];
 
     # all the commands with @item
   } elsif ($blockitem_commands{$command}) {

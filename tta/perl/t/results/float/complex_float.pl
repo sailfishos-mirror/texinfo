@@ -97,7 +97,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}
@@ -644,7 +643,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E6]
   |float_type:{Text}
   |global_command_number:{2}
   |is_target:{1}

@@ -783,8 +783,9 @@ X<C<floats_information>>
 I<$float_types> is a hash reference whose keys are normalized float
 types (the first float argument, or the C<@listoffloats> argument).
 The normalization is the same as for the first step of node names
-normalization. The value is the list of float tree elements appearing
-in the texinfo document.
+normalization. The value is the list of array references with
+first element the float tree elements appearing in the texinfo document
+and second element the section element the float appeared in.
 
 =back
 

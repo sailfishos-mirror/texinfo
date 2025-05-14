@@ -135,7 +135,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1}
-  |float_section:[E2]
   |float_type:{list}
   |global_command_number:{1}
   |is_target:{1}
@@ -309,7 +308,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E10]
   |float_type:{list}
   |global_command_number:{2}
   |is_target:{1}

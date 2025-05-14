@@ -1464,7 +1464,8 @@ sub print_listoffloats_types($)
   foreach my $type (sort(keys(%$listoffloats_list))) {
     my $listoffloats = $listoffloats_list->{$type};
     $result .= "$type: ".scalar(@$listoffloats)."\n";
-    foreach my $float (@$listoffloats) {
+    foreach my $float_and_section (@$listoffloats) {
+      my ($float, $float_section) = @$float_and_section;
       if (!$float->{'extra'}) {
          print STDERR "BUG: $type: float without extra: $float\n";
          next;

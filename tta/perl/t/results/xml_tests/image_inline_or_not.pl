@@ -361,7 +361,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E4]
   |float_type:{F}
   |global_command_number:{1}
   |is_target:{1}

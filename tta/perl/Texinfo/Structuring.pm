@@ -1363,13 +1363,14 @@ sub number_floats($)
     my $float_index = 0;
     my $current_chapter;
     my $nr_in_chapter = 0;
-    foreach my $float (@{$floats->{$style}}) {
+    foreach my $float_and_section (@{$floats->{$style}}) {
+      my ($float, $float_section) = @$float_and_section;
       next if (!$float->{'extra'}
                or !defined($float->{'extra'}->{'normalized'}));
       $float_index++;
       my $number;
-      if ($float->{'extra'}->{'float_section'}) {
-        my $up = $float->{'extra'}->{'float_section'};
+      if (defined($float_section)) {
+        my $up = $float_section;
         while ($up->{'extra'}->{'section_directions'}
                and $up->{'extra'}->{'section_directions'}->{'up'}
                and defined($up->{'extra'}->{'section_directions'}->{'up'}

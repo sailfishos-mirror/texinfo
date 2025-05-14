@@ -23,7 +23,8 @@ char *parse_float_type (ELEMENT *current, ELEMENT *element);
 void float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                  LISTOFFLOATS_TYPE_LIST *result);
 void add_to_float_record_list (FLOAT_RECORD_LIST *float_records,
-                               const char *type, ELEMENT *element);
+                               const char *type, ELEMENT *element,
+                               const ELEMENT *section);
 
 void free_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list);
 

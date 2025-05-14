@@ -243,7 +243,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
   while (1)
     {
       ELEMENT *current_section = root->e.c->contents.list[idx_current_section];
-      const ELEMENT *next_section = root->e.c->contents.list[idx_next_section];
+      ELEMENT *next_section = root->e.c->contents.list[idx_next_section];
       int current_section_level = section_level (current_section);
       int next_section_level = section_level (next_section);
 
