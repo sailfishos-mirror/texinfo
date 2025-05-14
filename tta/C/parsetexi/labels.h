@@ -16,11 +16,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stddef.h>
+
 #include "tree_types.h"
 
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
 void set_labels_identifiers_target (const LABEL_LIST *labels,
-                                    C_HASHMAP *hashmap);
+                               C_HASHMAP *hashmap, size_t sections_number);
 
 #endif

@@ -1834,14 +1834,11 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 
   av_labels_list = build_target_elements_list (&document->labels_list);
 
-  if (document->nodes_list.number > 0)
-    av_nodes_list = build_node_structure_list (&document->nodes_list);
+  av_nodes_list = build_node_structure_list (&document->nodes_list);
 
-  if (document->sections_list.number > 0)
-    av_sections_list = build_section_structure_list (&document->sections_list);
+  av_sections_list = build_section_structure_list (&document->sections_list);
 
-  if (document->headings_list.number > 0)
-    av_headings_list = build_heading_structure_list (&document->headings_list);
+  av_headings_list = build_heading_structure_list (&document->headings_list);
 
   if (document->indices_sort_strings)
     hv_indices_sort_strings = build_indices_sort_strings (
@@ -1869,23 +1866,14 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
   STORE("labels_list", av_labels_list);
   document->modified_information &= ~F_DOCM_labels_list;
 
-  if (av_nodes_list)
-    {
-      STORE("nodes_list", av_nodes_list);
-      document->modified_information &= ~F_DOCM_nodes_list;
-    }
+  STORE("nodes_list", av_nodes_list);
+  document->modified_information &= ~F_DOCM_nodes_list;
 
-  if (av_sections_list)
-    {
-      STORE("sections_list", av_sections_list);
-      document->modified_information &= ~F_DOCM_sections_list;
-    }
+  STORE("sections_list", av_sections_list);
+  document->modified_information &= ~F_DOCM_sections_list;
 
-  if (av_headings_list)
-    {
-      STORE("headings_list", av_headings_list);
-      document->modified_information &= ~F_DOCM_headings_list;
-    }
+  STORE("headings_list", av_headings_list);
+  document->modified_information &= ~F_DOCM_headings_list;
 
   if (hv_indices_sort_strings)
     {

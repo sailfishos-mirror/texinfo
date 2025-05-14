@@ -1,5 +1,33 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/labels.c (set_labels_identifiers_target),
+	tta/C/parsetexi/parser.c (parse_texi): get the sections number in
+	argument and use it to set the number of buckets, to preemptively add
+	buckets in case there are no nodes associated to sections and they are
+	associated afterwards.  Also always initialize the hash map.
+
+	* tta/C/main/build_perl_info.c (fill_document_hv),
+	tta/perl/Texinfo/Document.pm (new_document): always initialize nodes,
+	sections and headings lists, such that the array references associated
+	to document are modified (in pure Perl).
+
+	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document): do not set
+	new_section_structure as it is not used.
+
+	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document)
+	(insert_nodes_for_sectioning_commands): add F_DOCM_nodes_list or
+	F_DOCM_sections_list when needed.
+
+	* tta/perl/Makefile.tres, tta/perl/t/transformations.t
+	(test_fill_gaps_in_sectioning)
+	(test_fill_gaps_in_sectioning_insert_nodes)
+	(test_insert_nodes_with_empty_headings): add tests for the situations
+	occuring in Pod-Simple-Texinfo tests.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* perl/Texinfo/Convert/HTML.pm (_html_set_pages_files): avoid spurious
 	autovivification.
 

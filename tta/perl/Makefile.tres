@@ -2166,6 +2166,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/protect_node_after_label_source_mark_in_protected.pl \
   t/results/transformations/regenerate_master_menu_no_need_for_master_menu.pl \
   t/results/transformations/regenerate_master_menu_with_menu_comment.pl \
+  t/results/transformations/test_fill_gaps_in_sectioning.pl \
+  t/results/transformations/test_fill_gaps_in_sectioning_insert_nodes.pl \
+  t/results/transformations/test_insert_nodes_with_empty_headings.pl \
   t/results/value/bad_syntax.pl \
   t/results/value/begin_like_comment_on_set_line.pl \
   t/results/value/clear_no_end_of_line.pl \

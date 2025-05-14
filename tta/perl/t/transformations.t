@@ -109,6 +109,36 @@ Text.
 @section @asis{}
 
 ',{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},],
+['test_fill_gaps_in_sectioning',
+'@top top
+
+@chapter Chap
+
+@section Section
+
+@subsubsection There
+', {'TREE_TRANSFORMATIONS' => 'fill_gaps_in_sectioning'},],
+['test_fill_gaps_in_sectioning_insert_nodes',
+'@top top
+
+@chapter Chap
+
+@section Section
+
+@subsubsection There
+', {'TREE_TRANSFORMATIONS' => 'fill_gaps_in_sectioning,insert_nodes_for_sectioning_commands'},],
+['test_insert_nodes_with_empty_headings',
+'@top top
+
+@chapter Chap
+
+@section
+
+@section
+
+@node @strong{}
+@section @strong{}
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',},]
 );
 
 

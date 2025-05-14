@@ -17,6 +17,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 #include "tree_types.h"
 /* fatal */
@@ -85,26 +86,21 @@ check_register_target_element_label (ELEMENT *label_element,
 }
 
 /* called from parser */
+/* sections numbers are taken into account to preemptively add
+   buckets in case there are no nodes associated to sections and
+   they are associated afterwards. */
 void
-set_labels_identifiers_target (const LABEL_LIST *labels, C_HASHMAP *hashmap)
+set_labels_identifiers_target (const LABEL_LIST *labels, C_HASHMAP *hashmap,
+                               size_t sections_number)
 {
   size_t i;
   size_t labels_number = labels->number;
 
-  /* determine if there is a non NULL identifier to initialize hashmap */
-  for (i = 0; i < labels_number; i++)
-    {
-      LABEL *l = &labels->list[i];
-
-      if (l->identifier == 0)
-        continue;
-
-      init_c_hashmap (hashmap, labels_number);
-      break;
-    }
+  if (labels_number + sections_number > 0)
+    init_c_hashmap (hashmap, labels_number + sections_number);
 
   /* process labels */
-  for (; i < labels_number; i++)
+  for (i = 0; i < labels_number; i++)
     {
       LABEL *l = &labels->list[i];
       const ELEMENT *found_element;

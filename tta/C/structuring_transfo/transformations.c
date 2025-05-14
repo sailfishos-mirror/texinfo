@@ -261,7 +261,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               ELEMENT *arguments_line = new_element (ET_arguments_line);
               ELEMENT *spaces_after_argument = new_text_element (ET_other_text);
               ELEMENT *empty_line = new_text_element (ET_empty_line);
-              SECTION_STRUCTURE *new_section_structure;
+              /* SECTION_STRUCTURE *new_section_structure; */
 
               current_section_level++;
               new_section = new_command_element (ET_line_command,
@@ -297,8 +297,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               text_append (empty_line->e.text, "\n");
               add_to_element_contents (new_section, empty_line);
 
-              new_section_structure
-                = insert_into_section_structure_list (&document->sections_list,
+              insert_into_section_structure_list (&document->sections_list,
                                                  new_section, section_idx +1);
               section_idx++;
               add_extra_integer (new_section, AI_key_section_number,
@@ -319,7 +318,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                          new_sections->list[new_sections->number -1], -1);
           destroy_list (new_sections);
 
-          document->modified_information |= F_DOCM_tree;
+          document->modified_information |= F_DOCM_tree | F_DOCM_sections_list;
         }
       idx_current_section = idx_next_section;
       section_idx++;
@@ -860,7 +859,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
               /* NOTE new_node_tree content is copied in new_node */
               ELEMENT *new_node_tree;
 
-              document->modified_information |= F_DOCM_tree;
+              document->modified_information
+                             |= F_DOCM_tree | F_DOCM_nodes_list;
 
               if (content->e.c->cmd == CM_top)
                 {
@@ -1194,7 +1194,7 @@ get_non_automatic_nodes_with_sections (const DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
       /* cast to discard const */
       ELEMENT *node_element = (ELEMENT *)node_structure->element;
       if (node_element->e.c->contents.list[0]->e.c->contents.number <= 1
@@ -1230,7 +1230,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
-  OPTIONS *options = document->options;
+  const OPTIONS *options = document->options;
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
   LANG_TRANSLATION *lang_translation = 0;

@@ -125,6 +125,9 @@ sub new_document($)
     'commands_info' => {},
     'identifiers_target' => {},
     'labels_list' => [],
+    'nodes_list' => [],
+    'sections_list' => [],
+    'headings_list' => [],
      # error registrar for parsing
     'parser_registrar' => Texinfo::Report::new(),
      # error registrar for the document for structuring, not for parsing

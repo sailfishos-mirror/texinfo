@@ -2814,7 +2814,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   resolve_indices_merged_in (&parsed_document->indices_info);
 
   set_labels_identifiers_target (&parsed_document->labels_list,
-                                 &parsed_document->identifiers_target);
+                                 &parsed_document->identifiers_target,
+                                 parsed_document->sections_list.number);
 
   parsed_document->tree = current;
 

@@ -19,10 +19,6 @@ and in texinfo.texi
 
 document command_name in texi2any HTML customization API
 
-Try to add regular *.t tests testing the same as what is tested
-in manual_sectioning_gap_test.sh and test_empty_head2.sh in term
-of transfrmations, both fill gap and add nodes.
-
 
 Bugs
 ====
