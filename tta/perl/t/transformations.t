@@ -138,11 +138,29 @@ Text.
 
 @node @strong{}
 @section @strong{}
-', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',},]
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',},],
 );
 
-
 my @tests_converted = (
+['test_insert_nodes_nodedescription',
+'@top top
+@nodedescription D1
+
+@chapter Chap
+
+@section Sec
+@nodedescription D2
+@nodedescription D3
+
+@subsection Subsec
+
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',
+    'FORMAT_MENU' => 'menu'},
+   {'FORMAT_MENU' => 'menu'},
+],
+);
+
+my @tests_files = (
 ['master_menu_fr',
   undef,
   {'test_file'
@@ -165,13 +183,19 @@ my @tests_converted = (
   undef,
   {'test_file' => '../../../tests/formatting/index_entries_relate_to_item.texi',
    'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_table_items'},
-],);
+],
+);
 
 foreach my $test (@tests_converted) {
+  push @{$test->[2]->{'test_formats'}}, 'html';
+  push @{$test->[2]->{'test_formats'}}, 'info';
+}
+
+foreach my $test (@tests_files) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'info';
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all('transformations', [@test_cases, @tests_converted]);
+run_all('transformations', [@test_cases, @tests_converted, @tests_files]);

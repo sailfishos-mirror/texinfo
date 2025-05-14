@@ -1,5 +1,16 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (new_node_menu_entry): handle the
+	case of source_info not set.
+
+	* tta/perl/t/transformations.t (@tests_files)
+	(test_insert_nodes_nodedescription): add
+	test_insert_nodes_nodedescription test.  Separate tests on files
+	creating files in @tests_files and other converted tests in
+	@tests_converted.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/labels.c (set_labels_identifiers_target),
 	tta/C/parsetexi/parser.c (parse_texi): get the sections number in
 	argument and use it to set the number of buckets, to preemptively add

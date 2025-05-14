@@ -1461,8 +1461,11 @@ sub new_node_menu_entry($$;$)
     Texinfo::ManipulateTree::protect_colon_in_tree($menu_entry_name);
   }
 
-  my $entry = {'type' => 'menu_entry',
-               'source_info' => {%{$node->{'source_info'}}}};
+  my $entry = {'type' => 'menu_entry'};
+
+  if ($node->{'source_info'}) {
+    $entry->{'source_info'} = {%{$node->{'source_info'}}};
+  }
 
   my $menu_entry_node
    = Texinfo::ManipulateTree::copy_contentsNonXS($node_name_element,

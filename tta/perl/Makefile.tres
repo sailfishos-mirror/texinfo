@@ -2168,6 +2168,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/regenerate_master_menu_with_menu_comment.pl \
   t/results/transformations/test_fill_gaps_in_sectioning.pl \
   t/results/transformations/test_fill_gaps_in_sectioning_insert_nodes.pl \
+  t/results/transformations/test_insert_nodes_nodedescription.pl \
+  t/results/transformations/test_insert_nodes_nodedescription/res_html \
   t/results/transformations/test_insert_nodes_with_empty_headings.pl \
   t/results/value/bad_syntax.pl \
   t/results/value/begin_like_comment_on_set_line.pl \
