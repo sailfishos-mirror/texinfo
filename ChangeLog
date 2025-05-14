@@ -1,6 +1,19 @@
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/transformations.c (reassociate_to_node),
+	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node):
+	de-associate node_*description from previous node independently of
+	association to new node.
+
+	* tta/perl/t/transformations.t
+	(test_insert_nodes_reallocated_nodedescriptionblock),
+	tta/perl/Makefile.tres: add test of node description association
+	removed from previous node after node insertion associated with
+	sectioning command.
+
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/structuring_transfo/transformations.c (reassociate_to_node),
 	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node): associate
 	nodedescription or nodedescriptionblock commands found in contents of
 	new node to the new node structure information, and remove association

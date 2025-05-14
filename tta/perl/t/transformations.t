@@ -158,6 +158,28 @@ my @tests_converted = (
     'FORMAT_MENU' => 'menu'},
    {'FORMAT_MENU' => 'menu'},
 ],
+['test_insert_nodes_reallocated_nodedescriptionblock',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@section Sec
+@nodedescriptionblock
+D1
+@end nodedescriptionblock
+
+@nodedescriptionblock
+D2
+@end nodedescriptionblock
+
+@subsection Subsec
+
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',
+    'FORMAT_MENU' => 'menu'},
+   {'FORMAT_MENU' => 'menu'},
+],
 );
 
 my @tests_files = (

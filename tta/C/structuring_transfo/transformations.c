@@ -813,19 +813,21 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               add_extra_element (current, AI_key_element_node, added_node);
             }
         }
-      else if (current->e.c->cmd == CM_nodedescription
-               && !new_node_structure->node_description)
+      else if (current->e.c->cmd == CM_nodedescription)
         {
-          new_node_structure->node_description = current;
+          if (!new_node_structure->node_description)
+            new_node_structure->node_description = current;
+
           if (previous_node_structure
               && previous_node_structure->node_description
               && previous_node_structure->node_description == current)
             previous_node_structure->node_description = 0;
         }
-      else if (current->e.c->cmd == CM_nodedescriptionblock
-               && !new_node_structure->node_long_description)
+      else if (current->e.c->cmd == CM_nodedescriptionblock)
         {
-          new_node_structure->node_long_description = current;
+          if (!new_node_structure->node_long_description)
+            new_node_structure->node_long_description = current;
+
           if (previous_node_structure
               && previous_node_structure->node_long_description
               && previous_node_structure->node_long_description == current)
