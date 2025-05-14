@@ -51,7 +51,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {D1}
-  {empty_line: \\n}
+  {empty_line:\\n}
  *3 @node C1 {Chap}
  |INFO
  |spaces_before_argument:
@@ -84,7 +84,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Chap}
-  {empty_line: \\n}
+  {empty_line:\\n}
  *5 @node C1 {Sec}
  |INFO
  |spaces_before_argument:
@@ -172,10 +172,10 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
 $result_texis{'test_insert_nodes_nodedescription'} = '@node Top
 @top top
 @nodedescription D1
- 
+
 @node Chap
 @chapter Chap
- 
+
 @node Sec
 @section Sec
 @nodedescription D2
@@ -189,10 +189,10 @@ $result_texis{'test_insert_nodes_nodedescription'} = '@node Top
 
 $result_texts{'test_insert_nodes_nodedescription'} = 'top
 ***
- 
+
 1 Chap
 ******
- 
+
 1.1 Sec
 =======
 
@@ -285,7 +285,7 @@ Next: <a href="#Chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
- 
+
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#Chap" accesskey="1">Chap</a>:</td><td class="menu-entry-description">
 </td></tr>
@@ -312,7 +312,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </div>
 <h4 class="node"><span>Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h4>
 <h2 class="chapter" id="Chap-1"><span>1 Chap<a class="copiable-link" href="#Chap-1"> &para;</a></span></h2>
- 
+
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#Sec" accesskey="1">Sec</a>:</td><td class="menu-entry-description">
 </td></tr>
