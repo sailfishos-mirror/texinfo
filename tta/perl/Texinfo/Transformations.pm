@@ -126,6 +126,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
 
   my $root = $document->tree();
 
+  my $sections_list = $document->sections_list();
+
   my $contents_nr = scalar(@{$root->{'contents'}});
 
   my @added_sections;
@@ -153,6 +155,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
   return \@added_sections
     if ($idx_next_section < 0);
 
+  # index in sections_list
+  my $section_idx = 0;
   while (1) {
     my $current_section = $root->{'contents'}->[$idx_current_section];
     my $current_section_level
@@ -200,6 +204,13 @@ sub fill_gaps_in_sectioning_in_document($;$)
                                       {'type' => 'empty_line',
                                        'text' => "\n",
                                        'parent' => $new_section}];
+
+        my $new_section_structure = {'element' => $new_section};
+        splice(@{$sections_list}, $section_idx+1, 0, $new_section_structure);
+        $section_idx++;
+
+        $new_section->{'extra'} = {'section_number' => $section_idx+1};
+
         push @new_sections, $new_section;
       }
       splice (@{$root->{'contents'}}, $idx_current_section+1, 0, @new_sections);
@@ -209,6 +220,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
       _correct_level($next_section, $new_sections[-1], -1);
     }
     $idx_current_section = $idx_next_section;
+    $section_idx++;
+    $next_section->{'extra'}->{'section_number'} = $section_idx+1;
 
     # find the new next section index
     $idx_next_section = $idx_current_section +1;
@@ -224,6 +237,7 @@ sub fill_gaps_in_sectioning_in_document($;$)
       last;
     }
   }
+
   return \@added_sections;
 }
 
@@ -412,7 +426,12 @@ sub _reassociate_to_node($$$)
   my $type = shift;
   my $current = shift;
   my $argument = shift;
-  my ($new_node, $previous_node) = @{$argument};
+  my ($new_node_structure, $previous_node_structure) = @{$argument};
+  my $previous_node;
+  if ($previous_node_structure) {
+    $previous_node = $previous_node_structure->{'element'};
+  }
+  my $new_node = $new_node_structure->{'element'};
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
     if ($previous_node) {
@@ -454,7 +473,7 @@ sub insert_nodes_for_sectioning_commands($)
   my $sections_list = $document->sections_list();
 
   my @added_nodes;
-  my $previous_node;
+  my $previous_node_structure;
   my $contents_nr = scalar(@{$root->{'contents'}});
   my $node_idx = 0;
   for (my $idx = 0; $idx < $contents_nr; $idx++) {
@@ -494,7 +513,7 @@ sub insert_nodes_for_sectioning_commands($)
         push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
-                                             [$new_node, $previous_node]);
+                             [$new_node_structure, $previous_node_structure]);
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
@@ -502,8 +521,16 @@ sub insert_nodes_for_sectioning_commands($)
         and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}
         and $content->{'extra'}->{'is_target'}) {
-      $previous_node = $content;
+      $previous_node_structure = $nodes_list->[$node_idx];
+      # debug
+      if ($previous_node_structure->{'element'} ne $content) {
+        confess("insert_nodes_for_sectioning_commands: wrong node: '"
+        .$previous_node_structure->{'element'}->{'extra'}->{'normalized'}.
+               "' '".$content->{'extra'}->{'normalized'}."'\n");
+      }
       $node_idx++;
+      # reset node index taking into account the added nodes
+      $content->{'extra'}->{'node_number'} = $node_idx;
     }
   }
   return \@added_nodes;

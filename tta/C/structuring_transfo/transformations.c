@@ -209,6 +209,8 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
   size_t idx = 0;
   size_t idx_current_section, idx_next_section;
   ELEMENT *root = document->tree;
+  /* index in sections_list */
+  size_t section_idx = 0;
 
   while (idx < root->e.c->contents.number)
     {
@@ -259,6 +261,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               ELEMENT *arguments_line = new_element (ET_arguments_line);
               ELEMENT *spaces_after_argument = new_text_element (ET_other_text);
               ELEMENT *empty_line = new_text_element (ET_empty_line);
+              SECTION_STRUCTURE *new_section_structure;
 
               current_section_level++;
               new_section = new_command_element (ET_line_command,
@@ -294,6 +297,13 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               text_append (empty_line->e.text, "\n");
               add_to_element_contents (new_section, empty_line);
 
+              new_section_structure
+                = insert_into_section_structure_list (&document->sections_list,
+                                                 new_section, section_idx +1);
+              section_idx++;
+              add_extra_integer (new_section, AI_key_section_number,
+                                 section_idx +1);
+
               add_to_element_list (new_sections, new_section);
               new_section->parent = root;
             }
@@ -312,6 +322,8 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
           document->modified_information |= F_DOCM_tree;
         }
       idx_current_section = idx_next_section;
+      section_idx++;
+      add_extra_integer (next_section, AI_key_section_number, section_idx +1);
 
       /* find the new next section index */
       idx_next_section = idx_current_section +1;
@@ -722,12 +734,18 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   return node;
 }
 
+/* FIXME the association to the node structure information is not
+         re set for node_description associated to nodedescription */
 ELEMENT_LIST *
 reassociate_to_node (const char *type, ELEMENT *current, void *argument)
 {
-  ELEMENT_LIST *new_previous = (ELEMENT_LIST *) argument;
-  ELEMENT *added_node = new_previous->list[0];
-  ELEMENT *previous_node = new_previous->list[1];
+  NODE_STRUCTURE_LIST *new_previous = (NODE_STRUCTURE_LIST *) argument;
+  NODE_STRUCTURE *added_node_structure = new_previous->list[0];
+  NODE_STRUCTURE *previous_node_structure = new_previous->list[1];
+  ELEMENT *added_node = added_node_structure->element;
+  ELEMENT *previous_node = 0;
+  if (previous_node_structure)
+    previous_node = previous_node_structure->element;
 
   if (!(type_data[current->type].flags & TF_text)
       && current->e.c->cmd == CM_menu)
@@ -813,10 +831,11 @@ ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
   const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
+
   ELEMENT *root = document->tree;
   ELEMENT_LIST *added_nodes = new_list ();
   size_t idx;
-  ELEMENT *previous_node = 0;
+  NODE_STRUCTURE *previous_node_structure = 0;
   size_t node_idx = 0;
 
   for (idx = 0; idx < root->e.c->contents.number; idx++)
@@ -863,7 +882,10 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
               destroy_element (new_node_tree);
               if (added_node)
                 {
-                  ELEMENT_LIST *new_previous = new_list ();
+                  NODE_STRUCTURE_LIST new_previous;
+                  memset (&new_previous, 0, sizeof (NODE_STRUCTURE_LIST));
+                  reallocate_node_structure_for (2, &new_previous);
+
                   NODE_STRUCTURE *new_node_structure;
                   insert_into_contents (root, added_node, idx);
                   idx++;
@@ -876,12 +898,13 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                                      node_idx);
                   section_structure->associated_node = added_node;
                   added_node->parent = content->parent;
-                  /* reassociate index entries and menus */
-                  add_to_element_list (new_previous, added_node);
-                  add_to_element_list (new_previous, previous_node);
+                  /* reassociate index entries and menus that are
+                     in the sectioning command contents */
+                  new_previous.list[0] = new_node_structure;
+                  new_previous.list[1] = previous_node_structure;
                   modify_tree (content, &reassociate_to_node,
-                               (void *)new_previous);
-                  destroy_list (new_previous);
+                               (void *)&new_previous);
+                  free (new_previous.list);
                   add_to_element_list (added_nodes, added_node);
                 }
             }
@@ -891,8 +914,11 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
           int is_target = (content->flags & EF_is_target);
           if (is_target)
             {
-              previous_node = content;
+              previous_node_structure = document->nodes_list.list[node_idx];
               node_idx++;
+              /* reset node index taking into account the added nodes */
+              add_extra_integer (content, AI_key_node_number,
+                                 node_idx);
             }
         }
     }

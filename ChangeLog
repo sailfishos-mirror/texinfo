@@ -1,3 +1,23 @@
+2025-05-14  Patrice Dumas  <pertusus@free.fr>
+
+	* perl/Texinfo/Convert/HTML.pm (_html_set_pages_files): avoid spurious
+	autovivification.
+
+	* tta/C/main/structure_list.c (reallocate_node_structure_for)
+	(insert_into_section_structure_list): add.
+
+	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document),
+	tta/perl/Texinfo/Transformations.pm
+	(fill_gaps_in_sectioning_in_document): update sections_list and
+	section_number extra.
+
+	* tta/C/structuring_transfo/transformations.c (reassociate_to_node)
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node)
+	(insert_nodes_for_sectioning_commands): reset node index taking into
+	account the added nodes.  Use node structure in reassociate_to_node.
+
 2025-05-13  Patrice Dumas  <pertusus@free.fr>
 
 	node_description and node_long_description in structure out of tree

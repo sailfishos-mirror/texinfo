@@ -10341,7 +10341,8 @@ sub _html_set_pages_files($$$$$$$$$)
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
             # double node are not normalized, they are handled here
-            if (!defined($root_command->{'extra'}->{'normalized'})
+            if (!$root_command->{'extra'}
+                or !defined($root_command->{'extra'}->{'normalized'})
                 or !defined($identifiers_target->{
                             $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';

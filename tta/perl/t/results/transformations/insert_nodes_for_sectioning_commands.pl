@@ -109,7 +109,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |is_target:{1}
  |node_directions:D[next->E7|up->E3]
- |node_number:{1}
+ |node_number:{3}
  |normalized:{a-node}
   *arguments_line C1
    *line_arg C1

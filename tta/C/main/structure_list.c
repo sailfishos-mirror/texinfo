@@ -80,6 +80,19 @@ setup_reallocate_structure_list(node,NODE)
 setup_reallocate_structure_list(section,SECTION)
 setup_reallocate_structure_list(heading,HEADING)
 
+void
+reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list)
+{
+  if (list->number + n >= list->space)
+    {
+      list->space += n + 1;
+      list->list = realloc (list->list,
+                            list->space * sizeof (NODE_STRUCTURE *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
+}
+
 NODE_STRUCTURE *
 add_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e)
 {
@@ -133,6 +146,24 @@ insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
   list->number++;
 
   return node;
+}
+
+SECTION_STRUCTURE *
+insert_into_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                                 ELEMENT *e, size_t where)
+{
+  SECTION_STRUCTURE *section = new_section_structure (e);
+  reallocate_section_structure_list (list);
+
+  if (where > list->number)
+    fatal ("elements list index out of bounds");
+
+  memmove (&list->list[where + 1], &list->list[where],
+           (list->number - where) * sizeof (SECTION_STRUCTURE *));
+  list->list[where] = section;
+  list->number++;
+
+  return section;
 }
 
 void
