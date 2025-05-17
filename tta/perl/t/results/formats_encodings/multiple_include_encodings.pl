@@ -430,7 +430,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
  |node_number:{6}
  |normalized:{_0104-_0105-_02db-_0118-_0119}
@@ -976,6 +975,8 @@ $result_nodes_list{'multiple_include_encodings'} = '1|Top
 6|Ą ą ˛ Ę ę
  associated_section: 4.1 Ą ą ˛ Ę ę
  associated_title_command: 4.1 Ą ą ˛ Ę ę
+ menu_directions:
+  up->char latin2 latin2
 7|Mixed english and chinese EUC-CN
  associated_section: 5 Mixed english and chinese EUC-CN
  associated_title_command: 5 Mixed english and chinese EUC-CN

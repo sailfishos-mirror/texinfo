@@ -77,7 +77,6 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{One_003a_003anode_002c-with-entries_002e}
@@ -205,7 +204,6 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Concept-Index}
@@ -285,7 +283,13 @@ $result_nodes_list{'colons_in_index_entries_and_node_no_quoting'} = '1|Top
   One@asis{::}node@comma{} with entries.
   Concept Index
 2|One@asis{::}node@comma{} with entries.
+ menu_directions:
+  next->Concept Index
+  up->Top
 3|Concept Index
+ menu_directions:
+  prev->One@asis{::}node@comma{} with entries.
+  up->Top
 ';
 
 $result_sections_list{'colons_in_index_entries_and_node_no_quoting'} = '';

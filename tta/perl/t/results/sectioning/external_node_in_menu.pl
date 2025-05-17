@@ -104,7 +104,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{nchapter1}
@@ -137,7 +136,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->MISSING: (menu_entry_node)[C4]|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{nchapter2}
@@ -210,9 +208,15 @@ $result_nodes_list{'external_node_in_menu'} = '1|Top
 2|nchapter1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
+ menu_directions:
+  next->(aaa)other
+  up->Top
 3|nchapter2
  associated_section: 2 chap2
  associated_title_command: 2 chap2
+ menu_directions:
+  prev->(aaa)other
+  up->Top
 ';
 
 $result_sections_list{'external_node_in_menu'} = '1|top

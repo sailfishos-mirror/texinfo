@@ -119,7 +119,6 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-first}
@@ -246,7 +245,6 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{second}
@@ -322,7 +320,6 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E7|up->E4]
  |node_directions:D[prev->E7|up->E4]
  |node_number:{4}
  |normalized:{another}
@@ -399,7 +396,6 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E6|up->E4]
  |node_directions:D[next->E6|up->E4]
  |node_number:{5}
  |normalized:{a-node}
@@ -590,12 +586,22 @@ $result_nodes_list{'index_nodes_no_split_no_use_nodes'} = '1|Top
 2|chap first
  menus:
   second
+ menu_directions:
+  up->Top
 3|second
  menus:
   a node
   another
+ menu_directions:
+  up->chap first
 4|another
+ menu_directions:
+  prev->a node
+  up->second
 5|a node
+ menu_directions:
+  next->another
+  up->second
 ';
 
 $result_sections_list{'index_nodes_no_split_no_use_nodes'} = '';

@@ -114,7 +114,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Dedication}
@@ -149,7 +148,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{preface}
@@ -184,7 +182,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{colophon}
@@ -219,7 +216,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
  |normalized:{acknowledgements}
@@ -330,15 +326,29 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 2|Dedication
  associated_section: a dedication
  associated_title_command: a dedication
+ menu_directions:
+  next->preface
+  up->Top
 3|preface
  associated_section: The Preface
  associated_title_command: The Preface
+ menu_directions:
+  next->colophon
+  prev->Dedication
+  up->Top
 4|colophon
  associated_section: A colophon
  associated_title_command: A colophon
+ menu_directions:
+  next->acknowledgements
+  prev->preface
+  up->Top
 5|acknowledgements
  associated_section: 1 A chapter Acnkowledgements
  associated_title_command: 1 A chapter Acnkowledgements
+ menu_directions:
+  prev->colophon
+  up->Top
 ';
 
 $result_sections_list{'special_docbook_unnumbered'} = '1|top

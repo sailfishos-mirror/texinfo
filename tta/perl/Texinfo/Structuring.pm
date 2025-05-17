@@ -675,7 +675,7 @@ sub check_nodes_are_referenced($)
         my $automatic_directions
           = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
         my $section = $node_structure->{'associated_section'};
-        my $menu_directions = $node->{'extra'}->{'menu_directions'};
+        my $menu_directions = $node_structure->{'menu_directions'};
         if (not (($section and $automatic_directions)
                  or ($menu_directions and $menu_directions->{'up'}))) {
           $registrar->line_warn(sprintf(__("node `%s' not in menu"),
@@ -725,11 +725,13 @@ sub set_menus_node_directions($)
         }
       }
       foreach my $menu (@{$node_structure->{'menus'}}) {
+        my $previous_node_structure;
         my $previous_node;
         foreach my $menu_content (@{$menu->{'contents'}}) {
           if ($menu_content->{'type'}
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
+            my $menu_node_structure;
             foreach my $content (@{$menu_content->{'contents'}}) {
               if ($content->{'type'} eq 'menu_entry_node') {
                 if ($content->{'extra'}) {
@@ -742,10 +744,12 @@ sub set_menus_node_directions($)
                     if (defined($content->{'extra'}->{'normalized'})) {
                       $menu_node
                         = $identifier_target->{$content->{'extra'}->{'normalized'}};
-                      if ($menu_node) {
-                        $menu_node->{'extra'}->{'menu_directions'} = {}
-                           if (!$menu_node->{'extra'}->{'menu_directions'});
-                        $menu_node->{'extra'}->{'menu_directions'}->{'up'} = $node;
+                      if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
+                        $menu_node_structure
+                          = $nodes_list->[$menu_node->{'extra'}->{'node_number'} -1];
+                        $menu_node_structure->{'menu_directions'} = {}
+                          if (!$menu_node_structure->{'menu_directions'});
+                        $menu_node_structure->{'menu_directions'}->{'up'} = $node;
                       }
                     }
                   } else {
@@ -755,23 +759,23 @@ sub set_menus_node_directions($)
                 last;
               }
             }
-            if ($menu_node) {
-              if ($previous_node) {
-                if (!$menu_node->{'extra'}->{'manual_content'}) {
-                  $menu_node->{'extra'}->{'menu_directions'} = {}
-                     if (!$menu_node->{'extra'}->{'menu_directions'});
-                  $menu_node->{'extra'}->{'menu_directions'}->{'prev'}
-                       = $previous_node;
-                }
-                if (!$previous_node->{'extra'}->{'manual_content'}) {
-                  $previous_node->{'extra'}->{'menu_directions'} = {}
-                     if (!$previous_node->{'extra'}->{'menu_directions'});
-                  $previous_node->{'extra'}->{'menu_directions'}->{'next'}
-                            = $menu_node;
-                }
-              }
-              $previous_node = $menu_node;
+            if ($menu_node and $previous_node_structure
+                and !$previous_node_structure->{'element'}
+                                    ->{'extra'}->{'manual_content'}) {
+              $previous_node_structure->{'menu_directions'} = {}
+                if (!$previous_node_structure->{'menu_directions'});
+              $previous_node_structure->{'menu_directions'}->{'next'}
+                = $menu_node;
             }
+            if ($menu_node_structure and $previous_node
+                and !$menu_node->{'extra'}->{'manual_content'}) {
+              $menu_node_structure->{'menu_directions'} = {}
+                if (!$menu_node_structure->{'menu_directions'});
+              $menu_node_structure->{'menu_directions'}->{'prev'}
+                 = $previous_node;
+            }
+            $previous_node = $menu_node;
+            $previous_node_structure = $menu_node_structure;
           }
         } # end menu
       }
@@ -859,7 +863,7 @@ sub complete_node_tree_with_menus($)
       = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
     my $normalized = $node->{'extra'}->{'normalized'};
-    my $menu_directions = $node->{'extra'}->{'menu_directions'};
+    my $menu_directions = $node_structure->{'menu_directions'};
 
     if ($automatic_directions) {
 
@@ -1233,6 +1237,21 @@ sub _print_line_command_key_element($$)
   }
 }
 
+sub _print_menu_node($)
+{
+  my $element = shift;
+  if ($element->{'cmdname'} and $element->{'cmdname'} eq 'node') {
+    return _print_root_command($element);
+  } elsif (defined($element->{'cmdname'})
+           and $element->{'contents'}->[0]
+           and $element->{'contents'}->[0]->{'contents'}) {
+    return Texinfo::Convert::Texinfo::convert_to_texinfo(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+  } else {
+    return Texinfo::Convert::Texinfo::convert_to_texinfo($element);
+  }
+}
+
 sub print_nodes_list($)
 {
   my $document = shift;
@@ -1294,6 +1313,20 @@ sub print_nodes_list($)
                 $result .= "  ".$node_menu_entry_texi."\n";
               }
             }
+          }
+        }
+      }
+    }
+
+    foreach my $directions_key (('menu_directions',)) {
+      if ($node_structure->{$directions_key}) {
+        my $value = $node_structure->{$directions_key};
+        $result .= " $directions_key:\n";
+        foreach my $d_key (@node_directions_names) {
+          if ($value->{$d_key}) {
+            my $e = $value->{$d_key};
+            my $node_direction_texi = _print_menu_node($e);
+            $result .= "  ${d_key}->$node_direction_texi\n";
           }
         }
       }
@@ -1829,6 +1862,8 @@ sub _print_down_menus($$$$$$$;$)
   my @menus;
 
   my @master_menu_contents;
+
+  return @master_menu_contents unless($node->{'cmdname'} eq 'node');
 
   my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 

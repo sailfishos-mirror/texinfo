@@ -118,7 +118,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-1-node}
@@ -151,7 +150,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E4|up->E0]
  |node_directions:D[next->E9|prev->E4|up->E0]
  |node_number:{3}
  |normalized:{chapter-2-node}
@@ -201,7 +199,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E6|up->E0]
  |node_directions:D[prev->E6|up->E0]
  |node_number:{4}
  |normalized:{chapter-3-node}
@@ -304,13 +301,23 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
  associated_section: 1 chapter 1
  node_preceding_part: part 1: part 1
  associated_title_command: 1 chapter 1
+ menu_directions:
+  next->chapter 2 node
+  up->Top
 3|chapter 2 node
  associated_section: 2 chapter 2
  associated_title_command: 2 chapter 2
+ menu_directions:
+  next->chapter 3 node
+  prev->chapter 1 node
+  up->Top
 4|chapter 3 node
  associated_section: 3 chapter 3
  node_preceding_part: part2: part2
  associated_title_command: 3 chapter 3
+ menu_directions:
+  prev->chapter 2 node
+  up->Top
 ';
 
 $result_sections_list{'contents_and_parts'} = '1|top

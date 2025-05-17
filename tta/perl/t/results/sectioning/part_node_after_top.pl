@@ -86,7 +86,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-part-node-after-top}
@@ -166,6 +165,8 @@ $result_nodes_list{'part_node_after_top'} = '1|Top
  menus:
   chap part node after top
 2|chap part node after top
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'part_node_after_top'} = '1|top

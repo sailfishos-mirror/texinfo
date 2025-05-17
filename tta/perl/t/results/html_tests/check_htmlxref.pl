@@ -171,7 +171,6 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{first}
@@ -196,7 +195,6 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C4]]
  |node_number:{3}
  |normalized:{chapter}
@@ -308,9 +306,15 @@ $result_nodes_list{'check_htmlxref'} = '1|Top
   (other_no_existing_no_manual)
   chapter
 2|first
+ menu_directions:
+  next->(other_no_existing_no_manual)
+  up->Top
 3|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menu_directions:
+  prev->(other_no_existing_no_manual)
+  up->Top
 ';
 
 $result_sections_list{'check_htmlxref'} = '1|top

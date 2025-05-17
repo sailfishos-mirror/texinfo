@@ -393,7 +393,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{blah_003ablah}
@@ -429,7 +428,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{blumpty_002efump}
@@ -462,7 +460,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C6]|prev->MISSING: (line_arg)[C6]|up->MISSING: (line_arg)[C4]]
  |node_number:{4}
  |normalized:{normal-node}
@@ -536,7 +533,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
  |normalized:{secret_002cnode}
@@ -754,15 +750,29 @@ $result_nodes_list{'quote_node_names'} = '1|Top
 2|blah:blah
  associated_section: 1 blah:blah
  associated_title_command: 1 blah:blah
+ menu_directions:
+  next->blumpty.fump
+  up->Top
 3|blumpty.fump
  associated_section: 2 blumpty.fump
  associated_title_command: 2 blumpty.fump
+ menu_directions:
+  next->normal node
+  prev->blah:blah
+  up->Top
 4|normal node
  associated_section: 3 normal node
  associated_title_command: 3 normal node
+ menu_directions:
+  next->@asis{secret,node}
+  prev->blumpty.fump
+  up->Top
 5|@asis{secret,node}
  associated_section: 4 @asis{secret,node}
  associated_title_command: 4 @asis{secret,node}
+ menu_directions:
+  prev->normal node
+  up->Top
 6|top secret node
 ';
 

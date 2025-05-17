@@ -135,7 +135,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap}
@@ -227,6 +226,8 @@ $result_nodes_list{'non_automatic_internal_top_node_up'} = '1|Top
  menus:
   chap
 2|chap
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'non_automatic_internal_top_node_up'} = '1|internal top node up

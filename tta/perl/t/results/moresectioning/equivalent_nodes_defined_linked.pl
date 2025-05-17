@@ -69,7 +69,6 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{chap}
@@ -239,6 +238,8 @@ $result_nodes_list{'equivalent_nodes_defined_linked'} = '1|Top
  menus:
   @strong{chap}
 2|chap
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'equivalent_nodes_defined_linked'} = '';

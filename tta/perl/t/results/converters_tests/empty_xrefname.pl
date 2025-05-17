@@ -110,7 +110,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{entiti}
@@ -284,6 +283,8 @@ $result_nodes_list{'empty_xrefname'} = '1|Top
   entiti
 3|entiti
  associated_title_command
+ menu_directions:
+  up->Chap
 4|chip
  associated_section: 2 Chip
  associated_title_command: 2 Chip

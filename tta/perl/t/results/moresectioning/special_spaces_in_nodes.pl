@@ -191,7 +191,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|up->E2]
  |node_directions:D[next->E6|up->E2]
  |node_number:{3}
  |normalized:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
@@ -208,7 +207,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E5|up->E2]
  |node_directions:D[next->E7|prev->E5|up->E2]
  |node_number:{4}
  |normalized:{CARRIAGE-RETURN_007c-_007c}
@@ -225,7 +223,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|prev->E6|up->E2]
  |node_directions:D[next->E8|prev->E6|up->E2]
  |node_number:{5}
  |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
@@ -242,7 +239,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E7|up->E2]
  |node_directions:D[next->E9|prev->E7|up->E2]
  |node_number:{6}
  |normalized:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
@@ -259,7 +255,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E10|prev->E8|up->E2]
  |node_directions:D[next->E10|prev->E8|up->E2]
  |node_number:{7}
  |normalized:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
@@ -276,7 +271,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|prev->E9|up->E2]
  |node_directions:D[next->E11|prev->E9|up->E2]
  |node_number:{8}
  |normalized:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
@@ -293,7 +287,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E12|prev->E10|up->E2]
  |node_directions:D[next->E12|prev->E10|up->E2]
  |node_number:{9}
  |normalized:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
@@ -310,7 +303,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E11|up->E2]
  |node_directions:D[prev->E11|up->E2]
  |node_number:{10}
  |normalized:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
@@ -423,13 +415,43 @@ $result_nodes_list{'special_spaces_in_nodes'} = '1|Top 
   HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
   NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 3|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+ menu_directions:
+  next->CARRIAGE RETURN|'."\r".'|
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 4|CARRIAGE RETURN|'."\r".'|
+ menu_directions:
+  next->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  prev->CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ menu_directions:
+  next->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  prev->CARRIAGE RETURN|'."\r".'|
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 6|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ menu_directions:
+  next->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |
+  prev->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 7|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |
+ menu_directions:
+  next->FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |
+  prev->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 8|FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |
+ menu_directions:
+  next->HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+  prev->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 9|HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+ menu_directions:
+  next->NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+  prev->FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 10|NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ menu_directions:
+  prev->HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+  up->EN QUAD| | EM QUAD| | EN SPACE| |
 ';
 
 $result_sections_list{'special_spaces_in_nodes'} = '1|top

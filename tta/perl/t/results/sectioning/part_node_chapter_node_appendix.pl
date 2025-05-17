@@ -127,7 +127,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-node}
@@ -170,7 +169,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[prev->E4|up->E0]
  |node_number:{3}
  |normalized:{appendix-node}
@@ -246,9 +244,15 @@ $result_nodes_list{'part_node_chapter_node_appendix'} = '1|Top
  associated_section: 1 chapter
  node_preceding_part: Part 1
  associated_title_command: 1 chapter
+ menu_directions:
+  next->appendix node
+  up->Top
 3|appendix node
  associated_section: A Appendix
  associated_title_command: A Appendix
+ menu_directions:
+  prev->chapter node
+  up->Top
 ';
 
 $result_sections_list{'part_node_chapter_node_appendix'} = '1|top

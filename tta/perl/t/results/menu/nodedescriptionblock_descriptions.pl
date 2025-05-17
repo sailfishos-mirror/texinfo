@@ -128,7 +128,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
@@ -211,7 +210,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E10|prev->E3|up->E0]
  |node_directions:D[next->E10|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{titi}
@@ -264,7 +262,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E13|prev->E7|up->E0]
  |node_directions:D[next->E13|prev->E7|up->E0]
  |node_number:{4}
  |normalized:{other}
@@ -340,7 +337,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E17|prev->E10|up->E0]
  |node_directions:D[next->E17|prev->E10|up->E0]
  |node_number:{5}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
@@ -403,7 +399,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E13|up->E0]
  |node_directions:D[prev->E13|up->E0]
  |node_number:{6}
  |normalized:{node-double-nodedescriptionblock}
@@ -604,23 +599,41 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
  node_long_description: @nodedescriptionblock
+ menu_directions:
+  next->titi
+  up->Top
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
  node_long_description: @nodedescriptionblock
+ menu_directions:
+  next->other
+  prev->toto
+  up->Top
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
  node_long_description: @nodedescriptionblock
+ menu_directions:
+  next->a somewhat long node without description nor following space
+  prev->titi
+  up->Top
 5|a somewhat long node without description nor following space
  associated_section: 4 Somewhat long
  associated_title_command: 4 Somewhat long
  node_description: @nodedescription not as long as the node
  node_long_description: @nodedescriptionblock
+ menu_directions:
+  next->node double nodedescriptionblock
+  prev->other
+  up->Top
 6|node double nodedescriptionblock
  associated_section: 5 test double
  associated_title_command: 5 test double
  node_long_description: @nodedescriptionblock
+ menu_directions:
+  prev->a somewhat long node without description nor following space
+  up->Top
 ';
 
 $result_sections_list{'nodedescriptionblock_descriptions'} = '1|test of nodedescriptionblock used in menu

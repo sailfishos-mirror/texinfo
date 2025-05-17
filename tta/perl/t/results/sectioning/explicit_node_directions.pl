@@ -87,7 +87,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-node}
@@ -133,7 +132,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{third-node}
@@ -189,7 +187,13 @@ $result_nodes_list{'explicit_node_directions'} = '1|Top
   chap node
   third node
 2|chap node
+ menu_directions:
+  next->third node
+  up->Top
 3|third node
+ menu_directions:
+  prev->chap node
+  up->Top
 ';
 
 $result_sections_list{'explicit_node_directions'} = '';

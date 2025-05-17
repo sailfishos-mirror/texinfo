@@ -81,7 +81,6 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{first}
@@ -121,6 +120,8 @@ $result_nodes_list{'comment_on_menu_line'} = '1|Top
  menus:
   first
 2|first
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'comment_on_menu_line'} = '1|first

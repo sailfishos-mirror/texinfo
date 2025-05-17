@@ -78,7 +78,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -152,7 +151,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|up->E3]
  |node_directions:D[next->E9|up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -214,7 +212,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E6|up->E6]
  |node_directions:D[prev->E6|up->E6]
  |node_number:{4}
  |normalized:{subsection}
@@ -318,14 +315,22 @@ $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  menus:
   section
   subsection
+ menu_directions:
+  up->Top
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
  menus:
   subsection
+ menu_directions:
+  next->subsection
+  up->chapter
 4|subsection
  associated_section: 1.1.1 subsection
  associated_title_command: 1.1.1 subsection
+ menu_directions:
+  prev->section
+  up->section
 ';
 
 $result_sections_list{'next_in_menu_is_below'} = '1|top

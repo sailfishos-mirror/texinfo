@@ -121,7 +121,6 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_0104-_0105-_02db-_0118-_0119}
@@ -218,6 +217,8 @@ $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
 2|Ą ą ˛ Ę ę
  associated_section: 1 Ą ą ˛ Ę ę
  associated_title_command: 1 Ą ą ˛ Ę ę
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'char_latin2_latin2_in_refs'} = '1|char latin2 latin2 in refs

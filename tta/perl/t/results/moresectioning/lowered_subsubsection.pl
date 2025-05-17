@@ -74,7 +74,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
@@ -137,7 +136,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Section}
@@ -199,7 +197,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E6]
  |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Subsection}
@@ -272,7 +269,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E14|up->E9]
  |node_directions:D[next->E14|up->E9]
  |node_number:{5}
  |normalized:{Subsubsection}
@@ -306,7 +302,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E12|up->E9]
  |node_directions:D[next->E17|prev->E12|up->E9]
  |node_number:{6}
  |normalized:{Lowered-subsec}
@@ -368,7 +363,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E14]
  |node_directions:D[prev->E14|up->E9]
  |node_number:{7}
  |normalized:{Lowered-subsubsection}
@@ -529,28 +523,42 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_title_command: 1 Chapter
  menus:
   Section
+ menu_directions:
+  up->Top
 3|Section
  associated_section: 1.1 Section
  associated_title_command: 1.1 Section
  menus:
   Subsection
+ menu_directions:
+  up->Chapter
 4|Subsection
  associated_section: 1.1.1 Subsection
  associated_title_command: 1.1.1 Subsection
  menus:
   Subsubsection
   Lowered subsec
+ menu_directions:
+  up->Section
 5|Subsubsection
  associated_section: 1.1.1.1 Subsubsection
  associated_title_command: 1.1.1.1 Subsubsection
+ menu_directions:
+  next->Lowered subsec
+  up->Subsection
 6|Lowered subsec
  associated_section: 1.1.1.2 Lowered subsec
  associated_title_command: 1.1.1.2 Lowered subsec
  menus:
   Lowered subsubsection
+ menu_directions:
+  prev->Subsubsection
+  up->Subsection
 7|Lowered subsubsection
  associated_section: 1.1.1.3 Lowered subsubsection
  associated_title_command: 1.1.1.3 Lowered subsubsection
+ menu_directions:
+  up->Lowered subsec
 ';
 
 $result_sections_list{'lowered_subsubsection'} = '1

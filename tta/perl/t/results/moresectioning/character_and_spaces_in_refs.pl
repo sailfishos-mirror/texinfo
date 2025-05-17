@@ -90,7 +90,6 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
@@ -256,7 +255,6 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[next->E10|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{other-nodes}
@@ -363,7 +361,6 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|up->E7]
  |node_directions:D[next->E11|prev->E7|up->E7]
  |node_number:{4}
  |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
@@ -403,7 +400,6 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E12|prev->E10|up->E7]
  |node_directions:D[next->E12|prev->E10|up->E7]
  |node_number:{5}
  |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
@@ -437,7 +433,6 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   |{  }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E11|up->E7]
  |node_directions:D[prev->E11|up->E7]
  |node_number:{6}
  |normalized:{local-node}
@@ -559,6 +554,9 @@ $result_nodes_list{'character_and_spaces_in_refs'} = '1|Top
 2|node to avoid DocBook or LaTeX ignored
  associated_section: 1 first chapter
  associated_title_command: 1 first chapter
+ menu_directions:
+  next->other nodes
+  up->Top
 3|other nodes
  associated_section: 2 Chapter with nodes
  associated_title_command: 2 Chapter with nodes
@@ -566,9 +564,22 @@ $result_nodes_list{'character_and_spaces_in_refs'} = '1|Top
   !_"#$%&\'()*+-.
   /;<=>?[\\]^_`|~
   local node
+ menu_directions:
+  prev->node to avoid DocBook or LaTeX ignored
+  up->Top
 4|!_"#$%&\'()*+-.
+ menu_directions:
+  next->/;<=>?[\\]^_`|~
+  up->other nodes
 5|/;<=>?[\\]^_`|~
+ menu_directions:
+  next->local   node
+  prev->!_"#$%&\'()*+-.
+  up->other nodes
 6|local   node
+ menu_directions:
+  prev->/;<=>?[\\]^_`|~
+  up->other nodes
 ';
 
 $result_sections_list{'character_and_spaces_in_refs'} = '1|Test refs

@@ -46,7 +46,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   *2 @namedanchor C2 l4
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[next->E5|prev->E15|up->E12]
   |normalized:{in-Top}
    *brace_arg C1
     {in Top}
@@ -94,7 +93,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *5 @namedanchor C2 l7
     |EXTRA
     |is_target:{1}
-    |menu_directions:D[next->E6|prev->E2|up->E12]
     |normalized:{Not-here_0021}
      *brace_arg C1
       {Not here!}
@@ -109,7 +107,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   *6 @namedanchor C1 l9
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[next->E9|prev->E5|up->E12]
   |normalized:{in-chap-no-name}
    *brace_arg C1
     {in chap no name}
@@ -117,7 +114,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   *7 @namedanchor C2 l10
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[prev->E9|up->E12]
   |normalized:{in-chap-empty-name}
    *brace_arg C1
     {in chap empty name}
@@ -139,7 +135,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   *9 @namedanchor C2 l15
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[next->E7|prev->E6|up->E12]
   |normalized:{normal}
    *brace_arg C1
     {normal}
@@ -498,7 +493,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E2|up->E12]
  |node_directions:D[next->E2|up->E12]
  |node_number:{5}
  |normalized:{secc2}
@@ -682,6 +676,9 @@ $result_nodes_list{'namedanchor'} = '1|Top
 5|secc2
  associated_section: 2.1 Secc2
  associated_title_command: 2.1 Secc2
+ menu_directions:
+  next->in Top
+  up->chap1
 ';
 
 $result_sections_list{'namedanchor'} = '1|top

@@ -13,7 +13,6 @@ $result_tree_text{'section_before_top'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
  |node_number:{1}
  |normalized:{section-node}
@@ -149,6 +148,8 @@ $result_errors{'section_before_top'} = [
 $result_nodes_list{'section_before_top'} = '1|section node
  associated_section: 1 section
  associated_title_command: 1 section
+ menu_directions:
+  up->Top
 2|Top
  associated_section: top
  associated_title_command: top

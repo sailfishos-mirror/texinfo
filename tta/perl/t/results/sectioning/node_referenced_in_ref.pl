@@ -67,7 +67,6 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-first-level-node}
@@ -132,6 +131,8 @@ $result_nodes_list{'node_referenced_in_ref'} = '1|Top
  menus:
   chap first level node
 2|chap first level node
+ menu_directions:
+  up->Top
 3|second level node
 ';
 

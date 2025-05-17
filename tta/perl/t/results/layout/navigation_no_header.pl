@@ -82,7 +82,6 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -145,7 +144,6 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -247,7 +245,6 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E6]
  |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{subsection}
@@ -403,14 +400,20 @@ $result_nodes_list{'navigation_no_header'} = '1|Top
  associated_title_command: 1 First chapter
  menus:
   section
+ menu_directions:
+  up->Top
 3|section
  associated_section: 1.1 Section in chapter
  associated_title_command: 1.1 Section in chapter
  menus:
   subsection
+ menu_directions:
+  up->chapter
 4|subsection
  associated_section: 1.1.1 Sub section in section
  associated_title_command: 1.1.1 Sub section in section
+ menu_directions:
+  up->section
 ';
 
 $result_sections_list{'navigation_no_header'} = '1|File used for navigation testing

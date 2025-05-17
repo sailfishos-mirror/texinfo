@@ -85,7 +85,6 @@ $result_tree_text{'contents_at_end'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -170,6 +169,8 @@ $result_nodes_list{'contents_at_end'} = '1|Top
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'contents_at_end'} = '1|Contents at end

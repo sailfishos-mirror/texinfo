@@ -13,7 +13,6 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E0|prev->E0|up->E0]
  |node_directions:D[next->E0]
  |node_number:{1}
  |normalized:{Top}
@@ -175,6 +174,10 @@ $result_nodes_list{'double_top_in_menu'} = '1|ToP
  menus:
   top
   TOP
+ menu_directions:
+  next->ToP
+  prev->ToP
+  up->ToP
 2|top
 ';
 

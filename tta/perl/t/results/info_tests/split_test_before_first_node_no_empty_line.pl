@@ -96,7 +96,6 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap1}
@@ -176,6 +175,8 @@ $result_nodes_list{'split_test_before_first_node_no_empty_line'} = '1|Top
 2|chap1
  associated_section: 1 chap
  associated_title_command: 1 chap
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'split_test_before_first_node_no_empty_line'} = '1|top

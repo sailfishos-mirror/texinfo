@@ -89,7 +89,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E0]
  |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap1}
@@ -152,7 +151,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[next->E8|up->E3]
  |node_number:{3}
  |normalized:{Sec-in-chapter}
@@ -184,7 +182,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{Section-non-auto}
@@ -298,12 +295,20 @@ $result_nodes_list{'semi_auto'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   Sec in chapter
+ menu_directions:
+  next->Section non auto
+  up->Top
 3|Sec in chapter
  associated_section: 1.1 Sec in chapter
  associated_title_command: 1.1 Sec in chapter
+ menu_directions:
+  up->Chap1
 4|Section non auto
  associated_section: 1.2 Section
  associated_title_command: 1.2 Section
+ menu_directions:
+  prev->Chap1
+  up->Top
 ';
 
 $result_sections_list{'semi_auto'} = '1|Top

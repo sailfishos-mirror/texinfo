@@ -102,7 +102,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E4|up->E0]
  |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_00e3}
@@ -153,7 +152,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|prev->E2|up->E0]
  |node_directions:D[next->E5|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{n}
@@ -179,7 +177,6 @@ NodeBack: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[prev->E4|up->E0]
  |node_number:{4}
  |normalized:{_00e2}
@@ -248,8 +245,18 @@ $result_nodes_list{'transliterated_split_equivalent_nodes'} = '1|top
 2|@~a
  associated_section: @~a
  associated_title_command: @~a
+ menu_directions:
+  next->n
+  up->top
 3|n
+ menu_directions:
+  next->@^a
+  prev->@~a
+  up->top
 4|@^a
+ menu_directions:
+  prev->n
+  up->top
 ';
 
 $result_sections_list{'transliterated_split_equivalent_nodes'} = '1|@~a

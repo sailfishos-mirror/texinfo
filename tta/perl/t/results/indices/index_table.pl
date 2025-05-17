@@ -103,7 +103,6 @@ $result_tree_text{'index_table'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-with-ftable-and-vtable}
@@ -290,7 +289,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node-with-printindex}
@@ -361,7 +359,6 @@ $result_tree_text{'index_table'} = '*document_root C12
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[prev->E5|up->E0]
  |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{indices-refs}
@@ -2104,7 +2101,6 @@ $result_tree_text{'index_table'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E7]
  |node_number:{5}
  |normalized:{node}
   *arguments_line C4
@@ -2405,17 +2401,29 @@ $result_nodes_list{'index_table'} = '1|Top
 2|node with ftable and vtable
  associated_section: 1 first node chapter, with ftable and vtable
  associated_title_command: 1 first node chapter, with ftable and vtable
+ menu_directions:
+  next->node with printindex
+  up->Top
 3|node with printindex
  associated_section: 2 node with printindex
  associated_title_command: 2 node with printindex
+ menu_directions:
+  next->indices refs
+  prev->node with ftable and vtable
+  up->Top
 4|indices refs
  associated_section: 3 Indices refs
  associated_title_command: 3 Indices refs
  menus:
   node
+ menu_directions:
+  prev->node with printindex
+  up->Top
 5|node
  associated_section: 3.1 node
  associated_title_command: 3.1 node
+ menu_directions:
+  up->indices refs
 ';
 
 $result_sections_list{'index_table'} = '1|Test for indices

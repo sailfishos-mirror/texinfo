@@ -305,7 +305,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{name}
@@ -651,7 +650,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
@@ -1342,9 +1340,15 @@ $result_nodes_list{'test_index'} = '1|Top
 2|name
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
+ menu_directions:
+  next->name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+  up->Top
 3|name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
  associated_section: A Index
  associated_title_command: A Index
+ menu_directions:
+  prev->name
+  up->Top
 ';
 
 $result_sections_list{'test_index'} = '1|Element top

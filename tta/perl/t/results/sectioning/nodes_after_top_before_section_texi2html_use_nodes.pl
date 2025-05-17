@@ -71,7 +71,6 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-node}
@@ -109,7 +108,6 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{third-node}
@@ -187,9 +185,15 @@ $result_nodes_list{'nodes_after_top_before_section_texi2html_use_nodes'} = '1|To
   chap node
   third node
 2|chap node
+ menu_directions:
+  next->third node
+  up->Top
 3|third node
  associated_section: 1 subsection
  associated_title_command: 1 subsection
+ menu_directions:
+  prev->chap node
+  up->Top
 ';
 
 $result_sections_list{'nodes_after_top_before_section_texi2html_use_nodes'} = '1|subsection

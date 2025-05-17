@@ -72,7 +72,6 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node}
@@ -133,6 +132,8 @@ $result_nodes_list{'equivalent_nodes_novalidate'} = '1|first
  menus:
   @strong{node}
 2|@samp{node}
+ menu_directions:
+  up->first
 ';
 
 $result_sections_list{'equivalent_nodes_novalidate'} = '';

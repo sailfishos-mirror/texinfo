@@ -189,7 +189,6 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|prev->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-b}
@@ -326,6 +325,10 @@ $result_nodes_list{'space_and_commands_in_menu_node'} = '1|Top
 2|chap @: b
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ menu_directions:
+  next->chap @: b
+  prev->chap @: b
+  up->Top
 ';
 
 $result_sections_list{'space_and_commands_in_menu_node'} = '1|top

@@ -77,7 +77,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E7]
  |node_number:{2}
  |normalized:{chap-node-up}
@@ -130,7 +129,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{node-middle}
@@ -183,7 +181,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E5]
  |node_directions:D[up->E5]
  |node_number:{4}
  |normalized:{node-down}
@@ -251,10 +248,16 @@ $result_nodes_list{'loop_nodes'} = '1|Top
 2|chap node up
  menus:
   node middle
+ menu_directions:
+  up->Top
 3|node middle
  menus:
   node down
+ menu_directions:
+  up->chap node up
 4|node down
+ menu_directions:
+  up->node middle
 ';
 
 $result_sections_list{'loop_nodes'} = '1|top

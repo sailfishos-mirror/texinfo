@@ -13,7 +13,6 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[next->E0]
  |node_number:{1}
  |normalized:{Top}
@@ -115,6 +114,8 @@ $result_errors{'top_node_normalization'} = [
 $result_nodes_list{'top_node_normalization'} = '1|ToP
  menus:
   tOP
+ menu_directions:
+  up->ToP
 ';
 
 $result_sections_list{'top_node_normalization'} = '';

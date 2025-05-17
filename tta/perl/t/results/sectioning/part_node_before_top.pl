@@ -18,7 +18,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
  |node_number:{1}
  |normalized:{part-node-before-top}
@@ -164,6 +163,8 @@ $result_errors{'part_node_before_top'} = [
 
 
 $result_nodes_list{'part_node_before_top'} = '1|part node before top
+ menu_directions:
+  up->Top
 2|Top
  associated_section: top
  node_preceding_part: part

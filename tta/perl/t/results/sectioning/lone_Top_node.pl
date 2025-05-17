@@ -63,7 +63,6 @@ NodeUp: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{First}
@@ -130,6 +129,8 @@ $result_nodes_list{'lone_Top_node'} = '1|Top
 2|First
  associated_section: 1 chap
  associated_title_command: 1 chap
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'lone_Top_node'} = '1|chap

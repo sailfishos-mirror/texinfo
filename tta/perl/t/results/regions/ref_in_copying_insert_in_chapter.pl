@@ -143,7 +143,6 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{GFDL}
@@ -223,6 +222,8 @@ $result_nodes_list{'ref_in_copying_insert_in_chapter'} = '1|Top
 3|GFDL
  associated_section: 1.1 GFDL
  associated_title_command: 1.1 GFDL
+ menu_directions:
+  up->Intro
 ';
 
 $result_sections_list{'ref_in_copying_insert_in_chapter'} = '1|top

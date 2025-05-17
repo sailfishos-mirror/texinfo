@@ -78,7 +78,6 @@ $result_tree_text{'regenerate_master_menu_no_need_for_master_menu'} = '*document
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
@@ -139,6 +138,8 @@ $result_nodes_list{'regenerate_master_menu_no_need_for_master_menu'} = '1|Top
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'regenerate_master_menu_no_need_for_master_menu'} = '1|top

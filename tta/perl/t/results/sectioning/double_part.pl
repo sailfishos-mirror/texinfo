@@ -142,7 +142,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-chapter}
@@ -243,6 +242,8 @@ $result_nodes_list{'double_part'} = '1|Top
  associated_section: 1 chapter after 2 parts
  node_preceding_part: part second
  associated_title_command: 1 chapter after 2 parts
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'double_part'} = '1|top

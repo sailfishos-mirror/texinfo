@@ -25,7 +25,6 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
   *1 @anchor C1 l3
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[next->E2|up->E0]
   |normalized:{anch}
    *brace_arg C1
     *@samp C1 l3
@@ -43,7 +42,6 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
   |float_type:{truc}
   |global_command_number:{1}
   |is_target:{1}
-  |menu_directions:D[prev->E1|up->E0]
   |normalized:{floa}
    *arguments_line C2
     *block_line_arg C1

@@ -43,7 +43,6 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
     *2 @anchor C1 l2
     |EXTRA
     |is_target:{1}
-    |menu_directions:D[up->E0]
     |normalized:{ggg}
      *brace_arg C1
       {ggg}

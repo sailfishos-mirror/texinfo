@@ -420,7 +420,6 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E4]
  |node_directions:D[prev->E4|up->E4]
  |node_number:{2}
  |normalized:{Copying-and-indices}
@@ -702,6 +701,8 @@ $result_nodes_list{'index_special_region_no_insertcopying_titlepage_no_nodes'} =
 2|Copying and indices
  associated_section: A Copying and indices
  associated_title_command: A Copying and indices
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'index_special_region_no_insertcopying_titlepage_no_nodes'} = '1|Top

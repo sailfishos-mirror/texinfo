@@ -1,5 +1,34 @@
 2025-05-17  Patrice Dumas  <pertusus@free.fr>
 
+	menu_directions in node structure information instead of tree
+
+	* tta/C/structuring_transfo/structuring.c (print_down_menus),
+	tta/perl/Texinfo/Structuring.pm (_print_down_menus): check that the
+	node element is indeed a @node, it not return NULL in C, an empty
+	array in Perl.  Check if node list is not NULL after calling
+	recursively print_down_menus.
+
+	* tta/C/structuring_transfo/transformations.c
+	(complete_tree_nodes_menus_in_document): free the list, not the list
+	elements.
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list),
+	tta/C/main/structure_list.c (free_node_structure_list)
+	(print_menu_node, print_directions, print_nodes_list),
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE),
+	tta/C/structuring_transfo/structuring.c (set_menus_node_directions),
+	tta/perl/Texinfo/Structuring.pm (set_menus_node_directions)
+	(_print_menu_node, print_nodes_list): move menu_directions information
+	to node structure informatin instead of in extra information in tree.
+
+	* tta/C/structuring_transfo/structuring.c
+	(check_nodes_are_referenced, complete_node_tree_with_menus), 
+	tta/perl/Texinfo/Structuring.pm (check_nodes_are_referenced)
+	(complete_node_tree_with_menus): update for change in menu_directions
+	information location.
+
+2025-05-17  Patrice Dumas  <pertusus@free.fr>
+
 	menus in node structure information instead of tree
 
 	* tta/C/convert/format_html.c (html_command_description)

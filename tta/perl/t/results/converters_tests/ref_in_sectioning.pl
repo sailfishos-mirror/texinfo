@@ -126,7 +126,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node}
@@ -177,7 +176,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{chap}
@@ -734,9 +732,15 @@ $result_nodes_list{'ref_in_sectioning'} = '1|Top
 2|node
  associated_section: 1 @xref{node,,title, file name, Manual}.
  associated_title_command: 1 @xref{node,,title, file name, Manual}.
+ menu_directions:
+  next->chap
+  up->Top
 3|chap
  associated_section: 2 @ref{node} just node
  associated_title_command: 2 @ref{node} just node
+ menu_directions:
+  prev->node
+  up->Top
 ';
 
 $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})

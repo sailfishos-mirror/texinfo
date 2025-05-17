@@ -153,7 +153,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
@@ -216,7 +215,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E3|up->E0]
  |node_directions:D[next->E9|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{titi}
@@ -259,7 +257,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E12|prev->E6|up->E0]
  |node_directions:D[next->E12|prev->E6|up->E0]
  |node_number:{4}
  |normalized:{other}
@@ -302,7 +299,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E15|prev->E9|up->E0]
  |node_directions:D[next->E15|prev->E9|up->E0]
  |node_number:{5}
  |normalized:{last}
@@ -345,7 +341,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E18|prev->E12|up->E0]
  |node_directions:D[next->E18|prev->E12|up->E0]
  |node_number:{6}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
@@ -388,7 +383,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E21|prev->E15|up->E0]
  |node_directions:D[next->E21|prev->E15|up->E0]
  |node_number:{7}
  |normalized:{a-very-long-node-without-description-with-very-little-space-left-for}
@@ -431,7 +425,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E18|up->E0]
  |node_directions:D[prev->E18|up->E0]
  |node_number:{8}
  |normalized:{very-very-long-node-extending-past-the-max-columns-and-without-description}
@@ -588,30 +581,56 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
  associated_section: 1 Toto
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
+ menu_directions:
+  next->titi
+  up->Top
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
  node_description: @nodedescription this describes titi
+ menu_directions:
+  next->other
+  prev->toto
+  up->Top
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
  node_description: @nodedescription other comes here
+ menu_directions:
+  next->last
+  prev->titi
+  up->Top
 5|last
  associated_section: 4 Last
  associated_title_command: 4 Last
  node_description: @nodedescription we are last
+ menu_directions:
+  next->a somewhat long node without description nor following space
+  prev->other
+  up->Top
 6|a somewhat long node without description nor following space
  associated_section: 5 Somewhat long
  associated_title_command: 5 Somewhat long
  node_description: @nodedescription not as long as the node
+ menu_directions:
+  next->a very long node without description with very little space left for
+  prev->last
+  up->Top
 7|a very long node without description with very little space left for
  associated_section: 6 Very long
  associated_title_command: 6 Very long
  node_description: @nodedescription starting the desciption with a somewhat long word
+ menu_directions:
+  next->very very long node extending past the max columns and without description
+  prev->a somewhat long node without description nor following space
+  up->Top
 8|very very long node extending past the max columns and without description
  associated_section: 7 Past max columns
  associated_title_command: 7 Past max columns
  node_description: @nodedescription Not long
+ menu_directions:
+  prev->a very long node without description with very little space left for
+  up->Top
 ';
 
 $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescription used in menu

@@ -838,8 +838,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                  = (arguments_line->e.c->contents.number <= 1);
               const ELEMENT *section = node_structure->associated_section;
               const ELEMENT * const *menu_directions
-                        = lookup_extra_directions (node,
-                                                   AI_key_menu_directions);
+                = node_structure->menu_directions;
               if (! ((section && automatic_directions)
                      || (menu_directions && menu_directions[D_up])))
                 {
@@ -921,6 +920,7 @@ set_menus_node_directions (DOCUMENT *document)
         {
           const ELEMENT *menu = menus->list[j];
           ELEMENT *previous_node = 0;
+          NODE_STRUCTURE *previous_node_structure = 0;
           size_t k;
           for (k = 0; k < menu->e.c->contents.number; k++)
             {
@@ -928,6 +928,7 @@ set_menus_node_directions (DOCUMENT *document)
               if (menu_content->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node = 0;
+                  NODE_STRUCTURE *menu_node_structure = 0;
                   size_t l;
                   for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
@@ -952,12 +953,21 @@ set_menus_node_directions (DOCUMENT *document)
                                   menu_node
                                    = find_identifier_target (identifiers_target,
                                                              normalized);
-                                  if (menu_node)
+                                  if (menu_node
+                                      && menu_node->e.c->cmd == CM_node)
                                     {
-                                      const ELEMENT **menu_directions
-                                       = add_extra_directions (menu_node,
-                                                  AI_key_menu_directions);
-                                      menu_directions[D_up] = node;
+                                      int status;
+                                      size_t menu_node_number
+                                       = lookup_extra_integer (menu_node,
+                                           AI_key_node_number, &status);
+                                      menu_node_structure
+                                        = nodes_list->list[menu_node_number -1];
+
+                                      if (!menu_node_structure->menu_directions)
+                                        menu_node_structure->menu_directions
+                                          = new_directions ();
+                                      menu_node_structure->menu_directions[D_up]
+                                        = node;
                                     }
                                 }
                             }
@@ -968,33 +978,39 @@ set_menus_node_directions (DOCUMENT *document)
                           break;
                         }
                     }
-                  if (menu_node)
+                  if (menu_node && previous_node_structure)
                     {
-                      if (previous_node)
+                      const ELEMENT *prev_manual_content
+                        = lookup_extra_container (previous_node,
+                                                  AI_key_manual_content);
+                      if (!prev_manual_content)
                         {
-                          const ELEMENT *manual_content
-                           = lookup_extra_container (menu_node,
-                                                   AI_key_manual_content);
-                          const ELEMENT *prev_manual_content
-                           = lookup_extra_container (previous_node,
-                                                   AI_key_manual_content);
-                          if (!manual_content)
-                            {
-                              const ELEMENT **menu_directions
-                                = add_extra_directions (menu_node,
-                                                AI_key_menu_directions);
-                              menu_directions[D_prev] = previous_node;
-                            }
-                          if (!prev_manual_content)
-                            {
-                              const ELEMENT **menu_directions
-                                = add_extra_directions (previous_node,
-                                                   AI_key_menu_directions);
-                              menu_directions[D_next] = menu_node;
-                            }
+                          if (!previous_node_structure->menu_directions)
+                            previous_node_structure->menu_directions
+                              = new_directions ();
+
+                          previous_node_structure->menu_directions[D_next]
+                            = menu_node;
                         }
-                      previous_node = menu_node;
                     }
+                  if (menu_node_structure && previous_node)
+                    {
+                      const ELEMENT *manual_content
+                        = lookup_extra_container (menu_node,
+                                                  AI_key_manual_content);
+
+                      if (!manual_content)
+                        {
+                          if (!menu_node_structure->menu_directions)
+                            menu_node_structure->menu_directions
+                              = new_directions ();
+
+                          menu_node_structure->menu_directions[D_prev]
+                            = previous_node;
+                        }
+                    }
+                    previous_node = menu_node;
+                    previous_node_structure = menu_node_structure;
                 }
             } /* end menu */
         }
@@ -1103,8 +1119,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
        so use a cast to remove const */
       ELEMENT *node = (ELEMENT *)node_structure->element;
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
-      const ELEMENT * const *menu_directions = lookup_extra_directions (node,
-                                                 AI_key_menu_directions);
+      const ELEMENT * const *menu_directions = node_structure->menu_directions;
       const ELEMENT *arguments_line = node->e.c->contents.list[0];
       int automatic_directions = (arguments_line->e.c->contents.number <= 1);
 
@@ -2097,17 +2112,26 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   const SECTION_STRUCTURE_LIST *sections_list,
                   int use_sections)
 {
-  ELEMENT_LIST *master_menu_contents = new_list ();
+  ELEMENT_LIST *master_menu_contents;
   CONST_ELEMENT_LIST *menus;
   int status;
-  size_t node_number
-    = lookup_extra_integer (node, AI_key_node_number, &status);
-  const NODE_STRUCTURE *node_structure = nodes_list->list[node_number -1];
+  size_t node_number;
+  const NODE_STRUCTURE *node_structure;
 
-  CONST_ELEMENT_LIST *node_menus = node_structure->menus;
+  CONST_ELEMENT_LIST *node_menus;
   ELEMENT_LIST *node_children;
   ELEMENT *new_current_menu = 0;
   size_t i;
+
+  if (node->e.c->cmd != CM_node)
+    return 0;
+
+  master_menu_contents = new_list ();
+
+  node_number
+    = lookup_extra_integer (node, AI_key_node_number, &status);
+  node_structure = nodes_list->list[node_number -1];
+  node_menus = node_structure->menus;
 
   if (node_menus && node_menus->number > 0)
     menus = node_menus;
@@ -2200,7 +2224,6 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
       for (i = 0; i < node_children->number; i++)
         {
           const ELEMENT *child = node_children->list[i];
-          ELEMENT_LIST *child_menu_content;
           const char *normalized_child
             = lookup_extra_string (child, AI_key_normalized);
           size_t j;
@@ -2228,15 +2251,18 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 
           if (!up_node_in_menu)
             {
-              child_menu_content
+              ELEMENT_LIST *child_menu_content
                = print_down_menus (child, up_nodes, error_messages,
                                    options, identifiers_target, nodes_list,
                                    sections_list, use_sections);
-              insert_list_slice_into_list (master_menu_contents,
-                                           master_menu_contents->number,
-                                           child_menu_content, 0,
-                                           child_menu_content->number);
-              destroy_list (child_menu_content);
+              if (child_menu_content)
+                {
+                  insert_list_slice_into_list (master_menu_contents,
+                                               master_menu_contents->number,
+                                               child_menu_content, 0,
+                                               child_menu_content->number);
+                  destroy_list (child_menu_content);
+                }
             }
         }
 

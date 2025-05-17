@@ -90,7 +90,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Unn}
@@ -152,7 +151,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Sec}
@@ -248,9 +246,13 @@ $result_nodes_list{'section_below_unnumbered'} = '1|Top
  associated_title_command: Unn
  menus:
   Sec
+ menu_directions:
+  up->Top
 3|Sec
  associated_section: Sec
  associated_title_command: Sec
+ menu_directions:
+  up->Unn
 ';
 
 $result_sections_list{'section_below_unnumbered'} = '1|Top

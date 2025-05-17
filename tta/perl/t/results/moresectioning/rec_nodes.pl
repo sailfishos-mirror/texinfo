@@ -71,7 +71,6 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|prev->E4|up->E2]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-node}
@@ -139,7 +138,6 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E2|up->E4]
  |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{other-node}
@@ -192,7 +190,6 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
  |node_number:{4}
  |normalized:{node-up-node-following-second}
@@ -247,7 +244,6 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E2|up->E6]
  |node_directions:D[up->E6]
  |node_number:{5}
  |normalized:{node-following-second}
@@ -389,15 +385,27 @@ $result_nodes_list{'rec_nodes'} = '1|Top
  menus:
   other node
   chap node
+ menu_directions:
+  next->node following second
+  prev->other node
+  up->chap node
 3|other node
  menus:
   other node
+ menu_directions:
+  next->chap node
+  up->other node
 4|node up node following second
  menus:
   node following second
+ menu_directions:
+  up->node following second
 5|node following second
  menus:
   node up node following second
+ menu_directions:
+  prev->chap node
+  up->node up node following second
 ';
 
 $result_sections_list{'rec_nodes'} = '';

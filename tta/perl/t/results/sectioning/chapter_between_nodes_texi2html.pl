@@ -101,7 +101,6 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{section-node}
@@ -194,6 +193,8 @@ $result_nodes_list{'chapter_between_nodes_texi2html'} = '1|Top
 2|section node
  associated_section: 1.1 section
  associated_title_command: 1.1 section
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'chapter_between_nodes_texi2html'} = '1|top section

@@ -193,7 +193,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-ja}
@@ -312,7 +311,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{chapter-en}
@@ -431,7 +429,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{chapter-fr_005fFR}
@@ -541,7 +538,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|prev->E7|up->E0]
  |node_directions:D[next->E11|prev->E7|up->E0]
  |node_number:{5}
  |normalized:{chapter-de}
@@ -586,7 +582,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E9|up->E0]
  |node_directions:D[prev->E9|up->E0]
  |node_number:{6}
  |normalized:{chapter-pt_005fBR}
@@ -728,18 +723,36 @@ $result_nodes_list{'multiple_lang_chapters_texi2html'} = '1|Top
 2|chapter ja
  associated_section: 1 ja
  associated_title_command: 1 ja
+ menu_directions:
+  next->chapter en
+  up->Top
 3|chapter en
  associated_section: 2 en
  associated_title_command: 2 en
+ menu_directions:
+  next->chapter fr_FR
+  prev->chapter ja
+  up->Top
 4|chapter fr_FR
  associated_section: 3 fr_FR
  associated_title_command: 3 fr_FR
+ menu_directions:
+  next->chapter de
+  prev->chapter en
+  up->Top
 5|chapter de
  associated_section: 4 de
  associated_title_command: 4 de
+ menu_directions:
+  next->chapter pt_BR
+  prev->chapter fr_FR
+  up->Top
 6|chapter pt_BR
  associated_section: 5 pt_bR
  associated_title_command: 5 pt_bR
+ menu_directions:
+  prev->chapter de
+  up->Top
 ';
 
 $result_sections_list{'multiple_lang_chapters_texi2html'} = '1|Multi language file

@@ -154,7 +154,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
@@ -187,7 +186,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{_00e9}
@@ -220,7 +218,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{_00e0-_00e8-_00f9}
@@ -253,7 +250,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|prev->E7|up->E0]
  |node_directions:D[next->E11|prev->E7|up->E0]
  |node_number:{5}
  |normalized:{_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db}
@@ -286,7 +282,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E9|up->E0]
  |node_directions:D[prev->E9|up->E0]
  |node_number:{6}
  |normalized:{_00e7}
@@ -533,18 +528,36 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ menu_directions:
+  next->é
+  up->Top
 3|é
  associated_section: 2 é
  associated_title_command: 2 é
+ menu_directions:
+  next->à è ù
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->Top
 4|à è ù
  associated_section: 3 à è ù
  associated_title_command: 3 à è ù
+ menu_directions:
+  next->â ê î ô û Â Ê Î Ô Û
+  prev->é
+  up->Top
 5|â ê î ô û Â Ê Î Ô Û
  associated_section: 4 â ê î ô û Â Ê Î Ô Û
  associated_title_command: 4 â ê î ô û Â Ê Î Ô Û
+ menu_directions:
+  next->ç
+  prev->à è ù
+  up->Top
 6|ç
  associated_section: 5 ç
  associated_title_command: 5 ç
+ menu_directions:
+  prev->â ê î ô û Â Ê Î Ô Û
+  up->Top
 ';
 
 $result_sections_list{'char_us_ascii_latin1_in_refs'} = '1|accented char in latin1 in refs

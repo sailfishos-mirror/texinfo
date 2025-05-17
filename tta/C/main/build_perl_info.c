@@ -1018,6 +1018,12 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
           sv = build_perl_const_element_array (structure->menus, 0);
           hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
         }
+      if (structure->menu_directions)
+        {
+          sv = build_perl_directions (structure->menu_directions, 0);
+          hv_store (structure_hv, "menu_directions",
+                    strlen ("menu_directions"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 

@@ -85,7 +85,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -160,7 +159,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E3]
  |node_directions:D[next->E8|up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -199,7 +197,6 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E6|up->E3]
  |node_directions:D[prev->E6|up->E3]
  |node_number:{4}
  |normalized:{section1}
@@ -308,12 +305,20 @@ $result_nodes_list{'contents_in_middle_section_inline'} = '1|Top
  menus:
   section
   section1
+ menu_directions:
+  up->Top
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
+ menu_directions:
+  next->section1
+  up->chapter
 4|section1
  associated_section: 1.2 section 1
  associated_title_command: 1.2 section 1
+ menu_directions:
+  prev->section
+  up->chapter
 ';
 
 $result_sections_list{'contents_in_middle_section_inline'} = '1|Contents in section

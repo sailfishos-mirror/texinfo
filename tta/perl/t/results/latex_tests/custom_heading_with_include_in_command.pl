@@ -233,7 +233,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E4]
  |node_directions:D[up->E4]
  |node_number:{4}
  |normalized:{Section}
@@ -295,7 +294,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E7]
  |node_directions:D[up->E7]
  |node_number:{5}
  |normalized:{Subsection}
@@ -965,9 +963,13 @@ $result_nodes_list{'custom_heading_with_include_in_command'} = '1|Top
  associated_title_command: 2.1 Section
  menus:
   Subsection
+ menu_directions:
+  up->Chapter in included file
 5|Subsection
  associated_section: 2.1.1 Subsection
  associated_title_command: 2.1.1 Subsection
+ menu_directions:
+  up->Section
 6|last chap
  associated_section: 7 A last
  associated_title_command: 7 A last

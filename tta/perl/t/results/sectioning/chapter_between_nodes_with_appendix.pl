@@ -96,7 +96,6 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Additional}
@@ -162,6 +161,8 @@ $result_nodes_list{'chapter_between_nodes_with_appendix'} = '1|Top
 2|Additional
  associated_section: A Annex
  associated_title_command: A Annex
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'chapter_between_nodes_with_appendix'} = '1|top section

@@ -112,7 +112,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node-in-menu-before-top}
@@ -290,7 +289,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[prev->E3|up->E3]
  |node_number:{4}
  |normalized:{chap-first}
@@ -404,7 +402,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E5]
  |node_directions:D[up->E5]
  |node_number:{5}
  |normalized:{second}
@@ -480,7 +477,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E10|up->E7]
  |node_directions:D[prev->E10|up->E7]
  |node_number:{6}
  |normalized:{another}
@@ -557,7 +553,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E9|up->E7]
  |node_directions:D[next->E9|up->E7]
  |node_number:{7}
  |normalized:{a-node}
@@ -784,18 +779,30 @@ $result_nodes_list{'nodes_before_top'} = '1|first before top
  menus:
   node in menu before top
 2|node in menu before top
+ menu_directions:
+  up->first before top
 3|Top
  menus:
   chap first
 4|chap first
  menus:
   second
+ menu_directions:
+  up->Top
 5|second
  menus:
   a node
   another
+ menu_directions:
+  up->chap first
 6|another
+ menu_directions:
+  prev->a node
+  up->second
 7|a node
+ menu_directions:
+  next->another
+  up->second
 ';
 
 $result_sections_list{'nodes_before_top'} = '';

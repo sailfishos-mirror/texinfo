@@ -1231,7 +1231,8 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
                           use_sections);
       document->modified_information |= F_DOCM_tree | F_DOCM_nodes_list;
     }
-  destroy_node_structure_list (non_automatic_nodes);
+  free (non_automatic_nodes->list);
+  free (non_automatic_nodes);
 }
 
 void

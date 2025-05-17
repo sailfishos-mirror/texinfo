@@ -82,7 +82,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{second-node}
@@ -142,6 +141,8 @@ $result_nodes_list{'nodes_no_node_top_explicit_directions'} = '1|first
  menus:
   second node
 2|second node
+ menu_directions:
+  up->first
 ';
 
 $result_sections_list{'nodes_no_node_top_explicit_directions'} = '';

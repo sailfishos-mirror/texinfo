@@ -101,7 +101,6 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E0|prev->E5|up->E0]
  |node_number:{2}
  |normalized:{chapter-1}
@@ -157,7 +156,6 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E6|prev->E3|up->E0]
  |node_directions:D[next->E6|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node-between-chapters}
@@ -174,7 +172,6 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E5|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter-2}
@@ -265,10 +262,20 @@ $result_nodes_list{'two_nodes_between_chapters_nodes'} = '1|Top
 2|chapter 1
  associated_section: 1 chapter c1
  associated_title_command: 1 chapter c1
+ menu_directions:
+  next->node between chapters
+  up->Top
 3|node between chapters
+ menu_directions:
+  next->chapter 2
+  prev->chapter 1
+  up->Top
 4|chapter 2
  associated_section: 2 chapter c2
  associated_title_command: 2 chapter c2
+ menu_directions:
+  prev->node between chapters
+  up->Top
 ';
 
 $result_sections_list{'two_nodes_between_chapters_nodes'} = '1|top

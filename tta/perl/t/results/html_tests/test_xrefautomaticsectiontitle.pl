@@ -78,7 +78,6 @@ $result_tree_text{'test_xrefautomaticsectiontitle'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
@@ -197,6 +196,8 @@ $result_nodes_list{'test_xrefautomaticsectiontitle'} = '1|Top
 2|chap
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'test_xrefautomaticsectiontitle'} = '1|top

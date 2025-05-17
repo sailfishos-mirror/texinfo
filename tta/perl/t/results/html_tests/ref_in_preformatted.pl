@@ -86,7 +86,6 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-nnn-the-node-name}
@@ -129,6 +128,8 @@ $result_nodes_list{'ref_in_preformatted'} = '1|Top
  menus:
   chap nnn the node name
 2|chap nnn the node name
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'ref_in_preformatted'} = '';

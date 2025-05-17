@@ -107,7 +107,6 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{Chap}
@@ -179,6 +178,8 @@ $result_nodes_list{'top_node_up_explicit_no_nodes'} = '1|Top
 2|Chap
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'top_node_up_explicit_no_nodes'} = '1|The top

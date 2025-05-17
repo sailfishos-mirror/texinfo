@@ -104,7 +104,6 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_00e1}
@@ -141,7 +140,6 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E4|prev->E2|up->E0]
  |node_directions:D[next->E4|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{_00e2}
@@ -178,7 +176,6 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter}
@@ -245,7 +242,6 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E4|up->E4]
  |node_directions:D[prev->E4|up->E4]
  |node_number:{5}
  |normalized:{_00e0}
@@ -356,13 +352,27 @@ $result_nodes_list{'node_footnote_use_node_separate'} = '1|Top
   chapter
   @`a
 2|@\'a
+ menu_directions:
+  next->@^a
+  up->Top
 3|@^a
+ menu_directions:
+  next->chapter
+  prev->@\'a
+  up->Top
 4|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
  menus:
   @`a
+ menu_directions:
+  next->@`a
+  prev->@^a
+  up->Top
 5|@`a
+ menu_directions:
+  prev->chapter
+  up->chapter
 ';
 
 $result_sections_list{'node_footnote_use_node_separate'} = '1|chapter

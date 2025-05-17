@@ -826,7 +826,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{-_007b-_007d}
@@ -867,7 +866,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{-_0021-_002e-_002e-_003f-_0040}
@@ -932,7 +930,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E9|prev->E5|up->E0]
  |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{_0040-_007b-_007d-_005c-_0023}
@@ -991,7 +988,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|prev->E7|up->E0]
  |node_directions:D[next->E11|prev->E7|up->E0]
  |node_number:{5}
  |normalized:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
@@ -1062,7 +1058,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E13|prev->E9|up->E0]
  |node_directions:D[next->E13|prev->E9|up->E0]
  |node_number:{6}
  |normalized:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
@@ -1127,7 +1122,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E15|prev->E11|up->E0]
  |node_directions:D[next->E15|prev->E11|up->E0]
  |node_number:{7}
  |normalized:{_2265-_2264-_2192}
@@ -1174,7 +1168,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E17|prev->E13|up->E0]
  |node_directions:D[next->E17|prev->E13|up->E0]
  |node_number:{8}
  |normalized:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
@@ -1245,7 +1238,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E19|prev->E15|up->E0]
  |node_directions:D[next->E19|prev->E15|up->E0]
  |node_number:{9}
  |normalized:{_21d2-_00b0-a-b-_00e5}
@@ -1304,7 +1296,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E21|prev->E17|up->E0]
  |node_directions:D[next->E21|prev->E17|up->E0]
  |node_number:{10}
  |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
@@ -1417,7 +1408,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E23|prev->E19|up->E0]
  |node_directions:D[next->E23|prev->E19|up->E0]
  |node_number:{11}
  |normalized:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
@@ -1538,7 +1528,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E25|prev->E21|up->E0]
  |node_directions:D[next->E25|prev->E21|up->E0]
  |node_number:{12}
  |normalized:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
@@ -1623,7 +1612,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E27|prev->E23|up->E0]
  |node_directions:D[next->E27|prev->E23|up->E0]
  |node_number:{13}
  |normalized:{_0131-_1e14-_1e08}
@@ -1684,7 +1672,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E29|prev->E25|up->E0]
  |node_directions:D[next->E29|prev->E25|up->E0]
  |node_number:{14}
  |normalized:{_201c-_201d-_2018-_2019-_201e-_201a}
@@ -1749,7 +1736,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E31|prev->E27|up->E0]
  |node_directions:D[next->E31|prev->E27|up->E0]
  |node_number:{15}
  |normalized:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
@@ -1814,7 +1800,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E33|prev->E29|up->E0]
  |node_directions:D[next->E33|prev->E29|up->E0]
  |node_number:{16}
  |normalized:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
@@ -1847,7 +1832,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E35|prev->E31|up->E0]
  |node_directions:D[next->E35|prev->E31|up->E0]
  |node_number:{17}
  |normalized:{AAA-AAA-BBB}
@@ -1910,7 +1894,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E37|prev->E33|up->E0]
  |node_directions:D[next->E37|prev->E33|up->E0]
  |node_number:{18}
  |normalized:{CCC-CCC-DDD}
@@ -1994,7 +1977,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E39|prev->E35|up->E0]
  |node_directions:D[next->E39|prev->E35|up->E0]
  |node_number:{19}
  |normalized:{someone_0040somewher-no_005fexplain_0040there}
@@ -2057,7 +2039,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E41|prev->E37|up->E0]
  |node_directions:D[next->E41|prev->E37|up->E0]
  |node_number:{20}
  |normalized:{f_002d_002dile1-f_002d_002dile}
@@ -2147,7 +2128,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E43|prev->E39|up->E0]
  |node_directions:D[next->E43|prev->E39|up->E0]
  |node_number:{21}
  |normalized:{-_0040-_007b_007d-_002e-}
@@ -2209,7 +2189,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E45|prev->E41|up->E0]
  |node_directions:D[next->E45|prev->E41|up->E0]
  |node_number:{22}
  |normalized:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
@@ -2326,7 +2305,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E47|prev->E43|up->E0]
  |node_directions:D[next->E47|prev->E43|up->E0]
  |node_number:{23}
  |normalized:{env-code-option-samp-command-file-C_002dx-ESC}
@@ -2417,7 +2395,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E49|prev->E45|up->E0]
  |node_directions:D[next->E49|prev->E45|up->E0]
  |node_number:{24}
  |normalized:{8_002e27in}
@@ -2456,7 +2433,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E51|prev->E47|up->E0]
  |node_directions:D[next->E51|prev->E47|up->E0]
  |node_number:{25}
  |normalized:{sansserif-slanted}
@@ -2501,7 +2477,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E53|prev->E49|up->E0]
  |node_directions:D[next->E53|prev->E49|up->E0]
  |node_number:{26}
  |normalized:{indicateurl}
@@ -2538,7 +2513,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E55|prev->E51|up->E0]
  |node_directions:D[next->E55|prev->E51|up->E0]
  |node_number:{27}
  |normalized:{gH-3rd}
@@ -2583,7 +2557,6 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E53|up->E0]
  |node_directions:D[prev->E53|up->E0]
  |node_number:{28}
  |normalized:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
@@ -3778,84 +3751,190 @@ $result_nodes_list{'at_commands_in_refs_utf8'} = '1|Top
 2|@- @{ @}
  associated_section: 1 @- @{ @}
  associated_title_command: 1 @- @{ @}
+ menu_directions:
+  next->@  @	 @! @* @. @: .@: @? @@
+  up->Top
 3|@  @	 @! @* @. @: .@: @? @@
  associated_section: 2 @  @	 @! @* @. @: .@: @? @@
  associated_title_command: 2 @  @	 @! @* @. @: .@: @? @@
+ menu_directions:
+  next->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+  prev->@- @{ @}
+  up->Top
 4|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_section: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_title_command: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+ menu_directions:
+  next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  prev->@  @	 @! @* @. @: .@: @? @@
+  up->Top
 5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
  associated_section: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
  associated_title_command: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+ menu_directions:
+  next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+  up->Top
 6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
  associated_section: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
  associated_title_command: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+ menu_directions:
+  next->@geq{} @leq{} @arrow{}
+  prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  up->Top
 7|@geq{} @leq{} @arrow{}
  associated_section: 6 @geq{} @leq{} @arrow{}
  associated_title_command: 6 @geq{} @leq{} @arrow{}
+ menu_directions:
+  next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+  prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  up->Top
 8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
  associated_section: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
  associated_title_command: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+ menu_directions:
+  next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  prev->@geq{} @leq{} @arrow{}
+  up->Top
 9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
  associated_section: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
  associated_title_command: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
+ menu_directions:
+  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+  up->Top
 10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
  associated_section: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
  associated_title_command: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+ menu_directions:
+  next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+  prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  up->Top
 11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_section: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_title_command: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+ menu_directions:
+  next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  up->Top
 12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_section: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_title_command: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+ menu_directions:
+  next->@dotless{i} @`{@=E} @,{@\'C}
+  prev->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+  up->Top
 13|@dotless{i} @`{@=E} @,{@\'C}
  associated_section: 12 @dotless{i} @`{@=E} @,{@\'C}
  associated_title_command: 12 @dotless{i} @`{@=E} @,{@\'C}
+ menu_directions:
+  next->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+  prev->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+  up->Top
 14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_section: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_title_command: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+ menu_directions:
+  next->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+  prev->@dotless{i} @`{@=E} @,{@\'C}
+  up->Top
 15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_section: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_title_command: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+ menu_directions:
+  next->`` \'\' --- -- ` \'
+  prev->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+  up->Top
 16|`` \'\' --- -- ` \'
  associated_section: 15 `` \'\' --- -- ` \'
  associated_title_command: 15 `` \'\' --- -- ` \'
+ menu_directions:
+  next->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+  prev->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+  up->Top
 17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_section: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_title_command: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+ menu_directions:
+  next->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+  prev->`` \'\' --- -- ` \'
+  up->Top
 18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_section: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_title_command: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+ menu_directions:
+  next->@email{someone@@somewher, the someone} @email{no_explain@@there}
+  prev->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+  up->Top
 19|@email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_section: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_title_command: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
+ menu_directions:
+  next->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+  prev->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+  up->Top
 20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_section: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_title_command: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+ menu_directions:
+  next->@verb{. @ {} . .}
+  prev->@email{someone@@somewher, the someone} @email{no_explain@@there}
+  up->Top
 21|@verb{. @ {} . .}
  associated_section: 20 @verb{. @ {} . .}
  associated_title_command: 20 @verb{. @ {} . .}
+ menu_directions:
+  next->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+  prev->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+  up->Top
 22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_section: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_title_command: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+ menu_directions:
+  next->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+  prev->@verb{. @ {} . .}
+  up->Top
 23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_section: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_title_command: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+ menu_directions:
+  next->8.27@dmn{in}
+  prev->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+  up->Top
 24|8.27@dmn{in}
  associated_section: 23 8.27@dmn{in}
  associated_title_command: 23 8.27@dmn{in}
+ menu_directions:
+  next->@sansserif{sansserif} @slanted{slanted}
+  prev->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+  up->Top
 25|@sansserif{sansserif} @slanted{slanted}
  associated_section: 24 @sansserif{sansserif} @slanted{slanted}
  associated_title_command: 24 @sansserif{sansserif} @slanted{slanted}
+ menu_directions:
+  next->@indicateurl{indicateurl}
+  prev->8.27@dmn{in}
+  up->Top
 26|@indicateurl{indicateurl}
  associated_section: 25 @indicateurl{indicateurl}
  associated_title_command: 25 @indicateurl{indicateurl}
+ menu_directions:
+  next->@sub{g}H 3@sup{rd}
+  prev->@sansserif{sansserif} @slanted{slanted}
+  up->Top
 27|@sub{g}H 3@sup{rd}
  associated_section: 26 @sub{g}H 3@sup{rd}
  associated_title_command: 26 @sub{g}H 3@sup{rd}
+ menu_directions:
+  next->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+  prev->@indicateurl{indicateurl}
+  up->Top
 28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_section: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_title_command: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ menu_directions:
+  prev->@sub{g}H 3@sup{rd}
+  up->Top
 ';
 
 $result_sections_list{'at_commands_in_refs_utf8'} = '1|Top

@@ -14,7 +14,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
  |node_number:{1}
  |normalized:{section-node}
@@ -52,7 +51,6 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E5]
  |node_directions:D[next->E5|prev->E0|up->E5]
  |node_number:{2}
  |normalized:{chapter-node}
@@ -241,11 +239,15 @@ $result_errors{'section_chapter_before_top_nodes'} = [
 $result_nodes_list{'section_chapter_before_top_nodes'} = '1|section node
  associated_section: 1 section
  associated_title_command: 1 section
+ menu_directions:
+  up->chapter node
 2|chapter node
  associated_section: 2 chapter
  associated_title_command: 2 chapter
  menus:
   section node
+ menu_directions:
+  up->Top
 3|Top
  associated_section: top
  associated_title_command: top

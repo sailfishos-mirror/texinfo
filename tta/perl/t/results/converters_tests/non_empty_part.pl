@@ -164,7 +164,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E1]
  |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{part-chapter-node}
@@ -542,6 +541,8 @@ $result_nodes_list{'non_empty_part'} = '1|Top
  associated_section: 2 chapter with part node
  node_preceding_part: Part II
  associated_title_command: 2 chapter with part node
+ menu_directions:
+  up->Top
 3|node between part and chapter
  associated_section: 4 chapter after part node
  node_preceding_part: Part VI

@@ -698,7 +698,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Introduction}
@@ -843,7 +842,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |>{mybibrefnode}
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{References}
@@ -1402,9 +1400,15 @@ $result_nodes_list{'bib_example'} = '1|Top
 2|Introduction
  associated_section: 1 Introduction
  associated_title_command: 1 Introduction
+ menu_directions:
+  next->References
+  up->Top
 3|References
  associated_section: 2 References
  associated_title_command: 2 References
+ menu_directions:
+  prev->Introduction
+  up->Top
 ';
 
 $result_sections_list{'bib_example'} = '1|Top

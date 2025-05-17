@@ -107,7 +107,6 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -216,6 +215,8 @@ $result_nodes_list{'no_monolithic'} = '1|Top
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'no_monolithic'} = '1|Not monolithic

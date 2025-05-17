@@ -61,7 +61,6 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-subnode}
@@ -98,6 +97,8 @@ $result_nodes_list{'menu_title_before_entries'} = '1|Top
  menus:
   chap subnode
 2|chap subnode
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'menu_title_before_entries'} = '';

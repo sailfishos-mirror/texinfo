@@ -89,7 +89,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E14|up->E0]
  |node_directions:D[next->E14|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
@@ -246,7 +245,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Chapter-in-included-file}
@@ -309,7 +307,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E6]
  |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Section}
@@ -372,7 +369,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E9]
  |node_directions:D[up->E9]
  |node_number:{5}
  |normalized:{Subsection}
@@ -481,7 +477,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{6}
  |normalized:{Second-chapter}
@@ -625,22 +620,34 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  associated_title_command: 1 Chapter
  menus:
   Chapter in included file
+ menu_directions:
+  next->Second chapter
+  up->Top
 3|Chapter in included file
  associated_section: 1.1 Chapter in included file
  associated_title_command: 1.1 Chapter in included file
  menus:
   Section
+ menu_directions:
+  up->Chapter
 4|Section
  associated_section: 1.1.1 Section
  associated_title_command: 1.1.1 Section
  menus:
   Subsection
+ menu_directions:
+  up->Chapter in included file
 5|Subsection
  associated_section: 1.1.1.1 Subsection
  associated_title_command: 1.1.1.1 Subsection
+ menu_directions:
+  up->Section
 6|Second chapter
  associated_section: 2 Second chapter
  associated_title_command: 2 Second chapter
+ menu_directions:
+  prev->Chapter
+  up->Top
 ';
 
 $result_sections_list{'raiselowersections'} = '1

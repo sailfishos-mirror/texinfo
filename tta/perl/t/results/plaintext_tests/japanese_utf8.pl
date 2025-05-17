@@ -182,7 +182,6 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Preface}
@@ -219,7 +218,6 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{Introduction}
@@ -335,9 +333,15 @@ $result_nodes_list{'japanese_utf8'} = '1|Top
 2|Preface
  associated_section: 1 Preface
  associated_title_command: 1 Preface
+ menu_directions:
+  next->Introduction
+  up->Top
 3|Introduction
  associated_section: 2 Introduction
  associated_title_command: 2 Introduction
+ menu_directions:
+  prev->Preface
+  up->Top
 ';
 
 $result_sections_list{'japanese_utf8'} = '1|GNU LilyPond --- 学習マニュアル

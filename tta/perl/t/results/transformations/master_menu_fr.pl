@@ -134,7 +134,6 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
@@ -197,7 +196,6 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -290,9 +288,13 @@ $result_nodes_list{'master_menu_fr'} = '1|Top
  associated_title_command: 1 chap
  menus:
   section
+ menu_directions:
+  up->Top
 3|section
  associated_section: 1.1 sec
  associated_title_command: 1.1 sec
+ menu_directions:
+  up->chap
 ';
 
 $result_sections_list{'master_menu_fr'} = '1|max

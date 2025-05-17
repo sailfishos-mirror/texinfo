@@ -137,7 +137,6 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E3|up->E0]
  |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-first}
@@ -153,7 +152,6 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{second}
@@ -208,7 +206,13 @@ $result_nodes_list{'entry_after_detailmenu'} = '1|Top
   chap first
   second
 2|chap first
+ menu_directions:
+  next->second
+  up->Top
 3|second
+ menu_directions:
+  prev->chap first
+  up->Top
 ';
 
 $result_sections_list{'entry_after_detailmenu'} = '';

@@ -24,7 +24,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E2|up->E4]
  |node_directions:D[next->E2|up->E4]
  |node_number:{1}
  |normalized:{Node-1}
@@ -53,7 +52,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E0|up->E4]
  |node_directions:D[prev->E0|up->E4]
  |node_number:{2}
  |normalized:{Node-2}
@@ -230,8 +228,14 @@ $result_errors{'headings_nodes_before_chapter'} = [];
 
 $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
  associated_title_command: @heading Topic One
+ menu_directions:
+  next->Node 2
+  up->Cap 1
 2|Node 2
  associated_title_command: @heading Topic Two
+ menu_directions:
+  prev->Node 1
+  up->Cap 1
 3|Cap 1
  associated_section: 1 Chapter One
  associated_title_command: 1 Chapter One

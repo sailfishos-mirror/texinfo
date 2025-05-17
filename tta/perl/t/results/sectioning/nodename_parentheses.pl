@@ -104,7 +104,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Node-_0028with-parentheses_0029}
@@ -140,7 +139,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|prev->E3|up->E0]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{Other-node}
@@ -345,9 +343,16 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
 2|Node (with parentheses)
  associated_section: 1 Section (nodename with parentheses)
  associated_title_command: 1 Section (nodename with parentheses)
+ menu_directions:
+  next->Other node
+  up->Top
 3|Other node
  associated_section: 2 Section (nodename without parentheses)
  associated_title_command: 2 Section (nodename without parentheses)
+ menu_directions:
+  next->(manual)node
+  prev->Node (with parentheses)
+  up->Top
 4|(manual)node
  associated_section: 3 (manual)node
  associated_title_command: 3 (manual)node

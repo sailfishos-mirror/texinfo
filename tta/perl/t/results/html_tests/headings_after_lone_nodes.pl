@@ -462,7 +462,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E18]
  |node_number:{10}
  |normalized:{subnode}
   *arguments_line C1
@@ -634,6 +633,8 @@ $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  menus:
   subnode
 10|subnode
+ menu_directions:
+  up->5 not
 ';
 
 $result_sections_list{'headings_after_lone_nodes'} = '1|top

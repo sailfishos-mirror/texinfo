@@ -83,7 +83,6 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -178,6 +177,8 @@ $result_nodes_list{'style_not_closed_root_commands'} = '1|Top
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'style_not_closed_root_commands'} = '1|top

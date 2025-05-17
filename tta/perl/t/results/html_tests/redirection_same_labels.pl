@@ -120,7 +120,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E0]
  |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{umlaut}
@@ -199,7 +198,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E7|up->E3]
  |node_directions:D[next->E7|up->E3]
  |node_number:{3}
  |normalized:{_00ef}
@@ -218,7 +216,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E6|up->E3]
  |node_directions:D[prev->E6|up->E3]
  |node_number:{4}
  |normalized:{_0129}
@@ -251,7 +248,6 @@ NodeBack: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{5}
  |normalized:{circumflex}
@@ -315,7 +311,6 @@ NodeBack: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E8]
  |node_directions:D[up->E8]
  |node_number:{6}
  |normalized:{_00ee}
@@ -400,14 +395,28 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  menus:
   @"i
   @~{@dotless{i}}
+ menu_directions:
+  next->circumflex
+  up->Top
 3|@"i
+ menu_directions:
+  next->@~{@dotless{i}}
+  up->umlaut
 4|@~{@dotless{i}}
+ menu_directions:
+  prev->@"i
+  up->umlaut
 5|circumflex
  associated_section: 2 circumflex
  associated_title_command: 2 circumflex
  menus:
   @^i
+ menu_directions:
+  prev->umlaut
+  up->Top
 6|@^i
+ menu_directions:
+  up->circumflex
 ';
 
 $result_sections_list{'redirection_same_labels'} = '1|the top

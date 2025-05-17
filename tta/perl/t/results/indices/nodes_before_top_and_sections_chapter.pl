@@ -125,7 +125,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node-in-menu-before-top}
@@ -365,7 +364,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E12|up->E3]
  |node_directions:D[prev->E3|up->E3]
  |node_number:{4}
  |normalized:{first}
@@ -479,7 +477,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E6]
  |node_directions:D[up->E6]
  |node_number:{5}
  |normalized:{second}
@@ -555,7 +552,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E11|up->E8]
  |node_directions:D[prev->E11|up->E8]
  |node_number:{6}
  |normalized:{another}
@@ -632,7 +628,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E10|up->E8]
  |node_directions:D[next->E10|up->E8]
  |node_number:{7}
  |normalized:{a-node}
@@ -733,7 +728,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E14|prev->E6|up->E3]
  |node_directions:D[next->E14|up->E3]
  |node_number:{8}
  |normalized:{chapter}
@@ -790,7 +784,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E12|up->E3]
  |node_directions:D[prev->E12|up->E3]
  |node_number:{9}
  |normalized:{node-in-chapter}
@@ -995,6 +988,8 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
  menus:
   node in menu before top
 2|node in menu before top
+ menu_directions:
+  up->first before top
 3|Top
  associated_section: top section
  associated_title_command: top section
@@ -1005,16 +1000,34 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
 4|first
  menus:
   second
+ menu_directions:
+  next->chapter
+  up->Top
 5|second
  menus:
   a node
   another
+ menu_directions:
+  up->first
 6|another
+ menu_directions:
+  prev->a node
+  up->second
 7|a node
+ menu_directions:
+  next->another
+  up->second
 8|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
+ menu_directions:
+  next->node in chapter
+  prev->first
+  up->Top
 9|node in chapter
+ menu_directions:
+  prev->chapter
+  up->Top
 ';
 
 $result_sections_list{'nodes_before_top_and_sections_chapter'} = '1|top section

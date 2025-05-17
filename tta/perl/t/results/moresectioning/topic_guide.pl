@@ -97,7 +97,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E16|up->E14]
  |node_directions:D[next->E16|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{guide1}
@@ -184,7 +183,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E8|up->E3]
  |node_directions:D[next->E8]
  |node_number:{3}
  |normalized:{topic1}
@@ -244,7 +242,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E14|prev->E6|up->E3]
  |node_directions:D[next->E10|prev->E6]
  |node_number:{4}
  |normalized:{topic2}
@@ -368,7 +365,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E14|up->E16]
  |node_directions:D[prev->E14|up->E16]
  |node_number:{6}
  |normalized:{topic4}
@@ -421,7 +417,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E12|prev->E8|up->E16]
  |node_directions:D[prev->E10]
  |node_number:{7}
  |normalized:{topic5}
@@ -496,7 +491,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E3|up->E14]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{8}
  |normalized:{guide2}
@@ -738,27 +732,47 @@ $result_nodes_list{'topic_guide'} = '1|Top
   topic1
   topic2
   topic5
+ menu_directions:
+  next->guide2
+  up->topic5
 3|topic1
  menus:
   guide1
+ menu_directions:
+  next->topic2
+  up->guide1
 4|topic2
  menus:
   guide1
+ menu_directions:
+  next->topic5
+  prev->topic1
+  up->guide1
 5|topic3
  menus:
 6|topic4
  menus:
   guide2
+ menu_directions:
+  prev->topic5
+  up->guide2
 7|topic5
  menus:
   guide1
   guide2
+ menu_directions:
+  next->topic4
+  prev->topic2
+  up->guide2
 8|guide2
  associated_section: 2 guide 2
  associated_title_command: 2 guide 2
  menus:
   topic5
   topic4
+ menu_directions:
+  prev->guide1
+  up->topic5
 ';
 
 $result_sections_list{'topic_guide'} = '1|A example quide topic collection

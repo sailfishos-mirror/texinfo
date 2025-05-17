@@ -95,7 +95,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-node}
@@ -186,6 +185,8 @@ $result_nodes_list{'node_part_chapter_after_top'} = '1|Top
 2|chapter node
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'node_part_chapter_after_top'} = '1|top

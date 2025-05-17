@@ -75,7 +75,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{chap-first}
@@ -138,6 +137,8 @@ $result_nodes_list{'node_up_external_node'} = '1|Top
  menus:
   chap first
 2|chap first
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'node_up_external_node'} = '';

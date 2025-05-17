@@ -49,7 +49,6 @@ $result_tree_text{'recursive_down_menu'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E2]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapN}
@@ -147,6 +146,8 @@ $result_nodes_list{'recursive_down_menu'} = '1|Top
  associated_title_command: 1 Intro
  menus:
   chapN
+ menu_directions:
+  up->chapN
 ';
 
 $result_sections_list{'recursive_down_menu'} = '1|top

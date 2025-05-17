@@ -87,7 +87,6 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Ch1}
@@ -167,6 +166,8 @@ $result_nodes_list{'split_nocopying_split'} = '1|Top
 2|Ch1
  associated_section: 1 Ch1
  associated_title_command: 1 Ch1
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'split_nocopying_split'} = '1|Test file used to test split Info without @@copying

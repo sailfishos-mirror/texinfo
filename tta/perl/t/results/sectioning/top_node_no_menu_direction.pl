@@ -13,7 +13,6 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -70,7 +69,6 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E0|up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-node}
@@ -140,7 +138,13 @@ $result_nodes_list{'top_node_no_menu_direction'} = '1|Top
  menus:
   chap node
   TOP
+ menu_directions:
+  prev->chap node
+  up->Top
 2|chap node
+ menu_directions:
+  next->Top
+  up->Top
 ';
 
 $result_sections_list{'top_node_no_menu_direction'} = '';

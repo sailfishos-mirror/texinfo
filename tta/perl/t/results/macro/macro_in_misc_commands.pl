@@ -1520,7 +1520,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-atext}
@@ -2057,6 +2056,8 @@ $result_nodes_list{'macro_in_misc_commands'} = '1|Top
 2|node atext
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menu_directions:
+  up->Top
 ';
 
 $result_sections_list{'macro_in_misc_commands'} = '1|top atext

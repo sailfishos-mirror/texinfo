@@ -166,7 +166,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E24|up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{First-node}
@@ -267,7 +266,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E17|up->E3]
  |node_directions:D[next->E17|up->E3]
  |node_number:{3}
  |normalized:{unnumbered}
@@ -361,7 +359,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E11|up->E6]
  |node_directions:D[next->E11|up->E6]
  |node_number:{4}
  |normalized:{unnumbered-sub}
@@ -392,7 +389,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E13|prev->E9|up->E6]
  |node_directions:D[next->E13|prev->E9|up->E6]
  |node_number:{5}
  |normalized:{numbered-sub}
@@ -423,7 +419,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E15|prev->E11|up->E6]
  |node_directions:D[next->E15|prev->E11|up->E6]
  |node_number:{6}
  |normalized:{unnumbered-sub2}
@@ -454,7 +449,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E13|up->E6]
  |node_directions:D[prev->E13|up->E6]
  |node_number:{7}
  |normalized:{numbered-sub2}
@@ -485,7 +479,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E22|prev->E6|up->E3]
  |node_directions:D[next->E22|prev->E6|up->E3]
  |node_number:{8}
  |normalized:{unnumbered2}
@@ -546,7 +539,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E17]
  |node_directions:D[up->E17]
  |node_number:{9}
  |normalized:{numbered-sub3}
@@ -578,7 +570,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E17|up->E3]
  |node_directions:D[prev->E17|up->E3]
  |node_number:{10}
  |normalized:{numbered}
@@ -610,7 +601,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E25|prev->E3|up->E0]
  |node_directions:D[up->E0]
  |node_number:{11}
  |normalized:{between-node}
@@ -637,7 +627,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E27|prev->E24|up->E0]
  |node_directions:D[next->E27|up->E0]
  |node_number:{12}
  |normalized:{Second-node}
@@ -688,7 +677,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E29|prev->E25|up->E0]
  |node_directions:D[next->E29|prev->E25|up->E0]
  |node_number:{13}
  |normalized:{Third-node-unnumbered}
@@ -724,7 +712,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E27|up->E0]
  |node_directions:D[prev->E27|up->E0]
  |node_number:{14}
  |normalized:{Last-node-no-description}
@@ -969,6 +956,9 @@ $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
   unnumbered
   unnumbered2
   numbered
+ menu_directions:
+  next->between node
+  up->Top
 3|unnumbered
  associated_section: unnumbered section
  associated_title_command: unnumbered section
@@ -977,37 +967,78 @@ $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
   numbered sub
   unnumbered sub2
   numbered sub2
+ menu_directions:
+  next->unnumbered2
+  up->First node
 4|unnumbered sub
  associated_section: unnumbered subsection
  associated_title_command: unnumbered subsection
+ menu_directions:
+  next->numbered sub
+  up->unnumbered
 5|numbered sub
  associated_section: numbered subsection
  associated_title_command: numbered subsection
+ menu_directions:
+  next->unnumbered sub2
+  prev->unnumbered sub
+  up->unnumbered
 6|unnumbered sub2
  associated_section: unnumbered subsection2
  associated_title_command: unnumbered subsection2
+ menu_directions:
+  next->numbered sub2
+  prev->numbered sub
+  up->unnumbered
 7|numbered sub2
  associated_section: numbered subsection2
  associated_title_command: numbered subsection2
+ menu_directions:
+  prev->unnumbered sub2
+  up->unnumbered
 8|unnumbered2
  associated_section: unnumbered section2
  associated_title_command: unnumbered section2
  menus:
   numbered sub3
+ menu_directions:
+  next->numbered
+  prev->unnumbered
+  up->First node
 9|numbered sub3
  associated_section: numbered subsection3
  associated_title_command: numbered subsection3
+ menu_directions:
+  up->unnumbered2
 10|numbered
  associated_section: 1.1 numbered section
  associated_title_command: 1.1 numbered section
+ menu_directions:
+  prev->unnumbered2
+  up->First node
 11|between node
+ menu_directions:
+  next->Second node
+  prev->First node
+  up->Top
 12|Second node
  associated_section: 2 second node chapter
  associated_title_command: 2 second node chapter
+ menu_directions:
+  next->Third node unnumbered
+  prev->between node
+  up->Top
 13|Third node unnumbered
  associated_section: unnumbered chapter
  associated_title_command: unnumbered chapter
+ menu_directions:
+  next->Last node no description
+  prev->Second node
+  up->Top
 14|Last node no description
+ menu_directions:
+  prev->Third node unnumbered
+  up->Top
 ';
 
 $result_sections_list{'sectioning_check_menu_structure'} = '1

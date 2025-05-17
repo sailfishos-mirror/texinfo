@@ -122,7 +122,6 @@ $result_tree_text{'value_in_node'} = '*document_root C6
      |>{node1}
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Node-1}
@@ -214,7 +213,6 @@ $result_tree_text{'value_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[prev->E3|up->E3]
  |node_number:{3}
  |normalized:{Section-1_002e1}
@@ -314,7 +312,11 @@ $result_nodes_list{'value_in_node'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   Section 1.1
+ menu_directions:
+  up->Top
 3|Section 1.1
+ menu_directions:
+  up->Node 1
 ';
 
 $result_sections_list{'value_in_node'} = '1|Expansion in Node Names

@@ -47,7 +47,6 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
   *2 @anchor C1 l6
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[up->E0]
   |normalized:{An-anchor}
    *brace_arg C1
     {An anchor}

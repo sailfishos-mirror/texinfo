@@ -90,7 +90,6 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -160,7 +159,6 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[up->E3]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -259,9 +257,13 @@ $result_nodes_list{'double_contents_separate_element_section'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   section
+ menu_directions:
+  up->Top
 3|section
  associated_section: 1.1 section with contents
  associated_title_command: 1.1 section with contents
+ menu_directions:
+  up->chapter
 ';
 
 $result_sections_list{'double_contents_separate_element_section'} = '1|Double contents
