@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -294,7 +293,6 @@ NodeBack: [U1]
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E9]
  |node_directions:D[next->E10|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{other-nodes}
@@ -625,12 +623,19 @@ $result_errors{'character_and_spaces_in_refs_out'} = [];
 $result_nodes_list{'character_and_spaces_in_refs_out'} = '1|Top
  associated_section: Test refs
  associated_title_command: Test refs
+ menus:
+  node to avoid DocBook or LaTeX ignored
+  other nodes
 2|node to avoid DocBook or LaTeX ignored
  associated_section: 1 first chapter
  associated_title_command: 1 first chapter
 3|other nodes
  associated_section: 2 Chapter with nodes
  associated_title_command: 2 Chapter with nodes
+ menus:
+  !_"#$%&\'()*+-.
+  /;<=>?[\\]^_`|~
+  local node
 4|!_"#$%&\'()*+-.
 5|/;<=>?[\\]^_`|~
 6|local   node

@@ -1964,10 +1964,10 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 }
 
 const ELEMENT *
-first_menu_node (const ELEMENT *node,
+first_menu_node (const NODE_STRUCTURE *node_structure,
                  const C_HASHMAP *identifiers_target)
 {
-  const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
+  const CONST_ELEMENT_LIST *menus = node_structure->menus;
   if (menus)
     {
       size_t i;

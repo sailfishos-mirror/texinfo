@@ -13,7 +13,6 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -119,6 +118,8 @@ $result_errors{'comment_on_menu_line'} = [];
 $result_nodes_list{'comment_on_menu_line'} = '1|Top
  associated_section: 1 first
  associated_title_command: 1 first
+ menus:
+  first
 2|first
 ';
 

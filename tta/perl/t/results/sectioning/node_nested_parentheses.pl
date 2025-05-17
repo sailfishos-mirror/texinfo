@@ -13,7 +13,6 @@ $result_tree_text{'node_nested_parentheses'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -133,6 +132,11 @@ $result_errors{'node_nested_parentheses'} = [
 
 
 $result_nodes_list{'node_nested_parentheses'} = '1|first
+ menus:
+  ((some) file)
+  (other (file))node name
+  (@code{open(}) close)
+  (@code{)))} error
 ';
 
 $result_sections_list{'node_nested_parentheses'} = '';

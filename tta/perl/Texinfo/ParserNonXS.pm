@@ -6169,11 +6169,9 @@ sub _handle_block_command($$$$$)
           if (!(defined($current->{'cmdname'}))
               or $root_commands{$current->{'cmdname'}}) {
             my $node_structure = $self->{'current_node'};
-            $node_structure->{'element'}->{'extra'} = {}
-              if (!defined($node_structure->{'element'}->{'extra'}));
-            $node_structure->{'element'}->{'extra'}->{'menus'} = []
-              if (!defined($node_structure->{'element'}->{'extra'}->{'menus'}));
-            push @{$node_structure->{'element'}->{'extra'}->{'menus'}}, $block;
+            $node_structure->{'menus'} = []
+              if (!defined($node_structure->{'menus'}));
+            push @{$node_structure->{'menus'}}, $block;
           } else {
             $self->_line_warn(__("\@menu in invalid context"),
                               $source_info);

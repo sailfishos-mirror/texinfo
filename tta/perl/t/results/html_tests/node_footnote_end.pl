@@ -20,7 +20,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -180,7 +179,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E7|prev->E3|up->E0]
- |menus:EC[E6]
  |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter}
@@ -377,11 +375,18 @@ $result_errors{'node_footnote_end'} = [
 
 
 $result_nodes_list{'node_footnote_end'} = '1|Top
+ menus:
+  @\'a
+  @^a
+  chapter
+  @`a
 2|@\'a
 3|@^a
 4|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menus:
+  @`a
 5|@`a
 ';
 

@@ -670,7 +670,7 @@ units_directions (const C_HASHMAP *identifiers_target,
           const NODE_STRUCTURE *node_structure
            = nodes_list->list[node_number -1];
           const ELEMENT *menu_child
-           = first_menu_node (node, identifiers_target);
+           = first_menu_node (node_structure, identifiers_target);
           enum directions d;
           node_directions = lookup_extra_directions (node,
                                                      AI_key_node_directions);

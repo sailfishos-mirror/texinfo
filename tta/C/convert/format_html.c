@@ -1554,7 +1554,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           ELEMENT *tree_root;
           char *explanation;
           char *context_name;
-          const ELEMENT *node_description;
+          const ELEMENT *node_description = 0;
           int long_description = 0;
           int formatted_nodedescription_nr = 0;
           HTML_TARGET *node_target_info;
@@ -1656,7 +1656,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
 
-          if (!long_description)
+          if (long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -7420,7 +7420,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
         {
           mini_toc_internal (self, element, &toc_or_mini_toc_or_auto_menu);
         }
-      else
+      else if (self->document)
         {
           int format_menu = 0;
           if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
@@ -7433,8 +7433,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
               const ELEMENT *node = 0;
 
               if (element->e.c->cmd != CM_node
-                  && builtin_command_data[element->e.c->cmd].flags & CF_root
-                  && self->document)
+                  && builtin_command_data[element->e.c->cmd].flags & CF_root)
                 {
                   int status;
                   size_t section_number
@@ -7446,17 +7445,23 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                 }
               if (node)
                 {
+                  const NODE_STRUCTURE_LIST *nodes_list
+                    = &self->document->nodes_list;
                   /* arguments_line type element */
                   const ELEMENT *arguments_line = node->e.c->contents.list[0];
                   int automatic_directions
                     = (arguments_line->e.c->contents.number <= 1);
-                  const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
-                                                                  AI_key_menus);
+
+                  int status;
+                  size_t node_number
+                   = lookup_extra_integer (node, AI_key_node_number, &status);
+                  const NODE_STRUCTURE *node_structure
+                    = nodes_list->list[node_number -1];
+
+                  const CONST_ELEMENT_LIST *menus = node_structure->menus;
                   if (!menus && automatic_directions && self->document)
                     {
                       ELEMENT *menu_node;
-                      const NODE_STRUCTURE_LIST *nodes_list
-                        = &self->document->nodes_list;
                       const SECTION_STRUCTURE_LIST *sections_list
                         = &self->document->sections_list;
 
@@ -7466,11 +7471,11 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                             self->conf,
                             self->current_lang_translations,
                             &self->document->identifiers_target,
-                            nodes_list, sections_list, node);
+                            nodes_list, sections_list, node_structure);
                       else
                          /* menu_no_detailmenu */
                         menu_node
-                          = new_complete_node_menu (node, nodes_list,
+                          = new_complete_node_menu (node_structure, nodes_list,
                                         sections_list, self->document,
                                         self->current_lang_translations,
                                         self->conf->DEBUG.o.integer, 0);
@@ -12120,7 +12125,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
 
-          if (!long_description)
+          if (long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -12265,7 +12270,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
 
-          if (!long_description)
+          if (long_description)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;

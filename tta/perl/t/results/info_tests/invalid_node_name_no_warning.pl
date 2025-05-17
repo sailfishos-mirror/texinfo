@@ -14,7 +14,6 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -227,6 +226,11 @@ $result_errors{'invalid_node_name_no_warning'} = [];
 
 
 $result_nodes_list{'invalid_node_name_no_warning'} = '1|Top
+ menus:
+  @asis{nodename. a}
+
+  node@comma{}comma
+  @asis{bidule:}
 2|@asis{nodename. a}
 3|node@comma{}comma
 4|@asis{bidule:}

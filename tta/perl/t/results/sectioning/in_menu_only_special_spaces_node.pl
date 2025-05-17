@@ -16,7 +16,6 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -444,6 +443,13 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
 $result_nodes_list{'in_menu_only_special_spaces_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+     
+  
+  
+    
+  ᠎ 
+           　
 2|   
  associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
  associated_title_command: 1 EN QUAD| | EM QUAD| | EN SPACE| |

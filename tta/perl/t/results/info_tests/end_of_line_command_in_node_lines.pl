@@ -14,7 +14,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -181,7 +180,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E8]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{new-n}
@@ -407,12 +405,19 @@ $result_errors{'end_of_line_command_in_node_lines'} = [
 $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chap @* f     nl Something? @* After punct
+  new n
 2|chap @* f     nl Something? @* After punct
  associated_section: 1 Chap
  associated_title_command: 1 Chap
 3|new n
  associated_section: 2 Ochap
  associated_title_command: 2 Ochap
+ menus:
+  ankh @* p
+  ankh @* p
+  ankh p
 ';
 
 $result_sections_list{'end_of_line_command_in_node_lines'} = '1|top

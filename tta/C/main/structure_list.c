@@ -24,6 +24,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "base_utils.h"
+#include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
 /* xasprintf */
@@ -31,6 +32,15 @@
 #include "convert_to_texinfo.h"
 #include "debug.h"
 #include "structure_list.h"
+
+NODE_STRUCTURE_LIST *
+new_node_structure_list (void)
+{
+  NODE_STRUCTURE_LIST *result = (NODE_STRUCTURE_LIST *)
+     malloc (sizeof (NODE_STRUCTURE_LIST));
+  memset (result, 0, sizeof (NODE_STRUCTURE_LIST));
+  return result;
+}
 
 NODE_STRUCTURE *
 new_node_structure (ELEMENT *element)
@@ -93,22 +103,31 @@ reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list)
     }
 }
 
-NODE_STRUCTURE *
-add_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e)
+void
+add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
+                            NODE_STRUCTURE *node_structure)
 {
-  NODE_STRUCTURE *node = new_node_structure (e);
   /* NOTE there could be theoretically an overflow if
      list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
   reallocate_node_structure_list (list);
 
-  list->list[list->number++] = node;
+  list->list[list->number++] = node_structure;
+}
 
-  return node;
+NODE_STRUCTURE *
+add_node_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e)
+{
+  NODE_STRUCTURE *node_structure = new_node_structure (e);
+
+  add_to_node_structure_list (list, node_structure);
+
+  return node_structure;
 }
 
 SECTION_STRUCTURE *
-add_to_section_structure_list (SECTION_STRUCTURE_LIST *list, ELEMENT *e)
+add_section_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                                       ELEMENT *e)
 {
   SECTION_STRUCTURE *section = new_section_structure (e);
   reallocate_section_structure_list (list);
@@ -119,7 +138,8 @@ add_to_section_structure_list (SECTION_STRUCTURE_LIST *list, ELEMENT *e)
 }
 
 HEADING_STRUCTURE *
-add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list, ELEMENT *e)
+add_heading_to_heading_structure_list (HEADING_STRUCTURE_LIST *list,
+                                       ELEMENT *e)
 {
   HEADING_STRUCTURE *heading = new_heading_structure (e);
   reallocate_heading_structure_list (list);
@@ -131,8 +151,8 @@ add_to_heading_structure_list (HEADING_STRUCTURE_LIST *list, ELEMENT *e)
 
 /* Add a node structure for the element E into the LIST at index WHERE. */
 NODE_STRUCTURE *
-insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
-                                 ELEMENT *e, size_t where)
+insert_node_into_node_structure_list (NODE_STRUCTURE_LIST *list,
+                                      ELEMENT *e, size_t where)
 {
   NODE_STRUCTURE *node = new_node_structure (e);
   reallocate_node_structure_list (list);
@@ -149,8 +169,8 @@ insert_into_node_structure_list (NODE_STRUCTURE_LIST *list,
 }
 
 SECTION_STRUCTURE *
-insert_into_section_structure_list (SECTION_STRUCTURE_LIST *list,
-                                 ELEMENT *e, size_t where)
+insert_section_into_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                                             ELEMENT *e, size_t where)
 {
   SECTION_STRUCTURE *section = new_section_structure (e);
   reallocate_section_structure_list (list);
@@ -171,8 +191,19 @@ free_node_structure_list (NODE_STRUCTURE_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
-    free (list->list[i]);
+    {
+      if (list->list[i]->menus)
+        destroy_const_element_list (list->list[i]->menus);
+      free (list->list[i]);
+    }
   free (list->list);
+}
+
+void
+destroy_node_structure_list (NODE_STRUCTURE_LIST *list)
+{
+  free_node_structure_list (list);
+  free (list);
 }
 
 void
@@ -379,6 +410,40 @@ print_nodes_list (const DOCUMENT *document)
           text_printf (&result, " %s: @%s", command_key,
                        builtin_command_name (command_element->e.c->cmd));
           text_append_n (&result, "\n", 1);
+        }
+
+      if (structure->menus && structure->menus->number)
+        {
+          text_append_n (&result, " menus:\n", 8);
+          size_t j;
+          for (j = 0; j < structure->menus->number; j++)
+            {
+              const ELEMENT *menu = structure->menus->list[j];
+
+              size_t k;
+              for (k = 0; k < menu->e.c->contents.number; k++)
+                {
+                  const ELEMENT *menu_content = menu->e.c->contents.list[k];
+                  if (menu_content->type == ET_menu_entry)
+                    {
+                      size_t l;
+                      for (l = 0; l < menu_content->e.c->contents.number; l++)
+                        {
+                          const ELEMENT *content
+                            = menu_content->e.c->contents.list[l];
+                          if (content->type == ET_menu_entry_node)
+                            {
+                              /* This is only supposed to identify the menu */
+                              char *node_menu_entry_texi
+                                = convert_to_texinfo (content);
+                              text_printf (&result, "  %s\n",
+                                           node_menu_entry_texi);
+                              free (node_menu_entry_texi);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

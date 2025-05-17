@@ -125,7 +125,6 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -357,6 +356,8 @@ $result_errors{'direntry_dircategory'} = [
 $result_nodes_list{'direntry_dircategory'} = '1|Top
  associated_section: Test dircategory and direntry
  associated_title_command: Test dircategory and direntry
+ menus:
+  chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter

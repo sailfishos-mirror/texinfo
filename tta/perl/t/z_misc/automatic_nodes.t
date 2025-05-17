@@ -237,12 +237,17 @@ Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
 
 my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();
-ok(($identifier_target->{'chap'}->{'extra'}->{'menus'}
-    and scalar(@{$identifier_target->{'chap'}->{'extra'}->{'menus'}}) == 1
-    and !exists($identifier_target->{'Top'}->{'extra'}->{'menus'})),
+my $nodes_list = $document->nodes_list;
+my $chap_node = $identifier_target->{'chap'};
+my $top_node = $identifier_target->{'Top'};
+my $chap_structure = $nodes_list->[$chap_node->{'extra'}->{'node_number'} -1];
+my $top_structure = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
+ok(($chap_structure->{'menus'}
+    and scalar(@{$chap_structure->{'menus'}}) == 1
+    and !exists($top_structure->{'menus'})),
    'new node has a menu');
 is(Texinfo::Convert::Texinfo::convert_to_texinfo(
-            $identifier_target->{'chap'}->{'extra'}->{'menus'}->[0]),
+            $chap_structure->{'menus'}->[0]),
 '@menu
 * (some_manual)::
 @end menu

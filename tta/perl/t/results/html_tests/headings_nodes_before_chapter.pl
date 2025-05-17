@@ -82,7 +82,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E6]
  |node_directions:D[next->E7]
  |node_number:{3}
  |normalized:{Cap-1}
@@ -236,6 +235,9 @@ $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
 3|Cap 1
  associated_section: 1 Chapter One
  associated_title_command: 1 Chapter One
+ menus:
+  Node 1
+  Node 2
 4|Cap 2
  associated_section: 2 Chapter Two
  associated_title_command: 2 Chapter Two

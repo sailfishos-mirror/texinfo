@@ -16,7 +16,6 @@ $result_tree_text{'unknown_node_in_menu_novalidate'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -76,6 +75,8 @@ $result_errors{'unknown_node_in_menu_novalidate'} = [];
 
 
 $result_nodes_list{'unknown_node_in_menu_novalidate'} = '1|first
+ menus:
+  unknown
 ';
 
 $result_sections_list{'unknown_node_in_menu_novalidate'} = '';

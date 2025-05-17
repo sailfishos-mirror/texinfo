@@ -22,7 +22,6 @@ NodeForward: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E5]
  |node_number:{1}
  |normalized:{Top}
@@ -238,6 +237,8 @@ $result_errors{'double_part'} = [
 $result_nodes_list{'double_part'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  node chapter
 2|node chapter
  associated_section: 1 chapter after 2 parts
  node_preceding_part: part second

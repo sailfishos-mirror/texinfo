@@ -17,7 +17,6 @@ NodeUp: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -187,6 +186,9 @@ $result_errors{'nodes_after_top_before_chapter_sections'} = [];
 
 
 $result_nodes_list{'nodes_after_top_before_chapter_sections'} = '1|Top
+ menus:
+  second node
+  third node
 2|second node
 3|third node
  associated_section: 1 chapter

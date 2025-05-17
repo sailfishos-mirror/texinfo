@@ -49,7 +49,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E4]
  |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
@@ -281,6 +280,8 @@ $result_nodes_list{'empty_xrefname'} = '1|Top
 2|Chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menus:
+  entiti
 3|entiti
  associated_title_command
 4|chip

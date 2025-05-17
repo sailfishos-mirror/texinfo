@@ -85,15 +85,15 @@ Complete nodes directions with menu directions and @emph{Top} node first node
 directions.  Check consistency of menus, sectionning and nodes direction
 structures.
 
-@item @@children_nodes = get_node_node_childs_from_sectioning($node, $nodes_list, $sections_list)
-@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node@comma{} $nodes_list@comma{} $sections_list)}
+@item @@children_nodes = get_node_node_childs_from_sectioning($node_structure, $sections_list)
+@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node_structure@comma{} $sections_list)}
 @cindex @code{get_node_node_childs_from_sectioning}
 
-@emph{$node} is a node tree element.  @emph{$nodes_list} and @emph{$sections_list} are
-the nodes and section lists structure information, usually obtained through
-@code{Texinfo::Document}. Find the node @emph{$node} children based
-on the sectioning structure.  For the node associated with @code{@@top}
-sectioning command, the sections associated with parts are considered.
+@emph{$node_structure} is a node structuring information.
+@emph{$sections_list} is section lists structure information, usually obtained
+through @code{Texinfo::Document}. Find the node @emph{$node} children based on the
+sectioning structure.  For the node associated with @code{@@top} sectioning
+command, the sections associated with parts are considered.
 
 @item new_block_command($element, $command_name)
 @anchor{Texinfo@asis{::}Structuring new_block_command($element@comma{} $command_name)}
@@ -102,11 +102,12 @@ sectioning command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node, $nodes_list, $sections_list, $lang_translations, $debug_level, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node@comma{} $nodes_list@comma{} $sections_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node_structure, $nodes_list, $sections_list, $lang_translations, $debug_level, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node_structure@comma{} $nodes_list@comma{} $sections_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
-Returns a @code{@@menu} Texinfo tree element for node @emph{$node}, pointing to the
+Returns a @code{@@menu} Texinfo tree element for node structure information
+@emph{$node_structure}, pointing to the
 children of the node obtained with the sectioning structure.
 @emph{$nodes_list} and @emph{$sections_list} are the list of nodes and sections
 structure information.

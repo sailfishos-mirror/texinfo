@@ -14,7 +14,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first}
@@ -102,7 +101,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E5]
  |node_directions:D[prev->E0]
  |node_number:{3}
  |normalized:{Top}
@@ -248,10 +246,14 @@ $result_errors{'nodes_before_top'} = [
 
 
 $result_nodes_list{'nodes_before_top'} = '1|first
+ menus:
+  node in menu before top
 2|node in menu before top
 3|Top
  associated_section: top section
  associated_title_command: top section
+ menus:
+  second node
 4|second node
  associated_section: 1 a chapter
  associated_title_command: 1 a chapter

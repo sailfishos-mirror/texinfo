@@ -64,7 +64,6 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -339,6 +338,9 @@ $result_errors{'japanese_shift_jis'} = [
 $result_nodes_list{'japanese_shift_jis'} = '1|Top
  associated_section: GNU LilyPond --- 学習マニュアル
  associated_title_command: GNU LilyPond --- 学習マニュアル
+ menus:
+  Preface
+  Introduction
 2|Preface
  associated_section: 1 Preface
  associated_title_command: 1 Preface

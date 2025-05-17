@@ -17,7 +17,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -99,7 +98,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E16|up->E14]
- |menus:EC[E5]
  |node_directions:D[next->E16|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{guide1}
@@ -187,7 +185,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E8|up->E3]
- |menus:EC[E7]
  |node_directions:D[next->E8]
  |node_number:{3}
  |normalized:{topic1}
@@ -248,7 +245,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E14|prev->E6|up->E3]
- |menus:EC[E9]
  |node_directions:D[next->E10|prev->E6]
  |node_number:{4}
  |normalized:{topic2}
@@ -316,7 +312,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E11]
  |node_directions:D[next->E14|prev->E8]
  |node_number:{5}
  |normalized:{topic3}
@@ -374,7 +369,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E14|up->E16]
- |menus:EC[E13]
  |node_directions:D[prev->E14|up->E16]
  |node_number:{6}
  |normalized:{topic4}
@@ -428,7 +422,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E12|prev->E8|up->E16]
- |menus:EC[E15]
  |node_directions:D[prev->E10]
  |node_number:{7}
  |normalized:{topic5}
@@ -504,7 +497,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E14]
- |menus:EC[E18]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{8}
  |normalized:{guide2}
@@ -736,17 +728,37 @@ $result_errors{'topic_guide'} = [];
 $result_nodes_list{'topic_guide'} = '1|Top
  associated_section: A example quide topic collection
  associated_title_command: A example quide topic collection
+ menus:
+  guide1
+  guide2
 2|guide1
  associated_section: 1 guide 1
  associated_title_command: 1 guide 1
+ menus:
+  topic1
+  topic2
+  topic5
 3|topic1
+ menus:
+  guide1
 4|topic2
+ menus:
+  guide1
 5|topic3
+ menus:
 6|topic4
+ menus:
+  guide2
 7|topic5
+ menus:
+  guide1
+  guide2
 8|guide2
  associated_section: 2 guide 2
  associated_title_command: 2 guide 2
+ menus:
+  topic5
+  topic4
 ';
 
 $result_sections_list{'topic_guide'} = '1|A example quide topic collection

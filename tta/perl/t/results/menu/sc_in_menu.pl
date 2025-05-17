@@ -14,7 +14,6 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -260,6 +259,8 @@ $result_errors{'sc_in_menu'} = [
 
 
 $result_nodes_list{'sc_in_menu'} = '1|first
+ menus:
+  @sc{node}
 2|@sc{node}
 ';
 

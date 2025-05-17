@@ -13,7 +13,6 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -130,6 +129,9 @@ $result_errors{'empty_menu_entry_name'} = [
 
 
 $result_nodes_list{'empty_menu_entry_name'} = '1|first
+ menus:
+  (vvv)
+  aaa
 2|aaa
 ';
 

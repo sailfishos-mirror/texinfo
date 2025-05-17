@@ -13,7 +13,6 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -149,6 +148,9 @@ $result_errors{'next_no_prev_to_node'} = [];
 
 
 $result_nodes_list{'next_no_prev_to_node'} = '1|Top
+ menus:
+  chap first node
+  no return
 2|chap first node
 3|no return
 ';

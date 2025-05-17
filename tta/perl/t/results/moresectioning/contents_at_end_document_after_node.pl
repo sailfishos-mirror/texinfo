@@ -13,7 +13,6 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -153,6 +152,8 @@ $result_errors{'contents_at_end_document_after_node'} = [];
 $result_nodes_list{'contents_at_end_document_after_node'} = '1|Top
  associated_section: contents at end document after node
  associated_title_command: contents at end document after node
+ menus:
+  a node
 2|a node
 ';
 

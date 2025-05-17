@@ -14,7 +14,6 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -349,6 +348,8 @@ $result_errors{'some_at_commands_in_ref_nodes'} = [];
 $result_nodes_list{'some_at_commands_in_ref_nodes'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 2|A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_section: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_title_command: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}

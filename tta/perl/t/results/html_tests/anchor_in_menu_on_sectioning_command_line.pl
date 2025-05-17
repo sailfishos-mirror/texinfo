@@ -13,7 +13,6 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E3]
  |node_number:{1}
  |normalized:{chap}
   *arguments_line C1
@@ -111,6 +110,8 @@ $result_errors{'anchor_in_menu_on_sectioning_command_line'} = [
 $result_nodes_list{'anchor_in_menu_on_sectioning_command_line'} = '1|chap
  associated_section: 1 chapter @anchor{ggg} after
  associated_title_command: 1 chapter @anchor{ggg} after
+ menus:
+  ggg
 ';
 
 $result_sections_list{'anchor_in_menu_on_sectioning_command_line'} = '1|chapter @anchor{ggg} after

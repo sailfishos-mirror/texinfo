@@ -13,7 +13,6 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -164,6 +163,12 @@ $result_errors{'invalid_info_menu_entry'} = [];
 
 
 $result_nodes_list{'invalid_info_menu_entry'} = '1|first
+ menus:
+  (f)@asis{a:}
+  (f)node
+  (f)@asis{node. }
+  (f)@asis{node,n}
+  (f)@asis{node	n}
 ';
 
 $result_sections_list{'invalid_info_menu_entry'} = '';

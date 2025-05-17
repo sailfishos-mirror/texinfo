@@ -13,7 +13,6 @@ $result_tree_text{'menu_node_unterminated'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -80,6 +79,9 @@ $result_errors{'menu_node_unterminated'} = [
 
 
 $result_nodes_list{'menu_node_unterminated'} = '1|first
+ menus:
+  Examples of Login Verification Functions
+
 ';
 
 $result_sections_list{'menu_node_unterminated'} = '';

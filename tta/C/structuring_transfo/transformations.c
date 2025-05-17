@@ -297,7 +297,8 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               text_append (empty_line->e.text, "\n");
               add_to_element_contents (new_section, empty_line);
 
-              insert_into_section_structure_list (&document->sections_list,
+              insert_section_into_section_structure_list (
+                                                 &document->sections_list,
                                                  new_section, section_idx +1);
               section_idx++;
               add_extra_integer (new_section, AI_key_section_number,
@@ -740,19 +741,14 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   NODE_STRUCTURE *new_node_structure = new_previous->list[0];
   NODE_STRUCTURE *previous_node_structure = new_previous->list[1];
   ELEMENT *added_node = new_node_structure->element;
-  ELEMENT *previous_node = 0;
-  if (previous_node_structure)
-    previous_node = previous_node_structure->element;
 
   if (!(type_data[current->type].flags & TF_text))
     {
       if (current->e.c->cmd == CM_menu)
         {
-          CONST_ELEMENT_LIST *added_node_menus;
-          if (previous_node)
+          if (previous_node_structure)
             {
-              CONST_ELEMENT_LIST *menus
-                = lookup_extra_contents (previous_node, AI_key_menus);
+              CONST_ELEMENT_LIST *menus = previous_node_structure->menus;
               size_t previous_nr = 0;
               if (menus)
                 {
@@ -768,7 +764,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                 }
               if (previous_nr == 0)
                 fprintf (stderr, "BUG: menu %p not in previous node %p\n",
-                                 current, previous_node);
+                                 current, previous_node_structure->element);
               else
                 {
                   size_t previous_idx = previous_nr -1;
@@ -776,14 +772,14 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                   remove_from_const_element_list (menus, previous_idx);
                   if (menus->number <= 0)
                     {
-                      KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
-                      k->key = AI_key_none;
                       destroy_const_element_list (menus);
+                      previous_node_structure->menus = 0;
                     }
                 }
             }
-          added_node_menus = add_extra_contents (added_node, AI_key_menus, 0);
-          add_to_const_element_list (added_node_menus, current);
+          if (!new_node_structure->menus)
+            new_node_structure->menus = new_const_element_list ();
+          add_to_const_element_list (new_node_structure->menus, current);
         }
            /* following for index entries */
       else if (current->e.c->cmd == CM_item || current->e.c->cmd == CM_itemx
@@ -792,9 +788,10 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
         {
           const ELEMENT *element_node
             = lookup_extra_element (current, AI_key_element_node);
-          if (element_node)
+          if (element_node && previous_node_structure)
             {
-              if (previous_node && element_node != previous_node)
+              const ELEMENT *previous_node = previous_node_structure->element;
+              if (element_node != previous_node)
                 {
                   char *element_debug = print_element_debug (current, 0);
                   char *previous_node_texi
@@ -906,7 +903,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   insert_into_contents (root, added_node, idx);
                   idx++;
                   new_node_structure
-                    = insert_into_node_structure_list (&document->nodes_list,
+                    = insert_node_into_node_structure_list (
+                                                       &document->nodes_list,
                                                        added_node, node_idx);
                   new_node_structure->associated_section = content;
                   node_idx++;
@@ -1025,17 +1023,19 @@ reference_to_arg_in_document (DOCUMENT *document)
 }
 
 void
-prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
+prepend_new_menu_in_node_section (NODE_STRUCTURE *node_structure,
+                                  ELEMENT *section,
                                   ELEMENT *current_menu)
 {
   ELEMENT *empty_line = new_text_element (ET_empty_line);
-  CONST_ELEMENT_LIST *menus = add_extra_contents (node, AI_key_menus, 0);
+  if (!node_structure->menus)
+    node_structure->menus = new_const_element_list ();
 
   add_to_element_contents (section, current_menu);
   text_append (empty_line->e.text, "\n");
   add_to_element_contents (section, empty_line);
 
-  add_to_const_element_list (menus, current_menu);
+  add_to_const_element_list (node_structure->menus, current_menu);
 }
 
 typedef struct EXISTING_ENTRY {
@@ -1045,13 +1045,13 @@ typedef struct EXISTING_ENTRY {
 } EXISTING_ENTRY;
 
 void
-complete_node_menu (ELEMENT *node,
+complete_node_menu (NODE_STRUCTURE *node_structure,
                     const NODE_STRUCTURE_LIST *nodes_list,
                     const SECTION_STRUCTURE_LIST *sections_list,
                     int use_sections)
 {
   CONST_ELEMENT_LIST *node_childs
-    = get_node_node_childs_from_sectioning (node, nodes_list, sections_list);
+    = get_node_node_childs_from_sectioning (node_structure, sections_list);
 
   if (node_childs->number)
     {
@@ -1063,8 +1063,7 @@ complete_node_menu (ELEMENT *node,
       ELEMENT *current_menu = 0;
 
       size_t i;
-      const CONST_ELEMENT_LIST *menus
-        = lookup_extra_contents (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus = node_structure->menus;
 
       if (menus)
         {
@@ -1159,13 +1158,6 @@ complete_node_menu (ELEMENT *node,
             {
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-              int status;
-              size_t node_number
-                = lookup_extra_integer (node,
-                                        AI_key_node_number, &status);
-              const NODE_STRUCTURE *node_structure
-                = nodes_list->list[node_number -1];
-
               ELEMENT *section = node_structure->associated_section;
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
@@ -1173,7 +1165,7 @@ complete_node_menu (ELEMENT *node,
                                                pending->number);
               current_menu->parent = section;
               new_block_command (current_menu);
-              prepend_new_menu_in_node_section (node, section,
+              prepend_new_menu_in_node_section (node_structure, section,
                                                 current_menu);
             }
           else
@@ -1201,22 +1193,22 @@ complete_node_menu (ELEMENT *node,
   destroy_const_element_list (node_childs);
 }
 
-static ELEMENT_LIST *
+static NODE_STRUCTURE_LIST *
 get_non_automatic_nodes_with_sections (const DOCUMENT *document)
 {
-  ELEMENT_LIST *non_automatic_nodes = new_list ();
+
+  NODE_STRUCTURE_LIST *non_automatic_nodes = new_node_structure_list ();
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   size_t i;
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      const NODE_STRUCTURE *node_structure = nodes_list->list[i];
-      /* cast to discard const */
-      ELEMENT *node_element = (ELEMENT *)node_structure->element;
+      NODE_STRUCTURE *node_structure = nodes_list->list[i];
+      ELEMENT *node_element = node_structure->element;
       if (node_element->e.c->contents.list[0]->e.c->contents.number <= 1
           && node_structure->associated_section)
         {
-          add_to_element_list (non_automatic_nodes, node_element);
+          add_to_node_structure_list (non_automatic_nodes, node_structure);
         }
     }
   return non_automatic_nodes;
@@ -1226,7 +1218,7 @@ get_non_automatic_nodes_with_sections (const DOCUMENT *document)
 void
 complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 {
-  ELEMENT_LIST *non_automatic_nodes
+  NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
@@ -1234,11 +1226,12 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
-      ELEMENT *node = non_automatic_nodes->list[i];
-      complete_node_menu (node, nodes_list, sections_list, use_sections);
-      document->modified_information |= F_DOCM_tree;
+      NODE_STRUCTURE *node_structure = non_automatic_nodes->list[i];
+      complete_node_menu (node_structure, nodes_list, sections_list,
+                          use_sections);
+      document->modified_information |= F_DOCM_tree | F_DOCM_nodes_list;
     }
-  destroy_list (non_automatic_nodes);
+  destroy_node_structure_list (non_automatic_nodes);
 }
 
 void
@@ -1247,7 +1240,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   const OPTIONS *options = document->options;
-  ELEMENT_LIST *non_automatic_nodes
+  NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
   LANG_TRANSLATION *lang_translation = 0;
   int debug_level = 0;
@@ -1261,32 +1254,27 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   size_t i;
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
-      ELEMENT *node = non_automatic_nodes->list[i];
-      const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
+      NODE_STRUCTURE *node_structure = non_automatic_nodes->list[i];
+      const CONST_ELEMENT_LIST *menus = node_structure->menus;
       if (!(menus && menus->number > 0))
         {
-          int status;
-          size_t node_number
-                = lookup_extra_integer (node,
-                                        AI_key_node_number, &status);
-          const NODE_STRUCTURE *node_structure
-            = nodes_list->list[node_number -1];
-
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
           ELEMENT *section = (ELEMENT *)node_structure->associated_section;
-          ELEMENT *current_menu = new_complete_node_menu (node,
+          ELEMENT *current_menu = new_complete_node_menu (node_structure,
                                                  nodes_list, sections_list,
                                                  document, lang_translation,
                                                  debug_level, use_sections);
           if (current_menu)
             {
-              prepend_new_menu_in_node_section (node, section, current_menu);
-              document->modified_information |= F_DOCM_tree;
+              prepend_new_menu_in_node_section (node_structure, section,
+                                                current_menu);
+              document->modified_information |= F_DOCM_tree
+                                                | F_DOCM_nodes_list;
             }
         }
     }
-  destroy_list (non_automatic_nodes);
+  destroy_node_structure_list (non_automatic_nodes);
   if (lang_translation)
     {
       free_lang_translation (lang_translation);
@@ -1312,7 +1300,12 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   if (top_node)
     {
-      menus = lookup_extra_contents (top_node, AI_key_menus);
+      int status;
+      size_t top_node_number
+        = lookup_extra_integer (top_node, AI_key_node_number, &status);
+      const NODE_STRUCTURE *top_node_structure
+        = nodes_list->list[top_node_number -1];
+      menus = top_node_structure->menus;
       if (!menus || (menus->number <= 0))
         return 0;
     }

@@ -13,7 +13,6 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -246,6 +245,10 @@ $result_errors{'spaces_in_node_names'} = [
 
 
 $result_nodes_list{'spaces_in_node_names'} = '1|Top
+ menus:
+  chap@ @ 
+  b@verb{:  :}
+  c@ 
 2|chap@ @ 
 3|b@verb{:  :}
 4|c@w{  }

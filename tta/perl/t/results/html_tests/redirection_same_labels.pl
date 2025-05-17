@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -122,7 +121,6 @@ NodeBack: [U0]
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
- |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{umlaut}
@@ -254,7 +252,6 @@ NodeBack: [U2]
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E10]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{5}
  |normalized:{circumflex}
@@ -394,14 +391,22 @@ $result_errors{'redirection_same_labels'} = [];
 $result_nodes_list{'redirection_same_labels'} = '1|Top
  associated_section: the top
  associated_title_command: the top
+ menus:
+  umlaut
+  circumflex
 2|umlaut
  associated_section: 1 umlaut
  associated_title_command: 1 umlaut
+ menus:
+  @"i
+  @~{@dotless{i}}
 3|@"i
 4|@~{@dotless{i}}
 5|circumflex
  associated_section: 2 circumflex
  associated_title_command: 2 circumflex
+ menus:
+  @^i
 6|@^i
 ';
 

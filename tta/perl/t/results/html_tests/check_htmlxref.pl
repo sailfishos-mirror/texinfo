@@ -14,7 +14,6 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
@@ -304,6 +303,10 @@ $result_errors{'check_htmlxref'} = [];
 $result_nodes_list{'check_htmlxref'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  first
+  (other_no_existing_no_manual)
+  chapter
 2|first
 3|chapter
  associated_section: 1 Chapter

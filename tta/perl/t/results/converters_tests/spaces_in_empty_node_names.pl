@@ -13,7 +13,6 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -274,6 +273,10 @@ $result_errors{'spaces_in_empty_node_names'} = [
 
 
 $result_nodes_list{'spaces_in_empty_node_names'} = '1|Top
+ menus:
+  @ @ 
+  @verb{:  :}
+  @ 
 ';
 
 $result_sections_list{'spaces_in_empty_node_names'} = '';

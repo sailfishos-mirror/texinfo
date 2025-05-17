@@ -13,7 +13,6 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -237,6 +236,8 @@ $result_floats{'equivalent_nodes_defined_linked'} = 'Figure: 1
 ';
 
 $result_nodes_list{'equivalent_nodes_defined_linked'} = '1|Top
+ menus:
+  @strong{chap}
 2|chap
 ';
 

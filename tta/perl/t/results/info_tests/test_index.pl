@@ -13,7 +13,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -1337,6 +1336,9 @@ $result_errors{'test_index'} = [
 $result_nodes_list{'test_index'} = '1|Top
  associated_section: Element top
  associated_title_command: Element top
+ menus:
+  name
+  name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
 2|name
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter

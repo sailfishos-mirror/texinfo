@@ -14,7 +14,6 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -191,6 +190,8 @@ $result_errors{'chapter_between_nodes'} = [];
 $result_nodes_list{'chapter_between_nodes'} = '1|Top
  associated_section: top section
  associated_title_command: top section
+ menus:
+  section node
 2|section node
  associated_section: 1.1 section
  associated_title_command: 1.1 section

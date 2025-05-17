@@ -1,3 +1,68 @@
+2025-05-17  Patrice Dumas  <pertusus@free.fr>
+
+	menus in node structure information instead of tree
+
+	* tta/C/convert/format_html.c (html_command_description)
+	(html_convert_menu_entry_type): fix node descriptons conditions.
+
+	* tta/C/main/structure_list.c (add_node_to_node_structure_list)
+	(add_section_to_section_structure_list)
+	(add_heading_to_heading_structure_list)
+	(insert_node_into_node_structure_list)
+	(insert_section_into_section_structure_list): rename
+	add_to_node_structure_list as add_node_to_node_structure_list,
+	add_to_section_structure_list as
+	add_section_to_section_structure_list, add_to_heading_structure_list
+	as add_heading_to_heading_structure_list,
+	insert_into_node_structure_list as
+	insert_node_into_node_structure_list and
+	insert_into_section_structure_list as
+	insert_section_into_section_structure_list.  Update callers.
+
+	* tta/perl/Texinfo/Transformations.pm: remove
+	set_menus_to_simple_menu.
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list),
+	tta/C/main/structure_list.c (new_node_structure_list)
+	(add_to_node_structure_list, free_node_structure_list)
+	(destroy_node_structure_list, print_nodes_list),
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE),
+	tta/C/parsetexi/handle_commands.c (handle_block_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_block_command),
+	tta/perl/Texinfo/Structuring.pm (print_nodes_list): put menus as
+	node structure information instead of extra information in tree.
+
+	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree)
+	(_do_top_node_menu), tta/C/convert/format_html.c
+	(html_command_description, html_convert_heading_command),
+	tta/C/main/manipulate_tree.c (first_menu_node),
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning, check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus)
+	(new_complete_node_menu, print_down_menus)
+	(new_complete_menu_master_menu),
+	tta/C/structuring_transfo/transformations.c (reassociate_to_node)
+	(prepend_new_menu_in_node_section, complete_node_menu)
+	(get_non_automatic_nodes_with_sections)
+	(complete_tree_nodes_menus_in_document)
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/ManipulateTree.pm (first_menu_node),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
+	tta/perl/Texinfo/Structuring.pm (_register_menu_node_targets)
+	(get_node_node_childs_from_sectioning, check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus)
+	(new_complete_node_menu, new_complete_menu_master_menu)
+	(_print_down_menus), tta/perl/Texinfo/Transformations.pm
+	(_reassociate_to_node, _prepend_new_menu_in_node_section)
+	(complete_node_menu, _get_non_automatic_nodes_with_sections)
+	(complete_tree_nodes_menus_in_document)
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/t/z_misc/automatic_nodes.t,
+	tta/perl/t/z_misc/do_master_menu.t: update for change in menus
+	information location.
+
 2025-05-14  Patrice Dumas  <pertusus@free.fr>
 
 	float_section in list of floats instead of tree

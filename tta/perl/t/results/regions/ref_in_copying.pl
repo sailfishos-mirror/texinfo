@@ -40,7 +40,6 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -178,6 +177,8 @@ $result_errors{'ref_in_copying'} = [];
 $result_nodes_list{'ref_in_copying'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  GFDL
 2|GFDL
  associated_section: 1 GFDL
  associated_title_command: 1 GFDL

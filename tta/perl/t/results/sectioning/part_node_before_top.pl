@@ -69,7 +69,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E4]
  |node_directions:D[next->E0]
  |node_number:{2}
  |normalized:{Top}
@@ -169,6 +168,8 @@ $result_nodes_list{'part_node_before_top'} = '1|part node before top
  associated_section: top
  node_preceding_part: part
  associated_title_command: top
+ menus:
+  part node before top
 ';
 
 $result_sections_list{'part_node_before_top'} = '1|part

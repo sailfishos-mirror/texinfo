@@ -19,7 +19,6 @@ $result_tree_text{'value_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
@@ -124,7 +123,6 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Node-1}
@@ -309,9 +307,13 @@ $result_errors{'value_in_node'} = [];
 $result_nodes_list{'value_in_node'} = '1|Top
  associated_section: Expansion in Node Names
  associated_title_command: Expansion in Node Names
+ menus:
+  Node 1  
 2|Node 1
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
+ menus:
+  Section 1.1
 3|Section 1.1
 ';
 

@@ -18,7 +18,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -729,6 +728,9 @@ $result_errors{'ref_in_sectioning'} = [
 $result_nodes_list{'ref_in_sectioning'} = '1|Top
  associated_section: for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
  associated_title_command: for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ menus:
+  node
+  chap
 2|node
  associated_section: 1 @xref{node,,title, file name, Manual}.
  associated_title_command: 1 @xref{node,,title, file name, Manual}.

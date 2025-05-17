@@ -13,7 +13,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -132,7 +131,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
- |menus:EC[E5]
  |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -228,7 +226,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E6|prev->E3|up->E0]
- |menus:EC[E10]
  |node_directions:D[next->E6|prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter-2}
@@ -471,15 +468,26 @@ $result_errors{'missing_detailmenu_on_subnodes'} = [
 $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chapter
+  chapter 2
+  section
+  section chap 2
+  unnumberedsec
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menus:
+  section
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
 4|chapter 2
  associated_section: 2 chapter 2
  associated_title_command: 2 chapter 2
+ menus:
+  section chap 2
+  unnumberedsec
 5|section chap 2
  associated_section: 2.1 section chap 2
  associated_title_command: 2.1 section chap 2

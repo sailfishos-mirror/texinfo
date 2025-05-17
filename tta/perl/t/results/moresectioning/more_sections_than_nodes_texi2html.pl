@@ -14,7 +14,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -170,7 +169,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E17|prev->E4|up->E0]
- |menus:EC[E9]
  |node_directions:D[next->E17|prev->E4|up->E0]
  |node_number:{3}
  |normalized:{n-c3}
@@ -522,12 +520,18 @@ $result_errors{'more_sections_than_nodes_texi2html'} = [];
 $result_nodes_list{'more_sections_than_nodes_texi2html'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  n c2
+  n c3
+  n c3 s1 s2
 2|n c2
  associated_section: 2 c2
  associated_title_command: 2 c2
 3|n c3
  associated_section: 3 c3
  associated_title_command: 3 c3
+ menus:
+  n c3 s 2
 4|n c3 s 2
  associated_section: 3.2 c3 s2
  associated_title_command: 3.2 c3 s2

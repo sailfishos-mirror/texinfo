@@ -13,7 +13,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -204,6 +203,10 @@ $result_errors{'external_node_in_menu'} = [];
 $result_nodes_list{'external_node_in_menu'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  nchapter1
+  (aaa)other
+  nchapter2
 2|nchapter1
  associated_section: 1 chap1
  associated_title_command: 1 chap1

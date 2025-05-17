@@ -14,7 +14,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E5]
  |node_number:{1}
  |normalized:{Top}
@@ -1193,6 +1192,8 @@ $result_floats{'complex_float'} = 'Text: 2
 $result_nodes_list{'complex_float'} = '1|Top
  associated_section: Test floats
  associated_title_command: Test floats
+ menus:
+  chapter
 2|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter

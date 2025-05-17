@@ -19,7 +19,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -129,6 +128,8 @@ $result_errors{'internal_top_node_up'} = [];
 $result_nodes_list{'internal_top_node_up'} = '1|Top
  associated_section: internal top node up
  associated_title_command: internal top node up
+ menus:
+  chap
 2|chap
 ';
 

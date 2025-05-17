@@ -13,7 +13,6 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -149,6 +148,8 @@ $result_errors{'space_in_menu'} = [];
 $result_nodes_list{'space_in_menu'} = '1|Top
  associated_section: Element
  associated_title_command: Element
+ menus:
+  node
 2|node
  associated_section: 1 node
  associated_title_command: 1 node

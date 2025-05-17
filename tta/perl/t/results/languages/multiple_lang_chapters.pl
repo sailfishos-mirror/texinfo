@@ -85,7 +85,6 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -734,6 +733,12 @@ $result_errors{'multiple_lang_chapters'} = [];
 $result_nodes_list{'multiple_lang_chapters'} = '1|Top
  associated_section: Multi language file
  associated_title_command: Multi language file
+ menus:
+  chapter ja
+  chapter en
+  chapter fr_FR
+  chapter de
+  chapter pt_BR
 2|chapter ja
  associated_section: 1 ja
  associated_title_command: 1 ja

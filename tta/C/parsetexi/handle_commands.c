@@ -1126,10 +1126,9 @@ handle_block_command (ELEMENT *current, const char **line_inout,
                     line_warn ("@menu in invalid context");
                   else
                     {
-                      CONST_ELEMENT_LIST *l
-                        = add_extra_contents (current_node->element,
-                                              AI_key_menus, 0);
-                      add_to_const_element_list (l, block);
+                      if (!current_node->menus)
+                        current_node->menus = new_const_element_list ();
+                      add_to_const_element_list (current_node->menus, block);
                     }
                 }
             }

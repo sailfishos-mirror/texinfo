@@ -14,7 +14,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -175,6 +174,8 @@ $result_errors{'chapter_node_before_and_after_part'} = [
 $result_nodes_list{'chapter_node_before_and_after_part'} = '1|Top
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menus:
+  after
 2|after
  associated_section: 2 chapter 2
  node_preceding_part: part

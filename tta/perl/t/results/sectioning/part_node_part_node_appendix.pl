@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -261,6 +260,9 @@ $result_errors{'part_node_part_node_appendix'} = [];
 $result_nodes_list{'part_node_part_node_appendix'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chapter node
+  appendix node
 2|chapter node
  associated_section: 1 chapter
  node_preceding_part: Part 1

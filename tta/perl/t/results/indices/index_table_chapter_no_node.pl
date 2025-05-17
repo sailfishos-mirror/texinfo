@@ -17,7 +17,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -363,7 +362,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E5|up->E0]
- |menus:EC[E9]
  |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{indices-refs}
@@ -2400,6 +2398,10 @@ $result_errors{'index_table_chapter_no_node'} = [
 $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
  associated_section: Test for indices
  associated_title_command: Test for indices
+ menus:
+  node with ftable and vtable
+  node with printindex
+  indices refs
 2|node with ftable and vtable
  associated_section: 1 first node chapter, with ftable and vtable
  associated_title_command: 1 first node chapter, with ftable and vtable
@@ -2409,6 +2411,8 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
 4|indices refs
  associated_section: 3 Indices refs
  associated_title_command: 3 Indices refs
+ menus:
+  node
 5|node
  associated_section: 3.1 node
  associated_title_command: 3.1 node

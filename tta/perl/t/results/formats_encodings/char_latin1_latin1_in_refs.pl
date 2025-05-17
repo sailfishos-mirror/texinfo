@@ -32,7 +32,6 @@ $result_tree_text{'char_latin1_latin1_in_refs'} = '*document_root C14
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -525,6 +524,12 @@ $result_errors{'char_latin1_latin1_in_refs'} = [];
 $result_nodes_list{'char_latin1_latin1_in_refs'} = '1|Top
  associated_section: accented char in latin1 in refs
  associated_title_command: accented char in latin1 in refs
+ menus:
+  ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  é
+  à è ù
+  â ê î ô û Â Ê Î Ô Û
+  ç
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü

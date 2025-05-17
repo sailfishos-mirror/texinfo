@@ -14,7 +14,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -195,6 +194,9 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 $result_nodes_list{'in_menu_only_special_ascii_spaces_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  
+  
 ';
 
 $result_sections_list{'in_menu_only_special_ascii_spaces_node'} = '1|top

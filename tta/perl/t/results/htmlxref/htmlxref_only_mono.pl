@@ -17,7 +17,6 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E6]
  |node_number:{1}
  |normalized:{Top}
@@ -478,7 +477,6 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E8]
  |node_directions:D[next->E9|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{other-nodes}
@@ -978,9 +976,15 @@ $result_errors{'htmlxref_only_mono'} = [];
 $result_nodes_list{'htmlxref_only_mono'} = '1|Top
  associated_section: Test refs
  associated_title_command: Test refs
+ menus:
+  other nodes
 2|other nodes
  associated_section: 1 Chapter with nodes
  associated_title_command: 1 Chapter with nodes
+ menus:
+  !_"#$%&\'()*+-.
+  /;<=>?[\\]^_`|~
+  local node
 3|!_"#$%&\'()*+-.
 4|/;<=>?[\\]^_`|~
 5|local   node

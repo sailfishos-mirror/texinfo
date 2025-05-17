@@ -13,7 +13,6 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -205,6 +204,9 @@ $result_errors{'entry_after_detailmenu'} = [];
 
 
 $result_nodes_list{'entry_after_detailmenu'} = '1|Top
+ menus:
+  chap first
+  second
 2|chap first
 3|second
 ';

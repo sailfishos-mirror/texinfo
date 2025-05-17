@@ -17,7 +17,6 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -166,6 +165,8 @@ $result_errors{'contents_at_end_inline'} = [];
 $result_nodes_list{'contents_at_end_inline'} = '1|Top
  associated_section: Contents at end
  associated_title_command: Contents at end
+ menus:
+  chapter
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1

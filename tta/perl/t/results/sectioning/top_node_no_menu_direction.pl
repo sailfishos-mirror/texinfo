@@ -14,7 +14,6 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E2|up->E0]
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -138,6 +137,9 @@ $result_errors{'top_node_no_menu_direction'} = [
 
 
 $result_nodes_list{'top_node_no_menu_direction'} = '1|Top
+ menus:
+  chap node
+  TOP
 2|chap node
 ';
 

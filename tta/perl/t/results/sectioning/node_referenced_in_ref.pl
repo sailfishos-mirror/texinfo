@@ -13,7 +13,6 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -130,6 +129,8 @@ $result_errors{'node_referenced_in_ref'} = [
 
 
 $result_nodes_list{'node_referenced_in_ref'} = '1|Top
+ menus:
+  chap first level node
 2|chap first level node
 3|second level node
 ';

@@ -427,38 +427,36 @@ sub _reassociate_to_node($$$)
   my $current = shift;
   my $argument = shift;
   my ($new_node_structure, $previous_node_structure) = @{$argument};
-  my $previous_node;
-  if ($previous_node_structure) {
-    $previous_node = $previous_node_structure->{'element'};
-  }
-  my $new_node = $new_node_structure->{'element'};
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
-    if ($previous_node) {
-      if (not $previous_node->{'extra'}
-          or not defined($previous_node->{'extra'}->{'menus'})
-          or not scalar(@{$previous_node->{'extra'}->{'menus'}})
-          or not (grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
-        print STDERR "BUG: menu $current not in previous node $previous_node\n";
+    if ($previous_node_structure) {
+      if (!$previous_node_structure->{'menus'}
+          or not scalar(@{$previous_node_structure->{'menus'}})
+          or not (grep {$current eq $_} @{$previous_node_structure->{'menus'}})) {
+        print STDERR
+           "BUG: menu $current not in previous node $previous_node_structure->{'element'}\n";
       } else {
-        @{$previous_node->{'extra'}->{'menus'}}
-          = grep {$_ ne $current} @{$previous_node->{'extra'}->{'menus'}};
-        delete $previous_node->{'extra'}->{'menus'} if !(@{$previous_node->{'extra'}->{'menus'}});
+        @{$previous_node_structure->{'menus'}}
+          = grep {$_ ne $current} @{$previous_node_structure->{'menus'}};
+        delete $previous_node_structure->{'menus'}
+          if !(@{$previous_node_structure->{'menus'}});
       }
     }
-    push @{$new_node->{'extra'}->{'menus'}}, $current;
+    push @{$new_node_structure->{'menus'}}, $current;
   } elsif ($current->{'extra'} and $current->{'extra'}->{'element_node'}) {
-    if ($previous_node
-        and $current->{'extra'}->{'element_node'} ne $previous_node) {
-      print STDERR "Bug: element $current not in previous node $previous_node; "
+    if ($previous_node_structure) {
+      my $previous_node = $previous_node_structure->{'element'};
+      if ($current->{'extra'}->{'element_node'} ne $previous_node) {
+        print STDERR "Bug: element $current not in previous node $previous_node; "
           .Texinfo::Common::debug_print_element($current)."\n";
-      print STDERR "  previous node: "
+        print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
-      print STDERR "  current node: ".
+        print STDERR "  current node: ".
          Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
                           $current->{'extra'}->{'element_node'})."\n";
+      }
     }
-    $current->{'extra'}->{'element_node'} = $new_node;
+    $current->{'extra'}->{'element_node'} = $new_node_structure->{'element'};
   } elsif ($current->{'cmdname'}
            and $current->{'cmdname'} eq 'nodedescription') {
     if (!$new_node_structure->{'node_description'}) {
@@ -558,7 +556,7 @@ sub insert_nodes_for_sectioning_commands($)
 
 sub _prepend_new_menu_in_node_section($$$)
 {
-  my $node = shift;
+  my $node_structure = shift;
   my $section = shift;
   my $current_menu = shift;
 
@@ -570,25 +568,24 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$section->{'contents'}}, {'type' => 'empty_line',
                                    'text' => "\n",
                                    'parent' => $section};
-  push @{$node->{'extra'}->{'menus'}}, $current_menu;
+  push @{$node_structure->{'menus'}}, $current_menu;
 }
 
 sub complete_node_menu($$$;$)
 {
-  my $node = shift;
+  my $node_structure = shift;
   my $nodes_list = shift;
   my $sections_list = shift;
   my $use_sections = shift;
 
   my @node_childs
-   = Texinfo::Structuring::get_node_node_childs_from_sectioning($node,
-                                            $nodes_list, $sections_list);
+   = Texinfo::Structuring::get_node_node_childs_from_sectioning(
+                            $node_structure, $sections_list);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
-    if ($node->{'extra'}
-        and $node->{'extra'}->{'menus'} and @{$node->{'extra'}->{'menus'}}) {
-      foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+    if ($node_structure->{'menus'} and scalar(@{$node_structure->{'menus'}})) {
+      foreach my $menu (@{$node_structure->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my $normalized_entry_node
@@ -634,11 +631,11 @@ sub complete_node_menu($$$;$)
     }
     if (scalar(@pending)) {
       if (!$current_menu) {
-        my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
         my $section = $node_structure->{'associated_section'};
         $current_menu = {'contents' => \@pending, 'parent' => $section};
         Texinfo::Structuring::new_block_command($current_menu, 'menu');
-        _prepend_new_menu_in_node_section($node, $section, $current_menu);
+        _prepend_new_menu_in_node_section($node_structure,
+                                          $section, $current_menu);
       } else {
         if ($current_menu->{'contents'}->[-1]->{'cmdname'}
             and $current_menu->{'contents'}->[-1]->{'cmdname'} eq 'end') {
@@ -667,7 +664,7 @@ sub _get_non_automatic_nodes_with_sections($)
     my $node_element = $node_structure->{'element'};
     if (not (scalar(@{$node_element->{'contents'}->[0]->{'contents'}}) > 1)
         and $node_structure->{'associated_section'}) {
-      push @non_automatic_nodes, $node_element;
+      push @non_automatic_nodes, $node_structure;
     }
   }
   return [ @non_automatic_nodes ];
@@ -683,8 +680,9 @@ sub complete_tree_nodes_menus_in_document($;$)
   my $sections_list = $document->sections_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
-  foreach my $node (@{$non_automatic_nodes}) {
-    complete_node_menu($node, $nodes_list, $sections_list, $use_sections);
+  foreach my $node_structure (@{$non_automatic_nodes}) {
+    complete_node_menu($node_structure, $nodes_list, $sections_list,
+                       $use_sections);
   }
 }
 
@@ -701,17 +699,18 @@ sub complete_tree_nodes_missing_menu($;$)
   my $sections_list = $document->sections_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
-  foreach my $node (@{$non_automatic_nodes}) {
-    if (not $node->{'extra'}->{'menus'}
-        or not scalar(@{$node->{'extra'}->{'menus'}})) {
-      my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
-      my $section = $node_structure->{'associated_section'};
+  foreach my $node_structure (@{$non_automatic_nodes}) {
+    if (not $node_structure->{'menus'}
+        or not scalar(@{$node_structure->{'menus'}})) {
       my $current_menu
-        = Texinfo::Structuring::new_complete_node_menu($node, $nodes_list,
+        = Texinfo::Structuring::new_complete_node_menu($node_structure,
+                                 $nodes_list,
                                  $sections_list,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
-        _prepend_new_menu_in_node_section($node, $section, $current_menu);
+        my $section = $node_structure->{'associated_section'};
+        _prepend_new_menu_in_node_section($node_structure, $section,
+                                          $current_menu);
       }
     }
   }
@@ -729,24 +728,27 @@ sub regenerate_master_menu($;$)
 
   my $top_node = $identifier_target->{'Top'};
 
-  return undef if (!defined($top_node)
-                   or !$top_node->{'extra'}
-                   or !$top_node->{'extra'}->{'menus'}
-                   or !scalar(@{$top_node->{'extra'}->{'menus'}}));
+  return undef if (!defined($top_node));
+
+  my $top_node_structure
+    = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
+
+  return if (!$top_node_structure->{'menus'}
+             or !scalar(@{$top_node_structure->{'menus'}}));
 
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
                       $document, $document->registrar(),
                       $identifier_target, $nodes_list, $sections_list,
-                      $top_node->{'extra'}->{'menus'},
+                      $top_node_structure->{'menus'},
                       $use_sections);
   # no need for a master menu
   return undef if (!defined($new_detailmenu));
 
   my $global_detailmenu
     = $document->global_commands_information()->{'detailmenu'};
-  foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
+  foreach my $menu (@{$top_node_structure->{'menus'}}) {
     my $menu_contents_len = scalar(@{$menu->{'contents'}});
     for (my $current_idx = 0; $current_idx < $menu_contents_len;
          $current_idx++) {
@@ -787,7 +789,7 @@ sub regenerate_master_menu($;$)
     }
   }
 
-  my $last_menu = $top_node->{'extra'}->{'menus'}->[-1];
+  my $last_menu = $top_node_structure->{'menus'}->[-1];
   my $index = scalar(@{$last_menu->{'contents'}});
   if ($index
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'}
@@ -890,21 +892,6 @@ sub menu_to_simple_menu($)
     } else {
       $current_preformatted = undef;
       push @{$menu->{'contents'}}, $content;
-    }
-  }
-}
-
-sub set_menus_to_simple_menu($)
-{
-  my $nodes_list = shift;
-
-  if ($nodes_list) {
-    foreach my $node (@{$nodes_list}) {
-      if ($node->{'extra'} and $node->{'extra'}->{'menus'}) {
-        foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
-          menu_to_simple_menu($menu);
-        }
-      }
     }
   }
 }
@@ -1113,14 +1100,9 @@ Insert nodes for sectioning commands without node in C<$document>
 tree.
 
 =item menu_to_simple_menu($menu)
-
-=item set_menus_to_simple_menu($nodes_list)
 X<C<menu_to_simple_menu>>
-X<C<set_menus_to_simple_menu>>
 
 C<menu_to_simple_menu> transforms the tree of a menu tree element.
-C<set_menus_to_simple_menu> calls C<menu_to_simple_menu> for all the
-menus of the nodes in C<$nodes_list>.
 
 A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
 container anymore, their content are merged directly in the menu in

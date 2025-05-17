@@ -17,7 +17,6 @@ $result_tree_text{'no_content_do_contents_inline'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -161,6 +160,8 @@ $result_errors{'no_content_do_contents_inline'} = [];
 $result_nodes_list{'no_content_do_contents_inline'} = '1|Top
  associated_section: No ccontent
  associated_title_command: No ccontent
+ menus:
+  chapter
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1

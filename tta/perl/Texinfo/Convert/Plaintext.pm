@@ -4539,22 +4539,26 @@ sub _convert($$)
     } elsif ($root_commands{$cmdname}
              and $sectioning_heading_commands{$cmdname}
              and $cmdname ne 'part'
-             and $self->{'current_node'}) {
+             and $self->{'current_node'}
+             and $self->{'document'}) {
       # add menu if missing
       my $node = $self->{'current_node'};
       my $arguments_line = $node->{'contents'}->[0];
       my $automatic_directions = (scalar(@{$arguments_line->{'contents'}}) <= 1);
-      if ($automatic_directions and !$self->{'seenmenus'}->{$node}
-          and $self->{'document'}) {
+      if ($node->{'extra'} and $node->{'extra'}->{'node_number'}
+          and $automatic_directions and !$self->{'seenmenus'}->{$node}) {
         my $identifiers_target = $self->{'document'}->labels_information();
         my $nodes_list = $self->{'document'}->nodes_list();
         my $sections_list = $self->{'document'}->sections_list();
+
+        my $node_structure
+          = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                     $identifiers_target, $nodes_list,
-                                    $sections_list, $node);
+                                    $sections_list, $node_structure);
         if ($menu_node) {
           _convert($self, $menu_node);
           _add_newline_if_needed($self);

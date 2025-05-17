@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
@@ -176,6 +175,8 @@ $result_errors{'non_automatic_top_node_up_url'} = [];
 $result_nodes_list{'non_automatic_top_node_up_url'} = '1|Top
  associated_section: internal top node up
  associated_title_command: internal top node up
+ menus:
+  chap
 2|chap
 ';
 

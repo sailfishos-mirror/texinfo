@@ -14,7 +14,6 @@ $result_tree_text{'space_in_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -164,6 +163,10 @@ $result_errors{'space_in_node'} = [];
 
 
 $result_nodes_list{'space_in_node'} = '1|Top
+ menus:
+  Chap    first here
+  Test   title
+  Last with spaces    
 2|Chap first  here
 3|Test               title
 4|Last with spaces

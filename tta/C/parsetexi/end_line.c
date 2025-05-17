@@ -1569,7 +1569,8 @@ end_line_misc_line (ELEMENT *current)
       if (node_normalized)
         {
           node_structure
-           = add_to_node_structure_list (&parsed_document->nodes_list, current);
+           = add_node_to_node_structure_list (&parsed_document->nodes_list,
+                                              current);
           add_extra_integer (current, AI_key_node_number,
                              parsed_document->nodes_list.number);
           current_node = node_structure;
@@ -1789,7 +1790,7 @@ end_line_misc_line (ELEMENT *current)
 
       if (cmd != CM_node)
         {
-          section_structure = add_to_section_structure_list (
+          section_structure = add_section_to_section_structure_list (
                             &parsed_document->sections_list, current);
           add_extra_integer (current, AI_key_section_number,
                              parsed_document->sections_list.number);
@@ -1844,7 +1845,8 @@ end_line_misc_line (ELEMENT *current)
            || data_cmd == CM_xrefname)
    {
      HEADING_STRUCTURE *heading_structure
-       = add_to_heading_structure_list (&parsed_document->headings_list,
+       = add_heading_to_heading_structure_list (
+                                        &parsed_document->headings_list,
                                         command_element);
      add_extra_integer (command_element, AI_key_heading_number,
                         parsed_document->headings_list.number);

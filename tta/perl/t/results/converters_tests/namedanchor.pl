@@ -381,7 +381,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E14]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chap1}
@@ -673,6 +672,13 @@ $result_nodes_list{'namedanchor'} = '1|Top
 4|chap1
  associated_section: 2 chap1
  associated_title_command: 2 chap1
+ menus:
+  secc2
+  in Top
+  Not here!
+  in chap no name
+  normal
+  in chap empty name
 5|secc2
  associated_section: 2.1 Secc2
  associated_title_command: 2.1 Secc2

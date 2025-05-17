@@ -13,7 +13,6 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -119,6 +118,8 @@ $result_errors{'inlineraw_in_menu_description'} = [];
 $result_nodes_list{'inlineraw_in_menu_description'} = '1|first
  associated_section: top
  associated_title_command: top
+ menus:
+  (manual)
 ';
 
 $result_sections_list{'inlineraw_in_menu_description'} = '1|top

@@ -57,7 +57,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     |>*brace_arg
  |EXTRA
  |is_target:{1}
- |menus:EC[E3]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -2053,6 +2052,8 @@ $result_errors{'macro_in_misc_commands'} = [
 $result_nodes_list{'macro_in_misc_commands'} = '1|Top
  associated_section: top atext
  associated_title_command: top atext
+ menus:
+  node atext
 2|node atext
  associated_section: 1 chapter
  associated_title_command: 1 chapter

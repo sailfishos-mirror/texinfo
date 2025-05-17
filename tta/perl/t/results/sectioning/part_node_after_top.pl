@@ -22,7 +22,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -164,6 +163,8 @@ $result_errors{'part_node_after_top'} = [
 $result_nodes_list{'part_node_after_top'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chap part node after top
 2|chap part node after top
 ';
 

@@ -17,7 +17,6 @@ $result_tree_text{'navigation_chapter_no_header_vertical'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -84,7 +83,6 @@ $result_tree_text{'navigation_chapter_no_header_vertical'} = '*document_root C10
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -148,7 +146,6 @@ $result_tree_text{'navigation_chapter_no_header_vertical'} = '*document_root C10
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E3]
- |menus:EC[E8]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -399,12 +396,18 @@ $result_errors{'navigation_chapter_no_header_vertical'} = [];
 $result_nodes_list{'navigation_chapter_no_header_vertical'} = '1|Top
  associated_section: File used for navigation testing
  associated_title_command: File used for navigation testing
+ menus:
+  chapter
 2|chapter
  associated_section: 1 First chapter
  associated_title_command: 1 First chapter
+ menus:
+  section
 3|section
  associated_section: 1.1 Section in chapter
  associated_title_command: 1.1 Section in chapter
+ menus:
+  subsection
 4|subsection
  associated_section: 1.1.1 Sub section in section
  associated_title_command: 1.1.1 Sub section in section

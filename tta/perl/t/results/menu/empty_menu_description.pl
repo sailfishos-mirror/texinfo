@@ -13,7 +13,6 @@ $result_tree_text{'empty_menu_description'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -80,6 +79,9 @@ $result_errors{'empty_menu_description'} = [];
 
 
 $result_nodes_list{'empty_menu_description'} = '1|first
+ menus:
+  (f)b
+
 ';
 
 $result_sections_list{'empty_menu_description'} = '';

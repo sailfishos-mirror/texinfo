@@ -13,7 +13,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -339,6 +338,10 @@ $result_errors{'nodename_parentheses'} = [
 $result_nodes_list{'nodename_parentheses'} = '1|Top
  associated_section: The top node
  associated_title_command: The top node
+ menus:
+  Node (with parentheses)
+  Other node
+  (manual)node
 2|Node (with parentheses)
  associated_section: 1 Section (nodename with parentheses)
  associated_title_command: 1 Section (nodename with parentheses)

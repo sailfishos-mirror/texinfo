@@ -29,7 +29,6 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -175,6 +174,8 @@ $result_errors{'split_test_before_first_node'} = [];
 $result_nodes_list{'split_test_before_first_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chap1
 2|chap1
  associated_section: 1 chap
  associated_title_command: 1 chap

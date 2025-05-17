@@ -19,7 +19,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E3|up->E0]
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -164,7 +163,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E20|prev->E0|up->E0]
- |menus:EC[E5]
  |node_directions:D[next->E20|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{first}
@@ -419,7 +417,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E13|up->E3]
- |menus:EC[E8]
  |node_directions:D[next->E13|up->E3]
  |node_number:{3}
  |normalized:{section-1}
@@ -1171,12 +1168,26 @@ $result_errors{'index_split'} = [
 $result_nodes_list{'index_split'} = '1|Top
  associated_section: split indices
  associated_title_command: split indices
+ menus:
+  Top
+  first
+  second chapter
 2|first
  associated_section: 1 First chapter
  associated_title_command: 1 First chapter
+ menus:
+  section 1
+  section 2
+  section 3
+  node in section 3
+  node 2 in section 3
+  node 3 in section 3
 3|section 1
  associated_section: 1.1 Section 1
  associated_title_command: 1.1 Section 1
+ menus:
+  subsection 1
+  subsection 2
 4|subsection 1
  associated_section: 1.1.1 Subsection 1
  associated_title_command: 1.1.1 Subsection 1

@@ -13,7 +13,6 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -232,6 +231,8 @@ $result_errors{'regenerate_master_menu_with_menu_comment'} = [];
 $result_nodes_list{'regenerate_master_menu_with_menu_comment'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chap
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter

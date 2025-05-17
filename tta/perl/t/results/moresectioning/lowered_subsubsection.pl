@@ -13,7 +13,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -76,7 +75,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
@@ -140,7 +138,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E3]
- |menus:EC[E8]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Section}
@@ -203,7 +200,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E6]
- |menus:EC[E11]
  |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Subsection}
@@ -311,7 +307,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |EXTRA
  |is_target:{1}
  |menu_directions:D[prev->E12|up->E9]
- |menus:EC[E16]
  |node_directions:D[next->E17|prev->E12|up->E9]
  |node_number:{6}
  |normalized:{Lowered-subsec}
@@ -527,21 +522,32 @@ $result_errors{'lowered_subsubsection'} = [
 $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_section
  associated_title_command
+ menus:
+  Chapter
 2|Chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menus:
+  Section
 3|Section
  associated_section: 1.1 Section
  associated_title_command: 1.1 Section
+ menus:
+  Subsection
 4|Subsection
  associated_section: 1.1.1 Subsection
  associated_title_command: 1.1.1 Subsection
+ menus:
+  Subsubsection
+  Lowered subsec
 5|Subsubsection
  associated_section: 1.1.1.1 Subsubsection
  associated_title_command: 1.1.1.1 Subsubsection
 6|Lowered subsec
  associated_section: 1.1.1.2 Lowered subsec
  associated_title_command: 1.1.1.2 Lowered subsec
+ menus:
+  Lowered subsubsection
 7|Lowered subsubsection
  associated_section: 1.1.1.3 Lowered subsubsection
  associated_title_command: 1.1.1.3 Lowered subsubsection

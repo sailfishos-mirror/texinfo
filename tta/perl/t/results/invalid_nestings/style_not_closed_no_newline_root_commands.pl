@@ -13,7 +13,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -182,6 +181,8 @@ $result_errors{'style_not_closed_no_newline_root_commands'} = [
 $result_nodes_list{'style_not_closed_no_newline_root_commands'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter

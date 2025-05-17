@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
@@ -251,6 +250,9 @@ $result_errors{'part_node_chapter_after_top'} = [];
 $result_nodes_list{'part_node_chapter_after_top'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  a node after part
+  chapter
 2|a node after part
  node_preceding_part: part
 3|chapter

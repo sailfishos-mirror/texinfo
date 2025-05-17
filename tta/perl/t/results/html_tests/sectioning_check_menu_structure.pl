@@ -17,7 +17,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3|prev->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
@@ -168,7 +167,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E24|up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{First-node}
@@ -270,7 +268,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E17|up->E3]
- |menus:EC[E8]
  |node_directions:D[next->E17|up->E3]
  |node_number:{3}
  |normalized:{unnumbered}
@@ -489,7 +486,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E22|prev->E6|up->E3]
- |menus:EC[E19]
  |node_directions:D[next->E22|prev->E6|up->E3]
  |node_number:{8}
  |normalized:{unnumbered2}
@@ -960,12 +956,27 @@ $result_errors{'sectioning_check_menu_structure'} = [
 $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
  associated_section
  associated_title_command
+ menus:
+  First node
+  between node
+  Second node
+  Third node unnumbered
+  Last node no description
 2|First node
  associated_section: 1 first node chapter
  associated_title_command: 1 first node chapter
+ menus:
+  unnumbered
+  unnumbered2
+  numbered
 3|unnumbered
  associated_section: unnumbered section
  associated_title_command: unnumbered section
+ menus:
+  unnumbered sub
+  numbered sub
+  unnumbered sub2
+  numbered sub2
 4|unnumbered sub
  associated_section: unnumbered subsection
  associated_title_command: unnumbered subsection
@@ -981,6 +992,8 @@ $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
 8|unnumbered2
  associated_section: unnumbered section2
  associated_title_command: unnumbered section2
+ menus:
+  numbered sub3
 9|numbered sub3
  associated_section: numbered subsection3
  associated_title_command: numbered subsection3

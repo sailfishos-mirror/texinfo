@@ -18,7 +18,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E1]
  |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first-before-top}
@@ -196,7 +195,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E5]
  |node_directions:D[prev->E0]
  |node_number:{3}
  |normalized:{Top}
@@ -368,7 +366,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E12|up->E3]
- |menus:EC[E7]
  |node_directions:D[prev->E3|up->E3]
  |node_number:{4}
  |normalized:{first}
@@ -483,7 +480,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E6]
- |menus:EC[E9]
  |node_directions:D[up->E6]
  |node_number:{5}
  |normalized:{second}
@@ -996,12 +992,23 @@ $result_errors{'nodes_before_top_and_sections_chapter_no_node'} = [
 
 
 $result_nodes_list{'nodes_before_top_and_sections_chapter_no_node'} = '1|first before top
+ menus:
+  node in menu before top
 2|node in menu before top
 3|Top
  associated_section: top section
  associated_title_command: top section
+ menus:
+  first
+  chapter
+  node in chapter
 4|first
+ menus:
+  second
 5|second
+ menus:
+  a node
+  another
 6|another
 7|a node
 8|chapter

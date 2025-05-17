@@ -13,7 +13,6 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -99,6 +98,7 @@ $result_errors{'detailmenu_unknown_node'} = [
 
 
 $result_nodes_list{'detailmenu_unknown_node'} = '1|Top
+ menus:
 ';
 
 $result_sections_list{'detailmenu_unknown_node'} = '';

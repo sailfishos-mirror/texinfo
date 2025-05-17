@@ -211,7 +211,6 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E7]
  |node_directions:D[next->E8]
  |node_number:{1}
  |normalized:{Top}
@@ -698,6 +697,8 @@ $result_errors{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = 
 $result_nodes_list{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  Copying and indices
 2|Copying and indices
  associated_section: A Copying and indices
  associated_title_command: A Copying and indices

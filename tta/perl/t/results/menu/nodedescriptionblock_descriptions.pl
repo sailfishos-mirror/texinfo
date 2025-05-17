@@ -13,7 +13,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -594,6 +593,12 @@ $result_errors{'nodedescriptionblock_descriptions'} = [
 $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: test of nodedescriptionblock used in menu
  associated_title_command: test of nodedescriptionblock used in menu
+ menus:
+  toto
+  titi
+  other
+  a somewhat long node without description nor following space
+  node double nodedescriptionblock
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto

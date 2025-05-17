@@ -13,7 +13,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -323,6 +322,11 @@ $result_errors{'special_docbook_unnumbered'} = [];
 $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  Dedication
+  preface
+  colophon
+  acknowledgements
 2|Dedication
  associated_section: a dedication
  associated_title_command: a dedication

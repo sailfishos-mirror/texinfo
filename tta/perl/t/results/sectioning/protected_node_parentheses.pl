@@ -14,7 +14,6 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -152,6 +151,8 @@ $result_errors{'protected_node_parentheses'} = [];
 $result_nodes_list{'protected_node_parentheses'} = '1|first
  associated_section: top
  associated_title_command: top
+ menus:
+  @asis{(}manual) name
 2|@asis{(}manual) name
 ';
 

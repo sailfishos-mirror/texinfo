@@ -14,7 +14,6 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -745,6 +744,13 @@ $result_errors{'quote_node_names_info'} = [
 $result_nodes_list{'quote_node_names_info'} = '1|Top
  associated_section
  associated_title_command
+ menus:
+  blah@asis{:}blah
+  blumpty@asis{.}fump
+  normal node
+  @asis{secret,node}
+  u.al)ext::
+
 2|blah:blah
  associated_section: 1 blah:blah
  associated_title_command: 1 blah:blah

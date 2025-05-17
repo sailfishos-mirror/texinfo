@@ -13,7 +13,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -245,7 +244,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E10]
  |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node2}
@@ -427,6 +425,9 @@ $result_floats{'commands_in_nodedescriptionblock'} = 'tfloat: 1
 $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  associated_section: test commands in nodedescriptionblock
  associated_title_command: test commands in nodedescriptionblock
+ menus:
+  node1
+  node2
 2|node1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
@@ -434,6 +435,8 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
 3|node2
  associated_section: 2 chap2
  associated_title_command: 2 chap2
+ menus:
+  node1
 ';
 
 $result_sections_list{'commands_in_nodedescriptionblock'} = '1|test commands in nodedescriptionblock

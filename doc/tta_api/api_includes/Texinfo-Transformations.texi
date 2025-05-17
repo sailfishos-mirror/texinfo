@@ -74,15 +74,9 @@ tree.
 
 @item menu_to_simple_menu($menu)
 @anchor{Texinfo@asis{::}Transformations menu_to_simple_menu($menu)}
-
-@item set_menus_to_simple_menu($nodes_list)
-@anchor{Texinfo@asis{::}Transformations set_menus_to_simple_menu($nodes_list)}
 @cindex @code{menu_to_simple_menu}
-@cindex @code{set_menus_to_simple_menu}
 
 @code{menu_to_simple_menu} transforms the tree of a menu tree element.
-@code{set_menus_to_simple_menu} calls @code{menu_to_simple_menu} for all the
-menus of the nodes in @code{$nodes_list}.
 
 A simple menu has no @emph{menu_comment}, @emph{menu_entry} or @emph{menu_entry_description}
 container anymore, their content are merged directly in the menu in

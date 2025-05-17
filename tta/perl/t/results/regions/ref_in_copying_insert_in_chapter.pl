@@ -76,7 +76,6 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E4]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Intro}
@@ -219,6 +218,8 @@ $result_nodes_list{'ref_in_copying_insert_in_chapter'} = '1|Top
 2|Intro
  associated_section: 1 Introduction
  associated_title_command: 1 Introduction
+ menus:
+  GFDL
 3|GFDL
  associated_section: 1.1 GFDL
  associated_title_command: 1.1 GFDL

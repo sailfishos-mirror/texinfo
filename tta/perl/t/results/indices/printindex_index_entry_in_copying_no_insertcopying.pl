@@ -184,7 +184,6 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -341,6 +340,8 @@ $result_errors{'printindex_index_entry_in_copying_no_insertcopying'} = [];
 $result_nodes_list{'printindex_index_entry_in_copying_no_insertcopying'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chapter
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter

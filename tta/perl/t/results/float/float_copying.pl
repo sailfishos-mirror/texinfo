@@ -167,7 +167,6 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E5]
  |node_directions:D[next->E6]
  |node_number:{1}
  |normalized:{Top}
@@ -400,6 +399,8 @@ $result_floats{'float_copying'} = 'Copyright notice: 1
 $result_nodes_list{'float_copying'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  Copying and floats
 2|Copying and floats
  associated_section: A Copying and floats
  associated_title_command: A Copying and floats

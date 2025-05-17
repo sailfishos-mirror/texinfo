@@ -27,7 +27,6 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -177,6 +176,8 @@ $result_errors{'split_no_copying'} = [];
 $result_nodes_list{'split_no_copying'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  Ch1
 2|Ch1
  associated_section: 1 Ch1
  associated_title_command: 1 Ch1

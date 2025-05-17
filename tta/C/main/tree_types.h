@@ -115,7 +115,6 @@ enum directions {
   ai_key(manual_content, container) \
   ai_key(node_content, container) \
   \
-  ai_key(menus, contents) \
   ai_key(section_childs, contents) \
   \
   ai_key(menu_directions, directions) \
@@ -274,6 +273,7 @@ typedef struct NODE_STRUCTURE {
     ELEMENT *node_preceding_part;
     ELEMENT *node_description;
     ELEMENT *node_long_description;
+    CONST_ELEMENT_LIST *menus;
 } NODE_STRUCTURE;
 
 typedef struct NODE_STRUCTURE_LIST {

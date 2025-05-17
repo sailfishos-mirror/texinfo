@@ -405,7 +405,6 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E19]
  |node_number:{9}
  |normalized:{5-not}
   *arguments_line C1
@@ -632,6 +631,8 @@ $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  associated_title_command: @heading should not be associated
 9|5 not
  associated_title_command: @heading should not be associated
+ menus:
+  subnode
 10|subnode
 ';
 

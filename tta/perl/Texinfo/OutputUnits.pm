@@ -414,7 +414,8 @@ sub units_directions($$$$;$)
       if ($automatic_directions and $node_structure->{'associated_section'}) {
         $associated_section = $node_structure->{'associated_section'};
       }
-      my $menu_child = Texinfo::ManipulateTree::first_menu_node($node,
+      my $menu_child
+         = Texinfo::ManipulateTree::first_menu_node($node_structure,
                                                     $identifier_target);
       if ($menu_child) {
         $directions->{'NodeForward'}

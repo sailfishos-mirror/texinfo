@@ -13,7 +13,6 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C1
@@ -254,6 +253,11 @@ $result_errors{'formats_in_menu'} = [];
 
 
 $result_nodes_list{'formats_in_menu'} = '1|first
+ menus:
+  (gcc)
+  (info)
+  (manual2)
+  (truc)
 ';
 
 $result_sections_list{'formats_in_menu'} = '';

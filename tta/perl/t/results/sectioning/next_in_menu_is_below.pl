@@ -13,7 +13,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -80,7 +79,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -155,7 +153,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E9|up->E3]
- |menus:EC[E8]
  |node_directions:D[next->E9|up->E3]
  |node_number:{3}
  |normalized:{section}
@@ -313,12 +310,19 @@ $result_errors{'next_in_menu_is_below'} = [
 $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ menus:
+  section
+  subsection
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
+ menus:
+  subsection
 4|subsection
  associated_section: 1.1.1 subsection
  associated_title_command: 1.1.1 subsection

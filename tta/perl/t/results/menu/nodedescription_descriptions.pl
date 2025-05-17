@@ -13,7 +13,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -577,6 +576,14 @@ $result_errors{'nodedescription_descriptions'} = [
 $result_nodes_list{'nodedescription_descriptions'} = '1|Top
  associated_section: test of nodedescription used in menu
  associated_title_command: test of nodedescription used in menu
+ menus:
+  toto
+  titi
+  other
+  last
+  a somewhat long node without description nor following space
+  a very long node without description with very little space left for
+  very very long node extending past the max columns and without description
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto

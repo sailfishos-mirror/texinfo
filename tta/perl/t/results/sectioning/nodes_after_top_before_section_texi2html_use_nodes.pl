@@ -14,7 +14,6 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -184,6 +183,9 @@ $result_errors{'nodes_after_top_before_section_texi2html_use_nodes'} = [];
 
 
 $result_nodes_list{'nodes_after_top_before_section_texi2html_use_nodes'} = '1|Top
+ menus:
+  chap node
+  third node
 2|chap node
 3|third node
  associated_section: 1 subsection

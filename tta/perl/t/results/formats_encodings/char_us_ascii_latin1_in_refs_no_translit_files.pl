@@ -32,7 +32,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -525,6 +524,12 @@ $result_errors{'char_us_ascii_latin1_in_refs_no_translit_files'} = [];
 $result_nodes_list{'char_us_ascii_latin1_in_refs_no_translit_files'} = '1|Top
  associated_section: accented char in latin1 in refs
  associated_title_command: accented char in latin1 in refs
+ menus:
+  ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  é
+  à è ù
+  â ê î ô û Â Ê Î Ô Û
+  ç
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü

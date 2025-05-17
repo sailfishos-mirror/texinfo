@@ -52,7 +52,6 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E4]
  |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c}
@@ -414,6 +413,15 @@ $result_nodes_list{'special_spaces_in_nodes'} = '1|Top 
 2|EN QUAD| | EM QUAD| | EN SPACE| |
  associated_section: 1 chap
  associated_title_command: 1 chap
+ menus:
+  CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+  CARRIAGE RETURN|'."\r".'|
+  NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |
+  FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |
+  HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+  NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 3|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
 4|CARRIAGE RETURN|'."\r".'|
 5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |

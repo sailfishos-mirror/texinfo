@@ -39,7 +39,6 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -3748,6 +3747,34 @@ $result_errors{'at_commands_in_refs_latin1'} = [
 $result_nodes_list{'at_commands_in_refs_latin1'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  @- @{ @}
+  @  @	 @! @* @. @: .@: @? @@
+  @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+  @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  @geq{} @leq{} @arrow{}
+  @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+  @result{} @textdegree{} a@tie{}b @today{} @aa{}
+  @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+  @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+  @dotless{i} @`{@=E} @,{@\'C}
+  @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+  @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+  `` \'\' --- -- ` \'
+  @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+  @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+  @email{someone@@somewher, the someone} @email{no_explain@@there}
+  @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+  @verb{. @ {} . .}
+  @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+  @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+  8.27@dmn{in}
+  @sansserif{sansserif} @slanted{slanted}
+  @indicateurl{indicateurl}
+  @sub{g}H 3@sup{rd}
+  @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 2|@- @{ @}
  associated_section: 1 @- @{ @}
  associated_title_command: 1 @- @{ @}

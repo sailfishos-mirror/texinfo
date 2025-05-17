@@ -13,7 +13,6 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -127,6 +126,8 @@ $result_errors{'ref_in_preformatted'} = [];
 
 
 $result_nodes_list{'ref_in_preformatted'} = '1|Top
+ menus:
+  chap nnn the node name
 2|chap nnn the node name
 ';
 

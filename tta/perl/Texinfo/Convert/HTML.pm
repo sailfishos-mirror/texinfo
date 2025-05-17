@@ -4797,8 +4797,10 @@ sub _convert_heading_command($$$$$)
 
   my $document = $self->get_info('document');
   my $sections_list;
+  my $nodes_list;
   if ($document) {
     $sections_list = $document->sections_list();
+    $nodes_list = $document->nodes_list();
   }
 
   my $toc_or_mini_toc_or_auto_menu = '';
@@ -4841,29 +4843,31 @@ sub _convert_heading_command($$$$$)
           $automatic_directions = 0;
         }
 
-        if ($node->{'extra'}
-            and not $node->{'extra'}->{'menus'}
-            and $automatic_directions and $document) {
-          my $identifiers_target = $document->labels_information();
-          my $nodes_list = $document->nodes_list();
-          my $sections_list = $document->sections_list();
+        my $node_structure;
+        if ($document) {
+          $node_structure
+            = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+          if ($automatic_directions
+              and !$node_structure->{'menus'}) {
+            my $identifiers_target = $document->labels_information();
 
-          my $menu_node;
-          if ($format_menu eq 'menu') {
-            $menu_node
-              = Texinfo::Structuring::new_complete_menu_master_menu($self,
+            my $menu_node;
+            if ($format_menu eq 'menu') {
+              $menu_node
+                = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                     $identifiers_target, $nodes_list,
-                                    $sections_list, $node);
-          } else { # $format_menu eq 'menu_no_detailmenu'
-            $menu_node
-              = Texinfo::Structuring::new_complete_node_menu($node,
-                                $nodes_list, $sections_list,
-                                $self->{'current_lang_translations'},
-                                 $self->get_conf('DEBUG'));
-          }
-          if ($menu_node) {
-            $toc_or_mini_toc_or_auto_menu = $self->convert_tree($menu_node,
-                                                         'master menu');
+                                    $sections_list, $node_structure);
+            } else { # $format_menu eq 'menu_no_detailmenu'
+              $menu_node
+                = Texinfo::Structuring::new_complete_node_menu($node_structure,
+                                  $nodes_list, $sections_list,
+                                  $self->{'current_lang_translations'},
+                                  $self->get_conf('DEBUG'));
+            }
+            if ($menu_node) {
+              $toc_or_mini_toc_or_auto_menu
+                    = $self->convert_tree($menu_node, 'master menu');
+            }
           }
         }
       }

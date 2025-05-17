@@ -22,7 +22,6 @@ $result_tree_text{'double_contents_nodes'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -92,7 +91,6 @@ $result_tree_text{'double_contents_nodes'} = '*document_root C8
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E5]
  |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -254,9 +252,13 @@ $result_errors{'double_contents_nodes'} = [];
 $result_nodes_list{'double_contents_nodes'} = '1|Top
  associated_section: Double contents
  associated_title_command: Double contents
+ menus:
+  chapter
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
+ menus:
+  section
 3|section
  associated_section: 1.1 section with contents
  associated_title_command: 1.1 section with contents

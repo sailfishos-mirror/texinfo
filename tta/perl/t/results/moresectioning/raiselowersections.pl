@@ -18,7 +18,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -91,7 +90,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E14|up->E0]
- |menus:EC[E5]
  |node_directions:D[next->E14|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
@@ -249,7 +247,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E3]
- |menus:EC[E8]
  |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Chapter-in-included-file}
@@ -313,7 +310,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |EXTRA
  |is_target:{1}
  |menu_directions:D[up->E6]
- |menus:EC[E11]
  |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Section}
@@ -621,15 +617,24 @@ $result_errors{'raiselowersections'} = [];
 $result_nodes_list{'raiselowersections'} = '1|Top
  associated_section
  associated_title_command
+ menus:
+  Chapter
+  Second chapter
 2|Chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ menus:
+  Chapter in included file
 3|Chapter in included file
  associated_section: 1.1 Chapter in included file
  associated_title_command: 1.1 Chapter in included file
+ menus:
+  Section
 4|Section
  associated_section: 1.1.1 Section
  associated_title_command: 1.1.1 Section
+ menus:
+  Subsection
 5|Subsection
  associated_section: 1.1.1.1 Subsection
  associated_title_command: 1.1.1.1 Subsection

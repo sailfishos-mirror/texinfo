@@ -344,7 +344,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E10]
  |node_directions:D[next->E13|prev->E6|up->E0]
  |node_number:{5}
  |normalized:{char-latin2-latin2}
@@ -972,6 +971,8 @@ $result_nodes_list{'multiple_include_encodings'} = '1|Top
 5|char latin2 latin2
  associated_section: 4 char latin2 latin2 in refs
  associated_title_command: 4 char latin2 latin2 in refs
+ menus:
+  Ą ą ˛ Ę ę
 6|Ą ą ˛ Ę ę
  associated_section: 4.1 Ą ą ˛ Ę ę
  associated_title_command: 4.1 Ą ą ˛ Ę ę

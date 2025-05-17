@@ -105,7 +105,6 @@ $result_tree_text{'glossary'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -659,6 +658,8 @@ $result_errors{'glossary'} = [
 $result_nodes_list{'glossary'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  glossary
 2|glossary
  associated_section: 1 glossary
  associated_title_command: 1 glossary

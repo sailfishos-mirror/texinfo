@@ -607,7 +607,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -1397,6 +1396,9 @@ $result_errors{'bib_example'} = [
 $result_nodes_list{'bib_example'} = '1|Top
  associated_section: Top
  associated_title_command: Top
+ menus:
+  Introduction
+  References
 2|Introduction
  associated_section: 1 Introduction
  associated_title_command: 1 Introduction

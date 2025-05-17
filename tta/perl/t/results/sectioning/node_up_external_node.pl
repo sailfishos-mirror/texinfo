@@ -20,7 +20,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -136,6 +135,8 @@ $result_errors{'node_up_external_node'} = [];
 
 
 $result_nodes_list{'node_up_external_node'} = '1|Top
+ menus:
+  chap first
 2|chap first
 ';
 

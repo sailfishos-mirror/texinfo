@@ -18,7 +18,6 @@ NodeUp: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -126,6 +125,8 @@ $result_errors{'lone_Top_node'} = [
 
 
 $result_nodes_list{'lone_Top_node'} = '1|Top
+ menus:
+  First
 2|First
  associated_section: 1 chap
  associated_title_command: 1 chap

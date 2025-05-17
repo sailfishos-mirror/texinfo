@@ -13,7 +13,6 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -314,6 +313,16 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 $result_nodes_list{'space_and_commands_in_menu_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  chap  b
+  chap @: b
+  chap b
+  chap@ @ b
+  chap@  b
+  chap @ b
+  chap @: b
+  chap b
+  chap @ @ b
 2|chap @: b
  associated_section: 1 Chap
  associated_title_command: 1 Chap

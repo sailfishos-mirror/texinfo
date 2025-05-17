@@ -29,7 +29,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -531,6 +530,9 @@ $result_floats{'image_inline_or_not'} = 'F: 1
 $result_nodes_list{'image_inline_or_not'} = '1|Top
  associated_section: top
  associated_title_command: top
+ menus:
+  @image{node_image}
+  (somewhere)@image{extnode}
 2|@image{node_image}
  associated_section: 1 @image{in_chapter_arg}
  associated_title_command: 1 @image{in_chapter_arg}

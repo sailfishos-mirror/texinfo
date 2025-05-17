@@ -1012,6 +1012,12 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
       STORE_STRUCT_INFO(node_preceding_part)
       STORE_STRUCT_INFO(node_description)
       STORE_STRUCT_INFO(node_long_description)
+      if (structure->menus)
+        {
+          /* TODO pass avoid_recursion? */
+          sv = build_perl_const_element_array (structure->menus, 0);
+          hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 

@@ -668,7 +668,6 @@ sub _print_element_associated_info($$$$$;$$)
   #'misc_args' array of strings
   #'node_content' 'node_manual' special
   #'index_entry'} = [$index_name, $number]
-  #'menus' array of elements
   return ($current_nr, $result);
 }
 
@@ -1378,10 +1377,10 @@ sub normalized_entry_associated_internal_node($$)
 # element
 sub first_menu_node($$)
 {
-  my $node = shift;
+  my $node_structure = shift;
   my $identifier_target = shift;
-  if ($node->{'extra'}->{'menus'}) {
-    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+  if ($node_structure->{'menus'}) {
+    foreach my $menu (@{$node_structure->{'menus'}}) {
       foreach my $menu_content (@{$menu->{'contents'}}) {
         if ($menu_content->{'type'}
             and $menu_content->{'type'} eq 'menu_entry') {

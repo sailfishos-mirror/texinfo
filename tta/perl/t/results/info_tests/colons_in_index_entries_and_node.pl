@@ -14,7 +14,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
@@ -282,6 +281,9 @@ $result_errors{'colons_in_index_entries_and_node'} = [];
 
 
 $result_nodes_list{'colons_in_index_entries_and_node'} = '1|Top
+ menus:
+  One@asis{::}node@comma{} with entries.
+  Concept Index
 2|One@asis{::}node@comma{} with entries.
 3|Concept Index
 ';

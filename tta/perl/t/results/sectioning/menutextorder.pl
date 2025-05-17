@@ -53,7 +53,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E3]
  |node_directions:D[next->E8]
  |node_number:{1}
  |normalized:{bar}
@@ -185,7 +184,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E10]
  |node_directions:D[prev->E1]
  |node_number:{4}
  |normalized:{foo}
@@ -503,6 +501,8 @@ $result_errors{'menutextorder'} = [
 $result_nodes_list{'menutextorder'} = '1|bar
  associated_section: 1 bar
  associated_title_command: 1 bar
+ menus:
+  onesub2
 2|onesub1
  associated_section: 1.1 One sub 1
  associated_title_command: 1.1 One sub 1
@@ -512,6 +512,10 @@ $result_nodes_list{'menutextorder'} = '1|bar
 4|foo
  associated_section: 2 foo
  associated_title_command: 2 foo
+ menus:
+  sub1
+  sub3
+  sub2
 5|sub1
  associated_section: 2.1 Sub1
  associated_title_command: 2.1 Sub1

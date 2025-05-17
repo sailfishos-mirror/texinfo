@@ -14,7 +14,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E10]
  |node_directions:D[next->E11]
  |node_number:{1}
  |normalized:{Top}
@@ -433,7 +432,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E22|up->E0]
- |menus:EC[E18]
  |node_directions:D[next->E22|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
@@ -798,7 +796,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E30|prev->E11|up->E0]
- |menus:EC[E24]
  |node_directions:D[next->E30|prev->E11|up->E0]
  |node_number:{4}
  |normalized:{Unnumbered}
@@ -1022,7 +1019,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |menu_directions:D[next->E38|prev->E22|up->E0]
- |menus:EC[E32]
  |node_directions:D[next->E38|prev->E22|up->E0]
  |node_number:{6}
  |normalized:{Chapter-with-unnumbsubsec}
@@ -1896,21 +1892,33 @@ théorème: 1
 $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
  associated_section: Test floats
  associated_title_command: Test floats
+ menus:
+  chapter
+  Unnumbered
+  Chapter with unnumbsubsec
+  Appendix for float
+  list of floats
 2|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
+ menus:
+  section
 3|section
  associated_section: 1.1 A section
  associated_title_command: 1.1 A section
 4|Unnumbered
  associated_section: Unnumbered
  associated_title_command: Unnumbered
+ menus:
+  Section within unnumbered
 5|Section within unnumbered
  associated_section: Section within unnumbered
  associated_title_command: Section within unnumbered
 6|Chapter with unnumbsubsec
  associated_section: 2 Chapter with unnumbsubsec
  associated_title_command: 2 Chapter with unnumbsubsec
+ menus:
+  unnumbered sec
 7|unnumbered sec
  associated_section: unnumbered sec
  associated_title_command: unnumbered sec

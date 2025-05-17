@@ -131,7 +131,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -564,6 +563,10 @@ $result_errors{'sample_utf8'} = [];
 $result_nodes_list{'sample_utf8'} = '1|Top
  associated_section: Texinfo中文示例
  associated_title_command: Texinfo中文示例
+ menus:
+  第一章（First Chapter）
+  Second Chapter AE ĄĘ ae ąę
+  Index node
 2|第一章（First Chapter）
  associated_section: 1 第一章（First Chapter）
  associated_title_command: 1 第一章（First Chapter）

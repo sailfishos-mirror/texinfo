@@ -22,7 +22,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E1]
  |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first-before-top}
@@ -181,7 +180,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E4]
  |node_directions:D[prev->E0]
  |node_number:{3}
  |normalized:{Top}
@@ -293,7 +291,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E3]
- |menus:EC[E6]
  |node_directions:D[prev->E3|up->E3]
  |node_number:{4}
  |normalized:{chap-first}
@@ -408,7 +405,6 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E5]
- |menus:EC[E8]
  |node_directions:D[up->E5]
  |node_number:{5}
  |normalized:{second}
@@ -785,10 +781,19 @@ $result_errors{'nodes_before_top'} = [
 
 
 $result_nodes_list{'nodes_before_top'} = '1|first before top
+ menus:
+  node in menu before top
 2|node in menu before top
 3|Top
+ menus:
+  chap first
 4|chap first
+ menus:
+  second
 5|second
+ menus:
+  a node
+  another
 6|another
 7|a node
 ';

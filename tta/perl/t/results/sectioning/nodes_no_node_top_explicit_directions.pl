@@ -19,7 +19,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first}
@@ -140,6 +139,8 @@ $result_errors{'nodes_no_node_top_explicit_directions'} = [
 
 
 $result_nodes_list{'nodes_no_node_top_explicit_directions'} = '1|first
+ menus:
+  second node
 2|second node
 ';
 

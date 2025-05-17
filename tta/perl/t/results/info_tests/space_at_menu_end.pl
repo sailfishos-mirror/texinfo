@@ -13,7 +13,6 @@ $result_tree_text{'space_at_menu_end'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E1]
  |node_directions:D[next->MISSING: (menu_entry_node)[C3]]
  |node_number:{1}
  |normalized:{Top}
@@ -84,6 +83,8 @@ $result_errors{'space_at_menu_end'} = [];
 
 
 $result_nodes_list{'space_at_menu_end'} = '1|Top
+ menus:
+  (out)
 ';
 
 $result_sections_list{'space_at_menu_end'} = '';

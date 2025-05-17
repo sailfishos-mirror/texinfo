@@ -95,6 +95,8 @@ sub convert_to_texinfo($)
 {
   my $element = shift;
 
+  confess("convert_to_texinfo: undef element") if (!defined($element));
+
   if (defined($element->{'tree_document_descriptor'})) {
     return _convert_tree_with_XS($element);
   }

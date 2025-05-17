@@ -22,7 +22,6 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
- |menus:EC[E2]
  |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
@@ -169,6 +168,8 @@ $result_errors{'contents_at_document_begin_separate_element'} = [];
 $result_nodes_list{'contents_at_document_begin_separate_element'} = '1|Top
  associated_section: Contents at beginning
  associated_title_command: Contents at beginning
+ menus:
+  chapter
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
