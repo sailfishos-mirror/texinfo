@@ -13,7 +13,6 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C4]]
  |node_number:{1}
  |normalized:{aa}
   *arguments_line C2
@@ -116,6 +115,9 @@ $result_errors{'similar_external_and_internal_node'} = [
 
 
 $result_nodes_list{'similar_external_and_internal_node'} = '1|aa
+ node_directions:
+  next-> (toto)bb
+
 ';
 
 $result_sections_list{'similar_external_and_internal_node'} = '';

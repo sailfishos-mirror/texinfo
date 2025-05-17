@@ -13,7 +13,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -58,7 +57,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -91,7 +89,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Sec}
   *arguments_line C1
@@ -141,7 +138,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E5]
  |node_number:{4}
  |normalized:{Subsec}
   *arguments_line C1
@@ -229,13 +225,22 @@ $result_errors{'test_insert_nodes_nodedescription'} = [
 $result_nodes_list{'test_insert_nodes_nodedescription'} = '1|Top
  associated_section: top
  node_description: @nodedescription D1
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 3|Sec
  associated_section: 1.1 Sec
  node_description: @nodedescription D2
+ node_directions:
+  up->Chap
 4|Subsec
  associated_section: 1.1.1 Subsec
+ node_directions:
+  up->Sec
 ';
 
 $result_sections_list{'test_insert_nodes_nodedescription'} = '1|top

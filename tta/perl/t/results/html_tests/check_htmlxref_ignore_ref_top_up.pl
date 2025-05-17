@@ -14,7 +14,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C4
@@ -171,7 +170,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{first}
   *arguments_line C2
@@ -195,7 +193,6 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C4]]
  |node_number:{3}
  |normalized:{chapter}
   *arguments_line C3
@@ -305,16 +302,28 @@ $result_nodes_list{'check_htmlxref_ignore_ref_top_up'} = '1|Top
   first
   (other_no_existing_no_manual)
   chapter
+ node_directions:
+  next-> (../there/no_existing_no_manual_direction)
+  prev->first
+  up-> (dir)
+
 2|first
  menu_directions:
   next->(other_no_existing_no_manual)
   up->Top
+ node_directions:
+  next-> (no_existing_no_manual.info)
+
 3|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
  menu_directions:
   prev->(other_no_existing_no_manual)
   up->Top
+ node_directions:
+  next-> (chap_not_existing)
+  prev-> (dir)node in dir
+
 ';
 
 $result_sections_list{'check_htmlxref_ignore_ref_top_up'} = '1|top

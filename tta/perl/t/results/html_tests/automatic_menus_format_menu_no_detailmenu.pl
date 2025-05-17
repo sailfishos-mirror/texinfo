@@ -13,7 +13,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -91,7 +89,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|up->E2]
  |node_number:{3}
  |normalized:{sec}
   *arguments_line C1
@@ -131,7 +128,6 @@ $result_tree_text{'automatic_menus_format_menu_no_detailmenu'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5|up->E2]
  |node_number:{4}
  |normalized:{sec-after}
   *arguments_line C1
@@ -193,17 +189,28 @@ $result_errors{'automatic_menus_format_menu_no_detailmenu'} = [];
 $result_nodes_list{'automatic_menus_format_menu_no_detailmenu'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap
  associated_title_command: 1 Chap
  node_description: @nodedescription Here we begin
+ node_directions:
+  prev->Top
+  up->Top
 3|sec
  associated_section: 1.1 A section
  associated_title_command: 1.1 A section
  node_description: @nodedescription Here in section
+ node_directions:
+  next->sec after
+  up->chap
 4|sec after
  associated_section: 1.2 Sec after
  associated_title_command: 1.2 Sec after
+ node_directions:
+  prev->sec
+  up->chap
 ';
 
 $result_sections_list{'automatic_menus_format_menu_no_detailmenu'} = '1|top

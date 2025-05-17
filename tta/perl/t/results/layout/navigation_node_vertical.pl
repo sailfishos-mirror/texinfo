@@ -17,7 +17,6 @@ $result_tree_text{'navigation_node_vertical'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -82,7 +81,6 @@ $result_tree_text{'navigation_node_vertical'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -144,7 +142,6 @@ $result_tree_text{'navigation_node_vertical'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section}
   *arguments_line C1
@@ -245,7 +242,6 @@ $result_tree_text{'navigation_node_vertical'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{subsection}
   *arguments_line C1
@@ -395,12 +391,17 @@ $result_nodes_list{'navigation_node_vertical'} = '1|Top
  associated_title_command: File used for navigation testing
  menus:
   chapter
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 First chapter
  associated_title_command: 1 First chapter
  menus:
   section
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 3|section
  associated_section: 1.1 Section in chapter
@@ -409,10 +410,14 @@ $result_nodes_list{'navigation_node_vertical'} = '1|Top
   subsection
  menu_directions:
   up->chapter
+ node_directions:
+  up->chapter
 4|subsection
  associated_section: 1.1.1 Sub section in section
  associated_title_command: 1.1.1 Sub section in section
  menu_directions:
+  up->section
+ node_directions:
   up->section
 ';
 

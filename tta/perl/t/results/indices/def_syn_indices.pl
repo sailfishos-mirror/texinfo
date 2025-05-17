@@ -26,7 +26,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -63,7 +62,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter-index}
   *arguments_line C1
@@ -607,9 +605,14 @@ vr C
 $result_nodes_list{'def_syn_indices'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter index
 2|Chapter index
  associated_section: 1 Index
  associated_title_command: 1 Index
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'def_syn_indices'} = '1|top

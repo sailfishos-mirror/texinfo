@@ -37,7 +37,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -164,7 +163,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{part-chapter-node}
   *arguments_line C1
@@ -292,7 +290,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E1]
  |node_number:{3}
  |normalized:{node-between-part-and-chapter}
   *arguments_line C1
@@ -537,16 +534,23 @@ $result_nodes_list{'non_empty_part'} = '1|Top
  menus:
   chapter node
   part chapter node
+ node_directions:
+  next->part chapter node
 2|part chapter node
  associated_section: 2 chapter with part node
  node_preceding_part: Part II
  associated_title_command: 2 chapter with part node
  menu_directions:
   up->Top
+ node_directions:
+  prev->Top
+  up->Top
 3|node between part and chapter
  associated_section: 4 chapter after part node
  node_preceding_part: Part VI
  associated_title_command: 4 chapter after part node
+ node_directions:
+  up->Top
 ';
 
 $result_sections_list{'non_empty_part'} = '1|part before

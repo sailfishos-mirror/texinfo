@@ -13,7 +13,6 @@ $result_tree_text{'top_node_up_implicit_no_nodes'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -81,7 +80,6 @@ $result_tree_text{'top_node_up_implicit_no_nodes'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -149,10 +147,15 @@ $result_nodes_list{'top_node_up_implicit_no_nodes'} = '1|Top
  associated_title_command: The top
  menus:
   Chap
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

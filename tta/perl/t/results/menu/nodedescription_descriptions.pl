@@ -13,7 +13,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -153,7 +152,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
   *arguments_line C1
@@ -215,7 +213,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{titi}
   *arguments_line C1
@@ -257,7 +254,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E12|prev->E6|up->E0]
  |node_number:{4}
  |normalized:{other}
   *arguments_line C1
@@ -299,7 +295,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E15|prev->E9|up->E0]
  |node_number:{5}
  |normalized:{last}
   *arguments_line C1
@@ -341,7 +336,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E18|prev->E12|up->E0]
  |node_number:{6}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
@@ -383,7 +377,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E21|prev->E15|up->E0]
  |node_number:{7}
  |normalized:{a-very-long-node-without-description-with-very-little-space-left-for}
   *arguments_line C1
@@ -425,7 +418,6 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E18|up->E0]
  |node_number:{8}
  |normalized:{very-very-long-node-extending-past-the-max-columns-and-without-description}
   *arguments_line C1
@@ -577,6 +569,8 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
   a somewhat long node without description nor following space
   a very long node without description with very little space left for
   very very long node extending past the max columns and without description
+ node_directions:
+  next->toto
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto
@@ -584,11 +578,19 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
  menu_directions:
   next->titi
   up->Top
+ node_directions:
+  next->titi
+  prev->Top
+  up->Top
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
  node_description: @nodedescription this describes titi
  menu_directions:
+  next->other
+  prev->toto
+  up->Top
+ node_directions:
   next->other
   prev->toto
   up->Top
@@ -600,11 +602,19 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
   next->last
   prev->titi
   up->Top
+ node_directions:
+  next->last
+  prev->titi
+  up->Top
 5|last
  associated_section: 4 Last
  associated_title_command: 4 Last
  node_description: @nodedescription we are last
  menu_directions:
+  next->a somewhat long node without description nor following space
+  prev->other
+  up->Top
+ node_directions:
   next->a somewhat long node without description nor following space
   prev->other
   up->Top
@@ -616,6 +626,10 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
   next->a very long node without description with very little space left for
   prev->last
   up->Top
+ node_directions:
+  next->a very long node without description with very little space left for
+  prev->last
+  up->Top
 7|a very long node without description with very little space left for
  associated_section: 6 Very long
  associated_title_command: 6 Very long
@@ -624,11 +638,18 @@ $result_nodes_list{'nodedescription_descriptions'} = '1|Top
   next->very very long node extending past the max columns and without description
   prev->a somewhat long node without description nor following space
   up->Top
+ node_directions:
+  next->very very long node extending past the max columns and without description
+  prev->a somewhat long node without description nor following space
+  up->Top
 8|very very long node extending past the max columns and without description
  associated_section: 7 Past max columns
  associated_title_command: 7 Past max columns
  node_description: @nodedescription Not long
  menu_directions:
+  prev->a very long node without description with very little space left for
+  up->Top
+ node_directions:
   prev->a very long node without description with very little space left for
   up->Top
 ';

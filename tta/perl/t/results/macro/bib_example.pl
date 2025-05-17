@@ -607,7 +607,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -698,7 +697,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Introduction}
   *arguments_line C1
@@ -842,7 +840,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |>{mybibrefnode}
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{References}
   *arguments_line C1
@@ -1397,16 +1394,25 @@ $result_nodes_list{'bib_example'} = '1|Top
  menus:
   Introduction
   References
+ node_directions:
+  next->Introduction
 2|Introduction
  associated_section: 1 Introduction
  associated_title_command: 1 Introduction
  menu_directions:
   next->References
   up->Top
+ node_directions:
+  next->References
+  prev->Top
+  up->Top
 3|References
  associated_section: 2 References
  associated_title_command: 2 References
  menu_directions:
+  prev->Introduction
+  up->Top
+ node_directions:
   prev->Introduction
   up->Top
 ';

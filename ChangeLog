@@ -1,5 +1,29 @@
 2025-05-17  Patrice Dumas  <pertusus@free.fr>
 
+	node_directions in node structure information instead of tree
+
+	* tta/C/main/build_perl_info.c (build_node_structure_list),
+	main/structure_list.c (free_node_structure_list, print_nodes_list),
+	tta/C/main/tree_types.h (AI_KEYS_LIST, NODE_STRUCTURE),
+	tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, construct_nodes_tree),
+	tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus)
+	(construct_nodes_tree, print_nodes_list): move node_directions
+	information to node structure information out of extra information in
+	tree.
+
+	* tta/C/main/output_unit.c (units_directions),
+	tta/C/structuring_transfo/structuring.c (check_nodes_are_referenced),
+	tta/perl/Texinfo/Convert/IXIN.pm, tta/perl/Texinfo/Convert/Info.pm
+	(format_node), tta/perl/Texinfo/Convert/Plaintext.pm
+	(process_footnotes, format_node),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
+	tta/perl/Texinfo/Structuring.pm (check_nodes_are_referenced): update
+	for change in node_directions information location.
+
+2025-05-17  Patrice Dumas  <pertusus@free.fr>
+
 	menu_directions in node structure information instead of tree
 
 	* tta/C/structuring_transfo/structuring.c (print_down_menus),
@@ -19,7 +43,7 @@
 	tta/C/structuring_transfo/structuring.c (set_menus_node_directions),
 	tta/perl/Texinfo/Structuring.pm (set_menus_node_directions)
 	(_print_menu_node, print_nodes_list): move menu_directions information
-	to node structure informatin instead of in extra information in tree.
+	to node structure information out of extra information in tree.
 
 	* tta/C/structuring_transfo/structuring.c
 	(check_nodes_are_referenced, complete_node_tree_with_menus), 

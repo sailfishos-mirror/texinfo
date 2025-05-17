@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -120,7 +119,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{umlaut}
   *arguments_line C1
@@ -198,7 +196,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|up->E3]
  |node_number:{3}
  |normalized:{_00ef}
   *arguments_line C1
@@ -216,7 +213,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E3]
  |node_number:{4}
  |normalized:{_0129}
   *arguments_line C1
@@ -248,7 +244,6 @@ NodeBack: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{5}
  |normalized:{circumflex}
   *arguments_line C1
@@ -311,7 +306,6 @@ NodeBack: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E8]
  |node_number:{6}
  |normalized:{_00ee}
   *arguments_line C1
@@ -389,6 +383,8 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  menus:
   umlaut
   circumflex
+ node_directions:
+  next->umlaut
 2|umlaut
  associated_section: 1 umlaut
  associated_title_command: 1 umlaut
@@ -398,12 +394,22 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  menu_directions:
   next->circumflex
   up->Top
+ node_directions:
+  next->circumflex
+  prev->Top
+  up->Top
 3|@"i
  menu_directions:
   next->@~{@dotless{i}}
   up->umlaut
+ node_directions:
+  next->@~{@dotless{i}}
+  up->umlaut
 4|@~{@dotless{i}}
  menu_directions:
+  prev->@"i
+  up->umlaut
+ node_directions:
   prev->@"i
   up->umlaut
 5|circumflex
@@ -414,8 +420,13 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  menu_directions:
   prev->umlaut
   up->Top
+ node_directions:
+  prev->umlaut
+  up->Top
 6|@^i
  menu_directions:
+  up->circumflex
+ node_directions:
   up->circumflex
 ';
 

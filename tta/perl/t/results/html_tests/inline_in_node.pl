@@ -40,7 +40,6 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -72,7 +71,6 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{htmlOnehtml}
   *arguments_line C1
@@ -157,9 +155,14 @@ $result_errors{'inline_in_node'} = [];
 $result_nodes_list{'inline_in_node'} = '1|Top
  associated_section
  associated_title_command
+ node_directions:
+  next->@inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}
 2|@inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}
  associated_section: 1 @inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
  associated_title_command: 1 @inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'inline_in_node'} = '1

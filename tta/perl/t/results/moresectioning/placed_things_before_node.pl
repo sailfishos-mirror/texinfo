@@ -154,7 +154,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -190,7 +189,6 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4|up->E4]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -330,9 +328,14 @@ $result_floats{'placed_things_before_node'} = ': 1
 $result_nodes_list{'placed_things_before_node'} = '1|Top
  associated_section: top section
  associated_title_command: top section
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'placed_things_before_node'} = '1|top section

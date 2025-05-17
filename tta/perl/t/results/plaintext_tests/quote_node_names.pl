@@ -14,7 +14,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -393,7 +392,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{blah_003ablah}
   *arguments_line C1
@@ -428,7 +426,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{blumpty_002efump}
   *arguments_line C1
@@ -460,7 +457,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C6]|prev->MISSING: (line_arg)[C6]|up->MISSING: (line_arg)[C4]]
  |node_number:{4}
  |normalized:{normal-node}
   *arguments_line C4
@@ -533,7 +529,6 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
  |normalized:{secret_002cnode}
   *arguments_line C1
@@ -747,16 +742,26 @@ $result_nodes_list{'quote_node_names'} = '1|Top
   @asis{secret,node}
   u.al)ext::
 
+ node_directions:
+  next->blah:blah
 2|blah:blah
  associated_section: 1 blah:blah
  associated_title_command: 1 blah:blah
  menu_directions:
   next->blumpty.fump
   up->Top
+ node_directions:
+  next->blumpty.fump
+  prev->Top
+  up->Top
 3|blumpty.fump
  associated_section: 2 blumpty.fump
  associated_title_command: 2 blumpty.fump
  menu_directions:
+  next->normal node
+  prev->blah:blah
+  up->Top
+ node_directions:
   next->normal node
   prev->blah:blah
   up->Top
@@ -767,10 +772,18 @@ $result_nodes_list{'quote_node_names'} = '1|Top
   next->@asis{secret,node}
   prev->blumpty.fump
   up->Top
+ node_directions:
+  next-> (man@comma{}u:a.l)direction
+  prev-> (man_ual)direct@comma{}ion
+  up-> (man_ual)direct::i.on
+
 5|@asis{secret,node}
  associated_section: 4 @asis{secret,node}
  associated_title_command: 4 @asis{secret,node}
  menu_directions:
+  prev->normal node
+  up->Top
+ node_directions:
   prev->normal node
   up->Top
 6|top secret node

@@ -833,10 +833,11 @@ sub format_ref($$$)
 }
 
 my @directions = ('Next', 'Prev', 'Up');
-sub format_node($$)
+sub format_node($$;$)
 {
   my $self = shift;
   my $node = shift;
+  my $node_structure = shift;
 
   return '' if (not $node->{'extra'}
                 or not $node->{'extra'}->{'is_target'});
@@ -868,12 +869,18 @@ sub format_node($$)
       $post_quote = $pre_quote;
     }
   }
+
   $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
+
+  if (!$node_structure) {
+    my $nodes_list = $self->{'document'}->nodes_list();
+    $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+  }
   foreach my $direction (@directions) {
-    if ($node->{'extra'}->{'node_directions'}
-        and $node->{'extra'}->{'node_directions'}->{lc($direction)}) {
+    if ($node_structure->{'node_directions'}
+        and $node_structure->{'node_directions'}->{lc($direction)}) {
       my $node_direction
-          = $node->{'extra'}->{'node_directions'}->{lc($direction)};
+          = $node_structure->{'node_directions'}->{lc($direction)};
       $self->_stream_output(",  $direction: ");
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $self->convert_line({'type' => '_code',

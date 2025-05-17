@@ -14,7 +14,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -82,7 +80,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chap2}
   *arguments_line C1
@@ -115,7 +112,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|up->E4]
  |node_number:{4}
  |normalized:{sec1}
   *arguments_line C1
@@ -146,7 +142,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E10|prev->E6|up->E4]
  |node_number:{5}
  |normalized:{sec2}
   *arguments_line C1
@@ -177,7 +172,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E8|up->E4]
  |node_number:{6}
  |normalized:{sec3}
   *arguments_line C1
@@ -249,21 +243,40 @@ $result_errors{'directions_string_base'} = [];
 $result_nodes_list{'directions_string_base'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  next->chap2
+  prev->Top
+  up->Top
 3|chap2
  associated_section: 2 Chap 2
  associated_title_command: 2 Chap 2
+ node_directions:
+  prev->chap
+  up->Top
 4|sec1
  associated_section: 2.1 Sec 1
  associated_title_command: 2.1 Sec 1
+ node_directions:
+  next->sec2
+  up->chap2
 5|sec2
  associated_section: 2.2 Sec 2
  associated_title_command: 2.2 Sec 2
+ node_directions:
+  next->sec3
+  prev->sec1
+  up->chap2
 6|sec3
  associated_section: 2.3 Sec 3
  associated_title_command: 2.3 Sec 3
+ node_directions:
+  prev->sec2
+  up->chap2
 ';
 
 $result_sections_list{'directions_string_base'} = '1|top

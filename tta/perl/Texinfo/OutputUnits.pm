@@ -402,9 +402,9 @@ sub units_directions($$$$;$)
                             ['NodePrev', 'prev']) {
         $directions->{$direction->[0]}
            = _label_target_unit_element(
-               $node->{'extra'}->{'node_directions'}->{$direction->[1]})
-            if ($node->{'extra'}->{'node_directions'}
-                and $node->{'extra'}->{'node_directions'}->{$direction->[1]});
+               $node_structure->{'node_directions'}->{$direction->[1]})
+            if ($node_structure->{'node_directions'}
+                and $node_structure->{'node_directions'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
       my $associated_section;
@@ -426,30 +426,36 @@ sub units_directions($$$$;$)
         $directions->{'NodeForward'}
           = $associated_section->{'extra'}
                   ->{'section_childs'}->[0]->{'associated_unit'};
-      } elsif ($node->{'extra'}->{'node_directions'}
-               and $node->{'extra'}->{'node_directions'}->{'next'}) {
+      } elsif ($node_structure->{'node_directions'}
+               and $node_structure->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
             = _label_target_unit_element(
-                  $node->{'extra'}->{'node_directions'}->{'next'});
-      } elsif ($node->{'extra'}->{'node_directions'}
-               and $node->{'extra'}->{'node_directions'}->{'up'}) {
-        my $up = $node->{'extra'}->{'node_directions'}->{'up'};
+                  $node_structure->{'node_directions'}->{'next'});
+      } elsif ($node_structure->{'node_directions'}
+               and $node_structure->{'node_directions'}->{'up'}) {
+        my $up = $node_structure->{'node_directions'}->{'up'};
         my @up_list = ($node);
         # the condition with the up_list avoids infinite loops
         # the last condition stops when the Top node is reached.
         while (not (grep {$up eq $_} @up_list
                     or ($node_top and $up eq $node_top))) {
-          if ($up->{'extra'}->{'node_directions'}
-              and defined($up->{'extra'}->{'node_directions'}->{'next'})) {
-            $directions->{'NodeForward'}
-              = _label_target_unit_element(
-                           $up->{'extra'}->{'node_directions'}->{'next'});
-            last;
+          my $up_node_structure;
+          if ($up->{'cmdname'} and $up->{'cmdname'} eq 'node') {
+            $up_node_structure
+              = $nodes_list->[$up->{'extra'}->{'node_number'} -1];
+            if ($up_node_structure->{'node_directions'}
+                and $up_node_structure->{'node_directions'}->{'next'}) {
+              $directions->{'NodeForward'}
+                = _label_target_unit_element(
+                     $up_node_structure->{'node_directions'}->{'next'});
+              last;
+            }
           }
           push @up_list, $up;
-          last if (not $up->{'extra'}->{'node_directions'}
-                   or not $up->{'extra'}->{'node_directions'}->{'up'});
-          $up = $up->{'extra'}->{'node_directions'}->{'up'};
+          last if (not $up_node_structure
+                   or not $up_node_structure->{'node_directions'}
+                   or not $up_node_structure->{'node_directions'}->{'up'});
+          $up = $up_node_structure->{'node_directions'}->{'up'};
         }
       }
 

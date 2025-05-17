@@ -13,7 +13,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -116,7 +114,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chap2}
   *arguments_line C1
@@ -248,12 +245,21 @@ $result_errors{'cartouche_and_paragraph_indentation'} = [];
 $result_nodes_list{'cartouche_and_paragraph_indentation'} = '1|top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  next->chap2
+  prev->top
+  up->top
 3|chap2
  associated_section: 2 c2
  associated_title_command: 2 c2
+ node_directions:
+  prev->chap
+  up->top
 ';
 
 $result_sections_list{'cartouche_and_paragraph_indentation'} = '1|top

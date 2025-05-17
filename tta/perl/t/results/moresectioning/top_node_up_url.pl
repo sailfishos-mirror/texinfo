@@ -19,7 +19,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -91,7 +90,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -129,8 +127,13 @@ $result_nodes_list{'top_node_up_url'} = '1|Top
  associated_title_command: internal top node up
  menus:
   chap
+ node_directions:
+  next->chap
 2|chap
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

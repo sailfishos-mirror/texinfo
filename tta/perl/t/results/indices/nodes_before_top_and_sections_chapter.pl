@@ -18,7 +18,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first-before-top}
   *arguments_line C4
@@ -125,7 +124,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node-in-menu-before-top}
   *arguments_line C4
@@ -194,7 +192,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E0]
  |node_number:{3}
  |normalized:{Top}
   *arguments_line C3
@@ -364,7 +361,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E3|up->E3]
  |node_number:{4}
  |normalized:{first}
   *arguments_line C4
@@ -477,7 +473,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[up->E6]
  |node_number:{5}
  |normalized:{second}
   *arguments_line C4
@@ -552,7 +547,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E11|up->E8]
  |node_number:{6}
  |normalized:{another}
   *arguments_line C4
@@ -628,7 +622,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E10|up->E8]
  |node_number:{7}
  |normalized:{a-node}
   *arguments_line C4
@@ -728,7 +721,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E14|up->E3]
  |node_number:{8}
  |normalized:{chapter}
   *arguments_line C4
@@ -784,7 +776,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E12|up->E3]
  |node_number:{9}
  |normalized:{node-in-chapter}
   *arguments_line C4
@@ -987,8 +978,14 @@ $result_errors{'nodes_before_top_and_sections_chapter'} = [
 $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before top
  menus:
   node in menu before top
+ node_directions:
+  next->Top
+  up->(dir)
+
 2|node in menu before top
  menu_directions:
+  up->first before top
+ node_directions:
   up->first before top
 3|Top
  associated_section: top section
@@ -997,11 +994,16 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
   first
   chapter
   node in chapter
+ node_directions:
+  prev->first before top
 4|first
  menus:
   second
  menu_directions:
   next->chapter
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 5|second
  menus:
@@ -1009,12 +1011,20 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
   another
  menu_directions:
   up->first
+ node_directions:
+  up->first
 6|another
  menu_directions:
   prev->a node
   up->second
+ node_directions:
+  prev->a node
+  up->second
 7|a node
  menu_directions:
+  next->another
+  up->second
+ node_directions:
   next->another
   up->second
 8|chapter
@@ -1024,8 +1034,14 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
   next->node in chapter
   prev->first
   up->Top
+ node_directions:
+  next->node in chapter
+  up->Top
 9|node in chapter
  menu_directions:
+  prev->chapter
+  up->Top
+ node_directions:
   prev->chapter
   up->Top
 ';

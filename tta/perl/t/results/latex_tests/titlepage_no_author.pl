@@ -41,7 +41,6 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -77,7 +76,6 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -138,9 +136,14 @@ $result_errors{'titlepage_no_author'} = [];
 $result_nodes_list{'titlepage_no_author'} = '1|Top
  associated_section: section top
  associated_title_command: section top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'titlepage_no_author'} = '1|section top

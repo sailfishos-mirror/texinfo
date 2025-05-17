@@ -608,7 +608,7 @@ sub check_nodes_are_referenced($)
   foreach my $node_structure (@{$nodes_list}) {
     my $node = $node_structure->{'element'};
     # gather referenced nodes based on node pointers
-    my $node_directions = $node->{'extra'}->{'node_directions'};
+    my $node_directions = $node_structure->{'node_directions'};
     if ($node_directions) {
       foreach my $direction (@node_directions_names) {
         if ($node_directions->{$direction}
@@ -867,17 +867,17 @@ sub complete_node_tree_with_menus($)
 
     if ($automatic_directions) {
 
-      my $node_directions = $node->{'extra'}->{'node_directions'};
+      my $node_directions = $node_structure->{'node_directions'};
 
       if ($normalized ne 'Top') {
         foreach my $direction (@node_directions_names) {
           # prev defined as first Top node menu entry node
           if ($direction eq 'prev' and $top_node_next
               and $node eq $top_node_next) {
-            $node->{'extra'}->{'node_directions'} = {}
-              if (!$node->{'extra'}->{'node_directions'});
-            if (!$node->{'extra'}->{'node_directions'}->{'prev'}) {
-              $node->{'extra'}->{'node_directions'}->{'prev'}
+            $node_structure->{'node_directions'} = {}
+              if (!$node_structure->{'node_directions'});
+            if (!$node_structure->{'node_directions'}->{'prev'}) {
+              $node_structure->{'node_directions'}->{'prev'}
                 = $top_node;
             }
             next;
@@ -954,9 +954,9 @@ sub complete_node_tree_with_menus($)
                                     $node->{'source_info'}, 0,
                             $customization_information->get_conf('DEBUG'));
             }
-            $node->{'extra'}->{'node_directions'} = {}
-               if (!$node->{'extra'}->{'node_directions'});
-            $node->{'extra'}->{'node_directions'}->{$direction}
+            $node_structure->{'node_directions'} = {}
+               if (!$node_structure->{'node_directions'});
+            $node_structure->{'node_directions'}->{$direction}
                = $menu_directions->{$direction};
           }
         }
@@ -980,9 +980,9 @@ sub complete_node_tree_with_menus($)
           }
         }
         if ($top_node_next) {
-          $node->{'extra'}->{'node_directions'} = {}
-             if (!$node->{'extra'}->{'node_directions'});
-          $node->{'extra'}->{'node_directions'}->{'next'}
+          $node_structure->{'node_directions'} = {}
+             if (!$node_structure->{'node_directions'});
+          $node_structure->{'node_directions'}->{'next'}
             = $top_node_next;
           if ($top_node_next->{'extra'}->{'manual_content'}) {
             $top_node_next = undef;
@@ -995,7 +995,7 @@ sub complete_node_tree_with_menus($)
     # check consistency between node pointer and node entries menu order
     if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
         and $normalized ne 'Top') {
-      my $node_directions = $node->{'extra'}->{'node_directions'};
+      my $node_directions = $node_structure->{'node_directions'};
       if ($node_directions and $menu_directions) {
         foreach my $direction (@node_directions_names) {
           if ($node_directions->{$direction}
@@ -1025,7 +1025,7 @@ sub complete_node_tree_with_menus($)
 
     # check for node up / menu up mismatch
     if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
-      my $node_directions = $node->{'extra'}->{'node_directions'};
+      my $node_directions = $node_structure->{'node_directions'};
       my $up_node;
       if ($node_directions
           and $node_directions->{'up'}) {
@@ -1088,9 +1088,9 @@ sub construct_nodes_tree($)
           # prev defined as Top for the first Top node menu entry node
           if ($direction eq 'prev' and $top_node_section_child
               and $node eq $top_node_section_child) {
-            $node->{'extra'}->{'node_directions'} = {}
-              if (! $node->{'extra'}->{'node_directions'});
-            $node->{'extra'}->{'node_directions'}->{'prev'} = $top_node;
+            $node_structure->{'node_directions'} = {}
+              if (! $node_structure->{'node_directions'});
+            $node_structure->{'node_directions'}->{'prev'} = $top_node;
             next;
           }
           if ($node_structure->{'associated_section'}) {
@@ -1107,9 +1107,9 @@ sub construct_nodes_tree($)
               = _section_direction_associated_node($sections_list,
                                                    $section, $direction);
             if ($direction_associated_node) {
-              $node->{'extra'}->{'node_directions'} = {}
-                 if (!$node->{'extra'}->{'node_directions'});
-              $node->{'extra'}->{'node_directions'}->{$direction}
+              $node_structure->{'node_directions'} = {}
+                 if (!$node_structure->{'node_directions'});
+              $node_structure->{'node_directions'}->{$direction}
                                                 = $direction_associated_node;
             }
           }
@@ -1128,9 +1128,9 @@ sub construct_nodes_tree($)
           if ($section_child_structure->{'associated_node'}) {
             $top_node_section_child
               = $section_child_structure->{'associated_node'};
-            $node->{'extra'}->{'node_directions'} = {}
-                if (! $node->{'extra'}->{'node_directions'});
-            $node->{'extra'}->{'node_directions'}->{'next'}
+            $node_structure->{'node_directions'} = {}
+                if (! $node_structure->{'node_directions'});
+            $node_structure->{'node_directions'}->{'next'}
              = $top_node_section_child;
           }
         }
@@ -1143,9 +1143,9 @@ sub construct_nodes_tree($)
         # external node
         if ($direction_element->{'extra'}
             and $direction_element->{'extra'}->{'manual_content'}) {
-          $node->{'extra'}->{'node_directions'} = {}
-             if (!defined($node->{'extra'}->{'node_directions'}));
-          $node->{'extra'}->{'node_directions'}->{$direction}
+          $node_structure->{'node_directions'} = {}
+             if (!defined($node_structure->{'node_directions'}));
+          $node_structure->{'node_directions'}->{$direction}
              = $direction_element;
         } elsif ($direction_element->{'extra'}
                  and defined($direction_element->{'extra'}->{'normalized'})) {
@@ -1153,9 +1153,9 @@ sub construct_nodes_tree($)
           if ($identifier_target->{$direction_normalized}) {
             my $node_target
                = $identifier_target->{$direction_normalized};
-            $node->{'extra'}->{'node_directions'} = {}
-               if (!defined($node->{'extra'}->{'node_directions'}));
-            $node->{'extra'}->{'node_directions'}->{$direction} = $node_target;
+            $node_structure->{'node_directions'} = {}
+               if (!defined($node_structure->{'node_directions'}));
+            $node_structure->{'node_directions'}->{$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
@@ -1318,7 +1318,7 @@ sub print_nodes_list($)
       }
     }
 
-    foreach my $directions_key (('menu_directions',)) {
+    foreach my $directions_key (('menu_directions', 'node_directions')) {
       if ($node_structure->{$directions_key}) {
         my $value = $node_structure->{$directions_key};
         $result .= " $directions_key:\n";
@@ -2092,7 +2092,7 @@ X<C<construct_nodes_tree>>
 Goes through nodes in I<$document> tree and set directions.  Set the list of
 nodes in the I<$document>.
 
-This functions sets, in the C<extra> node element hash:
+This functions sets, in the node structure information element hash:
 
 =over
 
@@ -2166,7 +2166,7 @@ X<C<set_menus_node_directions>>
 
 Goes through menu and set directions implied by menus.
 
-This functions sets, in the C<extra> node element hash reference:
+This functions sets, in the node structure information hash reference:
 
 =over
 

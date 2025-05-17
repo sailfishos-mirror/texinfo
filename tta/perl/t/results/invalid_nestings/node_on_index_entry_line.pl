@@ -26,7 +26,6 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C4]|prev->MISSING: (line_arg)[C4]|up->MISSING: (line_arg)[C4]]
  |node_number:{1}
  |normalized:{a}
   *arguments_line C4
@@ -114,6 +113,11 @@ $result_errors{'node_on_index_entry_line'} = [
 
 
 $result_nodes_list{'node_on_index_entry_line'} = '1|a
+ node_directions:
+  next-> (m)b
+  prev-> (m)c
+  up-> (h)d
+
 ';
 
 $result_sections_list{'node_on_index_entry_line'} = '';

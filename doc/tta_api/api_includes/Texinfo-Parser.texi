@@ -1317,9 +1317,9 @@ normalized label, built as specified in the @emph{HTML Xref} Texinfo documentati
 node.
 
 If you called @ref{Texinfo@asis{::}Structuring construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
-the @emph{node_directions} hash in the @code{@@node} element @code{extra} associates
-@emph{up}, @emph{next} and @emph{prev} keys to the elements corresponding to the node
-line directions.
+the @emph{node_directions} hash in the node structure information associates @emph{up},
+@emph{next} and @emph{prev} keys to the elements corresponding to the node line
+directions.
 
 An @emph{associated_section} key holds the tree element of the
 sectioning command that follows the node.  An @emph{node_preceding_part}

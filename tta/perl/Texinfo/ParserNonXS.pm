@@ -9478,9 +9478,9 @@ normalized label, built as specified in the I<HTML Xref> Texinfo documentation
 node.
 
 If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/construct_nodes_tree($document)>,
-the I<node_directions> hash in the C<@node> element C<extra> associates
-I<up>, I<next> and I<prev> keys to the elements corresponding to the node
-line directions.
+the I<node_directions> hash in the node structure information associates I<up>,
+I<next> and I<prev> keys to the elements corresponding to the node line
+directions.
 
 An I<associated_section> key holds the tree element of the
 sectioning command that follows the node.  An I<node_preceding_part>

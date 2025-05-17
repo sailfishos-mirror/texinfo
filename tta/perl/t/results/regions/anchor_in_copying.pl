@@ -47,7 +47,6 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -63,7 +62,6 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -137,7 +135,11 @@ $result_errors{'anchor_in_copying'} = [
 
 
 $result_nodes_list{'anchor_in_copying'} = '1|Top
+ node_directions:
+  next->chap
 2|chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'anchor_in_copying'} = '';

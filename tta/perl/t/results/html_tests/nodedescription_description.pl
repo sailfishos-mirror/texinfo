@@ -14,7 +14,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
   *arguments_line C1
@@ -132,7 +130,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{titi}
   *arguments_line C1
@@ -184,7 +181,6 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E0]
  |node_number:{4}
  |normalized:{other}
   *arguments_line C1
@@ -279,19 +275,32 @@ $result_errors{'nodedescription_description'} = [
 $result_nodes_list{'nodedescription_description'} = '1|Top
  associated_section: test of descriptions with nodedescription*
  associated_title_command: test of descriptions with nodedescription*
+ node_directions:
+  next->toto
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
  node_long_description: @nodedescriptionblock
+ node_directions:
+  next->titi
+  prev->Top
+  up->Top
 3|titi
  associated_section: 2 Titi
  associated_title_command: 2 Titi
  node_long_description: @nodedescriptionblock
+ node_directions:
+  next->other
+  prev->toto
+  up->Top
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
  node_description: @nodedescription other comes here
+ node_directions:
+  prev->titi
+  up->Top
 ';
 
 $result_sections_list{'nodedescription_description'} = '1|test of descriptions with nodedescription*

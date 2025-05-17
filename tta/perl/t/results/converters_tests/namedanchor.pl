@@ -13,7 +13,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -64,7 +63,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E12|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -151,7 +149,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{secc1}
   *arguments_line C1
@@ -376,7 +373,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chap1}
   *arguments_line C1
@@ -493,7 +489,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2|up->E12]
  |node_number:{5}
  |normalized:{secc2}
   *arguments_line C1
@@ -657,12 +652,20 @@ $result_errors{'namedanchor'} = [
 $result_nodes_list{'namedanchor'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 chapter @namedanchor{Not here!, There} after
  associated_title_command: 1 chapter @namedanchor{Not here!, There} after
+ node_directions:
+  next->chap1
+  prev->Top
+  up->Top
 3|secc1
  associated_section: 1.1 secc1
  associated_title_command: 1.1 secc1
+ node_directions:
+  up->chap
 4|chap1
  associated_section: 2 chap1
  associated_title_command: 2 chap1
@@ -673,10 +676,16 @@ $result_nodes_list{'namedanchor'} = '1|Top
   in chap no name
   normal
   in chap empty name
+ node_directions:
+  prev->chap
+  up->Top
 5|secc2
  associated_section: 2.1 Secc2
  associated_title_command: 2.1 Secc2
  menu_directions:
+  next->in Top
+  up->chap1
+ node_directions:
   next->in Top
   up->chap1
 ';

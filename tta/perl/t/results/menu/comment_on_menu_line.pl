@@ -13,7 +13,6 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -81,7 +80,6 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{first}
   *arguments_line C1
@@ -119,8 +117,13 @@ $result_nodes_list{'comment_on_menu_line'} = '1|Top
  associated_title_command: 1 first
  menus:
   first
+ node_directions:
+  next->first
 2|first
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

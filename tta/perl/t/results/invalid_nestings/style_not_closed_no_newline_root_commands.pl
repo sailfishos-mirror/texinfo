@@ -13,7 +13,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -82,7 +81,6 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -182,10 +180,15 @@ $result_nodes_list{'style_not_closed_no_newline_root_commands'} = '1|Top
  associated_title_command: top
  menus:
   chapter
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

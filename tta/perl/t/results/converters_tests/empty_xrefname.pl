@@ -13,7 +13,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -110,7 +108,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{entiti}
   *arguments_line C1
@@ -147,7 +144,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{4}
  |normalized:{chip}
   *arguments_line C1
@@ -276,18 +272,29 @@ $result_errors{'empty_xrefname'} = [];
 $result_nodes_list{'empty_xrefname'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
  menus:
   entiti
+ node_directions:
+  next->chip
+  prev->Top
+  up->Top
 3|entiti
  associated_title_command
  menu_directions:
   up->Chap
+ node_directions:
+  up->Chap
 4|chip
  associated_section: 2 Chip
  associated_title_command: 2 Chip
+ node_directions:
+  prev->Chap
+  up->Top
 ';
 
 $result_sections_list{'empty_xrefname'} = '1|top

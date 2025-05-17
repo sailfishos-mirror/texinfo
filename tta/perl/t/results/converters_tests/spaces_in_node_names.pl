@@ -13,7 +13,6 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -88,7 +87,6 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-}
   *arguments_line C1
@@ -106,7 +104,6 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{b-}
   *arguments_line C1
@@ -127,7 +124,6 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{c-}
   *arguments_line C1
@@ -246,17 +242,30 @@ $result_nodes_list{'spaces_in_node_names'} = '1|Top
   chap@ @ 
   b@verb{:  :}
   c@ 
+ node_directions:
+  next->chap@ @ 
 2|chap@ @ 
  menu_directions:
   next->b@verb{:  :}
+  up->Top
+ node_directions:
+  next->b@verb{:  :}
+  prev->Top
   up->Top
 3|b@verb{:  :}
  menu_directions:
   next->c@w{  }
   prev->chap@ @ 
   up->Top
+ node_directions:
+  next->c@w{  }
+  prev->chap@ @ 
+  up->Top
 4|c@w{  }
  menu_directions:
+  prev->b@verb{:  :}
+  up->Top
+ node_directions:
   prev->b@verb{:  :}
   up->Top
 ';

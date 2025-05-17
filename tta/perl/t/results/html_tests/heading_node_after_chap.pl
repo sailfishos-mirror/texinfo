@@ -23,7 +23,6 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Cap-1}
   *arguments_line C1
@@ -71,7 +70,6 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{Cap-2}
   *arguments_line C1
@@ -159,9 +157,13 @@ $result_errors{'heading_node_after_chap'} = [];
 $result_nodes_list{'heading_node_after_chap'} = '1|Cap 1
  associated_section: 1 Chapter One
  associated_title_command: 1 Chapter One
+ node_directions:
+  next->Cap 2
 2|Cap 2
  associated_section: 2 Chapter Two
  associated_title_command: 2 Chapter Two
+ node_directions:
+  prev->Cap 1
 3|Node 1
  associated_title_command: @heading Topic
 ';

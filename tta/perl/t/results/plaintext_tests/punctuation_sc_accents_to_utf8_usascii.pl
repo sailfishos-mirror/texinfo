@@ -31,7 +31,6 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_usascii'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -67,7 +66,6 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_usascii'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-chap}
   *arguments_line C1
@@ -331,9 +329,14 @@ $result_errors{'punctuation_sc_accents_to_utf8_usascii'} = [];
 $result_nodes_list{'punctuation_sc_accents_to_utf8_usascii'} = '1|top
  associated_section: top section
  associated_title_command: top section
+ node_directions:
+  next->node chap
 2|node chap
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ node_directions:
+  prev->top
+  up->top
 ';
 
 $result_sections_list{'punctuation_sc_accents_to_utf8_usascii'} = '1|top section

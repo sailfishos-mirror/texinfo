@@ -14,7 +14,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -95,7 +94,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-f-nl-Something_003f-After-punct}
   *arguments_line C1
@@ -177,7 +175,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{new-n}
   *arguments_line C1
@@ -405,11 +402,17 @@ $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
  menus:
   chap @* f     nl Something? @* After punct
   new n
+ node_directions:
+  next->chap @* f     nl Something? @* After punct
 2|chap @* f     nl Something? @* After punct
  associated_section: 1 Chap
  associated_title_command: 1 Chap
  menu_directions:
   next->new n
+  up->Top
+ node_directions:
+  next->new n
+  prev->Top
   up->Top
 3|new n
  associated_section: 2 Ochap
@@ -419,6 +422,9 @@ $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
   ankh @* p
   ankh p
  menu_directions:
+  prev->chap @* f     nl Something? @* After punct
+  up->Top
+ node_directions:
   prev->chap @* f     nl Something? @* After punct
   up->Top
 ';

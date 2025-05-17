@@ -241,7 +241,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -277,7 +276,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5|up->E5]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -456,9 +454,14 @@ Text: 1
 $result_nodes_list{'things_before_setfilename'} = '1|Top
  associated_section: top section
  associated_title_command: top section
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'things_before_setfilename'} = '1|top section

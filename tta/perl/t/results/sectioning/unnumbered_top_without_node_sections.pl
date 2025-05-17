@@ -21,7 +21,6 @@ NodeUp: (dir)
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{a-node}
   *arguments_line C4
@@ -104,7 +103,6 @@ NodeUp: (dir)
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{second}
   *arguments_line C4
@@ -201,9 +199,15 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
 $result_nodes_list{'unnumbered_top_without_node_sections'} = '1|a node
  associated_section: unnumbered
  associated_title_command: unnumbered
+ node_directions:
+  up->(dir)
+
 2|second
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  up->(dir)
+
 ';
 
 $result_sections_list{'unnumbered_top_without_node_sections'} = '1|unnumbered

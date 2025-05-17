@@ -556,17 +556,19 @@ sub output_ixin($$)
   }
 
   my $nodes_index = $self->ixin_open_element('nodesindex');
+  my $nodes_list = $self->{'document'}->nodes_list();
   foreach my $node (@nodes) {
     my $normalized_node_name = $node->{'extra'}->{'normalized'};
     # FIXME name should be a renderable sequence
     my @attributes = (['name', $normalized_node_name],
                       ['length',
                        $output_unit_byte_sizes{$normalized_node_name}]);
+    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
     foreach my $direction (@node_directions) {
-      if ($node->{'extra'}->{'node_directions'}
-          and $node->{'extra'}->{'node_directions'}->{lc($direction)}) {
+      if ($node_structure->{'node_directions'}
+          and $node_structure->{'node_directions'}->{lc($direction)}) {
         my $node_direction
-           = $node->{'extra'}->{'node_directions'}->{lc($direction)};
+           = $node_structure->{'node_directions'}->{lc($direction)};
         if ($node_direction->{'extra'}->{'manual_content'}) {
           # FIXME?
           push @attributes, ['node'.lc($direction), -2];

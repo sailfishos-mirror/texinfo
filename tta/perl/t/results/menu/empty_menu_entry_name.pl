@@ -73,7 +73,6 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{aaa}
   *arguments_line C1
@@ -134,6 +133,8 @@ $result_nodes_list{'empty_menu_entry_name'} = '1|first
 2|aaa
  menu_directions:
   prev->(vvv)
+  up->first
+ node_directions:
   up->first
 ';
 

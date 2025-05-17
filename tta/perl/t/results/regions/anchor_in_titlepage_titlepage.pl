@@ -62,7 +62,6 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -94,7 +93,6 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2]
  |node_number:{2}
  |normalized:{nchap}
   *arguments_line C1
@@ -154,7 +152,11 @@ $result_errors{'anchor_in_titlepage_titlepage'} = [
 $result_nodes_list{'anchor_in_titlepage_titlepage'} = '1|Top
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  next->nchap
 2|nchap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'anchor_in_titlepage_titlepage'} = '1|top

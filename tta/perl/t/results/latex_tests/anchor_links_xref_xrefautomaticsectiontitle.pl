@@ -39,7 +39,6 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7]
  |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
@@ -110,7 +109,6 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E2]
  |node_number:{4}
  |normalized:{chap}
   *arguments_line C1
@@ -317,10 +315,15 @@ $result_nodes_list{'anchor_links_xref_xrefautomaticsectiontitle'} = '1|node befo
 2|Top
  associated_section: top sectionning
  associated_title_command: top sectionning
+ node_directions:
+  next->chap
 3|after
 4|chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'anchor_links_xref_xrefautomaticsectiontitle'} = '1|top sectionning

@@ -1403,10 +1403,13 @@ sub process_footnotes($;$)
         'extra' => {'is_target' => 1,
                 'normalized'
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
-                    'node_directions' => {'up' => $node_element},
                    }
       };
-      $self->format_node($footnotes_node);
+      my $footnotes_node_structure = {
+         'element' => $footnotes_node,
+         'node_directions' => {'up' => $node_element},
+      };
+      $self->format_node($footnotes_node, $footnotes_node_structure);
       $self->{'current_node'} = $footnotes_node;
     }
     while (@{$self->{'pending_footnotes'}}) {
@@ -2345,10 +2348,11 @@ sub format_ref($$$)
   _convert($self, $tree);
 }
 
-sub format_node($$)
+sub format_node($$;$)
 {
   my $self = shift;
   my $node = shift;
+  my $node_structure = shift;
 }
 
 # no error in plaintext

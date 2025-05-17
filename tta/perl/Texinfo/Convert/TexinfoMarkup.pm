@@ -897,8 +897,12 @@ sub _convert($$;$)
       } elsif ($type eq 'line') {
         if ($cmdname eq 'node') {
           my $nodename;
+          my $node_structure;
           if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
             $nodename = $element->{'extra'}->{'normalized'};
+            my $nodes_list = $self->{'document'}->nodes_list();
+            $node_structure
+              = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
           } else {
             $nodename = '';
           }
@@ -917,12 +921,12 @@ sub _convert($$;$)
           # first arg is the node name, directions start at 1.
           my $direction_index = 1;
           my $pending_empty_directions = '';
-          foreach my $direction(@node_directions) {
+          foreach my $direction (@node_directions) {
             my $format_element = 'node'.lc($direction);
-            if ($element->{'extra'} and $element->{'extra'}->{'node_directions'}
-                and $element->{'extra'}->{'node_directions'}->{lc($direction)}) {
+            if ($node_structure and $node_structure->{'node_directions'}
+                and $node_structure->{'node_directions'}->{lc($direction)}) {
               my $node_direction
-                  = $element->{'extra'}->{'node_directions'}->{lc($direction)};
+                  = $node_structure->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
               if ($arguments_line->{'contents'}->[$direction_index]) {

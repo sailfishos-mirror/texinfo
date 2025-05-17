@@ -180,7 +180,6 @@ $result_tree_text{'test_image'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -195,7 +194,6 @@ $result_tree_text{'test_image'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -1074,7 +1072,11 @@ $result_floats{'test_image'} = 'Image: 1
 ';
 
 $result_nodes_list{'test_image'} = '1|Top
+ node_directions:
+  next->chapter
 2|chapter
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'test_image'} = '';

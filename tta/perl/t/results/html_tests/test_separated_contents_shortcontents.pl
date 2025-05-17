@@ -19,7 +19,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -55,7 +54,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -87,7 +85,6 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{app}
   *arguments_line C1
@@ -153,12 +150,21 @@ $result_errors{'test_separated_contents_shortcontents'} = [];
 $result_nodes_list{'test_separated_contents_shortcontents'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ node_directions:
+  next->app
+  prev->Top
+  up->Top
 3|app
  associated_section: A appendix
  associated_title_command: A appendix
+ node_directions:
+  prev->chap
+  up->Top
 ';
 
 $result_sections_list{'test_separated_contents_shortcontents'} = '1|top

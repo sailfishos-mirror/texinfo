@@ -16,7 +16,6 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C2
@@ -72,7 +71,6 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node}
   *arguments_line C1
@@ -131,8 +129,12 @@ $result_errors{'equivalent_nodes_novalidate'} = [
 $result_nodes_list{'equivalent_nodes_novalidate'} = '1|first
  menus:
   @strong{node}
+ node_directions:
+  next->@samp{node}
 2|@samp{node}
  menu_directions:
+  up->first
+ node_directions:
   up->first
 ';
 

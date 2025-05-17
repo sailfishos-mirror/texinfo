@@ -14,7 +14,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -46,7 +45,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-one}
   *arguments_line C1
@@ -304,7 +302,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chapter-second}
   *arguments_line C1
@@ -627,12 +624,21 @@ $result_errors{'sorted_subentries'} = [
 $result_nodes_list{'sorted_subentries'} = '1|Top
  associated_section
  associated_title_command
+ node_directions:
+  next->chapter one
 2|chapter one
  associated_section: 1 one
  associated_title_command: 1 one
+ node_directions:
+  next->chapter second
+  prev->Top
+  up->Top
 3|chapter second
  associated_section: 2 second
  associated_title_command: 2 second
+ node_directions:
+  prev->chapter one
+  up->Top
 ';
 
 $result_sections_list{'sorted_subentries'} = '1

@@ -13,7 +13,6 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -95,7 +94,6 @@ $result_tree_text{'anchor_in_footnote'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -171,10 +169,15 @@ $result_nodes_list{'anchor_in_footnote'} = '1|Top
  associated_title_command: Top
  menus:
   chapter
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

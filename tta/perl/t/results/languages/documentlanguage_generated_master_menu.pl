@@ -40,7 +40,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -93,7 +92,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -155,7 +153,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{other-chap}
   *arguments_line C1
@@ -200,7 +197,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E0]
  |node_number:{4}
  |normalized:{appendix}
   *arguments_line C1
@@ -283,17 +279,30 @@ $result_errors{'documentlanguage_generated_master_menu'} = [];
 $result_nodes_list{'documentlanguage_generated_master_menu'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chap
  node_preceding_part: Part I
  associated_title_command: 1 Chap
+ node_directions:
+  next->other chap
+  prev->Top
+  up->Top
 3|other chap
  associated_section: 2 Other chap
  node_preceding_part: Part II
  associated_title_command: 2 Other chap
+ node_directions:
+  next->appendix
+  prev->chapter
+  up->Top
 4|appendix
  associated_section: A App
  associated_title_command: A App
+ node_directions:
+  prev->other chap
+  up->Top
 ';
 
 $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top

@@ -13,7 +13,6 @@ $result_tree_text{'recursive_down_menu'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'recursive_down_menu'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapN}
   *arguments_line C1
@@ -141,6 +139,8 @@ $result_errors{'recursive_down_menu'} = [
 $result_nodes_list{'recursive_down_menu'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapN
 2|chapN
  associated_section: 1 Intro
  associated_title_command: 1 Intro
@@ -148,6 +148,9 @@ $result_nodes_list{'recursive_down_menu'} = '1|Top
   chapN
  menu_directions:
   up->chapN
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'recursive_down_menu'} = '1|top

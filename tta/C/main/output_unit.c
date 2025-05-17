@@ -672,8 +672,7 @@ units_directions (const C_HASHMAP *identifiers_target,
           const ELEMENT *menu_child
            = first_menu_node (node_structure, identifiers_target);
           enum directions d;
-          node_directions = lookup_extra_directions (node,
-                                                     AI_key_node_directions);
+          node_directions = node_structure->node_directions;
           if (node_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -719,8 +718,11 @@ units_directions (const C_HASHMAP *identifiers_target,
                   push_stack_element (&up_list, node);
                   while (1)
                     {
-                      const ELEMENT * const *up_node_directions;
                       size_t i;
+                      int status;
+                      size_t up_node_number;
+                      const NODE_STRUCTURE *up_node_structure = 0;
+
                       int in_up = 0;
                       for (i = 0; i < up_list.top; i++)
                         if (up == up_list.stack[i])
@@ -731,21 +733,30 @@ units_directions (const C_HASHMAP *identifiers_target,
                       if (in_up || (node_top && node_top == up))
                         break;
 
-                      up_node_directions = lookup_extra_directions (up,
-                                                   AI_key_node_directions);
-                      if (up_node_directions
-                          && up_node_directions[D_next])
+                      if (up->e.c->cmd == CM_node)
+                        {
+                          up_node_number
+                            = lookup_extra_integer (up,
+                                           AI_key_node_number, &status);
+
+                          up_node_structure
+                            = nodes_list->list[up_node_number -1];
+                      }
+                      if (up_node_structure
+                          && up_node_structure->node_directions
+                          && up_node_structure->node_directions[D_next])
                         {
                            directions[RUD_type_NodeForward]
                              = label_target_unit_element (
-                                   up_node_directions[D_next],
+                                up_node_structure->node_directions[D_next],
                                    external_node_target_units);
                            break;
                         }
                       push_stack_element (&up_list, up);
-                      if (up_node_directions
-                          && up_node_directions[D_up])
-                        up = up_node_directions[D_up];
+                      if (up_node_structure
+                          && up_node_structure->node_directions
+                          && up_node_structure->node_directions[D_up])
+                        up = up_node_structure->node_directions[D_up];
                       else
                         break;
                     }

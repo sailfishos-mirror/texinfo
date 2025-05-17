@@ -13,7 +13,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -66,7 +65,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E17|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap_002c-a-chap}
   *arguments_line C1
@@ -108,7 +106,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|up->E3]
  |node_number:{3}
  |normalized:{a-node}
   *arguments_line C1
@@ -139,7 +136,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13|prev->E5|up->E3]
  |node_number:{4}
  |normalized:{truc}
   *arguments_line C1
@@ -170,7 +166,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E11|up->E7]
  |node_number:{5}
  |normalized:{sub1}
   *arguments_line C1
@@ -204,7 +199,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E9|up->E7]
  |node_number:{6}
  |normalized:{sub2}
   *arguments_line C1
@@ -238,7 +232,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E15|prev->E7|up->E3]
  |node_number:{7}
  |normalized:{section}
   *arguments_line C1
@@ -269,7 +262,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E13|up->E3]
  |node_number:{8}
  |normalized:{section-1}
   *arguments_line C1
@@ -301,7 +293,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{9}
  |normalized:{-1}
   *arguments_line C1
@@ -330,7 +321,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E17]
  |node_number:{10}
  |normalized:{-2}
   *arguments_line C1
@@ -441,25 +431,56 @@ $result_errors{'insert_nodes_for_sectioning_commands'} = [
 
 $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
  associated_section: top section
+ node_directions:
+  next->chap@comma{} @code{a chap}
 2|chap@comma{} @code{a chap}
  associated_section: 1 chap, @code{a chap}
+ node_directions:
+  next-> 1
+  prev->Top
+  up->Top
 3|a node
  associated_section: 1.1 section
  associated_title_command: 1.1 section
+ node_directions:
+  next->truc
+  up->chap@comma{} @code{a chap}
 4|truc
  associated_section: 1.2 truc
+ node_directions:
+  next->section
+  prev->a node
+  up->chap@comma{} @code{a chap}
 5|sub1
  associated_section: 1.2.1 sub1
+ node_directions:
+  next->sub2
+  up->truc
 6|sub2
  associated_section: 1.2.2 sub2
+ node_directions:
+  prev->sub1
+  up->truc
 7|section
  associated_section: 1.3 section
+ node_directions:
+  next->section 1
+  prev->truc
+  up->chap@comma{} @code{a chap}
 8|section 1
  associated_section: 1.4 section
+ node_directions:
+  prev->section
+  up->chap@comma{} @code{a chap}
 9| 1
  associated_section
+ node_directions:
+  prev->chap@comma{} @code{a chap}
+  up->Top
 10|@asis{} 2
  associated_section: @asis{}
+ node_directions:
+  up-> 1
 ';
 
 $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section

@@ -1024,6 +1024,12 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
           hv_store (structure_hv, "menu_directions",
                     strlen ("menu_directions"), sv, 0);
         }
+      if (structure->node_directions)
+        {
+          sv = build_perl_directions (structure->node_directions, 0);
+          hv_store (structure_hv, "node_directions",
+                    strlen ("node_directions"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 

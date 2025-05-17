@@ -14,7 +14,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{my-node}
   *arguments_line C1
@@ -51,7 +50,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{other-node}
   *arguments_line C1
@@ -132,9 +130,13 @@ $result_errors{'top_file_name_and_node_name_collision'} = [
 $result_nodes_list{'top_file_name_and_node_name_collision'} = '1|my node
  associated_section: 1 chap my node
  associated_title_command: 1 chap my node
+ node_directions:
+  next->other node
 2|other node
  associated_section: 2 chapter
  associated_title_command: 2 chapter
+ node_directions:
+  prev->my node
 ';
 
 $result_sections_list{'top_file_name_and_node_name_collision'} = '1|chap my node

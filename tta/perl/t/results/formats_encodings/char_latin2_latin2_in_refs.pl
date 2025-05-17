@@ -32,7 +32,6 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -121,7 +120,6 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_0104-_0105-_02db-_0118-_0119}
   *arguments_line C1
@@ -214,10 +212,15 @@ $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
  associated_title_command: char latin2 latin2 in refs
  menus:
   Ą ą ˛ Ę ę
+ node_directions:
+  next->Ą ą ˛ Ę ę
 2|Ą ą ˛ Ę ę
  associated_section: 1 Ą ą ˛ Ę ę
  associated_title_command: 1 Ą ą ˛ Ę ę
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

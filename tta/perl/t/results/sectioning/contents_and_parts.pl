@@ -14,7 +14,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -118,7 +117,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-1-node}
   *arguments_line C1
@@ -150,7 +148,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E4|up->E0]
  |node_number:{3}
  |normalized:{chapter-2-node}
   *arguments_line C1
@@ -199,7 +196,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E0]
  |node_number:{4}
  |normalized:{chapter-3-node}
   *arguments_line C1
@@ -297,12 +293,18 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
   chapter 1 node
   chapter 2 node
   chapter 3 node
+ node_directions:
+  next->chapter 1 node
 2|chapter 1 node
  associated_section: 1 chapter 1
  node_preceding_part: part 1: part 1
  associated_title_command: 1 chapter 1
  menu_directions:
   next->chapter 2 node
+  up->Top
+ node_directions:
+  next->chapter 2 node
+  prev->Top
   up->Top
 3|chapter 2 node
  associated_section: 2 chapter 2
@@ -311,11 +313,18 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
   next->chapter 3 node
   prev->chapter 1 node
   up->Top
+ node_directions:
+  next->chapter 3 node
+  prev->chapter 1 node
+  up->Top
 4|chapter 3 node
  associated_section: 3 chapter 3
  node_preceding_part: part2: part2
  associated_title_command: 3 chapter 3
  menu_directions:
+  prev->chapter 2 node
+  up->Top
+ node_directions:
   prev->chapter 2 node
   up->Top
 ';

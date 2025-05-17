@@ -14,7 +14,6 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapt}
   *arguments_line C1
@@ -238,9 +236,14 @@ $result_errors{'text_block_before_defline'} = [
 $result_nodes_list{'text_block_before_defline'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapt
 2|chapt
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'text_block_before_defline'} = '1|top

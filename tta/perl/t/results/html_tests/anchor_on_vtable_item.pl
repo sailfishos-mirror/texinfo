@@ -13,7 +13,6 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -171,7 +169,6 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Idx}
   *arguments_line C1
@@ -277,12 +274,21 @@ $result_errors{'anchor_on_vtable_item'} = [];
 $result_nodes_list{'anchor_on_vtable_item'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  next->Idx
+  prev->Top
+  up->Top
 3|Idx
  associated_section: 2 Idx
  associated_title_command: 2 Idx
+ node_directions:
+  prev->chap
+  up->Top
 ';
 
 $result_sections_list{'anchor_on_vtable_item'} = '1|top

@@ -14,7 +14,6 @@ $result_tree_text{'menu'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (menu_entry_node)[C3]]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -563,6 +562,8 @@ $result_nodes_list{'menu'} = '1|Top
   (manual)
   (after_comment)
   (after_description)
+ node_directions:
+  next->(ggg)
 ';
 
 $result_sections_list{'menu'} = '1

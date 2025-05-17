@@ -13,7 +13,6 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (menu_entry_node)[C4]]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -887,6 +886,8 @@ $result_errors{'line_passed_and_formats'} = [];
 $result_nodes_list{'line_passed_and_formats'} = '1|Top
  menus:
   (manual)node
+ node_directions:
+  next->(manual)node
 ';
 
 $result_sections_list{'line_passed_and_formats'} = '';

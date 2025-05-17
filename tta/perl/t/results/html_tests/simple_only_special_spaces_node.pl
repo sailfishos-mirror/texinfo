@@ -14,7 +14,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_2002_2003}
   *arguments_line C1
@@ -105,7 +103,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{3}
  |normalized:{_2004_2005}
   *arguments_line C1
@@ -178,12 +175,19 @@ $result_errors{'simple_only_special_spaces_node'} = [
 $result_nodes_list{'simple_only_special_spaces_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->  
 2|  
  associated_section: 1 EN QUAD| |
  associated_title_command: 1 EN QUAD| |
+ node_directions:
+  prev->Top
+  up->Top
 3|  
  associated_section: 3 THREE-PER-EM SPACE
  associated_title_command: 3 THREE-PER-EM SPACE
+ node_directions:
+  up->Top
 ';
 
 $result_sections_list{'simple_only_special_spaces_node'} = '1|top

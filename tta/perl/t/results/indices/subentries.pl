@@ -14,7 +14,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -47,7 +46,6 @@ $result_tree_text{'subentries'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-index}
   *arguments_line C1
@@ -340,9 +338,14 @@ $result_errors{'subentries'} = [
 $result_nodes_list{'subentries'} = '1|Top
  associated_section
  associated_title_command
+ node_directions:
+  next->chapter index
 2|chapter index
  associated_section: 1 Index
  associated_title_command: 1 Index
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'subentries'} = '1

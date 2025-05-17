@@ -22,7 +22,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -86,7 +85,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-part-node-after-top}
   *arguments_line C1
@@ -164,8 +162,13 @@ $result_nodes_list{'part_node_after_top'} = '1|Top
  associated_title_command: top
  menus:
   chap part node after top
+ node_directions:
+  next->chap part node after top
 2|chap part node after top
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

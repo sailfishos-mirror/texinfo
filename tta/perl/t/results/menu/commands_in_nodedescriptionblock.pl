@@ -13,7 +13,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -105,7 +104,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node1}
   *arguments_line C1
@@ -242,7 +240,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node2}
   *arguments_line C1
@@ -426,6 +423,8 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  menus:
   node1
   node2
+ node_directions:
+  next->node1
 2|node1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
@@ -433,12 +432,19 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  menu_directions:
   next->node2
   up->node2
+ node_directions:
+  next->node2
+  prev->Top
+  up->Top
 3|node2
  associated_section: 2 chap2
  associated_title_command: 2 chap2
  menus:
   node1
  menu_directions:
+  prev->node1
+  up->Top
+ node_directions:
   prev->node1
   up->Top
 ';

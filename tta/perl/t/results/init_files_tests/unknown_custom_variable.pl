@@ -13,7 +13,6 @@ $result_tree_text{'unknown_custom_variable'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'unknown_custom_variable'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -98,9 +96,14 @@ $result_errors{'unknown_custom_variable'} = [];
 $result_nodes_list{'unknown_custom_variable'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'unknown_custom_variable'} = '1|top

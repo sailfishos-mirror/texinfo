@@ -13,7 +13,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -117,7 +116,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{n-c2}
   *arguments_line C1
@@ -166,7 +164,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E17|prev->E4|up->E0]
  |node_number:{3}
  |normalized:{n-c3}
   *arguments_line C4
@@ -267,7 +264,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E7]
  |node_number:{4}
  |normalized:{n-c3-s-2}
   *arguments_line C1
@@ -365,7 +361,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
  |normalized:{n-c3-s1-s2}
   *arguments_line C4
@@ -519,11 +514,17 @@ $result_nodes_list{'more_sections_than_nodes'} = '1|Top
   n c2
   n c3
   n c3 s1 s2
+ node_directions:
+  next->n c2
 2|n c2
  associated_section: 2 c2
  associated_title_command: 2 c2
  menu_directions:
   next->n c3
+  up->Top
+ node_directions:
+  next->n c3
+  prev->Top
   up->Top
 3|n c3
  associated_section: 3 c3
@@ -534,15 +535,24 @@ $result_nodes_list{'more_sections_than_nodes'} = '1|Top
   next->n c3 s1 s2
   prev->n c2
   up->Top
+ node_directions:
+  next->n c3 s1 s2
+  prev->n c2
+  up->Top
 4|n c3 s 2
  associated_section: 3.2 c3 s2
  associated_title_command: 3.2 c3 s2
  menu_directions:
   up->n c3
+ node_directions:
+  up->n c3
 5|n c3 s1 s2
  associated_section: 4.1.2 c3 s1 s2
  associated_title_command: 4.1.2 c3 s1 s2
  menu_directions:
+  prev->n c3
+  up->Top
+ node_directions:
   prev->n c3
   up->Top
 ';

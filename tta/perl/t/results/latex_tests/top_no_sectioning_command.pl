@@ -14,7 +14,6 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -30,7 +29,6 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -90,9 +88,13 @@ $result_errors{'top_no_sectioning_command'} = [];
 
 
 $result_nodes_list{'top_no_sectioning_command'} = '1|Top
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'top_no_sectioning_command'} = '1|Chap

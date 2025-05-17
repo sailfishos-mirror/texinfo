@@ -50,7 +50,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -86,7 +85,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -364,7 +362,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{my-node}
   *arguments_line C1
@@ -420,7 +417,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E8|prev->E4|up->E0]
  |node_number:{4}
  |normalized:{Index}
   *arguments_line C1
@@ -465,7 +461,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E0]
  |node_number:{5}
  |normalized:{Second-appendix}
   *arguments_line C1
@@ -625,18 +620,35 @@ $result_errors{'documentation_examples_texi2html'} = [
 $result_nodes_list{'documentation_examples_texi2html'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  next->my node
+  prev->Top
+  up->Top
 3|my node
  associated_section: 2 New node
  associated_title_command: 2 New node
+ node_directions:
+  next->Index
+  prev->chapter
+  up->Top
 4|Index
  associated_section: A Index
  associated_title_command: A Index
+ node_directions:
+  next->Second appendix
+  prev->my node
+  up->Top
 5|Second appendix
  associated_section: B Second appendix
  associated_title_command: B Second appendix
+ node_directions:
+  prev->Index
+  up->Top
 ';
 
 $result_sections_list{'documentation_examples_texi2html'} = '1|top

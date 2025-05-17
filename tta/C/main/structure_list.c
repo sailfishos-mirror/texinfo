@@ -197,6 +197,8 @@ free_node_structure_list (NODE_STRUCTURE_LIST *list)
         destroy_const_element_list (node_structure->menus);
       if (node_structure->menu_directions)
         free (node_structure->menu_directions);
+      if (node_structure->node_directions)
+        free (node_structure->node_directions);
       free (node_structure);
     }
   free (list->list);
@@ -493,6 +495,11 @@ print_nodes_list (const DOCUMENT *document)
         {
           text_append_n (&result, " menu_directions:\n", 18);
           print_directions (&result, structure->menu_directions);
+        }
+      if (structure->node_directions)
+        {
+          text_append_n (&result, " node_directions:\n", 18);
+          print_directions (&result, structure->node_directions);
         }
     }
 

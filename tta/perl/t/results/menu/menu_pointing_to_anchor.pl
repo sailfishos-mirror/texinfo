@@ -13,7 +13,6 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -113,6 +112,8 @@ $result_nodes_list{'menu_pointing_to_anchor'} = '1|Top
  associated_title_command: top
  menus:
   An anchor
+ node_directions:
+  next->An anchor
 ';
 
 $result_sections_list{'menu_pointing_to_anchor'} = '1|top

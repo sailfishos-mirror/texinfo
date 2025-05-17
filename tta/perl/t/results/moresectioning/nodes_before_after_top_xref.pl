@@ -44,7 +44,6 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
@@ -101,7 +100,6 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{4}
  |normalized:{chap}
   *arguments_line C1
@@ -267,10 +265,15 @@ $result_nodes_list{'nodes_before_after_top_xref'} = '1|node before
 2|Top
  associated_section: top sectionning
  associated_title_command: top sectionning
+ node_directions:
+  next->chap
 3|after
 4|chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'nodes_before_after_top_xref'} = '1|top sectionning

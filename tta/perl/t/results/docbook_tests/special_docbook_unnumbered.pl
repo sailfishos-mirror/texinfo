@@ -13,7 +13,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -114,7 +113,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Dedication}
   *arguments_line C1
@@ -148,7 +146,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{preface}
   *arguments_line C1
@@ -182,7 +179,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{colophon}
   *arguments_line C1
@@ -216,7 +212,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E7|up->E0]
  |node_number:{5}
  |normalized:{acknowledgements}
   *arguments_line C1
@@ -323,16 +318,26 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
   preface
   colophon
   acknowledgements
+ node_directions:
+  next->Dedication
 2|Dedication
  associated_section: a dedication
  associated_title_command: a dedication
  menu_directions:
   next->preface
   up->Top
+ node_directions:
+  next->preface
+  prev->Top
+  up->Top
 3|preface
  associated_section: The Preface
  associated_title_command: The Preface
  menu_directions:
+  next->colophon
+  prev->Dedication
+  up->Top
+ node_directions:
   next->colophon
   prev->Dedication
   up->Top
@@ -343,10 +348,17 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
   next->acknowledgements
   prev->preface
   up->Top
+ node_directions:
+  next->acknowledgements
+  prev->preface
+  up->Top
 5|acknowledgements
  associated_section: 1 A chapter Acnkowledgements
  associated_title_command: 1 A chapter Acnkowledgements
  menu_directions:
+  prev->colophon
+  up->Top
+ node_directions:
   prev->colophon
   up->Top
 ';

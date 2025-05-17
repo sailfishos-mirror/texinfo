@@ -22,7 +22,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -124,7 +123,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E0|prev->E5|up->E0]
  |node_number:{2}
  |normalized:{chapter-1}
   *arguments_line C4
@@ -179,7 +177,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node-between-chapters}
   *arguments_line C1
@@ -205,7 +202,6 @@ NodeUp: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter-2}
   *arguments_line C1
@@ -292,14 +288,24 @@ $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
   chapter 1
   node between chapters
   chapter 2
+ node_directions:
+  next->chapter 1
 2|chapter 1
  associated_section: 1 chapter c1
  associated_title_command: 1 chapter c1
  menu_directions:
   next->node between chapters
   up->Top
+ node_directions:
+  next->Top
+  prev->node between chapters
+  up->Top
 3|node between chapters
  menu_directions:
+  next->chapter 2
+  prev->chapter 1
+  up->Top
+ node_directions:
   next->chapter 2
   prev->chapter 1
   up->Top
@@ -308,6 +314,9 @@ $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
  associated_title_command: 2 chapter c2
  menu_directions:
   prev->node between chapters
+  up->Top
+ node_directions:
+  prev->chapter 1
   up->Top
 ';
 

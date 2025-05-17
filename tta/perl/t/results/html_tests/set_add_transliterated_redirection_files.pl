@@ -14,7 +14,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -83,7 +81,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{s_00e8c}
   *arguments_line C1
@@ -155,12 +152,19 @@ $result_errors{'set_add_transliterated_redirection_files'} = [];
 $result_nodes_list{'set_add_transliterated_redirection_files'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 3|s@`{e}c
  associated_section: 1.1 g
  associated_title_command: 1.1 g
+ node_directions:
+  up->Chap
 ';
 
 $result_sections_list{'set_add_transliterated_redirection_files'} = '1|top

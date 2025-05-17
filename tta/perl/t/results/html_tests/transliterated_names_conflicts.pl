@@ -24,7 +24,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -75,7 +74,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Pr_00e9s}
   *arguments_line C1
@@ -118,7 +116,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Other-node}
   *arguments_line C1
@@ -237,12 +234,21 @@ $result_floats{'transliterated_names_conflicts'} = 'Figure: 1
 $result_nodes_list{'transliterated_names_conflicts'} = '1|Top
  associated_section: Same transliterated names
  associated_title_command: Same transliterated names
+ node_directions:
+  next->Prés
 2|Prés
  associated_section: 1 Prés
  associated_title_command: 1 Prés
+ node_directions:
+  next->Other node
+  prev->Top
+  up->Top
 3|Other node
  associated_section: 2 Other chapter
  associated_title_command: 2 Other chapter
+ node_directions:
+  prev->Prés
+  up->Top
 ';
 
 $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated names

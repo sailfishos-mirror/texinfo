@@ -43,7 +43,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -79,7 +78,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -167,9 +165,14 @@ $result_errors{'anchor_in_copying_insertcopying_chap'} = [];
 $result_nodes_list{'anchor_in_copying_insertcopying_chap'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'anchor_in_copying_insertcopying_chap'} = '1|top

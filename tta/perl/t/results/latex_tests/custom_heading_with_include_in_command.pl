@@ -45,7 +45,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -86,7 +85,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{in-main}
   *arguments_line C1
@@ -171,7 +169,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Chapter-in-included-file}
   *arguments_line C1
@@ -233,7 +230,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E4]
  |node_number:{4}
  |normalized:{Section}
   *arguments_line C1
@@ -294,7 +290,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E7]
  |node_number:{5}
  |normalized:{Subsection}
   *arguments_line C1
@@ -757,7 +752,6 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{6}
  |normalized:{last-chap}
   *arguments_line C1
@@ -950,14 +944,23 @@ $result_errors{'custom_heading_with_include_in_command'} = [];
 $result_nodes_list{'custom_heading_with_include_in_command'} = '1|Top
  associated_section: top sectionning
  associated_title_command: top sectionning
+ node_directions:
+  next->in main
 2|in main
  associated_section: 1 chap in main
  associated_title_command: 1 chap in main
+ node_directions:
+  next->Chapter in included file
+  prev->Top
+  up->Top
 3|Chapter in included file
  associated_section: 2 Chapter in included file
  associated_title_command: 2 Chapter in included file
  menus:
   Section
+ node_directions:
+  prev->in main
+  up->Top
 4|Section
  associated_section: 2.1 Section
  associated_title_command: 2.1 Section
@@ -965,14 +968,20 @@ $result_nodes_list{'custom_heading_with_include_in_command'} = '1|Top
   Subsection
  menu_directions:
   up->Chapter in included file
+ node_directions:
+  up->Chapter in included file
 5|Subsection
  associated_section: 2.1.1 Subsection
  associated_title_command: 2.1.1 Subsection
  menu_directions:
   up->Section
+ node_directions:
+  up->Section
 6|last chap
  associated_section: 7 A last
  associated_title_command: 7 A last
+ node_directions:
+  up->Top
 ';
 
 $result_sections_list{'custom_heading_with_include_in_command'} = '1|top sectionning

@@ -26,7 +26,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -62,7 +61,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -106,7 +104,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chapter-fr}
   *arguments_line C1
@@ -151,7 +148,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|up->E4]
  |node_number:{4}
  |normalized:{subnode-pt}
   *arguments_line C1
@@ -194,7 +190,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E4]
  |node_number:{5}
  |normalized:{subnode-fr}
   *arguments_line C1
@@ -269,18 +264,33 @@ $result_errors{'multiple_documentlanguage'} = [];
 $result_nodes_list{'multiple_documentlanguage'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap no new language
  associated_title_command: 1 Chap no new language
+ node_directions:
+  next->chapter fr
+  prev->Top
+  up->Top
 3|chapter fr
  associated_section: 2 chapter fr
  associated_title_command: 2 chapter fr
+ node_directions:
+  prev->chap
+  up->Top
 4|subnode pt
  associated_section: 2.1 section pt
  associated_title_command: 2.1 section pt
+ node_directions:
+  next->subnode fr
+  up->chapter fr
 5|subnode fr
  associated_section: 2.2 section fr
  associated_title_command: 2.2 section fr
+ node_directions:
+  prev->subnode pt
+  up->chapter fr
 ';
 
 $result_sections_list{'multiple_documentlanguage'} = '1|top

@@ -14,7 +14,6 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -93,7 +92,6 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{nodename_002e-a}
   *arguments_line C1
@@ -111,7 +109,6 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{node_002ccomma}
   *arguments_line C1
@@ -130,7 +127,6 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{4}
  |normalized:{bidule_003a}
   *arguments_line C1
@@ -228,17 +224,30 @@ $result_nodes_list{'invalid_node_name_warning'} = '1|Top
 
   node@comma{}comma
   @asis{bidule:}
+ node_directions:
+  next->@asis{nodename. a}
 2|@asis{nodename. a}
  menu_directions:
   next->node@comma{}comma
+  up->Top
+ node_directions:
+  next->node@comma{}comma
+  prev->Top
   up->Top
 3|node@comma{}comma
  menu_directions:
   next->@asis{bidule:}
   prev->@asis{nodename. a}
   up->Top
+ node_directions:
+  next->@asis{bidule:}
+  prev->@asis{nodename. a}
+  up->Top
 4|@asis{bidule:}
  menu_directions:
+  prev->node@comma{}comma
+  up->Top
+ node_directions:
   prev->node@comma{}comma
   up->Top
 ';

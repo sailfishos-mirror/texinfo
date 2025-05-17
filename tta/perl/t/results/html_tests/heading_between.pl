@@ -71,7 +71,6 @@ $result_tree_text{'heading_between'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{Section}
   *arguments_line C1
@@ -131,6 +130,8 @@ $result_nodes_list{'heading_between'} = '1|Chapter
 2|Section
  associated_section: 1.1 Section
  associated_title_command: 1.1 Section
+ node_directions:
+  up->Chapter
 ';
 
 $result_sections_list{'heading_between'} = '1|Chapter

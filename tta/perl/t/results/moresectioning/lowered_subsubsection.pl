@@ -13,7 +13,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -74,7 +73,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -136,7 +134,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Section}
   *arguments_line C1
@@ -197,7 +194,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Subsection}
   *arguments_line C1
@@ -269,7 +265,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E14|up->E9]
  |node_number:{5}
  |normalized:{Subsubsection}
   *arguments_line C1
@@ -302,7 +297,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E17|prev->E12|up->E9]
  |node_number:{6}
  |normalized:{Lowered-subsec}
   *arguments_line C1
@@ -363,7 +357,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E14|up->E9]
  |node_number:{7}
  |normalized:{Lowered-subsubsection}
   *arguments_line C1
@@ -518,6 +511,8 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_title_command
  menus:
   Chapter
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
@@ -525,12 +520,17 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
   Section
  menu_directions:
   up->Top
+ node_directions:
+  prev->Top
+  up->Top
 3|Section
  associated_section: 1.1 Section
  associated_title_command: 1.1 Section
  menus:
   Subsection
  menu_directions:
+  up->Chapter
+ node_directions:
   up->Chapter
 4|Subsection
  associated_section: 1.1.1 Subsection
@@ -540,10 +540,15 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
   Lowered subsec
  menu_directions:
   up->Section
+ node_directions:
+  up->Section
 5|Subsubsection
  associated_section: 1.1.1.1 Subsubsection
  associated_title_command: 1.1.1.1 Subsubsection
  menu_directions:
+  next->Lowered subsec
+  up->Subsection
+ node_directions:
   next->Lowered subsec
   up->Subsection
 6|Lowered subsec
@@ -554,11 +559,18 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  menu_directions:
   prev->Subsubsection
   up->Subsection
+ node_directions:
+  next->Lowered subsubsection
+  prev->Subsubsection
+  up->Subsection
 7|Lowered subsubsection
  associated_section: 1.1.1.3 Lowered subsubsection
  associated_title_command: 1.1.1.3 Lowered subsubsection
  menu_directions:
   up->Lowered subsec
+ node_directions:
+  prev->Lowered subsec
+  up->Subsection
 ';
 
 $result_sections_list{'lowered_subsubsection'} = '1

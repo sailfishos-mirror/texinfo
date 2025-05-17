@@ -39,7 +39,6 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -78,7 +77,6 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Mixed-english-and-chinese}
   *arguments_line C1
@@ -228,9 +226,14 @@ $result_errors{'chinese_mixed_with_en'} = [];
 $result_nodes_list{'chinese_mixed_with_en'} = '1|Top
  associated_section: Mixed chinese and english
  associated_title_command: Mixed chinese and english
+ node_directions:
+  next->Mixed english and chinese
 2|Mixed english and chinese
  associated_section: 1 Mixed english and chinese
  associated_title_command: 1 Mixed english and chinese
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'chinese_mixed_with_en'} = '1|Mixed chinese and english

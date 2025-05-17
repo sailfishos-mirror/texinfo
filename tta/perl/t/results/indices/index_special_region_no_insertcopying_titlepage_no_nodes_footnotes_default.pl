@@ -211,7 +211,6 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -420,7 +419,6 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4|up->E4]
  |node_number:{2}
  |normalized:{Copying-and-indices}
   *arguments_line C1
@@ -698,10 +696,15 @@ $result_nodes_list{'index_special_region_no_insertcopying_titlepage_no_nodes_foo
  associated_title_command: Top
  menus:
   Copying and indices
+ node_directions:
+  next->Copying and indices
 2|Copying and indices
  associated_section: A Copying and indices
  associated_title_command: A Copying and indices
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

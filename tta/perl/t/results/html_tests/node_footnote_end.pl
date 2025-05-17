@@ -20,7 +20,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -104,7 +103,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_00e1}
   *arguments_line C1
@@ -140,7 +138,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{_00e2}
   *arguments_line C1
@@ -176,7 +173,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter}
   *arguments_line C1
@@ -242,7 +238,6 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4|up->E4]
  |node_number:{5}
  |normalized:{_00e0}
   *arguments_line C1
@@ -376,12 +371,22 @@ $result_nodes_list{'node_footnote_end'} = '1|Top
   @^a
   chapter
   @`a
+ node_directions:
+  next->@\'a
 2|@\'a
  menu_directions:
   next->@^a
   up->Top
+ node_directions:
+  next->@^a
+  prev->Top
+  up->Top
 3|@^a
  menu_directions:
+  next->chapter
+  prev->@\'a
+  up->Top
+ node_directions:
   next->chapter
   prev->@\'a
   up->Top
@@ -394,8 +399,15 @@ $result_nodes_list{'node_footnote_end'} = '1|Top
   next->@`a
   prev->@^a
   up->Top
+ node_directions:
+  next->@`a
+  prev->@^a
+  up->Top
 5|@`a
  menu_directions:
+  prev->chapter
+  up->chapter
+ node_directions:
   prev->chapter
   up->chapter
 ';

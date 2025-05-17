@@ -18,7 +18,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2|up->E2]
  |node_number:{1}
  |normalized:{part-node-before-top}
   *arguments_line C4
@@ -68,7 +67,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E0]
  |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
@@ -165,12 +163,17 @@ $result_errors{'part_node_before_top'} = [
 $result_nodes_list{'part_node_before_top'} = '1|part node before top
  menu_directions:
   up->Top
+ node_directions:
+  next->Top
+  up->Top
 2|Top
  associated_section: top
  node_preceding_part: part
  associated_title_command: top
  menus:
   part node before top
+ node_directions:
+  next->part node before top
 ';
 
 $result_sections_list{'part_node_before_top'} = '1|part

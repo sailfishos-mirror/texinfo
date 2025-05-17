@@ -21,7 +21,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -57,7 +56,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -106,7 +104,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Chapter-fr}
   *arguments_line C1
@@ -144,7 +141,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E4]
  |node_number:{4}
  |normalized:{section-fr}
   *arguments_line C1
@@ -187,7 +183,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E10|prev->E4|up->E0]
  |node_number:{5}
  |normalized:{Chapter-de}
   *arguments_line C1
@@ -224,7 +219,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E8|up->E0]
  |node_number:{6}
  |normalized:{Last-chapter}
   *arguments_line C1
@@ -318,21 +312,40 @@ $result_errors{'customize_translations'} = [];
 $result_nodes_list{'customize_translations'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  next->Chapter fr
+  prev->Top
+  up->Top
 3|Chapter fr
  associated_section: 2 chap fr
  associated_title_command: 2 chap fr
+ node_directions:
+  next->Chapter de
+  prev->Chapter
+  up->Top
 4|section fr
  associated_section: 2.1 sec fr
  associated_title_command: 2.1 sec fr
+ node_directions:
+  up->Chapter fr
 5|Chapter de
  associated_section: 3 chap de
  associated_title_command: 3 chap de
+ node_directions:
+  next->Last chapter
+  prev->Chapter fr
+  up->Top
 6|Last chapter
  associated_section: 4 Last Chapter
  associated_title_command: 4 Last Chapter
+ node_directions:
+  prev->Chapter de
+  up->Top
 ';
 
 $result_sections_list{'customize_translations'} = '1|top

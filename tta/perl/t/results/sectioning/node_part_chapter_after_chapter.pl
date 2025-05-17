@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -112,7 +111,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-node}
   *arguments_line C1
@@ -154,7 +152,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{3}
  |normalized:{part-chapter-node}
   *arguments_line C1
@@ -260,16 +257,25 @@ $result_nodes_list{'node_part_chapter_after_chapter'} = '1|Top
  menus:
   chapter node
   part chapter node
+ node_directions:
+  next->chapter node
 2|chapter node
  associated_section: 1 chapter node
  associated_title_command: 1 chapter node
  menu_directions:
   next->part chapter node
   up->Top
+ node_directions:
+  next->part chapter node
+  prev->Top
+  up->Top
 3|part chapter node
  associated_section: 2 chapter with part node
  associated_title_command: 2 chapter with part node
  menu_directions:
+  prev->chapter node
+  up->Top
+ node_directions:
   prev->chapter node
   up->Top
 ';

@@ -13,7 +13,6 @@ $result_tree_text{'double_top'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E0]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C2
@@ -35,7 +34,6 @@ $result_tree_text{'double_top'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Top}
   *arguments_line C4
@@ -128,7 +126,12 @@ $result_errors{'double_top'} = [
 
 
 $result_nodes_list{'double_top'} = '1|ToP
+ node_directions:
+  next->ToP
 2|top
+ node_directions:
+  prev->ToP
+  up->ToP
 ';
 
 $result_sections_list{'double_top'} = '';

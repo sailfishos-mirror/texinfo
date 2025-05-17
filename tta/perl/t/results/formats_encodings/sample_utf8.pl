@@ -131,7 +131,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -238,7 +237,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   *arguments_line C1
@@ -364,7 +362,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{Second-Chapter-AE-_0104_0118-ae-_0105_0119}
   *arguments_line C1
@@ -400,7 +397,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{Index-node}
   *arguments_line C1
@@ -564,11 +560,17 @@ $result_nodes_list{'sample_utf8'} = '1|Top
   第一章（First Chapter）
   Second Chapter AE ĄĘ ae ąę
   Index node
+ node_directions:
+  next->第一章（First Chapter）
 2|第一章（First Chapter）
  associated_section: 1 第一章（First Chapter）
  associated_title_command: 1 第一章（First Chapter）
  menu_directions:
   next->Second Chapter AE ĄĘ ae ąę
+  up->Top
+ node_directions:
+  next->Second Chapter AE ĄĘ ae ąę
+  prev->Top
   up->Top
 3|Second Chapter AE ĄĘ ae ąę
  associated_section: 2 Chapter 2 AE ĄĘ ae ąę
@@ -577,10 +579,17 @@ $result_nodes_list{'sample_utf8'} = '1|Top
   next->Index node
   prev->第一章（First Chapter）
   up->Top
+ node_directions:
+  next->Index node
+  prev->第一章（First Chapter）
+  up->Top
 4|Index node
  associated_section: Index
  associated_title_command: Index
  menu_directions:
+  prev->Second Chapter AE ĄĘ ae ąę
+  up->Top
+ node_directions:
   prev->Second Chapter AE ĄĘ ae ąę
   up->Top
 ';

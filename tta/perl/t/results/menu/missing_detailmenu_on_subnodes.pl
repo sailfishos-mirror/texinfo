@@ -13,7 +13,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -130,7 +129,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -192,7 +190,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E11|prev->E8|up->E3]
  |node_number:{3}
  |normalized:{section}
   *arguments_line C1
@@ -223,7 +220,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E3|up->E0]
  |node_number:{4}
  |normalized:{chapter-2}
   *arguments_line C1
@@ -296,7 +292,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13|prev->E6|up->E8]
  |node_number:{5}
  |normalized:{section-chap-2}
   *arguments_line C1
@@ -327,7 +322,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E11|up->E8]
  |node_number:{6}
  |normalized:{unnumberedsec}
   *arguments_line C1
@@ -469,6 +463,8 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
   section
   section chap 2
   unnumberedsec
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
@@ -477,10 +473,18 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
  menu_directions:
   next->chapter 2
   up->Top
+ node_directions:
+  next->chapter 2
+  prev->Top
+  up->Top
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
  menu_directions:
+  next->section chap 2
+  prev->chapter 2
+  up->chapter
+ node_directions:
   next->section chap 2
   prev->chapter 2
   up->chapter
@@ -494,6 +498,10 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
   next->section
   prev->chapter
   up->Top
+ node_directions:
+  next->section
+  prev->chapter
+  up->Top
 5|section chap 2
  associated_section: 2.1 section chap 2
  associated_title_command: 2.1 section chap 2
@@ -501,10 +509,17 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
   next->unnumberedsec
   prev->section
   up->chapter 2
+ node_directions:
+  next->unnumberedsec
+  prev->section
+  up->chapter 2
 6|unnumberedsec
  associated_section: unnumberedsec
  associated_title_command: unnumberedsec
  menu_directions:
+  prev->section chap 2
+  up->chapter 2
+ node_directions:
   prev->section chap 2
   up->chapter 2
 ';

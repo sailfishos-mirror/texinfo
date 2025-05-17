@@ -13,7 +13,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -82,7 +80,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{Section}
   *arguments_line C1
@@ -114,7 +111,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E4]
  |node_number:{4}
  |normalized:{-1}
   *arguments_line C1
@@ -148,7 +144,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E6]
  |node_number:{5}
  |normalized:{There}
   *arguments_line C1
@@ -210,14 +205,25 @@ $result_errors{'test_fill_gaps_in_sectioning_insert_nodes'} = [];
 
 $result_nodes_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|Top
  associated_section: top
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 3|Section
  associated_section: 1.1 Section
+ node_directions:
+  up->Chap
 4|@asis{} 1
  associated_section: @asis{}
+ node_directions:
+  up->Section
 5|There
  associated_section: There
+ node_directions:
+  up->@asis{} 1
 ';
 
 $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top

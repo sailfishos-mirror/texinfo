@@ -154,7 +154,7 @@ entry name.  Returns @code{undef} if the node argument is missing.
 Goes through nodes in @emph{$document} tree and set directions.  Set the list of
 nodes in the @emph{$document}.
 
-This functions sets, in the @code{extra} node element hash:
+This functions sets, in the node structure information element hash:
 
 @table @asis
 @item node_directions
@@ -236,7 +236,7 @@ following the @emph{up} @emph{section_directions}.
 
 Goes through menu and set directions implied by menus.
 
-This functions sets, in the @code{extra} node element hash reference:
+This functions sets, in the node structure information hash reference:
 
 @table @asis
 @item menu_directions

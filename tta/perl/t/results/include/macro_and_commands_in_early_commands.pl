@@ -116,7 +116,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -150,7 +149,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -315,7 +313,11 @@ $result_errors{'macro_and_commands_in_early_commands'} = [
 $result_nodes_list{'macro_and_commands_in_early_commands'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'macro_and_commands_in_early_commands'} = '1|top

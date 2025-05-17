@@ -19,7 +19,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -87,7 +86,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-node}
   *arguments_line C4
@@ -132,7 +130,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{third-node}
   *arguments_line C4
@@ -186,12 +183,21 @@ $result_nodes_list{'explicit_node_directions'} = '1|Top
  menus:
   chap node
   third node
+ node_directions:
+  next->chap node
 2|chap node
  menu_directions:
   next->third node
   up->Top
+ node_directions:
+  next->third node
+  prev->Top
+  up->Top
 3|third node
  menu_directions:
+  prev->chap node
+  up->Top
+ node_directions:
   prev->chap node
   up->Top
 ';

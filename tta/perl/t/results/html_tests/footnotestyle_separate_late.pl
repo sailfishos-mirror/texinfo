@@ -21,7 +21,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -72,7 +71,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-f}
   *arguments_line C1
@@ -124,7 +122,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chap-s}
   *arguments_line C1
@@ -211,12 +208,21 @@ $result_errors{'footnotestyle_separate_late'} = [];
 $result_nodes_list{'footnotestyle_separate_late'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap f
 2|chap f
  associated_section: 1 Chapter f
  associated_title_command: 1 Chapter f
+ node_directions:
+  next->chap s
+  prev->Top
+  up->Top
 3|chap s
  associated_section: 2 Chapter s
  associated_title_command: 2 Chapter s
+ node_directions:
+  prev->chap f
+  up->Top
 ';
 
 $result_sections_list{'footnotestyle_separate_late'} = '1|top

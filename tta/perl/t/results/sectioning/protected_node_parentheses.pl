@@ -79,7 +79,6 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{_0028manual_0029-name}
   *arguments_line C1
@@ -154,6 +153,8 @@ $result_nodes_list{'protected_node_parentheses'} = '1|first
   @asis{(}manual) name
 2|@asis{(}manual) name
  menu_directions:
+  up->first
+ node_directions:
   up->first
 ';
 

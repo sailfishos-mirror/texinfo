@@ -14,7 +14,6 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -29,7 +28,6 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -74,7 +72,11 @@ $result_errors{'nodes_no_section_footnote_no_top_node_output'} = [
 
 
 $result_nodes_list{'nodes_no_section_footnote_no_top_node_output'} = '1|Top
+ node_directions:
+  next->chap
 2|chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'nodes_no_section_footnote_no_top_node_output'} = '';

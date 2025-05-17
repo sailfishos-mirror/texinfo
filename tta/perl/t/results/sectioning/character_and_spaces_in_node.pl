@@ -14,7 +14,6 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -29,7 +28,6 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap-nodes}
   *arguments_line C4
@@ -67,7 +65,6 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|prev->E1|up->E1]
  |node_number:{3}
  |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
   *arguments_line C4
@@ -105,7 +102,6 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E2|up->E1]
  |node_number:{4}
  |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
   *arguments_line C4
@@ -137,7 +133,6 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
   |{  }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E1]
  |node_number:{5}
  |normalized:{local-node}
   *arguments_line C4
@@ -205,10 +200,27 @@ $result_errors{'character_and_spaces_in_node'} = [
 
 
 $result_nodes_list{'character_and_spaces_in_node'} = '1|Top
+ node_directions:
+  next->chap nodes
 2|chap nodes
+ node_directions:
+  next->!_"#$%&\'()*+-.
+  prev->Top
+  up->Top
 3|!_"#$%&\'()*+-.
+ node_directions:
+  next->/;<=>?[\\]^_`|~
+  prev->chap nodes
+  up->chap nodes
 4|/;<=>?[\\]^_`|~
+ node_directions:
+  next->local   node
+  prev->!_"#$%&\'()*+-.
+  up->chap nodes
 5|local   node
+ node_directions:
+  prev->/;<=>?[\\]^_`|~
+  up->chap nodes
 ';
 
 $result_sections_list{'character_and_spaces_in_node'} = '';

@@ -23,7 +23,6 @@ $result_tree_text{'nodedescription'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -59,7 +58,6 @@ $result_tree_text{'nodedescription'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -165,10 +163,15 @@ $result_errors{'nodedescription'} = [
 $result_nodes_list{'nodedescription'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
  node_description: @nodedescription @emph{first description} of chapter
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'nodedescription'} = '1|top

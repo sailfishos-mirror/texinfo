@@ -61,7 +61,6 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -97,7 +96,6 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -317,9 +315,14 @@ $result_errors{'custom_headings'} = [];
 $result_nodes_list{'custom_headings'} = '1|Top
  associated_section: top sectionning
  associated_title_command: top sectionning
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 ch--ap
  associated_title_command: 1 ch--ap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'custom_headings'} = '1|top sectionning

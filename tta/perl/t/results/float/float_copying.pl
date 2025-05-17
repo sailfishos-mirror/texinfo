@@ -167,7 +167,6 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -238,7 +237,6 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E3|up->E3]
  |node_number:{2}
  |normalized:{Copying-and-floats}
   *arguments_line C1
@@ -400,10 +398,15 @@ $result_nodes_list{'float_copying'} = '1|Top
  associated_title_command: Top
  menus:
   Copying and floats
+ node_directions:
+  next->Copying and floats
 2|Copying and floats
  associated_section: A Copying and floats
  associated_title_command: A Copying and floats
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

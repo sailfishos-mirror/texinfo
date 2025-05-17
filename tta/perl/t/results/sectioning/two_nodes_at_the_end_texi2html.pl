@@ -14,7 +14,6 @@ $result_tree_text{'two_nodes_at_the_end_texi2html'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -101,7 +100,6 @@ $result_tree_text{'two_nodes_at_the_end_texi2html'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-1}
   *arguments_line C4
@@ -156,7 +154,6 @@ $result_tree_text{'two_nodes_at_the_end_texi2html'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node-after-chapter-1}
   *arguments_line C1
@@ -175,7 +172,6 @@ $result_tree_text{'two_nodes_at_the_end_texi2html'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{last-node-in-chapter-1}
   *arguments_line C1
@@ -232,19 +228,32 @@ $result_nodes_list{'two_nodes_at_the_end_texi2html'} = '1|Top
   chapter 1
   node after chapter 1
   last node in chapter 1
+ node_directions:
+  next->chapter 1
 2|chapter 1
  associated_section: 1 chapter c1
  associated_title_command: 1 chapter c1
  menu_directions:
   next->node after chapter 1
   up->Top
+ node_directions:
+  next->node after chapter 1
+  prev->Top
+  up->Top
 3|node after chapter 1
  menu_directions:
   next->last node in chapter 1
   prev->chapter 1
   up->Top
+ node_directions:
+  next->last node in chapter 1
+  prev->chapter 1
+  up->Top
 4|last node in chapter 1
  menu_directions:
+  prev->node after chapter 1
+  up->Top
+ node_directions:
   prev->node after chapter 1
   up->Top
 ';

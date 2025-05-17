@@ -85,7 +85,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -206,7 +205,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-ja}
   *arguments_line C1
@@ -324,7 +322,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{chapter-en}
   *arguments_line C1
@@ -442,7 +439,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E5|up->E0]
  |node_number:{4}
  |normalized:{chapter-fr_005fFR}
   *arguments_line C1
@@ -551,7 +547,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E11|prev->E7|up->E0]
  |node_number:{5}
  |normalized:{chapter-de}
   *arguments_line C1
@@ -595,7 +590,6 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E9|up->E0]
  |node_number:{6}
  |normalized:{chapter-pt_005fBR}
   *arguments_line C1
@@ -734,16 +728,26 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
   chapter fr_FR
   chapter de
   chapter pt_BR
+ node_directions:
+  next->chapter ja
 2|chapter ja
  associated_section: 1 ja
  associated_title_command: 1 ja
  menu_directions:
   next->chapter en
   up->Top
+ node_directions:
+  next->chapter en
+  prev->Top
+  up->Top
 3|chapter en
  associated_section: 2 en
  associated_title_command: 2 en
  menu_directions:
+  next->chapter fr_FR
+  prev->chapter ja
+  up->Top
+ node_directions:
   next->chapter fr_FR
   prev->chapter ja
   up->Top
@@ -754,6 +758,10 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
   next->chapter de
   prev->chapter en
   up->Top
+ node_directions:
+  next->chapter de
+  prev->chapter en
+  up->Top
 5|chapter de
  associated_section: 4 de
  associated_title_command: 4 de
@@ -761,10 +769,17 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
   next->chapter pt_BR
   prev->chapter fr_FR
   up->Top
+ node_directions:
+  next->chapter pt_BR
+  prev->chapter fr_FR
+  up->Top
 6|chapter pt_BR
  associated_section: 5 pt_bR
  associated_title_command: 5 pt_bR
  menu_directions:
+  prev->chapter de
+  up->Top
+ node_directions:
   prev->chapter de
   up->Top
 ';

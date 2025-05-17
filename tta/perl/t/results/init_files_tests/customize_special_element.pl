@@ -25,7 +25,6 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -61,7 +60,6 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -105,7 +103,6 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Chapter-fr}
   *arguments_line C1
@@ -180,12 +177,21 @@ $result_errors{'customize_special_element'} = [];
 $result_nodes_list{'customize_special_element'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  next->Chapter fr
+  prev->Top
+  up->Top
 3|Chapter fr
  associated_section: 2 chap fr
  associated_title_command: 2 chap fr
+ node_directions:
+  prev->Chapter
+  up->Top
 ';
 
 $result_sections_list{'customize_special_element'} = '1|top

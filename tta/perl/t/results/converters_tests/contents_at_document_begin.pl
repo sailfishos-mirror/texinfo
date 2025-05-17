@@ -22,7 +22,6 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -90,7 +89,6 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -169,10 +167,15 @@ $result_nodes_list{'contents_at_document_begin'} = '1|Top
  associated_title_command: Contents at beginning
  menus:
   chapter
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

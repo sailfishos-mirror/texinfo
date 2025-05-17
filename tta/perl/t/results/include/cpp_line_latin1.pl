@@ -31,7 +31,6 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -61,7 +60,6 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -133,7 +131,11 @@ $result_errors{'cpp_line_latin1'} = [
 $result_nodes_list{'cpp_line_latin1'} = '1|Top
  associated_section
  associated_title_command
+ node_directions:
+  next->chap
 2|chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'cpp_line_latin1'} = '1

@@ -53,7 +53,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8]
  |node_number:{1}
  |normalized:{bar}
   *arguments_line C1
@@ -120,7 +119,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|up->E1]
  |node_number:{2}
  |normalized:{onesub1}
   *arguments_line C1
@@ -151,7 +149,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4|up->E1]
  |node_number:{3}
  |normalized:{onesub2}
   *arguments_line C1
@@ -183,7 +180,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1]
  |node_number:{4}
  |normalized:{foo}
   *arguments_line C1
@@ -267,7 +263,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13|up->E8]
  |node_number:{5}
  |normalized:{sub1}
   *arguments_line C1
@@ -298,7 +293,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E15|prev->E11|up->E8]
  |node_number:{6}
  |normalized:{sub2}
   *arguments_line C1
@@ -329,7 +323,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13|prev->E13|up->E8]
  |node_number:{7}
  |normalized:{sub3}
   *arguments_line C1
@@ -499,13 +492,21 @@ $result_nodes_list{'menutextorder'} = '1|bar
  associated_title_command: 1 bar
  menus:
   onesub2
+ node_directions:
+  next->foo
 2|onesub1
  associated_section: 1.1 One sub 1
  associated_title_command: 1.1 One sub 1
+ node_directions:
+  next->onesub2
+  up->bar
 3|onesub2
  associated_section: 1.2 One sub 2
  associated_title_command: 1.2 One sub 2
  menu_directions:
+  up->bar
+ node_directions:
+  prev->onesub1
   up->bar
 4|foo
  associated_section: 2 foo
@@ -514,11 +515,16 @@ $result_nodes_list{'menutextorder'} = '1|bar
   sub1
   sub3
   sub2
+ node_directions:
+  prev->bar
 5|sub1
  associated_section: 2.1 Sub1
  associated_title_command: 2.1 Sub1
  menu_directions:
   next->sub3
+  up->foo
+ node_directions:
+  next->sub2
   up->foo
 6|sub2
  associated_section: 2.2 Sub2
@@ -526,12 +532,20 @@ $result_nodes_list{'menutextorder'} = '1|bar
  menu_directions:
   prev->sub3
   up->foo
+ node_directions:
+  next->sub3
+  prev->sub1
+  up->foo
 7|sub3
  associated_section: 2.3 Sub3
  associated_title_command: 2.3 Sub3
  menu_directions:
   next->sub2
   prev->sub1
+  up->foo
+ node_directions:
+  next->sub2
+  prev->sub2
   up->foo
 ';
 

@@ -25,7 +25,6 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -69,7 +68,6 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -298,9 +296,14 @@ $result_floats{'comment_space_command_on_line'} = 'Text: 1
 $result_nodes_list{'comment_space_command_on_line'} = '1|Top
  associated_section: top element@ 
  associated_title_command: top element@ 
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chapter@ 
  associated_title_command: 1 Chapter@ 
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'comment_space_command_on_line'} = '1|top element@ 

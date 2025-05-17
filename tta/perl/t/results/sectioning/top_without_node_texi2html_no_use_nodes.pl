@@ -37,7 +37,6 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{second}
   *arguments_line C4
@@ -102,6 +101,9 @@ $result_errors{'top_without_node_texi2html_no_use_nodes'} = [];
 $result_nodes_list{'top_without_node_texi2html_no_use_nodes'} = '1|second
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  up->(dir)
+
 ';
 
 $result_sections_list{'top_without_node_texi2html_no_use_nodes'} = '1|top section

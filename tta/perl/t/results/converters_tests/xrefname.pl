@@ -13,7 +13,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{ntiti}
   *arguments_line C1
@@ -95,7 +93,6 @@ $result_tree_text{'xrefname'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chip}
   *arguments_line C1
@@ -214,12 +211,21 @@ $result_errors{'xrefname'} = [];
 $result_nodes_list{'xrefname'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->ntiti
 2|ntiti
  associated_section: 1 chap
  associated_title_command: @xrefname titi
+ node_directions:
+  next->chip
+  prev->Top
+  up->Top
 3|chip
  associated_section: A app
  associated_title_command: A app
+ node_directions:
+  prev->ntiti
+  up->Top
 ';
 
 $result_sections_list{'xrefname'} = '1|top

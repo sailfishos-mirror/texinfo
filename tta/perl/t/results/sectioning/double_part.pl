@@ -22,7 +22,6 @@ NodeForward: [U2]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -142,7 +141,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-chapter}
   *arguments_line C1
@@ -238,11 +236,16 @@ $result_nodes_list{'double_part'} = '1|Top
  associated_title_command: top
  menus:
   node chapter
+ node_directions:
+  next->node chapter
 2|node chapter
  associated_section: 1 chapter after 2 parts
  node_preceding_part: part second
  associated_title_command: 1 chapter after 2 parts
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

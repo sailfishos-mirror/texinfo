@@ -18,7 +18,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -161,7 +160,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E20|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{first}
   *arguments_line C1
@@ -414,7 +412,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E13|up->E3]
  |node_number:{3}
  |normalized:{section-1}
   *arguments_line C1
@@ -529,7 +526,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E11|up->E6]
  |node_number:{4}
  |normalized:{subsection-1}
   *arguments_line C1
@@ -564,7 +560,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E9|up->E6]
  |node_number:{5}
  |normalized:{subsection-2}
   *arguments_line C1
@@ -639,7 +634,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E15|prev->E6|up->E3]
  |node_number:{6}
  |normalized:{section-2}
   *arguments_line C1
@@ -674,7 +668,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E17|prev->E13|up->E3]
  |node_number:{7}
  |normalized:{section-3}
   *arguments_line C1
@@ -732,7 +725,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E15|up->E3]
  |node_number:{8}
  |normalized:{node-in-section-3}
   *arguments_line C4
@@ -776,7 +768,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[up->E3]
  |node_number:{9}
  |normalized:{node-2-in-section-3}
   *arguments_line C4
@@ -869,7 +860,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{10}
  |normalized:{node-3-in-section-3}
   *arguments_line C4
@@ -906,7 +896,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{11}
  |normalized:{second-chapter}
   *arguments_line C1
@@ -1164,6 +1153,8 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
  menu_directions:
   next->first
   up->Top
+ node_directions:
+  next->first
 2|first
  associated_section: 1 First chapter
  associated_title_command: 1 First chapter
@@ -1178,6 +1169,10 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
   next->second chapter
   prev->Top
   up->Top
+ node_directions:
+  next->second chapter
+  prev->Top
+  up->Top
 3|section 1
  associated_section: 1.1 Section 1
  associated_title_command: 1.1 Section 1
@@ -1187,10 +1182,16 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
  menu_directions:
   next->section 2
   up->first
+ node_directions:
+  next->section 2
+  up->first
 4|subsection 1
  associated_section: 1.1.1 Subsection 1
  associated_title_command: 1.1.1 Subsection 1
  menu_directions:
+  next->subsection 2
+  up->section 1
+ node_directions:
   next->subsection 2
   up->section 1
 5|subsection 2
@@ -1199,10 +1200,17 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
  menu_directions:
   prev->subsection 1
   up->section 1
+ node_directions:
+  prev->subsection 1
+  up->section 1
 6|section 2
  associated_section: 1.2 Section 2
  associated_title_command: 1.2 Section 2
  menu_directions:
+  next->section 3
+  prev->section 1
+  up->first
+ node_directions:
   next->section 3
   prev->section 1
   up->first
@@ -1213,9 +1221,16 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
   next->node in section 3
   prev->section 2
   up->first
+ node_directions:
+  next->node in section 3
+  prev->section 2
+  up->first
 8|node in section 3
  menu_directions:
   next->node 2 in section 3
+  prev->section 3
+  up->first
+ node_directions:
   prev->section 3
   up->first
 9|node 2 in section 3
@@ -1223,14 +1238,21 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
   next->node 3 in section 3
   prev->node in section 3
   up->first
+ node_directions:
+  up->first
 10|node 3 in section 3
  menu_directions:
   prev->node 2 in section 3
+  up->first
+ node_directions:
   up->first
 11|second chapter
  associated_section: 2 Second chapter
  associated_title_command: 2 Second chapter
  menu_directions:
+  prev->first
+  up->Top
+ node_directions:
   prev->first
   up->Top
 ';

@@ -43,7 +43,6 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{a}
   *arguments_line C4
@@ -665,6 +664,11 @@ $result_floats{'commands_and_spaces'} = 'ff: 1
 ';
 
 $result_nodes_list{'commands_and_spaces'} = '1|a
+ node_directions:
+  next->(b)
+  prev->(c) 
+  up-> (d)   
+
 ';
 
 $result_sections_list{'commands_and_spaces'} = '';

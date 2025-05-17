@@ -13,7 +13,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node}
   *arguments_line C1
@@ -96,7 +94,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{sec}
   *arguments_line C1
@@ -206,12 +203,19 @@ $result_errors{'sections_and_printindex'} = [];
 $result_nodes_list{'sections_and_printindex'} = '1|Top
  associated_section: for example
  associated_title_command: for example
+ node_directions:
+  next->node
 2|node
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 3|sec
  associated_section: 1.1 Sec
  associated_title_command: 1.1 Sec
+ node_directions:
+  up->node
 ';
 
 $result_sections_list{'sections_and_printindex'} = '1|for example

@@ -13,7 +13,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -52,7 +51,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -88,7 +86,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{sec}
   *arguments_line C1
@@ -122,7 +119,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{4}
  |normalized:{chap2}
   *arguments_line C1
@@ -202,15 +198,26 @@ $result_errors{'sectioning_test_no_use_nodes'} = [];
 $result_nodes_list{'sectioning_test_no_use_nodes'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap1
  associated_title_command: 1 Chap1
+ node_directions:
+  next->chap2
+  prev->Top
+  up->Top
 3|sec
  associated_section: 1.1 sec1
  associated_title_command: 1.1 sec1
+ node_directions:
+  up->chap
 4|chap2
  associated_section: 2 Chap2
  associated_title_command: 2 Chap2
+ node_directions:
+  prev->chap
+  up->Top
 ';
 
 $result_sections_list{'sectioning_test_no_use_nodes'} = '1|top

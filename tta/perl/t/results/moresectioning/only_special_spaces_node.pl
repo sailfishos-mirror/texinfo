@@ -16,7 +16,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -52,7 +51,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_2002_2003_2002}
   *arguments_line C1
@@ -130,7 +128,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E10|up->E0]
  |node_number:{3}
  |normalized:{_0085_00a0_1680}
   *arguments_line C1
@@ -162,7 +159,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E12|prev->E8|up->E0]
  |node_number:{4}
  |normalized:{_180e_2003}
   *arguments_line C1
@@ -194,7 +190,6 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E10|up->E0]
  |node_number:{5}
  |normalized:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
   *arguments_line C1
@@ -309,18 +304,33 @@ $result_errors{'only_special_spaces_node'} = [
 $result_nodes_list{'only_special_spaces_node'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->   
 2|   
  associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
  associated_title_command: 1 EN QUAD| | EM QUAD| | EN SPACE| |
+ node_directions:
+  prev->Top
+  up->Top
 3|  
  associated_section: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
  associated_title_command: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ node_directions:
+  next->᠎ 
+  up->Top
 4|᠎ 
  associated_section: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
  associated_title_command: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ node_directions:
+  next->         　
+  prev->  
+  up->Top
 5|         　
  associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
  associated_title_command: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ node_directions:
+  prev->᠎ 
+  up->Top
 ';
 
 $result_sections_list{'only_special_spaces_node'} = '1|top

@@ -29,7 +29,6 @@ $result_tree_text{'node_before_top'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{2}
  |normalized:{Top}
   *arguments_line C1
@@ -65,7 +64,6 @@ $result_tree_text{'node_before_top'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{3}
  |normalized:{Chapter}
   *arguments_line C1
@@ -139,9 +137,14 @@ $result_nodes_list{'node_before_top'} = '1|before Top
 2|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter
 3|Chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'node_before_top'} = '1|top

@@ -58,7 +58,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -205,7 +204,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E1|up->E1]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -460,9 +458,14 @@ $result_floats{'references_to_top_no_top_output'} = 'list: 2
 $result_nodes_list{'references_to_top_no_top_output'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'references_to_top_no_top_output'} = '1|top

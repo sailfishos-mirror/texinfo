@@ -49,7 +49,6 @@ NodeUp: (dir)
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{second}
   *arguments_line C4
@@ -114,6 +113,9 @@ $result_errors{'top_without_node_sections'} = [];
 $result_nodes_list{'top_without_node_sections'} = '1|second
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  up->(dir)
+
 ';
 
 $result_sections_list{'top_without_node_sections'} = '1|top section

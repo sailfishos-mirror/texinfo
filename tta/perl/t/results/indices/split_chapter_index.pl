@@ -30,7 +30,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -113,7 +112,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{first}
   *arguments_line C1
@@ -297,7 +295,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{section-1}
   *arguments_line C1
@@ -386,7 +383,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{subsection-1}
   *arguments_line C1
@@ -533,12 +529,17 @@ $result_nodes_list{'split_chapter_index'} = '1|Top
  associated_title_command: split indices
  menus:
   first
+ node_directions:
+  next->first
 2|first
  associated_section: 1 First chapter
  associated_title_command: 1 First chapter
  menus:
   section 1
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 3|section 1
  associated_section: 1.1 Section 1
@@ -547,10 +548,14 @@ $result_nodes_list{'split_chapter_index'} = '1|Top
   subsection 1
  menu_directions:
   up->first
+ node_directions:
+  up->first
 4|subsection 1
  associated_section: 1.1.1 Subsection 1
  associated_title_command: 1.1.1 Subsection 1
  menu_directions:
+  up->section 1
+ node_directions:
   up->section 1
 ';
 

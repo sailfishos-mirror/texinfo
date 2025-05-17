@@ -13,7 +13,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chap}
   *arguments_line C1
@@ -82,7 +80,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|up->E2]
  |node_number:{3}
  |normalized:{-1}
   *arguments_line C1
@@ -110,7 +107,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E4|up->E2]
  |node_number:{4}
  |normalized:{-2}
   *arguments_line C1
@@ -149,7 +145,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6|up->E2]
  |node_number:{5}
  |normalized:{-3}
   *arguments_line C1
@@ -240,14 +235,29 @@ $result_errors{'test_insert_nodes_with_empty_headings'} = [
 
 $result_nodes_list{'test_insert_nodes_with_empty_headings'} = '1|Top
  associated_section: top
+ node_directions:
+  next->Chap
 2|Chap
  associated_section: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
 3| 1
  associated_section: 1.1
+ node_directions:
+  next-> 2
+  up->Chap
 4| 2
  associated_section: 1.2
+ node_directions:
+  next->@strong{} 3
+  prev-> 1
+  up->Chap
 5|@strong{} 3
  associated_section: 1.3 @strong{}
+ node_directions:
+  prev-> 2
+  up->Chap
 ';
 
 $result_sections_list{'test_insert_nodes_with_empty_headings'} = '1|top

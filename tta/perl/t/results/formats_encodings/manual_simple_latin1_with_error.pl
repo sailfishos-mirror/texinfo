@@ -31,7 +31,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -82,7 +81,6 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{3}
  |normalized:{Chapitr_00e9}
   *arguments_line C1
@@ -165,10 +163,15 @@ $result_errors{'manual_simple_latin1_with_error'} = [
 $result_nodes_list{'manual_simple_latin1_with_error'} = '1|Top
  associated_section: Testé
  associated_title_command: Testé
+ node_directions:
+  next->Chapitré
 2|ésseulé
 3|Chapitré
  associated_section: 1 Chapitré
  associated_title_command: 1 Chapitré
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'manual_simple_latin1_with_error'} = '1|Testé

@@ -27,7 +27,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -63,7 +62,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter-frenchspacing}
   *arguments_line C1
@@ -304,7 +302,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{chap-no}
   *arguments_line C1
@@ -618,12 +615,21 @@ $result_errors{'frenchspacing_and_code'} = [];
 $result_nodes_list{'frenchspacing_and_code'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter frenchspacing
 2|chapter frenchspacing
  associated_section: 1 Chap frenchspacing
  associated_title_command: 1 Chap frenchspacing
+ node_directions:
+  next->chap no
+  prev->Top
+  up->Top
 3|chap no
  associated_section: 2 Chap no
  associated_title_command: 2 Chap no
+ node_directions:
+  prev->chapter frenchspacing
+  up->Top
 ';
 
 $result_sections_list{'frenchspacing_and_code'} = '1|top

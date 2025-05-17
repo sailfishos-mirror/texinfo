@@ -29,7 +29,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -281,7 +280,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node_005fimage}
   *arguments_line C1
@@ -532,11 +530,16 @@ $result_nodes_list{'image_inline_or_not'} = '1|Top
  menus:
   @image{node_image}
   (somewhere)@image{extnode}
+ node_directions:
+  next->@image{node_image}
 2|@image{node_image}
  associated_section: 1 @image{in_chapter_arg}
  associated_title_command: 1 @image{in_chapter_arg}
  menu_directions:
   next->(somewhere)@image{extnode}
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

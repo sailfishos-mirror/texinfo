@@ -14,7 +14,6 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter-1}
   *arguments_line C1
@@ -90,7 +88,6 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Chapter-2}
   *arguments_line C1
@@ -148,12 +145,21 @@ $result_errors{'file_name_conflict_with_user_defined'} = [];
 $result_nodes_list{'file_name_conflict_with_user_defined'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter 1
 2|Chapter 1
  associated_section: 1 Chap 1
  associated_title_command: 1 Chap 1
+ node_directions:
+  next->Chapter 2
+  prev->Top
+  up->Top
 3|Chapter 2
  associated_section: 2 Chap 2
  associated_title_command: 2 Chap 2
+ node_directions:
+  prev->Chapter 1
+  up->Top
 ';
 
 $result_sections_list{'file_name_conflict_with_user_defined'} = '1|top

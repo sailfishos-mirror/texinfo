@@ -14,7 +14,6 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -29,7 +28,6 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -126,7 +124,11 @@ $result_floats{'comment_space_comand_in_float'} = 'Text  : 1
 ';
 
 $result_nodes_list{'comment_space_comand_in_float'} = '1|Top
+ node_directions:
+  next->chap
 2|chap
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'comment_space_comand_in_float'} = '';

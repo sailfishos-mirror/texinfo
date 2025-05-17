@@ -28,7 +28,6 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -96,7 +95,6 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap1}
   *arguments_line C1
@@ -172,10 +170,15 @@ $result_nodes_list{'split_test_before_first_node_no_empty_line'} = '1|Top
  associated_title_command: top
  menus:
   chap1
+ node_directions:
+  next->chap1
 2|chap1
  associated_section: 1 chap
  associated_title_command: 1 chap
  menu_directions:
+  up->Top
+ node_directions:
+  prev->Top
   up->Top
 ';
 

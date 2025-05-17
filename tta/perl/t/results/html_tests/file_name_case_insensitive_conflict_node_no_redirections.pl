@@ -14,7 +14,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -91,7 +89,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|up->E2]
  |node_number:{3}
  |normalized:{Foo}
   *arguments_line C1
@@ -122,7 +119,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E9|prev->E5|up->E2]
  |node_number:{4}
  |normalized:{Bar}
   *arguments_line C1
@@ -153,7 +149,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E7|up->E2]
  |node_number:{5}
  |normalized:{foo}
   *arguments_line C1
@@ -248,18 +243,33 @@ $result_errors{'file_name_case_insensitive_conflict_node_no_redirections'} = [];
 $result_nodes_list{'file_name_case_insensitive_conflict_node_no_redirections'} = '1|Top
  associated_section: top section
  associated_title_command: top section
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  prev->Top
+  up->Top
 3|Foo
  associated_section: 1.1 Foo
  associated_title_command: 1.1 Foo
+ node_directions:
+  next->Bar
+  up->chap
 4|Bar
  associated_section: 1.2 Bar
  associated_title_command: 1.2 Bar
+ node_directions:
+  next->foo
+  prev->Foo
+  up->chap
 5|foo
  associated_section: 1.3 foo
  associated_title_command: 1.3 foo
+ node_directions:
+  prev->Bar
+  up->chap
 ';
 
 $result_sections_list{'file_name_case_insensitive_conflict_node_no_redirections'} = '1|top section

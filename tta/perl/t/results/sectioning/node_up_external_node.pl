@@ -20,7 +20,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -75,7 +74,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{chap-first}
   *arguments_line C4
@@ -136,9 +134,16 @@ $result_errors{'node_up_external_node'} = [];
 $result_nodes_list{'node_up_external_node'} = '1|Top
  menus:
   chap first
+ node_directions:
+  next->chap first
 2|chap first
  menu_directions:
   up->Top
+ node_directions:
+  next-> (manual1)
+  prev-> (manual2) 
+  up-> (manual3)
+
 ';
 
 $result_sections_list{'node_up_external_node'} = '';

@@ -17,7 +17,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -97,7 +96,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E16|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{guide1}
   *arguments_line C1
@@ -183,7 +181,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8]
  |node_number:{3}
  |normalized:{topic1}
   *arguments_line C2
@@ -242,7 +239,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E10|prev->E6]
  |node_number:{4}
  |normalized:{topic2}
   *arguments_line C3
@@ -309,7 +305,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E14|prev->E8]
  |node_number:{5}
  |normalized:{topic3}
   *arguments_line C3
@@ -365,7 +360,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E14|up->E16]
  |node_number:{6}
  |normalized:{topic4}
   *arguments_line C1
@@ -417,7 +411,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E10]
  |node_number:{7}
  |normalized:{topic5}
   *arguments_line C3
@@ -491,7 +484,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{8}
  |normalized:{guide2}
   *arguments_line C1
@@ -725,6 +717,8 @@ $result_nodes_list{'topic_guide'} = '1|Top
  menus:
   guide1
   guide2
+ node_directions:
+  next->guide1
 2|guide1
  associated_section: 1 guide 1
  associated_title_command: 1 guide 1
@@ -735,12 +729,18 @@ $result_nodes_list{'topic_guide'} = '1|Top
  menu_directions:
   next->guide2
   up->topic5
+ node_directions:
+  next->guide2
+  prev->Top
+  up->Top
 3|topic1
  menus:
   guide1
  menu_directions:
   next->topic2
   up->guide1
+ node_directions:
+  next->topic2
 4|topic2
  menus:
   guide1
@@ -748,12 +748,21 @@ $result_nodes_list{'topic_guide'} = '1|Top
   next->topic5
   prev->topic1
   up->guide1
+ node_directions:
+  next->topic3
+  prev->topic1
 5|topic3
  menus:
+ node_directions:
+  next->topic5
+  prev->topic2
 6|topic4
  menus:
   guide2
  menu_directions:
+  prev->topic5
+  up->guide2
+ node_directions:
   prev->topic5
   up->guide2
 7|topic5
@@ -764,6 +773,8 @@ $result_nodes_list{'topic_guide'} = '1|Top
   next->topic4
   prev->topic2
   up->guide2
+ node_directions:
+  prev->topic3
 8|guide2
  associated_section: 2 guide 2
  associated_title_command: 2 guide 2
@@ -773,6 +784,9 @@ $result_nodes_list{'topic_guide'} = '1|Top
  menu_directions:
   prev->guide1
   up->topic5
+ node_directions:
+  prev->guide1
+  up->Top
 ';
 
 $result_sections_list{'topic_guide'} = '1|A example quide topic collection

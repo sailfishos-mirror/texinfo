@@ -113,7 +113,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -167,7 +166,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
   *arguments_line C1
@@ -239,7 +237,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Preface}
   *arguments_line C1
@@ -278,7 +275,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E8|prev->E4|up->E0]
  |node_number:{4}
  |normalized:{Introduction}
   *arguments_line C1
@@ -344,7 +340,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E13|prev->E6|up->E0]
  |node_number:{5}
  |normalized:{char-latin2-latin2}
   *arguments_line C1
@@ -430,7 +425,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E8]
  |node_number:{6}
  |normalized:{_0104-_0105-_02db-_0118-_0119}
   *arguments_line C1
@@ -505,7 +499,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E15|prev->E8|up->E0]
  |node_number:{7}
  |normalized:{Mixed-english-and-chinese-EUC_002dCN}
   *arguments_line C1
@@ -607,7 +600,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E13|up->E0]
  |node_number:{8}
  |normalized:{Mixed-chinese-and-english-utf_002d8}
   *arguments_line C1
@@ -958,31 +950,58 @@ $result_errors{'multiple_include_encodings'} = [
 $result_nodes_list{'multiple_include_encodings'} = '1|Top
  associated_section: include files with multiple encodings
  associated_title_command: include files with multiple encodings
+ node_directions:
+  next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ node_directions:
+  next->Preface
+  prev->Top
+  up->Top
 3|Preface
  associated_section: 2 Preface
  associated_title_command: 2 Preface
+ node_directions:
+  next->Introduction
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->Top
 4|Introduction
  associated_section: 3 Introduction
  associated_title_command: 3 Introduction
+ node_directions:
+  next->char latin2 latin2
+  prev->Preface
+  up->Top
 5|char latin2 latin2
  associated_section: 4 char latin2 latin2 in refs
  associated_title_command: 4 char latin2 latin2 in refs
  menus:
   Ą ą ˛ Ę ę
+ node_directions:
+  next->Mixed english and chinese EUC-CN
+  prev->Introduction
+  up->Top
 6|Ą ą ˛ Ę ę
  associated_section: 4.1 Ą ą ˛ Ę ę
  associated_title_command: 4.1 Ą ą ˛ Ę ę
  menu_directions:
   up->char latin2 latin2
+ node_directions:
+  up->char latin2 latin2
 7|Mixed english and chinese EUC-CN
  associated_section: 5 Mixed english and chinese EUC-CN
  associated_title_command: 5 Mixed english and chinese EUC-CN
+ node_directions:
+  next->Mixed chinese and english utf-8
+  prev->char latin2 latin2
+  up->Top
 8|Mixed chinese and english utf-8
  associated_section: 6 Mixed chinese and english utf-8
  associated_title_command: 6 Mixed chinese and english utf-8
+ node_directions:
+  prev->Mixed english and chinese EUC-CN
+  up->Top
 ';
 
 $result_sections_list{'multiple_include_encodings'} = '1|include files with multiple encodings

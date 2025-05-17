@@ -19,7 +19,6 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{first}
   *arguments_line C4
@@ -82,7 +81,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{second-node}
   *arguments_line C4
@@ -140,8 +138,14 @@ $result_errors{'nodes_no_node_top_explicit_directions'} = [
 $result_nodes_list{'nodes_no_node_top_explicit_directions'} = '1|first
  menus:
   second node
+ node_directions:
+  up->(dir)
+
 2|second node
  menu_directions:
+  up->first
+ node_directions:
+  prev->first
   up->first
 ';
 

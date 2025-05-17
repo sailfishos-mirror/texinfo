@@ -17,7 +17,6 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -53,7 +52,6 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -1117,7 +1115,6 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{printindex}
   *arguments_line C1
@@ -1450,12 +1447,21 @@ $result_errors{'indices_in_begin_tables_lists_entries_after_item'} = [
 $result_nodes_list{'indices_in_begin_tables_lists_entries_after_item'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  next->printindex
+  prev->Top
+  up->Top
 3|printindex
  associated_section: 2 printindex
  associated_title_command: 2 printindex
+ node_directions:
+  prev->chapter
+  up->Top
 ';
 
 $result_sections_list{'indices_in_begin_tables_lists_entries_after_item'} = '1|top

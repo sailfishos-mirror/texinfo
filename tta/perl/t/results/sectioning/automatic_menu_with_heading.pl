@@ -13,7 +13,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -71,7 +70,6 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{heading-or-chapter}
   *arguments_line C1
@@ -148,9 +146,14 @@ $result_errors{'automatic_menu_with_heading'} = [];
 $result_nodes_list{'automatic_menu_with_heading'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->heading or chapter
 2|heading or chapter
  associated_section: 1 Chapter
  associated_title_command: @heading Heading
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'automatic_menu_with_heading'} = '1|top

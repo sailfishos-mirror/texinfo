@@ -13,7 +13,6 @@ $result_tree_text{'on_node_line'} = '*document_root C2
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->MISSING: (line_arg)[C8]]
  |node_number:{1}
  |normalized:{a}
   *arguments_line C2
@@ -136,6 +135,9 @@ $result_errors{'on_node_line'} = [
 
 
 $result_nodes_list{'on_node_line'} = '1|@ref{a, b, c, filename}
+ node_directions:
+  next-> (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
+
 ';
 
 $result_sections_list{'on_node_line'} = '';

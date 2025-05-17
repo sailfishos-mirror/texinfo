@@ -13,7 +13,6 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -69,7 +68,6 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3|up->E0]
  |node_number:{2}
  |normalized:{chap-first-node}
   *arguments_line C4
@@ -101,7 +99,6 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{3}
  |normalized:{no-return}
   *arguments_line C4
@@ -149,13 +146,20 @@ $result_nodes_list{'next_no_prev_to_node'} = '1|Top
  menus:
   chap first node
   no return
+ node_directions:
+  next->chap first node
 2|chap first node
  menu_directions:
+  next->no return
+  up->Top
+ node_directions:
   next->no return
   up->Top
 3|no return
  menu_directions:
   prev->chap first node
+  up->Top
+ node_directions:
   up->Top
 ';
 

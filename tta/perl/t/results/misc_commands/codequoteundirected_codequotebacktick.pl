@@ -385,7 +385,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -421,7 +420,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -1308,9 +1306,14 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
 $result_nodes_list{'codequoteundirected_codequotebacktick'} = '1|Top
  associated_section: test quotes
  associated_title_command: test quotes
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'codequoteundirected_codequotebacktick'} = '1|test quotes

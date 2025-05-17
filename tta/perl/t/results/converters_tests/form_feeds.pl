@@ -13,7 +13,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E1]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -29,7 +28,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0]
  |node_number:{2}
  |normalized:{chap-node}
   *arguments_line C1
@@ -535,7 +533,11 @@ type: 1
 ';
 
 $result_nodes_list{'form_feeds'} = '1|Top
+ node_directions:
+  next->chapnode
 2|chapnode
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'form_feeds'} = '';

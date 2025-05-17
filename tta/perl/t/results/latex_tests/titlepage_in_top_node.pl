@@ -14,7 +14,6 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -80,7 +79,6 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -145,9 +143,14 @@ $result_errors{'titlepage_in_top_node'} = [];
 $result_nodes_list{'titlepage_in_top_node'} = '1|Top
  associated_section: top sectionning
  associated_title_command: top sectionning
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'titlepage_in_top_node'} = '1|top sectionning

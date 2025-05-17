@@ -13,7 +13,6 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C2
@@ -69,7 +68,6 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -237,8 +235,12 @@ $result_floats{'equivalent_nodes_defined_linked'} = 'Figure: 1
 $result_nodes_list{'equivalent_nodes_defined_linked'} = '1|Top
  menus:
   @strong{chap}
+ node_directions:
+  next->chap
 2|chap
  menu_directions:
+  up->Top
+ node_directions:
   up->Top
 ';
 

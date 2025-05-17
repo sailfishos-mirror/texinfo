@@ -14,7 +14,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -77,7 +76,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E7]
  |node_number:{2}
  |normalized:{chap-node-up}
   *arguments_line C4
@@ -129,7 +127,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{node-middle}
   *arguments_line C4
@@ -181,7 +178,6 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E5]
  |node_number:{4}
  |normalized:{node-down}
   *arguments_line C1
@@ -245,18 +241,26 @@ $result_nodes_list{'loop_nodes'} = '1|Top
  associated_title_command: top
  menus:
   chap node up
+ node_directions:
+  next->chap node up
 2|chap node up
  menus:
   node middle
  menu_directions:
   up->Top
+ node_directions:
+  up->node down
 3|node middle
  menus:
   node down
  menu_directions:
   up->chap node up
+ node_directions:
+  up->chap node up
 4|node down
  menu_directions:
+  up->node middle
+ node_directions:
   up->node middle
 ';
 

@@ -13,7 +13,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -104,7 +103,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Node-_0028with-parentheses_0029}
   *arguments_line C1
@@ -139,7 +137,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{Other-node}
   *arguments_line C1
@@ -194,7 +191,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{_0028manual_0029node}
   *arguments_line C1
@@ -340,11 +336,17 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
   Node (with parentheses)
   Other node
   (manual)node
+ node_directions:
+  next->Node (with parentheses)
 2|Node (with parentheses)
  associated_section: 1 Section (nodename with parentheses)
  associated_title_command: 1 Section (nodename with parentheses)
  menu_directions:
   next->Other node
+  up->Top
+ node_directions:
+  next->Other node
+  prev->Top
   up->Top
 3|Other node
  associated_section: 2 Section (nodename without parentheses)
@@ -353,9 +355,16 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
   next->(manual)node
   prev->Node (with parentheses)
   up->Top
+ node_directions:
+  next->(manual)node
+  prev->Node (with parentheses)
+  up->Top
 4|(manual)node
  associated_section: 3 (manual)node
  associated_title_command: 3 (manual)node
+ node_directions:
+  prev->Other node
+  up->Top
 ';
 
 $result_sections_list{'nodename_parentheses'} = '1|The top node

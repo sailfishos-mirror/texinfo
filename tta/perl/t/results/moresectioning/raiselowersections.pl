@@ -18,7 +18,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -89,7 +88,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E14|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -245,7 +243,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E3]
  |node_number:{3}
  |normalized:{Chapter-in-included-file}
   *arguments_line C1
@@ -307,7 +304,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E6]
  |node_number:{4}
  |normalized:{Section}
   *arguments_line C1
@@ -369,7 +365,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E9]
  |node_number:{5}
  |normalized:{Subsection}
   *arguments_line C1
@@ -477,7 +472,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E3|up->E0]
  |node_number:{6}
  |normalized:{Second-chapter}
   *arguments_line C1
@@ -615,6 +609,8 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  menus:
   Chapter
   Second chapter
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
@@ -623,12 +619,18 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  menu_directions:
   next->Second chapter
   up->Top
+ node_directions:
+  next->Second chapter
+  prev->Top
+  up->Top
 3|Chapter in included file
  associated_section: 1.1 Chapter in included file
  associated_title_command: 1.1 Chapter in included file
  menus:
   Section
  menu_directions:
+  up->Chapter
+ node_directions:
   up->Chapter
 4|Section
  associated_section: 1.1.1 Section
@@ -637,15 +639,22 @@ $result_nodes_list{'raiselowersections'} = '1|Top
   Subsection
  menu_directions:
   up->Chapter in included file
+ node_directions:
+  up->Chapter in included file
 5|Subsection
  associated_section: 1.1.1.1 Subsection
  associated_title_command: 1.1.1.1 Subsection
  menu_directions:
   up->Section
+ node_directions:
+  up->Section
 6|Second chapter
  associated_section: 2 Second chapter
  associated_title_command: 2 Second chapter
  menu_directions:
+  prev->Chapter
+  up->Top
+ node_directions:
   prev->Chapter
   up->Top
 ';

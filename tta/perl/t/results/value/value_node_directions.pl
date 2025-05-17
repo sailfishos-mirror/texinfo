@@ -19,7 +19,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2|prev->MISSING: (line_arg)[C3]|up->MISSING: (line_arg)[C3]]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C4
@@ -106,7 +105,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
      |>{a--foo}
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->MISSING: (line_arg)[C3]]
  |node_number:{2}
  |normalized:{bar}
   *arguments_line C4
@@ -164,7 +162,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E2|up->MISSING: (line_arg)[C3]]
  |node_number:{3}
  |normalized:{BarFoo}
   *arguments_line C4
@@ -266,12 +263,26 @@ $result_errors{'value_node_directions'} = [
 $result_nodes_list{'value_node_directions'} = '1|Top
  associated_section: Var bar
  associated_title_command: Var bar
+ node_directions:
+  next->bar
+  prev-> (dir)
+  up-> (dir)
+
 2|bar
  associated_section: 1 BarFoo
  associated_title_command: 1 BarFoo
+ node_directions:
+  next->BarFoo
+  prev->Top
+  up-> (dir)
+
 3|BarFoo
  associated_section: 2 bar
  associated_title_command: 2 bar
+ node_directions:
+  prev->bar
+  up-> (dir)
+
 ';
 
 $result_sections_list{'value_node_directions'} = '1|Var bar

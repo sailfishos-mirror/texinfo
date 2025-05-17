@@ -13,7 +13,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -49,7 +48,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap}
   *arguments_line C1
@@ -439,7 +437,6 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Indices}
   *arguments_line C1
@@ -597,12 +594,21 @@ $result_errors{'various_vtable_command_as_argument'} = [
 $result_nodes_list{'various_vtable_command_as_argument'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap
 2|chap
  associated_section: 1 Chap
  associated_title_command: 1 Chap
+ node_directions:
+  next->Indices
+  prev->Top
+  up->Top
 3|Indices
  associated_section: A Print the index
  associated_title_command: A Print the index
+ node_directions:
+  prev->chap
+  up->Top
 ';
 
 $result_sections_list{'various_vtable_command_as_argument'} = '1|top

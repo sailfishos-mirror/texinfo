@@ -14,7 +14,6 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -59,7 +58,6 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chap_00ea}
   *arguments_line C1
@@ -126,7 +124,6 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[up->E2]
  |node_number:{3}
  |normalized:{sec}
   *arguments_line C1
@@ -270,12 +267,19 @@ $result_errors{'conversion_with_undef_customization'} = [];
 $result_nodes_list{'conversion_with_undef_customization'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chap@^e
 2|chap@^e
  associated_section: 1 Chap@^e
  associated_title_command: 1 Chap@^e
+ node_directions:
+  prev->Top
+  up->Top
 3|sec
  associated_section: 1.1 Section
  associated_title_command: 1.1 Section
+ node_directions:
+  up->chap@^e
 ';
 
 $result_sections_list{'conversion_with_undef_customization'} = '1|top

@@ -17,7 +17,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -103,7 +102,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E5|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{node-with-ftable-and-vtable}
   *arguments_line C1
@@ -289,7 +287,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E7|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{node-with-printindex}
   *arguments_line C1
@@ -359,7 +356,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E5|up->E0]
  |node_number:{4}
  |normalized:{indices-refs}
   *arguments_line C1
@@ -2398,16 +2394,26 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
   node with ftable and vtable
   node with printindex
   indices refs
+ node_directions:
+  next->node with ftable and vtable
 2|node with ftable and vtable
  associated_section: 1 first node chapter, with ftable and vtable
  associated_title_command: 1 first node chapter, with ftable and vtable
  menu_directions:
   next->node with printindex
   up->Top
+ node_directions:
+  next->node with printindex
+  prev->Top
+  up->Top
 3|node with printindex
  associated_section: 2 node with printindex
  associated_title_command: 2 node with printindex
  menu_directions:
+  next->indices refs
+  prev->node with ftable and vtable
+  up->Top
+ node_directions:
   next->indices refs
   prev->node with ftable and vtable
   up->Top
@@ -2417,6 +2423,9 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
  menus:
   node
  menu_directions:
+  prev->node with printindex
+  up->Top
+ node_directions:
   prev->node with printindex
   up->Top
 5|node

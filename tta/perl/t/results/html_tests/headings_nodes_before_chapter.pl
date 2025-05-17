@@ -24,7 +24,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2|up->E4]
  |node_number:{1}
  |normalized:{Node-1}
   *arguments_line C1
@@ -52,7 +51,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E4]
  |node_number:{2}
  |normalized:{Node-2}
   *arguments_line C1
@@ -80,7 +78,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7]
  |node_number:{3}
  |normalized:{Cap-1}
   *arguments_line C1
@@ -157,7 +154,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4]
  |node_number:{4}
  |normalized:{Cap-2}
   *arguments_line C1
@@ -231,9 +227,15 @@ $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
  menu_directions:
   next->Node 2
   up->Cap 1
+ node_directions:
+  next->Node 2
+  up->Cap 1
 2|Node 2
  associated_title_command: @heading Topic Two
  menu_directions:
+  prev->Node 1
+  up->Cap 1
+ node_directions:
   prev->Node 1
   up->Cap 1
 3|Cap 1
@@ -242,9 +244,13 @@ $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
  menus:
   Node 1
   Node 2
+ node_directions:
+  next->Cap 2
 4|Cap 2
  associated_section: 2 Chapter Two
  associated_title_command: 2 Chapter Two
+ node_directions:
+  prev->Cap 1
 ';
 
 $result_sections_list{'headings_nodes_before_chapter'} = '1|Chapter One

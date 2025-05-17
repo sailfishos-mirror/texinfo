@@ -112,7 +112,6 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E0]
  |node_number:{2}
  |normalized:{node}
   *arguments_line C1
@@ -262,6 +261,8 @@ $result_nodes_list{'sc_in_menu'} = '1|first
   @sc{node}
 2|@sc{node}
  menu_directions:
+  up->first
+ node_directions:
   up->first
 ';
 

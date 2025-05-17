@@ -19,7 +19,6 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -55,7 +54,6 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -107,9 +105,14 @@ $result_errors{'ref_for_special_unit_direction'} = [];
 $result_nodes_list{'ref_for_special_unit_direction'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_sections_list{'ref_for_special_unit_direction'} = '1|top

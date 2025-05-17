@@ -14,7 +14,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E11]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -431,7 +430,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E22|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{chapter}
   *arguments_line C1
@@ -726,7 +724,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E11]
  |node_number:{3}
  |normalized:{section}
   *arguments_line C1
@@ -793,7 +790,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E30|prev->E11|up->E0]
  |node_number:{4}
  |normalized:{Unnumbered}
   *arguments_line C1
@@ -939,7 +935,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E22]
  |node_number:{5}
  |normalized:{Section-within-unnumbered}
   *arguments_line C1
@@ -1014,7 +1009,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E38|prev->E22|up->E0]
  |node_number:{6}
  |normalized:{Chapter-with-unnumbsubsec}
   *arguments_line C1
@@ -1119,7 +1113,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[up->E30]
  |node_number:{7}
  |normalized:{unnumbered-sec}
   *arguments_line C1
@@ -1235,7 +1228,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E41|prev->E30|up->E0]
  |node_number:{8}
  |normalized:{Appendix-for-float}
   *arguments_line C1
@@ -1312,7 +1304,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E38|up->E0]
  |node_number:{9}
  |normalized:{list-of-floats}
   *arguments_line C1
@@ -1890,6 +1881,8 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
   Chapter with unnumbsubsec
   Appendix for float
   list of floats
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
@@ -1898,10 +1891,16 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
  menu_directions:
   next->Unnumbered
   up->Top
+ node_directions:
+  next->Unnumbered
+  prev->Top
+  up->Top
 3|section
  associated_section: 1.1 A section
  associated_title_command: 1.1 A section
  menu_directions:
+  up->chapter
+ node_directions:
   up->chapter
 4|Unnumbered
  associated_section: Unnumbered
@@ -1912,10 +1911,16 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
   next->Chapter with unnumbsubsec
   prev->chapter
   up->Top
+ node_directions:
+  next->Chapter with unnumbsubsec
+  prev->chapter
+  up->Top
 5|Section within unnumbered
  associated_section: Section within unnumbered
  associated_title_command: Section within unnumbered
  menu_directions:
+  up->Unnumbered
+ node_directions:
   up->Unnumbered
 6|Chapter with unnumbsubsec
  associated_section: 2 Chapter with unnumbsubsec
@@ -1926,10 +1931,16 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
   next->Appendix for float
   prev->Unnumbered
   up->Top
+ node_directions:
+  next->Appendix for float
+  prev->Unnumbered
+  up->Top
 7|unnumbered sec
  associated_section: unnumbered sec
  associated_title_command: unnumbered sec
  menu_directions:
+  up->Chapter with unnumbsubsec
+ node_directions:
   up->Chapter with unnumbsubsec
 8|Appendix for float
  associated_section: A Appendix for float
@@ -1938,10 +1949,17 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
   next->list of floats
   prev->Chapter with unnumbsubsec
   up->Top
+ node_directions:
+  next->list of floats
+  prev->Chapter with unnumbsubsec
+  up->Top
 9|list of floats
  associated_section: list of floats
  associated_title_command: list of floats
  menu_directions:
+  prev->Appendix for float
+  up->Top
+ node_directions:
   prev->Appendix for float
   up->Top
 ';

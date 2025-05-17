@@ -14,7 +14,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -50,7 +49,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{Chapter}
   *arguments_line C1
@@ -123,7 +121,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{Vindex}
   *arguments_line C1
@@ -169,7 +166,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E8|prev->E4|up->E0]
  |node_number:{4}
  |normalized:{Cindex}
   *arguments_line C1
@@ -215,7 +211,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[prev->E6|up->E0]
  |node_number:{5}
  |normalized:{Findex}
   *arguments_line C1
@@ -309,18 +304,35 @@ $result_errors{'printindex_set_direction'} = [];
 $result_nodes_list{'printindex_set_direction'} = '1|Top
  associated_section: top
  associated_title_command: top
+ node_directions:
+  next->Chapter
 2|Chapter
  associated_section: 1 chap
  associated_title_command: 1 chap
+ node_directions:
+  next->Vindex
+  prev->Top
+  up->Top
 3|Vindex
  associated_section: A Vindex
  associated_title_command: A Vindex
+ node_directions:
+  next->Cindex
+  prev->Chapter
+  up->Top
 4|Cindex
  associated_section: B Cindex
  associated_title_command: B Cindex
+ node_directions:
+  next->Findex
+  prev->Vindex
+  up->Top
 5|Findex
  associated_section: C Findex
  associated_title_command: C Findex
+ node_directions:
+  prev->Cindex
+  up->Top
 ';
 
 $result_sections_list{'printindex_set_direction'} = '1|top

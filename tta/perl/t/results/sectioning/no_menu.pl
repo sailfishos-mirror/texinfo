@@ -13,7 +13,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E2]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -45,7 +44,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{c1}
   *arguments_line C1
@@ -77,7 +75,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E6|prev->E2|up->E0]
  |node_number:{3}
  |normalized:{c2}
   *arguments_line C1
@@ -109,7 +106,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E4|up->E0]
  |node_number:{4}
  |normalized:{c3}
   *arguments_line C1
@@ -168,15 +164,28 @@ $result_errors{'no_menu'} = [];
 $result_nodes_list{'no_menu'} = '1|Top
  associated_section
  associated_title_command
+ node_directions:
+  next->c1
 2|c1
  associated_section: 1 c1
  associated_title_command: 1 c1
+ node_directions:
+  next->c2
+  prev->Top
+  up->Top
 3|c2
  associated_section: 2 c2
  associated_title_command: 2 c2
+ node_directions:
+  next->c3
+  prev->c1
+  up->Top
 4|c3
  associated_section: 3 c3
  associated_title_command: 3 c3
+ node_directions:
+  prev->c2
+  up->Top
 ';
 
 $result_sections_list{'no_menu'} = '1

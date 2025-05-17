@@ -35,7 +35,6 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E4]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -86,7 +85,6 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E1]
  |node_number:{2}
  |normalized:{node-after}
   *arguments_line C1
@@ -145,7 +143,11 @@ $result_errors{'section_before_after_top_node_last_node'} = [
 $result_nodes_list{'section_before_after_top_node_last_node'} = '1|Top
  associated_section: top section
  associated_title_command: top section
+ node_directions:
+  next->node after
 2|node after
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'section_before_after_top_node_last_node'} = '1|before

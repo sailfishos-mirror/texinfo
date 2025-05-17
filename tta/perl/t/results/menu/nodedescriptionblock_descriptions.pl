@@ -13,7 +13,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E3]
  |node_number:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -128,7 +127,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7|prev->E0|up->E0]
  |node_number:{2}
  |normalized:{toto}
   *arguments_line C1
@@ -210,7 +208,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E10|prev->E3|up->E0]
  |node_number:{3}
  |normalized:{titi}
   *arguments_line C1
@@ -262,7 +259,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E13|prev->E7|up->E0]
  |node_number:{4}
  |normalized:{other}
   *arguments_line C1
@@ -337,7 +333,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E17|prev->E10|up->E0]
  |node_number:{5}
  |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
@@ -399,7 +394,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E13|up->E0]
  |node_number:{6}
  |normalized:{node-double-nodedescriptionblock}
   *arguments_line C1
@@ -594,6 +588,8 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
   other
   a somewhat long node without description nor following space
   node double nodedescriptionblock
+ node_directions:
+  next->toto
 2|toto
  associated_section: 1 Toto
  associated_title_command: 1 Toto
@@ -601,6 +597,10 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  node_long_description: @nodedescriptionblock
  menu_directions:
   next->titi
+  up->Top
+ node_directions:
+  next->titi
+  prev->Top
   up->Top
 3|titi
  associated_section: 2 Titi
@@ -610,11 +610,19 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
   next->other
   prev->toto
   up->Top
+ node_directions:
+  next->other
+  prev->toto
+  up->Top
 4|other
  associated_section: 3 Other
  associated_title_command: 3 Other
  node_long_description: @nodedescriptionblock
  menu_directions:
+  next->a somewhat long node without description nor following space
+  prev->titi
+  up->Top
+ node_directions:
   next->a somewhat long node without description nor following space
   prev->titi
   up->Top
@@ -627,11 +635,18 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
   next->node double nodedescriptionblock
   prev->other
   up->Top
+ node_directions:
+  next->node double nodedescriptionblock
+  prev->other
+  up->Top
 6|node double nodedescriptionblock
  associated_section: 5 test double
  associated_title_command: 5 test double
  node_long_description: @nodedescriptionblock
  menu_directions:
+  prev->a somewhat long node without description nor following space
+  up->Top
+ node_directions:
   prev->a somewhat long node without description nor following space
   up->Top
 ';
