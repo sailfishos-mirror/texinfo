@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,7 +63,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E6]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -99,7 +92,6 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -242,6 +234,8 @@ $result_sections_list{'test_insert_nodes_nodedescription'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
+ section_childs:
+  1|Chap
 2|Chap
  associated_node: Chap
  section_directions:
@@ -249,14 +243,23 @@ $result_sections_list{'test_insert_nodes_nodedescription'} = '1|top
  toplevel_directions:
   prev->top
   up->top
+ section_childs:
+  1|Sec
 3|Sec
  associated_node: Sec
  section_directions:
   up->Chap
+ section_childs:
+  1|Subsec
 4|Subsec
  associated_node: Subsec
  section_directions:
   up->Sec
+';
+
+$result_sectioning_root{'test_insert_nodes_nodedescription'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'test_insert_nodes_nodedescription'} = '';

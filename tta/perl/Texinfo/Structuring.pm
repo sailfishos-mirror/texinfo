@@ -94,6 +94,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::print_sections_list",
   "Texinfo::Structuring::print_headings_list"
     => "Texinfo::StructTransfXS::print_headings_list",
+  "Texinfo::Structuring::print_sectioning_root"
+    => "Texinfo::StructTransfXS::print_sectioning_root",
 );
 
 our $module_loaded = 0;
@@ -174,7 +176,7 @@ sub sectioning_structure($)
                 $customization_information->get_conf('DEBUG'));
           $level = $prev_section_level + 1;
         }
-        $previous_section->{'extra'}->{'section_childs'} = [$content];
+        $previous_section_structure->{'section_childs'} = [$content];
 
         $section_structure->{'section_directions'} = {};
         $section_structure->{'section_directions'}->{'up'} = $previous_section;
@@ -208,8 +210,9 @@ sub sectioning_structure($)
         }
         # no up found.  The element is below the sectioning root
         if ($level <= $up->{'extra'}->{'section_level'}) {
-          $up = $sec_root;
-          if ($level <= $sec_root->{'extra'}->{'section_level'}) {
+          $up = undef;
+          $up_structure = $sec_root;
+          if ($level <= $sec_root->{'section_root_level'}) {
             # in that case, the level of the element is not in line
             # with being below the sectioning root, something need to
             # be done
@@ -217,7 +220,7 @@ sub sectioning_structure($)
               # the first part just appeared, and there was no @top first in
               # document.  Mark that the sectioning root level needs to be updated
               $new_upper_part_element = 1;
-              if ($level < $sec_root->{'extra'}->{'section_level'}) {
+              if ($level < $sec_root->{'section_root_level'}) {
                 # level is 0 for part and section level -1 for sec root. The
                 # condition means section level > 1, ie below chapter-level.
                 $registrar->line_warn(
@@ -230,35 +233,36 @@ sub sectioning_structure($)
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'}, 0,
                    $customization_information->get_conf('DEBUG'));
-              $level = $sec_root->{'extra'}->{'section_level'} + 1;
+              $level = $sec_root->{'section_root_level'} + 1;
             }
           }
         }
         if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
             and $level <= $number_top_level
-            and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
-          $up = $sec_root;
+            and $up and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
+          $up = undef;
+          $up_structure = $sec_root;
         }
         if ($new_upper_part_element) {
           # In that case the root level has to be updated because the first
           # 'part' just appeared, no direction to set.
-          $sec_root->{'extra'}->{'section_level'} = $level - 1;
-          push @{$sec_root->{'extra'}->{'section_childs'}}, $content;
+          $sec_root->{'section_root_level'} = $level - 1;
+          push @{$sec_root->{'section_childs'}}, $content;
           $number_top_level = $level;
           $number_top_level = 1 if (!$number_top_level);
         } else {
           $section_structure->{'section_directions'} = {};
           # do not set sec_root as up, but always put in section_childs.
           $section_structure->{'section_directions'}->{'up'} = $up
-            if ($up ne $sec_root);
-          my $prev = $up->{'extra'}->{'section_childs'}->[-1];
+            if ($up);
+          my $prev = $up_structure->{'section_childs'}->[-1];
           $section_structure->{'section_directions'}->{'prev'} = $prev;
           my $prev_structure
            = $sections_list->[$prev->{'extra'}->{'section_number'} -1];
           $prev_structure->{'section_directions'} = {}
               if (!$prev_structure->{'section_directions'});
           $prev_structure->{'section_directions'}->{'next'} = $content;
-          push @{$up->{'extra'}->{'section_childs'}}, $content;
+          push @{$up_structure->{'section_childs'}}, $content;
         }
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
           $command_numbers[$level]++;
@@ -268,13 +272,11 @@ sub sectioning_structure($)
         }
       }
     } else {
-      $sec_root = {'extra' => {}};
       # first section determines the level of the root.  It is
       # typically -1 when there is a @top.
-      $sec_root->{'extra'}->{'section_level'} = $level - 1;
-      $sec_root->{'extra'}->{'section_childs'} = [$content];
-      # in the tree as an out of tree element in extra.
-      $content->{'extra'}->{'sectioning_root'} = $sec_root;
+      $sec_root = {'section_childs' => [$content],
+                   'section_root_level' => $level - 1};
+      $document->{'sectioning_root'} = $sec_root;
       $number_top_level = $level;
       # if $level of top sectioning element is 0, which means that
       # it is a @top, $number_top_level is 1 as it is associated to
@@ -354,14 +356,17 @@ sub sectioning_structure($)
 }
 
 # for debugging
-sub _print_sectioning_tree($);
-sub _print_sectioning_tree($)
+sub _print_sectioning_tree($$);
+sub _print_sectioning_tree($$)
 {
   my $current = shift;
+  my $sections_list = shift;
   my $result = ' ' x $current->{'extra'}->{'section_level'}
    . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
-  foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
-    $result .= _print_sectioning_tree($child);
+  my $current_structure
+    = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+  foreach my $child (@{$current_structure->{'section_childs'}}) {
+    $result .= _print_sectioning_tree($child, $sections_list);
   }
   return $result;
 }
@@ -426,7 +431,51 @@ sub print_sections_list($)
         }
       }
     }
+
+    if ($section_structure->{'section_childs'}) {
+      my $key = 'section_childs';
+      $result .= " $key:\n";
+      my $value = $section_structure->{$key};
+      my $sec_idx = 1;
+      foreach my $e (@$value) {
+        my $section_texi = _print_root_command($e);
+        $result .= "  ${sec_idx}|";
+        if (defined($section_texi)) {
+          $result .= $section_texi;
+        }
+        $result .= "\n";
+        $sec_idx++;
+      }
+    }
+
     $idx++;
+  }
+
+  return $result;
+}
+
+sub print_sectioning_root($)
+{
+  my $document = shift;
+
+  my $sectioning_root = $document->sectioning_root();
+
+  my $result = '';
+
+  if ($sectioning_root) {
+    $result .= "level: ".
+      $sectioning_root->{'section_root_level'}."\n";
+    $result .= "list:\n";
+    my $sec_idx = 1;
+    foreach my $section (@{$sectioning_root->{'section_childs'}}) {
+      $result .= " $sec_idx|";
+      my $section_texi = _print_root_command($section);
+      if (defined($section_texi)) {
+        $result .= $section_texi;
+      }
+      $result .= "\n";
+      $sec_idx++;
+    }
   }
 
   return $result;
@@ -573,10 +622,12 @@ sub get_node_node_childs_from_sectioning($$)
 
   if ($node_structure->{'associated_section'}) {
     my $associated_section = $node_structure->{'associated_section'};
+    my $associated_structure
+      = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
 
-    if ($associated_section->{'extra'}
-        and $associated_section->{'extra'}->{'section_childs'}) {
-      foreach my $child (@{$associated_section->{'extra'}->{'section_childs'}}) {
+    if ($associated_structure
+        and $associated_structure->{'section_childs'}) {
+      foreach my $child (@{$associated_structure->{'section_childs'}}) {
         my $child_structure
           = $sections_list->[$child->{'extra'}->{'section_number'} -1];
         if ($child_structure->{'associated_node'}) {
@@ -596,8 +647,8 @@ sub get_node_node_childs_from_sectioning($$)
         $current_structure
           = $sections_list->[$current->{'extra'}->{'section_number'} -1];
         if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
-          if ($current->{'extra'}->{'section_childs'}) {
-            foreach my $child (@{$current->{'extra'}->{'section_childs'}}) {
+          if ($current_structure->{'section_childs'}) {
+            foreach my $child (@{$current_structure->{'section_childs'}}) {
               my $child_structure
                 = $sections_list->[$child->{'extra'}->{'section_number'} -1];
               if ($child_structure->{'associated_node'}) {
@@ -1160,22 +1211,24 @@ sub construct_nodes_tree($)
         }
       } else {
         # Special case for Top node, use first section
-        if ($node_structure->{'associated_section'}
-            and $node_structure->{'associated_section'}
-                                 ->{'extra'}->{'section_childs'}
-            and $node_structure->{'associated_section'}
-                                 ->{'extra'}->{'section_childs'}->[0]) {
-          my $section_child = $node_structure->{'associated_section'}
-                                 ->{'extra'}->{'section_childs'}->[0];
-          my $section_child_structure
+        if ($node_structure->{'associated_section'}) {
+          my $associated_section = $node_structure->{'associated_section'};
+          my $associated_structure
+     = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
+          my $section_childs = $associated_structure->{'section_childs'};
+          if ($section_childs
+              and scalar(@$section_childs)) {
+            my $section_child = $section_childs->[0];
+            my $section_child_structure
          = $sections_list->[$section_child->{'extra'}->{'section_number'} -1];
-          if ($section_child_structure->{'associated_node'}) {
-            $top_node_section_child
-              = $section_child_structure->{'associated_node'};
-            $node_structure->{'node_directions'} = {}
-                if (! $node_structure->{'node_directions'});
-            $node_structure->{'node_directions'}->{'next'}
-             = $top_node_section_child;
+            if ($section_child_structure->{'associated_node'}) {
+              $top_node_section_child
+                = $section_child_structure->{'associated_node'};
+              $node_structure->{'node_directions'} = {}
+                  if (! $node_structure->{'node_directions'});
+              $node_structure->{'node_directions'}->{'next'}
+               = $top_node_section_child;
+            }
           }
         }
       }
@@ -2084,7 +2137,7 @@ X<C<get_node_node_childs_from_sectioning>>
 
 I<$node_structure> is a node structuring information.
 I<$sections_list> is section lists structure information, usually obtained
-through C<Texinfo::Document>. Find the node I<$node> children based on the
+through C<Texinfo::Document>. Find the I<$node_structure> children based on the
 sectioning structure.  For the node associated with C<@top> sectioning
 command, the sections associated with parts are considered.
 
@@ -2139,8 +2192,8 @@ entry name.  Returns C<undef> if the node argument is missing.
 =item construct_nodes_tree($document)
 X<C<construct_nodes_tree>>
 
-Goes through nodes in I<$document> tree and set directions.  Set the list of
-nodes in the I<$document>.
+Goes through nodes in I<$document> tree and set directions.  Sets the list of
+node structure information in the I<$document>.
 
 This functions sets, in the node structure information element hash:
 
@@ -2172,7 +2225,7 @@ X<C<sectioning_structure>>
 
 This function goes through the parsed document tree and gather information
 on the document structure for sectioning commands.  It sets the sections
-elements list in the document.
+structure information list in the document.
 
 It sets section elements C<extra> hash values:
 
@@ -2187,6 +2240,12 @@ by C<@raisesections> and C<@lowersections>.
 =item section_number
 
 The sectioning element number.
+
+=back
+
+The following is set in section structure information hashes:
+
+=over
 
 =item section_childs
 
@@ -2206,10 +2265,8 @@ account C<@part> elements.
 
 =back
 
-An element is created and used as the root of the sectioning commands tree.
-This element is associated to the C<extra> I<sectioning_root> key of the first
-section element of the sections list.  It is also at the top of the tree when
-following the I<up> I<section_directions>.
+After calling this function, information on the sectioning tree root
+can be obtained by calling C<< $document->sectioning_root() >>.
 
 =item set_menus_node_directions($document);
 X<C<set_menus_node_directions>>

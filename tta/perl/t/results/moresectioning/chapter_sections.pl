@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -20,11 +20,6 @@ Next: [U1]
  |EXTRA
  |section_level:{1}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E1|E3|E7]
-  ||section_level:{0}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -47,7 +42,6 @@ Prev: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -97,7 +91,6 @@ Prev: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
@@ -122,7 +115,6 @@ Up: [U3]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5|E6]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
@@ -267,6 +259,8 @@ $result_sections_list{'chapter_sections'} = '1|unnumbered
  toplevel_directions:
   next->Chapter
   prev->unnumbered
+ section_childs:
+  1|second
 3|second
  section_directions:
   up->First chapter
@@ -277,9 +271,14 @@ $result_sections_list{'chapter_sections'} = '1|unnumbered
  toplevel_directions:
   next->Chapter 2
   prev->First chapter
+ section_childs:
+  1|Section of chapter
 5|Section of chapter
  section_directions:
   up->Chapter
+ section_childs:
+  1|subsection 1
+  2|subsection 2
 6|subsection 1
  section_directions:
   next->subsection 2
@@ -293,6 +292,14 @@ $result_sections_list{'chapter_sections'} = '1|unnumbered
   prev->Chapter
  toplevel_directions:
   prev->Chapter
+';
+
+$result_sectioning_root{'chapter_sections'} = 'level: 0
+list:
+ 1|unnumbered
+ 2|First chapter
+ 3|Chapter
+ 4|Chapter 2
 ';
 
 $result_headings_list{'chapter_sections'} = '';

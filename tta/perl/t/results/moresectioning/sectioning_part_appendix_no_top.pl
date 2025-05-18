@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -17,15 +17,9 @@ FastForward: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E4|E8]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -47,7 +41,6 @@ Up: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E2]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{2}
@@ -72,7 +65,6 @@ Up: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{3}
@@ -122,7 +114,6 @@ Next: [U5]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E5|E6|E7]
  |section_level:{0}
  |section_number:{5}
   *arguments_line C1
@@ -210,7 +201,6 @@ Prev: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E9]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{9}
@@ -306,12 +296,18 @@ $result_nodes_list{'sectioning_part_appendix_no_top'} = '';
 $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
  toplevel_directions:
   next->chapter in part
+ section_childs:
+  1|section
 2|section
  section_directions:
   up->chapter
+ section_childs:
+  1|subsection
 3|subsection
  section_directions:
   up->section
+ section_childs:
+  1|subsubsection
 4|subsubsection
  section_directions:
   up->subsection
@@ -319,6 +315,10 @@ $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
  part_associated_section: chapter in part
  section_directions:
   next->appendix
+ section_childs:
+  1|chapter in part
+  2|second chapter in part
+  3|unnumbered
 6|chapter in part
  associated_part: part
  section_directions:
@@ -347,9 +347,18 @@ $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
   prev->part
  toplevel_directions:
   prev->unnumbered
+ section_childs:
+  1|appendixsec
 10|appendixsec
  section_directions:
   up->appendix
+';
+
+$result_sectioning_root{'sectioning_part_appendix_no_top'} = 'level: -1
+list:
+ 1|chapter
+ 2|part
+ 3|appendix
 ';
 
 $result_headings_list{'sectioning_part_appendix_no_top'} = '';

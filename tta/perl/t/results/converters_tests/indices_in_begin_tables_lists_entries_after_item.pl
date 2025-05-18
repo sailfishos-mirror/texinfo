@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -30,14 +30,8 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1464,6 +1458,9 @@ $result_sections_list{'indices_in_begin_tables_lists_entries_after_item'} = '1|t
  associated_node: Top
  toplevel_directions:
   next->chap
+ section_childs:
+  1|chap
+  2|printindex
 2|chap
  associated_anchor_command: chapter
  associated_node: chapter
@@ -1483,6 +1480,11 @@ $result_sections_list{'indices_in_begin_tables_lists_entries_after_item'} = '1|t
  toplevel_directions:
   prev->chap
   up->top
+';
+
+$result_sectioning_root{'indices_in_begin_tables_lists_entries_after_item'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'indices_in_begin_tables_lists_entries_after_item'} = '';

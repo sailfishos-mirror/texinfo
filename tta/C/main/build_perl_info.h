@@ -54,6 +54,7 @@ SV *document_global_commands_information (SV *document_in);
 SV *document_labels_information (SV *document_in);
 SV *document_nodes_list (SV *document_in);
 SV *document_sections_list (SV *document_in);
+SV *document_sectioning_root (SV *document_in);
 SV *document_headings_list (SV *document_in);
 
 SV *document_floats_information (SV *document_in);

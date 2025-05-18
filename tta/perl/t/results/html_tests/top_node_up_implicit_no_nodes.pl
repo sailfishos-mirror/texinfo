@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'top_node_up_implicit_no_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -161,6 +155,8 @@ $result_sections_list{'top_node_up_implicit_no_nodes'} = '1|The top
  associated_node: Top
  toplevel_directions:
   next->A chapter
+ section_childs:
+  1|A chapter
 2|A chapter
  associated_anchor_command: Chap
  associated_node: Chap
@@ -169,6 +165,11 @@ $result_sections_list{'top_node_up_implicit_no_nodes'} = '1|The top
  toplevel_directions:
   prev->The top
   up->The top
+';
+
+$result_sectioning_root{'top_node_up_implicit_no_nodes'} = 'level: -1
+list:
+ 1|The top
 ';
 
 $result_headings_list{'top_node_up_implicit_no_nodes'} = '';

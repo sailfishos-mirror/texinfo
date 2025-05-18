@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -29,11 +29,6 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,6 +58,11 @@ $result_nodes_list{'one_subsection_and_node'} = '1|one node
 $result_sections_list{'one_subsection_and_node'} = '1|The subsection
  associated_anchor_command: one node
  associated_node: one node
+';
+
+$result_sectioning_root{'one_subsection_and_node'} = 'level: 2
+list:
+ 1|The subsection
 ';
 
 $result_headings_list{'one_subsection_and_node'} = '';

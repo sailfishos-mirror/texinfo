@@ -1618,19 +1618,19 @@ sub format_warn_strong_note($)
 # format @contents or @shortcontents
 sub format_contents($$$)
 {
-  my ($self, $section_root, $contents_or_shortcontents) = @_;
+  my ($self, $sectioning_root, $contents_or_shortcontents) = @_;
 
   my $contents = 1 if ($contents_or_shortcontents eq 'contents');
 
   # no sections
-  return ('', 0) if (!$section_root
-                     or !$section_root->{'extra'}->{'section_childs'});
+  return ('', 0) if (!$sectioning_root
+                     or !$sectioning_root->{'section_childs'});
 
   my $sections_list = $self->{'document'}->sections_list();
 
-  my $root_level = $section_root->{'extra'}->{'section_childs'}->[0]
+  my $root_level = $sectioning_root->{'section_childs'}->[0]
                                           ->{'extra'}->{'section_level'};
-  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
     $root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $root_level);
   }
@@ -1638,7 +1638,7 @@ sub format_contents($$$)
   my $lines_count = 0;
   # This is done like that because the tree may not be well formed if
   # there is a @part after a @chapter for example.
-  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
@@ -1679,10 +1679,10 @@ sub format_contents($$$)
       $text .= "\n";
       _stream_output($self, $text);
       $lines_count++;
-      if ($section->{'extra'}->{'section_childs'}
+      if ($section_structure->{'section_childs'}
           and ($contents
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
-        $section = $section->{'extra'}->{'section_childs'}->[0];
+        $section = $section_structure->{'section_childs'}->[0];
       } elsif ($section_structure->{'section_directions'}
                and $section_structure->{'section_directions'}->{'next'}) {
         last if ($section eq $top_section);
@@ -3966,25 +3966,25 @@ sub _convert($$)
       return;
     } elsif ($cmdname eq 'contents') {
       my $sections_list;
+      my $sectioning_root;
       if ($self->{'document'}) {
         $sections_list = $self->{'document'}->sections_list();
+        $sectioning_root = $self->{'document'}->sectioning_root();
       }
 
       if ($sections_list and scalar(@$sections_list)) {
-        my $sectioning_root = $sections_list->[0]->{'element'}
-                                ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'contents');
       }
       return;
     } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
       my $sections_list;
+      my $sectioning_root;
       if ($self->{'document'}) {
         $sections_list = $self->{'document'}->sections_list();
+        $sectioning_root = $self->{'document'}->sectioning_root();
       }
 
       if ($sections_list and scalar(@$sections_list)) {
-        my $sectioning_root = $sections_list->[0]->{'element'}
-                                ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'shortcontents');
       }
       return;

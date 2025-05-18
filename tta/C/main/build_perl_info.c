@@ -1072,6 +1072,13 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
           hv_store (structure_hv, "toplevel_directions",
                     strlen ("toplevel_directions"), sv, 0);
         }
+      if (structure->section_childs)
+        {
+          /* TODO pass avoid_recursion? */
+          sv = build_perl_const_element_array (structure->section_childs, 0);
+          hv_store (structure_hv, "section_childs",
+                    strlen ("section_childs"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
@@ -1838,6 +1845,25 @@ build_minimal_document (DOCUMENT *document)
   return sv;
 }
 
+static HV *
+build_sectioning_root (SECTIONING_ROOT *sectioning_root)
+{
+  HV *hv = 0;
+
+  dTHX;
+
+  hv = newHV ();
+
+  /* TODO pass avoid_recursion? */
+  SV *sv = build_perl_const_element_array (
+                            &sectioning_root->section_childs, 0);
+  hv_store (hv, "section_childs", strlen ("section_childs"), sv, 0);
+
+  hv_store (hv, "section_root_level", strlen ("section_root_level"),
+            newSViv (sectioning_root->section_root_level), 0);
+  return hv;
+}
+
 static void
 fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 {
@@ -1853,6 +1879,7 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
   AV *av_nodes_list = 0;
   AV *av_sections_list = 0;
   AV *av_headings_list = 0;
+  HV *hv_sectioning_root = 0;
 
   dTHX;
 
@@ -1881,6 +1908,9 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
   av_sections_list = build_section_structure_list (&document->sections_list);
 
   av_headings_list = build_heading_structure_list (&document->headings_list);
+
+  if (document->sectioning_root)
+    hv_sectioning_root = build_sectioning_root (document->sectioning_root);
 
   if (document->indices_sort_strings)
     hv_indices_sort_strings = build_indices_sort_strings (
@@ -1913,6 +1943,12 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 
   STORE("sections_list", av_sections_list);
   document->modified_information &= ~F_DOCM_sections_list;
+
+  if (hv_sectioning_root)
+    {
+      STORE("sectioning_root", hv_sectioning_root);
+      document->modified_information &= ~F_DOCM_sectioning_root;
+    }
 
   STORE("headings_list", av_headings_list);
   document->modified_information &= ~F_DOCM_headings_list;
@@ -2452,6 +2488,8 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
  */
 
+
+BUILD_PERL_DOCUMENT_ITEM(document_sectioning_root,sectioning_root,"sectioning_root",F_DOCM_sectioning_root,build_sectioning_root,HV)
 
 
 /*

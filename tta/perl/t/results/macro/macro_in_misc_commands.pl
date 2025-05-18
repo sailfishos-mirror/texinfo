@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -72,14 +72,8 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -2065,6 +2059,8 @@ $result_sections_list{'macro_in_misc_commands'} = '1|top atext
  associated_node: Top
  toplevel_directions:
   next->chapter
+ section_childs:
+  1|chapter
 2|chapter
  associated_anchor_command: node atext
  associated_node: node atext
@@ -2073,6 +2069,11 @@ $result_sections_list{'macro_in_misc_commands'} = '1|top atext
  toplevel_directions:
   prev->top atext
   up->top atext
+';
+
+$result_sectioning_root{'macro_in_misc_commands'} = 'level: -1
+list:
+ 1|top atext
 ';
 
 $result_headings_list{'macro_in_misc_commands'} = '1|Comment like: atext

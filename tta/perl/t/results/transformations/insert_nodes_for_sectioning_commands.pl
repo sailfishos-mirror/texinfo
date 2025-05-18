@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -28,11 +28,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1|E2]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -46,7 +41,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E4|E18]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -81,7 +75,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E6|E8|E14|E16]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
@@ -143,7 +136,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10|E12]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{5}
@@ -293,7 +285,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     { 1}
  *18 @unnumbered C2 l21
  |EXTRA
- |section_childs:EC[E20]
  |section_level:{1}
  |section_number:{10}
   *arguments_line C1
@@ -479,6 +470,9 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  part_associated_section: chap, @code{a chap}
  section_directions:
   prev->top section
+ section_childs:
+  1|chap, @code{a chap}
+  2|
 3|chap, @code{a chap}
  associated_node: chap@comma{} @code{a chap}
  associated_part: part
@@ -489,6 +483,11 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   next->
   prev->top section
   up->top section
+ section_childs:
+  1|section
+  2|truc
+  3|section
+  4|section
 4|section
  associated_anchor_command: a node
  associated_node: a node
@@ -501,6 +500,9 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   next->section
   prev->section
   up->chap, @code{a chap}
+ section_childs:
+  1|sub1
+  2|sub2
 6|sub1
  associated_node: sub1
  section_directions:
@@ -530,10 +532,18 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  toplevel_directions:
   prev->chap, @code{a chap}
   up->top section
+ section_childs:
+  1|@asis{}
 11|@asis{}
  associated_node: @asis{} 2
  section_directions:
   up->
+';
+
+$result_sectioning_root{'insert_nodes_for_sectioning_commands'} = 'level: -1
+list:
+ 1|top section
+ 2|part
 ';
 
 $result_headings_list{'insert_nodes_for_sectioning_commands'} = '';

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -43,14 +43,8 @@ NodeForward: [U1]
     {)}
  *1 @top C3 complex_sectioning_case.texi:l2
  |EXTRA
- |section_childs:EC[E4|E26|E28|E30]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg
    |INFO
@@ -184,7 +178,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7|E18|E23]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -284,7 +277,6 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10|E12|E14|E16]
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
@@ -563,7 +555,6 @@ NodeBack: [U6]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E21]
  |section_level:{2}
  |section_number:{8}
   *arguments_line C1
@@ -1283,6 +1274,11 @@ $result_sections_list{'complex_split_at_node'} = '1
  associated_node: Top
  toplevel_directions:
   next->first node chapter
+ section_childs:
+  1|first node chapter
+  2|second node chapter
+  3|unnumbered chapter
+  4|unnumbered continuity
 2|first node chapter
  associated_anchor_command: First node
  associated_node: First node
@@ -1293,12 +1289,21 @@ $result_sections_list{'complex_split_at_node'} = '1
   next->second node chapter
   prev->
   up->
+ section_childs:
+  1|unnumbered section
+  2|unnumbered section2
+  3|numbered section
 3|unnumbered section
  associated_anchor_command: unnumbered
  associated_node: unnumbered
  section_directions:
   next->unnumbered section2
   up->first node chapter
+ section_childs:
+  1|unnumbered subsection
+  2|numbered subsection
+  3|unnumbered subsection2
+  4|numbered subsection2
 4|unnumbered subsection
  associated_anchor_command: unnumbered sub
  associated_node: unnumbered sub
@@ -1332,6 +1337,8 @@ $result_sections_list{'complex_split_at_node'} = '1
   next->numbered section
   prev->unnumbered section
   up->first node chapter
+ section_childs:
+  1|numbered subsection3
 9|numbered subsection3
  associated_anchor_command: numbered sub3
  associated_node: numbered sub3
@@ -1374,6 +1381,11 @@ $result_sections_list{'complex_split_at_node'} = '1
  toplevel_directions:
   prev->unnumbered chapter
   up->
+';
+
+$result_sectioning_root{'complex_split_at_node'} = 'level: -1
+list:
+ 1|
 ';
 
 $result_headings_list{'complex_split_at_node'} = '';

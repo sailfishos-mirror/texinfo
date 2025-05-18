@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -77,14 +77,8 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -350,6 +344,9 @@ $result_sections_list{'japanese_utf8'} = '1|GNU LilyPond --- 学習マニュア�
  associated_node: Top
  toplevel_directions:
   next->Preface
+ section_childs:
+  1|Preface
+  2|Introduction
 2|Preface
  associated_anchor_command: Preface
  associated_node: Preface
@@ -369,6 +366,11 @@ $result_sections_list{'japanese_utf8'} = '1|GNU LilyPond --- 学習マニュア�
  toplevel_directions:
   prev->Preface
   up->GNU LilyPond --- 学習マニュアル
+';
+
+$result_sectioning_root{'japanese_utf8'} = 'level: -1
+list:
+ 1|GNU LilyPond --- 学習マニュアル
 ';
 
 $result_headings_list{'japanese_utf8'} = '';

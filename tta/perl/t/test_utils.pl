@@ -96,7 +96,7 @@ use Texinfo::Convert::DocBook;
 # of a file containing code setting those variables.
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 Locale::Messages->select_package('gettext_pp');
@@ -253,7 +253,7 @@ my $arg_debug;
 my $arg_complete;
 my $arg_output;
 my $nr_comparisons;
-$nr_comparisons = 10;
+$nr_comparisons = 11;
 
 Getopt::Long::Configure("gnu_getopt");
 # complete: output a complete texinfo file based on the test.  Does not
@@ -1275,6 +1275,7 @@ sub test($$)
   my $tree_text;
   my $nodes_list_text;
   my $sections_list_text;
+  my $sectioning_root_text;
   my $headings_list_text;
   if ($output_units) {
     $tree_text
@@ -1290,6 +1291,9 @@ sub test($$)
   $nodes_list_text = Texinfo::Structuring::print_nodes_list($document);
 
   $sections_list_text = Texinfo::Structuring::print_sections_list($document);
+
+  $sectioning_root_text
+    = Texinfo::Structuring::print_sectioning_root($document);
 
   $headings_list_text = Texinfo::Structuring::print_headings_list($document);
 
@@ -1321,7 +1325,7 @@ sub test($$)
     print OUT
      'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".
      '   %result_indices %result_floats %result_nodes_list %result_sections_list'."\n".
-     '   %result_headings_list'."\n".
+     '   %result_sectioning_root %result_headings_list'."\n".
      '   %result_converted %result_converted_errors %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
@@ -1383,6 +1387,11 @@ sub test($$)
                     . protect_perl_string($sections_list_text)."';\n\n";
     }
 
+    if (defined($sectioning_root_text)) {
+      $out_result .= '$result_sectioning_root{\''.$test_name.'\'} = \''
+                    . protect_perl_string($sectioning_root_text)."';\n\n";
+    }
+
     if (defined($headings_list_text)) {
       $out_result .= '$result_headings_list{\''.$test_name.'\'} = \''
                     . protect_perl_string($headings_list_text)."';\n\n";
@@ -1430,6 +1439,9 @@ sub test($$)
 
     is_diff($sections_list_text, $result_sections_list{$test_name}, $test_name
              .' sections list');
+
+    is_diff($sectioning_root_text, $result_sectioning_root{$test_name},
+            $test_name .' sectioning root');
 
     is_diff($headings_list_text, $result_headings_list{$test_name}, $test_name
              .' headings list');

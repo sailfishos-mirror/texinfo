@@ -544,8 +544,7 @@ sub _print_element_add_prepend_info($$$$;$$)
 
 # extra elements out of tree.  Need to look at C add_extra_element_oot
 # to know which one are out of tree.  Use of gdt/copy is good evidence.
-my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element',
-                         'sectioning_root');
+my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element');
 
 # keep in sync with elt_info_names in C/main/tree.c
 my @elt_info_names = ('spaces_before_argument', 'spaces_after_cmd_before_arg',

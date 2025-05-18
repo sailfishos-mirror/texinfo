@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1|E6|E10]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,7 +55,6 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -107,7 +100,6 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E8]
  |section_level:{0}
  |section_number:{4}
   *arguments_line C1
@@ -260,6 +252,8 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
   next->P1
  toplevel_directions:
   next->Chap
+ section_childs:
+  1|Chap
 2|Chap
  associated_anchor_command: chapter
  associated_node: chapter
@@ -269,6 +263,8 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
   next->Chap 2
   prev->top
   up->top
+ section_childs:
+  1|Sec
 3|Sec
  associated_anchor_command: sec
  associated_node: sec
@@ -280,6 +276,8 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
  section_directions:
   next->GGG
   prev->top
+ section_childs:
+  1|Chap 2
 5|Chap 2
  associated_anchor_command: chap2
  associated_node: chap2
@@ -298,6 +296,13 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
  toplevel_directions:
   prev->Chap 2
   up->top
+';
+
+$result_sectioning_root{'part_appendix_in_generated_menu'} = 'level: -1
+list:
+ 1|top
+ 2|P1
+ 3|GGG
 ';
 
 $result_headings_list{'part_appendix_in_generated_menu'} = '';

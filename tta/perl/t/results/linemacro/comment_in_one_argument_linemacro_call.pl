@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -74,6 +74,8 @@ $result_errors{'comment_in_one_argument_linemacro_call'} = [];
 $result_nodes_list{'comment_in_one_argument_linemacro_call'} = '';
 
 $result_sections_list{'comment_in_one_argument_linemacro_call'} = '';
+
+$result_sectioning_root{'comment_in_one_argument_linemacro_call'} = '';
 
 $result_headings_list{'comment_in_one_argument_linemacro_call'} = '';
 

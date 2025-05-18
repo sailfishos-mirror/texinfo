@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -34,14 +34,8 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1|E6]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -162,7 +156,6 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E7]
  |section_level:{0}
  |section_number:{3}
   *arguments_line C1
@@ -280,6 +273,8 @@ $result_sections_list{'node_part_chapter_after_chapter'} = '1|top
   next->part
  toplevel_directions:
   next->chapter node
+ section_childs:
+  1|chapter node
 2|chapter node
  associated_anchor_command: chapter node
  associated_node: chapter node
@@ -293,6 +288,8 @@ $result_sections_list{'node_part_chapter_after_chapter'} = '1|top
  part_associated_section: chapter with part node
  section_directions:
   prev->top
+ section_childs:
+  1|chapter with part node
 4|chapter with part node
  associated_anchor_command: part chapter node
  associated_node: part chapter node
@@ -302,6 +299,12 @@ $result_sections_list{'node_part_chapter_after_chapter'} = '1|top
  toplevel_directions:
   prev->chapter node
   up->top
+';
+
+$result_sectioning_root{'node_part_chapter_after_chapter'} = 'level: -1
+list:
+ 1|top
+ 2|part
 ';
 
 $result_headings_list{'node_part_chapter_after_chapter'} = '';

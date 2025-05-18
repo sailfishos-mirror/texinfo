@@ -714,11 +714,10 @@ EOT
 EOT
 
     # similar code as in chm.pm
-    my $section_root = $sections_list->[0]->{'element'}
-                                         ->{'extra'}->{'sectioning_root'};
-    my $upper_level = $section_root->{'extra'}->{'section_childs'}->[0]
+    my $sectioning_root = $document->sectioning_root();
+    my $upper_level = $sectioning_root->{'section_childs'}->[0]
                                             ->{'extra'}->{'section_level'};
-    foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+    foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
       $upper_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $upper_level);
     }

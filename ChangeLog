@@ -1,5 +1,53 @@
 2025-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	move sectioning_root to document and sections_list to structure
+
+	* tta/C/main/build_perl_info.c (build_section_structure_list)
+	(build_sectioning_root, fill_document_hv, document_sectioning_root),
+	tta/C/main/document.c (destroy_document_information_except_tree),
+	tta/C/main/document_types.h (F_DOCM_sectioning_root, DOCUMENT),
+	tta/C/main/structure_list.c (free_section_structure_list)
+	(print_sections_list, print_sectioning_root), tta/C/main/tree_types.h
+	(AI_KEYS_LIST, SECTION_STRUCTURE, SECTIONING_ROOT),
+	tta/C/structuring_transfo/structuring.c (sectioning_structure),
+	tta/perl/Texinfo/Document.pm (sectioning_root),
+	tta/perl/Texinfo/ManipulateTree.pm (@extra_out_of_tree),
+	tta/perl/Texinfo/Structuring.pm (sectioning_structure)
+	(print_sections_list, print_sectioning_root),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(document_sectioning_root),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(print_sectioning_root): move sections_list information to section
+	structure information out of extra information in tree.  Do not
+	associate sectioning_root to a section, but directly to the document.
+	Add the corresponding struct SECTIONING_ROOT, add the sectioning_root
+	method to Document.pm to retrieve it, with an override.  Let
+	sectioning_root be a specific structure with information on top level
+	sections and an information on the level above the top level section.
+
+	* tta/perl/t/test_utils.pl ($nr_comparisons, test): add textual output
+	of sectioning_root information.
+
+	* tta/C/convert/format_html.c (html_default_format_contents)
+	(mini_toc_internal, html_convert_heading_command),
+	tta/C/main/output_unit.c (units_directions),
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning, construct_nodes_tree),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command)
+	(_mini_toc, _default_format_contents),
+	tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm (format_contents, _convert),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions), 
+	tta/perl/Texinfo/Structuring.pm (_print_sectioning_tree)
+	(get_node_node_childs_from_sectioning, construct_nodes_tree),
+	tta/perl/ext/epub3.pm, tta/perl/init/book.pm (book_print_sub_toc)
+	(book_convert_heading_command), tta/perl/init/chm.pm (chm_init):
+	update for changes in sectioning_root and sections_list.
+
+2025-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	section_directions and toplevel_directions in structure info not tree
 
 	* tta/C/main/structure_list.c (free_node_structure_list): avoid

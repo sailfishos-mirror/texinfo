@@ -386,6 +386,7 @@ sub output_ixin($$)
   my $identifiers_target;
   my $indices_information;
   my $global_commands;
+  my $sectioning_root;
   if ($self->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
@@ -393,6 +394,7 @@ sub output_ixin($$)
     $identifiers_target = $self->{'document'}->labels_information();
     $indices_information = $self->{'document'}->indices_information();
     $global_commands = $self->{'document'}->global_commands_information();
+    $sectioning_root = $self->{'document'}->sectioning_root();
   }
 
   if ($global_commands and $global_commands->{'dircategory_direntry'}) {
@@ -610,9 +612,7 @@ sub output_ixin($$)
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($sections_list) {
-    my $section_root = $sections_list->[0]->{'element'}
-                                   ->{'extra'}->{'sectioning_root'};
-    foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+    foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
       my $section = $top_section;
  SECTION:
       while ($section) {
@@ -637,8 +637,8 @@ sub output_ixin($$)
         if ($section->{'cmdname'} eq 'top') {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
         }
-        if ($section->{'extra'}->{'section_childs'}) {
-          $section = $section->{'extra'}->{'section_childs'}->[0];
+        if ($section_structure->{'section_childs'}) {
+          $section = $section_structure->{'section_childs'}->[0];
         } elsif ($section_structure->{'section_directions'}
                  and $section_structure->{'section_directions'}->{'next'}) {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');

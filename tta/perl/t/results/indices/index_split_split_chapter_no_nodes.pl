@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -31,14 +31,8 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E21]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -268,7 +262,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7|E14|E16]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -422,7 +415,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10|E12]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -1252,6 +1244,9 @@ $result_sections_list{'index_split_split_chapter_no_nodes'} = '1|split indices
  associated_node: Top
  toplevel_directions:
   next->First chapter
+ section_childs:
+  1|First chapter
+  2|Second chapter
 2|First chapter
  associated_anchor_command: first
  associated_node: first
@@ -1262,12 +1257,19 @@ $result_sections_list{'index_split_split_chapter_no_nodes'} = '1|split indices
   next->Second chapter
   prev->split indices
   up->split indices
+ section_childs:
+  1|Section 1
+  2|Section 2
+  3|Section 3
 3|Section 1
  associated_anchor_command: section 1
  associated_node: section 1
  section_directions:
   next->Section 2
   up->First chapter
+ section_childs:
+  1|Subsection 1
+  2|Subsection 2
 4|Subsection 1
  associated_anchor_command: subsection 1
  associated_node: subsection 1
@@ -1302,6 +1304,11 @@ $result_sections_list{'index_split_split_chapter_no_nodes'} = '1|split indices
  toplevel_directions:
   prev->First chapter
   up->split indices
+';
+
+$result_sectioning_root{'index_split_split_chapter_no_nodes'} = 'level: -1
+list:
+ 1|split indices
 ';
 
 $result_headings_list{'index_split_split_chapter_no_nodes'} = '';

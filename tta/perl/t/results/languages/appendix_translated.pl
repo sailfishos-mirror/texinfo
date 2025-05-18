@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -40,14 +40,8 @@ $result_tree_text{'appendix_translated'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E2]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -110,12 +104,19 @@ $result_sections_list{'appendix_translated'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->dernier
+ section_childs:
+  1|dernier
 2|dernier
  section_directions:
   up->top
  toplevel_directions:
   prev->top
   up->top
+';
+
+$result_sectioning_root{'appendix_translated'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'appendix_translated'} = '';

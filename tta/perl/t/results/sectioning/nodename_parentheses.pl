@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -365,6 +359,10 @@ $result_sections_list{'nodename_parentheses'} = '1|The top node
  associated_node: Top
  toplevel_directions:
   next->Section (nodename with parentheses)
+ section_childs:
+  1|Section (nodename with parentheses)
+  2|Section (nodename without parentheses)
+  3|(manual)node
 2|Section (nodename with parentheses)
  associated_anchor_command: Node (with parentheses)
  associated_node: Node (with parentheses)
@@ -395,6 +393,11 @@ $result_sections_list{'nodename_parentheses'} = '1|The top node
  toplevel_directions:
   prev->Section (nodename without parentheses)
   up->The top node
+';
+
+$result_sectioning_root{'nodename_parentheses'} = 'level: -1
+list:
+ 1|The top node
 ';
 
 $result_headings_list{'nodename_parentheses'} = '';

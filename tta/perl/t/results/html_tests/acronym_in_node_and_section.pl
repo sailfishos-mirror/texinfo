@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -60,7 +54,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5|E7]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -223,6 +216,8 @@ $result_sections_list{'acronym_in_node_and_section'} = '1|top
  associated_node: top
  toplevel_directions:
   next->chap
+ section_childs:
+  1|chap
 2|chap
  associated_anchor_command: chap
  associated_node: chap
@@ -231,6 +226,9 @@ $result_sections_list{'acronym_in_node_and_section'} = '1|top
  toplevel_directions:
   prev->top
   up->top
+ section_childs:
+  1|define
+  2|here is @acronym{GHJ}
 3|define
  associated_anchor_command: sec define
  associated_node: sec define
@@ -243,6 +241,11 @@ $result_sections_list{'acronym_in_node_and_section'} = '1|top
  section_directions:
   prev->define
   up->chap
+';
+
+$result_sectioning_root{'acronym_in_node_and_section'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'acronym_in_node_and_section'} = '';

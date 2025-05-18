@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -52,14 +52,8 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -247,6 +241,8 @@ $result_sections_list{'chinese_mixed_with_en_EUC_CN'} = '1|Mixed chinese and eng
  associated_node: Top
  toplevel_directions:
   next->Mixed english and chinese
+ section_childs:
+  1|Mixed english and chinese
 2|Mixed english and chinese
  associated_anchor_command: Mixed english and chinese
  associated_node: Mixed english and chinese
@@ -255,6 +251,11 @@ $result_sections_list{'chinese_mixed_with_en_EUC_CN'} = '1|Mixed chinese and eng
  toplevel_directions:
   prev->Mixed chinese and english
   up->Mixed chinese and english
+';
+
+$result_sectioning_root{'chinese_mixed_with_en_EUC_CN'} = 'level: -1
+list:
+ 1|Mixed chinese and english
 ';
 
 $result_headings_list{'chinese_mixed_with_en_EUC_CN'} = '';

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -27,14 +27,8 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -361,6 +355,8 @@ $result_sections_list{'some_at_commands_in_ref_nodes'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+ section_childs:
+  1|A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 2|A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_anchor_command: A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_node: A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
@@ -369,6 +365,11 @@ $result_sections_list{'some_at_commands_in_ref_nodes'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
+';
+
+$result_sectioning_root{'some_at_commands_in_ref_nodes'} = 'level: -1
+list:
+ 1|Top
 ';
 
 $result_headings_list{'some_at_commands_in_ref_nodes'} = '';

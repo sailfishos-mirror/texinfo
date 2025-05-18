@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -224,14 +224,8 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E6|E9]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E5]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -708,6 +702,9 @@ $result_sections_list{'index_special_region_no_insertcopying_titlepage_no_nodes_
  associated_node: Top
  toplevel_directions:
   next->Chapter
+ section_childs:
+  1|Chapter
+  2|Copying and indices
 2|Chapter
  section_directions:
   next->Copying and indices
@@ -725,6 +722,11 @@ $result_sections_list{'index_special_region_no_insertcopying_titlepage_no_nodes_
  toplevel_directions:
   prev->Chapter
   up->Top
+';
+
+$result_sectioning_root{'index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default'} = 'level: -1
+list:
+ 1|Top
 ';
 
 $result_headings_list{'index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default'} = '';

@@ -407,12 +407,15 @@ sub units_directions($$$$;$)
                 and $node_structure->{'node_directions'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
-      my $associated_section;
+      my $associated_structure;
       my $argument = $node->{'contents'}->[0];
       my $automatic_directions
         = (scalar(@{$argument->{'contents'}}) <= 1);
       if ($automatic_directions and $node_structure->{'associated_section'}) {
-        $associated_section = $node_structure->{'associated_section'};
+        my $associated_section = $node_structure->{'associated_section'};
+        $associated_structure
+         = $sections_list->[$associated_section
+                                 ->{'extra'}->{'section_number'} -1];
       }
       my $menu_child
          = Texinfo::ManipulateTree::first_menu_node($node_structure,
@@ -420,11 +423,11 @@ sub units_directions($$$$;$)
       if ($menu_child) {
         $directions->{'NodeForward'}
           = _label_target_unit_element($menu_child);
-      } elsif ($associated_section
-               and $associated_section->{'extra'}->{'section_childs'}
-               and $associated_section->{'extra'}->{'section_childs'}->[0]) {
+      } elsif ($associated_structure
+               and $associated_structure->{'section_childs'}
+               and $associated_structure->{'section_childs'}->[0]) {
         $directions->{'NodeForward'}
-          = $associated_section->{'extra'}
+          = $associated_structure
                   ->{'section_childs'}->[0]->{'associated_unit'};
       } elsif ($node_structure->{'node_directions'}
                and $node_structure->{'node_directions'}->{'next'}) {
@@ -542,10 +545,10 @@ sub units_directions($$$$;$)
           and defined($up->{'extra'}->{'section_level'})
           and $up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
-          and $up->{'extra'}->{'section_childs'}
-          and @{$up->{'extra'}->{'section_childs'}}) {
+          and $up_structure->{'section_childs'}
+          and scalar(@{$up_structure->{'section_childs'}})) {
         $directions->{'FastForward'}
-           = $up->{'extra'}->{'section_childs'}->[0]->{'associated_unit'};
+           = $up_structure->{'section_childs'}->[0]->{'associated_unit'};
       } elsif ($up_structure->{'toplevel_directions'}
                and $up_structure->{'toplevel_directions'}->{'next'}) {
         $directions->{'FastForward'}

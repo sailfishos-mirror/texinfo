@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -28,14 +28,8 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     {Top}
  *1 @top C3 l4
  |EXTRA
- |section_childs:EC[E4|E15]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg
    |INFO
@@ -100,7 +94,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -254,7 +247,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |level_modifier:{-1}
- |section_childs:EC[E10]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -314,7 +306,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |level_modifier:{-1}
- |section_childs:EC[E13]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -656,6 +647,9 @@ $result_sections_list{'raiselowersections'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chapter
+ section_childs:
+  1|Chapter
+  2|Second chapter
 2|Chapter
  associated_anchor_command: Chapter
  associated_node: Chapter
@@ -666,16 +660,22 @@ $result_sections_list{'raiselowersections'} = '1
   next->Second chapter
   prev->
   up->
+ section_childs:
+  1|Chapter in included file
 3|Chapter in included file
  associated_anchor_command: Chapter in included file
  associated_node: Chapter in included file
  section_directions:
   up->Chapter
+ section_childs:
+  1|Section
 4|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter in included file
+ section_childs:
+  1|Subsection
 5|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
@@ -690,6 +690,11 @@ $result_sections_list{'raiselowersections'} = '1
  toplevel_directions:
   prev->Chapter
   up->
+';
+
+$result_sectioning_root{'raiselowersections'} = 'level: -1
+list:
+ 1|
 ';
 
 $result_headings_list{'raiselowersections'} = '';

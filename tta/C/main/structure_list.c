@@ -218,6 +218,8 @@ free_section_structure_list (SECTION_STRUCTURE_LIST *list)
       SECTION_STRUCTURE *section_structure = list->list[i];
       free (section_structure->section_directions);
       free (section_structure->toplevel_directions);
+      if (section_structure->section_childs)
+        destroy_const_element_list (section_structure->section_childs);
       free (section_structure);
     }
   free (list->list);
@@ -339,6 +341,55 @@ print_sections_list (const DOCUMENT *document)
           text_append_n (&result, " toplevel_directions:\n", 22);
           print_sections_directions (&result, structure->toplevel_directions);
         }
+      if (structure->section_childs)
+        {
+          size_t i;
+          const char *key = "section_childs";
+          text_printf (&result, " %s:\n", key);
+          for (i = 0; i < structure->section_childs->number; i++)
+            {
+              const ELEMENT *element = structure->section_childs->list[i];
+              char *section_texi = print_root_command (element);
+              text_printf (&result, "  %zu|", i+1);
+              if (section_texi)
+                text_append (&result, section_texi);
+              text_append_n (&result, "\n", 1);
+            }
+        }
+    }
+
+  return result.text;
+}
+
+char *
+print_sectioning_root (const DOCUMENT *document)
+{
+  size_t i;
+  const SECTIONING_ROOT *sectioning_root = document->sectioning_root;
+  const CONST_ELEMENT_LIST *section_childs;
+
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  if (!sectioning_root)
+    return result.text;
+
+  section_childs = &sectioning_root->section_childs;
+
+  text_printf (&result, "level: %d\n", sectioning_root->section_root_level);
+
+  text_append_n (&result, "list:\n", 6);
+
+  for (i = 0; i < section_childs->number; i++)
+    {
+      const ELEMENT *section = section_childs->list[i];
+      char *section_texi = print_root_command (section);
+      text_printf (&result, " %zu|", i+1);
+      if (section_texi)
+        text_append (&result, section_texi);
+      text_append_n (&result, "\n", 1);
     }
 
   return result.text;

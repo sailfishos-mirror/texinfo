@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8|E10]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -359,6 +353,11 @@ $result_sections_list{'special_docbook_unnumbered'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->a dedication
+ section_childs:
+  1|a dedication
+  2|The Preface
+  3|A colophon
+  4|A chapter Acnkowledgements
 2|a dedication
  associated_anchor_command: Dedication
  associated_node: Dedication
@@ -400,6 +399,11 @@ $result_sections_list{'special_docbook_unnumbered'} = '1|top
  toplevel_directions:
   prev->A colophon
   up->top
+';
+
+$result_sectioning_root{'special_docbook_unnumbered'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'special_docbook_unnumbered'} = '';

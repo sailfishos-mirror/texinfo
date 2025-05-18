@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E5|E8|E14|E19]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -126,7 +120,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E6]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
@@ -194,7 +187,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10|E12|E13]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{5}
@@ -298,7 +290,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E15]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{9}
@@ -314,7 +305,6 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E16|E18]
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{10}
@@ -544,6 +534,12 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->c1
+ section_childs:
+  1|c1
+  2|c2
+  3|c3
+  4|c4
+  5|appendix
 2|c1
  section_directions:
   next->c2
@@ -563,6 +559,8 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->c3
   prev->c1
   up->top
+ section_childs:
+  1|s1
 4|s1
  section_directions:
   up->c2
@@ -577,6 +575,10 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->c4
   prev->c2
   up->top
+ section_childs:
+  1|C3 s1
+  2|c3 s2
+  3|c3 s3
 6|C3 s1
  section_directions:
   next->c3 s2
@@ -601,9 +603,14 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->appendix
   prev->c3
   up->top
+ section_childs:
+  1|c3 s1
 10|c3 s1
  section_directions:
   up->c4
+ section_childs:
+  1|c3 s1 s1
+  2|c3 s1 s2
 11|c3 s1 s1
  section_directions:
   next->c3 s1 s2
@@ -621,6 +628,11 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
  toplevel_directions:
   prev->c4
   up->top
+';
+
+$result_sectioning_root{'more_sections_than_nodes'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'more_sections_than_nodes'} = '';

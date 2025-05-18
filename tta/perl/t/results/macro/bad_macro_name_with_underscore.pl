@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -42,6 +42,8 @@ $result_errors{'bad_macro_name_with_underscore'} = [];
 $result_nodes_list{'bad_macro_name_with_underscore'} = '';
 
 $result_sections_list{'bad_macro_name_with_underscore'} = '';
+
+$result_sectioning_root{'bad_macro_name_with_underscore'} = '';
 
 $result_headings_list{'bad_macro_name_with_underscore'} = '';
 

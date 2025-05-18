@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -70,6 +70,8 @@ $result_errors{'defline_no_params'} = [];
 $result_nodes_list{'defline_no_params'} = '';
 
 $result_sections_list{'defline_no_params'} = '';
+
+$result_sectioning_root{'defline_no_params'} = '';
 
 $result_headings_list{'defline_no_params'} = '';
 

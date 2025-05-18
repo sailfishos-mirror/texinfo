@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -23,14 +23,8 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
     {Top}
  *1 @top C4 l2
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg
    |INFO
@@ -85,7 +79,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -144,7 +137,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -203,7 +195,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E13|E15|E18]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -570,6 +561,8 @@ $result_sections_list{'lowered_subsubsection'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chapter
+ section_childs:
+  1|Chapter
 2|Chapter
  associated_anchor_command: Chapter
  associated_node: Chapter
@@ -578,16 +571,24 @@ $result_sections_list{'lowered_subsubsection'} = '1
  toplevel_directions:
   prev->
   up->
+ section_childs:
+  1|Section
 3|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter
+ section_childs:
+  1|Subsection
 4|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
  section_directions:
   up->Section
+ section_childs:
+  1|Subsubsection
+  2|Lowered subsec
+  3|Lowered subsubsection
 5|Subsubsection
  associated_anchor_command: Subsubsection
  associated_node: Subsubsection
@@ -607,6 +608,11 @@ $result_sections_list{'lowered_subsubsection'} = '1
  section_directions:
   prev->Lowered subsec
   up->Subsection
+';
+
+$result_sectioning_root{'lowered_subsubsection'} = 'level: -1
+list:
+ 1|
 ';
 
 $result_headings_list{'lowered_subsubsection'} = '';

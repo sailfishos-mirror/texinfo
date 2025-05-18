@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -20,11 +20,6 @@ Next: [U1]
  |EXTRA
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -44,7 +39,6 @@ FastBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E2]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -103,6 +97,8 @@ $result_sections_list{'top_part_chapter'} = '1|top
  part_associated_section: chapter
  section_directions:
   prev->top
+ section_childs:
+  1|chapter
 3|chapter
  associated_part: part
  section_directions:
@@ -110,6 +106,12 @@ $result_sections_list{'top_part_chapter'} = '1|top
  toplevel_directions:
   prev->top
   up->top
+';
+
+$result_sectioning_root{'top_part_chapter'} = 'level: -1
+list:
+ 1|top
+ 2|part
 ';
 
 $result_headings_list{'top_part_chapter'} = '';

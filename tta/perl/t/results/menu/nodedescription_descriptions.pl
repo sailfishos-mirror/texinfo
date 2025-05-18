@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E7|E10|E13|E16|E19|E22]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -644,6 +638,14 @@ $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescripti
  associated_node: Top
  toplevel_directions:
   next->Toto
+ section_childs:
+  1|Toto
+  2|Titi
+  3|Other
+  4|Last
+  5|Somewhat long
+  6|Very long
+  7|Past max columns
 2|Toto
  associated_anchor_command: toto
  associated_node: toto
@@ -718,6 +720,11 @@ $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescripti
  toplevel_directions:
   prev->Very long
   up->test of nodedescription used in menu
+';
+
+$result_sectioning_root{'nodedescription_descriptions'} = 'level: -1
+list:
+ 1|test of nodedescription used in menu
 ';
 
 $result_headings_list{'nodedescription_descriptions'} = '';

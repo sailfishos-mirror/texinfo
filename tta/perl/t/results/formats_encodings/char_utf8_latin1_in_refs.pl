@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -45,14 +45,8 @@ $result_tree_text{'char_utf8_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8|E10|E12]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -569,6 +563,12 @@ $result_sections_list{'char_utf8_latin1_in_refs'} = '1|accented char in latin1 i
  associated_node: Top
  toplevel_directions:
   next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ section_childs:
+  1|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  2|é
+  3|à è ù
+  4|â ê î ô û Â Ê Î Ô Û
+  5|ç
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_anchor_command: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_node: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
@@ -621,6 +621,11 @@ $result_sections_list{'char_utf8_latin1_in_refs'} = '1|accented char in latin1 i
  toplevel_directions:
   prev->â ê î ô û Â Ê Î Ô Û
   up->accented char in latin1 in refs
+';
+
+$result_sectioning_root{'char_utf8_latin1_in_refs'} = 'level: -1
+list:
+ 1|accented char in latin1 in refs
 ';
 
 $result_headings_list{'char_utf8_latin1_in_refs'} = '';

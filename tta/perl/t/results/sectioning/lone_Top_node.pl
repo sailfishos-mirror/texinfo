@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -78,11 +78,6 @@ NodeUp: [U0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E3]
-  ||section_level:{0}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,6 +134,11 @@ $result_nodes_list{'lone_Top_node'} = '1|Top
 $result_sections_list{'lone_Top_node'} = '1|chap
  associated_anchor_command: First
  associated_node: First
+';
+
+$result_sectioning_root{'lone_Top_node'} = 'level: 0
+list:
+ 1|chap
 ';
 
 $result_headings_list{'lone_Top_node'} = '';

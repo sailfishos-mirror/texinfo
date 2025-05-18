@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E7]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,7 +57,6 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -219,6 +212,9 @@ $result_sections_list{'sectioning_test_ref'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap1
+ section_childs:
+  1|Chap1
+  2|Chap2
 2|Chap1
  associated_anchor_command: chap
  associated_node: chap
@@ -229,6 +225,8 @@ $result_sections_list{'sectioning_test_ref'} = '1|top
   next->Chap2
   prev->top
   up->top
+ section_childs:
+  1|sec1
 3|sec1
  associated_anchor_command: sec
  associated_node: sec
@@ -243,6 +241,11 @@ $result_sections_list{'sectioning_test_ref'} = '1|top
  toplevel_directions:
   prev->Chap1
   up->top
+';
+
+$result_sectioning_root{'sectioning_test_ref'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'sectioning_test_ref'} = '';

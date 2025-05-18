@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E13]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -75,7 +69,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E11]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -382,7 +375,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E16]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
@@ -688,6 +680,9 @@ $result_sections_list{'namedanchor'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter @namedanchor{Not here!, There} after
+ section_childs:
+  1|chapter @namedanchor{Not here!, There} after
+  2|chap1
 2|chapter @namedanchor{Not here!, There} after
  associated_anchor_command: chap
  associated_node: chap
@@ -698,6 +693,8 @@ $result_sections_list{'namedanchor'} = '1|top
   next->chap1
   prev->top
   up->top
+ section_childs:
+  1|secc1
 3|secc1
  associated_anchor_command: secc1
  associated_node: secc1
@@ -712,11 +709,18 @@ $result_sections_list{'namedanchor'} = '1|top
  toplevel_directions:
   prev->chapter @namedanchor{Not here!, There} after
   up->top
+ section_childs:
+  1|Secc2
 5|Secc2
  associated_anchor_command: secc2
  associated_node: secc2
  section_directions:
   up->chap1
+';
+
+$result_sectioning_root{'namedanchor'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'namedanchor'} = '';

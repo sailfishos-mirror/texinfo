@@ -697,9 +697,16 @@ units_directions (const C_HASHMAP *identifiers_target,
               int automatic_directions = (argument->e.c->contents.number <= 1);
               const CONST_ELEMENT_LIST *section_childs = 0;
               if (node_structure->associated_section)
-                section_childs
-                  = lookup_extra_contents (node_structure->associated_section,
-                                                     AI_key_section_childs);
+                {
+                  int status;
+                  size_t associated_section_number
+                    = lookup_extra_integer (node_structure->associated_section,
+                                            AI_key_section_number, &status);
+                  const SECTION_STRUCTURE *associated_structure
+                    = sections_list->list[associated_section_number -1];
+                  section_childs = associated_structure->section_childs;
+                }
+
               if (automatic_directions
                   && section_childs && section_childs->number > 0)
                 {
@@ -868,7 +875,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                 break;
             }
 
-          up_section_childs = lookup_extra_contents (up, AI_key_section_childs);
+          up_section_childs = up_structure->section_childs;
           if (status >= 0 && up_section_level < 1
               && up->e.c->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)

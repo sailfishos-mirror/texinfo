@@ -4822,20 +4822,18 @@ sub _convert_heading_command($$$$$)
   my $format_menu = $self->get_conf('FORMAT_MENU');
   if ($toc_or_mini_toc_or_auto_menu eq ''
       and $sectioning_heading_commands{$cmdname}) {
-    if ($format_menu eq 'sectiontoc') {
-      $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $element);
-    } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
-      my $node;
-      if ($sections_list and $cmdname ne 'node'
-          and $Texinfo::Commands::root_commands{$cmdname}) {
-        my $section_structure
-         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-        if ($section_structure->{'associated_node'}) {
-          $node = $section_structure->{'associated_node'};
-        }
-      }
+    my $section_structure;
+    if ($sections_list
+        and $Texinfo::Commands::root_commands{$cmdname}) {
+      $section_structure
+        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    }
 
-      if ($node) {
+    if ($format_menu eq 'sectiontoc') {
+      $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $section_structure);
+    } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
+      if ($section_structure and $section_structure->{'associated_node'}) {
+        my $node = $section_structure->{'associated_node'};
         # arguments_line type element
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions = 1;
@@ -11495,19 +11493,19 @@ sub _external_node_href($$$)
 }
 
 # Output a list of the nodes immediately below this one
-sub _mini_toc
+sub _mini_toc($$)
 {
-  my ($self, $command) = @_;
+  my ($self, $section_structure) = @_;
 
   my $result = '';
   my $entry_index = 0;
 
-  if ($command->{'extra'}
-      and $command->{'extra'}->{'section_childs'}
-      and @{$command->{'extra'}->{'section_childs'}}) {
+  if ($section_structure
+      and $section_structure->{'section_childs'}
+      and scalar(@{$section_structure->{'section_childs'}})) {
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
-    foreach my $section (@{$command->{'extra'}->{'section_childs'}}) {
+    foreach my $section (@{$section_structure->{'section_childs'}}) {
       # using command_text leads to the same HTML formatting, but does not give
       # the same result for the other files, as the formatting is done in a
       # global context, while taking the tree first and calling convert_tree
@@ -11551,8 +11549,10 @@ sub _default_format_contents($$;$$)
 
   my $document = $self->get_info('document');
   my $sections_list;
+  my $sectioning_root;
   if ($document) {
     $sections_list = $document->sections_list();
+    $sectioning_root = $document->sectioning_root();
   }
   return ''
    if (!$sections_list or !scalar(@$sections_list)
@@ -11561,19 +11561,15 @@ sub _default_format_contents($$;$$)
        # We consider that if sectioning_root is set as usual, all the
        # fields are set consistently with what sectioning_structure would
        # have set.
-       or !$sections_list->[0]->{'element'}->{'extra'}
-       or !defined($sections_list->[0]->{'element'}
-                            ->{'extra'}->{'sectioning_root'}));
+       or !$sectioning_root);
 
-  my $section_root = $sections_list->[0]->{'element'}
-                                   ->{'extra'}->{'sectioning_root'};
   my $is_contents;
   $is_contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $section_root->{'extra'}->{'section_childs'}->[0]
+  my $min_root_level = $sectioning_root->{'section_childs'}->[0]
                                              ->{'extra'}->{'section_level'};
   my $max_root_level = $min_root_level;
-  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
     $min_root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $min_root_level);
     $max_root_level = $top_section->{'extra'}->{'section_level'}
@@ -11598,7 +11594,7 @@ sub _default_format_contents($$;$$)
   }
 
   my $has_toplevel_contents;
-  if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
+  if (@{$sectioning_root->{'section_childs'}} > 1) {
     $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
     $has_toplevel_contents = 1;
   }
@@ -11608,7 +11604,7 @@ sub _default_format_contents($$;$$)
                      and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
                           or $self->_has_contents_or_shortcontents()));
 
-  foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
+  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
@@ -11647,13 +11643,13 @@ sub _default_format_contents($$;$$)
             $result .= $text;
           }
         }
-      } elsif ($section->{'extra'}->{'section_childs'}
-               and @{$section->{'extra'}->{'section_childs'}}
+      } elsif ($section_structure->{'section_childs'}
+               and scalar(@{$section_structure->{'section_childs'}})
                and $has_toplevel_contents) {
         $result .= "<li>";
       }
       # for shortcontents don't do child if child is not toplevel
-      if ($section->{'extra'}->{'section_childs'}
+      if ($section_structure->{'section_childs'}
           and ($is_contents
                or $section->{'extra'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
@@ -11661,7 +11657,7 @@ sub _default_format_contents($$;$$)
          . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             if ($is_contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
-        $section = $section->{'extra'}->{'section_childs'}->[0];
+        $section = $section_structure->{'section_childs'}->[0];
       } elsif ($section_structure->{'section_directions'}
                and $section_structure->{'section_directions'}->{'next'}
                and $section->{'cmdname'} ne 'top') {
@@ -11697,7 +11693,7 @@ sub _default_format_contents($$;$$)
       }
     }
   }
-  if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
+  if (@{$sectioning_root->{'section_childs'}} > 1) {
     $result .= "\n</ul>";
   }
   if ($is_contents and !defined($self->get_conf('AFTER_TOC_LINES'))

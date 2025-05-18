@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -56,14 +56,8 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E5|E12|E15|E18|E21|E25]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -177,7 +171,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E8]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
@@ -236,7 +229,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E11]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -381,7 +373,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E13]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{6}
@@ -397,7 +388,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E14]
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{7}
@@ -470,7 +460,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E16]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{9}
@@ -486,7 +475,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E17]
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{10}
@@ -559,7 +547,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E19]
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{12}
@@ -575,7 +562,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E20]
  |section_heading_number:{5.1}
  |section_level:{2}
  |section_number:{13}
@@ -651,7 +637,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E22]
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{15}
@@ -667,7 +652,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E23]
  |section_heading_number:{6.1}
  |section_level:{2}
  |section_number:{16}
@@ -962,6 +946,14 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
  associated_node: Top
  toplevel_directions:
   next->chap in main
+ section_childs:
+  1|chap in main
+  2|Chapter in included file
+  3|Chapter in included file
+  4|Chapter in included file Include
+  5|Chapter in included file
+  6|Chapter in included file
+  7|A last
 2|chap in main
  associated_anchor_command: in main
  associated_node: in main
@@ -983,11 +975,15 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
   next->Chapter in included file
   prev->chap in main
   up->top sectionning
+ section_childs:
+  1|Section
 4|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter in included file
+ section_childs:
+  1|Subsection
 5|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
@@ -1002,9 +998,13 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
   next->Chapter in included file Include
   prev->Chapter in included file
   up->top sectionning
+ section_childs:
+  1|Section
 7|Section
  section_directions:
   up->Chapter in included file
+ section_childs:
+  1|Subsection
 8|Subsection
  section_directions:
   up->Section
@@ -1017,9 +1017,13 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
   next->Chapter in included file
   prev->Chapter in included file
   up->top sectionning
+ section_childs:
+  1|Section Include
 10|Section Include
  section_directions:
   up->Chapter in included file Include
+ section_childs:
+  1|Subsection Include
 11|Subsection Include
  section_directions:
   up->Section Include
@@ -1032,9 +1036,13 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
   next->Chapter in included file
   prev->Chapter in included file Include
   up->top sectionning
+ section_childs:
+  1|Section
 13|Section
  section_directions:
   up->Chapter in included file
+ section_childs:
+  1|Subsection
 14|Subsection
  section_directions:
   up->Section
@@ -1047,9 +1055,13 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
   next->A last
   prev->Chapter in included file
   up->top sectionning
+ section_childs:
+  1|Section
 16|Section
  section_directions:
   up->Chapter in included file
+ section_childs:
+  1|Subsection
 17|Subsection
  section_directions:
   up->Section
@@ -1062,6 +1074,11 @@ $result_sections_list{'custom_heading_with_include'} = '1|top sectionning
  toplevel_directions:
   prev->Chapter in included file
   up->top sectionning
+';
+
+$result_sectioning_root{'custom_heading_with_include'} = 'level: -1
+list:
+ 1|top sectionning
 ';
 
 $result_headings_list{'custom_heading_with_include'} = '';

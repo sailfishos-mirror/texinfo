@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -41,14 +41,8 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -308,6 +302,8 @@ $result_sections_list{'comment_space_command_on_line'} = '1|top element@
  associated_node: Top
  toplevel_directions:
   next->Chapter@ 
+ section_childs:
+  1|Chapter@ 
 2|Chapter@ 
  associated_anchor_command: chap
  associated_node: chap
@@ -316,6 +312,11 @@ $result_sections_list{'comment_space_command_on_line'} = '1|top element@
  toplevel_directions:
   prev->top element@ 
   up->top element@ 
+';
+
+$result_sectioning_root{'comment_space_command_on_line'} = 'level: -1
+list:
+ 1|top element@ 
 ';
 
 $result_headings_list{'comment_space_command_on_line'} = '1|Heading @ 

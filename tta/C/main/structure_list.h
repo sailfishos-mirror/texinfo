@@ -39,4 +39,6 @@ char *print_sections_list (const DOCUMENT *document);
 char *print_nodes_list (const DOCUMENT *document);
 char *print_headings_list (const DOCUMENT *document);
 
+char *print_sectioning_root (const DOCUMENT *document);
+
 #endif

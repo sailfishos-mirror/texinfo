@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -29,14 +29,8 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8|E10|E12|E14]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -458,6 +452,13 @@ $result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->EN QUAD| | EM QUAD| | EN SPACE| |
+ section_childs:
+  1|EN QUAD| | EM QUAD| | EN SPACE| |
+  2|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+  3|CARRIAGE RETURN|'."\r".'|
+  4|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  5|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  6|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 2|EN QUAD| | EM QUAD| | EN SPACE| |
  associated_anchor_command:    
  associated_node:    
@@ -517,6 +518,11 @@ $result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
  toplevel_directions:
   prev->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
   up->top
+';
+
+$result_sectioning_root{'in_menu_only_special_spaces_node'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'in_menu_only_special_spaces_node'} = '';

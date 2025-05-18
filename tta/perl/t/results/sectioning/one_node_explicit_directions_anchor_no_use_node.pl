@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -80,6 +80,8 @@ $result_nodes_list{'one_node_explicit_directions_anchor_no_use_node'} = '1|one n
 ';
 
 $result_sections_list{'one_node_explicit_directions_anchor_no_use_node'} = '';
+
+$result_sectioning_root{'one_node_explicit_directions_anchor_no_use_node'} = '';
 
 $result_headings_list{'one_node_explicit_directions_anchor_no_use_node'} = '';
 

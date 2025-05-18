@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -31,14 +31,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C7
    |INFO
@@ -184,7 +178,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7|E8|E9|E10|E11|E12|E13|E14|E15|E16|E17|E18|E19]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
@@ -736,6 +729,9 @@ $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{n
  associated_node: Top
  toplevel_directions:
   next->@xref{node,,title, file name, Manual}.
+ section_childs:
+  1|@xref{node,,title, file name, Manual}.
+  2|@ref{node} just node
 2|@xref{node,,title, file name, Manual}.
  associated_anchor_command: node
  associated_node: node
@@ -755,6 +751,20 @@ $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{n
  toplevel_directions:
   prev->@xref{node,,title, file name, Manual}.
   up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ section_childs:
+  1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+  2|@ref{node, cross ref name}  node, crossref arg2
+  3|@ref{@code{node},, @samp{title}}  code node, samptitle arg3
+  4|@ref{@code{node},,, file name} code node, file name
+  5|@ref{node,,,, Manual } node and manual
+  6|@ref{Top,,,, Manual } Top and manual
+  7|@ref{,,,, Manual } no node just manual
+  8|@ref{,,, file name} no node just file name
+  9|@inforef{a, b, c} inforef a b c
+  10|(@pxref{ Top ,,, file name }) pxref Top file name, spaces
+  11|(@pxref{,,, file name }) pxref file name only, spaces
+  12|@xref{Top,,,filename}, xref Top filename only, no spaces
+  13|@xref{,,,filename}. xref filename only, no spaces
 4|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
  section_directions:
   next->@ref{node, cross ref name}  node, crossref arg2
@@ -818,6 +828,11 @@ $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{n
  section_directions:
   prev->@xref{Top,,,filename}, xref Top filename only, no spaces
   up->@ref{node} just node
+';
+
+$result_sectioning_root{'ref_in_sectioning'} = 'level: -1
+list:
+ 1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
 ';
 
 $result_headings_list{'ref_in_sectioning'} = '';

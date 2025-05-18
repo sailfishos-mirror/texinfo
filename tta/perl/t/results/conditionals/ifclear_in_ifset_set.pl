@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -103,6 +103,8 @@ $result_errors{'ifclear_in_ifset_set'} = [
 $result_nodes_list{'ifclear_in_ifset_set'} = '';
 
 $result_sections_list{'ifclear_in_ifset_set'} = '';
+
+$result_sectioning_root{'ifclear_in_ifset_set'} = '';
 
 $result_headings_list{'ifclear_in_ifset_set'} = '';
 

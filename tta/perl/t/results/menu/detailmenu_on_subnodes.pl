@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -26,14 +26,8 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E9]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -181,7 +175,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -269,7 +262,6 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E12|E14]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
@@ -525,6 +517,9 @@ $result_sections_list{'detailmenu_on_subnodes'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
+ section_childs:
+  1|chapter
+  2|chapter 2
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
@@ -535,6 +530,8 @@ $result_sections_list{'detailmenu_on_subnodes'} = '1|top
   next->chapter 2
   prev->top
   up->top
+ section_childs:
+  1|section
 3|section
  associated_anchor_command: section
  associated_node: section
@@ -549,6 +546,9 @@ $result_sections_list{'detailmenu_on_subnodes'} = '1|top
  toplevel_directions:
   prev->chapter
   up->top
+ section_childs:
+  1|section chap 2
+  2|unnumberedsec
 5|section chap 2
  associated_anchor_command: section chap 2
  associated_node: section chap 2
@@ -561,6 +561,11 @@ $result_sections_list{'detailmenu_on_subnodes'} = '1|top
  section_directions:
   prev->section chap 2
   up->chapter 2
+';
+
+$result_sectioning_root{'detailmenu_on_subnodes'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'detailmenu_on_subnodes'} = '';

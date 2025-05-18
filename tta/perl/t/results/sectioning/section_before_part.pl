@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -16,11 +16,6 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -88,6 +83,12 @@ $result_nodes_list{'section_before_part'} = '';
 
 $result_sections_list{'section_before_part'} = '1|section
 2|part
+';
+
+$result_sectioning_root{'section_before_part'} = 'level: -1
+list:
+ 1|section
+ 2|part
 ';
 
 $result_headings_list{'section_before_part'} = '';

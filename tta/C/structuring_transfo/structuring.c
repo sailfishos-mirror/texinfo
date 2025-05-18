@@ -88,7 +88,6 @@ sectioning_structure (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
-  ELEMENT *sec_root = 0;
   SECTION_STRUCTURE *previous_section_structure = 0;
   SECTION_STRUCTURE *previous_toplevel_structure = 0;
   int in_appendix = 0;
@@ -138,9 +137,10 @@ sectioning_structure (DOCUMENT *document)
             {
               if (!section_structure->section_directions)
                 section_structure->section_directions = new_directions ();
-              CONST_ELEMENT_LIST *section_childs
-                = add_extra_contents ((ELEMENT *)previous_section,
-                                      AI_key_section_childs, 1);
+
+              previous_section_structure->section_childs
+                = new_const_element_list ();
+
               if (level - prev_section_level > 1)
                 {
                   message_list_command_error (error_messages,
@@ -149,7 +149,8 @@ sectioning_structure (DOCUMENT *document)
                                  builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
                 }
-              add_to_const_element_list (section_childs, content);
+              add_to_const_element_list (
+                 previous_section_structure->section_childs, content);
               section_structure->section_directions[D_up] = previous_section;
                /*
                 if the up is unnumbered, the number information has to be kept,
@@ -179,6 +180,7 @@ sectioning_structure (DOCUMENT *document)
                 = previous_section_structure;
               const struct ELEMENT * const *up_section_directions
                 = previous_section_structure->section_directions;
+              CONST_ELEMENT_LIST *up_section_childs;
 
               int up_level;
               while (1)
@@ -198,13 +200,17 @@ sectioning_structure (DOCUMENT *document)
                   else
                     break;
                 }
+
+              up_section_childs = up_structure->section_childs;
               /* no up found.  The element is below the sectioning root */
               if (level <= up_level)
                 {
-                  up = sec_root;
+                  up = 0;
                   int sec_root_level
-                    = lookup_extra_integer (sec_root, AI_key_section_level,
-                                                               &status);
+                    = document->sectioning_root->section_root_level;
+                  up_section_childs
+                    = &document->sectioning_root->section_childs;
+
                   if (level <= sec_root_level)
                  /* in that case, the level of the element is not in line
                     with being below the sectioning root, something need to
@@ -238,9 +244,11 @@ sectioning_structure (DOCUMENT *document)
                 }
               if ((command_other_flags (content) & CF_appendix)
                   && !in_appendix && level <= number_top_level
-                  && up->e.c->cmd == CM_part)
+                  && up && up->e.c->cmd == CM_part)
                 {
-                  up = sec_root;
+                  up = 0;
+                  up_section_childs
+                    = &document->sectioning_root->section_childs;
                 }
               if (new_upper_part_element)
                 {
@@ -249,8 +257,8 @@ sectioning_structure (DOCUMENT *document)
                   first 'part' just appeared, no direction to set.
                    */
                   CONST_ELEMENT_LIST *sec_root_childs
-                    = lookup_extra_contents (sec_root, AI_key_section_childs);
-                  add_extra_integer (sec_root, AI_key_section_level, level -1);
+                    = &document->sectioning_root->section_childs;
+                  document->sectioning_root->section_root_level = level -1;
                   add_to_const_element_list (sec_root_childs, content);
                   number_top_level = level;
                   if (number_top_level == 0)
@@ -258,8 +266,6 @@ sectioning_structure (DOCUMENT *document)
                 }
               else
                 {
-                  CONST_ELEMENT_LIST *up_section_childs
-                    = lookup_extra_contents (up, AI_key_section_childs);
                   /* cast to remove const to be able to set directions */
                   ELEMENT *prev = (ELEMENT *)
                     up_section_childs->list[up_section_childs->number -1];
@@ -274,8 +280,9 @@ sectioning_structure (DOCUMENT *document)
                   if (!section_structure->section_directions)
                     section_structure->section_directions = new_directions ();
 
-              /* do not set sec_root as up, but always put in section_childs */
-                  if (up != sec_root)
+                  /* no up set means that the section is below the sectioning
+                     root */
+                  if (up)
                     section_structure->section_directions[D_up] = up;
                   section_structure->section_directions[D_prev] = prev;
                   prev_structure->section_directions[D_next] = content;
@@ -294,16 +301,16 @@ sectioning_structure (DOCUMENT *document)
         }
       else
         {
-          sec_root = new_element (ET_NONE);
-          CONST_ELEMENT_LIST *sec_root_childs
-            = add_extra_contents (sec_root, AI_key_section_childs, 1);
+          document->sectioning_root = (SECTIONING_ROOT *)
+            malloc (sizeof (SECTIONING_ROOT));
+          SECTIONING_ROOT *sectioning_root = document->sectioning_root;
+          memset (sectioning_root, 0, sizeof (SECTIONING_ROOT));
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
-          add_extra_integer (sec_root, AI_key_section_level, level -1);
-          add_to_const_element_list (sec_root_childs, content);
-           /*
-            in the tree as an out of tree element in extra */
-          add_extra_element_oot (content, AI_key_sectioning_root, sec_root);
+          sectioning_root->section_root_level = level -1;
+          add_to_const_element_list (&sectioning_root->section_childs,
+                                     content);
+          document->modified_information |= F_DOCM_sectioning_root;
           number_top_level = level;
            /*
              if level of top sectioning element is 0, which means that
@@ -489,9 +496,15 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
     {
       const ELEMENT *associated_section
         = node_structure->associated_section;
+      int status;
+      size_t associated_section_number
+        = lookup_extra_integer (associated_section,
+                                AI_key_section_number, &status);
+      const SECTION_STRUCTURE *associated_structure
+                    = sections_list->list[associated_section_number -1];
+
       const CONST_ELEMENT_LIST *section_childs
-                   = lookup_extra_contents (associated_section,
-                                            AI_key_section_childs);
+        = associated_structure->section_childs;
       if (section_childs)
         {
           size_t i;
@@ -533,7 +546,7 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
                   if (current->e.c->cmd == CM_part)
                     {
                       const CONST_ELEMENT_LIST *section_childs
-                       = lookup_extra_contents (current, AI_key_section_childs);
+                       = current_structure->section_childs;
                       if (section_childs)
                         {
                           size_t i;
@@ -1532,28 +1545,34 @@ construct_nodes_tree (DOCUMENT *document)
         else /* Special case for Top node, use first section */
           {
             const ELEMENT *section = node_structure->associated_section;
+            const CONST_ELEMENT_LIST *section_childs = 0;
+            int status;
             if (section)
               {
-                const CONST_ELEMENT_LIST *section_childs
-                  = lookup_extra_contents (section, AI_key_section_childs);
-                if (section_childs && section_childs->number > 0)
+                size_t associated_section_number
+                    = lookup_extra_integer (section,
+                                            AI_key_section_number, &status);
+                const SECTION_STRUCTURE *associated_structure
+                        = sections_list->list[associated_section_number -1];
+                section_childs = associated_structure->section_childs;
+              }
+
+            if (section_childs && section_childs->number > 0)
+              {
+                const ELEMENT *first_sec = section_childs->list[0];
+                size_t section_number
+                  = lookup_extra_integer (first_sec,
+                                          AI_key_section_number, &status);
+                const SECTION_STRUCTURE *section_child_structure
+                  = sections_list->list[section_number -1];
+                if (section_child_structure->associated_node)
                   {
-                    const ELEMENT *first_sec = section_childs->list[0];
-                    int status;
-                    size_t section_number
-                      = lookup_extra_integer (first_sec,
-                                              AI_key_section_number, &status);
-                    const SECTION_STRUCTURE *section_child_structure
-                      = sections_list->list[section_number -1];
-                    if (section_child_structure->associated_node)
-                      {
-                        if (!node_structure->node_directions)
-                          node_structure->node_directions = new_directions ();
-                        top_node_section_child
-                          = section_child_structure->associated_node;
-                        node_structure->node_directions[D_next]
-                          = top_node_section_child;
-                      }
+                    if (!node_structure->node_directions)
+                      node_structure->node_directions = new_directions ();
+                    top_node_section_child
+                      = section_child_structure->associated_node;
+                    node_structure->node_directions[D_next]
+                      = top_node_section_child;
                   }
               }
           }

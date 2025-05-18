@@ -630,5 +630,27 @@ print_headings_list (SV *document_in)
     OUTPUT:
         RETVAL
 
+SV *
+print_sectioning_root (SV *document_in)
+   PREINIT:
+        const DOCUMENT *document = 0;
+        SV *result_sv = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "print_sectioning_root");
+        if (document)
+          {
+            char *result = print_sectioning_root (document);
+            result_sv = newSVpv_utf8 (result, 0);
+            free (result);
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+
 
 

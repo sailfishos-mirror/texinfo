@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -27,14 +27,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8|E10|E12|E14|E16|E18|E20|E22|E24|E26|E28|E30|E32|E34|E36|E38|E40|E42|E44|E46|E48|E50|E52|E54|E56]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -3939,6 +3933,34 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->@- @{ @}
+ section_childs:
+  1|@- @{ @}
+  2|@  @	 @! @* @. @: .@: @? @@
+  3|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
+  4|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  5|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  6|@geq{} @leq{} @arrow{}
+  7|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+  8|@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  9|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  10|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+  11|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+  12|@dotless{i} @`{@=E} @,{@\'C}
+  13|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+  14|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+  15|`` \'\' --- -- ` \'
+  16|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+  17|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+  18|@email{someone@@somewher, the someone} @email{no_explain@@there}
+  19|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+  20|@verb{. @ {} . .}
+  21|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+  22|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+  23|8.27@dmn{in}
+  24|@sansserif{sansserif} @slanted{slanted}
+  25|@indicateurl{indicateurl}
+  26|@sub{g}H 3@sup{rd}
+  27|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 2|@- @{ @}
  associated_anchor_command: @- @{ @}
  associated_node: @- @{ @}
@@ -4233,6 +4255,11 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
  toplevel_directions:
   prev->@sub{g}H 3@sup{rd}
   up->Top
+';
+
+$result_sectioning_root{'at_commands_in_refs'} = 'level: -1
+list:
+ 1|Top
 ';
 
 $result_headings_list{'at_commands_in_refs'} = '';

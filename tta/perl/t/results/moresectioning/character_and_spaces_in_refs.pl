@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -27,14 +27,8 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E8]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -597,6 +591,9 @@ $result_sections_list{'character_and_spaces_in_refs'} = '1|Test refs
  associated_node: Top
  toplevel_directions:
   next->first chapter
+ section_childs:
+  1|first chapter
+  2|Chapter with nodes
 2|first chapter
  associated_anchor_command: node to avoid DocBook or LaTeX ignored
  associated_node: node to avoid DocBook or LaTeX ignored
@@ -616,6 +613,11 @@ $result_sections_list{'character_and_spaces_in_refs'} = '1|Test refs
  toplevel_directions:
   prev->first chapter
   up->Test refs
+';
+
+$result_sectioning_root{'character_and_spaces_in_refs'} = 'level: -1
+list:
+ 1|Test refs
 ';
 
 $result_headings_list{'character_and_spaces_in_refs'} = '1|Testing distant nodes

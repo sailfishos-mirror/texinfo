@@ -191,7 +191,7 @@ and second element the section element the float appeared in.
 
 @end table
 
-Internal references, nodes and section lists may also be available.
+Internal references, nodes and section information may also be available.
 
 @table @asis
 @item $internal_references_array = internal_references_information($document)
@@ -204,12 +204,19 @@ to the same document with @@-commands that refer to node, anchors or floats.
 @item $nodes_list = nodes_list($document)
 @anchor{Texinfo@asis{::}Document $nodes_list = nodes_list($document)}
 
-Returns an array reference containing the document nodes.
+Returns an array reference containing information on each node.
 
 @item $sections_list = sections_list($document)
 @anchor{Texinfo@asis{::}Document $sections_list = sections_list($document)}
 
-Returns an array reference containing the document sections.
+Returns an array reference containing information on each section.
+
+@item $sectioning_root = sectioning_root($document)
+@anchor{Texinfo@asis{::}Document $sectioning_root = sectioning_root($document)}
+
+Return the sectioning root information.  It is an hash reference with the
+@emph{$sections_list} key, an array reference of the top level sectioning
+commands tree elements.
 
 @end table
 

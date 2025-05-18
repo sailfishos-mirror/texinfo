@@ -204,11 +204,11 @@ sub book_print_sub_toc($$$)
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  if ($command->{'extra'}->{'section_childs'}
-      and @{$command->{'extra'}->{'section_childs'}}) {
+  if ($section_structure->{'section_childs'}
+      and scalar(@{$section_structure->{'section_childs'}})) {
     $result .= '<li>'.$converter->html_attribute_class('ul', [$toc_numbered_mark_class])
      .">\n". book_print_sub_toc($converter, $parent_command,
-                                $command->{'extra'}->{'section_childs'}->[0])
+                                $section_structure->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
   if ($section_structure->{'section_directions'}
@@ -283,18 +283,23 @@ sub book_convert_heading_command($$$$$)
   }
 
   if ($toc_or_mini_toc_or_auto_menu eq ''
-      and $element->{'extra'}
-      and $element->{'extra'}->{'section_childs'}
-      and scalar(@{$element->{'extra'}->{'section_childs'}})
+      and $sections_list
+      and $cmdname ne 'node'
+      # to avoid *heading* @-commands
+      and $Texinfo::Commands::root_commands{$cmdname}
       # avoid a double of contents if already after title
       and ($cmdname ne 'top'
-           or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')
-      and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
-    $toc_or_mini_toc_or_auto_menu
-      .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
-    $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self, $element,
-                                 $element->{'extra'}->{'section_childs'}->[0]);
-    $toc_or_mini_toc_or_auto_menu .= "</ul>\n";
+           or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')) {
+    my $section_structure
+      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    if ($section_structure and $section_structure->{'section_childs'}
+        and scalar(@{$section_structure->{'section_childs'}})) {
+      $toc_or_mini_toc_or_auto_menu
+        .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
+      $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self, $element,
+                                 $section_structure->{'section_childs'}->[0]);
+      $toc_or_mini_toc_or_auto_menu .= "</ul>\n";
+    }
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')

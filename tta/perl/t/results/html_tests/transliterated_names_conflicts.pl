@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -37,14 +37,8 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E5]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -251,6 +245,9 @@ $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated
  associated_node: Top
  toplevel_directions:
   next->Prés
+ section_childs:
+  1|Prés
+  2|Other chapter
 2|Prés
  associated_anchor_command: Prés
  associated_node: Prés
@@ -270,6 +267,11 @@ $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated
  toplevel_directions:
   prev->Prés
   up->Same transliterated names
+';
+
+$result_sectioning_root{'transliterated_names_conflicts'} = 'level: -1
+list:
+ 1|Same transliterated names
 ';
 
 $result_headings_list{'transliterated_names_conflicts'} = '';

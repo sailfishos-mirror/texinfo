@@ -50,6 +50,7 @@ struct C_HASHMAP;
 #define F_DOCM_indices_sort_strings      0x0800
 #define F_DOCM_output_units              0x1000
 #define F_DOCM_headings_list             0x2000
+#define F_DOCM_sectioning_root           0x4000
 
 enum error_type {
    MSG_error,
@@ -275,6 +276,7 @@ typedef struct DOCUMENT {
     NODE_STRUCTURE_LIST nodes_list;
     HEADING_STRUCTURE_LIST headings_list;
     SECTION_STRUCTURE_LIST sections_list;
+    SECTIONING_ROOT *sectioning_root;
 
     MERGED_INDICES *merged_indices;
     INDICES_SORT_STRINGS *indices_sort_strings;

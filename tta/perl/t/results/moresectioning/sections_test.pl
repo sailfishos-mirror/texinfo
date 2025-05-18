@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -13,14 +13,8 @@ $result_tree_text{'sections_test'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E1]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E5|E9]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -33,7 +27,6 @@ $result_tree_text{'sections_test'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -49,7 +42,6 @@ $result_tree_text{'sections_test'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -65,7 +57,6 @@ $result_tree_text{'sections_test'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -97,7 +88,6 @@ $result_tree_text{'sections_test'} = '*document_root C12
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_childs:EC[E6|E7|E8]
  |section_level:{0}
  |section_number:{6}
   *arguments_line C1
@@ -156,7 +146,6 @@ $result_tree_text{'sections_test'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E10]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{10}
@@ -252,6 +241,8 @@ $result_sections_list{'sections_test'} = '1|top
   next->part
  toplevel_directions:
   next->chapter
+ section_childs:
+  1|chapter
 2|chapter
  section_directions:
   up->top
@@ -259,12 +250,18 @@ $result_sections_list{'sections_test'} = '1|top
   next->chapter in part
   prev->top
   up->top
+ section_childs:
+  1|section
 3|section
  section_directions:
   up->chapter
+ section_childs:
+  1|subsection
 4|subsection
  section_directions:
   up->section
+ section_childs:
+  1|subsubsection
 5|subsubsection
  section_directions:
   up->subsection
@@ -273,6 +270,10 @@ $result_sections_list{'sections_test'} = '1|top
  section_directions:
   next->appendix
   prev->top
+ section_childs:
+  1|chapter in part
+  2|second chapter in part
+  3|unnumbered
 7|chapter in part
  associated_part: part
  section_directions:
@@ -305,9 +306,18 @@ $result_sections_list{'sections_test'} = '1|top
  toplevel_directions:
   prev->unnumbered
   up->top
+ section_childs:
+  1|appendixsec
 11|appendixsec
  section_directions:
   up->appendix
+';
+
+$result_sectioning_root{'sections_test'} = 'level: -1
+list:
+ 1|top
+ 2|part
+ 3|appendix
 ';
 
 $result_headings_list{'sections_test'} = '';

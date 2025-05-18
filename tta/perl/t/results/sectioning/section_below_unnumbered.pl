@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -34,14 +34,8 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,7 +95,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E7]
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
@@ -260,6 +253,8 @@ $result_sections_list{'section_below_unnumbered'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Unn
+ section_childs:
+  1|Unn
 2|Unn
  associated_anchor_command: Unn
  associated_node: Unn
@@ -268,11 +263,18 @@ $result_sections_list{'section_below_unnumbered'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
+ section_childs:
+  1|Sec
 3|Sec
  associated_anchor_command: Sec
  associated_node: Sec
  section_directions:
   up->Unn
+';
+
+$result_sectioning_root{'section_below_unnumbered'} = 'level: -1
+list:
+ 1|Top
 ';
 
 $result_headings_list{'section_below_unnumbered'} = '';

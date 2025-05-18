@@ -91,7 +91,7 @@ structures.
 
 @emph{$node_structure} is a node structuring information.
 @emph{$sections_list} is section lists structure information, usually obtained
-through @code{Texinfo::Document}. Find the node @emph{$node} children based on the
+through @code{Texinfo::Document}. Find the @emph{$node_structure} children based on the
 sectioning structure.  For the node associated with @code{@@top} sectioning
 command, the sections associated with parts are considered.
 
@@ -151,8 +151,8 @@ entry name.  Returns @code{undef} if the node argument is missing.
 @anchor{Texinfo@asis{::}Structuring construct_nodes_tree($document)}
 @cindex @code{construct_nodes_tree}
 
-Goes through nodes in @emph{$document} tree and set directions.  Set the list of
-nodes in the @emph{$document}.
+Goes through nodes in @emph{$document} tree and set directions.  Sets the list of
+node structure information in the @emph{$document}.
 
 This functions sets, in the node structure information element hash:
 
@@ -187,7 +187,7 @@ and lowered sections, when needed.
 
 This function goes through the parsed document tree and gather information
 on the document structure for sectioning commands.  It sets the sections
-elements list in the document.
+structure information list in the document.
 
 It sets section elements @code{extra} hash values:
 
@@ -204,6 +204,11 @@ by @code{@@raisesections} and @code{@@lowersections}.
 
 The sectioning element number.
 
+@end table
+
+The following is set in section structure information hashes:
+
+@table @asis
 @item section_childs
 @anchor{Texinfo@asis{::}Structuring section_childs}
 
@@ -225,10 +230,8 @@ account @code{@@part} elements.
 
 @end table
 
-An element is created and used as the root of the sectioning commands tree.
-This element is associated to the @code{extra} @emph{sectioning_root} key of the first
-section element of the sections list.  It is also at the top of the tree when
-following the @emph{up} @emph{section_directions}.
+After calling this function, information on the sectioning tree root
+can be obtained by calling @code{$document->sectioning_root()}.
 
 @item set_menus_node_directions($document);
 @anchor{Texinfo@asis{::}Structuring set_menus_node_directions($document);}

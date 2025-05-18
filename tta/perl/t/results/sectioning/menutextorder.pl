@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -66,15 +66,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E5|E7]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E2|E9]
-  ||section_level:{0}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -189,7 +183,6 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E12|E14|E16]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
@@ -547,6 +540,9 @@ $result_sections_list{'menutextorder'} = '1|bar
   next->foo
  toplevel_directions:
   next->foo
+ section_childs:
+  1|One sub 1
+  2|One sub 2
 2|One sub 1
  associated_anchor_command: onesub1
  associated_node: onesub1
@@ -566,6 +562,10 @@ $result_sections_list{'menutextorder'} = '1|bar
   prev->bar
  toplevel_directions:
   prev->bar
+ section_childs:
+  1|Sub1
+  2|Sub2
+  3|Sub3
 5|Sub1
  associated_anchor_command: sub1
  associated_node: sub1
@@ -585,6 +585,12 @@ $result_sections_list{'menutextorder'} = '1|bar
  section_directions:
   prev->Sub2
   up->foo
+';
+
+$result_sectioning_root{'menutextorder'} = 'level: 0
+list:
+ 1|bar
+ 2|foo
 ';
 
 $result_headings_list{'menutextorder'} = '';

@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -98,14 +98,8 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4|E6|E8|E10|E12]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -778,6 +772,12 @@ $result_sections_list{'multiple_lang_chapters'} = '1|Multi language file
  associated_node: Top
  toplevel_directions:
   next->ja
+ section_childs:
+  1|ja
+  2|en
+  3|fr_FR
+  4|de
+  5|pt_bR
 2|ja
  associated_anchor_command: chapter ja
  associated_node: chapter ja
@@ -830,6 +830,11 @@ $result_sections_list{'multiple_lang_chapters'} = '1|Multi language file
  toplevel_directions:
   prev->de
   up->Multi language file
+';
+
+$result_sectioning_root{'multiple_lang_chapters'} = 'level: -1
+list:
+ 1|Multi language file
 ';
 
 $result_headings_list{'multiple_lang_chapters'} = '';

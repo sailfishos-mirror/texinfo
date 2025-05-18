@@ -543,6 +543,11 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free_node_structure_list (&document->nodes_list);
   free_section_structure_list (&document->sections_list);
   free_heading_structure_list (&document->headings_list);
+  if (document->sectioning_root)
+    {
+      free (document->sectioning_root->section_childs.list);
+      free (document->sectioning_root);
+    }
   if (document->sorted_options)
     {
       size_t i;

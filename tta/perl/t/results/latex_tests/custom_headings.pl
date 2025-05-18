@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -74,14 +74,8 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E5|E6]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,7 +102,6 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E4]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -322,6 +315,10 @@ $result_sections_list{'custom_headings'} = '1|top sectionning
  associated_node: Top
  toplevel_directions:
   next->ch--ap
+ section_childs:
+  1|ch--ap
+  2|chap 2
+  3|chap 3
 2|ch--ap
  associated_anchor_command: chapter
  associated_node: chapter
@@ -332,6 +329,8 @@ $result_sections_list{'custom_headings'} = '1|top sectionning
   next->chap 2
   prev->top sectionning
   up->top sectionning
+ section_childs:
+  1|sec1
 3|sec1
  section_directions:
   up->ch--ap
@@ -351,6 +350,11 @@ $result_sections_list{'custom_headings'} = '1|top sectionning
  toplevel_directions:
   prev->chap 2
   up->top sectionning
+';
+
+$result_sectioning_root{'custom_headings'} = 'level: -1
+list:
+ 1|top sectionning
 ';
 
 $result_headings_list{'custom_headings'} = '';

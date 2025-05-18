@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -27,14 +27,8 @@ $result_tree_text{'verb_delimiter_not_ascii'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -118,6 +112,8 @@ $result_sections_list{'verb_delimiter_not_ascii'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
+ section_childs:
+  1|Chapter
 2|Chapter
  associated_anchor_command: chap
  associated_node: chap
@@ -126,6 +122,11 @@ $result_sections_list{'verb_delimiter_not_ascii'} = '1|top
  toplevel_directions:
   prev->top
   up->top
+';
+
+$result_sectioning_root{'verb_delimiter_not_ascii'} = 'level: -1
+list:
+ 1|top
 ';
 
 $result_headings_list{'verb_delimiter_not_ascii'} = '';

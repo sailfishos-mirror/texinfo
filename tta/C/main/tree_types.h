@@ -110,12 +110,9 @@ enum directions {
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \
-  ai_key(sectioning_root, element_oot) \
   \
   ai_key(manual_content, container) \
   ai_key(node_content, container) \
-  \
-  ai_key(section_childs, contents) \
   \
   ai_key(misc_args, misc_args) \
   \
@@ -142,6 +139,12 @@ typedef struct CONST_ELEMENT_LIST {
     size_t number;
     size_t space;
 } CONST_ELEMENT_LIST;
+
+/* not used in parser */
+typedef struct SECTIONING_ROOT {
+    int section_root_level;
+    CONST_ELEMENT_LIST section_childs;
+} SECTIONING_ROOT;
 
 /* the index name is allocated in the index info main structure that
    should outlive the INDEX_ENTRY_LOCATION */
@@ -299,6 +302,7 @@ typedef struct SECTION_STRUCTURE {
     ELEMENT *part_following_node;
     const struct ELEMENT **section_directions;
     const struct ELEMENT **toplevel_directions;
+    CONST_ELEMENT_LIST *section_childs;
 } SECTION_STRUCTURE;
 
 typedef struct SECTION_STRUCTURE_LIST {

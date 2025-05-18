@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -27,14 +27,8 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_childs:EC[E3|E7|E10]
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E1]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -301,6 +295,10 @@ $result_sections_list{'nodedescription_description'} = '1|test of descriptions w
  associated_node: Top
  toplevel_directions:
   next->Toto
+ section_childs:
+  1|Toto
+  2|Titi
+  3|Other
 2|Toto
  associated_anchor_command: toto
  associated_node: toto
@@ -331,6 +329,11 @@ $result_sections_list{'nodedescription_description'} = '1|test of descriptions w
  toplevel_directions:
   prev->Titi
   up->test of descriptions with nodedescription*
+';
+
+$result_sectioning_root{'nodedescription_description'} = 'level: -1
+list:
+ 1|test of descriptions with nodedescription*
 ';
 
 $result_headings_list{'nodedescription_description'} = '';

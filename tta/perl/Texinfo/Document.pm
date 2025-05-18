@@ -77,6 +77,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::document_nodes_list",
   "Texinfo::Document::sections_list"
     => "Texinfo::DocumentXS::document_sections_list",
+  "Texinfo::Document::sectioning_root"
+    => "Texinfo::DocumentXS::document_sectioning_root",
   "Texinfo::Document::headings_list"
     => "Texinfo::DocumentXS::document_headings_list",
   "Texinfo::Document::floats_information"
@@ -212,6 +214,12 @@ sub sections_list($)
 {
   my $self = shift;
   return $self->{'sections_list'};
+}
+
+sub sectioning_root($)
+{
+  my $self = shift;
+  return $self->{'sectioning_root'};
 }
 
 sub headings_list($)
@@ -789,7 +797,7 @@ and second element the section element the float appeared in.
 
 =back
 
-Internal references, nodes and section lists may also be available.
+Internal references, nodes and section information may also be available.
 
 =over
 
@@ -801,11 +809,17 @@ to the same document with @-commands that refer to node, anchors or floats.
 
 =item $nodes_list = nodes_list($document)
 
-Returns an array reference containing the document nodes.
+Returns an array reference containing information on each node.
 
 =item $sections_list = sections_list($document)
 
-Returns an array reference containing the document sections.
+Returns an array reference containing information on each section.
+
+=item $sectioning_root = sectioning_root($document)
+
+Return the sectioning root information.  It is an hash reference with the
+I<$sections_list> key, an array reference of the top level sectioning
+commands tree elements.
 
 =back
 

@@ -1710,11 +1710,13 @@ sub _convert($$;$)
            and !$self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'extra'}
-          and $element->{'extra'}->{'section_childs'}
-          and scalar(@{$element->{'extra'}->{'section_childs'}}))
+    my $sections_list = $self->{'document'}->sections_list();
+    my $section_structure
+      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    if (!($section_structure
+          and $section_structure->{'section_childs'}
+          and scalar(@{$section_structure->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
-      my $sections_list = $self->{'document'}->sections_list();
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;
       my $current_structure

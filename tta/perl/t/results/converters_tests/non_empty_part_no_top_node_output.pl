@@ -1,6 +1,6 @@
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
-   %result_headings_list
+   %result_sectioning_root %result_headings_list
    %result_converted %result_converted_errors %result_indices_sort_strings);
 
 use utf8;
@@ -15,11 +15,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{1}
- |sectioning_root:
-  |*
-  ||EXTRA
-  ||section_childs:EC[E0|E2|E4|E6|E8|E10|E11|E13]
-  ||section_level:{-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -104,7 +99,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{2}
- |section_childs:EC[E5]
  |section_level:{0}
  |section_number:{3}
   *arguments_line C1
@@ -170,7 +164,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{4}
- |section_childs:EC[E9]
  |section_level:{0}
  |section_number:{6}
   *arguments_line C1
@@ -222,7 +215,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{6}
- |section_childs:EC[E12]
  |section_level:{0}
  |section_number:{9}
   *arguments_line C1
@@ -256,7 +248,6 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{7}
- |section_childs:EC[E15]
  |section_level:{0}
  |section_number:{11}
   *arguments_line C1
@@ -555,6 +546,8 @@ $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
  section_directions:
   next->Part II
   prev->top
+ section_childs:
+  1|chap in Top node
 4|chap in Top node
  associated_part: part I
  section_directions:
@@ -573,6 +566,8 @@ $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
  section_directions:
   next->Part IV
   prev->Part II
+ section_childs:
+  1|chapter with part node
 7|chapter with part node
  associated_anchor_command: part chapter node
  associated_node: part chapter node
@@ -592,6 +587,8 @@ $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
  section_directions:
   next->Part VI
   prev->Part IV
+ section_childs:
+  1|with part no node
 10|with part no node
  associated_part: Part V
  section_directions:
@@ -605,6 +602,8 @@ $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
  part_following_node: node between part and chapter
  section_directions:
   prev->Part V
+ section_childs:
+  1|chapter after part node
 12|chapter after part node
  associated_anchor_command: node between part and chapter
  associated_node: node between part and chapter
@@ -614,6 +613,18 @@ $result_sections_list{'non_empty_part_no_top_node_output'} = '1|part before
  toplevel_directions:
   prev->with part no node
   up->top
+';
+
+$result_sectioning_root{'non_empty_part_no_top_node_output'} = 'level: -1
+list:
+ 1|part before
+ 2|top
+ 3|part I
+ 4|Part II
+ 5|part III
+ 6|Part IV
+ 7|Part V
+ 8|Part VI
 ';
 
 $result_headings_list{'non_empty_part_no_top_node_output'} = '';

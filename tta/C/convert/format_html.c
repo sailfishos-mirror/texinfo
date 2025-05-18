@@ -3102,7 +3102,6 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   int is_contents = (cmd == CM_contents);
   TEXT result;
   const CONST_ELEMENT_LIST *root_children;
-  const ELEMENT *section_root;
   int min_root_level;
   int max_root_level;
   int status;
@@ -3119,22 +3118,18 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   text_init (&result);
   text_append (&result, "");
 
-  if (self->document->sections_list.number > 0)
+  if (self->document->sections_list.number == 0
+      || !self->document->sectioning_root)
     {
-      const ELEMENT *first = self->document->sections_list.list[0]->element;
-      section_root = lookup_extra_element_oot (first, AI_key_sectioning_root);
       /* this should not happen with $sections_list as set from Structuring
          sectioning_structure, but could happen with another source.
          We consider that if sectioning_root is set as usual, all the
          fields are set consistently with what sectioning_structure would
          have set. */
-      if (!section_root)
-        return result.text;
+      return result.text;
     }
-  else
-    return result.text;
 
-  root_children = lookup_extra_contents (section_root, AI_key_section_childs);
+  root_children = &self->document->sectioning_root->section_childs;
   min_root_level = lookup_extra_integer (root_children->list[0],
                                          AI_key_section_level,
                                          &status);
@@ -3213,7 +3208,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
          const CONST_ELEMENT_LIST *section_childs
-           = lookup_extra_contents (section, AI_key_section_childs);
+           = section_structure->section_childs;
          if (section->e.c->cmd != CM_top)
             {
               char *text;
@@ -7248,12 +7243,15 @@ static const STRING_LIST mini_toc_classes = {mini_toc_array, 1, 1};
 
 /* Output a list of the nodes immediately below this one */
 void
-mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
+mini_toc_internal (CONVERTER *self, const SECTION_STRUCTURE *section_structure,
+                   TEXT *result)
 {
   int entry_index = 0;
+  const CONST_ELEMENT_LIST *section_childs = 0;
 
-  const CONST_ELEMENT_LIST *section_childs = lookup_extra_contents (element,
-                                                  AI_key_section_childs);
+  if (section_structure)
+    section_childs = section_structure->section_childs;
+
   if (section_childs && section_childs->number > 0)
     {
       char *attribute_class;
@@ -7415,9 +7413,21 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
       && (flags & CF_sectioning_heading)
       && self->conf->FORMAT_MENU.o.string)
     {
+      const SECTION_STRUCTURE *section_structure = 0;
+      if (builtin_command_data[element->e.c->cmd].flags & CF_root)
+        {
+          int status;
+          size_t section_number
+            = lookup_extra_integer (element,
+                                    AI_key_section_number, &status);
+          section_structure
+            = self->document->sections_list.list[section_number -1];
+        }
+
       if (!strcmp (self->conf->FORMAT_MENU.o.string, "sectiontoc"))
         {
-          mini_toc_internal (self, element, &toc_or_mini_toc_or_auto_menu);
+          mini_toc_internal (self, section_structure,
+                             &toc_or_mini_toc_or_auto_menu);
         }
       else if (self->document)
         {
@@ -7429,21 +7439,9 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             format_menu = 2;
           if (format_menu)
             {
-              const ELEMENT *node = 0;
-
-              if (element->e.c->cmd != CM_node
-                  && builtin_command_data[element->e.c->cmd].flags & CF_root)
+              if (section_structure && section_structure->associated_node)
                 {
-                  int status;
-                  size_t section_number
-                    = lookup_extra_integer (element,
-                                            AI_key_section_number, &status);
-                  const SECTION_STRUCTURE *section_structure
-                    = self->document->sections_list.list[section_number -1];
-                  node = section_structure->associated_node;
-                }
-              if (node)
-                {
+                  const ELEMENT *node = section_structure->associated_node;
                   const NODE_STRUCTURE_LIST *nodes_list
                     = &self->document->nodes_list;
                   /* arguments_line type element */
