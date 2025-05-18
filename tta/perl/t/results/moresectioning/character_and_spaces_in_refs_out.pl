@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit[E0]
+$result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit{Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -83,7 +83,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit[E3]
+U1 unit{node to avoid DocBook or LaTeX ignored}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -260,7 +260,7 @@ NodeBack: [U0]
      {local   node}
    {\\n}
   {empty_line:\\n}
-U2 unit[E7]
+U2 unit{other nodes}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -377,7 +377,7 @@ NodeBack: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U3 unit[E10]
+U3 unit{!_"#$%&\'()*+-.}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -427,7 +427,7 @@ NodeBack: [U2]
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
-U4 unit[E11]
+U4 unit{/;<=>?[\\]^_`|~}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -471,7 +471,7 @@ NodeBack: [U3]
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
-U5 unit[E12]
+U5 unit{local   node}
 unit_directions:D[prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]

@@ -1,5 +1,24 @@
 2025-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	handle $associated_command_id being undefined.
+
+	* tta/C/main/manipulate_tree.c (print_root_command)
+	(root_command_element_string), tta/C/main/structure_list.c
+	(print_line_command, print_nodes_list),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_root_command,
+	root_command_element_string), tta/perl/Texinfo/Structuring.pm
+	(_print_line_command, print_nodes_list): move print_section_command to
+	manipulate_tree.c and rename as root_command_element_string.  Also
+	duplicate print_root_command in manipulate_tree.c.
+
+	* tta/C/main/output_unit.c (print_output_units_details), 
+	tta/perl/Texinfo/OutputUnits.pm (print_output_units_details): use
+	root_command_element_string for output units unit_command textual
+	output.
+
+2025-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	set extra element_node to node identifier instead of node element
 
 	* tta/C/convert/format_html.c (html_convert_printindex_command),

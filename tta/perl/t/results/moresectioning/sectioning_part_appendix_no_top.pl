@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'sectioning_part_appendix_no_top'} = 'U0 unit[E0]
+$result_tree_text{'sectioning_part_appendix_no_top'} = 'U0 unit{1 chapter}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -27,7 +27,7 @@ FastForward: [U4]
     |{\\n}
     {chapter}
   {empty_line:\\n}
-U1 unit[E1]
+U1 unit{1.1 section}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -51,7 +51,7 @@ Up: [U0]
     |{\\n}
     {section}
   {empty_line:\\n}
-U2 unit[E2]
+U2 unit{1.1.1 subsection}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -75,7 +75,7 @@ Up: [U1]
     |{\\n}
     {subsection}
   {empty_line:\\n}
-U3 unit[E3]
+U3 unit{1.1.1.1 subsubsection}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -99,7 +99,7 @@ Up: [U2]
     |{\\n}
     {subsubsection}
   {empty_line:\\n}
-U4 unit[E5]
+U4 unit{2 chapter in part}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -138,7 +138,7 @@ Next: [U5]
     |{\\n}
     {chapter in part}
   {empty_line:\\n}
-U5 unit[E6]
+U5 unit{3 second chapter in part}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -164,7 +164,7 @@ Up: [U4]
     |{\\n}
     {second chapter in part}
   {empty_line:\\n}
-U6 unit[E7]
+U6 unit{unnumbered}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -188,7 +188,7 @@ Up: [U4]
     |{\\n}
     {unnumbered}
   {empty_line:\\n}
-U7 unit[E8]
+U7 unit{A appendix}
 unit_directions:D[next->[U8]|prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]
@@ -211,7 +211,7 @@ Prev: [U4]
     |{\\n}
     {appendix}
   {empty_line:\\n}
-U8 unit[E9]
+U8 unit{A.1 appendixsec}
 unit_directions:D[prev->[U7]]
 UNIT_DIRECTIONS
 This: [U8]

@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'non_automatic_top_node_up_and_url'} = 'U0 unit[E0]
+$result_tree_text{'non_automatic_top_node_up_and_url'} = 'U0 unit{Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -115,7 +115,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit[E3]
+U1 unit{chap}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

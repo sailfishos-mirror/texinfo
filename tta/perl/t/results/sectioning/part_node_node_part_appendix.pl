@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'part_node_node_part_appendix'} = 'U0 unit[E1]
+$result_tree_text{'part_node_node_part_appendix'} = 'U0 unit{top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -83,7 +83,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit[E5]
+U1 unit{1 chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -140,7 +140,7 @@ NodeBack: [U0]
     |{\\n}
     {chapter}
   {empty_line:\\n}
-U2 unit[E8]
+U2 unit{A Appendix}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

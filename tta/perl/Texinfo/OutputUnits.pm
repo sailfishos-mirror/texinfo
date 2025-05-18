@@ -775,9 +775,13 @@ sub print_output_units_details($$;$$)
     if ($output_unit->{'unit_type'} ne 'special_unit'
         and $output_unit->{'unit_command'}) {
       my $element_string
-        = Texinfo::ManipulateTree::element_number_or_error(
+        = Texinfo::ManipulateTree::root_command_element_string(
                                     $output_unit->{'unit_command'});
-      $result .= "[$element_string]";
+      if (defined($element_string)) {
+        $result .= "{$element_string}";
+      } else {
+        $result .= '{}';
+      }
     }
 
     if (defined($output_unit->{'unit_filename'})) {

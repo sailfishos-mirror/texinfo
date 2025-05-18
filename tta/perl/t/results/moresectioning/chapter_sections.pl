@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'chapter_sections'} = 'U0 unit[E0]
+$result_tree_text{'chapter_sections'} = 'U0 unit{unnumbered}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -27,7 +27,7 @@ Next: [U1]
     |{\\n}
     {unnumbered}
   {empty_line:\\n}
-U1 unit[E1]
+U1 unit{1 First chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -52,7 +52,7 @@ Prev: [U0]
     |{\\n}
     {First chapter}
   {empty_line:\\n}
-U2 unit[E2]
+U2 unit{1.1 second}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -76,7 +76,7 @@ Up: [U1]
     |{\\n}
     {second}
   {empty_line:\\n}
-U3 unit[E3]
+U3 unit{2 Chapter}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -101,7 +101,7 @@ Prev: [U1]
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-U4 unit[E4]
+U4 unit{2.1 Section of chapter}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -125,7 +125,7 @@ Up: [U3]
     |{\\n}
     {Section of chapter}
   {empty_line:\\n}
-U5 unit[E5]
+U5 unit{2.1.1 subsection 1}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -150,7 +150,7 @@ Up: [U4]
     |{\\n}
     {subsection 1}
   {empty_line:\\n}
-U6 unit[E6]
+U6 unit{2.1.2 subsection 2}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -175,7 +175,7 @@ Up: [U4]
     |{\\n}
     {subsection 2}
   {empty_line:\\n}
-U7 unit[E7]
+U7 unit{3 Chapter 2}
 unit_directions:D[prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]

@@ -31,6 +31,8 @@
 #include "utils.h"
 #include "convert_to_texinfo.h"
 #include "debug.h"
+/* root_command_element_string */
+#include "manipulate_tree.h"
 #include "structure_list.h"
 
 NODE_STRUCTURE_LIST *
@@ -266,7 +268,7 @@ print_root_command (const ELEMENT *element)
       if (structure->name) \
         { \
           char *value \
-            = print_section_command (structure->name); \
+            = root_command_element_string (structure->name); \
           if (value) \
             { \
               text_printf (&result, " " #name ": %s", \
@@ -396,33 +398,10 @@ print_sectioning_root (const DOCUMENT *document)
 }
 
 static char *
-print_section_command (const ELEMENT *element)
-{
-  char *root_command_texi = print_root_command (element);
-
-  char *section_heading_number
-    = lookup_extra_string (element, AI_key_section_heading_number);
-
-  if (section_heading_number && strlen (section_heading_number))
-    {
-      if (root_command_texi)
-        {
-          char *result;
-          xasprintf (&result, "%s %s", section_heading_number,
-                     root_command_texi);
-          free (root_command_texi);
-          return result;
-        }
-      return strdup (section_heading_number);
-    }
-  return root_command_texi;
-}
-
-static char *
 print_line_command (const ELEMENT *element)
 {
   if (builtin_command_data[element->e.c->cmd].flags & CF_root)
-    return print_section_command (element);
+    return root_command_element_string (element);
   else
     {
       const ELEMENT *line_arg = element->e.c->contents.list[0];

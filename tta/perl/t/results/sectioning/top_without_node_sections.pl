@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'top_without_node_sections'} = 'U0 unit[E0]
+$result_tree_text{'top_without_node_sections'} = 'U0 unit{top section}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -28,7 +28,7 @@ FastForward: [U1]
   *paragraph C1
    {Top section\\n}
   {empty_line:\\n}
-U1 unit[E2]
+U1 unit{1 Chapter}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

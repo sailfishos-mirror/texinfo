@@ -1288,6 +1288,49 @@ element_number_or_error (const ELEMENT *element)
   return result;
 }
 
+static char *
+print_root_command (const ELEMENT *element)
+{
+  ELEMENT *argument_line = element->e.c->contents.list[0];
+  if (argument_line->e.c->contents.number > 0)
+    {
+      ELEMENT *line_arg = argument_line->e.c->contents.list[0];
+      if (line_arg->e.c->contents.number > 0)
+        {
+          char *root_command_texi
+            = convert_contents_to_texinfo (line_arg);
+          return root_command_texi;
+        }
+    }
+  return 0;
+}
+
+char *
+root_command_element_string (const ELEMENT *element)
+{
+  char *root_command_texi = print_root_command (element);
+
+  if (element->e.c->cmd && element->e.c->cmd != CM_node)
+    {
+      char *section_heading_number
+        = lookup_extra_string (element, AI_key_section_heading_number);
+
+      if (section_heading_number && strlen (section_heading_number))
+        {
+          if (root_command_texi)
+            {
+              char *result;
+              xasprintf (&result, "%s %s", section_heading_number,
+                         root_command_texi);
+              free (root_command_texi);
+              return result;
+            }
+          return strdup (section_heading_number);
+        }
+    }
+  return root_command_texi;
+}
+
 static uintptr_t
 print_element_extra (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,

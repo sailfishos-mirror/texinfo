@@ -6440,8 +6440,10 @@ sub _convert_printindex_command($$$$)
 
   my $document = $self->get_info('document');
   my $indices_information;
+  my $identifiers_target;
   if ($document) {
     $indices_information = $document->indices_information();
+    $identifiers_target = $document->labels_information();
   }
 
   #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
@@ -6801,8 +6803,10 @@ sub _convert_printindex_command($$$$)
         if ($self->get_conf('NODE_NAME_IN_INDEX')) {
           my $associated_command_id
             = $main_entry_element->{'extra'}->{'element_node'};
-          my $identifiers_target = $document->labels_information();
-          $associated_command = $identifiers_target->{$associated_command_id};
+          if (defined($associated_command_id)
+              and $identifiers_target) {
+            $associated_command = $identifiers_target->{$associated_command_id};
+          }
           if (!defined($associated_command)) {
             $associated_command
               = $self->command_node($target_element);

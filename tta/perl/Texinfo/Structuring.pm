@@ -1284,31 +1284,12 @@ sub construct_nodes_tree($)
   }
 }
 
-sub _print_section_command($)
-{
-  my $element = shift;
-
-  my $root_command_texi = _print_root_command($element);
-
-  if ($element->{'extra'}
-      and defined($element->{'extra'}->{'section_heading_number'})
-      and $element->{'extra'}->{'section_heading_number'} ne '') {
-    my $result = $element->{'extra'}->{'section_heading_number'};
-    if (defined($root_command_texi)) {
-      $result .= ' '.$root_command_texi;
-    }
-    return $result;
-  }
-
-  return $root_command_texi;
-}
-
 sub _print_line_command($)
 {
   my $element = shift;
 
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}) {
-    return _print_section_command($element);
+    return Texinfo::ManipulateTree::root_command_element_string($element);
   } else {
     if ($element->{'contents'}->[0]
         and $element->{'contents'}->[0]->{'contents'}) {
@@ -1370,7 +1351,8 @@ sub print_nodes_list($)
     foreach my $section_key (('associated_section', 'node_preceding_part')) {
       if ($node_structure->{$section_key}) {
         my $section_command
-          = _print_section_command($node_structure->{$section_key});
+          = Texinfo::ManipulateTree::root_command_element_string(
+                $node_structure->{$section_key});
         if (!defined($section_command)) {
           $result .= " $section_key\n";
         } else {

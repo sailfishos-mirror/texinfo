@@ -1131,9 +1131,14 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
           && output_unit->uc.unit_command)
         {
           char *element_string
-            = element_number_or_error (output_unit->uc.unit_command);
-          text_printf (result, "[%s]", element_string);
-          free (element_string);
+            = root_command_element_string (output_unit->uc.unit_command);
+          if (element_string)
+            {
+              text_printf (result, "{%s}", element_string);
+              free (element_string);
+            }
+          else
+            text_append_n (result, "{}", 2);
         }
 
       if (output_unit->unit_filename)

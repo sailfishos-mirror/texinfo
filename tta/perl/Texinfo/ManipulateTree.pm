@@ -573,6 +573,41 @@ sub element_number_or_error($)
   }
 }
 
+sub _print_root_command($)
+{
+  my $element = shift;
+  my $argument_line = $element->{'contents'}->[0];
+  if ($argument_line->{'contents'}
+      and $argument_line->{'contents'}->[0]->{'contents'}) {
+    my $root_command_texi
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+    return $root_command_texi;
+  }
+  return undef;
+}
+
+sub root_command_element_string($)
+{
+  my $element = shift;
+
+  my $root_command_texi = _print_root_command($element);
+
+  if ($element->{'cmdname'} and $element->{'cmdname'} ne 'node') {
+    if ($element->{'extra'}
+        and defined($element->{'extra'}->{'section_heading_number'})
+        and $element->{'extra'}->{'section_heading_number'} ne '') {
+      my $result = $element->{'extra'}->{'section_heading_number'};
+      if (defined($root_command_texi)) {
+        $result .= ' '.$root_command_texi;
+      }
+      return $result;
+    }
+  }
+
+  return $root_command_texi;
+}
+
 sub _debug_protect_eol($)
 {
   my $line = shift;
