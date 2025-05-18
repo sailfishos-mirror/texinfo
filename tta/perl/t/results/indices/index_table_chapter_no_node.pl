@@ -124,7 +124,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{node-with-ftable-and-vtable}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -140,7 +140,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{node-with-ftable-and-vtable}
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -167,7 +167,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E3]
+     |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,1}
       *line_arg C1
       |INFO
@@ -179,7 +179,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E3]
+     |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,2}
       *line_arg C1
       |INFO
@@ -220,7 +220,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E3]
+     |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,1}
       *line_arg C1
       |INFO
@@ -232,7 +232,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E3]
+     |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,2}
       *line_arg C1
       |INFO
@@ -249,7 +249,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E3]
+     |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,3}
       *line_arg C1
       |INFO
@@ -401,7 +401,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -414,7 +414,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -427,7 +427,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -440,7 +440,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -453,7 +453,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
@@ -466,7 +466,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO
@@ -479,7 +479,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,9}
    *line_arg C1
    |INFO
@@ -492,7 +492,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,10}
    *line_arg C1
    |INFO
@@ -505,7 +505,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,11}
    *line_arg C1
    |INFO
@@ -518,7 +518,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,12}
    *line_arg C1
    |INFO
@@ -531,7 +531,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,13}
    *line_arg C1
    |INFO
@@ -544,7 +544,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,14}
    *line_arg C1
    |INFO
@@ -557,7 +557,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,15}
    *line_arg C1
    |INFO
@@ -570,7 +570,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,16}
    *line_arg C1
    |INFO
@@ -583,7 +583,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,17}
    *line_arg C1
    |INFO
@@ -596,7 +596,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,18}
    *line_arg C1
    |INFO
@@ -609,7 +609,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,19}
    *line_arg C1
    |INFO
@@ -622,7 +622,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,20}
    *line_arg C1
    |INFO
@@ -635,7 +635,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,21}
    *line_arg C1
    |INFO
@@ -648,7 +648,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,22}
    *line_arg C1
    |INFO
@@ -661,7 +661,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,23}
    *line_arg C1
    |INFO
@@ -674,7 +674,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,24}
    *line_arg C1
    |INFO
@@ -687,7 +687,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,25}
    *line_arg C1
    |INFO
@@ -700,7 +700,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,26}
    *line_arg C1
    |INFO
@@ -713,7 +713,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,27}
    *line_arg C1
    |INFO
@@ -726,7 +726,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,28}
    *line_arg C1
    |INFO
@@ -739,7 +739,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,29}
    *line_arg C1
    |INFO
@@ -752,7 +752,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,30}
    *line_arg C1
    |INFO
@@ -765,7 +765,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,31}
    *line_arg C1
    |INFO
@@ -778,7 +778,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,32}
    *line_arg C1
    |INFO
@@ -791,7 +791,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,33}
    *line_arg C1
    |INFO
@@ -804,7 +804,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,34}
    *line_arg C1
    |INFO
@@ -817,7 +817,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,35}
    *line_arg C1
    |INFO
@@ -830,7 +830,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,36}
    *line_arg C1
    |INFO
@@ -843,7 +843,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,37}
    *line_arg C1
    |INFO
@@ -856,7 +856,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,38}
    *line_arg C1
    |INFO
@@ -869,7 +869,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,39}
    *line_arg C1
    |INFO
@@ -882,7 +882,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,40}
    *line_arg C1
    |INFO
@@ -895,7 +895,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,41}
    *line_arg C1
    |INFO
@@ -908,7 +908,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,42}
    *line_arg C1
    |INFO
@@ -921,7 +921,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,43}
    *line_arg C1
    |INFO
@@ -934,7 +934,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,44}
    *line_arg C1
    |INFO
@@ -947,7 +947,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,45}
    *line_arg C1
    |INFO
@@ -960,7 +960,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,46}
    *line_arg C1
    |INFO
@@ -973,7 +973,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,47}
    *line_arg C1
    |INFO
@@ -986,7 +986,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,48}
    *line_arg C1
    |INFO
@@ -999,7 +999,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,49}
    *line_arg C1
    |INFO
@@ -1012,7 +1012,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,50}
    *line_arg C1
    |INFO
@@ -1025,7 +1025,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,51}
    *line_arg C1
    |INFO
@@ -1038,7 +1038,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,52}
    *line_arg C1
    |INFO
@@ -1051,7 +1051,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,53}
    *line_arg C1
    |INFO
@@ -1064,7 +1064,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,54}
    *line_arg C1
    |INFO
@@ -1077,7 +1077,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,55}
    *line_arg C1
    |INFO
@@ -1090,7 +1090,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,56}
    *line_arg C1
    |INFO
@@ -1103,7 +1103,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,57}
    *line_arg C1
    |INFO
@@ -1116,7 +1116,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,58}
    *line_arg C1
    |INFO
@@ -1129,7 +1129,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,59}
    *line_arg C1
    |INFO
@@ -1142,7 +1142,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,60}
    *line_arg C1
    |INFO
@@ -1155,7 +1155,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,61}
    *line_arg C1
    |INFO
@@ -1168,7 +1168,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,62}
    *line_arg C1
    |INFO
@@ -1181,7 +1181,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,63}
    *line_arg C1
    |INFO
@@ -1194,7 +1194,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,64}
    *line_arg C1
    |INFO
@@ -1207,7 +1207,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,65}
    *line_arg C1
    |INFO
@@ -1220,7 +1220,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,66}
    *line_arg C1
    |INFO
@@ -1233,7 +1233,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,67}
    *line_arg C1
    |INFO
@@ -1246,7 +1246,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,68}
    *line_arg C1
    |INFO
@@ -1259,7 +1259,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,69}
    *line_arg C1
    |INFO
@@ -1272,7 +1272,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,70}
    *line_arg C1
    |INFO
@@ -1285,7 +1285,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,71}
    *line_arg C1
    |INFO
@@ -1298,7 +1298,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,72}
    *line_arg C1
    |INFO
@@ -1311,7 +1311,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,73}
    *line_arg C1
    |INFO
@@ -1324,7 +1324,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,74}
    *line_arg C1
    |INFO
@@ -1337,7 +1337,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,75}
    *line_arg C1
    |INFO
@@ -1350,7 +1350,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,76}
    *line_arg C1
    |INFO
@@ -1363,7 +1363,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,77}
    *line_arg C1
    |INFO
@@ -1376,7 +1376,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,78}
    *line_arg C1
    |INFO
@@ -1389,7 +1389,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,79}
    *line_arg C1
    |INFO
@@ -1402,7 +1402,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,80}
    *line_arg C1
    |INFO
@@ -1415,7 +1415,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,81}
    *line_arg C1
    |INFO
@@ -1428,7 +1428,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,82}
    *line_arg C1
    |INFO
@@ -1441,7 +1441,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,83}
    *line_arg C1
    |INFO
@@ -1454,7 +1454,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,84}
    *line_arg C1
    |INFO
@@ -1467,7 +1467,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,85}
    *line_arg C1
    |INFO
@@ -1480,7 +1480,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,86}
    *line_arg C1
    |INFO
@@ -1493,7 +1493,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,87}
    *line_arg C1
    |INFO
@@ -1506,7 +1506,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,88}
    *line_arg C1
    |INFO
@@ -1519,7 +1519,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,89}
    *line_arg C1
    |INFO
@@ -1532,7 +1532,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,90}
    *line_arg C1
    |INFO
@@ -1545,7 +1545,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,91}
    *line_arg C1
    |INFO
@@ -1558,7 +1558,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,92}
    *line_arg C1
    |INFO
@@ -1571,7 +1571,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,93}
    *line_arg C1
    |INFO
@@ -1584,7 +1584,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,94}
    *line_arg C1
    |INFO
@@ -1597,7 +1597,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,95}
    *line_arg C1
    |INFO
@@ -1610,7 +1610,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,96}
    *line_arg C1
    |INFO
@@ -1623,7 +1623,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,97}
    *line_arg C1
    |INFO
@@ -1636,7 +1636,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,98}
    *line_arg C1
    |INFO
@@ -1649,7 +1649,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,99}
    *line_arg C1
    |INFO
@@ -1662,7 +1662,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,100}
    *line_arg C1
    |INFO
@@ -1675,7 +1675,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,101}
    *line_arg C1
    |INFO
@@ -1688,7 +1688,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,102}
    *line_arg C1
    |INFO
@@ -1701,7 +1701,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,103}
    *line_arg C1
    |INFO
@@ -1714,7 +1714,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,104}
    *line_arg C1
    |INFO
@@ -1727,7 +1727,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,105}
    *line_arg C1
    |INFO
@@ -1740,7 +1740,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,106}
    *line_arg C1
    |INFO
@@ -1753,7 +1753,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,107}
    *line_arg C1
    |INFO
@@ -1766,7 +1766,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,108}
    *line_arg C1
    |INFO
@@ -1779,7 +1779,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,109}
    *line_arg C1
    |INFO
@@ -1792,7 +1792,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,110}
    *line_arg C1
    |INFO
@@ -1805,7 +1805,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,111}
    *line_arg C1
    |INFO
@@ -1818,7 +1818,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,112}
    *line_arg C1
    |INFO
@@ -1831,7 +1831,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,113}
    *line_arg C1
    |INFO
@@ -1844,7 +1844,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,114}
    *line_arg C1
    |INFO
@@ -1857,7 +1857,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,115}
    *line_arg C1
    |INFO
@@ -1870,7 +1870,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,116}
    *line_arg C1
    |INFO
@@ -1883,7 +1883,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,117}
    *line_arg C1
    |INFO
@@ -1896,7 +1896,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,118}
    *line_arg C1
    |INFO
@@ -1909,7 +1909,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,119}
    *line_arg C1
    |INFO
@@ -1922,7 +1922,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,120}
    *line_arg C1
    |INFO
@@ -1935,7 +1935,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,121}
    *line_arg C1
    |INFO
@@ -1948,7 +1948,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,122}
    *line_arg C1
    |INFO
@@ -1961,7 +1961,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,123}
    *line_arg C1
    |INFO
@@ -1974,7 +1974,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,124}
    *line_arg C1
    |INFO
@@ -1987,7 +1987,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,125}
    *line_arg C1
    |INFO
@@ -2000,7 +2000,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,126}
    *line_arg C1
    |INFO
@@ -2013,7 +2013,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,127}
    *line_arg C1
    |INFO
@@ -2026,7 +2026,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,128}
    *line_arg C1
    |INFO
@@ -2039,7 +2039,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,129}
    *line_arg C1
    |INFO
@@ -2052,7 +2052,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{indices-refs}
   |index_entry:I{cp,130}
    *line_arg C1
    |INFO

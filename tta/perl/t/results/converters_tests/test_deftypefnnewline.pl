@@ -100,7 +100,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{name}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C7
@@ -150,7 +150,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypefn_name}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C5
@@ -208,7 +208,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C9
@@ -274,7 +274,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C7
@@ -336,7 +336,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,1}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C7
@@ -398,7 +398,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C9
@@ -450,7 +450,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{arg}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deffn}
     *block_line_arg C3
@@ -503,7 +503,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{name2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C7
@@ -553,7 +553,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypefn_name2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,7}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C5
@@ -611,7 +611,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,8}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C9
@@ -677,7 +677,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,9}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C7
@@ -739,7 +739,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,3}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C7
@@ -801,7 +801,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{c--lass2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,4}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C9
@@ -853,7 +853,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{arg2}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,10}
    |original_def_cmdname:{deffn}
     *block_line_arg C3

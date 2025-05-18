@@ -84,7 +84,7 @@ $result_tree_text{'seeentry_no_braces'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,1}
    *line_arg C3
     {aa}

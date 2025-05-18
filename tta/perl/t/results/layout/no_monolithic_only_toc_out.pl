@@ -55,7 +55,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E0]
+  |element_node:{Top}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

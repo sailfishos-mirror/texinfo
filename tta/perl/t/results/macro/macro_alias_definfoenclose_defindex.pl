@@ -152,7 +152,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{phoo,1}
    *line_arg C1
    |INFO
@@ -230,7 +230,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{phoo,2}
    *line_arg C1
    |INFO
@@ -327,7 +327,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{phoo,3}
    *line_arg C1
    |INFO

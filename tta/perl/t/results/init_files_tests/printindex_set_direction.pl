@@ -71,7 +71,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{Chapter}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -84,7 +84,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{Chapter}
   |index_entry:I{vr,1}
    *line_arg C1
    |INFO
@@ -97,7 +97,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{Chapter}
   |index_entry:I{fn,1}
    *line_arg C1
    |INFO

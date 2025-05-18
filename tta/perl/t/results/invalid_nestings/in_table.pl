@@ -165,7 +165,7 @@ $result_tree_text{'in_table'} = '*document_root C3
        |spaces_before_argument:
         |{ }
        |EXTRA
-       |element_node:[E1]
+       |element_node:{chap}
        |index_entry:I{cp,1}
         *line_arg C1
         |INFO
@@ -201,7 +201,7 @@ $result_tree_text{'in_table'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E1]
+     |element_node:{chap}
      |index_entry:I{vr,1}
       *line_arg C1
        *index_entry_command@cindex C1 l18
@@ -210,7 +210,7 @@ $result_tree_text{'in_table'} = '*document_root C3
        |spaces_before_argument:
         |{ }
        |EXTRA
-       |element_node:[E1]
+       |element_node:{chap}
        |index_entry:I{cp,2}
         *line_arg C1
         |INFO
@@ -231,7 +231,7 @@ $result_tree_text{'in_table'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E1]
+     |element_node:{chap}
      |index_entry:I{vr,2}
       *line_arg C1
        *index_entry_command@cindex C1 l21
@@ -240,7 +240,7 @@ $result_tree_text{'in_table'} = '*document_root C3
        |spaces_before_argument:
         |{ }
        |EXTRA
-       |element_node:[E1]
+       |element_node:{chap}
        |index_entry:I{cp,3}
         *line_arg C1
         |INFO

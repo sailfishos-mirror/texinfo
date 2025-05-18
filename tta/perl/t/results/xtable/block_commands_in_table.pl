@@ -240,7 +240,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,1}
       *line_arg C1
       |INFO
@@ -256,7 +256,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,2}
       *line_arg C1
       |INFO
@@ -268,7 +268,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,3}
       *line_arg C1
       |INFO
@@ -307,7 +307,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,4}
       *line_arg C1
       |INFO
@@ -321,7 +321,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,5}
       *line_arg C1
       |INFO

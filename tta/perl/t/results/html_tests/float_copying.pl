@@ -211,7 +211,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{Top}
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -333,7 +333,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{Copying-and-floats}
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO

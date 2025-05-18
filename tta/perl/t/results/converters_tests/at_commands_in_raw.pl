@@ -228,7 +228,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO

@@ -42,7 +42,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{index-node}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

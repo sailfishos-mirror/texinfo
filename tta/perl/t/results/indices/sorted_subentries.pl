@@ -67,7 +67,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,1}
    *line_arg C3
     {aa}
@@ -87,7 +87,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,2}
    *line_arg C3
     {ab}
@@ -107,7 +107,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,3}
    *line_arg C3
     {aa}
@@ -127,7 +127,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,4}
    *line_arg C3
     {bb}
@@ -148,7 +148,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,5}
    *line_arg C3
     {hhh}
@@ -175,7 +175,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,6}
    *line_arg C3
     {hhh}
@@ -195,7 +195,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
@@ -208,7 +208,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,8}
    *line_arg C3
     {hhh}
@@ -228,7 +228,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,9}
    *line_arg C3
     {hhh}
@@ -244,7 +244,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,10}
    *line_arg C1
    |INFO
@@ -257,7 +257,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-one}
   |index_entry:I{cp,11}
    *line_arg C3
     {hhh}
@@ -321,7 +321,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,12}
    *line_arg C3
     {hhh}
@@ -348,7 +348,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,13}
    *line_arg C1
    |INFO
@@ -361,7 +361,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,14}
    *line_arg C3
     *@samp C1 l24
@@ -383,7 +383,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,15}
    *line_arg C3
     *@kbd C1 l25
@@ -418,7 +418,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,16}
    *line_arg C1
     *@subentry C1 l26
@@ -436,7 +436,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,17}
    *line_arg C3
     {hhh}
@@ -469,7 +469,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,18}
    *line_arg C3
     {hhh}
@@ -496,7 +496,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{chapter-second}
   |index_entry:I{cp,19}
    *line_arg C3
     {hhh}

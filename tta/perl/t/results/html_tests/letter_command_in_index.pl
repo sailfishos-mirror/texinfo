@@ -71,7 +71,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO

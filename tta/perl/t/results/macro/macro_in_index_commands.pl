@@ -270,7 +270,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |>SOURCEMARKS
    |>macro_expansion<end;6>
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{truc,1}
    *line_arg C1
    |INFO
@@ -290,7 +290,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     |>|command_name:{defcodeindexentry}
      |>*brace_arg
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{codeidx,1}
    *line_arg C6
    |INFO
@@ -325,7 +325,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     |>|command_name:{truc}
      |>*brace_arg
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{ky,1}
    *line_arg C1
    |INFO
@@ -340,7 +340,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{pg,1}
    *line_arg C1
    |INFO

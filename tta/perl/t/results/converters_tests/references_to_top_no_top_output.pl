@@ -179,7 +179,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{Top}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -270,7 +270,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E9]
+  |element_node:{chapter}
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO

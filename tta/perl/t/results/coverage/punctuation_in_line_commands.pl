@@ -200,7 +200,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E0]
+  |element_node:{node_0021-After-punc}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

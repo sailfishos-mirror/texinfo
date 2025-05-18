@@ -186,7 +186,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      ||spaces_before_argument:
       ||{ }
       |{machin}
-   |element_node:[E1]
+   |element_node:{chap-node}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C9
@@ -252,7 +252,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      ||spaces_before_argument:
       ||{ }
       |{xmachin}
-   |element_node:[E1]
+   |element_node:{chap-node}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
     *line_arg C9

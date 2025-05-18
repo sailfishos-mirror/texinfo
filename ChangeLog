@@ -1,5 +1,20 @@
 2025-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	set extra element_node to node identifier instead of node element
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command),
+	tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/indices.c
+	(enter_index_entry), tta/C/structuring_transfo/transformations.c
+	(reassociate_to_node), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_printindex_command), tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tta/perl/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tta/perl/Texinfo/Transformations.pm (_reassociate_to_node): set
+	extra information element_node to be the node identifier string
+	instead of the node element.
+
+2025-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	move sectioning_root to document and sections_list to structure
 
 	* tta/C/main/build_perl_info.c (build_section_structure_list)

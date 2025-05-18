@@ -277,7 +277,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
       |*def_line_arg C1
        |{Which}
    |documentlanguage:{ab_us}
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
     *block_line_arg C7

@@ -32,7 +32,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E0]
+  |element_node:{Top}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -147,7 +147,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap-first}
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -160,7 +160,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap-first}
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
@@ -173,7 +173,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap-first}
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
@@ -186,7 +186,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap-first}
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO
@@ -351,7 +351,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{another}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -364,7 +364,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{another}
   |index_entry:I{fn,2}
    *line_arg C1
    |INFO
@@ -377,7 +377,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{another}
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -423,7 +423,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{a-node}
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
@@ -450,7 +450,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{a-node}
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
@@ -463,7 +463,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:{a-node}
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO

@@ -152,7 +152,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E0]
+    |element_node:{Top}
     |index_entry:I{cp,1}
      *line_arg C1
      |INFO
@@ -436,7 +436,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E0]
+      |element_node:{Top}
       |index_entry:I{cp,2}
        *line_arg C1
        |INFO
@@ -785,7 +785,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E5]
+      |element_node:{chapter}
       |index_entry:I{cp,3}
        *line_arg C1
        |INFO

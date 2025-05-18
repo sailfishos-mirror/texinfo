@@ -70,7 +70,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{node}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{sec}
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO

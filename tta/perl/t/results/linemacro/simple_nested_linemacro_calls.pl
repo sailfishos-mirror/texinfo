@@ -161,7 +161,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E0]
+    |element_node:{Top}
     |index_entry:I{cp,1}
      *line_arg C1
      |INFO

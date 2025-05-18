@@ -244,7 +244,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{Top}
   |index_entry:I{fn,1}
    *line_arg C1
    |INFO
@@ -333,7 +333,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E4]
+     |element_node:{Top}
      |index_entry:I{fn,2}
       *line_arg C1
       |INFO
@@ -420,7 +420,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E8]
+  |element_node:{Copying-and-indices}
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
@@ -434,7 +434,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E8]
+  |element_node:{Copying-and-indices}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO

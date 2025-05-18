@@ -96,7 +96,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{cp,1}
    |sortas:{ text}
     *line_arg C3
@@ -169,7 +169,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{cp,2}
    |sortas:{ text}
     *line_arg C3

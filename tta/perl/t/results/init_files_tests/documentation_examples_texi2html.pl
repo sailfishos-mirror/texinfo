@@ -288,7 +288,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -303,7 +303,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO

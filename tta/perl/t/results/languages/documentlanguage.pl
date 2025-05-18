@@ -154,7 +154,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
       |*def_line_arg C1
        |{class}
    |documentlanguage:{pt}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypemethod}
     *block_line_arg C9

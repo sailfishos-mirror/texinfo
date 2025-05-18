@@ -71,7 +71,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{fn,1}
   >SOURCEMARKS
   >macro_expansion<start;2>
@@ -93,7 +93,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{fn,2}
   >SOURCEMARKS
   >macro_expansion<start;3>
@@ -117,7 +117,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{fn,3}
   >SOURCEMARKS
   >macro_expansion<start;4>
@@ -139,7 +139,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{fn,4}
    *line_arg C1
    |INFO

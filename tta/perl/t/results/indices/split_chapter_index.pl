@@ -57,7 +57,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E0]
+  |element_node:{Top}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -136,7 +136,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{first}
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -149,7 +149,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{first}
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{first}
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
@@ -175,7 +175,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{first}
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO
@@ -202,7 +202,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{first}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -216,7 +216,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{first}
   |index_entry:I{fn,2}
    *line_arg C1
    |INFO
@@ -229,7 +229,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{first}
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -242,7 +242,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{first}
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
@@ -343,7 +343,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{section-1}
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
@@ -357,7 +357,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:{section-1}
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO
@@ -403,7 +403,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E9]
+  |element_node:{subsection-1}
   |index_entry:I{cp,9}
    *line_arg C1
    |INFO

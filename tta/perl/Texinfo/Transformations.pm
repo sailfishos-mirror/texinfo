@@ -446,17 +446,18 @@ sub _reassociate_to_node($$$)
   } elsif ($current->{'extra'} and $current->{'extra'}->{'element_node'}) {
     if ($previous_node_structure) {
       my $previous_node = $previous_node_structure->{'element'};
-      if ($current->{'extra'}->{'element_node'} ne $previous_node) {
+      if ($current->{'extra'}->{'element_node'}
+          ne $previous_node->{'extra'}->{'normalized'}) {
         print STDERR "Bug: element $current not in previous node $previous_node; "
           .Texinfo::Common::debug_print_element($current)."\n";
         print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
-        print STDERR "  current node: ".
-         Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                          $current->{'extra'}->{'element_node'})."\n";
+        print STDERR "  current node identifier: ".
+                          $current->{'extra'}->{'element_node'}."\n";
       }
     }
-    $current->{'extra'}->{'element_node'} = $new_node_structure->{'element'};
+    $current->{'extra'}->{'element_node'}
+      = $new_node_structure->{'element'}->{'extra'}->{'normalized'};
   } elsif ($current->{'cmdname'}
            and $current->{'cmdname'} eq 'nodedescription') {
     if (!$new_node_structure->{'node_description'}) {

@@ -173,7 +173,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |>SOURCEMARKS
    |>value_expansion<end;6>
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{truc,1}
    *line_arg C1
    |INFO
@@ -192,7 +192,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
      |>*brace_container C1
       |>{defcodeindex_entry}
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{codeidx,1}
    *line_arg C6
    |INFO
@@ -226,7 +226,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
      |>*brace_container C1
       |>{truc}
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{ky,1}
    *line_arg C1
    |INFO
@@ -241,7 +241,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{pg,1}
    *line_arg C1
    |INFO

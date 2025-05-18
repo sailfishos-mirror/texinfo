@@ -54,7 +54,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,2}
       *line_arg C1
       |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,3}
       *line_arg C1
       |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,1}
       *line_arg C1
       |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,4}
       *line_arg C1
       |INFO
@@ -176,7 +176,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,5}
       *line_arg C1
       |INFO
@@ -259,7 +259,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,6}
       *line_arg C1
       |INFO
@@ -272,7 +272,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,7}
       *line_arg C1
       |INFO
@@ -360,7 +360,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,8}
       *line_arg C1
       |INFO
@@ -373,7 +373,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{chap}
      |index_entry:I{cp,9}
       *line_arg C1
       |INFO

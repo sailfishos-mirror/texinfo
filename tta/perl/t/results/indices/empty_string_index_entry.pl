@@ -44,7 +44,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{fn,1}
    *line_arg C1
    |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E1]
+     |element_node:{chap}
      |index_entry:I{fn,2}
       *line_arg C1
       |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      |*bracketed_arg C1
       |*@w C1
        |*brace_container
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,3}
    |original_def_cmdname:{defun}
     *block_line_arg C7
@@ -136,7 +136,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      |*bracketed_arg C1
       |*@w C1
        |*brace_container
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defunx}
     *line_arg C7

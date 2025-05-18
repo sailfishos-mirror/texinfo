@@ -454,7 +454,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      ||spaces_before_argument:
       ||{ }
       |{machin}
-   |element_node:[E0]
+   |element_node:{a}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C9

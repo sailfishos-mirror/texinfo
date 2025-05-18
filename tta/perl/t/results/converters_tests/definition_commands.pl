@@ -76,7 +76,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{fname}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -132,7 +132,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{fname}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -192,7 +192,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{fname}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -256,7 +256,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defspec}
     *block_line_arg C19
@@ -308,7 +308,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,5}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -371,7 +371,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,6}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -434,7 +434,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,7}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -497,7 +497,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,8}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -560,7 +560,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,9}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -623,7 +623,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,10}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -692,7 +692,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,11}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -761,7 +761,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,12}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -830,7 +830,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,13}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -899,7 +899,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,14}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -968,7 +968,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,15}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -1037,7 +1037,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,16}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -1106,7 +1106,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,17}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -1175,7 +1175,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,18}
    |original_def_cmdname:{defspecx}
     *line_arg C18
@@ -1260,7 +1260,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,19}
    |original_def_cmdname:{defspec}
     *block_line_arg C7
@@ -1294,7 +1294,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,20}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1330,7 +1330,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,21}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1366,7 +1366,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,22}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1402,7 +1402,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,23}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1438,7 +1438,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,24}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1474,7 +1474,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,25}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1512,7 +1512,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,26}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1550,7 +1550,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,27}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1588,7 +1588,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,28}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1626,7 +1626,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,29}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1664,7 +1664,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,30}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1702,7 +1702,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,31}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1740,7 +1740,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,32}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1778,7 +1778,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,33}
    |original_def_cmdname:{defspecx}
     *line_arg C7
@@ -1834,7 +1834,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
       |*@t C1
        |*brace_container C1
         |{.ft}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,34}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -1879,7 +1879,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
           |{f}
       |*@t C1
        |*brace_container
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,35}
    |original_def_cmdname:{deffnx}
     *line_arg C3
@@ -1924,7 +1924,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
           |{fn}
       |*@t C1
        |*brace_container
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,36}
    |original_def_cmdname:{deffnx}
     *line_arg C3
@@ -1970,7 +1970,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
       |*@t C1
        |*brace_container C1
         |{]}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,37}
    |original_def_cmdname:{deffnx}
     *line_arg C7
@@ -2027,7 +2027,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
       |*@t C1
        |*brace_container C1
         |{\\n[.sty]}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,38}
    |original_def_cmdname:{deffnx}
     *line_arg C3
@@ -2092,7 +2092,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,39}
    |original_def_cmdname:{defspec}
     *block_line_arg C57
@@ -2298,7 +2298,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,40}
    |original_def_cmdname:{defspecx}
     *line_arg C20
@@ -2393,7 +2393,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,41}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C16
@@ -2470,7 +2470,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,42}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C16
@@ -2557,7 +2557,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{border-pattern}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defcv}
     *block_line_arg C5
@@ -2617,7 +2617,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      |*def_class C1
       |*def_line_arg C1
        |{Window}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C7
@@ -2675,7 +2675,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      |*def_name C1
       |*def_line_arg C1
        |{foobar}
-    |element_node:[E2]
+    |element_node:{chapter}
     |index_entry:I{fn,43}
     |original_def_cmdname:{deftypefn}
      *block_line_arg C16
@@ -2763,7 +2763,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{apply}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,44}
    |original_def_cmdname:{defun}
     *block_line_arg C9
@@ -2828,7 +2828,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{apply}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,45}
    |original_def_cmdname:{defun}
     *block_line_arg C9
@@ -2894,7 +2894,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{name}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,46}
    |original_def_cmdname:{deffn}
     *block_line_arg C31
@@ -3000,7 +3000,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,47}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C20
@@ -3057,7 +3057,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,48}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3122,7 +3122,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,49}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3187,7 +3187,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,50}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3252,7 +3252,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,51}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3317,7 +3317,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,52}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3382,7 +3382,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,53}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3451,7 +3451,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,54}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3520,7 +3520,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,55}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3589,7 +3589,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,56}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3658,7 +3658,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,57}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3727,7 +3727,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,58}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3796,7 +3796,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,59}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3865,7 +3865,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,60}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -3934,7 +3934,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,61}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4019,7 +4019,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,62}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C20
@@ -4076,7 +4076,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,63}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4135,7 +4135,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,64}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4194,7 +4194,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,65}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4253,7 +4253,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,66}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4312,7 +4312,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,67}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4371,7 +4371,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,68}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4432,7 +4432,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,69}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4493,7 +4493,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,70}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4554,7 +4554,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,71}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4615,7 +4615,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,72}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4676,7 +4676,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,73}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4737,7 +4737,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,74}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4798,7 +4798,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,75}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20
@@ -4859,7 +4859,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{foobar}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{fn,76}
    |original_def_cmdname:{deftypefnx}
     *line_arg C20

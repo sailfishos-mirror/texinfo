@@ -83,7 +83,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,1}
       *line_arg C2
       |INFO
@@ -107,7 +107,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,2}
       *line_arg C3
       |INFO
@@ -132,7 +132,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chap}
      |index_entry:I{vr,3}
       *line_arg C1
       |INFO

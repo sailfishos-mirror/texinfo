@@ -6527,11 +6527,7 @@ sub _convert_printindex_command($$$$)
       my $main_entry_element = $index_entry_ref->{'entry_element'};
       next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
                and defined($main_entry_element->{'extra'}->{'element_node'})
-               and $main_entry_element->{'extra'}->{'element_node'}->{'extra'}
-               and $main_entry_element->{'extra'}->{'element_node'}
-                                               ->{'extra'}->{'normalized'}
-               and $main_entry_element->{'extra'}->{'element_node'}
-                                       ->{'extra'}->{'normalized'} eq 'Top');
+               and $main_entry_element->{'extra'}->{'element_node'} eq 'Top');
 
       # to avoid double error messages, call
       # convert_tree_new_formatting_context below with a multiple_pass
@@ -6803,7 +6799,10 @@ sub _convert_printindex_command($$$$)
 
         my $associated_command;
         if ($self->get_conf('NODE_NAME_IN_INDEX')) {
-          $associated_command = $main_entry_element->{'extra'}->{'element_node'};
+          my $associated_command_id
+            = $main_entry_element->{'extra'}->{'element_node'};
+          my $identifiers_target = $document->labels_information();
+          $associated_command = $identifiers_target->{$associated_command_id};
           if (!defined($associated_command)) {
             $associated_command
               = $self->command_node($target_element);

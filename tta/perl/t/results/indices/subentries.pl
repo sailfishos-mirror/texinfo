@@ -68,7 +68,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{cp,2}
    *line_arg C3
     {b---b}
@@ -101,7 +101,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{cp,3}
    *line_arg C3
     {d---dd}
@@ -128,7 +128,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{cp,4}
    *line_arg C3
     {g---gg}
@@ -163,7 +163,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{fn,1}
    *line_arg C1
    |INFO
@@ -176,7 +176,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{fn,2}
    *line_arg C3
     {f---bb}
@@ -196,7 +196,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{fn,3}
    *line_arg C3
     {f---ddd}
@@ -223,7 +223,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter-index}
   |index_entry:I{fn,4}
    *line_arg C3
     {f---ggg}

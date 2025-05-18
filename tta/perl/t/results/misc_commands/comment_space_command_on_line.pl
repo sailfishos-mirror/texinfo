@@ -127,7 +127,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,1}
    *line_arg C2
    |INFO

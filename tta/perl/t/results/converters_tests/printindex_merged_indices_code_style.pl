@@ -96,7 +96,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -110,7 +110,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{vr,1}
    *line_arg C1
    |INFO
@@ -124,7 +124,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{fn,1}
    *line_arg C1
    |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{cdi,1}
    *line_arg C1
    |INFO
@@ -200,7 +200,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap}
   |index_entry:I{ddi,1}
    *line_arg C1
    |INFO

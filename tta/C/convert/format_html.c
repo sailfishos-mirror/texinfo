@@ -10261,16 +10261,11 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
           if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0)
             {
-              const ELEMENT *element_node
-                = lookup_extra_element (main_entry_element,
-                                        AI_key_element_node);
-              if (element_node)
-                {
-                  const char *normalized = lookup_extra_string (element_node,
-                                                           AI_key_normalized);
-                  if (normalized && !strcmp (normalized, "Top"))
-                    continue;
-                }
+              const char *element_node
+                = lookup_extra_string (main_entry_element,
+                                       AI_key_element_node);
+              if (element_node && !strcmp (element_node, "Top"))
+                continue;
             }
 
           memset (new_normalized_entry_levels, 0,
@@ -10715,9 +10710,16 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
                   if (self->conf->NODE_NAME_IN_INDEX.o.integer > 0)
                     {
-                      associated_command
-                          = lookup_extra_element (main_entry_element,
-                                                    AI_key_element_node);
+                      const char *associated_command_id
+                          = lookup_extra_string (main_entry_element,
+                                                 AI_key_element_node);
+
+                      if (associated_command_id)
+                        associated_command
+                          = find_identifier_target (
+                                   &self->document->identifiers_target,
+                                   associated_command_id);
+
                       if (!associated_command)
                         associated_command
                           = html_command_node (self, target_element);

@@ -220,7 +220,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
       |*def_line_arg C1
        |{c}
    |documentlanguage:{de}
-   |element_node:[E2]
+   |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
     *block_line_arg C7

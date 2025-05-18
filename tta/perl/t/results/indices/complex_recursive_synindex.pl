@@ -142,7 +142,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{eee,1}
    *line_arg C1
    |INFO
@@ -177,7 +177,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{ccc,1}
    *line_arg C1
    |INFO
@@ -190,7 +190,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{bbb,1}
    *line_arg C1
    |INFO
@@ -203,7 +203,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{aaa,1}
    *line_arg C1
    |INFO
@@ -216,7 +216,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{ddd,1}
    *line_arg C1
    |INFO
@@ -229,7 +229,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E1]
+  |element_node:{chap}
   |index_entry:I{eee,2}
    *line_arg C1
    |INFO

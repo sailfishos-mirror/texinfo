@@ -438,7 +438,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E11]
+  |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

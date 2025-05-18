@@ -721,14 +721,8 @@ sub output_ixin($$)
       my $dts_in_code = $indices_information->{$index_name}->{'in_code'};
       foreach my $dts_entry (@{$entries->{$index_name}}) {
         my $main_entry_element = $dts_entry->{'entry_element'};
-        my $node = $main_entry_element->{'extra'}->{'element_node'};
-        my $associated_node_id;
-        if (defined($node)) {
-          $associated_node_id = $self->_associated_node_id(undef,
-                                                    \%node_label_number, $node);
-        } else {
-          $associated_node_id = -1;
-        }
+        my $associated_node_id = $main_entry_element->{'extra'}->{'element_node'};
+        $associated_node_id = -1 if (!defined($associated_node_id));
         my $entry_content_element
           = Texinfo::Common::index_content_element($main_entry_element);
         my $entry = $self->convert_tree($entry_content_element);

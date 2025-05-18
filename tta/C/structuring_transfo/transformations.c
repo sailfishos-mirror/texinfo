@@ -786,28 +786,32 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                || current->type == ET_index_entry_command
                || (current->parent && current->parent->flags & EF_def_line))
         {
-          const ELEMENT *element_node
-            = lookup_extra_element (current, AI_key_element_node);
+          const char *element_node
+            = lookup_extra_string (current, AI_key_element_node);
           if (element_node && previous_node_structure)
             {
+              const char *new_normalized
+                = lookup_extra_string (added_node, AI_key_normalized);
               const ELEMENT *previous_node = previous_node_structure->element;
-              if (element_node != previous_node)
+              const char *previous_normalized
+                = lookup_extra_string (previous_node, AI_key_normalized);
+              if (strcmp(element_node, previous_normalized))
                 {
                   char *element_debug = print_element_debug (current, 0);
                   char *previous_node_texi
                     = root_heading_command_to_texinfo (previous_node);
-                  char *element_node_texi
-                    = root_heading_command_to_texinfo (element_node);
-                   fprintf (stderr,
+                  fprintf (stderr,
                        "BUG: element %p not in previous node %p; %s\n"
                        "  previous node: %s\n"
-                       "  current node: %s\n", current, previous_node,
-                       element_debug, previous_node_texi, element_node_texi);
+                       "  current node identifier: %s\n", current,
+                       previous_node, element_debug, previous_node_texi,
+                       element_node);
                   free (element_debug);
                   free (previous_node_texi);
-                  free (element_node_texi);
                 }
-              add_extra_element (current, AI_key_element_node, added_node);
+
+              add_extra_string_dup (current, AI_key_element_node,
+                                    new_normalized);
             }
         }
       else if (current->e.c->cmd == CM_nodedescription)

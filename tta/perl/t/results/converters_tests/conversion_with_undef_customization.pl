@@ -99,7 +99,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chap_00ea}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -161,7 +161,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |*def_name C1
      |*def_line_arg C1
       |{name}
-   |element_node:[E4]
+   |element_node:{sec}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C13

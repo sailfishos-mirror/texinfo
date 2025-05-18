@@ -60,7 +60,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efvr_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defvr}
     *block_line_arg C3
@@ -100,7 +100,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{n--ame}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C5
@@ -144,7 +144,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{n--ame}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C3
@@ -184,7 +184,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypefn_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C7
@@ -232,7 +232,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypefn_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C5
@@ -290,7 +290,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C9
@@ -356,7 +356,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C7
@@ -404,7 +404,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypevr_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypevr}
     *block_line_arg C5
@@ -448,7 +448,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efcv_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
     *block_line_arg C5
@@ -492,7 +492,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efcv_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defcv}
     *block_line_arg C7
@@ -554,7 +554,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,5}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C7
@@ -616,7 +616,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,6}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C9
@@ -682,7 +682,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,7}
    |original_def_cmdname:{defop}
     *block_line_arg C7
@@ -744,7 +744,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,8}
    |original_def_cmdname:{defop}
     *block_line_arg C5
@@ -788,7 +788,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftp_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{tp,1}
    |original_def_cmdname:{deftp}
     *block_line_arg C5
@@ -832,7 +832,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efun_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,9}
    |original_def_cmdname:{defun}
     *block_line_arg C5
@@ -878,7 +878,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efmac_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,10}
    |original_def_cmdname:{defmac}
     *block_line_arg C5
@@ -924,7 +924,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efspec_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,11}
    |original_def_cmdname:{defspec}
     *block_line_arg C5
@@ -970,7 +970,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efvar_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,7}
    |original_def_cmdname:{defvar}
     *block_line_arg C3
@@ -1012,7 +1012,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efvar_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,8}
    |original_def_cmdname:{defvar}
     *block_line_arg C7
@@ -1062,7 +1062,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--efopt_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,9}
    |original_def_cmdname:{defopt}
     *block_line_arg C3
@@ -1104,7 +1104,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypefun_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,12}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C7
@@ -1154,7 +1154,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |*def_name C1
      |*def_line_arg C1
       |{d--eftypevar_name}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,10}
    |original_def_cmdname:{deftypevar}
     *block_line_arg C5
@@ -1214,7 +1214,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,11}
    |original_def_cmdname:{defivar}
     *block_line_arg C5
@@ -1274,7 +1274,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,12}
    |original_def_cmdname:{deftypeivar}
     *block_line_arg C7
@@ -1338,7 +1338,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,13}
    |original_def_cmdname:{defmethod}
     *block_line_arg C7
@@ -1402,7 +1402,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |*def_class C1
       |*def_line_arg C1
        |{c--lass}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{fn,14}
    |original_def_cmdname:{deftypemethod}
     *block_line_arg C9

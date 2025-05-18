@@ -38,7 +38,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
        ||EXTRA
        ||node_content:{myanchor}
         |{myanchor}
-   |element_node:[E0]
+   |element_node:{first}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C9
@@ -103,7 +103,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
        ||EXTRA
        ||node_content:{myanchor}
         |{myanchor}
-   |element_node:[E0]
+   |element_node:{first}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
     *line_arg C9

@@ -80,7 +80,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,1}
   |index_ignore_chars:{\\}
    *line_arg C3
@@ -100,7 +100,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,2}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -114,7 +114,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,3}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,4}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -142,7 +142,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,5}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,6}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -173,7 +173,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
    *line_arg C9
@@ -249,7 +249,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,8}
   |index_ignore_chars:{\\}
    *line_arg C1
@@ -263,7 +263,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,9}
   |index_ignore_chars:{\\}
   |sortas:{\\cmd}
@@ -288,7 +288,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{cp,10}
    *line_arg C2
    |INFO
@@ -308,7 +308,7 @@ $result_tree_text{'indices'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{chapter}
   |index_entry:I{fn,1}
    *line_arg C4
    |INFO

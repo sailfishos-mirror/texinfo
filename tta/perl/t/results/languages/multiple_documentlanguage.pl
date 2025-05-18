@@ -192,7 +192,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |*def_line_arg C1
        |{fr}
    |documentlanguage:{fr}
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -293,7 +293,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |*def_line_arg C1
        |{hr}
    |documentlanguage:{hr}
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
     *block_line_arg C7

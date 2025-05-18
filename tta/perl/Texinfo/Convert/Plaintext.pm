@@ -1821,18 +1821,21 @@ sub process_printindex($$;$)
     return '';
   }
 
+  if (!$self->{'document'}) {
+    return '';
+  }
+
+  my $indices_information = $self->{'document'}->indices_information();
   my $index_entries;
-  my $indices_information;
-  if ($self->{'document'}) {
-    $indices_information = $self->{'document'}->indices_information();
-    if ($indices_information) {
-      $index_entries = $self->get_converter_indices_sorted_by_index();
-    }
+  if ($indices_information) {
+    $index_entries = $self->get_converter_indices_sorted_by_index();
   }
   if (!$index_entries or !$index_entries->{$index_name}
       or !@{$index_entries->{$index_name}}) {
     return '';
   }
+
+  my $identifiers_target = $self->{'document'}->labels_information();
 
   # first determine the line numbers for the spacing of their formatting
   my %line_nrs;
@@ -1885,7 +1888,8 @@ sub process_printindex($$;$)
       $node = $self->{'index_entries_line_location'}
                                     ->{$main_entry_element}->{'node'};
     } elsif (defined($main_entry_element->{'extra'}->{'element_node'})) {
-      $node = $main_entry_element->{'extra'}->{'element_node'};
+      $node = $identifiers_target->{
+                        $main_entry_element->{'extra'}->{'element_node'}};
     }
     $entry_nodes{$entry} = $node;
     if (!defined($node)) {

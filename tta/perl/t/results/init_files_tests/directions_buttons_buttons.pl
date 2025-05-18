@@ -122,7 +122,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:{appendix}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

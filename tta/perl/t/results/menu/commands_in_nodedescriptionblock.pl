@@ -160,7 +160,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E3]
+    |element_node:{node1}
     |index_entry:I{cp,1}
      *line_arg C1
      |INFO

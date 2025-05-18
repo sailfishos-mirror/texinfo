@@ -66,7 +66,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E0]
+  |element_node:{Top}
   |index_entry:I{sli,1}
    *line_arg C1
    |INFO

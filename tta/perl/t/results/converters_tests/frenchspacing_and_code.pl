@@ -132,7 +132,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
      |*def_class C1
       |*bracketed_arg C1
        |{class: MyC. b}
-   |element_node:[E2]
+   |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C17
@@ -218,7 +218,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
      |*def_class C1
       |*bracketed_arg C1
        |{vclass: MyC. u}
-   |element_node:[E2]
+   |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,2}
    |original_def_cmdname:{defop}
     *block_line_arg C15
@@ -370,7 +370,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
      |*def_class C1
       |*bracketed_arg C1
        |{class: MyC. b}
-   |element_node:[E4]
+   |element_node:{chap-no}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C17
@@ -456,7 +456,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
      |*def_class C1
       |*bracketed_arg C1
        |{nvclass: MyC. u}
-   |element_node:[E4]
+   |element_node:{chap-no}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defop}
     *block_line_arg C15

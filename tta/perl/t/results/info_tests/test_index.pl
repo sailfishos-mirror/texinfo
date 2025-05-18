@@ -52,7 +52,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{cp,1}
     *line_arg C1
     |INFO
@@ -65,7 +65,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -78,7 +78,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'test_index'} = '*document_root C13
       |*@var C1
        |*brace_container C1
         |{i}
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -147,7 +147,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |*def_name C1
      |*def_line_arg C1
       |{machin}
-   |element_node:[E0]
+   |element_node:{Top}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
     *line_arg C7
@@ -200,7 +200,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{Top}
      |index_entry:I{fn,3}
       *line_arg C1
       |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{Top}
      |index_entry:I{fn,4}
       *line_arg C1
       |INFO
@@ -230,7 +230,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E0]
+     |element_node:{Top}
      |index_entry:I{fn,5}
       *line_arg C1
       |INFO
@@ -326,7 +326,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{name}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -339,7 +339,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{name}
   |index_entry:I{fn,6}
    *line_arg C1
    |INFO
@@ -355,7 +355,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{name}
    |index_entry:I{fn,7}
     *line_arg C1
     |INFO
@@ -385,7 +385,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{name}
   |index_entry:I{fn,8}
    *line_arg C1
    |INFO
@@ -624,7 +624,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{name}
   |index_entry:I{fn,9}
    *line_arg C1
    |INFO
@@ -668,7 +668,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E5]
+  |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -699,7 +699,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E5]
+  |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{fn,10}
    *line_arg C1
    |INFO
@@ -815,7 +815,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E5]
+  |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO

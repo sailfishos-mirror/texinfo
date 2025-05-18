@@ -104,7 +104,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
       |*def_line_arg C1
        |{db}
    |documentlanguage:{fr}
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C9

@@ -90,6 +90,7 @@ enum directions {
   ai_key(begin, string) \
   ai_key(def_command, string) \
   ai_key(documentlanguage, string) \
+  ai_key(element_node, string) \
   ai_key(element_region, string) \
   ai_key(end, string) \
   ai_key(enumerate_specification, string) \
@@ -105,8 +106,6 @@ enum directions {
   ai_key(sortas, string) \
   ai_key(text_arg, string) \
   ai_key(translation_context, string) \
-  \
-  ai_key(element_node, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \

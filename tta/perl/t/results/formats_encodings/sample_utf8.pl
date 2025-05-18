@@ -259,7 +259,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -275,7 +275,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
@@ -288,7 +288,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
@@ -301,7 +301,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO

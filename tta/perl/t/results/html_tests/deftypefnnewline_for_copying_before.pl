@@ -156,7 +156,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     |*def_name C1
      |*def_line_arg C1
       |{something}
-   |element_node:[E2]
+   |element_node:{chap}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C7

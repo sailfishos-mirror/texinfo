@@ -76,7 +76,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{fr_NOWHERE}
-   |element_node:[E1]
+   |element_node:{chap}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
     *block_line_arg C7

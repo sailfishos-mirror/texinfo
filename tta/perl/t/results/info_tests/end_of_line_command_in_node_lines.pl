@@ -137,7 +137,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{chap-f-nl-Something_003f-After-punct}
   |index_entry:I{cp,1}
    *line_arg C3
    |INFO

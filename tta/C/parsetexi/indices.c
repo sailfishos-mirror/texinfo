@@ -311,7 +311,11 @@ enter_index_entry (enum command_id index_type_cmd,
       add_extra_string_dup (element, AI_key_element_region, command_name (region));
     }
   else if (current_node)
-    add_extra_element (element, AI_key_element_node, current_node->element);
+    {
+      const char *normalized = lookup_extra_string (current_node->element,
+                                                    AI_key_normalized);
+      add_extra_string_dup (element, AI_key_element_node, normalized);
+    }
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)

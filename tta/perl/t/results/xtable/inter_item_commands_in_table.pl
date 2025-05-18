@@ -84,7 +84,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{vr,1}
       *line_arg C1
       |INFO
@@ -123,7 +123,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{vr,2}
       *line_arg C1
       |INFO
@@ -138,7 +138,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{vr,3}
       *line_arg C1
       |INFO
@@ -177,7 +177,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,1}
       *line_arg C1
       |INFO
@@ -191,7 +191,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E2]
+      |element_node:{chapter}
       |index_entry:I{cp,1}
        *line_arg C1
        |INFO
@@ -207,7 +207,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,2}
       *line_arg C1
       |INFO
@@ -224,7 +224,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,3}
       *line_arg C1
       |INFO
@@ -241,7 +241,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,4}
       *line_arg C1
       |INFO
@@ -281,7 +281,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,5}
       *line_arg C1
       |INFO
@@ -295,7 +295,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E2]
+      |element_node:{chapter}
       |index_entry:I{cp,2}
        *line_arg C1
        |INFO
@@ -307,7 +307,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{fn,6}
       *line_arg C1
       |INFO
@@ -347,7 +347,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,3}
       *line_arg C1
       |INFO
@@ -397,7 +397,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E2]
+    |element_node:{chapter}
     |index_entry:I{cp,4}
      *line_arg C1
      |INFO
@@ -447,7 +447,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,5}
       *line_arg C1
       |INFO
@@ -497,7 +497,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E2]
+    |element_node:{chapter}
     |index_entry:I{cp,6}
      *line_arg C1
      |INFO
@@ -547,7 +547,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E2]
+    |element_node:{chapter}
     |index_entry:I{cp,7}
      *line_arg C1
      |INFO
@@ -595,7 +595,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |element_node:[E2]
+    |element_node:{chapter}
     |index_entry:I{cp,8}
      *line_arg C1
      |INFO
@@ -646,7 +646,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,9}
       *line_arg C1
       |INFO
@@ -692,7 +692,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,10}
       *line_arg C1
       |INFO
@@ -707,7 +707,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,11}
       *line_arg C1
       |INFO
@@ -720,7 +720,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      |spaces_before_argument:
       |{ }
      |EXTRA
-     |element_node:[E2]
+     |element_node:{chapter}
      |index_entry:I{cp,12}
       *line_arg C1
       |INFO

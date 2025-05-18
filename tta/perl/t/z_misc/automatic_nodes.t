@@ -237,7 +237,7 @@ Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
 
 my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();
-my $nodes_list = $document->nodes_list;
+my $nodes_list = $document->nodes_list();
 my $chap_node = $identifier_target->{'chap'};
 my $top_node = $identifier_target->{'Top'};
 my $chap_structure = $nodes_list->[$chap_node->{'extra'}->{'node_number'} -1];
@@ -254,7 +254,7 @@ is(Texinfo::Convert::Texinfo::convert_to_texinfo(
 ', 'reassociated menu is correct');
 #print STDERR join('|',
 #               keys(%{$indices_information->{'cp'}->{'index_entries'}}))."\n";
-is($identifier_target->{'chap'},
+is('chap',
    $indices_information->{'cp'}->{'index_entries'}->[0]
                               ->{'entry_element'}->{'extra'}->{'element_node'},
   'index entry reassociated');

@@ -98,7 +98,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO
@@ -111,7 +111,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -124,7 +124,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -171,7 +171,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E2]
+  |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO

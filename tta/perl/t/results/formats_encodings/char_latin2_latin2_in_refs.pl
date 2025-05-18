@@ -142,7 +142,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}
    *line_arg C1
    |INFO

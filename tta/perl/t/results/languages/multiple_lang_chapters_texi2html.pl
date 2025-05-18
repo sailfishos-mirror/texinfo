@@ -243,7 +243,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{ja}
-   |element_node:[E3]
+   |element_node:{chapter-ja}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -358,7 +358,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{en}
-   |element_node:[E5]
+   |element_node:{chapter-en}
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -464,7 +464,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{fr_FR}
-   |element_node:[E7]
+   |element_node:{chapter-fr_005fFR}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
