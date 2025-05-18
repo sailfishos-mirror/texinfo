@@ -39,7 +39,6 @@ $result_tree_text{'index_split'} = '*document_root C21
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -270,11 +269,9 @@ $result_tree_text{'index_split'} = '*document_root C21
   |{ }
  |EXTRA
  |section_childs:EC[E7|E14|E16]
- |section_directions:D[next->E21|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E21|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -426,7 +423,6 @@ $result_tree_text{'index_split'} = '*document_root C21
   |{ }
  |EXTRA
  |section_childs:EC[E10|E12]
- |section_directions:D[next->E14|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -539,7 +535,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -573,7 +568,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E10|up->E7]
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}
@@ -647,7 +641,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E16|prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{6}
@@ -681,7 +674,6 @@ $result_tree_text{'index_split'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E4]
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{7}
@@ -909,11 +901,9 @@ $result_tree_text{'index_split'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1260,27 +1250,58 @@ $result_nodes_list{'index_split'} = '1|Top
 $result_sections_list{'index_split'} = '1|split indices
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->First chapter
 2|First chapter
  associated_anchor_command: first
  associated_node: first
+ section_directions:
+  next->Second chapter
+  up->split indices
+ toplevel_directions:
+  next->Second chapter
+  prev->split indices
+  up->split indices
 3|Section 1
  associated_anchor_command: section 1
  associated_node: section 1
+ section_directions:
+  next->Section 2
+  up->First chapter
 4|Subsection 1
  associated_anchor_command: subsection 1
  associated_node: subsection 1
+ section_directions:
+  next->Subsection 2
+  up->Section 1
 5|Subsection 2
  associated_anchor_command: subsection 2
  associated_node: subsection 2
+ section_directions:
+  prev->Subsection 1
+  up->Section 1
 6|Section 2
  associated_anchor_command: section 2
  associated_node: section 2
+ section_directions:
+  next->Section 3
+  prev->Section 1
+  up->First chapter
 7|Section 3
  associated_anchor_command: section 3
  associated_node: section 3
+ section_directions:
+  prev->Section 2
+  up->First chapter
 8|Second chapter
  associated_anchor_command: second chapter
  associated_node: second chapter
+ section_directions:
+  prev->First chapter
+  up->split indices
+ toplevel_directions:
+  prev->First chapter
+  up->split indices
 ';
 
 $result_headings_list{'index_split'} = '';

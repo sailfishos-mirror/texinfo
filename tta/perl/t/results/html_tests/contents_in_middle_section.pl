@@ -38,7 +38,6 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,11 +97,9 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
   |{ }
  |EXTRA
  |section_childs:EC[E7|E9]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -170,7 +167,6 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -207,7 +203,6 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
@@ -331,15 +326,28 @@ $result_nodes_list{'contents_in_middle_section'} = '1|Top
 $result_sections_list{'contents_in_middle_section'} = '1|Contents in section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter 1
 2|Chapter 1
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->Contents in section
+ toplevel_directions:
+  prev->Contents in section
+  up->Contents in section
 3|section
  associated_anchor_command: section
  associated_node: section
+ section_directions:
+  next->section 1
+  up->Chapter 1
 4|section 1
  associated_anchor_command: section1
  associated_node: section1
+ section_directions:
+  prev->section
+  up->Chapter 1
 ';
 
 $result_headings_list{'contents_in_middle_section'} = '';

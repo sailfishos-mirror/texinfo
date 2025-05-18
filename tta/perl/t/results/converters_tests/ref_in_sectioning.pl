@@ -39,7 +39,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C7
    |INFO
@@ -138,11 +137,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -188,11 +185,9 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |section_childs:EC[E7|E8|E9|E10|E11|E12|E13|E14|E15|E16|E17|E18|E19]
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -211,7 +206,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|up->E6]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -259,7 +253,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|prev->E7|up->E6]
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{5}
@@ -286,7 +279,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E8|up->E6]
  |section_heading_number:{2.3}
  |section_level:{2}
  |section_number:{6}
@@ -318,7 +310,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E11|prev->E9|up->E6]
  |section_heading_number:{2.4}
  |section_level:{2}
  |section_number:{7}
@@ -348,7 +339,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|prev->E10|up->E6]
  |section_heading_number:{2.5}
  |section_level:{2}
  |section_number:{8}
@@ -379,7 +369,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E13|prev->E11|up->E6]
  |section_heading_number:{2.6}
  |section_level:{2}
  |section_number:{9}
@@ -410,7 +399,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E14|prev->E12|up->E6]
  |section_heading_number:{2.7}
  |section_level:{2}
  |section_number:{10}
@@ -438,7 +426,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E15|prev->E13|up->E6]
  |section_heading_number:{2.8}
  |section_level:{2}
  |section_number:{11}
@@ -463,7 +450,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E16|prev->E14|up->E6]
  |section_heading_number:{2.9}
  |section_level:{2}
  |section_number:{12}
@@ -494,7 +480,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E17|prev->E15|up->E6]
  |section_heading_number:{2.10}
  |section_level:{2}
  |section_number:{13}
@@ -530,7 +515,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E18|prev->E16|up->E6]
  |section_heading_number:{2.11}
  |section_level:{2}
  |section_number:{14}
@@ -558,7 +542,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E19|prev->E17|up->E6]
  |section_heading_number:{2.12}
  |section_level:{2}
  |section_number:{15}
@@ -583,7 +566,6 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E18|up->E6]
  |section_heading_number:{2.13}
  |section_level:{2}
  |section_number:{16}
@@ -752,25 +734,90 @@ $result_nodes_list{'ref_in_sectioning'} = '1|Top
 $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->@xref{node,,title, file name, Manual}.
 2|@xref{node,,title, file name, Manual}.
  associated_anchor_command: node
  associated_node: node
+ section_directions:
+  next->@ref{node} just node
+  up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ toplevel_directions:
+  next->@ref{node} just node
+  prev->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+  up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
 3|@ref{node} just node
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  prev->@xref{node,,title, file name, Manual}.
+  up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ toplevel_directions:
+  prev->@xref{node,,title, file name, Manual}.
+  up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
 4|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+ section_directions:
+  next->@ref{node, cross ref name}  node, crossref arg2
+  up->@ref{node} just node
 5|@ref{node, cross ref name}  node, crossref arg2
+ section_directions:
+  next->@ref{@code{node},, @samp{title}}  code node, samptitle arg3
+  prev->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+  up->@ref{node} just node
 6|@ref{@code{node},, @samp{title}}  code node, samptitle arg3
+ section_directions:
+  next->@ref{@code{node},,, file name} code node, file name
+  prev->@ref{node, cross ref name}  node, crossref arg2
+  up->@ref{node} just node
 7|@ref{@code{node},,, file name} code node, file name
+ section_directions:
+  next->@ref{node,,,, Manual } node and manual
+  prev->@ref{@code{node},, @samp{title}}  code node, samptitle arg3
+  up->@ref{node} just node
 8|@ref{node,,,, Manual } node and manual
+ section_directions:
+  next->@ref{Top,,,, Manual } Top and manual
+  prev->@ref{@code{node},,, file name} code node, file name
+  up->@ref{node} just node
 9|@ref{Top,,,, Manual } Top and manual
+ section_directions:
+  next->@ref{,,,, Manual } no node just manual
+  prev->@ref{node,,,, Manual } node and manual
+  up->@ref{node} just node
 10|@ref{,,,, Manual } no node just manual
+ section_directions:
+  next->@ref{,,, file name} no node just file name
+  prev->@ref{Top,,,, Manual } Top and manual
+  up->@ref{node} just node
 11|@ref{,,, file name} no node just file name
+ section_directions:
+  next->@inforef{a, b, c} inforef a b c
+  prev->@ref{,,,, Manual } no node just manual
+  up->@ref{node} just node
 12|@inforef{a, b, c} inforef a b c
+ section_directions:
+  next->(@pxref{ Top ,,, file name }) pxref Top file name, spaces
+  prev->@ref{,,, file name} no node just file name
+  up->@ref{node} just node
 13|(@pxref{ Top ,,, file name }) pxref Top file name, spaces
+ section_directions:
+  next->(@pxref{,,, file name }) pxref file name only, spaces
+  prev->@inforef{a, b, c} inforef a b c
+  up->@ref{node} just node
 14|(@pxref{,,, file name }) pxref file name only, spaces
+ section_directions:
+  next->@xref{Top,,,filename}, xref Top filename only, no spaces
+  prev->(@pxref{ Top ,,, file name }) pxref Top file name, spaces
+  up->@ref{node} just node
 15|@xref{Top,,,filename}, xref Top filename only, no spaces
+ section_directions:
+  next->@xref{,,,filename}. xref filename only, no spaces
+  prev->(@pxref{,,, file name }) pxref file name only, spaces
+  up->@ref{node} just node
 16|@xref{,,,filename}. xref filename only, no spaces
+ section_directions:
+  prev->@xref{Top,,,filename}, xref Top filename only, no spaces
+  up->@ref{node} just node
 ';
 
 $result_headings_list{'ref_in_sectioning'} = '';

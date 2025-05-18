@@ -35,7 +35,6 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -210,11 +207,9 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -482,11 +477,9 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -658,11 +651,34 @@ $result_nodes_list{'float_and_refs'} = '1|Top
 $result_sections_list{'float_and_refs'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->refs
+  up->top
+ toplevel_directions:
+  next->refs
+  prev->top
+  up->top
 3|refs
+ section_directions:
+  next->lists
+  prev->chapter
+  up->top
+ toplevel_directions:
+  next->lists
+  prev->chapter
+  up->top
 4|lists
+ section_directions:
+  prev->refs
+  up->top
+ toplevel_directions:
+  prev->refs
+  up->top
 ';
 
 $result_headings_list{'float_and_refs'} = '';

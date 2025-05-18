@@ -47,7 +47,6 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -74,11 +73,9 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -362,9 +359,16 @@ $result_nodes_list{'combined_fonts'} = '1|Top
 $result_sections_list{'combined_fonts'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'combined_fonts'} = '';

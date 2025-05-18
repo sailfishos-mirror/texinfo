@@ -57,7 +57,6 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -65,7 +64,6 @@ $result_tree_text{'index_no_node'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E0|E1|E3|E4]
   ||section_level:{0}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -130,10 +128,8 @@ $result_tree_text{'index_no_node'} = '*document_root C7
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[next->E3|prev->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E3|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -248,7 +244,6 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
@@ -314,11 +309,9 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|prev->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E4|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -370,11 +363,9 @@ $result_tree_text{'index_no_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -520,10 +511,34 @@ $result_errors{'index_no_node'} = [
 $result_nodes_list{'index_no_node'} = '';
 
 $result_sections_list{'index_no_node'} = '1|unnumbered
+ section_directions:
+  next->top section
+ toplevel_directions:
+  next->top section
 2|top section
+ section_directions:
+  next->Chapter
+  prev->unnumbered
+ toplevel_directions:
+  next->Chapter
+  prev->unnumbered
 3|second
+ section_directions:
+  up->top section
 4|Chapter
+ section_directions:
+  next->Chapter 2
+  prev->top section
+ toplevel_directions:
+  next->Chapter 2
+  prev->top section
+  up->top section
 5|Chapter 2
+ section_directions:
+  prev->Chapter
+ toplevel_directions:
+  prev->Chapter
+  up->top section
 ';
 
 $result_headings_list{'index_no_node'} = '';

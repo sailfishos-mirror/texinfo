@@ -38,7 +38,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -115,11 +114,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -300,11 +297,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -370,11 +365,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |section_childs:EC[E11]
- |section_directions:D[prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -2113,7 +2106,6 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E8]
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{5}
@@ -2438,18 +2430,43 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
 $result_sections_list{'index_table_chapter_no_node'} = '1|Test for indices
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->first node chapter, with ftable and vtable
 2|first node chapter, with ftable and vtable
  associated_anchor_command: node with ftable and vtable
  associated_node: node with ftable and vtable
+ section_directions:
+  next->node with printindex
+  up->Test for indices
+ toplevel_directions:
+  next->node with printindex
+  prev->Test for indices
+  up->Test for indices
 3|node with printindex
  associated_anchor_command: node with printindex
  associated_node: node with printindex
+ section_directions:
+  next->Indices refs
+  prev->first node chapter, with ftable and vtable
+  up->Test for indices
+ toplevel_directions:
+  next->Indices refs
+  prev->first node chapter, with ftable and vtable
+  up->Test for indices
 4|Indices refs
  associated_anchor_command: indices refs
  associated_node: indices refs
+ section_directions:
+  prev->node with printindex
+  up->Test for indices
+ toplevel_directions:
+  prev->node with printindex
+  up->Test for indices
 5|node
  associated_anchor_command: node
  associated_node: node
+ section_directions:
+  up->Indices refs
 ';
 
 $result_headings_list{'index_table_chapter_no_node'} = '';

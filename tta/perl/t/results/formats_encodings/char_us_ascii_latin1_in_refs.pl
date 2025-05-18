@@ -53,7 +53,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -166,11 +165,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -197,11 +194,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -228,11 +223,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -259,11 +252,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E12|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -290,11 +281,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E10|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -578,21 +567,60 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 $result_sections_list{'char_us_ascii_latin1_in_refs'} = '1|accented char in latin1 in refs
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_anchor_command: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_node: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ section_directions:
+  next->é
+  up->accented char in latin1 in refs
+ toplevel_directions:
+  next->é
+  prev->accented char in latin1 in refs
+  up->accented char in latin1 in refs
 3|é
  associated_anchor_command: é
  associated_node: é
+ section_directions:
+  next->à è ù
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->accented char in latin1 in refs
+ toplevel_directions:
+  next->à è ù
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->accented char in latin1 in refs
 4|à è ù
  associated_anchor_command: à è ù
  associated_node: à è ù
+ section_directions:
+  next->â ê î ô û Â Ê Î Ô Û
+  prev->é
+  up->accented char in latin1 in refs
+ toplevel_directions:
+  next->â ê î ô û Â Ê Î Ô Û
+  prev->é
+  up->accented char in latin1 in refs
 5|â ê î ô û Â Ê Î Ô Û
  associated_anchor_command: â ê î ô û Â Ê Î Ô Û
  associated_node: â ê î ô û Â Ê Î Ô Û
+ section_directions:
+  next->ç
+  prev->à è ù
+  up->accented char in latin1 in refs
+ toplevel_directions:
+  next->ç
+  prev->à è ù
+  up->accented char in latin1 in refs
 6|ç
  associated_anchor_command: ç
  associated_node: ç
+ section_directions:
+  prev->â ê î ô û Â Ê Î Ô Û
+  up->accented char in latin1 in refs
+ toplevel_directions:
+  prev->â ê î ô û Â Ê Î Ô Û
+  up->accented char in latin1 in refs
 ';
 
 $result_headings_list{'char_us_ascii_latin1_in_refs'} = '';

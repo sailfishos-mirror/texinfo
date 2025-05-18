@@ -34,7 +34,6 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,11 +60,9 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -127,11 +124,9 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -265,12 +260,27 @@ $result_nodes_list{'cartouche_and_paragraph_indentation'} = '1|top
 $result_sections_list{'cartouche_and_paragraph_indentation'} = '1|top
  associated_anchor_command: top
  associated_node: top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  next->c2
+  up->top
+ toplevel_directions:
+  next->c2
+  prev->top
+  up->top
 3|c2
  associated_anchor_command: chap2
  associated_node: chap2
+ section_directions:
+  prev->chap
+  up->top
+ toplevel_directions:
+  prev->chap
+  up->top
 ';
 
 $result_headings_list{'cartouche_and_paragraph_indentation'} = '';

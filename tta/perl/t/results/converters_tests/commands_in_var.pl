@@ -34,7 +34,6 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,11 +60,9 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -251,9 +248,16 @@ $result_nodes_list{'commands_in_var'} = '1|Top
 $result_sections_list{'commands_in_var'} = '1|commands in var
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->commands in var
+ toplevel_directions:
+  prev->commands in var
+  up->commands in var
 ';
 
 $result_headings_list{'commands_in_var'} = '';

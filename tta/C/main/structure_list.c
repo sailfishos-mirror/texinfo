@@ -195,10 +195,8 @@ free_node_structure_list (NODE_STRUCTURE_LIST *list)
       NODE_STRUCTURE *node_structure = list->list[i];
       if (node_structure->menus)
         destroy_const_element_list (node_structure->menus);
-      if (node_structure->menu_directions)
-        free (node_structure->menu_directions);
-      if (node_structure->node_directions)
-        free (node_structure->node_directions);
+      free (node_structure->menu_directions);
+      free (node_structure->node_directions);
       free (node_structure);
     }
   free (list->list);
@@ -216,7 +214,12 @@ free_section_structure_list (SECTION_STRUCTURE_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
-    free (list->list[i]);
+    {
+      SECTION_STRUCTURE *section_structure = list->list[i];
+      free (section_structure->section_directions);
+      free (section_structure->toplevel_directions);
+      free (section_structure);
+    }
   free (list->list);
 }
 
@@ -273,6 +276,29 @@ print_root_command (const ELEMENT *element)
           text_append_n (&result, "\n", 1); \
         }
 
+static void
+print_sections_directions (TEXT *result, const ELEMENT * const *directions)
+{
+  size_t d;
+  for (d = 0; d < directions_length; d++)
+    {
+      if (directions[d])
+        {
+          const char *d_key = direction_names[d];
+          const ELEMENT *e = directions[d];
+          char *element_str = print_root_command (e);
+          if (!element_str)
+            /* not sure that it may happen */
+            text_printf (result, "  %s->\n", d_key);
+          else
+            {
+              text_printf (result, "  %s->%s\n", d_key, element_str);
+              free (element_str);
+            }
+        }
+    }
+}
+
 char *
 print_sections_list (const DOCUMENT *document)
 {
@@ -303,6 +329,16 @@ print_sections_list (const DOCUMENT *document)
       SECTION_STRUCT_PRINT_KEY(associated_part)
       SECTION_STRUCT_PRINT_KEY(part_associated_section)
       SECTION_STRUCT_PRINT_KEY(part_following_node)
+      if (structure->section_directions)
+        {
+          text_append_n (&result, " section_directions:\n", 21);
+          print_sections_directions (&result, structure->section_directions);
+        }
+      if (structure->toplevel_directions)
+        {
+          text_append_n (&result, " toplevel_directions:\n", 22);
+          print_sections_directions (&result, structure->toplevel_directions);
+        }
     }
 
   return result.text;
@@ -386,7 +422,7 @@ print_menu_node (const ELEMENT *element)
 }
 
 static void
-print_directions (TEXT *result, const ELEMENT * const *directions)
+print_nodes_directions (TEXT *result, const ELEMENT * const *directions)
 {
   size_t d;
   for (d = 0; d < directions_length; d++)
@@ -494,12 +530,12 @@ print_nodes_list (const DOCUMENT *document)
       if (structure->menu_directions)
         {
           text_append_n (&result, " menu_directions:\n", 18);
-          print_directions (&result, structure->menu_directions);
+          print_nodes_directions (&result, structure->menu_directions);
         }
       if (structure->node_directions)
         {
           text_append_n (&result, " node_directions:\n", 18);
-          print_directions (&result, structure->node_directions);
+          print_nodes_directions (&result, structure->node_directions);
         }
     }
 

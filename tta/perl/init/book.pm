@@ -115,18 +115,26 @@ sub book_print_up_toc($$)
   my $converter = shift;
   my $command = shift;
 
+  my $document = $converter->get_info('document');
+  my $sections_list = $document->sections_list();
+
   my $result = '';
   my $current_command = $command;
+  my $current_structure
+    = $sections_list->[$current_command->{'extra'}->{'section_number'} -1];
+
   my @up_commands;
-  while ($current_command->{'extra'}->{'section_directions'}
-         and defined($current_command->{'extra'}->{'section_directions'}->{'up'})
-         and ($current_command->{'extra'}->{'section_directions'}->{'up'}
+  while ($current_structure->{'section_directions'}
+         and defined($current_structure->{'section_directions'}->{'up'})
+         and ($current_structure->{'section_directions'}->{'up'}
                                                            ne $current_command)
-         and defined($current_command->{'extra'}->{'section_directions'}->{'up'}
+         and defined($current_structure->{'section_directions'}->{'up'}
                                                                 ->{'cmdname'})) {
     unshift (@up_commands,
-                $current_command->{'extra'}->{'section_directions'}->{'up'});
-    $current_command = $current_command->{'extra'}->{'section_directions'}->{'up'};
+             $current_structure->{'section_directions'}->{'up'});
+    $current_command = $current_structure->{'section_directions'}->{'up'};
+    $current_structure
+      = $sections_list->[$current_command->{'extra'}->{'section_number'} -1];
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
@@ -185,6 +193,11 @@ sub book_print_sub_toc($$$)
   my $parent_command = shift;
   my $command = shift;
 
+  my $document = $converter->get_info('document');
+  my $sections_list = $document->sections_list();
+
+  my $section_structure
+    = $sections_list->[$command->{'extra'}->{'section_number'} -1];
   my $result = '';
   my $content_href = $converter->command_href($command);
   my $heading = $converter->command_text($command);
@@ -198,10 +211,10 @@ sub book_print_sub_toc($$$)
                                 $command->{'extra'}->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
-  if ($command->{'extra'}->{'section_directions'}
-      and exists($command->{'extra'}->{'section_directions'}->{'next'})) {
+  if ($section_structure->{'section_directions'}
+      and exists($section_structure->{'section_directions'}->{'next'})) {
     $result .= book_print_sub_toc($converter, $parent_command,
-                  $command->{'extra'}->{'section_directions'}->{'next'});
+                  $section_structure->{'section_directions'}->{'next'});
   }
   return $result;
 }

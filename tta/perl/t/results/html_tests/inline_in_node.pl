@@ -58,7 +58,6 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg
    |INFO
@@ -100,11 +99,9 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C3
    |INFO
@@ -168,9 +165,16 @@ $result_nodes_list{'inline_in_node'} = '1|Top
 $result_sections_list{'inline_in_node'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
 2|@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
  associated_anchor_command: @inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}
  associated_node: @inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}
+ section_directions:
+  up->
+ toplevel_directions:
+  prev->
+  up->
 ';
 
 $result_headings_list{'inline_in_node'} = '';

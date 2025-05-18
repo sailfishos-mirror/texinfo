@@ -20,7 +20,6 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -32,11 +31,9 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2|up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E2|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -49,10 +46,8 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[prev->E1|up->E0]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -64,7 +59,6 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
@@ -118,9 +112,26 @@ $result_errors{'character_number_leading_toc_stoc'} = [];
 $result_nodes_list{'character_number_leading_toc_stoc'} = '';
 
 $result_sections_list{'character_number_leading_toc_stoc'} = '1|top
+ toplevel_directions:
+  next->0
 2|0
+ section_directions:
+  next->_
+  up->top
+ toplevel_directions:
+  next->_
+  prev->top
+  up->top
 3|_
+ section_directions:
+  prev->0
+  up->top
+ toplevel_directions:
+  prev->0
+  up->top
 4|?
+ section_directions:
+  up->_
 ';
 
 $result_headings_list{'character_number_leading_toc_stoc'} = '';

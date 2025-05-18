@@ -80,7 +80,6 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1539,11 +1538,9 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
  >SOURCEMARKS
  >macro_expansion<end;51>
   *arguments_line C1
@@ -2066,9 +2063,16 @@ $result_nodes_list{'macro_in_misc_commands'} = '1|Top
 $result_sections_list{'macro_in_misc_commands'} = '1|top atext
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: node atext
  associated_node: node atext
+ section_directions:
+  up->top atext
+ toplevel_directions:
+  prev->top atext
+  up->top atext
 ';
 
 $result_headings_list{'macro_in_misc_commands'} = '1|Comment like: atext

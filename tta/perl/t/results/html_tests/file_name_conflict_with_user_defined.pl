@@ -35,7 +35,6 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,11 +98,9 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -165,12 +160,27 @@ $result_nodes_list{'file_name_conflict_with_user_defined'} = '1|Top
 $result_sections_list{'file_name_conflict_with_user_defined'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap 1
 2|Chap 1
  associated_anchor_command: Chapter 1
  associated_node: Chapter 1
+ section_directions:
+  next->Chap 2
+  up->top
+ toplevel_directions:
+  next->Chap 2
+  prev->top
+  up->top
 3|Chap 2
  associated_anchor_command: Chapter 2
  associated_node: Chapter 2
+ section_directions:
+  prev->Chap 1
+  up->top
+ toplevel_directions:
+  prev->Chap 1
+  up->top
 ';
 
 $result_headings_list{'file_name_conflict_with_user_defined'} = '';

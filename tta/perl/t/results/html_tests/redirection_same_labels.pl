@@ -42,7 +42,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -132,11 +131,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -257,11 +254,9 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -433,12 +428,27 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
 $result_sections_list{'redirection_same_labels'} = '1|the top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->umlaut
 2|umlaut
  associated_anchor_command: umlaut
  associated_node: umlaut
+ section_directions:
+  next->circumflex
+  up->the top
+ toplevel_directions:
+  next->circumflex
+  prev->the top
+  up->the top
 3|circumflex
  associated_anchor_command: circumflex
  associated_node: circumflex
+ section_directions:
+  prev->umlaut
+  up->the top
+ toplevel_directions:
+  prev->umlaut
+  up->the top
 ';
 
 $result_headings_list{'redirection_same_labels'} = '';

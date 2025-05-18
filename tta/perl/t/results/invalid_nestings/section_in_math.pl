@@ -22,7 +22,6 @@ $result_tree_text{'section_in_math'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -31,7 +30,6 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -53,11 +51,9 @@ $result_tree_text{'section_in_math'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -132,7 +128,15 @@ $result_errors{'section_in_math'} = [
 $result_nodes_list{'section_in_math'} = '';
 
 $result_sections_list{'section_in_math'} = '1|sec1
+ section_directions:
+  next->sec2
+ toplevel_directions:
+  next->sec2
 2|sec2
+ section_directions:
+  prev->sec1
+ toplevel_directions:
+  prev->sec1
 ';
 
 $result_headings_list{'section_in_math'} = '';

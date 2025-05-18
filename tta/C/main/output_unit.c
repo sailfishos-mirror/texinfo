@@ -814,17 +814,23 @@ units_directions (const C_HASHMAP *identifiers_target,
         {
           const ELEMENT *up = section;
           const CONST_ELEMENT_LIST *up_section_childs;
+          size_t up_section_number;
           int up_section_level;
           int status;
+          size_t section_number
+                      = lookup_extra_integer (section,
+                                       AI_key_section_number, &status);
+          const SECTION_STRUCTURE *section_structure
+                      = sections_list->list[section_number -1];
           enum directions d;
           const ELEMENT * const *section_directions
-                        = lookup_extra_directions (section,
-                                               AI_key_section_directions);
+                        = section_structure->section_directions;
+          const SECTION_STRUCTURE *up_structure = section_structure;
           if (section_directions)
             {
               for (d = 0; d < directions_length; d++)
                 {
-            /* in most cases $section->{'extra'}->{'section_directions'}
+            /* in most cases $section_directions
                        ->{$direction->[1]}
                               ->{'associated_unit'} is defined
               but it may not be the case for the up of @top.
@@ -849,13 +855,15 @@ units_directions (const C_HASHMAP *identifiers_target,
               up_section_level
                 = lookup_extra_integer (up, AI_key_section_level, &status);
 
-              const ELEMENT * const *up_section_directions
-                        = lookup_extra_directions (up,
-                                                   AI_key_section_directions);
               if (status >= 0 && up_section_level > 1
-                  && up_section_directions
-                  && up_section_directions[D_up])
-                up = up_section_directions[D_up];
+                  && up_structure->section_directions
+                  && up_structure->section_directions[D_up])
+                {
+                  up = up_structure->section_directions[D_up];
+                  up_section_number = lookup_extra_integer (up,
+                                     AI_key_section_number, &status);
+                  up_structure = sections_list->list[up_section_number -1];
+                }
               else
                 break;
             }
@@ -870,21 +878,17 @@ units_directions (const C_HASHMAP *identifiers_target,
             }
           else
             {
-              const ELEMENT * const *toplevel_directions
-               = lookup_extra_directions (up, AI_key_toplevel_directions);
-              if (toplevel_directions
-                  && toplevel_directions[D_next])
+              if (up_structure->toplevel_directions
+                  && up_structure->toplevel_directions[D_next])
                 directions[RUD_type_FastForward]
-                  = toplevel_directions[D_next]->e.c->associated_unit;
+                  = up_structure->toplevel_directions[D_next]
+                                             ->e.c->associated_unit;
               else
                 {
-                  const ELEMENT * const *up_section_directions
-                        = lookup_extra_directions (up,
-                                                   AI_key_section_directions);
-                  if (up_section_directions
-                      && up_section_directions[D_next])
+                  if (up_structure->section_directions
+                      && up_structure->section_directions[D_next])
                     directions[RUD_type_FastForward]
-                      = up_section_directions[D_next]
+                      = up_structure->section_directions[D_next]
                                                      ->e.c->associated_unit;
                 }
             }

@@ -32,7 +32,6 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
@@ -62,6 +61,8 @@ $result_nodes_list{'section_below_unnumbered_no_top'} = '';
 
 $result_sections_list{'section_below_unnumbered_no_top'} = '1|U
 2|S
+ section_directions:
+  up->U
 ';
 
 $result_headings_list{'section_below_unnumbered_no_top'} = '';

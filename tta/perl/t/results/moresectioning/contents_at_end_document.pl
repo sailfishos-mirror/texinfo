@@ -34,7 +34,6 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -47,11 +46,9 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,7 +91,14 @@ $result_nodes_list{'contents_at_end_document'} = '1|Top
 $result_sections_list{'contents_at_end_document'} = '1|contents at end document
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
+ section_directions:
+  up->contents at end document
+ toplevel_directions:
+  prev->contents at end document
+  up->contents at end document
 ';
 
 $result_headings_list{'contents_at_end_document'} = '';

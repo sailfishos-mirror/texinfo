@@ -89,8 +89,8 @@ sectioning_structure (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   ELEMENT *sec_root = 0;
-  ELEMENT *previous_section = 0;
-  ELEMENT *previous_toplevel = 0;
+  SECTION_STRUCTURE *previous_section_structure = 0;
+  SECTION_STRUCTURE *previous_toplevel_structure = 0;
   int in_appendix = 0;
   /* lowest level with a number.  This is the lowest level above 0. */
   int number_top_level = 0;
@@ -126,19 +126,20 @@ sectioning_structure (DOCUMENT *document)
           level = 0;
         }
 
-      if (previous_section)
+      if (previous_section_structure)
         {
           int status;
+          const ELEMENT *previous_section = previous_section_structure->element;
           int prev_section_level
              = lookup_extra_integer (previous_section, AI_key_section_level,
                                      &status);
           if (prev_section_level < level)
           /* new command is below */
             {
-              const ELEMENT **section_directions
-                  = add_extra_directions (content, AI_key_section_directions);
+              if (!section_structure->section_directions)
+                section_structure->section_directions = new_directions ();
               CONST_ELEMENT_LIST *section_childs
-                = add_extra_contents (previous_section,
+                = add_extra_contents ((ELEMENT *)previous_section,
                                       AI_key_section_childs, 1);
               if (level - prev_section_level > 1)
                 {
@@ -149,7 +150,7 @@ sectioning_structure (DOCUMENT *document)
                   level = prev_section_level + 1;
                 }
               add_to_const_element_list (section_childs, content);
-              section_directions[D_up] = previous_section;
+              section_structure->section_directions[D_up] = previous_section;
                /*
                 if the up is unnumbered, the number information has to be kept,
                 to avoid reusing an already used number.
@@ -169,20 +170,31 @@ sectioning_structure (DOCUMENT *document)
             }
           else
             {
+              int status;
+              size_t up_section_number;
               int new_upper_part_element = 0;
               /* try to find the up in the sectioning hierarchy */
               const ELEMENT *up = previous_section;
+              const SECTION_STRUCTURE *up_structure
+                = previous_section_structure;
+              const struct ELEMENT * const *up_section_directions
+                = previous_section_structure->section_directions;
+
               int up_level;
               while (1)
                 {
-                  const ELEMENT * const *up_section_directions
-                    = lookup_extra_directions (up, AI_key_section_directions);
                   up_level = lookup_extra_integer (up, AI_key_section_level,
                                                    &status);
                   if (up_section_directions
                       && up_section_directions[D_up]
                       && up_level >= level)
-                    up = up_section_directions[D_up];
+                    {
+                      up = up_section_directions[D_up];
+                      up_section_number = lookup_extra_integer (up,
+                                       AI_key_section_number, &status);
+                      up_structure = sections_list->list[up_section_number -1];
+                      up_section_directions = up_structure->section_directions;
+                    }
                   else
                     break;
                 }
@@ -251,15 +263,22 @@ sectioning_structure (DOCUMENT *document)
                   /* cast to remove const to be able to set directions */
                   ELEMENT *prev = (ELEMENT *)
                     up_section_childs->list[up_section_childs->number -1];
-                  const ELEMENT **prev_section_directions
-                    = add_extra_directions (prev, AI_key_section_directions);
-                  const ELEMENT **section_directions
-                    = add_extra_directions (content, AI_key_section_directions);
+                  int status;
+                  size_t prev_number
+                    =  lookup_extra_integer (prev,
+                                       AI_key_section_number, &status);
+                  SECTION_STRUCTURE *prev_structure
+                    = sections_list->list[prev_number -1];
+                  if (!prev_structure->section_directions)
+                    prev_structure->section_directions = new_directions ();
+                  if (!section_structure->section_directions)
+                    section_structure->section_directions = new_directions ();
+
               /* do not set sec_root as up, but always put in section_childs */
                   if (up != sec_root)
-                    section_directions[D_up] = up;
-                  section_directions[D_prev] = prev;
-                  prev_section_directions[D_next] = content;
+                    section_structure->section_directions[D_up] = up;
+                  section_structure->section_directions[D_prev] = prev;
+                  prev_structure->section_directions[D_next] = content;
                   add_to_const_element_list (up_section_childs, content);
                 }
               if (!(command_other_flags (content) & CF_unnumbered))
@@ -352,29 +371,30 @@ sectioning_structure (DOCUMENT *document)
                                       section_number.text);
             }
         }
-      previous_section = content;
+      previous_section_structure = section_structure;
       if (content->e.c->cmd != CM_part && level <= number_top_level)
         {
-          if (previous_toplevel || (section_top && section_top != content))
+          if (previous_toplevel_structure
+               || (section_top && section_top != content))
             {
-              const ELEMENT **toplevel_directions
-                = add_extra_directions (content, AI_key_toplevel_directions);
+              if (!section_structure->toplevel_directions)
+                section_structure->toplevel_directions = new_directions ();
 
-              if (previous_toplevel)
+              if (previous_toplevel_structure)
                 {
-                  const ELEMENT **prev_toplvl_directions
-                   = add_extra_directions (previous_toplevel,
-                                           AI_key_toplevel_directions);
+                  if (!previous_toplevel_structure->toplevel_directions)
+                    previous_toplevel_structure->toplevel_directions
+                      = new_directions ();
 
-                  prev_toplvl_directions[D_next] = content;
-                  toplevel_directions[D_prev] = previous_toplevel;
+                  previous_toplevel_structure->toplevel_directions[D_next]
+                    = content;
+                  section_structure->toplevel_directions[D_prev]
+                    = previous_toplevel_structure->element;
                 }
               if (section_top && content != section_top)
-                {
-                  toplevel_directions[D_up] = section_top;
-                }
+                section_structure->toplevel_directions[D_up] = section_top;
             }
-          previous_toplevel = content;
+          previous_toplevel_structure = section_structure;
         }
       else if (content->e.c->cmd == CM_part
                && !section_structure->part_associated_section)
@@ -493,15 +513,23 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
       if (associated_section->e.c->cmd == CM_top)
         {
           const ELEMENT *current = associated_section;
+          int status;
+          size_t current_section_number
+            = lookup_extra_integer (current,
+                                    AI_key_section_number, &status);
+          const SECTION_STRUCTURE *current_structure
+            = sections_list->list[current_section_number -1];
           while (1)
             {
-              const ELEMENT * const *section_directions
-                             = lookup_extra_directions (current,
-                                                 AI_key_section_directions);
-              if (section_directions
-                  && section_directions[D_next])
+              if (current_structure->section_directions
+                  && current_structure->section_directions[D_next])
                 {
-                  current = section_directions[D_next];
+                  current = current_structure->section_directions[D_next];
+                  current_section_number
+                    = lookup_extra_integer (current,
+                                    AI_key_section_number, &status);
+                  current_structure
+                    = sections_list->list[current_section_number -1];
                   if (current->e.c->cmd == CM_part)
                     {
                       const CONST_ELEMENT_LIST *section_childs
@@ -526,12 +554,6 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
                     }
                   else
                     {
-                      int status;
-                      size_t section_number
-                        = lookup_extra_integer (current,
-                                                AI_key_section_number, &status);
-                      const SECTION_STRUCTURE *current_structure
-                        = sections_list->list[section_number -1];
                       /*
                     for @appendix, and what follows, as it stops a @part, but is
                     not below @top
@@ -1051,24 +1073,24 @@ set_menus_node_directions (DOCUMENT *document)
     }
 }
 
-static enum ai_key_name direction_bases[] = {AI_key_section_directions,
-                                             AI_key_toplevel_directions};
-
 static const ELEMENT *
 section_direction_associated_node (const SECTION_STRUCTURE_LIST *sections_list,
-                                   const ELEMENT *section,
+                                   const SECTION_STRUCTURE *section_structure,
                                    enum directions direction)
 {
   size_t i;
+  static const ELEMENT * const *direction_bases[2];
+  direction_bases[0] = section_structure->section_directions;
+  direction_bases[1] = section_structure->toplevel_directions;
   for (i = 0; i < sizeof (direction_bases) / sizeof (direction_bases[0]);
        i++)
     {
       const ELEMENT * const *directions
-        = lookup_extra_directions (section, direction_bases[i]);
+        = direction_bases[i];
       if (directions && directions[direction])
         {
           const ELEMENT *section_to = directions[direction];
-          if (direction_bases[i] != AI_key_toplevel_directions
+          if (direction_bases[i] != section_structure->toplevel_directions
               || direction == D_up
               || section_to->e.c->cmd != CM_top)
             {
@@ -1145,7 +1167,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       && ((!options)
                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
                     {
-                      const ELEMENT *node_direction_section = section;
                       const ELEMENT *direction_associated_node;
                       int status;
                       size_t section_number
@@ -1153,19 +1174,27 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                          AI_key_section_number, &status);
                       const SECTION_STRUCTURE *section_structure
                         = sections_list->list[section_number -1];
+                      const SECTION_STRUCTURE *direction_structure
+                        = section_structure;
           /* Prefer the section associated with a @part for node directions. */
                       if (section_structure->part_associated_section)
-                        node_direction_section
-                          = section_structure->part_associated_section;
+                        {
+                          const ELEMENT *node_direction_section
+                            = section_structure->part_associated_section;
+                          size_t direction_number
+                            = lookup_extra_integer (node_direction_section,
+                                             AI_key_section_number, &status);
+                          direction_structure
+                            = sections_list->list[direction_number -1];
+                        }
                       direction_associated_node
                         = section_direction_associated_node (sections_list,
-                                                  node_direction_section, d);
+                                                       direction_structure, d);
                       if (direction_associated_node)
                         {
                           const CONST_ELEMENT_LIST *menus = 0;
                           const ELEMENT * const *section_directions
-                            = lookup_extra_directions (node_direction_section,
-                                                   AI_key_section_directions);
+                            = direction_structure->section_directions;
                           if (section_directions
                               && section_directions[D_up])
                             {
@@ -1489,7 +1518,7 @@ construct_nodes_tree (DOCUMENT *document)
 
                     direction_associated_node
                       = section_direction_associated_node (sections_list,
-                                                           section, d);
+                                                        section_structure, d);
                     if (direction_associated_node)
                       {
                         if (!node_structure->node_directions)
@@ -1722,6 +1751,7 @@ number_floats (DOCUMENT *document)
 {
   const LISTOFFLOATS_TYPE_LIST *listoffloats_list = &document->listoffloats;
   size_t i;
+  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
 
   if (!listoffloats_list)
     return;
@@ -1756,10 +1786,16 @@ number_floats (DOCUMENT *document)
           up = float_info->float_section;
           if (up)
             {
+              int status;
+              size_t up_section_number;
+              const SECTION_STRUCTURE *up_structure;
               while (1)
                 {
+                  up_section_number = lookup_extra_integer (up,
+                                       AI_key_section_number, &status);
+                  up_structure = sections_list->list[up_section_number -1];
                   const ELEMENT * const *section_directions
-                    = lookup_extra_directions (up, AI_key_section_directions);
+                    = up_structure->section_directions;
                   if (section_directions
                       && section_directions[D_up])
                     {

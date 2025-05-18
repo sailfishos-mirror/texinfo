@@ -48,7 +48,6 @@ $result_tree_text{'command_translated'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -84,11 +83,9 @@ $result_tree_text{'command_translated'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,9 +136,16 @@ $result_nodes_list{'command_translated'} = '1|Top
 $result_sections_list{'command_translated'} = '1|top @error{}
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chapter @error{}
  associated_node: chapter @error{}
+ section_directions:
+  up->top @error{}
+ toplevel_directions:
+  prev->top @error{}
+  up->top @error{}
 ';
 
 $result_headings_list{'command_translated'} = '';

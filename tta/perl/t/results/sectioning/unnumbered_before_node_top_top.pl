@@ -18,7 +18,6 @@ Next: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -26,7 +25,6 @@ Next: [U1]
   ||EXTRA
   ||section_childs:EC[E0|E2]
   ||section_level:{0}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,10 +61,8 @@ Prev: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -115,9 +111,17 @@ $result_nodes_list{'unnumbered_before_node_top_top'} = '1|Top
 ';
 
 $result_sections_list{'unnumbered_before_node_top_top'} = '1|before nodes
+ section_directions:
+  next->top section
+ toplevel_directions:
+  next->top section
 2|top section
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  prev->before nodes
+ toplevel_directions:
+  prev->before nodes
 ';
 
 $result_headings_list{'unnumbered_before_node_top_top'} = '';

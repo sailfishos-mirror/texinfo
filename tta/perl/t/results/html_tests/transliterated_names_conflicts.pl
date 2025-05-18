@@ -45,7 +45,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -87,11 +86,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -129,11 +126,9 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -254,12 +249,27 @@ $result_nodes_list{'transliterated_names_conflicts'} = '1|Top
 $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated names
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Prés
 2|Prés
  associated_anchor_command: Prés
  associated_node: Prés
+ section_directions:
+  next->Other chapter
+  up->Same transliterated names
+ toplevel_directions:
+  next->Other chapter
+  prev->Same transliterated names
+  up->Same transliterated names
 3|Other chapter
  associated_anchor_command: Other node
  associated_node: Other node
+ section_directions:
+  prev->Prés
+  up->Same transliterated names
+ toplevel_directions:
+  prev->Prés
+  up->Same transliterated names
 ';
 
 $result_headings_list{'transliterated_names_conflicts'} = '';

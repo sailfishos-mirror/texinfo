@@ -34,7 +34,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -317,11 +316,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -662,11 +659,9 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[next->E11|prev->E4|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E11|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -740,7 +735,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E8]
- |section_directions:D[up->E6]
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{4}
@@ -757,7 +751,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E9]
- |section_directions:D[up->E7]
  |section_heading_number:{A.1.1}
  |section_level:{3}
  |section_number:{5}
@@ -773,7 +766,6 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E8]
  |section_heading_number:{A.1.1.1}
  |section_level:{4}
  |section_number:{6}
@@ -802,10 +794,8 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|prev->E6|up->E1]
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[next->E12|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -818,11 +808,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E11|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[prev->E11|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1360,17 +1348,54 @@ $result_nodes_list{'test_index'} = '1|Top
 $result_sections_list{'test_index'} = '1|Element top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->A chapter
 2|A chapter
  associated_anchor_command: name
  associated_node: name
+ section_directions:
+  next->Index
+  up->Element top
+ toplevel_directions:
+  next->Index
+  prev->Element top
+  up->Element top
 3|Index
  associated_anchor_command: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
  associated_node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+ section_directions:
+  next->centerchap
+  prev->A chapter
+  up->Element top
+ toplevel_directions:
+  next->centerchap
+  prev->A chapter
+  up->Element top
 4|appendixsec
+ section_directions:
+  up->Index
 5|appendixsubsec
+ section_directions:
+  up->appendixsec
 6|appendixsubsubsec
+ section_directions:
+  up->appendixsubsec
 7|centerchap
+ section_directions:
+  next->chapter end
+  prev->Index
+  up->Element top
+ toplevel_directions:
+  next->chapter end
+  prev->Index
+  up->Element top
 8|chapter end
+ section_directions:
+  prev->centerchap
+  up->Element top
+ toplevel_directions:
+  prev->centerchap
+  up->Element top
 ';
 
 $result_headings_list{'test_index'} = '1|chapheading

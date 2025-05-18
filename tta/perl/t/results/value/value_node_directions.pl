@@ -72,7 +72,6 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -144,11 +143,9 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -202,11 +199,9 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -288,12 +283,27 @@ $result_nodes_list{'value_node_directions'} = '1|Top
 $result_sections_list{'value_node_directions'} = '1|Var bar
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->BarFoo
 2|BarFoo
  associated_anchor_command: bar
  associated_node: bar
+ section_directions:
+  next->bar
+  up->Var bar
+ toplevel_directions:
+  next->bar
+  prev->Var bar
+  up->Var bar
 3|bar
  associated_anchor_command: BarFoo
  associated_node: BarFoo
+ section_directions:
+  prev->BarFoo
+  up->Var bar
+ toplevel_directions:
+  prev->BarFoo
+  up->Var bar
 ';
 
 $result_headings_list{'value_node_directions'} = '';

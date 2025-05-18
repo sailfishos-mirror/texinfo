@@ -34,7 +34,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
   |{ }
  |EXTRA
  |section_childs:EC[E5|E7|E10]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -91,7 +88,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     { 1}
  *5 @section C2 l5
  |EXTRA
- |section_directions:D[next->E7|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -118,7 +114,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     { 2}
  *7 @section C2 l7
  |EXTRA
- |section_directions:D[next->E10|prev->E5|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
@@ -160,7 +155,6 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E3]
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{5}
@@ -262,14 +256,31 @@ $result_nodes_list{'test_insert_nodes_with_empty_headings'} = '1|Top
 
 $result_sections_list{'test_insert_nodes_with_empty_headings'} = '1|top
  associated_node: Top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_node: Chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3
  associated_node:  1
+ section_directions:
+  next->
+  up->Chap
 4
  associated_node:  2
+ section_directions:
+  next->@strong{}
+  prev->
+  up->Chap
 5|@strong{}
  associated_node: @strong{} 3
+ section_directions:
+  prev->
+  up->Chap
 ';
 
 $result_headings_list{'test_insert_nodes_with_empty_headings'} = '';

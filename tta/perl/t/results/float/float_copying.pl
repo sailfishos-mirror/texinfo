@@ -188,7 +188,6 @@ $result_tree_text{'float_copying'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -250,11 +249,9 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E4|up->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -413,9 +410,16 @@ $result_nodes_list{'float_copying'} = '1|Top
 $result_sections_list{'float_copying'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Copying and floats
 2|Copying and floats
  associated_anchor_command: Copying and floats
  associated_node: Copying and floats
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_headings_list{'float_copying'} = '';

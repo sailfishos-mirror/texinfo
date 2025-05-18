@@ -23,7 +23,6 @@ $result_tree_text{'extension_undef'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -50,11 +49,9 @@ $result_tree_text{'extension_undef'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -89,9 +86,16 @@ $result_nodes_list{'extension_undef'} = '1|chapter
 ';
 
 $result_sections_list{'extension_undef'} = '1|top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'extension_undef'} = '';

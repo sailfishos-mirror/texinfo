@@ -34,7 +34,6 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,11 +60,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -157,11 +154,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -300,12 +295,27 @@ $result_nodes_list{'empty_xrefname'} = '1|Top
 $result_sections_list{'empty_xrefname'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: Chap
  associated_node: Chap
+ section_directions:
+  next->Chip
+  up->top
+ toplevel_directions:
+  next->Chip
+  prev->top
+  up->top
 3|Chip
  associated_anchor_command: chip
  associated_node: chip
+ section_directions:
+  prev->Chapter
+  up->top
+ toplevel_directions:
+  prev->Chapter
+  up->top
 ';
 
 $result_headings_list{'empty_xrefname'} = '1

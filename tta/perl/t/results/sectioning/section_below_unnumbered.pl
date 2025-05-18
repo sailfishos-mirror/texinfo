@@ -42,7 +42,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -103,10 +102,8 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -162,7 +159,6 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
@@ -262,12 +258,21 @@ $result_nodes_list{'section_below_unnumbered'} = '1|Top
 $result_sections_list{'section_below_unnumbered'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Unn
 2|Unn
  associated_anchor_command: Unn
  associated_node: Unn
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 3|Sec
  associated_anchor_command: Sec
  associated_node: Sec
+ section_directions:
+  up->Unn
 ';
 
 $result_headings_list{'section_below_unnumbered'} = '';

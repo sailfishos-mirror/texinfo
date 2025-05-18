@@ -35,7 +35,6 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1|E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -107,11 +106,9 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -189,6 +186,8 @@ $result_nodes_list{'chapter_node_before_and_after_part'} = '1|Top
 $result_sections_list{'chapter_node_before_and_after_part'} = '1|chapter
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter 2
 2|part
  part_associated_section: chapter 2
  part_following_node: after
@@ -196,6 +195,10 @@ $result_sections_list{'chapter_node_before_and_after_part'} = '1|chapter
  associated_anchor_command: after
  associated_node: after
  associated_part: part
+ section_directions:
+  up->part
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'chapter_node_before_and_after_part'} = '';

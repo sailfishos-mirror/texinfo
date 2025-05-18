@@ -35,7 +35,6 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -117,11 +116,9 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -228,9 +225,16 @@ $result_nodes_list{'two_footnotes_in_nodes'} = '1|Top
 $result_sections_list{'two_footnotes_in_nodes'} = '1|2 footnotes in 2 nodes
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->2 footnotes in 2 nodes
+ toplevel_directions:
+  prev->2 footnotes in 2 nodes
+  up->2 footnotes in 2 nodes
 ';
 
 $result_headings_list{'two_footnotes_in_nodes'} = '';

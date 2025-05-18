@@ -35,7 +35,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,11 +91,9 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E7|E9|E11]
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -125,7 +120,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E5]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -155,7 +149,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E11|prev->E7|up->E5]
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{5}
@@ -185,7 +178,6 @@ $result_tree_text{'directions_string_base'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E9|up->E5]
  |section_heading_number:{2.3}
  |section_level:{2}
  |section_number:{6}
@@ -282,21 +274,46 @@ $result_nodes_list{'directions_string_base'} = '1|Top
 $result_sections_list{'directions_string_base'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  next->Chap 2
+  up->top
+ toplevel_directions:
+  next->Chap 2
+  prev->top
+  up->top
 3|Chap 2
  associated_anchor_command: chap2
  associated_node: chap2
+ section_directions:
+  prev->Chap
+  up->top
+ toplevel_directions:
+  prev->Chap
+  up->top
 4|Sec 1
  associated_anchor_command: sec1
  associated_node: sec1
+ section_directions:
+  next->Sec 2
+  up->Chap 2
 5|Sec 2
  associated_anchor_command: sec2
  associated_node: sec2
+ section_directions:
+  next->Sec 3
+  prev->Sec 1
+  up->Chap 2
 6|Sec 3
  associated_anchor_command: sec3
  associated_node: sec3
+ section_directions:
+  prev->Sec 2
+  up->Chap 2
 ';
 
 $result_headings_list{'directions_string_base'} = '';

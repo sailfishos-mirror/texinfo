@@ -35,7 +35,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,11 +131,9 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -179,11 +174,9 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E9|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -224,11 +217,9 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{C}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -338,18 +329,49 @@ $result_nodes_list{'printindex_set_direction'} = '1|Top
 $result_sections_list{'printindex_set_direction'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  next->Vindex
+  up->top
+ toplevel_directions:
+  next->Vindex
+  prev->top
+  up->top
 3|Vindex
  associated_anchor_command: Vindex
  associated_node: Vindex
+ section_directions:
+  next->Cindex
+  prev->chap
+  up->top
+ toplevel_directions:
+  next->Cindex
+  prev->chap
+  up->top
 4|Cindex
  associated_anchor_command: Cindex
  associated_node: Cindex
+ section_directions:
+  next->Findex
+  prev->Vindex
+  up->top
+ toplevel_directions:
+  next->Findex
+  prev->Vindex
+  up->top
 5|Findex
  associated_anchor_command: Findex
  associated_node: Findex
+ section_directions:
+  prev->Cindex
+  up->top
+ toplevel_directions:
+  prev->Cindex
+  up->top
 ';
 
 $result_headings_list{'printindex_set_direction'} = '';

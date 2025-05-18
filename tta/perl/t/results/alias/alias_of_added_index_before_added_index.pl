@@ -58,7 +58,6 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,11 +100,9 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -183,9 +180,16 @@ $result_nodes_list{'alias_of_added_index_before_added_index'} = '1|Top
 $result_sections_list{'alias_of_added_index_before_added_index'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'alias_of_added_index_before_added_index'} = '';

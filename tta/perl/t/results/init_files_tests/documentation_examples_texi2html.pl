@@ -71,7 +71,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,11 +97,9 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -375,11 +372,9 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -430,11 +425,9 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E9|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -474,11 +467,9 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{B}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -654,18 +645,49 @@ $result_nodes_list{'documentation_examples_texi2html'} = '1|Top
 $result_sections_list{'documentation_examples_texi2html'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->New node
+  up->top
+ toplevel_directions:
+  next->New node
+  prev->top
+  up->top
 3|New node
  associated_anchor_command: my node
  associated_node: my node
+ section_directions:
+  next->Index
+  prev->Chapter
+  up->top
+ toplevel_directions:
+  next->Index
+  prev->Chapter
+  up->top
 4|Index
  associated_anchor_command: Index
  associated_node: Index
+ section_directions:
+  next->Second appendix
+  prev->New node
+  up->top
+ toplevel_directions:
+  next->Second appendix
+  prev->New node
+  up->top
 5|Second appendix
  associated_anchor_command: Second appendix
  associated_node: Second appendix
+ section_directions:
+  prev->Index
+  up->top
+ toplevel_directions:
+  prev->Index
+  up->top
 ';
 
 $result_headings_list{'documentation_examples_texi2html'} = '';

@@ -35,7 +35,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,11 +62,9 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,7 +95,6 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -170,12 +166,21 @@ $result_nodes_list{'set_add_transliterated_redirection_files'} = '1|Top
 $result_sections_list{'set_add_transliterated_redirection_files'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: Chap
  associated_node: Chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|g
  associated_anchor_command: s@`{e}c
  associated_node: s@`{e}c
+ section_directions:
+  up->chap
 ';
 
 $result_headings_list{'set_add_transliterated_redirection_files'} = '';

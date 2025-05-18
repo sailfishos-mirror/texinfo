@@ -20,7 +20,6 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -34,11 +33,9 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -52,7 +49,6 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   |{ }
  |EXTRA
  |section_childs:EC[E3|E4]
- |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -68,7 +64,6 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|up->E2]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -84,7 +79,6 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E2]
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}
@@ -139,10 +133,25 @@ $result_errors{'hole_in_sectioning'} = [
 $result_nodes_list{'hole_in_sectioning'} = '';
 
 $result_sections_list{'hole_in_sectioning'} = '1|Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 3|section
+ section_directions:
+  up->Chapter
 4|subsubsection with no subsection above
+ section_directions:
+  next->the subsection
+  up->section
 5|the subsection
+ section_directions:
+  prev->subsubsection with no subsection above
+  up->section
 ';
 
 $result_headings_list{'hole_in_sectioning'} = '';

@@ -27,7 +27,6 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -36,7 +35,6 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
   ||EXTRA
   ||section_childs:EC[E1|E3]
   ||section_level:{0}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -68,11 +66,9 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -120,9 +116,17 @@ $result_nodes_list{'double_recursive_self_section_reference_node_no_use_node'} =
 $result_sections_list{'double_recursive_self_section_reference_node_no_use_node'} = '1|@ref{n2}
  associated_anchor_command: n1
  associated_node: n1
+ section_directions:
+  next->@ref{n1}
+ toplevel_directions:
+  next->@ref{n1}
 2|@ref{n1}
  associated_anchor_command: n2
  associated_node: n2
+ section_directions:
+  prev->@ref{n2}
+ toplevel_directions:
+  prev->@ref{n2}
 ';
 
 $result_headings_list{'double_recursive_self_section_reference_node_no_use_node'} = '';

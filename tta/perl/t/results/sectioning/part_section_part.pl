@@ -14,7 +14,6 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E1]
- |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -34,7 +33,6 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -51,7 +49,6 @@ $result_tree_text{'part_section_part'} = '*document_root C4
   |{ }
  |EXTRA
  |global_command_number:{2}
- |section_directions:D[prev->E0]
  |section_level:{0}
  |section_number:{3}
   *arguments_line C1
@@ -103,9 +100,15 @@ $result_nodes_list{'part_section_part'} = '';
 
 $result_sections_list{'part_section_part'} = '1|Part1
  part_associated_section: section 1
+ section_directions:
+  next->Part 2
 2|section 1
  associated_part: Part1
+ section_directions:
+  up->Part1
 3|Part 2
+ section_directions:
+  prev->Part1
 ';
 
 $result_headings_list{'part_section_part'} = '';

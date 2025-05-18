@@ -16,7 +16,6 @@ This: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_directions:D[next->E1]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -36,7 +35,6 @@ This: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -76,8 +74,12 @@ $result_nodes_list{'part_before_top'} = '';
 
 $result_sections_list{'part_before_top'} = '1|part
  part_associated_section: top
+ section_directions:
+  next->top
 2|top
  associated_part: part
+ section_directions:
+  prev->part
 ';
 
 $result_headings_list{'part_before_top'} = '';

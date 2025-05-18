@@ -38,7 +38,6 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -511,11 +510,9 @@ $result_tree_text{'htmlxref_only_mono'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1013,9 +1010,16 @@ $result_nodes_list{'htmlxref_only_mono'} = '1|Top
 $result_sections_list{'htmlxref_only_mono'} = '1|Test refs
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter with nodes
 2|Chapter with nodes
  associated_anchor_command: other nodes
  associated_node: other nodes
+ section_directions:
+  up->Test refs
+ toplevel_directions:
+  prev->Test refs
+  up->Test refs
 ';
 
 $result_headings_list{'htmlxref_only_mono'} = '1|Testing distant nodes

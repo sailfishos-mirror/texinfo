@@ -31,7 +31,6 @@ $result_tree_text{'no_menu'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg
    |INFO
@@ -57,11 +56,9 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -88,11 +85,9 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -119,11 +114,9 @@ $result_tree_text{'no_menu'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -191,15 +184,38 @@ $result_nodes_list{'no_menu'} = '1|Top
 $result_sections_list{'no_menu'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->c1
 2|c1
  associated_anchor_command: c1
  associated_node: c1
+ section_directions:
+  next->c2
+  up->
+ toplevel_directions:
+  next->c2
+  prev->
+  up->
 3|c2
  associated_anchor_command: c2
  associated_node: c2
+ section_directions:
+  next->c3
+  prev->c1
+  up->
+ toplevel_directions:
+  next->c3
+  prev->c1
+  up->
 4|c3
  associated_anchor_command: c3
  associated_node: c3
+ section_directions:
+  prev->c2
+  up->
+ toplevel_directions:
+  prev->c2
+  up->
 ';
 
 $result_headings_list{'no_menu'} = '';

@@ -34,7 +34,6 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -116,11 +115,9 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -147,11 +144,9 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -228,12 +223,27 @@ $result_nodes_list{'external_node_in_menu'} = '1|Top
 $result_sections_list{'external_node_in_menu'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap1
 2|chap1
  associated_anchor_command: nchapter1
  associated_node: nchapter1
+ section_directions:
+  next->chap2
+  up->top
+ toplevel_directions:
+  next->chap2
+  prev->top
+  up->top
 3|chap2
  associated_anchor_command: nchapter2
  associated_node: nchapter2
+ section_directions:
+  prev->chap1
+  up->top
+ toplevel_directions:
+  prev->chap1
+  up->top
 ';
 
 $result_headings_list{'external_node_in_menu'} = '';

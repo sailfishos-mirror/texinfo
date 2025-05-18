@@ -35,7 +35,6 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -143,11 +140,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E10|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -194,11 +189,9 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -306,15 +299,38 @@ $result_nodes_list{'nodedescription_description_no_use_nodes'} = '1|Top
 $result_sections_list{'nodedescription_description_no_use_nodes'} = '1|test of descriptions with nodedescription*
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Toto
 2|Toto
  associated_anchor_command: toto
  associated_node: toto
+ section_directions:
+  next->Titi
+  up->test of descriptions with nodedescription*
+ toplevel_directions:
+  next->Titi
+  prev->test of descriptions with nodedescription*
+  up->test of descriptions with nodedescription*
 3|Titi
  associated_anchor_command: titi
  associated_node: titi
+ section_directions:
+  next->Other
+  prev->Toto
+  up->test of descriptions with nodedescription*
+ toplevel_directions:
+  next->Other
+  prev->Toto
+  up->test of descriptions with nodedescription*
 4|Other
  associated_anchor_command: other
  associated_node: other
+ section_directions:
+  prev->Titi
+  up->test of descriptions with nodedescription*
+ toplevel_directions:
+  prev->Titi
+  up->test of descriptions with nodedescription*
 ';
 
 $result_headings_list{'nodedescription_description_no_use_nodes'} = '';

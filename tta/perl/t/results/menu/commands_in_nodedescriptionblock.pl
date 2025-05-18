@@ -34,7 +34,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -117,11 +116,9 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -253,11 +250,9 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -452,12 +447,27 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
 $result_sections_list{'commands_in_nodedescriptionblock'} = '1|test commands in nodedescriptionblock
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap1
 2|chap1
  associated_anchor_command: node1
  associated_node: node1
+ section_directions:
+  next->chap2
+  up->test commands in nodedescriptionblock
+ toplevel_directions:
+  next->chap2
+  prev->test commands in nodedescriptionblock
+  up->test commands in nodedescriptionblock
 3|chap2
  associated_anchor_command: node2
  associated_node: node2
+ section_directions:
+  prev->chap1
+  up->test commands in nodedescriptionblock
+ toplevel_directions:
+  prev->chap1
+  up->test commands in nodedescriptionblock
 ';
 
 $result_headings_list{'commands_in_nodedescriptionblock'} = '';

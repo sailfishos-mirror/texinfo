@@ -60,7 +60,6 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -90,11 +89,9 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -248,9 +245,16 @@ $result_nodes_list{'chinese_mixed_with_en_EUC_CN'} = '1|Top
 $result_sections_list{'chinese_mixed_with_en_EUC_CN'} = '1|Mixed chinese and english
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Mixed english and chinese
 2|Mixed english and chinese
  associated_anchor_command: Mixed english and chinese
  associated_node: Mixed english and chinese
+ section_directions:
+  up->Mixed chinese and english
+ toplevel_directions:
+  prev->Mixed chinese and english
+  up->Mixed chinese and english
 ';
 
 $result_headings_list{'chinese_mixed_with_en_EUC_CN'} = '';

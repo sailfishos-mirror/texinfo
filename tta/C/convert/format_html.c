@@ -3290,16 +3290,14 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
             }
           else
             {
-              const ELEMENT * const *section_directions
-               = lookup_extra_directions (section, AI_key_section_directions);
-              if (section_directions
-                  && section_directions[D_next]
+              if (section_structure->section_directions
+                  && section_structure->section_directions[D_next]
                   && section->e.c->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
                   if (section == top_section)
                     break;
-                  section = section_directions[D_next];
+                  section = section_structure->section_directions[D_next];
                 }
               else
                 {
@@ -3315,14 +3313,11 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       int section_level;
                       int i;
 
-                      const ELEMENT * const *section_directions
-                        = lookup_extra_directions (section,
-                                               AI_key_section_directions);
-                      if (!section_directions
-                          || !section_directions[D_up])
+                      if (!section_structure->section_directions
+                          || !section_structure->section_directions[D_up])
                         break;
 
-                      section = section_directions[D_up];
+                      section = section_structure->section_directions[D_up];
 
                       section_level = lookup_extra_integer (section,
                                                 AI_key_section_level, &status);
@@ -3338,14 +3333,18 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                           is_top_section = 1;
                           break;
                         }
-                      section_directions
-                        = lookup_extra_directions (section,
-                                               AI_key_section_directions);
-                      if (section_directions
-                          && section_directions[D_next])
+
+                      section_number
+                        = lookup_extra_integer (section,
+                                         AI_key_section_number, &status);
+                      section_structure
+                        = self->document->sections_list.list[section_number -1];
+                      if (section_structure->section_directions
+                          && section_structure->section_directions[D_next])
                         {
                           text_append_n (&result, "</li>\n", 6);
-                          section = section_directions[D_next];
+                          section
+                            = section_structure->section_directions[D_next];
                           break;
                         }
                     }

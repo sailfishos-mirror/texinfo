@@ -34,7 +34,6 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -116,11 +115,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -150,11 +147,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -204,11 +199,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -370,15 +363,38 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
 $result_sections_list{'nodename_parentheses'} = '1|The top node
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Section (nodename with parentheses)
 2|Section (nodename with parentheses)
  associated_anchor_command: Node (with parentheses)
  associated_node: Node (with parentheses)
+ section_directions:
+  next->Section (nodename without parentheses)
+  up->The top node
+ toplevel_directions:
+  next->Section (nodename without parentheses)
+  prev->The top node
+  up->The top node
 3|Section (nodename without parentheses)
  associated_anchor_command: Other node
  associated_node: Other node
+ section_directions:
+  next->(manual)node
+  prev->Section (nodename with parentheses)
+  up->The top node
+ toplevel_directions:
+  next->(manual)node
+  prev->Section (nodename with parentheses)
+  up->The top node
 4|(manual)node
  associated_anchor_command: (manual)node
  associated_node: (manual)node
+ section_directions:
+  prev->Section (nodename without parentheses)
+  up->The top node
+ toplevel_directions:
+  prev->Section (nodename without parentheses)
+  up->The top node
 ';
 
 $result_headings_list{'nodename_parentheses'} = '';

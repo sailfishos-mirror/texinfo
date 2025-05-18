@@ -40,7 +40,6 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,11 +75,9 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C4
    |INFO
@@ -146,9 +143,16 @@ $result_nodes_list{'error_in_sectioning_command'} = '1|Top
 $result_sections_list{'error_in_sectioning_command'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->@code{@@error@{@}} (@error{}): Indicating an Error Message
 2|@code{@@error@{@}} (@error{}): Indicating an Error Message
  associated_anchor_command: @code{@@error@{@}} (@error{}): Indicating an Error Message
  associated_node: @code{@@error@{@}} (@error{}): Indicating an Error Message
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'error_in_sectioning_command'} = '';

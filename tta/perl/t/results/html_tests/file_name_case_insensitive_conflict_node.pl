@@ -35,7 +35,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,11 +62,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
   |{ }
  |EXTRA
  |section_childs:EC[E6|E8|E10]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -102,7 +99,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -132,7 +128,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E6|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
@@ -162,7 +157,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E8|up->E3]
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{5}
@@ -275,18 +269,35 @@ $result_nodes_list{'file_name_case_insensitive_conflict_node'} = '1|Top
 $result_sections_list{'file_name_case_insensitive_conflict_node'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 3|Foo
  associated_anchor_command: Foo
  associated_node: Foo
+ section_directions:
+  next->Bar
+  up->Chapter
 4|Bar
  associated_anchor_command: Bar
  associated_node: Bar
+ section_directions:
+  next->foo
+  prev->Foo
+  up->Chapter
 5|foo
  associated_anchor_command: foo
  associated_node: foo
+ section_directions:
+  prev->Bar
+  up->Chapter
 ';
 
 $result_headings_list{'file_name_case_insensitive_conflict_node'} = '';

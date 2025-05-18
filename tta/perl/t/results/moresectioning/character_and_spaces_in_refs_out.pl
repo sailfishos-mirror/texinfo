@@ -42,7 +42,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -124,11 +123,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -325,11 +322,9 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -670,12 +665,27 @@ $result_nodes_list{'character_and_spaces_in_refs_out'} = '1|Top
 $result_sections_list{'character_and_spaces_in_refs_out'} = '1|Test refs
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->first chapter
 2|first chapter
  associated_anchor_command: node to avoid DocBook or LaTeX ignored
  associated_node: node to avoid DocBook or LaTeX ignored
+ section_directions:
+  next->Chapter with nodes
+  up->Test refs
+ toplevel_directions:
+  next->Chapter with nodes
+  prev->Test refs
+  up->Test refs
 3|Chapter with nodes
  associated_anchor_command: other nodes
  associated_node: other nodes
+ section_directions:
+  prev->first chapter
+  up->Test refs
+ toplevel_directions:
+  prev->first chapter
+  up->Test refs
 ';
 
 $result_headings_list{'character_and_spaces_in_refs_out'} = '1|Testing distant nodes

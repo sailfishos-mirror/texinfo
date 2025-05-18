@@ -34,7 +34,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -91,11 +90,9 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -163,7 +160,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |section_childs:EC[E10]
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -222,7 +218,6 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -343,15 +338,26 @@ $result_nodes_list{'next_in_menu_is_below'} = '1|Top
 $result_sections_list{'next_in_menu_is_below'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|section
  associated_anchor_command: section
  associated_node: section
+ section_directions:
+  up->chapter
 4|subsection
  associated_anchor_command: subsection
  associated_node: subsection
+ section_directions:
+  up->section
 ';
 
 $result_headings_list{'next_in_menu_is_below'} = '';

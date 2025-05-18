@@ -15,7 +15,6 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E1]
- |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -35,11 +34,9 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -52,11 +49,9 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -93,9 +88,19 @@ $result_nodes_list{'part_chapter_appendix'} = '';
 
 $result_sections_list{'part_chapter_appendix'} = '1|Part 1
  part_associated_section: chapter
+ section_directions:
+  next->Appendix
 2|chapter
  associated_part: Part 1
+ section_directions:
+  up->Part 1
+ toplevel_directions:
+  next->Appendix
 3|Appendix
+ section_directions:
+  prev->Part 1
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'part_chapter_appendix'} = '';

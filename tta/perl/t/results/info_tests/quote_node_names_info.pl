@@ -32,7 +32,6 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -405,11 +404,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -439,11 +436,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -511,11 +506,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -544,11 +537,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -792,18 +783,49 @@ $result_nodes_list{'quote_node_names_info'} = '1|Top
 $result_sections_list{'quote_node_names_info'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->blah:blah
 2|blah:blah
  associated_anchor_command: blah:blah
  associated_node: blah:blah
+ section_directions:
+  next->blumpty.fump
+  up->
+ toplevel_directions:
+  next->blumpty.fump
+  prev->
+  up->
 3|blumpty.fump
  associated_anchor_command: blumpty.fump
  associated_node: blumpty.fump
+ section_directions:
+  next->normal node
+  prev->blah:blah
+  up->
+ toplevel_directions:
+  next->normal node
+  prev->blah:blah
+  up->
 4|normal node
  associated_anchor_command: normal node
  associated_node: normal node
+ section_directions:
+  next->@asis{secret,node}
+  prev->blumpty.fump
+  up->
+ toplevel_directions:
+  next->@asis{secret,node}
+  prev->blumpty.fump
+  up->
 5|@asis{secret,node}
  associated_anchor_command: @asis{secret,node}
  associated_node: @asis{secret,node}
+ section_directions:
+  prev->normal node
+  up->
+ toplevel_directions:
+  prev->normal node
+  up->
 ';
 
 $result_headings_list{'quote_node_names_info'} = '';

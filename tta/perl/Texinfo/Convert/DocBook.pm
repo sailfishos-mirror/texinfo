@@ -1922,8 +1922,9 @@ sub _convert($$;$)
   } elsif ($cmdname and $cmdname ne 'node'
            and $Texinfo::Commands::root_commands{$cmdname}) {
     my $section_structure;
+    my $sections_list;
     if ($self->{'document'}) {
-      my $sections_list = $self->{'document'}->sections_list();
+      $sections_list = $self->{'document'}->sections_list();
       $section_structure
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     }
@@ -1943,18 +1944,21 @@ sub _convert($$;$)
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
-      while ($current->{'extra'}
-             and $current->{'extra'}->{'section_directions'}
-             and $current->{'extra'}->{'section_directions'}->{'up'}
+      my $current_structure
+        = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+      while ($current_structure->{'section_directions'}
+             and $current_structure->{'section_directions'}->{'up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
-             and $current->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}
-             and !$current->{'extra'}->{'section_directions'}->{'next'}
+             and $current_structure->{'section_directions'}->{'up'}->{'cmdname'}
+             and !$current_structure->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-               $current->{'extra'}->{'section_directions'}->{'up'}) ne 'top') {
-        $current = $current->{'extra'}->{'section_directions'}->{'up'};
+               $current_structure->{'section_directions'}->{'up'}) ne 'top') {
+        $current = $current_structure->{'section_directions'}->{'up'};
         $result .= '</'._docbook_section_element($self, $current) .">\n";
         pop @{$self->{'lang_stack'}};
+        $current_structure
+          = $sections_list->[$current->{'extra'}->{'section_number'} -1];
       }
     }
   } elsif ($e_type and $e_type eq 'before_node_section'

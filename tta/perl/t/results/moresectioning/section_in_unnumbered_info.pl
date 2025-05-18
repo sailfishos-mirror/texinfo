@@ -37,7 +37,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -146,11 +145,9 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -206,7 +203,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -237,10 +233,8 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E12]
- |section_directions:D[next->E14|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E14|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -296,7 +290,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E9]
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
@@ -326,11 +319,9 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E17|E28]
- |section_directions:D[next->E33|prev->E9|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[next->E33|prev->E9|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -398,7 +389,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E20|E22|E24|E26]
- |section_directions:D[next->E28|up->E14]
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
@@ -489,7 +479,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E22|up->E17]
  |section_level:{3}
  |section_number:{8}
   *arguments_line C1
@@ -518,7 +507,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E24|prev->E20|up->E17]
  |section_level:{3}
  |section_number:{9}
   *arguments_line C1
@@ -547,7 +535,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E26|prev->E22|up->E17]
  |section_level:{3}
  |section_number:{10}
   *arguments_line C1
@@ -576,7 +563,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E24|up->E17]
  |section_level:{3}
  |section_number:{11}
   *arguments_line C1
@@ -606,7 +592,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E31]
- |section_directions:D[prev->E17|up->E14]
  |section_level:{2}
  |section_number:{12}
   *arguments_line C1
@@ -664,7 +649,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E28]
  |section_level:{3}
  |section_number:{13}
   *arguments_line C1
@@ -695,11 +679,9 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E36|E47|E49|E54|E59]
- |section_directions:D[next->E64|prev->E14|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{14}
- |toplevel_directions:D[next->E64|prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -800,7 +782,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E39|E41|E43|E45]
- |section_directions:D[next->E47|up->E33]
  |section_level:{2}
  |section_number:{15}
   *arguments_line C1
@@ -891,7 +872,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E41|up->E36]
  |section_level:{3}
  |section_number:{16}
   *arguments_line C1
@@ -920,7 +900,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E43|prev->E39|up->E36]
  |section_level:{3}
  |section_number:{17}
   *arguments_line C1
@@ -949,7 +928,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E45|prev->E41|up->E36]
  |section_level:{3}
  |section_number:{18}
   *arguments_line C1
@@ -978,7 +956,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E43|up->E36]
  |section_level:{3}
  |section_number:{19}
   *arguments_line C1
@@ -1007,7 +984,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E49|prev->E36|up->E33]
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{20}
@@ -1038,7 +1014,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E52]
- |section_directions:D[next->E54|prev->E47|up->E33]
  |section_level:{2}
  |section_number:{21}
   *arguments_line C1
@@ -1096,7 +1071,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E49]
  |section_level:{3}
  |section_number:{22}
   *arguments_line C1
@@ -1126,7 +1100,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E57]
- |section_directions:D[next->E59|prev->E49|up->E33]
  |section_heading_number:{3.2}
  |section_level:{2}
  |section_number:{23}
@@ -1185,7 +1158,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E54]
  |section_heading_number:{3.2.1}
  |section_level:{3}
  |section_number:{24}
@@ -1216,7 +1188,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E62]
- |section_directions:D[prev->E54|up->E33]
  |section_level:{2}
  |section_number:{25}
   *arguments_line C1
@@ -1274,7 +1245,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E59]
  |section_level:{3}
  |section_number:{26}
   *arguments_line C1
@@ -1304,10 +1274,8 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E67]
- |section_directions:D[prev->E33|up->E1]
  |section_level:{1}
  |section_number:{27}
- |toplevel_directions:D[prev->E33|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1364,7 +1332,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |{ }
  |EXTRA
  |section_childs:EC[E70|E72|E74|E76]
- |section_directions:D[up->E64]
  |section_level:{2}
  |section_number:{28}
   *arguments_line C1
@@ -1455,7 +1422,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E72|up->E67]
  |section_level:{3}
  |section_number:{29}
   *arguments_line C1
@@ -1484,7 +1450,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E74|prev->E70|up->E67]
  |section_level:{3}
  |section_number:{30}
   *arguments_line C1
@@ -1513,7 +1478,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E76|prev->E72|up->E67]
  |section_level:{3}
  |section_number:{31}
   *arguments_line C1
@@ -1542,7 +1506,6 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E74|up->E67]
  |section_level:{3}
  |section_number:{32}
   *arguments_line C1
@@ -2220,99 +2183,218 @@ $result_nodes_list{'section_in_unnumbered_info'} = '1|Top
 $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbered
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->unnumbered
+  up->Test section in unnumbered
+ toplevel_directions:
+  next->unnumbered
+  prev->Test section in unnumbered
+  up->Test section in unnumbered
 3|section in chapter
  associated_anchor_command: section in chapter
  associated_node: section in chapter
+ section_directions:
+  up->chapter
 4|unnumbered
  associated_anchor_command: unnumbered
  associated_node: unnumbered
+ section_directions:
+  next->chapter 2
+  prev->chapter
+  up->Test section in unnumbered
+ toplevel_directions:
+  next->chapter 2
+  prev->chapter
+  up->Test section in unnumbered
 5|section in unnumbered
  associated_anchor_command: section in unnumbered
  associated_node: section in unnumbered
+ section_directions:
+  up->unnumbered
 6|chapter 2
  associated_anchor_command: chapter 2
  associated_node: chapter 2
+ section_directions:
+  next->chapter 3
+  prev->unnumbered
+  up->Test section in unnumbered
+ toplevel_directions:
+  next->chapter 3
+  prev->unnumbered
+  up->Test section in unnumbered
 7|unnumbered section 2
  associated_anchor_command: unnumberedsec 2
  associated_node: unnumberedsec 2
+ section_directions:
+  next->unnumberedsec 2-1
+  up->chapter 2
 8|unnumbered subsection 2
  associated_anchor_command: unnumbered sub 2
  associated_node: unnumbered sub 2
+ section_directions:
+  next->numbered subsection 2
+  up->unnumbered section 2
 9|numbered subsection 2
  associated_anchor_command: numbered sub 2
  associated_node: numbered sub 2
+ section_directions:
+  next->unnumbered subsection2 2
+  prev->unnumbered subsection 2
+  up->unnumbered section 2
 10|unnumbered subsection2 2
  associated_anchor_command: unnumbered sub2 2
  associated_node: unnumbered sub2 2
+ section_directions:
+  next->numbered subsection2 2
+  prev->numbered subsection 2
+  up->unnumbered section 2
 11|numbered subsection2 2
  associated_anchor_command: numbered sub2 2
  associated_node: numbered sub2 2
+ section_directions:
+  prev->unnumbered subsection2 2
+  up->unnumbered section 2
 12|unnumberedsec 2-1
  associated_anchor_command: unnumberedsec 2-1
  associated_node: unnumberedsec 2-1
+ section_directions:
+  prev->unnumbered section 2
+  up->chapter 2
 13|numbered subsection 2-1
  associated_anchor_command: numbered sub 2-1
  associated_node: numbered sub 2-1
+ section_directions:
+  up->unnumberedsec 2-1
 14|chapter 3
  associated_anchor_command: chapter 3
  associated_node: chapter 3
+ section_directions:
+  next->unnumbered  4
+  prev->chapter 2
+  up->Test section in unnumbered
+ toplevel_directions:
+  next->unnumbered  4
+  prev->chapter 2
+  up->Test section in unnumbered
 15|unnumbered section 3
  associated_anchor_command: unnumberedsec 3
  associated_node: unnumberedsec 3
+ section_directions:
+  next->section 3-1
+  up->chapter 3
 16|unnumbered subsection 3
  associated_anchor_command: unnumbered sub 3
  associated_node: unnumbered sub 3
+ section_directions:
+  next->numbered subsection 3
+  up->unnumbered section 3
 17|numbered subsection 3
  associated_anchor_command: numbered sub 3
  associated_node: numbered sub 3
+ section_directions:
+  next->unnumbered subsection2 3
+  prev->unnumbered subsection 3
+  up->unnumbered section 3
 18|unnumbered subsection2 3
  associated_anchor_command: unnumbered sub2 3
  associated_node: unnumbered sub2 3
+ section_directions:
+  next->numbered subsection2 3
+  prev->numbered subsection 3
+  up->unnumbered section 3
 19|numbered subsection2 3
  associated_anchor_command: numbered sub2 3
  associated_node: numbered sub2 3
+ section_directions:
+  prev->unnumbered subsection2 3
+  up->unnumbered section 3
 20|section 3-1
  associated_anchor_command: section 3-1
  associated_node: section 3-1
+ section_directions:
+  next->unnumberedsec 3-2
+  prev->unnumbered section 3
+  up->chapter 3
 21|unnumberedsec 3-2
  associated_anchor_command: unnumberedsec 3-2
  associated_node: unnumberedsec 3-2
+ section_directions:
+  next->section 3-3
+  prev->section 3-1
+  up->chapter 3
 22|numbered subsection 3-2
  associated_anchor_command: numbered sub 3-2
  associated_node: numbered sub 3-2
+ section_directions:
+  up->unnumberedsec 3-2
 23|section 3-3
  associated_anchor_command: section 3-3
  associated_node: section 3-3
+ section_directions:
+  next->unnumberedsec 3-4
+  prev->unnumberedsec 3-2
+  up->chapter 3
 24|subsection 3-3
  associated_anchor_command: subsection 3-3
  associated_node: subsection 3-3
+ section_directions:
+  up->section 3-3
 25|unnumberedsec 3-4
  associated_anchor_command: unnumberedsec 3-4
  associated_node: unnumberedsec 3-4
+ section_directions:
+  prev->section 3-3
+  up->chapter 3
 26|numbered subsection 3-4
  associated_anchor_command: numbered sub 3-4
  associated_node: numbered sub 3-4
+ section_directions:
+  up->unnumberedsec 3-4
 27|unnumbered  4
  associated_anchor_command: unnumbered 4
  associated_node: unnumbered 4
+ section_directions:
+  prev->chapter 3
+  up->Test section in unnumbered
+ toplevel_directions:
+  prev->chapter 3
+  up->Test section in unnumbered
 28|unnumbered section 4
  associated_anchor_command: unnumberedsec 4
  associated_node: unnumberedsec 4
+ section_directions:
+  up->unnumbered  4
 29|unnumbered subsection 4
  associated_anchor_command: unnumbered sub 4
  associated_node: unnumbered sub 4
+ section_directions:
+  next->numbered subsection 4
+  up->unnumbered section 4
 30|numbered subsection 4
  associated_anchor_command: numbered sub 4
  associated_node: numbered sub 4
+ section_directions:
+  next->unnumbered subsection2 4
+  prev->unnumbered subsection 4
+  up->unnumbered section 4
 31|unnumbered subsection2 4
  associated_anchor_command: unnumbered sub2 4
  associated_node: unnumbered sub2 4
+ section_directions:
+  next->numbered subsection2 4
+  prev->numbered subsection 4
+  up->unnumbered section 4
 32|numbered subsection2 4
  associated_anchor_command: numbered sub2 4
  associated_node: numbered sub2 4
+ section_directions:
+  prev->unnumbered subsection2 4
+  up->unnumbered section 4
 ';
 
 $result_headings_list{'section_in_unnumbered_info'} = '';

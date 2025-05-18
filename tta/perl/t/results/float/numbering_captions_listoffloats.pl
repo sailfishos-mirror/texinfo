@@ -35,7 +35,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E12]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -444,11 +443,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |section_childs:EC[E20]
- |section_directions:D[next->E23|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E23|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -737,7 +734,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E12]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -804,10 +800,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |section_childs:EC[E28]
- |section_directions:D[next->E31|prev->E12|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E31|prev->E12|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -948,7 +942,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E23]
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
@@ -1023,11 +1016,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |section_childs:EC[E35]
- |section_directions:D[next->E39|prev->E23|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[next->E39|prev->E23|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1126,7 +1117,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E31]
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
@@ -1241,11 +1231,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E42|prev->E31|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[next->E42|prev->E31|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1317,10 +1305,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E39|up->E1]
  |section_level:{1}
  |section_number:{9}
- |toplevel_directions:D[prev->E39|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1967,30 +1953,75 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
 $result_sections_list{'numbering_captions_listoffloats'} = '1|Test floats
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->A chapter
 2|A chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->Unnumbered
+  up->Test floats
+ toplevel_directions:
+  next->Unnumbered
+  prev->Test floats
+  up->Test floats
 3|A section
  associated_anchor_command: section
  associated_node: section
+ section_directions:
+  up->A chapter
 4|Unnumbered
  associated_anchor_command: Unnumbered
  associated_node: Unnumbered
+ section_directions:
+  next->Chapter with unnumbsubsec
+  prev->A chapter
+  up->Test floats
+ toplevel_directions:
+  next->Chapter with unnumbsubsec
+  prev->A chapter
+  up->Test floats
 5|Section within unnumbered
  associated_anchor_command: Section within unnumbered
  associated_node: Section within unnumbered
+ section_directions:
+  up->Unnumbered
 6|Chapter with unnumbsubsec
  associated_anchor_command: Chapter with unnumbsubsec
  associated_node: Chapter with unnumbsubsec
+ section_directions:
+  next->Appendix for float
+  prev->Unnumbered
+  up->Test floats
+ toplevel_directions:
+  next->Appendix for float
+  prev->Unnumbered
+  up->Test floats
 7|unnumbered sec
  associated_anchor_command: unnumbered sec
  associated_node: unnumbered sec
+ section_directions:
+  up->Chapter with unnumbsubsec
 8|Appendix for float
  associated_anchor_command: Appendix for float
  associated_node: Appendix for float
+ section_directions:
+  next->list of floats
+  prev->Chapter with unnumbsubsec
+  up->Test floats
+ toplevel_directions:
+  next->list of floats
+  prev->Chapter with unnumbsubsec
+  up->Test floats
 9|list of floats
  associated_anchor_command: list of floats
  associated_node: list of floats
+ section_directions:
+  prev->Appendix for float
+  up->Test floats
+ toplevel_directions:
+  prev->Appendix for float
+  up->Test floats
 ';
 
 $result_headings_list{'numbering_captions_listoffloats'} = '';

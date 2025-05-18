@@ -134,7 +134,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -179,11 +178,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -250,11 +247,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -288,11 +283,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E9|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -354,11 +347,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |section_childs:EC[E12]
- |section_directions:D[next->E14|prev->E7|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E14|prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -438,7 +429,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E9]
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{6}
@@ -512,11 +502,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E16|prev->E9|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[next->E16|prev->E9|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -613,11 +601,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E1]
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1007,27 +993,76 @@ $result_nodes_list{'multiple_include_encodings'} = '1|Top
 $result_sections_list{'multiple_include_encodings'} = '1|include files with multiple encodings
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_anchor_command: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_node: ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+ section_directions:
+  next->Preface
+  up->include files with multiple encodings
+ toplevel_directions:
+  next->Preface
+  prev->include files with multiple encodings
+  up->include files with multiple encodings
 3|Preface
  associated_anchor_command: Preface
  associated_node: Preface
+ section_directions:
+  next->Introduction
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->include files with multiple encodings
+ toplevel_directions:
+  next->Introduction
+  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+  up->include files with multiple encodings
 4|Introduction
  associated_anchor_command: Introduction
  associated_node: Introduction
+ section_directions:
+  next->char latin2 latin2 in refs
+  prev->Preface
+  up->include files with multiple encodings
+ toplevel_directions:
+  next->char latin2 latin2 in refs
+  prev->Preface
+  up->include files with multiple encodings
 5|char latin2 latin2 in refs
  associated_anchor_command: char latin2 latin2
  associated_node: char latin2 latin2
+ section_directions:
+  next->Mixed english and chinese EUC-CN
+  prev->Introduction
+  up->include files with multiple encodings
+ toplevel_directions:
+  next->Mixed english and chinese EUC-CN
+  prev->Introduction
+  up->include files with multiple encodings
 6|Ą ą ˛ Ę ę
  associated_anchor_command: Ą ą ˛ Ę ę
  associated_node: Ą ą ˛ Ę ę
+ section_directions:
+  up->char latin2 latin2 in refs
 7|Mixed english and chinese EUC-CN
  associated_anchor_command: Mixed english and chinese EUC-CN
  associated_node: Mixed english and chinese EUC-CN
+ section_directions:
+  next->Mixed chinese and english utf-8
+  prev->char latin2 latin2 in refs
+  up->include files with multiple encodings
+ toplevel_directions:
+  next->Mixed chinese and english utf-8
+  prev->char latin2 latin2 in refs
+  up->include files with multiple encodings
 8|Mixed chinese and english utf-8
  associated_anchor_command: Mixed chinese and english utf-8
  associated_node: Mixed chinese and english utf-8
+ section_directions:
+  prev->Mixed english and chinese EUC-CN
+  up->include files with multiple encodings
+ toplevel_directions:
+  prev->Mixed english and chinese EUC-CN
+  up->include files with multiple encodings
 ';
 
 $result_headings_list{'multiple_include_encodings'} = '';

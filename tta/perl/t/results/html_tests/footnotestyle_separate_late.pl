@@ -42,7 +42,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -84,11 +83,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -135,11 +132,9 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -228,12 +223,27 @@ $result_nodes_list{'footnotestyle_separate_late'} = '1|Top
 $result_sections_list{'footnotestyle_separate_late'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter f
 2|Chapter f
  associated_anchor_command: chap f
  associated_node: chap f
+ section_directions:
+  next->Chapter s
+  up->top
+ toplevel_directions:
+  next->Chapter s
+  prev->top
+  up->top
 3|Chapter s
  associated_anchor_command: chap s
  associated_node: chap s
+ section_directions:
+  prev->Chapter f
+  up->top
+ toplevel_directions:
+  prev->Chapter f
+  up->top
 ';
 
 $result_headings_list{'footnotestyle_separate_late'} = '';

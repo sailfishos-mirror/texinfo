@@ -34,7 +34,6 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -93,7 +90,6 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -151,12 +147,21 @@ $result_nodes_list{'automatic_menu_referencing_node'} = '1|Top
 $result_sections_list{'automatic_menu_referencing_node'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|sec
  associated_anchor_command: section
  associated_node: section
+ section_directions:
+  up->chap
 ';
 
 $result_headings_list{'automatic_menu_referencing_node'} = '';

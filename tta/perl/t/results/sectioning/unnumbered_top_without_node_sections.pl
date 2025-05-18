@@ -42,7 +42,6 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -50,7 +49,6 @@ NodeUp: (dir)
   ||EXTRA
   ||section_childs:EC[E1|E2|E4]
   ||section_level:{0}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,10 +74,8 @@ Prev: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|prev->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E4|prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -124,11 +120,9 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -213,10 +207,25 @@ $result_nodes_list{'unnumbered_top_without_node_sections'} = '1|a node
 $result_sections_list{'unnumbered_top_without_node_sections'} = '1|unnumbered
  associated_anchor_command: a node
  associated_node: a node
+ section_directions:
+  next->top section
+ toplevel_directions:
+  next->top section
 2|top section
+ section_directions:
+  next->Chapter
+  prev->unnumbered
+ toplevel_directions:
+  next->Chapter
+  prev->unnumbered
 3|Chapter
  associated_anchor_command: second
  associated_node: second
+ section_directions:
+  prev->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'unnumbered_top_without_node_sections'} = '';

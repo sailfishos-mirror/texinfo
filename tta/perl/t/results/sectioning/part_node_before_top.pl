@@ -46,7 +46,6 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -80,7 +79,6 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -179,10 +177,14 @@ $result_nodes_list{'part_node_before_top'} = '1|part node before top
 $result_sections_list{'part_node_before_top'} = '1|part
  part_associated_section: top
  part_following_node: Top
+ section_directions:
+  next->top
 2|top
  associated_anchor_command: Top
  associated_node: Top
  associated_part: part
+ section_directions:
+  prev->part
 ';
 
 $result_headings_list{'part_node_before_top'} = '';

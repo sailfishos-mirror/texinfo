@@ -32,7 +32,6 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg
    |INFO
@@ -58,11 +57,9 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -315,11 +312,9 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -644,12 +639,27 @@ $result_nodes_list{'sorted_subentries'} = '1|Top
 $result_sections_list{'sorted_subentries'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->one
 2|one
  associated_anchor_command: chapter one
  associated_node: chapter one
+ section_directions:
+  next->second
+  up->
+ toplevel_directions:
+  next->second
+  prev->
+  up->
 3|second
  associated_anchor_command: chapter second
  associated_node: chapter second
+ section_directions:
+  prev->one
+  up->
+ toplevel_directions:
+  prev->one
+  up->
 ';
 
 $result_headings_list{'sorted_subentries'} = '';

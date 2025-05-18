@@ -13,7 +13,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -50,10 +49,8 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|prev->E0]
  |section_level:{0}
  |section_number:{2}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,7 +105,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |global_command_number:{2}
  |section_childs:EC[E5]
- |section_directions:D[next->E6|prev->E2]
  |section_level:{0}
  |section_number:{3}
   *arguments_line C1
@@ -126,11 +122,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E9|prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -144,7 +138,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{3}
- |section_directions:D[next->E8|prev->E4]
  |section_level:{0}
  |section_number:{5}
   *arguments_line C1
@@ -178,7 +171,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |global_command_number:{4}
  |section_childs:EC[E9]
- |section_directions:D[next->E10|prev->E6]
  |section_level:{0}
  |section_number:{6}
   *arguments_line C1
@@ -196,11 +188,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E8]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[next->E12|prev->E5|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -214,7 +204,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |global_command_number:{5}
- |section_directions:D[next->E11|prev->E8]
  |section_level:{0}
  |section_number:{8}
   *arguments_line C1
@@ -234,7 +223,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |global_command_number:{6}
  |section_childs:EC[E12]
- |section_directions:D[next->E13|prev->E10]
  |section_level:{0}
  |section_number:{9}
   *arguments_line C1
@@ -252,11 +240,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E11]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{10}
- |toplevel_directions:D[next->E15|prev->E9|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -271,7 +257,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |EXTRA
  |global_command_number:{7}
  |section_childs:EC[E15]
- |section_directions:D[prev->E11]
  |section_level:{0}
  |section_number:{11}
   *arguments_line C1
@@ -304,11 +289,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E13]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{12}
- |toplevel_directions:D[prev->E12|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -556,34 +539,81 @@ $result_nodes_list{'non_empty_part'} = '1|Top
 $result_sections_list{'non_empty_part'} = '1|part before
  part_associated_section: top
  part_following_node: Top
+ section_directions:
+  next->top
 2|top
  associated_anchor_command: Top
  associated_node: Top
  associated_part: part before
+ section_directions:
+  next->part I
+  prev->part before
+ toplevel_directions:
+  next->chap in Top node
 3|part I
  part_associated_section: chap in Top node
+ section_directions:
+  next->Part II
+  prev->top
 4|chap in Top node
  associated_part: part I
+ section_directions:
+  up->part I
+ toplevel_directions:
+  next->chapter with part node
+  prev->top
+  up->top
 5|Part II
  part_following_node: part chapter node
+ section_directions:
+  next->part III
+  prev->part I
 6|part III
  part_associated_section: chapter with part node
+ section_directions:
+  next->Part IV
+  prev->Part II
 7|chapter with part node
  associated_anchor_command: part chapter node
  associated_node: part chapter node
  associated_part: part III
+ section_directions:
+  up->part III
+ toplevel_directions:
+  next->with part no node
+  prev->chap in Top node
+  up->top
 8|Part IV
+ section_directions:
+  next->Part V
+  prev->part III
 9|Part V
  part_associated_section: with part no node
+ section_directions:
+  next->Part VI
+  prev->Part IV
 10|with part no node
  associated_part: Part V
+ section_directions:
+  up->Part V
+ toplevel_directions:
+  next->chapter after part node
+  prev->chapter with part node
+  up->top
 11|Part VI
  part_associated_section: chapter after part node
  part_following_node: node between part and chapter
+ section_directions:
+  prev->Part V
 12|chapter after part node
  associated_anchor_command: node between part and chapter
  associated_node: node between part and chapter
  associated_part: Part VI
+ section_directions:
+  up->Part VI
+ toplevel_directions:
+  prev->with part no node
+  up->top
 ';
 
 $result_headings_list{'non_empty_part'} = '';

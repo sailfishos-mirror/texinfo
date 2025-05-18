@@ -279,7 +279,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E13]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -745,11 +744,9 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E4|up->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1049,9 +1046,16 @@ $result_nodes_list{'nodes_before_top_and_sections_chapter'} = '1|first before to
 $result_sections_list{'nodes_before_top_and_sections_chapter'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->A chapter
 2|A chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'nodes_before_top_and_sections_chapter'} = '';

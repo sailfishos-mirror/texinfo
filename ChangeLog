@@ -1,3 +1,42 @@
+2025-05-18  Patrice Dumas  <pertusus@free.fr>
+
+	section_directions and toplevel_directions in structure info not tree
+
+	* tta/C/main/structure_list.c (free_node_structure_list): avoid
+	useless if.
+
+	* tta/C/main/structure_list.c (print_nodes_directions): rename
+	print_directions as print_nodes_directions.
+
+	* tta/C/main/build_perl_info.c (build_section_structure_list),
+	tta/C/main/structure_list.c (free_section_structure_list)
+	(print_sections_directions, print_sections_list),
+	tta/C/main/tree_types.h (AI_KEYS_LIST, SECTION_STRUCTURE),
+	tta/C/structuring_transfo/structuring.c (sectioning_structure),
+	tta/perl/Texinfo/Structuring.pm (sectioning_structure)
+	(print_sections_list): move section_directions and toplevel_directions
+	information to section structure information out of extra information
+	in tree.
+
+	* tta/C/convert/format_html.c (html_default_format_contents),
+	tta/C/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets), tta/C/main/output_unit.c
+	(units_directions), tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning)
+	(section_direction_associated_node, number_floats),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_prepare_output_units_global_targets, _default_format_contents),
+	tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm (format_contents),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
+	tta/perl/Texinfo/Structuring.pm (get_node_node_childs_from_sectioning)
+	(_section_direction_associated_node, complete_node_tree_with_menus)
+	(construct_nodes_tree, number_floats), tta/perl/init/book.pm
+	(book_print_up_toc, book_print_sub_toc): update for change in sections
+	directions information location.
+
 2025-05-17  Patrice Dumas  <pertusus@free.fr>
 
 	node_directions in node structure information instead of tree

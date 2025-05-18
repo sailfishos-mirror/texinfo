@@ -62,7 +62,6 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{2}
@@ -99,7 +98,6 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{3}
@@ -162,9 +160,15 @@ $result_sections_list{'between_node_and_section'} = '1|Chap
 2|sec1
  associated_anchor_command: sec1
  associated_node: sec1
+ section_directions:
+  next->sec2
+  up->Chap
 3|sec2
  associated_anchor_command: sec2
  associated_node: sec2
+ section_directions:
+  prev->sec1
+  up->Chap
 ';
 
 $result_headings_list{'between_node_and_section'} = '';

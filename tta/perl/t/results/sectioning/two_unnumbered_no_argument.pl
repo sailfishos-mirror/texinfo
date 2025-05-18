@@ -10,7 +10,6 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
   *preamble_before_content
  *0 @unnumbered C1 l1
  |EXTRA
- |section_directions:D[next->E1]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -18,7 +17,6 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{0}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg
    |INFO
@@ -26,10 +24,8 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
     |{\\n}
  *1 @unnumbered C1 l2
  |EXTRA
- |section_directions:D[prev->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg
    |INFO
@@ -66,7 +62,15 @@ $result_errors{'two_unnumbered_no_argument'} = [
 $result_nodes_list{'two_unnumbered_no_argument'} = '';
 
 $result_sections_list{'two_unnumbered_no_argument'} = '1
+ section_directions:
+  next->
+ toplevel_directions:
+  next->
 2
+ section_directions:
+  prev->
+ toplevel_directions:
+  prev->
 ';
 
 $result_headings_list{'two_unnumbered_no_argument'} = '';

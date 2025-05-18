@@ -18,7 +18,6 @@ Next: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -26,7 +25,6 @@ Next: [U1]
   ||EXTRA
   ||section_childs:EC[E0|E1|E3|E7]
   ||section_level:{0}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -50,11 +48,9 @@ Prev: [U0]
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[next->E3|prev->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E3|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,7 +72,6 @@ Up: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -103,11 +98,9 @@ Prev: [U1]
   |{ }
  |EXTRA
  |section_childs:EC[E4]
- |section_directions:D[next->E7|prev->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E7|prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -130,7 +123,6 @@ Up: [U3]
   |{ }
  |EXTRA
  |section_childs:EC[E5|E6]
- |section_directions:D[up->E3]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
@@ -156,7 +148,6 @@ Up: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E4]
  |section_heading_number:{2.1.1}
  |section_level:{3}
  |section_number:{6}
@@ -182,7 +173,6 @@ Up: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E4]
  |section_heading_number:{2.1.2}
  |section_level:{3}
  |section_number:{7}
@@ -205,11 +195,9 @@ Prev: [U3]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[prev->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -268,13 +256,43 @@ $result_errors{'chapter_sections'} = [];
 $result_nodes_list{'chapter_sections'} = '';
 
 $result_sections_list{'chapter_sections'} = '1|unnumbered
+ section_directions:
+  next->First chapter
+ toplevel_directions:
+  next->First chapter
 2|First chapter
+ section_directions:
+  next->Chapter
+  prev->unnumbered
+ toplevel_directions:
+  next->Chapter
+  prev->unnumbered
 3|second
+ section_directions:
+  up->First chapter
 4|Chapter
+ section_directions:
+  next->Chapter 2
+  prev->First chapter
+ toplevel_directions:
+  next->Chapter 2
+  prev->First chapter
 5|Section of chapter
+ section_directions:
+  up->Chapter
 6|subsection 1
+ section_directions:
+  next->subsection 2
+  up->Section of chapter
 7|subsection 2
+ section_directions:
+  prev->subsection 1
+  up->Section of chapter
 8|Chapter 2
+ section_directions:
+  prev->Chapter
+ toplevel_directions:
+  prev->Chapter
 ';
 
 $result_headings_list{'chapter_sections'} = '';

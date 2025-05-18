@@ -15,7 +15,6 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -24,7 +23,6 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -43,11 +41,9 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -105,7 +101,15 @@ $result_errors{'section_on_cartouche_line'} = [
 $result_nodes_list{'section_on_cartouche_line'} = '';
 
 $result_sections_list{'section_on_cartouche_line'} = '1|first
+ section_directions:
+  next->second spaces
+ toplevel_directions:
+  next->second spaces
 2|second spaces
+ section_directions:
+  prev->first
+ toplevel_directions:
+  prev->first
 ';
 
 $result_headings_list{'section_on_cartouche_line'} = '';

@@ -66,7 +66,6 @@ $result_tree_text{'value_in_node'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -152,11 +151,9 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -330,9 +327,16 @@ $result_nodes_list{'value_in_node'} = '1|Top
 $result_sections_list{'value_in_node'} = '1|Expansion in Node Names
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter 1
 2|Chapter 1
  associated_anchor_command: Node 1
  associated_node: Node 1
+ section_directions:
+  up->Expansion in Node Names
+ toplevel_directions:
+  prev->Expansion in Node Names
+  up->Expansion in Node Names
 ';
 
 $result_headings_list{'value_in_node'} = '';

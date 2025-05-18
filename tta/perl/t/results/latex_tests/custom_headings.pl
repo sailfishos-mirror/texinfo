@@ -82,7 +82,6 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -110,11 +109,9 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   |{ }
  |EXTRA
  |section_childs:EC[E4]
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,7 +136,6 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -155,11 +151,9 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E6|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -196,11 +190,9 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -328,12 +320,37 @@ $result_nodes_list{'custom_headings'} = '1|Top
 $result_sections_list{'custom_headings'} = '1|top sectionning
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->ch--ap
 2|ch--ap
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->chap 2
+  up->top sectionning
+ toplevel_directions:
+  next->chap 2
+  prev->top sectionning
+  up->top sectionning
 3|sec1
+ section_directions:
+  up->ch--ap
 4|chap 2
+ section_directions:
+  next->chap 3
+  prev->ch--ap
+  up->top sectionning
+ toplevel_directions:
+  next->chap 3
+  prev->ch--ap
+  up->top sectionning
 5|chap 3
+ section_directions:
+  prev->chap 2
+  up->top sectionning
+ toplevel_directions:
+  prev->chap 2
+  up->top sectionning
 ';
 
 $result_headings_list{'custom_headings'} = '';

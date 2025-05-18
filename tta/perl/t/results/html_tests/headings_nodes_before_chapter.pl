@@ -91,7 +91,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -100,7 +99,6 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E5|E8]
   ||section_level:{0}
- |toplevel_directions:D[next->E8]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -167,11 +165,9 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -256,9 +252,17 @@ $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
 $result_sections_list{'headings_nodes_before_chapter'} = '1|Chapter One
  associated_anchor_command: Cap 1
  associated_node: Cap 1
+ section_directions:
+  next->Chapter Two
+ toplevel_directions:
+  next->Chapter Two
 2|Chapter Two
  associated_anchor_command: Cap 2
  associated_node: Cap 2
+ section_directions:
+  prev->Chapter One
+ toplevel_directions:
+  prev->Chapter One
 ';
 
 $result_headings_list{'headings_nodes_before_chapter'} = '1|Topic One

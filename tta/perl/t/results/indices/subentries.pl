@@ -32,7 +32,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg
    |INFO
@@ -59,11 +58,9 @@ $result_tree_text{'subentries'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -351,9 +348,16 @@ $result_nodes_list{'subentries'} = '1|Top
 $result_sections_list{'subentries'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Index
 2|Index
  associated_anchor_command: chapter index
  associated_node: chapter index
+ section_directions:
+  up->
+ toplevel_directions:
+  prev->
+  up->
 ';
 
 $result_headings_list{'subentries'} = '';

@@ -232,7 +232,6 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
   ||EXTRA
   ||section_childs:EC[E5]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -244,11 +243,9 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E5]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -432,11 +429,9 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E6|up->E5]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E6|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -711,10 +706,25 @@ $result_nodes_list{'index_special_region_no_insertcopying_titlepage_no_nodes_foo
 $result_sections_list{'index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
+ section_directions:
+  next->Copying and indices
+  up->Top
+ toplevel_directions:
+  next->Copying and indices
+  prev->Top
+  up->Top
 3|Copying and indices
  associated_anchor_command: Copying and indices
  associated_node: Copying and indices
+ section_directions:
+  prev->Chapter
+  up->Top
+ toplevel_directions:
+  prev->Chapter
+  up->Top
 ';
 
 $result_headings_list{'index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default'} = '';

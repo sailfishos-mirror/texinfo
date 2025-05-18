@@ -1714,18 +1714,22 @@ sub _convert($$;$)
           and $element->{'extra'}->{'section_childs'}
           and scalar(@{$element->{'extra'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
+      my $sections_list = $self->{'document'}->sections_list();
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;
-      while ($current->{'extra'}
-             and $current->{'extra'}->{'section_directions'}
-             and $current->{'extra'}->{'section_directions'}->{'up'}
+      my $current_structure
+          = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+      while ($current_structure->{'section_directions'}
+             and $current_structure->{'section_directions'}->{'up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
-             and $current->{'extra'}->{'section_directions'}->{'up'}->{'cmdname'}
-             and !$current->{'extra'}->{'section_directions'}->{'next'}
+             and $current_structure->{'section_directions'}->{'up'}->{'cmdname'}
+             and !$current_structure->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-               $current->{'extra'}->{'section_directions'}->{'up'}) ne 'top') {
-        $current = $current->{'extra'}->{'section_directions'}->{'up'};
+               $current_structure->{'section_directions'}->{'up'}) ne 'top') {
+        $current = $current_structure->{'section_directions'}->{'up'};
+        $current_structure
+          = $sections_list->[$current->{'extra'}->{'section_number'} -1];
         my $level_adjusted_current_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name($current);
         $result

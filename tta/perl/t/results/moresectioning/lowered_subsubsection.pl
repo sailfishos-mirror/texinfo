@@ -31,7 +31,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -87,11 +86,9 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -148,7 +145,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |section_childs:EC[E10]
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -208,7 +204,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |section_childs:EC[E13|E15|E18]
- |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -278,7 +273,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E15|up->E10]
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{5}
@@ -311,7 +305,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |level_modifier:{-1}
- |section_directions:D[next->E18|prev->E13|up->E10]
  |section_heading_number:{1.1.1.2}
  |section_level:{4}
  |section_number:{6}
@@ -371,7 +364,6 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
   |{ }
  |EXTRA
  |level_modifier:{-1}
- |section_directions:D[prev->E15|up->E10]
  |section_heading_number:{1.1.1.3}
  |section_level:{4}
  |section_number:{7}
@@ -576,24 +568,45 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
 $result_sections_list{'lowered_subsubsection'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  up->
+ toplevel_directions:
+  prev->
+  up->
 3|Section
  associated_anchor_command: Section
  associated_node: Section
+ section_directions:
+  up->Chapter
 4|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
+ section_directions:
+  up->Section
 5|Subsubsection
  associated_anchor_command: Subsubsection
  associated_node: Subsubsection
+ section_directions:
+  next->Lowered subsec
+  up->Subsection
 6|Lowered subsec
  associated_anchor_command: Lowered subsec
  associated_node: Lowered subsec
+ section_directions:
+  next->Lowered subsubsection
+  prev->Subsubsection
+  up->Subsection
 7|Lowered subsubsection
  associated_anchor_command: Lowered subsubsection
  associated_node: Lowered subsubsection
+ section_directions:
+  prev->Lowered subsec
+  up->Subsection
 ';
 
 $result_headings_list{'lowered_subsubsection'} = '';

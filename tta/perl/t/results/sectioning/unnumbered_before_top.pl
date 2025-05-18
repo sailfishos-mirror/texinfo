@@ -12,7 +12,6 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -20,7 +19,6 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{0}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -33,10 +31,8 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,7 +69,15 @@ $result_errors{'unnumbered_before_top'} = [
 $result_nodes_list{'unnumbered_before_top'} = '';
 
 $result_sections_list{'unnumbered_before_top'} = '1|before top
+ section_directions:
+  next->top
+ toplevel_directions:
+  next->top
 2|top
+ section_directions:
+  prev->before top
+ toplevel_directions:
+  prev->before top
 ';
 
 $result_headings_list{'unnumbered_before_top'} = '';

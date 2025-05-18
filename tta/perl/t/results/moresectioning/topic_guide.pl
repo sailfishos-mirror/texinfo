@@ -38,7 +38,6 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,11 +108,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E17|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E17|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -497,11 +494,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -792,12 +787,27 @@ $result_nodes_list{'topic_guide'} = '1|Top
 $result_sections_list{'topic_guide'} = '1|A example quide topic collection
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->guide 1
 2|guide 1
  associated_anchor_command: guide1
  associated_node: guide1
+ section_directions:
+  next->guide 2
+  up->A example quide topic collection
+ toplevel_directions:
+  next->guide 2
+  prev->A example quide topic collection
+  up->A example quide topic collection
 3|guide 2
  associated_anchor_command: guide2
  associated_node: guide2
+ section_directions:
+  prev->guide 1
+  up->A example quide topic collection
+ toplevel_directions:
+  prev->guide 1
+  up->A example quide topic collection
 ';
 
 $result_headings_list{'topic_guide'} = '';

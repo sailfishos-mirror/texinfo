@@ -43,6 +43,7 @@
 /* option_force_conf option_set_conf */
 #include "customization_options.h"
 #include "extra.h"
+#include "debug.h"
 #include "targets.h"
 /* unicode_character_brace_no_arg_commands */
 #include "unicode.h"
@@ -5014,6 +5015,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   int i;
   int all_special_units_nr = 0;
   int s;
+  const SECTION_STRUCTURE_LIST *sections_list = &self->document->sections_list;
 
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
    (self->document, self->output_units_descriptors[OUDT_units]);
@@ -5064,7 +5066,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
             }
        /* find the first level 1 sectioning element to associate the printindex
            with */
-          if (root_command && root_command->e.c->cmd != CM_node)
+          if (root_command && root_command->e.c->cmd != CM_NONE
+              && root_command->e.c->cmd != CM_node)
             {
               while (1)
                 {
@@ -5075,9 +5078,14 @@ html_prepare_output_units_global_targets (CONVERTER *self)
                   if (!status && section_level <= 1)
                     break;
 
+                  size_t section_number
+                        = lookup_extra_integer (root_command,
+                                         AI_key_section_number, &status);
+                  const SECTION_STRUCTURE *section_structure
+                    = sections_list->list[section_number -1];
+
                   const ELEMENT * const *up_section_directions
-                    = lookup_extra_directions (root_command,
-                                         AI_key_section_directions);
+                    = section_structure->section_directions;
                   if (up_section_directions
                       && up_section_directions[D_up]
                       && up_section_directions[D_up]

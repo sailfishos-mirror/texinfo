@@ -12,7 +12,6 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -21,7 +20,6 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{0}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -35,11 +33,9 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[prev->E0]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -52,7 +48,6 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{3}
@@ -97,8 +92,18 @@ $result_errors{'shortcontents_no_top'} = [];
 $result_nodes_list{'shortcontents_no_top'} = '';
 
 $result_sections_list{'shortcontents_no_top'} = '1|chap
+ section_directions:
+  next->chap2
+ toplevel_directions:
+  next->chap2
 2|chap2
+ section_directions:
+  prev->chap
+ toplevel_directions:
+  prev->chap
 3|sec
+ section_directions:
+  up->chap2
 ';
 
 $result_headings_list{'shortcontents_no_top'} = '';

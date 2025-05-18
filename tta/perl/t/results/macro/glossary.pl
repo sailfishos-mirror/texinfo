@@ -126,7 +126,6 @@ $result_tree_text{'glossary'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -445,11 +444,9 @@ $result_tree_text{'glossary'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -672,9 +669,16 @@ $result_nodes_list{'glossary'} = '1|Top
 $result_sections_list{'glossary'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->glossary
 2|glossary
  associated_anchor_command: glossary
  associated_node: glossary
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 ';
 
 $result_headings_list{'glossary'} = '';

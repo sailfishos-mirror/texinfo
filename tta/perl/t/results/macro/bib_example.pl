@@ -628,7 +628,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -710,11 +709,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -856,11 +853,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1420,12 +1415,27 @@ $result_nodes_list{'bib_example'} = '1|Top
 $result_sections_list{'bib_example'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Introduction
 2|Introduction
  associated_anchor_command: Introduction
  associated_node: Introduction
+ section_directions:
+  next->References
+  up->Top
+ toplevel_directions:
+  next->References
+  prev->Top
+  up->Top
 3|References
  associated_anchor_command: References
  associated_node: References
+ section_directions:
+  prev->Introduction
+  up->Top
+ toplevel_directions:
+  prev->Introduction
+  up->Top
 ';
 
 $result_headings_list{'bib_example'} = '';

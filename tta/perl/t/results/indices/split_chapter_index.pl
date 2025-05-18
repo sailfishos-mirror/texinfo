@@ -51,7 +51,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -126,11 +125,9 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -309,7 +306,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |section_childs:EC[E10]
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -396,7 +392,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -562,15 +557,26 @@ $result_nodes_list{'split_chapter_index'} = '1|Top
 $result_sections_list{'split_chapter_index'} = '1|split indices
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->First chapter
 2|First chapter
  associated_anchor_command: first
  associated_node: first
+ section_directions:
+  up->split indices
+ toplevel_directions:
+  prev->split indices
+  up->split indices
 3|Section 1
  associated_anchor_command: section 1
  associated_node: section 1
+ section_directions:
+  up->First chapter
 4|Subsection 1
  associated_anchor_command: subsection 1
  associated_node: subsection 1
+ section_directions:
+  up->Section 1
 ';
 
 $result_headings_list{'split_chapter_index'} = '';

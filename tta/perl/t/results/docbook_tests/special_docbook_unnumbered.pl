@@ -34,7 +34,6 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -126,10 +125,8 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -159,10 +156,8 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -192,10 +187,8 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E6|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -225,11 +218,9 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E8|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -366,18 +357,49 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 $result_sections_list{'special_docbook_unnumbered'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->a dedication
 2|a dedication
  associated_anchor_command: Dedication
  associated_node: Dedication
+ section_directions:
+  next->The Preface
+  up->top
+ toplevel_directions:
+  next->The Preface
+  prev->top
+  up->top
 3|The Preface
  associated_anchor_command: preface
  associated_node: preface
+ section_directions:
+  next->A colophon
+  prev->a dedication
+  up->top
+ toplevel_directions:
+  next->A colophon
+  prev->a dedication
+  up->top
 4|A colophon
  associated_anchor_command: colophon
  associated_node: colophon
+ section_directions:
+  next->A chapter Acnkowledgements
+  prev->The Preface
+  up->top
+ toplevel_directions:
+  next->A chapter Acnkowledgements
+  prev->The Preface
+  up->top
 5|A chapter Acnkowledgements
  associated_anchor_command: acknowledgements
  associated_node: acknowledgements
+ section_directions:
+  prev->A colophon
+  up->top
+ toplevel_directions:
+  prev->A colophon
+  up->top
 ';
 
 $result_headings_list{'special_docbook_unnumbered'} = '';

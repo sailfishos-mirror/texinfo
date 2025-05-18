@@ -35,7 +35,6 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,11 +108,9 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -171,9 +168,16 @@ $result_nodes_list{'informative_commands_in_top_node'} = '1|Top
 $result_sections_list{'informative_commands_in_top_node'} = '1|top sectionning
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: next node
  associated_node: next node
+ section_directions:
+  up->top sectionning
+ toplevel_directions:
+  prev->top sectionning
+  up->top sectionning
 ';
 
 $result_headings_list{'informative_commands_in_top_node'} = '';

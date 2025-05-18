@@ -34,7 +34,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,7 +91,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -127,7 +123,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   |{ }
  |EXTRA
  |section_childs:EC[E9]
- |section_directions:D[up->E5]
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
@@ -157,7 +152,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E7]
  |section_level:{4}
  |section_number:{5}
   *arguments_line C1
@@ -228,14 +222,27 @@ $result_nodes_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|Top
 
 $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top
  associated_node: Top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_node: Chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|Section
  associated_node: Section
+ section_directions:
+  up->Chap
 4|@asis{}
  associated_node: @asis{} 1
+ section_directions:
+  up->Section
 5|There
  associated_node: There
+ section_directions:
+  up->@asis{}
 ';
 
 $result_headings_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '';

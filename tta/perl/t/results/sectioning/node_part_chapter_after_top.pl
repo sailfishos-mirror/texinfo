@@ -34,7 +34,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -42,7 +41,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1|E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,7 +107,6 @@ NodeBack: [U0]
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E5]
- |section_directions:D[prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -124,11 +121,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -195,12 +190,23 @@ $result_nodes_list{'node_part_chapter_after_top'} = '1|Top
 $result_sections_list{'node_part_chapter_after_top'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->part
+ toplevel_directions:
+  next->chapter
 2|part
  part_associated_section: chapter
+ section_directions:
+  prev->top
 3|chapter
  associated_anchor_command: chapter node
  associated_node: chapter node
  associated_part: part
+ section_directions:
+  up->part
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'node_part_chapter_after_top'} = '';

@@ -27,7 +27,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -36,7 +35,6 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1|E3|E4]
   ||section_level:{0}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,11 +61,9 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|prev->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E4|prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -80,10 +76,8 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -142,10 +136,24 @@ $result_nodes_list{'top_file_name_and_node_name_collision'} = '1|my node
 $result_sections_list{'top_file_name_and_node_name_collision'} = '1|chap my node
  associated_anchor_command: my node
  associated_node: my node
+ section_directions:
+  next->chapter
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: other node
  associated_node: other node
+ section_directions:
+  next->top
+  prev->chap my node
+ toplevel_directions:
+  next->top
+  prev->chap my node
 3|top
+ section_directions:
+  prev->chapter
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'top_file_name_and_node_name_collision'} = '';

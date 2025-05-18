@@ -117,9 +117,6 @@ enum directions {
   \
   ai_key(section_childs, contents) \
   \
-  ai_key(section_directions, directions) \
-  ai_key(toplevel_directions, directions) \
-  \
   ai_key(misc_args, misc_args) \
   \
   ai_key(index_entry, index_entry) \
@@ -300,6 +297,8 @@ typedef struct SECTION_STRUCTURE {
     ELEMENT *associated_part;
     ELEMENT *part_associated_section;
     ELEMENT *part_following_node;
+    const struct ELEMENT **section_directions;
+    const struct ELEMENT **toplevel_directions;
 } SECTION_STRUCTURE;
 
 typedef struct SECTION_STRUCTURE_LIST {

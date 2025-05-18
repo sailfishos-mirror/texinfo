@@ -31,7 +31,6 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
   {empty_line:\\n}
  *1 @section C1 l3
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{2}
@@ -71,6 +70,8 @@ $result_nodes_list{'empty_section_in_chapter'} = '';
 
 $result_sections_list{'empty_section_in_chapter'} = '1|chap
 2
+ section_directions:
+  up->chap
 ';
 
 $result_headings_list{'empty_section_in_chapter'} = '';

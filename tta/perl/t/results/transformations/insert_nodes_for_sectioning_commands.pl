@@ -26,7 +26,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -34,7 +33,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   ||EXTRA
   ||section_childs:EC[E1|E2]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -49,7 +47,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E4|E18]
- |section_directions:D[prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -85,11 +82,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |section_childs:EC[E6|E8|E14|E16]
- |section_directions:D[next->E18|up->E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E18|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -119,7 +114,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{4}
@@ -150,7 +144,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |section_childs:EC[E10|E12]
- |section_directions:D[next->E14|prev->E6|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{5}
@@ -179,7 +172,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|up->E8]
  |section_heading_number:{1.2.1}
  |section_level:{3}
  |section_number:{6}
@@ -212,7 +204,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E10|up->E8]
  |section_heading_number:{1.2.2}
  |section_level:{3}
  |section_number:{7}
@@ -245,7 +236,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E16|prev->E8|up->E4]
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{8}
@@ -276,7 +266,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E4]
  |section_heading_number:{1.4}
  |section_level:{2}
  |section_number:{9}
@@ -305,10 +294,8 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *18 @unnumbered C2 l21
  |EXTRA
  |section_childs:EC[E20]
- |section_directions:D[prev->E4|up->E2]
  |section_level:{1}
  |section_number:{10}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg
    |INFO
@@ -336,7 +323,6 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E18]
  |section_level:{2}
  |section_number:{11}
   *arguments_line C1
@@ -485,28 +471,69 @@ $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
 
 $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  associated_node: Top
+ section_directions:
+  next->part
+ toplevel_directions:
+  next->chap, @code{a chap}
 2|part
  part_associated_section: chap, @code{a chap}
+ section_directions:
+  prev->top section
 3|chap, @code{a chap}
  associated_node: chap@comma{} @code{a chap}
  associated_part: part
+ section_directions:
+  next->
+  up->part
+ toplevel_directions:
+  next->
+  prev->top section
+  up->top section
 4|section
  associated_anchor_command: a node
  associated_node: a node
+ section_directions:
+  next->truc
+  up->chap, @code{a chap}
 5|truc
  associated_node: truc
+ section_directions:
+  next->section
+  prev->section
+  up->chap, @code{a chap}
 6|sub1
  associated_node: sub1
+ section_directions:
+  next->sub2
+  up->truc
 7|sub2
  associated_node: sub2
+ section_directions:
+  prev->sub1
+  up->truc
 8|section
  associated_node: section
+ section_directions:
+  next->section
+  prev->truc
+  up->chap, @code{a chap}
 9|section
  associated_node: section 1
+ section_directions:
+  prev->section
+  up->chap, @code{a chap}
 10
  associated_node:  1
+ section_directions:
+  prev->chap, @code{a chap}
+  up->part
+ toplevel_directions:
+  prev->chap, @code{a chap}
+  up->top section
 11|@asis{}
  associated_node: @asis{} 2
+ section_directions:
+  up->
 ';
 
 $result_headings_list{'insert_nodes_for_sectioning_commands'} = '';

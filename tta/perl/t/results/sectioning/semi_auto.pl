@@ -34,7 +34,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -102,11 +101,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |section_childs:EC[E7|E9]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -162,7 +159,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -208,7 +204,6 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E4]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
@@ -322,15 +317,28 @@ $result_nodes_list{'semi_auto'} = '1|Top
 $result_sections_list{'semi_auto'} = '1|Top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter 1
 2|Chapter 1
  associated_anchor_command: Chap1
  associated_node: Chap1
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 3|Sec in chapter
  associated_anchor_command: Sec in chapter
  associated_node: Sec in chapter
+ section_directions:
+  next->Section
+  up->Chapter 1
 4|Section
  associated_anchor_command: Section non auto
  associated_node: Section non auto
+ section_directions:
+  prev->Sec in chapter
+  up->Chapter 1
 ';
 
 $result_headings_list{'semi_auto'} = '';

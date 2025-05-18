@@ -34,7 +34,6 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -140,11 +139,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,11 +218,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E11|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E11|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -272,11 +267,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E14|prev->E8|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E14|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -346,11 +339,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E18|prev->E11|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E18|prev->E11|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -407,11 +398,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -654,21 +643,60 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
 $result_sections_list{'nodedescriptionblock_descriptions'} = '1|test of nodedescriptionblock used in menu
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Toto
 2|Toto
  associated_anchor_command: toto
  associated_node: toto
+ section_directions:
+  next->Titi
+  up->test of nodedescriptionblock used in menu
+ toplevel_directions:
+  next->Titi
+  prev->test of nodedescriptionblock used in menu
+  up->test of nodedescriptionblock used in menu
 3|Titi
  associated_anchor_command: titi
  associated_node: titi
+ section_directions:
+  next->Other
+  prev->Toto
+  up->test of nodedescriptionblock used in menu
+ toplevel_directions:
+  next->Other
+  prev->Toto
+  up->test of nodedescriptionblock used in menu
 4|Other
  associated_anchor_command: other
  associated_node: other
+ section_directions:
+  next->Somewhat long
+  prev->Titi
+  up->test of nodedescriptionblock used in menu
+ toplevel_directions:
+  next->Somewhat long
+  prev->Titi
+  up->test of nodedescriptionblock used in menu
 5|Somewhat long
  associated_anchor_command: a somewhat long node without description nor following space
  associated_node: a somewhat long node without description nor following space
+ section_directions:
+  next->test double
+  prev->Other
+  up->test of nodedescriptionblock used in menu
+ toplevel_directions:
+  next->test double
+  prev->Other
+  up->test of nodedescriptionblock used in menu
 6|test double
  associated_anchor_command: node double nodedescriptionblock
  associated_node: node double nodedescriptionblock
+ section_directions:
+  prev->Somewhat long
+  up->test of nodedescriptionblock used in menu
+ toplevel_directions:
+  prev->Somewhat long
+  up->test of nodedescriptionblock used in menu
 ';
 
 $result_headings_list{'nodedescriptionblock_descriptions'} = '';

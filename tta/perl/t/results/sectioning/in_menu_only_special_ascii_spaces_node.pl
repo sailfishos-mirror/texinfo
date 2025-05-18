@@ -35,7 +35,6 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -86,11 +85,9 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,11 +106,9 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -202,8 +197,23 @@ $result_nodes_list{'in_menu_only_special_ascii_spaces_node'} = '1|Top
 $result_sections_list{'in_menu_only_special_ascii_spaces_node'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->CARRIAGE RETURN|'."\r".'|
 2|CARRIAGE RETURN|'."\r".'|
+ section_directions:
+  next->CHARACTER TABULATION|	| FORM FEED||
+  up->top
+ toplevel_directions:
+  next->CHARACTER TABULATION|	| FORM FEED||
+  prev->top
+  up->top
 3|CHARACTER TABULATION|	| FORM FEED||
+ section_directions:
+  prev->CARRIAGE RETURN|'."\r".'|
+  up->top
+ toplevel_directions:
+  prev->CARRIAGE RETURN|'."\r".'|
+  up->top
 ';
 
 $result_headings_list{'in_menu_only_special_ascii_spaces_node'} = '';

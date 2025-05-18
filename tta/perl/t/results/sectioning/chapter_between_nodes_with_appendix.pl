@@ -34,7 +34,6 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -46,11 +45,9 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,11 +105,9 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E2|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E2|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -171,10 +166,25 @@ $result_nodes_list{'chapter_between_nodes_with_appendix'} = '1|Top
 $result_sections_list{'chapter_between_nodes_with_appendix'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Main
 2|Main
+ section_directions:
+  next->Annex
+  up->top section
+ toplevel_directions:
+  next->Annex
+  prev->top section
+  up->top section
 3|Annex
  associated_anchor_command: Additional
  associated_node: Additional
+ section_directions:
+  prev->Main
+  up->top section
+ toplevel_directions:
+  prev->Main
+  up->top section
 ';
 
 $result_headings_list{'chapter_between_nodes_with_appendix'} = '';

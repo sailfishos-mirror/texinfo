@@ -26,7 +26,6 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -39,11 +38,9 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -79,7 +76,14 @@ $result_errors{'no_argument_and_contents'} = [];
 $result_nodes_list{'no_argument_and_contents'} = '';
 
 $result_sections_list{'no_argument_and_contents'} = '1|for example
+ toplevel_directions:
+  next->@asis{}
 2|@asis{}
+ section_directions:
+  up->for example
+ toplevel_directions:
+  prev->for example
+  up->for example
 ';
 
 $result_headings_list{'no_argument_and_contents'} = '';

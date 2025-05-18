@@ -34,7 +34,6 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,7 +91,6 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
   |{ }
  |EXTRA
  |section_childs:EC[E9]
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -163,7 +159,6 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E5]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -250,13 +245,24 @@ $result_nodes_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1|To
 $result_sections_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|Sec
  associated_node: Sec
+ section_directions:
+  up->Chap
 4|Subsec
  associated_node: Subsec
+ section_directions:
+  up->Sec
 ';
 
 $result_headings_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '';

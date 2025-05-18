@@ -34,7 +34,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -107,7 +104,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -136,11 +132,9 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,13 +215,30 @@ $result_nodes_list{'sections_and_printindex'} = '1|Top
 $result_sections_list{'sections_and_printindex'} = '1|for example
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: node
  associated_node: node
+ section_directions:
+  next->App
+  up->for example
+ toplevel_directions:
+  next->App
+  prev->for example
+  up->for example
 3|Sec
  associated_anchor_command: sec
  associated_node: sec
+ section_directions:
+  up->chap
 4|App
+ section_directions:
+  prev->chap
+  up->for example
+ toplevel_directions:
+  prev->chap
+  up->for example
 ';
 
 $result_headings_list{'sections_and_printindex'} = '';

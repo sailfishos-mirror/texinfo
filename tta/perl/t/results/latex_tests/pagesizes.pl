@@ -45,7 +45,6 @@ $result_tree_text{'pagesizes'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -72,11 +71,9 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E4|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E4|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -99,11 +96,9 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -206,10 +201,25 @@ $result_nodes_list{'pagesizes'} = '1|Top
 $result_sections_list{'pagesizes'} = '1|section top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->other pagesizes
+  up->section top
+ toplevel_directions:
+  next->other pagesizes
+  prev->section top
+  up->section top
 3|other pagesizes
+ section_directions:
+  prev->Chapter
+  up->section top
+ toplevel_directions:
+  prev->Chapter
+  up->section top
 ';
 
 $result_headings_list{'pagesizes'} = '';

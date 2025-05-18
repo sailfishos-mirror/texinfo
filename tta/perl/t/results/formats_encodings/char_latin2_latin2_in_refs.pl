@@ -53,7 +53,6 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -133,11 +132,9 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -227,9 +224,16 @@ $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
 $result_sections_list{'char_latin2_latin2_in_refs'} = '1|char latin2 latin2 in refs
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Ą ą ˛ Ę ę
 2|Ą ą ˛ Ę ę
  associated_anchor_command: Ą ą ˛ Ę ę
  associated_node: Ą ą ˛ Ę ę
+ section_directions:
+  up->char latin2 latin2 in refs
+ toplevel_directions:
+  prev->char latin2 latin2 in refs
+  up->char latin2 latin2 in refs
 ';
 
 $result_headings_list{'char_latin2_latin2_in_refs'} = '';

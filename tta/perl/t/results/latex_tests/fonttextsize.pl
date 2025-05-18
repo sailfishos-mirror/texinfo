@@ -47,7 +47,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -75,11 +74,9 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   |{ }
  |EXTRA
  |section_childs:EC[E4]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -93,7 +90,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   |{ }
  |EXTRA
  |section_childs:EC[E5|E6|E7|E8]
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -109,7 +105,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E4]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -138,7 +133,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E5|up->E4]
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}
@@ -166,7 +160,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E6|up->E4]
  |section_heading_number:{1.1.3}
  |section_level:{3}
  |section_number:{6}
@@ -194,7 +187,6 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E4]
  |section_heading_number:{1.1.4}
  |section_level:{3}
  |section_number:{7}
@@ -325,14 +317,37 @@ $result_nodes_list{'fonttextsize'} = '1|Top
 $result_sections_list{'fonttextsize'} = '1|section top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->section top
+ toplevel_directions:
+  prev->section top
+  up->section top
 3|section
+ section_directions:
+  up->Chapter
 4|Subsection 10pts
+ section_directions:
+  next->Subsection 11pts
+  up->section
 5|Subsection 11pts
+ section_directions:
+  next->Subsection 8pts
+  prev->Subsection 10pts
+  up->section
 6|Subsection 8pts
+ section_directions:
+  next->Subsection 15pts
+  prev->Subsection 11pts
+  up->section
 7|Subsection 15pts
+ section_directions:
+  prev->Subsection 8pts
+  up->section
 ';
 
 $result_headings_list{'fonttextsize'} = '';

@@ -11007,9 +11007,11 @@ sub _prepare_output_units_global_targets($$$$)
 
   my $global_commands;
   my $nodes_list;
+  my $sections_list;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
     $nodes_list = $self->{'document'}->nodes_list();
+    $sections_list = $self->{'document'}->sections_list();
   }
 
   # Associate Index with the last @printindex.  According to Werner Lemberg,
@@ -11036,14 +11038,19 @@ sub _prepare_output_units_global_targets($$$$)
       # find the first level 1 sectioning element to associate the printindex
       # with.  May not work correctly if structuring was not done
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
+        my $section_structure
+          = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
         while ($root_command->{'extra'}
                and defined($root_command->{'extra'}->{'section_level'})
                and $root_command->{'extra'}->{'section_level'} > 1
-               and $root_command->{'extra'}->{'section_directions'}
-               and $root_command->{'extra'}->{'section_directions'}->{'up'}
-               and $root_command->{'extra'}->{'section_directions'}->{'up'}
+               and $section_structure->{'section_directions'}
+               and $section_structure->{'section_directions'}->{'up'}
+               and $section_structure->{'section_directions'}->{'up'}
                                         ->{'associated_unit'}) {
-          $root_command = $root_command->{'extra'}->{'section_directions'}->{'up'};
+          $root_command = $section_structure->{'section_directions'}->{'up'};
+          $section_structure
+            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+
           $document_unit = $root_command->{'associated_unit'};
         }
       }
@@ -11655,21 +11662,24 @@ sub _default_format_contents($$;$$)
             if ($is_contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
         $section = $section->{'extra'}->{'section_childs'}->[0];
-      } elsif ($section->{'extra'}->{'section_directions'}
-               and $section->{'extra'}->{'section_directions'}->{'next'}
+      } elsif ($section_structure->{'section_directions'}
+               and $section_structure->{'section_directions'}->{'next'}
                and $section->{'cmdname'} ne 'top') {
         $result .= "</li>\n";
         last if ($section eq $top_section);
-        $section = $section->{'extra'}->{'section_directions'}->{'next'};
+        $section = $section_structure->{'section_directions'}->{'next'};
       } else {
         #last if ($section eq $top_section);
         if ($section eq $top_section) {
           $result .= "</li>\n" unless ($section->{'cmdname'} eq 'top');
           last;
         }
-        while ($section->{'extra'}->{'section_directions'}
-               and $section->{'extra'}->{'section_directions'}->{'up'}) {
-          $section = $section->{'extra'}->{'section_directions'}->{'up'};
+        while ($section_structure->{'section_directions'}
+               and $section_structure->{'section_directions'}->{'up'}) {
+          $section = $section_structure->{'section_directions'}->{'up'};
+          $section_structure
+            = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+
           $result .= "</li>\n"
            . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             . "</ul>";
@@ -11677,10 +11687,10 @@ sub _default_format_contents($$;$$)
             $result .= "</li>\n" if ($has_toplevel_contents);
             last SECTION;
           }
-          if ($section->{'extra'}->{'section_directions'}
-              and $section->{'extra'}->{'section_directions'}->{'next'}) {
+          if ($section_structure->{'section_directions'}
+              and $section_structure->{'section_directions'}->{'next'}) {
             $result .= "</li>\n";
-            $section = $section->{'extra'}->{'section_directions'}->{'next'};
+            $section = $section_structure->{'section_directions'}->{'next'};
             last;
           }
         }

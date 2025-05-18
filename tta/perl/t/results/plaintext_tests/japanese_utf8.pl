@@ -85,7 +85,6 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -194,11 +193,9 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -229,11 +226,9 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -353,12 +348,27 @@ $result_nodes_list{'japanese_utf8'} = '1|Top
 $result_sections_list{'japanese_utf8'} = '1|GNU LilyPond --- 学習マニュアル
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Preface
 2|Preface
  associated_anchor_command: Preface
  associated_node: Preface
+ section_directions:
+  next->Introduction
+  up->GNU LilyPond --- 学習マニュアル
+ toplevel_directions:
+  next->Introduction
+  prev->GNU LilyPond --- 学習マニュアル
+  up->GNU LilyPond --- 学習マニュアル
 3|Introduction
  associated_anchor_command: Introduction
  associated_node: Introduction
+ section_directions:
+  prev->Preface
+  up->GNU LilyPond --- 学習マニュアル
+ toplevel_directions:
+  prev->Preface
+  up->GNU LilyPond --- 学習マニュアル
 ';
 
 $result_headings_list{'japanese_utf8'} = '';

@@ -20,7 +20,6 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -29,7 +28,6 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E0|E1|E2]
   ||section_level:{1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -56,11 +54,9 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2|prev->E0]
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[next->E2|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -89,11 +85,9 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1]
  |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
- |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -212,8 +206,22 @@ $result_errors{'section_on_multitable_line'} = [
 $result_nodes_list{'section_on_multitable_line'} = '';
 
 $result_sections_list{'section_on_multitable_line'} = '1|first
+ section_directions:
+  next->second
+ toplevel_directions:
+  next->second
 2|second
+ section_directions:
+  next->third
+  prev->first
+ toplevel_directions:
+  next->third
+  prev->first
 3|third
+ section_directions:
+  prev->second
+ toplevel_directions:
+  prev->second
 ';
 
 $result_headings_list{'section_on_multitable_line'} = '';

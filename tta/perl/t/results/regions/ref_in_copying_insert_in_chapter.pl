@@ -61,7 +61,6 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -89,11 +88,9 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
   |{ }
  |EXTRA
  |section_childs:EC[E6]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -154,7 +151,6 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -233,12 +229,21 @@ $result_nodes_list{'ref_in_copying_insert_in_chapter'} = '1|Top
 $result_sections_list{'ref_in_copying_insert_in_chapter'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Introduction
 2|Introduction
  associated_anchor_command: Intro
  associated_node: Intro
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|GFDL
  associated_anchor_command: GFDL
  associated_node: GFDL
+ section_directions:
+  up->Introduction
 ';
 
 $result_headings_list{'ref_in_copying_insert_in_chapter'} = '';

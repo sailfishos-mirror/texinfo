@@ -106,7 +106,6 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -218,11 +217,9 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -335,11 +332,9 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -452,11 +447,9 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E10|prev->E6|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E10|prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -560,11 +553,9 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E12|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -603,11 +594,9 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E10|up->E1]
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E10|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -787,21 +776,60 @@ $result_nodes_list{'multiple_lang_chapters'} = '1|Top
 $result_sections_list{'multiple_lang_chapters'} = '1|Multi language file
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->ja
 2|ja
  associated_anchor_command: chapter ja
  associated_node: chapter ja
+ section_directions:
+  next->en
+  up->Multi language file
+ toplevel_directions:
+  next->en
+  prev->Multi language file
+  up->Multi language file
 3|en
  associated_anchor_command: chapter en
  associated_node: chapter en
+ section_directions:
+  next->fr_FR
+  prev->ja
+  up->Multi language file
+ toplevel_directions:
+  next->fr_FR
+  prev->ja
+  up->Multi language file
 4|fr_FR
  associated_anchor_command: chapter fr_FR
  associated_node: chapter fr_FR
+ section_directions:
+  next->de
+  prev->en
+  up->Multi language file
+ toplevel_directions:
+  next->de
+  prev->en
+  up->Multi language file
 5|de
  associated_anchor_command: chapter de
  associated_node: chapter de
+ section_directions:
+  next->pt_bR
+  prev->fr_FR
+  up->Multi language file
+ toplevel_directions:
+  next->pt_bR
+  prev->fr_FR
+  up->Multi language file
 6|pt_bR
  associated_anchor_command: chapter pt_BR
  associated_node: chapter pt_BR
+ section_directions:
+  prev->de
+  up->Multi language file
+ toplevel_directions:
+  prev->de
+  up->Multi language file
 ';
 
 $result_headings_list{'multiple_lang_chapters'} = '';

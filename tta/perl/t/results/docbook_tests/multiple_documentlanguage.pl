@@ -47,7 +47,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -74,11 +73,9 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -118,11 +115,9 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   |{ }
  |EXTRA
  |section_childs:EC[E7|E9]
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -161,7 +156,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E9|up->E5]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -203,7 +197,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E5]
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{5}
@@ -296,18 +289,39 @@ $result_nodes_list{'multiple_documentlanguage'} = '1|Top
 $result_sections_list{'multiple_documentlanguage'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap no new language
 2|Chap no new language
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  next->chapter fr
+  up->top
+ toplevel_directions:
+  next->chapter fr
+  prev->top
+  up->top
 3|chapter fr
  associated_anchor_command: chapter fr
  associated_node: chapter fr
+ section_directions:
+  prev->Chap no new language
+  up->top
+ toplevel_directions:
+  prev->Chap no new language
+  up->top
 4|section pt
  associated_anchor_command: subnode pt
  associated_node: subnode pt
+ section_directions:
+  next->section fr
+  up->chapter fr
 5|section fr
  associated_anchor_command: subnode fr
  associated_node: subnode fr
+ section_directions:
+  prev->section pt
+  up->chapter fr
 ';
 
 $result_headings_list{'multiple_documentlanguage'} = '';

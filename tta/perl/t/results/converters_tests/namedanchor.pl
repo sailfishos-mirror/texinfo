@@ -34,7 +34,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -77,11 +76,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |section_childs:EC[E11]
- |section_directions:D[next->E13|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E13|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C4
    |INFO
@@ -162,7 +159,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -387,11 +383,9 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |{ }
  |EXTRA
  |section_childs:EC[E16]
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -502,7 +496,6 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E13]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
@@ -693,18 +686,37 @@ $result_nodes_list{'namedanchor'} = '1|Top
 $result_sections_list{'namedanchor'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter @namedanchor{Not here!, There} after
 2|chapter @namedanchor{Not here!, There} after
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  next->chap1
+  up->top
+ toplevel_directions:
+  next->chap1
+  prev->top
+  up->top
 3|secc1
  associated_anchor_command: secc1
  associated_node: secc1
+ section_directions:
+  up->chapter @namedanchor{Not here!, There} after
 4|chap1
  associated_anchor_command: chap1
  associated_node: chap1
+ section_directions:
+  prev->chapter @namedanchor{Not here!, There} after
+  up->top
+ toplevel_directions:
+  prev->chapter @namedanchor{Not here!, There} after
+  up->top
 5|Secc2
  associated_anchor_command: secc2
  associated_node: secc2
+ section_directions:
+  up->chap1
 ';
 
 $result_headings_list{'namedanchor'} = '';

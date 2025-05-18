@@ -46,7 +46,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -190,11 +189,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |section_childs:EC[E7|E18|E23]
- |section_directions:D[next->E26|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E26|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -278,7 +275,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |section_childs:EC[E10|E12|E14|E16]
- |section_directions:D[next->E18|up->E4]
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
@@ -369,7 +365,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|up->E7]
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
@@ -398,7 +393,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E14|prev->E10|up->E7]
  |section_level:{3}
  |section_number:{5}
   *arguments_line C1
@@ -427,7 +421,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E16|prev->E12|up->E7]
  |section_level:{3}
  |section_number:{6}
   *arguments_line C1
@@ -456,7 +449,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E7]
  |section_level:{3}
  |section_number:{7}
   *arguments_line C1
@@ -486,7 +478,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |section_childs:EC[E21]
- |section_directions:D[next->E23|prev->E7|up->E4]
  |section_level:{2}
  |section_number:{8}
   *arguments_line C1
@@ -544,7 +535,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E18]
  |section_level:{3}
  |section_number:{9}
   *arguments_line C1
@@ -574,7 +564,6 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{  }
  |EXTRA
- |section_directions:D[prev->E18|up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{10}
@@ -644,11 +633,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E28|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{11}
- |toplevel_directions:D[next->E28|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -678,10 +665,8 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E26|up->E1]
  |section_level:{1}
  |section_number:{12}
- |toplevel_directions:D[prev->E26|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1075,39 +1060,88 @@ $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
 $result_sections_list{'sectioning_check_menu_structure'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->first node chapter
 2|first node chapter
  associated_anchor_command: First node
  associated_node: First node
+ section_directions:
+  next->second node chapter
+  up->
+ toplevel_directions:
+  next->second node chapter
+  prev->
+  up->
 3|unnumbered section
  associated_anchor_command: unnumbered
  associated_node: unnumbered
+ section_directions:
+  next->unnumbered section2
+  up->first node chapter
 4|unnumbered subsection
  associated_anchor_command: unnumbered sub
  associated_node: unnumbered sub
+ section_directions:
+  next->numbered subsection
+  up->unnumbered section
 5|numbered subsection
  associated_anchor_command: numbered sub
  associated_node: numbered sub
+ section_directions:
+  next->unnumbered subsection2
+  prev->unnumbered subsection
+  up->unnumbered section
 6|unnumbered subsection2
  associated_anchor_command: unnumbered sub2
  associated_node: unnumbered sub2
+ section_directions:
+  next->numbered subsection2
+  prev->numbered subsection
+  up->unnumbered section
 7|numbered subsection2
  associated_anchor_command: numbered sub2
  associated_node: numbered sub2
+ section_directions:
+  prev->unnumbered subsection2
+  up->unnumbered section
 8|unnumbered section2
  associated_anchor_command: unnumbered2
  associated_node: unnumbered2
+ section_directions:
+  next->numbered section
+  prev->unnumbered section
+  up->first node chapter
 9|numbered subsection3
  associated_anchor_command: numbered sub3
  associated_node: numbered sub3
+ section_directions:
+  up->unnumbered section2
 10|numbered section
  associated_anchor_command: numbered
  associated_node: numbered
+ section_directions:
+  prev->unnumbered section2
+  up->first node chapter
 11|second node chapter
  associated_anchor_command: Second node
  associated_node: Second node
+ section_directions:
+  next->unnumbered chapter
+  prev->first node chapter
+  up->
+ toplevel_directions:
+  next->unnumbered chapter
+  prev->first node chapter
+  up->
 12|unnumbered chapter
  associated_anchor_command: Third node unnumbered
  associated_node: Third node unnumbered
+ section_directions:
+  prev->second node chapter
+  up->
+ toplevel_directions:
+  prev->second node chapter
+  up->
 ';
 
 $result_headings_list{'sectioning_check_menu_structure'} = '';

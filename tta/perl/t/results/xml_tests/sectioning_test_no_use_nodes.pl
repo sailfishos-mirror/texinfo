@@ -34,7 +34,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -65,11 +64,9 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[next->E7|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -99,7 +96,6 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -132,11 +128,9 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -223,15 +217,32 @@ $result_nodes_list{'sectioning_test_no_use_nodes'} = '1|Top
 $result_sections_list{'sectioning_test_no_use_nodes'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap1
 2|Chap1
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  next->Chap2
+  up->top
+ toplevel_directions:
+  next->Chap2
+  prev->top
+  up->top
 3|sec1
  associated_anchor_command: sec
  associated_node: sec
+ section_directions:
+  up->Chap1
 4|Chap2
  associated_anchor_command: chap2
  associated_node: chap2
+ section_directions:
+  prev->Chap1
+  up->top
+ toplevel_directions:
+  prev->Chap1
+  up->top
 ';
 
 $result_headings_list{'sectioning_test_no_use_nodes'} = '';

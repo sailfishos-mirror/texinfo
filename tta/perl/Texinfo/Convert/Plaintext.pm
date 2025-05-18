@@ -1625,6 +1625,9 @@ sub format_contents($$$)
   # no sections
   return ('', 0) if (!$section_root
                      or !$section_root->{'extra'}->{'section_childs'});
+
+  my $sections_list = $self->{'document'}->sections_list();
+
   my $root_level = $section_root->{'extra'}->{'section_childs'}->[0]
                                           ->{'extra'}->{'section_level'};
   foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
@@ -1642,6 +1645,9 @@ sub format_contents($$$)
       # arguments_line type element
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
+      my $section_structure
+        = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+
       my $section_title_tree;
       if (defined($section->{'extra'}->{'section_heading_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
@@ -1677,19 +1683,21 @@ sub format_contents($$$)
           and ($contents
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
         $section = $section->{'extra'}->{'section_childs'}->[0];
-      } elsif ($section->{'extra'}->{'section_directions'}
-               and $section->{'extra'}->{'section_directions'}->{'next'}) {
+      } elsif ($section_structure->{'section_directions'}
+               and $section_structure->{'section_directions'}->{'next'}) {
         last if ($section eq $top_section);
-        $section = $section->{'extra'}->{'section_directions'}->{'next'};
+        $section = $section_structure->{'section_directions'}->{'next'};
       } else {
         last if ($section eq $top_section);
-        while ($section->{'extra'}->{'section_directions'}
-               and $section->{'extra'}->{'section_directions'}->{'up'}) {
-          $section = $section->{'extra'}->{'section_directions'}->{'up'};
+        while ($section_structure->{'section_directions'}
+               and $section_structure->{'section_directions'}->{'up'}) {
+          $section = $section_structure->{'section_directions'}->{'up'};
           last SECTION if ($section eq $top_section);
-          if ($section->{'extra'}->{'section_directions'}
-              and $section->{'extra'}->{'section_directions'}->{'next'}) {
-            $section = $section->{'extra'}->{'section_directions'}->{'next'};
+          $section_structure
+            = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+          if ($section_structure->{'section_directions'}
+              and $section_structure->{'section_directions'}->{'next'}) {
+            $section = $section_structure->{'section_directions'}->{'next'};
             last;
           }
         }

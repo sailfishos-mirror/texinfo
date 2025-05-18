@@ -35,7 +35,6 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -83,11 +82,9 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -151,9 +148,16 @@ $result_nodes_list{'node_sectop_before_lone_node_Top'} = '1|node before
 $result_sections_list{'node_sectop_before_lone_node_Top'} = '1|top sectionning
  associated_anchor_command: node before
  associated_node: node before
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top sectionning
+ toplevel_directions:
+  prev->top sectionning
+  up->top sectionning
 ';
 
 $result_headings_list{'node_sectop_before_lone_node_Top'} = '';

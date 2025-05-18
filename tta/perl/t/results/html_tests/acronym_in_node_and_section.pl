@@ -34,7 +34,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
   |{ }
  |EXTRA
  |section_childs:EC[E5|E7]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -93,7 +90,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -137,7 +133,6 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E3]
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
@@ -226,15 +221,28 @@ $result_nodes_list{'acronym_in_node_and_section'} = '1|top
 $result_sections_list{'acronym_in_node_and_section'} = '1|top
  associated_anchor_command: top
  associated_node: top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|define
  associated_anchor_command: sec define
  associated_node: sec define
+ section_directions:
+  next->here is @acronym{GHJ}
+  up->chap
 4|here is @acronym{GHJ}
  associated_anchor_command: sec here is @acronym{GHJ}
  associated_node: sec here is @acronym{GHJ}
+ section_directions:
+  prev->define
+  up->chap
 ';
 
 $result_headings_list{'acronym_in_node_and_section'} = '';

@@ -26,7 +26,6 @@ FastForward: [U1]
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,11 +60,9 @@ FastBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -107,10 +104,16 @@ $result_errors{'chapter_before_and_after_part'} = [];
 $result_nodes_list{'chapter_before_and_after_part'} = '';
 
 $result_sections_list{'chapter_before_and_after_part'} = '1|chapter
+ toplevel_directions:
+  next->chapter 2
 2|part
  part_associated_section: chapter 2
 3|chapter 2
  associated_part: part
+ section_directions:
+  up->part
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'chapter_before_and_after_part'} = '';

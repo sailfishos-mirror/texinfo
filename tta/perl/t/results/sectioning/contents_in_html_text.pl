@@ -20,7 +20,6 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -34,11 +33,9 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[next->E3|up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E3|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -51,7 +48,6 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -67,11 +63,9 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1|up->E0]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -123,9 +117,26 @@ $result_errors{'contents_in_html_text'} = [];
 $result_nodes_list{'contents_in_html_text'} = '';
 
 $result_sections_list{'contents_in_html_text'} = '1|top
+ toplevel_directions:
+  next->Chap1
 2|Chap1
+ section_directions:
+  next->Chap2
+  up->top
+ toplevel_directions:
+  next->Chap2
+  prev->top
+  up->top
 3|Sec 1
+ section_directions:
+  up->Chap1
 4|Chap2
+ section_directions:
+  prev->Chap1
+  up->top
+ toplevel_directions:
+  prev->Chap1
+  up->top
 ';
 
 $result_headings_list{'contents_in_html_text'} = '';

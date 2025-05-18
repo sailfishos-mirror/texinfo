@@ -36,7 +36,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -102,11 +101,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[next->E15|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E15|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -258,7 +255,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |EXTRA
  |level_modifier:{-1}
  |section_childs:EC[E10]
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -319,7 +315,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |EXTRA
  |level_modifier:{-1}
  |section_childs:EC[E13]
- |section_directions:D[up->E7]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -379,7 +374,6 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |level_modifier:{-1}
- |section_directions:D[up->E10]
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{5}
@@ -485,11 +479,9 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -662,21 +654,42 @@ $result_nodes_list{'raiselowersections'} = '1|Top
 $result_sections_list{'raiselowersections'} = '1
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  next->Second chapter
+  up->
+ toplevel_directions:
+  next->Second chapter
+  prev->
+  up->
 3|Chapter in included file
  associated_anchor_command: Chapter in included file
  associated_node: Chapter in included file
+ section_directions:
+  up->Chapter
 4|Section
  associated_anchor_command: Section
  associated_node: Section
+ section_directions:
+  up->Chapter in included file
 5|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
+ section_directions:
+  up->Section
 6|Second chapter
  associated_anchor_command: Second chapter
  associated_node: Second chapter
+ section_directions:
+  prev->Chapter
+  up->
+ toplevel_directions:
+  prev->Chapter
+  up->
 ';
 
 $result_headings_list{'raiselowersections'} = '';

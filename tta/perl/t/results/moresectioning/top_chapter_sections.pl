@@ -25,7 +25,6 @@ FastForward: [U1]
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -48,10 +47,8 @@ Up: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2|up->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E2|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,11 +73,9 @@ Up: [U0]
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[next->E4|prev->E1|up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E4|prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -102,7 +97,6 @@ Up: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{4}
@@ -130,11 +124,9 @@ Up: [U0]
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[next->E8|prev->E2|up->E0]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E8|prev->E2|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -157,7 +149,6 @@ Up: [U4]
   |{ }
  |EXTRA
  |section_childs:EC[E6|E7]
- |section_directions:D[up->E4]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{6}
@@ -183,7 +174,6 @@ Up: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E5]
  |section_heading_number:{2.1.1}
  |section_level:{3}
  |section_number:{7}
@@ -209,7 +199,6 @@ Up: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E6|up->E5]
  |section_heading_number:{2.1.2}
  |section_level:{3}
  |section_number:{8}
@@ -233,11 +222,9 @@ Up: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E4|up->E0]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{9}
- |toplevel_directions:D[prev->E4|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -301,14 +288,55 @@ $result_errors{'top_chapter_sections'} = [];
 $result_nodes_list{'top_chapter_sections'} = '';
 
 $result_sections_list{'top_chapter_sections'} = '1|top
+ toplevel_directions:
+  next->unnumbered
 2|unnumbered
+ section_directions:
+  next->First chapter
+  up->top
+ toplevel_directions:
+  next->First chapter
+  prev->top
+  up->top
 3|First chapter
+ section_directions:
+  next->Chapter
+  prev->unnumbered
+  up->top
+ toplevel_directions:
+  next->Chapter
+  prev->unnumbered
+  up->top
 4|second
+ section_directions:
+  up->First chapter
 5|Chapter
+ section_directions:
+  next->Chapter 2
+  prev->First chapter
+  up->top
+ toplevel_directions:
+  next->Chapter 2
+  prev->First chapter
+  up->top
 6|Section of chapter
+ section_directions:
+  up->Chapter
 7|subsection 1
+ section_directions:
+  next->subsection 2
+  up->Section of chapter
 8|subsection 2
+ section_directions:
+  prev->subsection 1
+  up->Section of chapter
 9|Chapter 2
+ section_directions:
+  prev->Chapter
+  up->top
+ toplevel_directions:
+  prev->Chapter
+  up->top
 ';
 
 $result_headings_list{'top_chapter_sections'} = '';

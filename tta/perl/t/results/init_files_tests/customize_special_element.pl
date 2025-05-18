@@ -46,7 +46,6 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,11 +72,9 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -116,11 +113,9 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -197,12 +192,27 @@ $result_nodes_list{'customize_special_element'} = '1|Top
 $result_sections_list{'customize_special_element'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  next->chap fr
+  up->top
+ toplevel_directions:
+  next->chap fr
+  prev->top
+  up->top
 3|chap fr
  associated_anchor_command: Chapter fr
  associated_node: Chapter fr
+ section_directions:
+  prev->chap
+  up->top
+ toplevel_directions:
+  prev->chap
+  up->top
 ';
 
 $result_headings_list{'customize_special_element'} = '';

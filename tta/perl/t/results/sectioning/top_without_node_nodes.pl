@@ -23,7 +23,6 @@ NodeUp: (dir)
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -60,11 +59,9 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,9 +106,16 @@ $result_nodes_list{'top_without_node_nodes'} = '1|second
 ';
 
 $result_sections_list{'top_without_node_nodes'} = '1|top section
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: second
  associated_node: second
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'top_without_node_nodes'} = '';

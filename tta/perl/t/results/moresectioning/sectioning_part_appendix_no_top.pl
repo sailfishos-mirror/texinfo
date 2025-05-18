@@ -26,7 +26,6 @@ FastForward: [U4]
   ||EXTRA
   ||section_childs:EC[E0|E4|E8]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -49,7 +48,6 @@ Up: [U0]
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[up->E0]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{2}
@@ -75,7 +73,6 @@ Up: [U1]
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[up->E1]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{3}
@@ -100,7 +97,6 @@ Up: [U2]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{4}
@@ -127,7 +123,6 @@ Next: [U5]
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E5|E6|E7]
- |section_directions:D[next->E8]
  |section_level:{0}
  |section_number:{5}
   *arguments_line C1
@@ -142,11 +137,9 @@ Next: [U5]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E4]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[next->E6|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -170,11 +163,9 @@ Up: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E5|up->E4]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[next->E7|prev->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -197,10 +188,8 @@ Up: [U4]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E6|up->E4]
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[next->E8|prev->E6]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -222,11 +211,9 @@ Prev: [U4]
   |{ }
  |EXTRA
  |section_childs:EC[E9]
- |section_directions:D[prev->E4]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{9}
- |toplevel_directions:D[prev->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -246,7 +233,6 @@ Up: [U7]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E8]
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{10}
@@ -318,17 +304,52 @@ $result_errors{'sectioning_part_appendix_no_top'} = [];
 $result_nodes_list{'sectioning_part_appendix_no_top'} = '';
 
 $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
+ toplevel_directions:
+  next->chapter in part
 2|section
+ section_directions:
+  up->chapter
 3|subsection
+ section_directions:
+  up->section
 4|subsubsection
+ section_directions:
+  up->subsection
 5|part
  part_associated_section: chapter in part
+ section_directions:
+  next->appendix
 6|chapter in part
  associated_part: part
+ section_directions:
+  next->second chapter in part
+  up->part
+ toplevel_directions:
+  next->second chapter in part
+  prev->chapter
 7|second chapter in part
+ section_directions:
+  next->unnumbered
+  prev->chapter in part
+  up->part
+ toplevel_directions:
+  next->unnumbered
+  prev->chapter in part
 8|unnumbered
+ section_directions:
+  prev->second chapter in part
+  up->part
+ toplevel_directions:
+  next->appendix
+  prev->second chapter in part
 9|appendix
+ section_directions:
+  prev->part
+ toplevel_directions:
+  prev->unnumbered
 10|appendixsec
+ section_directions:
+  up->appendix
 ';
 
 $result_headings_list{'sectioning_part_appendix_no_top'} = '';

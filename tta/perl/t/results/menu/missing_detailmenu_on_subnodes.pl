@@ -34,7 +34,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -143,11 +142,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[next->E9|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -203,7 +200,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E4]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -234,11 +230,9 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E12|E14]
- |section_directions:D[prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -305,7 +299,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E14|up->E9]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
@@ -335,7 +328,6 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E12|up->E9]
  |section_level:{2}
  |section_number:{6}
   *arguments_line C1
@@ -527,21 +519,44 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
 $result_sections_list{'missing_detailmenu_on_subnodes'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chapter
 2|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->chapter 2
+  up->top
+ toplevel_directions:
+  next->chapter 2
+  prev->top
+  up->top
 3|section
  associated_anchor_command: section
  associated_node: section
+ section_directions:
+  up->chapter
 4|chapter 2
  associated_anchor_command: chapter 2
  associated_node: chapter 2
+ section_directions:
+  prev->chapter
+  up->top
+ toplevel_directions:
+  prev->chapter
+  up->top
 5|section chap 2
  associated_anchor_command: section chap 2
  associated_node: section chap 2
+ section_directions:
+  next->unnumberedsec
+  up->chapter 2
 6|unnumberedsec
  associated_anchor_command: unnumberedsec
  associated_node: unnumberedsec
+ section_directions:
+  prev->section chap 2
+  up->chapter 2
 ';
 
 $result_headings_list{'missing_detailmenu_on_subnodes'} = '';

@@ -35,7 +35,6 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -48,11 +47,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -209,7 +206,14 @@ $result_nodes_list{'file_name_case_insensitive_conflict_redirections'} = '1|Top
 $result_sections_list{'file_name_case_insensitive_conflict_redirections'} = '1|top section
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
+ section_directions:
+  up->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'file_name_case_insensitive_conflict_redirections'} = '';

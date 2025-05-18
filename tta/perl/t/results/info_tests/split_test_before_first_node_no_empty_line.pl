@@ -49,7 +49,6 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,11 +107,9 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -185,9 +182,16 @@ $result_nodes_list{'split_test_before_first_node_no_empty_line'} = '1|Top
 $result_sections_list{'split_test_before_first_node_no_empty_line'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chap1
  associated_node: chap1
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'split_test_before_first_node_no_empty_line'} = '';

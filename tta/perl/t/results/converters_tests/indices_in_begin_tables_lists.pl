@@ -38,7 +38,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -65,11 +64,9 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1128,11 +1125,9 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1461,12 +1456,27 @@ $result_nodes_list{'indices_in_begin_tables_lists'} = '1|Top
 $result_sections_list{'indices_in_begin_tables_lists'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  next->printindex
+  up->top
+ toplevel_directions:
+  next->printindex
+  prev->top
+  up->top
 3|printindex
  associated_anchor_command: printindex
  associated_node: printindex
+ section_directions:
+  prev->chap
+  up->top
+ toplevel_directions:
+  prev->chap
+  up->top
 ';
 
 $result_headings_list{'indices_in_begin_tables_lists'} = '';

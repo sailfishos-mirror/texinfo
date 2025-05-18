@@ -35,7 +35,6 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,11 +61,9 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -85,11 +82,9 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -116,11 +111,9 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -193,13 +186,36 @@ $result_nodes_list{'simple_only_special_spaces_node'} = '1|Top
 $result_sections_list{'simple_only_special_spaces_node'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->EN QUAD| |
 2|EN QUAD| |
  associated_anchor_command:   
  associated_node:   
+ section_directions:
+  next->CARRIAGE RETURN|'."\r".'|
+  up->top
+ toplevel_directions:
+  next->CARRIAGE RETURN|'."\r".'|
+  prev->top
+  up->top
 3|CARRIAGE RETURN|'."\r".'|
+ section_directions:
+  next->THREE-PER-EM SPACE
+  prev->EN QUAD| |
+  up->top
+ toplevel_directions:
+  next->THREE-PER-EM SPACE
+  prev->EN QUAD| |
+  up->top
 4|THREE-PER-EM SPACE
  associated_anchor_command:   
  associated_node:   
+ section_directions:
+  prev->CARRIAGE RETURN|'."\r".'|
+  up->top
+ toplevel_directions:
+  prev->CARRIAGE RETURN|'."\r".'|
+  up->top
 ';
 
 $result_headings_list{'simple_only_special_spaces_node'} = '';

@@ -107,7 +107,6 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
   ||EXTRA
   ||section_childs:EC[E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,11 +133,9 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E3|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -218,9 +215,16 @@ $result_nodes_list{'anchor_in_copying_insertcopying_titlepage'} = '1|Top
 $result_sections_list{'anchor_in_copying_insertcopying_titlepage'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'anchor_in_copying_insertcopying_titlepage'} = '';

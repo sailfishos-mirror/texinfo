@@ -20,7 +20,6 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -45,11 +44,9 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -61,7 +58,6 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -97,8 +93,17 @@ $result_errors{'no_empty_line_between_headings'} = [];
 $result_nodes_list{'no_empty_line_between_headings'} = '';
 
 $result_sections_list{'no_empty_line_between_headings'} = '1|Top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
+ section_directions:
+  up->Top
+ toplevel_directions:
+  prev->Top
+  up->Top
 3|Section
+ section_directions:
+  up->Chapter
 ';
 
 $result_headings_list{'no_empty_line_between_headings'} = '1|Subheading

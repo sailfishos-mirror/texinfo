@@ -42,7 +42,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,11 +68,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -118,11 +115,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   |{ }
  |EXTRA
  |section_childs:EC[E7]
- |section_directions:D[next->E9|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E9|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -154,7 +149,6 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E5]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -196,11 +190,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E11|prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E11|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -232,11 +224,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E9|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E9|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -351,21 +341,54 @@ $result_nodes_list{'customize_translations'} = '1|Top
 $result_sections_list{'customize_translations'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->chap
 2|chap
  associated_anchor_command: Chapter
  associated_node: Chapter
+ section_directions:
+  next->chap fr
+  up->top
+ toplevel_directions:
+  next->chap fr
+  prev->top
+  up->top
 3|chap fr
  associated_anchor_command: Chapter fr
  associated_node: Chapter fr
+ section_directions:
+  next->chap de
+  prev->chap
+  up->top
+ toplevel_directions:
+  next->chap de
+  prev->chap
+  up->top
 4|sec fr
  associated_anchor_command: section fr
  associated_node: section fr
+ section_directions:
+  up->chap fr
 5|chap de
  associated_anchor_command: Chapter de
  associated_node: Chapter de
+ section_directions:
+  next->Last Chapter
+  prev->chap fr
+  up->top
+ toplevel_directions:
+  next->Last Chapter
+  prev->chap fr
+  up->top
 6|Last Chapter
  associated_anchor_command: Last chapter
  associated_node: Last chapter
+ section_directions:
+  prev->chap de
+  up->top
+ toplevel_directions:
+  prev->chap de
+  up->top
 ';
 
 $result_headings_list{'customize_translations'} = '';

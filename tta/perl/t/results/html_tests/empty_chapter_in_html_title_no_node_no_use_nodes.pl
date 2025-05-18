@@ -35,7 +35,6 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -45,11 +44,9 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
   {empty_line:\\n}
  *2 @chapter C1 l4
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg
    |INFO
@@ -91,7 +88,14 @@ $result_nodes_list{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '1|Top
 $result_sections_list{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->
 2
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 ';
 
 $result_headings_list{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '';

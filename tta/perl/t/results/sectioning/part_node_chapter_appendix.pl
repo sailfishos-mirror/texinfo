@@ -34,7 +34,6 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -42,7 +41,6 @@ NodeForward: [U1]
   ||EXTRA
   ||section_childs:EC[E1|E3|E6]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -97,7 +95,6 @@ NodeBack: [U0]
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E5]
- |section_directions:D[next->E6|prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -126,11 +123,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -150,11 +145,9 @@ Prev: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -219,14 +212,32 @@ $result_nodes_list{'part_node_chapter_appendix'} = '1|Top
 $result_sections_list{'part_node_chapter_appendix'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->Part 1
+ toplevel_directions:
+  next->chapter
 2|Part 1
  part_associated_section: chapter
  part_following_node: chapter node
+ section_directions:
+  next->Appendix
+  prev->top
 3|chapter
  associated_anchor_command: chapter node
  associated_node: chapter node
  associated_part: Part 1
+ section_directions:
+  up->Part 1
+ toplevel_directions:
+  next->Appendix
+  prev->top
+  up->top
 4|Appendix
+ section_directions:
+  prev->Part 1
+ toplevel_directions:
+  prev->chapter
+  up->top
 ';
 
 $result_headings_list{'part_node_chapter_appendix'} = '';

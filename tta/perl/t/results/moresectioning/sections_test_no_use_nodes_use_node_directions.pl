@@ -14,7 +14,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E1]
- |section_directions:D[next->E5]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -22,7 +21,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   ||EXTRA
   ||section_childs:EC[E0|E5|E9]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -36,11 +34,9 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E2]
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -54,7 +50,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[up->E1]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -71,7 +66,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E4]
- |section_directions:D[up->E2]
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -87,7 +81,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{5}
@@ -105,7 +98,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E6|E7|E8]
- |section_directions:D[next->E9|prev->E0]
  |section_level:{0}
  |section_number:{6}
   *arguments_line C1
@@ -120,11 +112,9 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E5]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[next->E7|prev->E1|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -137,11 +127,9 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E6|up->E5]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{8}
- |toplevel_directions:D[next->E8|prev->E6|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -154,10 +142,8 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E7|up->E5]
  |section_level:{1}
  |section_number:{9}
- |toplevel_directions:D[next->E9|prev->E7|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -171,11 +157,9 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E10]
- |section_directions:D[prev->E5]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{10}
- |toplevel_directions:D[prev->E8|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -188,7 +172,6 @@ $result_tree_text{'sections_test_no_use_nodes_use_node_directions'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E9]
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{11}
@@ -265,18 +248,66 @@ $result_errors{'sections_test_no_use_nodes_use_node_directions'} = [];
 $result_nodes_list{'sections_test_no_use_nodes_use_node_directions'} = '';
 
 $result_sections_list{'sections_test_no_use_nodes_use_node_directions'} = '1|top
+ section_directions:
+  next->part
+ toplevel_directions:
+  next->chapter
 2|chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  next->chapter in part
+  prev->top
+  up->top
 3|section
+ section_directions:
+  up->chapter
 4|subsection
+ section_directions:
+  up->section
 5|subsubsection
+ section_directions:
+  up->subsection
 6|part
  part_associated_section: chapter in part
+ section_directions:
+  next->appendix
+  prev->top
 7|chapter in part
  associated_part: part
+ section_directions:
+  next->second chapter in part
+  up->part
+ toplevel_directions:
+  next->second chapter in part
+  prev->chapter
+  up->top
 8|second chapter in part
+ section_directions:
+  next->unnumbered
+  prev->chapter in part
+  up->part
+ toplevel_directions:
+  next->unnumbered
+  prev->chapter in part
+  up->top
 9|unnumbered
+ section_directions:
+  prev->second chapter in part
+  up->part
+ toplevel_directions:
+  next->appendix
+  prev->second chapter in part
+  up->top
 10|appendix
+ section_directions:
+  prev->part
+ toplevel_directions:
+  prev->unnumbered
+  up->top
 11|appendixsec
+ section_directions:
+  up->appendix
 ';
 
 $result_headings_list{'sections_test_no_use_nodes_use_node_directions'} = '';

@@ -35,7 +35,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -99,11 +98,9 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E5|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E5|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -131,11 +128,9 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |section_childs:EC[E6]
- |section_directions:D[next->E8|prev->E3|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -148,7 +143,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E5]
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -202,11 +196,9 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |section_childs:EC[E10|E12|E13]
- |section_directions:D[next->E14|prev->E5|up->E1]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E14|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -248,7 +240,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E12|up->E8]
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{6}
@@ -278,7 +269,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E13|prev->E10|up->E8]
  |section_heading_number:{3.2}
  |section_level:{2}
  |section_number:{7}
@@ -294,7 +284,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E12|up->E8]
  |section_heading_number:{3.3}
  |section_level:{2}
  |section_number:{8}
@@ -311,11 +300,9 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |section_childs:EC[E15]
- |section_directions:D[next->E19|prev->E8|up->E1]
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{9}
- |toplevel_directions:D[next->E19|prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -329,7 +316,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |section_childs:EC[E16|E18]
- |section_directions:D[up->E14]
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{10}
@@ -345,7 +331,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E18|up->E15]
  |section_heading_number:{4.1.1}
  |section_level:{3}
  |section_number:{11}
@@ -386,7 +371,6 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E16|up->E15]
  |section_heading_number:{4.1.2}
  |section_level:{3}
  |section_number:{12}
@@ -402,11 +386,9 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E14|up->E1]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{13}
- |toplevel_directions:D[prev->E14|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -561,26 +543,85 @@ $result_nodes_list{'more_sections_than_nodes_texi2html'} = '1|Top
 $result_sections_list{'more_sections_than_nodes_texi2html'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->c1
 2|c1
+ section_directions:
+  next->c2
+  up->top
+ toplevel_directions:
+  next->c2
+  prev->top
+  up->top
 3|c2
  associated_anchor_command: n c2
  associated_node: n c2
+ section_directions:
+  next->c3
+  prev->c1
+  up->top
+ toplevel_directions:
+  next->c3
+  prev->c1
+  up->top
 4|s1
+ section_directions:
+  up->c2
 5|c3
  associated_anchor_command: n c3
  associated_node: n c3
+ section_directions:
+  next->c4
+  prev->c2
+  up->top
+ toplevel_directions:
+  next->c4
+  prev->c2
+  up->top
 6|C3 s1
+ section_directions:
+  next->c3 s2
+  up->c3
 7|c3 s2
  associated_anchor_command: n c3 s 2
  associated_node: n c3 s 2
+ section_directions:
+  next->c3 s3
+  prev->C3 s1
+  up->c3
 8|c3 s3
+ section_directions:
+  prev->c3 s2
+  up->c3
 9|c4
+ section_directions:
+  next->appendix
+  prev->c3
+  up->top
+ toplevel_directions:
+  next->appendix
+  prev->c3
+  up->top
 10|c3 s1
+ section_directions:
+  up->c4
 11|c3 s1 s1
+ section_directions:
+  next->c3 s1 s2
+  up->c3 s1
 12|c3 s1 s2
  associated_anchor_command: n c3 s1 s2
  associated_node: n c3 s1 s2
+ section_directions:
+  prev->c3 s1 s1
+  up->c3 s1
 13|appendix
+ section_directions:
+  prev->c4
+  up->top
+ toplevel_directions:
+  prev->c4
+  up->top
 ';
 
 $result_headings_list{'more_sections_than_nodes_texi2html'} = '';

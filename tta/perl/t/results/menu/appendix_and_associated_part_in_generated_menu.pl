@@ -27,7 +27,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E3]
- |section_directions:D[next->E6]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -35,7 +34,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   ||EXTRA
   ||section_childs:EC[E1|E6|E9]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -63,11 +61,9 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |section_childs:EC[E5]
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,7 +90,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E3]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -112,7 +107,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E8]
- |section_directions:D[next->E9|prev->E1]
  |section_level:{0}
  |section_number:{4}
   *arguments_line C1
@@ -141,11 +135,9 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E6]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E11|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -160,7 +152,6 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |EXTRA
  |global_command_number:{2}
  |section_childs:EC[E11]
- |section_directions:D[prev->E6]
  |section_level:{0}
  |section_number:{6}
   *arguments_line C1
@@ -189,11 +180,9 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E9]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{7}
- |toplevel_directions:D[prev->E8|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -286,26 +275,54 @@ $result_nodes_list{'appendix_and_associated_part_in_generated_menu'} = '1|Top
 $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->P1
+ toplevel_directions:
+  next->Chap
 2|Chap
  associated_anchor_command: chapter
  associated_node: chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  next->Chap 2
+  prev->top
+  up->top
 3|Sec
  associated_anchor_command: sec
  associated_node: sec
+ section_directions:
+  up->Chap
 4|P1
  part_associated_section: Chap 2
  part_following_node: chap2
+ section_directions:
+  next->Final
+  prev->top
 5|Chap 2
  associated_anchor_command: chap2
  associated_node: chap2
  associated_part: P1
+ section_directions:
+  up->P1
+ toplevel_directions:
+  next->GGG
+  prev->Chap
+  up->top
 6|Final
  part_associated_section: GGG
  part_following_node: app
+ section_directions:
+  prev->P1
 7|GGG
  associated_anchor_command: app
  associated_node: app
  associated_part: Final
+ section_directions:
+  up->Final
+ toplevel_directions:
+  prev->Chap 2
+  up->top
 ';
 
 $result_headings_list{'appendix_and_associated_part_in_generated_menu'} = '';

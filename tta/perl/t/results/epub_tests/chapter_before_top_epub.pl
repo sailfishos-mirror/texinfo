@@ -50,7 +50,6 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E2|E3|E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -64,7 +63,6 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
   |{ }
  |EXTRA
  |global_command_number:{1}
- |section_directions:D[next->E4]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -79,10 +77,8 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E3]
  |section_level:{0}
  |section_number:{3}
- |toplevel_directions:D[prev->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,10 +130,18 @@ $result_nodes_list{'chapter_before_top_epub'} = '1|Top
 $result_sections_list{'chapter_before_top_epub'} = '1|chapter
  associated_anchor_command: chapter
  associated_node: chapter
+ toplevel_directions:
+  next->top
 2|part
  part_associated_section: top
+ section_directions:
+  next->top
 3|top
  associated_part: part
+ section_directions:
+  prev->part
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'chapter_before_top_epub'} = '';

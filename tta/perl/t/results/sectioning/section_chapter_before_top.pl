@@ -12,7 +12,6 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -21,7 +20,6 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
   ||EXTRA
   ||section_childs:EC[E0|E1|E2]
   ||section_level:{1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -34,11 +32,9 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2|prev->E0]
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[next->E2|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -51,10 +47,8 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E1]
  |section_level:{2}
  |section_number:{3}
- |toplevel_directions:D[prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -103,8 +97,22 @@ $result_errors{'section_chapter_before_top'} = [
 $result_nodes_list{'section_chapter_before_top'} = '';
 
 $result_sections_list{'section_chapter_before_top'} = '1|section
+ section_directions:
+  next->chapter
+ toplevel_directions:
+  next->chapter
 2|chapter
+ section_directions:
+  next->top
+  prev->section
+ toplevel_directions:
+  next->top
+  prev->section
 3|top
+ section_directions:
+  prev->chapter
+ toplevel_directions:
+  prev->chapter
 ';
 
 $result_headings_list{'section_chapter_before_top'} = '';

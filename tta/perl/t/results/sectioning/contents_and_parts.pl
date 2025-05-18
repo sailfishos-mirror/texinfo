@@ -27,7 +27,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -35,7 +34,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
   ||EXTRA
   ||section_childs:EC[E1|E3|E8]
   ||section_level:{-1}
- |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,7 +99,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E5|E7]
- |section_directions:D[next->E8|prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -130,11 +127,9 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E7|up->E3]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -161,11 +156,9 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5|up->E3]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E10|prev->E5|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -180,7 +173,6 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |EXTRA
  |global_command_number:{2}
  |section_childs:EC[E10]
- |section_directions:D[prev->E3]
  |section_level:{0}
  |section_number:{5}
   *arguments_line C1
@@ -209,11 +201,9 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E8]
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -332,23 +322,51 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
 $result_sections_list{'contents_and_parts'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->part 1: part 1
+ toplevel_directions:
+  next->chapter 1
 2|part 1: part 1
  part_associated_section: chapter 1
  part_following_node: chapter 1 node
+ section_directions:
+  next->part2: part2
+  prev->top
 3|chapter 1
  associated_anchor_command: chapter 1 node
  associated_node: chapter 1 node
  associated_part: part 1: part 1
+ section_directions:
+  next->chapter 2
+  up->part 1: part 1
+ toplevel_directions:
+  next->chapter 2
+  prev->top
+  up->top
 4|chapter 2
  associated_anchor_command: chapter 2 node
  associated_node: chapter 2 node
+ section_directions:
+  prev->chapter 1
+  up->part 1: part 1
+ toplevel_directions:
+  next->chapter 3
+  prev->chapter 1
+  up->top
 5|part2: part2
  part_associated_section: chapter 3
  part_following_node: chapter 3 node
+ section_directions:
+  prev->part 1: part 1
 6|chapter 3
  associated_anchor_command: chapter 3 node
  associated_node: chapter 3 node
  associated_part: part2: part2
+ section_directions:
+  up->part2: part2
+ toplevel_directions:
+  prev->chapter 2
+  up->top
 ';
 
 $result_headings_list{'contents_and_parts'} = '';

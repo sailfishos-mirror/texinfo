@@ -12,7 +12,6 @@ $result_tree_text{'double_top_section'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -20,7 +19,6 @@ $result_tree_text{'double_top_section'} = '*document_root C3
   ||EXTRA
   ||section_childs:EC[E0|E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -36,10 +34,8 @@ $result_tree_text{'double_top_section'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E0]
  |section_level:{0}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -87,7 +83,16 @@ $result_errors{'double_top_section'} = [
 $result_nodes_list{'double_top_section'} = '';
 
 $result_sections_list{'double_top_section'} = '1|First top
+ section_directions:
+  next->Second top
+ toplevel_directions:
+  next->Second top
 2|Second top
+ section_directions:
+  prev->First top
+ toplevel_directions:
+  prev->First top
+  up->First top
 ';
 
 $result_headings_list{'double_top_section'} = '';

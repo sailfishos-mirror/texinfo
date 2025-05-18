@@ -23,7 +23,6 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E0]
   ||section_level:{-1}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -51,11 +50,9 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
   |{ }
  |EXTRA
  |section_childs:EC[E4]
- |section_directions:D[up->E0]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E0|up->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -82,7 +79,6 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -131,12 +127,21 @@ $result_nodes_list{'undef_split_and_big_rule'} = '1|chap
 ';
 
 $result_sections_list{'undef_split_and_big_rule'} = '1|top
+ toplevel_directions:
+  next->Chapter
 2|Chapter
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
 3|Sec
  associated_anchor_command: sec
  associated_node: sec
+ section_directions:
+  up->Chapter
 ';
 
 $result_headings_list{'undef_split_and_big_rule'} = '';

@@ -18,7 +18,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E1]
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -27,7 +26,6 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   ||EXTRA
   ||section_childs:EC[E0|E1|E2|E3]
   ||section_level:{1}
- |toplevel_directions:D[next->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -50,11 +48,9 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2|prev->E0]
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
- |toplevel_directions:D[next->E2|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -77,11 +73,9 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3|prev->E1]
  |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
- |toplevel_directions:D[next->E3|prev->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -104,11 +98,9 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E2]
  |section_heading_number:{4}
  |section_level:{2}
  |section_number:{4}
- |toplevel_directions:D[prev->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -260,9 +252,29 @@ $result_errors{'section_on_xtable_line'} = [
 $result_nodes_list{'section_on_xtable_line'} = '';
 
 $result_sections_list{'section_on_xtable_line'} = '1|first
+ section_directions:
+  next->second
+ toplevel_directions:
+  next->second
 2|second
+ section_directions:
+  next->third
+  prev->first
+ toplevel_directions:
+  next->third
+  prev->first
 3|third
+ section_directions:
+  next->fourth
+  prev->second
+ toplevel_directions:
+  next->fourth
+  prev->second
 4|fourth
+ section_directions:
+  prev->third
+ toplevel_directions:
+  prev->third
 ';
 
 $result_headings_list{'section_on_xtable_line'} = '';

@@ -53,7 +53,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2]
  |section_level:{0}
  |section_number:{1}
  |sectioning_root:
@@ -61,7 +60,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   ||EXTRA
   ||section_childs:EC[E1|E2|E5|E9]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,7 +74,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |EXTRA
  |global_command_number:{1}
  |section_childs:EC[E4]
- |section_directions:D[next->E5|prev->E1]
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
@@ -105,11 +102,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -137,7 +132,6 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |EXTRA
  |global_command_number:{2}
  |section_childs:EC[E7]
- |section_directions:D[next->E9|prev->E2]
  |section_level:{0}
  |section_number:{4}
   *arguments_line C1
@@ -166,11 +160,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E5]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E9|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -210,11 +202,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E5]
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -308,23 +298,50 @@ $result_nodes_list{'documentlanguage_generated_master_menu'} = '1|Top
 $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->Part I
+ toplevel_directions:
+  next->Chap
 2|Part I
  part_associated_section: Chap
  part_following_node: chapter
+ section_directions:
+  next->Part II
+  prev->top
 3|Chap
  associated_anchor_command: chapter
  associated_node: chapter
  associated_part: Part I
+ section_directions:
+  up->Part I
+ toplevel_directions:
+  next->Other chap
+  prev->top
+  up->top
 4|Part II
  part_associated_section: Other chap
  part_following_node: other chap
+ section_directions:
+  next->App
+  prev->Part I
 5|Other chap
  associated_anchor_command: other chap
  associated_node: other chap
  associated_part: Part II
+ section_directions:
+  up->Part II
+ toplevel_directions:
+  next->App
+  prev->Chap
+  up->top
 6|App
  associated_anchor_command: appendix
  associated_node: appendix
+ section_directions:
+  prev->Part II
+ toplevel_directions:
+  prev->Other chap
+  up->top
 ';
 
 $result_headings_list{'documentlanguage_generated_master_menu'} = '';

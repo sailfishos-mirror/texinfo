@@ -49,7 +49,6 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -84,11 +83,9 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[prev->E1|up->E1]
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -309,9 +306,16 @@ $result_nodes_list{'comment_space_command_on_line'} = '1|Top
 $result_sections_list{'comment_space_command_on_line'} = '1|top element@ 
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->Chapter@ 
 2|Chapter@ 
  associated_anchor_command: chap
  associated_node: chap
+ section_directions:
+  up->top element@ 
+ toplevel_directions:
+  prev->top element@ 
+  up->top element@ 
 ';
 
 $result_headings_list{'comment_space_command_on_line'} = '1|Heading @ 

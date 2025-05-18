@@ -13,7 +13,6 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E2]
  |section_level:{1}
  |section_number:{1}
  |sectioning_root:
@@ -21,7 +20,6 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   ||EXTRA
   ||section_childs:EC[E0|E2|E3]
   ||section_level:{0}
- |toplevel_directions:D[next->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -48,10 +46,8 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E3|prev->E0]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E3|prev->E0]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -64,11 +60,9 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E2]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E2|up->E2]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -151,10 +145,25 @@ $result_nodes_list{'section_before_after_top_node_last_node'} = '1|Top
 ';
 
 $result_sections_list{'section_before_after_top_node_last_node'} = '1|before
+ section_directions:
+  next->top section
+ toplevel_directions:
+  next->top section
 2|top section
  associated_anchor_command: Top
  associated_node: Top
+ section_directions:
+  next->Chapter
+  prev->before
+ toplevel_directions:
+  next->Chapter
+  prev->before
 3|Chapter
+ section_directions:
+  prev->top section
+ toplevel_directions:
+  prev->top section
+  up->top section
 ';
 
 $result_headings_list{'section_before_after_top_node_last_node'} = '';

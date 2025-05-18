@@ -152,7 +152,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -250,11 +249,9 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E6|up->E1]
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -375,11 +372,9 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E8|prev->E4|up->E1]
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[next->E8|prev->E4|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -410,10 +405,8 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E6|up->E1]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[prev->E6|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -597,15 +590,38 @@ $result_nodes_list{'sample_utf8'} = '1|Top
 $result_sections_list{'sample_utf8'} = '1|Texinfo中文示例
  associated_anchor_command: Top
  associated_node: Top
+ toplevel_directions:
+  next->第一章（First Chapter）
 2|第一章（First Chapter）
  associated_anchor_command: 第一章（First Chapter）
  associated_node: 第一章（First Chapter）
+ section_directions:
+  next->Chapter 2 AE ĄĘ ae ąę
+  up->Texinfo中文示例
+ toplevel_directions:
+  next->Chapter 2 AE ĄĘ ae ąę
+  prev->Texinfo中文示例
+  up->Texinfo中文示例
 3|Chapter 2 AE ĄĘ ae ąę
  associated_anchor_command: Second Chapter AE ĄĘ ae ąę
  associated_node: Second Chapter AE ĄĘ ae ąę
+ section_directions:
+  next->Index
+  prev->第一章（First Chapter）
+  up->Texinfo中文示例
+ toplevel_directions:
+  next->Index
+  prev->第一章（First Chapter）
+  up->Texinfo中文示例
 4|Index
  associated_anchor_command: Index node
  associated_node: Index node
+ section_directions:
+  prev->Chapter 2 AE ĄĘ ae ąę
+  up->Texinfo中文示例
+ toplevel_directions:
+  prev->Chapter 2 AE ĄĘ ae ąę
+  up->Texinfo中文示例
 ';
 
 $result_headings_list{'sample_utf8'} = '';

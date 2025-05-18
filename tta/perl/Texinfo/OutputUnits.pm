@@ -499,9 +499,12 @@ sub units_directions($$$$;$)
         }
       }
     } else {
+      my $section_structure
+        = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+      my $section_directions = $section_structure->{'section_directions'};
       foreach my $direction(['Up', 'up'], ['Next', 'next'],
                             ['Prev', 'prev']) {
-        # in most cases $section->{'extra'}->{'section_directions'}
+        # in most cases $section_directions
         #          ->{$direction->[1]}
         #                 ->{'associated_unit'} is defined
         # but it may not be the case for the up of @top.
@@ -510,14 +513,13 @@ sub units_directions($$$$;$)
         #  @chapter chapter
         # in that cas the direction is not set up
         $directions->{$direction->[0]}
-         = $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-             ->{'associated_unit'}
-          if ($section->{'extra'}->{'section_directions'}
-           and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
-           and $section->{'extra'}->{'section_directions'}->{$direction->[1]}
+         = $section_directions->{$direction->[1]}->{'associated_unit'}
+          if ($section_directions
+           and $section_directions->{$direction->[1]}
+           and $section_directions->{$direction->[1]}
                                            ->{'associated_unit'}
            and (!$section->{'associated_unit'}
-                or $section->{'extra'}->{'section_directions'}->{$direction->[1]}
+                or $section_directions->{$direction->[1]}
                     ->{'associated_unit'}
                        ne $section->{'associated_unit'}));
       }
@@ -525,12 +527,15 @@ sub units_directions($$$$;$)
       # fastforward is the next element on same level than the upper parent
       # element.
       my $up = $section;
+      my $up_structure = $section_structure;
       while ($up->{'extra'}
              and defined($up->{'extra'}->{'section_level'})
              and $up->{'extra'}->{'section_level'} > 1
-             and $up->{'extra'}->{'section_directions'}
-             and $up->{'extra'}->{'section_directions'}->{'up'}) {
-        $up = $up->{'extra'}->{'section_directions'}->{'up'};
+             and $up_structure->{'section_directions'}
+             and $up_structure->{'section_directions'}->{'up'}) {
+        $up = $up_structure->{'section_directions'}->{'up'};
+        $up_structure
+          = $sections_list->[$up->{'extra'}->{'section_number'} -1];
       }
 
       if ($up->{'extra'}
@@ -541,15 +546,15 @@ sub units_directions($$$$;$)
           and @{$up->{'extra'}->{'section_childs'}}) {
         $directions->{'FastForward'}
            = $up->{'extra'}->{'section_childs'}->[0]->{'associated_unit'};
-      } elsif ($up->{'extra'}->{'toplevel_directions'}
-               and $up->{'extra'}->{'toplevel_directions'}->{'next'}) {
+      } elsif ($up_structure->{'toplevel_directions'}
+               and $up_structure->{'toplevel_directions'}->{'next'}) {
         $directions->{'FastForward'}
-          = $up->{'extra'}->{'toplevel_directions'}->{'next'}
+          = $up_structure->{'toplevel_directions'}->{'next'}
                                  ->{'associated_unit'};
-      } elsif ($up->{'extra'}->{'section_directions'}
-               and $up->{'extra'}->{'section_directions'}->{'next'}) {
+      } elsif ($up_structure->{'section_directions'}
+               and $up_structure->{'section_directions'}->{'next'}) {
         $directions->{'FastForward'}
-          = $up->{'extra'}->{'section_directions'}->{'next'}
+          = $up_structure->{'section_directions'}->{'next'}
                               ->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the

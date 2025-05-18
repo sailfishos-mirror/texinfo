@@ -1060,6 +1060,18 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
       STORE_STRUCT_INFO(associated_part)
       STORE_STRUCT_INFO(part_associated_section)
       STORE_STRUCT_INFO(part_following_node)
+      if (structure->section_directions)
+        {
+          sv = build_perl_directions (structure->section_directions, 0);
+          hv_store (structure_hv, "section_directions",
+                    strlen ("section_directions"), sv, 0);
+        }
+      if (structure->toplevel_directions)
+        {
+          sv = build_perl_directions (structure->toplevel_directions, 0);
+          hv_store (structure_hv, "toplevel_directions",
+                    strlen ("toplevel_directions"), sv, 0);
+        }
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
