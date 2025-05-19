@@ -39,7 +39,8 @@ parse_float_type (ELEMENT *current, ELEMENT *element)
 
 void
 add_to_float_record_list (FLOAT_RECORD_LIST *float_records, const char *type,
-                          ELEMENT *element, const ELEMENT *section)
+                          ELEMENT *element,
+                          const SECTION_STRUCTURE *section_structure)
 {
   if (float_records->number == float_records->space)
     {
@@ -50,7 +51,7 @@ add_to_float_record_list (FLOAT_RECORD_LIST *float_records, const char *type,
   /* string stored in element extra */
   float_records->list[float_records->number].type = type;
   float_records->list[float_records->number].element = element;
-  float_records->list[float_records->number].section = section;
+  float_records->list[float_records->number].section = section_structure;
   float_records->number++;
 }
 
@@ -96,7 +97,7 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
 static FLOAT_INFORMATION *
 add_to_float_information_list (FLOAT_INFORMATION_LIST *float_list,
                                ELEMENT *float_element,
-                               const ELEMENT *float_section)
+                               const SECTION_STRUCTURE *float_section)
 {
   FLOAT_INFORMATION *result;
   if (float_list->number == float_list->space)

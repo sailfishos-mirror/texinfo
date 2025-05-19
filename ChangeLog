@@ -1,5 +1,28 @@
 2025-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_section_structure)
+	(build_section_structure_list): split build_section_structure out of
+	build_section_structure_list.
+
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/C/parsetexi/parser.c (current_section): use section structure
+	information as current_csection.
+
+	* tta/C/main/build_perl_info.c (build_listoffloats_list),
+	tta/C/main/floats.c (add_to_float_record_list)
+	(add_to_float_information_list), tta/C/main/tree_types.h
+	(FLOAT_INFORMATION, FLOAT_RECORD),
+	tta/C/structuring_transfo/structuring.c (number_floats),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_end_line_starting_block), tta/perl/Texinfo/Structuring.pm
+	(number_floats): update section information associated to float to be
+	the section structure information.
+
+	* tta/perl/ext/epub3.pm, tta/perl/init/book.pm, tta/perl/init/chm.pm:
+	change in spacing.
+
+2025-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/structuring.c
 	(get_node_node_childs_from_sectioning),
 	tta/perl/Texinfo/Structuring.pm

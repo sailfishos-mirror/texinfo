@@ -1782,7 +1782,7 @@ number_floats (DOCUMENT *document)
         = &listoffloats_list->float_types[i];
       int float_index = 0;
       int nr_in_chapter = 0;
-      const ELEMENT *current_chapter = 0;
+      const SECTION_STRUCTURE *current_chapter_structure = 0;
       size_t j;
       for (j = 0; j < listoffloats->float_list.number; j++)
         {
@@ -1791,24 +1791,21 @@ number_floats (DOCUMENT *document)
           ELEMENT *float_elt = float_info->float_element;
           const char *normalized
             = lookup_extra_string (float_elt, AI_key_normalized);
-          const ELEMENT *up;
+          const SECTION_STRUCTURE *up_structure;
 
           if (!normalized)
             continue;
 
           text_reset (&number);
           float_index++;
-          up = float_info->float_section;
-          if (up)
+          up_structure = float_info->float_section;
+          if (up_structure)
             {
               int status;
               size_t up_section_number;
-              const SECTION_STRUCTURE *up_structure;
+              const ELEMENT *up = up_structure->element;
               while (1)
                 {
-                  up_section_number = lookup_extra_integer (up,
-                                       AI_key_section_number, &status);
-                  up_structure = sections_list->list[up_section_number -1];
                   const ELEMENT * const *section_directions
                     = up_structure->section_directions;
                   if (section_directions
@@ -1819,15 +1816,20 @@ number_floats (DOCUMENT *document)
                           && command_structuring_level[up_elt->e.c->cmd] > 0)
                         {
                           up = up_elt;
+                          up_section_number = lookup_extra_integer (up,
+                                       AI_key_section_number, &status);
+                          up_structure
+                            = sections_list->list[up_section_number -1];
                           continue;
                         }
                     }
                   break;
                 }
-              if (!current_chapter || current_chapter != up)
+              if (!current_chapter_structure
+                  || current_chapter_structure != up_structure)
                 {
                   nr_in_chapter = 0;
-                  current_chapter = up;
+                  current_chapter_structure = up_structure;
                 }
               if (!(command_other_flags (up) & CF_unnumbered))
                 {

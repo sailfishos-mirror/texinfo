@@ -206,7 +206,8 @@ sub book_print_sub_toc($$$)
   }
   if ($section_structure->{'section_childs'}
       and scalar(@{$section_structure->{'section_childs'}})) {
-    $result .= '<li>'.$converter->html_attribute_class('ul', [$toc_numbered_mark_class])
+    $result .= '<li>'.$converter->html_attribute_class('ul',
+                                             [$toc_numbered_mark_class])
      .">\n". book_print_sub_toc($converter, $parent_command,
                                 $section_structure->{'section_childs'}->[0])
      ."</ul></li>\n";

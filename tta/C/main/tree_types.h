@@ -369,7 +369,7 @@ typedef struct {
 
 typedef struct {
     ELEMENT *float_element;
-    const ELEMENT *float_section;
+    const SECTION_STRUCTURE *float_section;
 } FLOAT_INFORMATION;
 
 typedef struct {
@@ -396,7 +396,7 @@ typedef struct {
 typedef struct {
     const char *type;
     ELEMENT *element;
-    const ELEMENT *section;
+    const SECTION_STRUCTURE *section;
 } FLOAT_RECORD;
 
 typedef struct {

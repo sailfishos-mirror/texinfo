@@ -1036,11 +1036,50 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
   return list_av;
 }
 
+HV *
+build_section_structure (const SECTION_STRUCTURE *structure)
+{
+  HV *structure_hv;
+  SV *sv;
+
+  dTHX;
+
+  structure_hv = newHV ();
+
+  sv = newRV_inc ((SV *) structure->element->hv);
+  hv_store (structure_hv, "element", strlen ("element"), sv, 0);
+  STORE_STRUCT_INFO(associated_node)
+  STORE_STRUCT_INFO(associated_anchor_command)
+  STORE_STRUCT_INFO(associated_part)
+  STORE_STRUCT_INFO(part_associated_section)
+  STORE_STRUCT_INFO(part_following_node)
+  if (structure->section_directions)
+    {
+      sv = build_perl_directions (structure->section_directions, 0);
+      hv_store (structure_hv, "section_directions",
+                strlen ("section_directions"), sv, 0);
+    }
+  if (structure->toplevel_directions)
+    {
+      sv = build_perl_directions (structure->toplevel_directions, 0);
+      hv_store (structure_hv, "toplevel_directions",
+                strlen ("toplevel_directions"), sv, 0);
+    }
+  if (structure->section_childs)
+    {
+      /* TODO pass avoid_recursion? */
+      sv = build_perl_const_element_array (structure->section_childs, 0);
+      hv_store (structure_hv, "section_childs",
+                strlen ("section_childs"), sv, 0);
+    }
+
+  return structure_hv;
+}
+
 AV *
 build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
 {
   AV *list_av;
-  SV *sv;
   size_t i;
 
   dTHX;
@@ -1052,33 +1091,7 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       SECTION_STRUCTURE *structure = list->list[i];
-      HV *structure_hv = newHV ();
-      sv = newRV_inc ((SV *) structure->element->hv);
-      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-      STORE_STRUCT_INFO(associated_node)
-      STORE_STRUCT_INFO(associated_anchor_command)
-      STORE_STRUCT_INFO(associated_part)
-      STORE_STRUCT_INFO(part_associated_section)
-      STORE_STRUCT_INFO(part_following_node)
-      if (structure->section_directions)
-        {
-          sv = build_perl_directions (structure->section_directions, 0);
-          hv_store (structure_hv, "section_directions",
-                    strlen ("section_directions"), sv, 0);
-        }
-      if (structure->toplevel_directions)
-        {
-          sv = build_perl_directions (structure->toplevel_directions, 0);
-          hv_store (structure_hv, "toplevel_directions",
-                    strlen ("toplevel_directions"), sv, 0);
-        }
-      if (structure->section_childs)
-        {
-          /* TODO pass avoid_recursion? */
-          sv = build_perl_const_element_array (structure->section_childs, 0);
-          hv_store (structure_hv, "section_childs",
-                    strlen ("section_childs"), sv, 0);
-        }
+      HV *structure_hv = build_section_structure (structure);
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
@@ -1505,13 +1518,14 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
         {
           const FLOAT_INFORMATION *float_info = &float_list->list[j];
           const ELEMENT *float_elt = float_info->float_element;
-          const ELEMENT *float_section = float_info->float_section;
+          const SECTION_STRUCTURE *float_section = float_info->float_section;
           AV *float_section_av = newAV ();
           sv = newRV_inc ((SV *)float_elt->hv);
           av_push (float_section_av, sv);
           if (float_section)
             {
-              sv = newRV_inc ((SV *)float_section->hv);
+              HV *float_section_hv = build_section_structure (float_section);
+              sv = newRV_inc ((SV *)float_section_hv);
               av_push (float_section_av, sv);
             }
           else

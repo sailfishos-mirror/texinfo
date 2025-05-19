@@ -719,7 +719,7 @@ EOT
                                             ->{'extra'}->{'section_level'};
     foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
       $upper_level = $top_section->{'extra'}->{'section_level'}
-      if ($top_section->{'extra'}->{'section_level'} < $upper_level);
+        if ($top_section->{'extra'}->{'section_level'} < $upper_level);
     }
     $upper_level = 1 if ($upper_level <= 0);
     my $root_level = $upper_level - 1;

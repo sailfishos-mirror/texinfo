@@ -1826,7 +1826,7 @@ end_line_misc_line (ELEMENT *current)
               current_part = 0;
             }
 
-          current_section = current;
+          current_section = section_structure;
         }
       else if (cmd == CM_part)
         {

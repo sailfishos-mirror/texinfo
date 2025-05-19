@@ -1485,29 +1485,28 @@ sub number_floats($)
 {
   my $document = shift;
 
-  my $floats = $document->floats_information();
+  my $listoffloats_and_sections = $document->floats_information();
   my $sections_list = $document->sections_list();
 
-  return if (!defined($floats));
+  return if (!defined($listoffloats_and_sections));
 
-  foreach my $style (keys(%$floats)) {
+  foreach my $style (keys(%$listoffloats_and_sections)) {
     my $float_index = 0;
-    my $current_chapter;
+    my $current_chapter_structure;
     my $nr_in_chapter = 0;
-    foreach my $float_and_section (@{$floats->{$style}}) {
-      my ($float, $float_section) = @$float_and_section;
+    foreach my $float_and_section (@{$listoffloats_and_sections->{$style}}) {
+      my ($float, $float_section_structure) = @$float_and_section;
       next if (!$float->{'extra'}
                or !defined($float->{'extra'}->{'normalized'}));
       $float_index++;
       my $number;
-      if (defined($float_section)) {
-        my $up = $float_section;
-        my $up_structure
-          = $sections_list->[$up->{'extra'}->{'section_number'} -1];
+      if (defined($float_section_structure)) {
+        my $up_structure = $float_section_structure;
+        my $up = $up_structure->{'element'};
         my $up_section_directions = $up_structure->{'section_directions'};
+        my $up_cmdname;
         while ($up_section_directions
                and $up_section_directions->{'up'}
-               and defined($up_section_directions->{'up'}->{'cmdname'})
                and $command_structuring_level{
                  $up_section_directions->{'up'}->{'cmdname'}}) {
           $up = $up_section_directions->{'up'};
@@ -1515,9 +1514,10 @@ sub number_floats($)
             = $sections_list->[$up->{'extra'}->{'section_number'} -1];
           $up_section_directions = $up_structure->{'section_directions'};
         }
-        if (!defined($current_chapter) or $current_chapter ne $up) {
+        if (!defined($current_chapter_structure)
+            or $current_chapter_structure ne $up_structure) {
           $nr_in_chapter = 0;
-          $current_chapter = $up;
+          $current_chapter_structure = $up_structure;
         }
         if (!$unnumbered_commands{$up->{'cmdname'}}) {
           $nr_in_chapter++;

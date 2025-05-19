@@ -4110,8 +4110,8 @@ sub _end_line_misc_line($$$)
              $command), $source_info);
     }
   } elsif ($root_commands{$data_cmdname}) {
-    $current = $current->{'contents'}->[-1];
-    delete $current->{'remaining_args'};
+    $current = $command_element;
+    delete $command_element->{'remaining_args'};
     my $section_structure;
 
     if ($command ne 'node') {
@@ -4124,10 +4124,10 @@ sub _end_line_misc_line($$$)
       # associate section with the current node as its title.
       if ($self->{'current_node'}) {
         my $node_structure = $self->{'current_node'};
-        _associate_title_command_anchor($node_structure, $current,
+        _associate_title_command_anchor($node_structure, $command_element,
                                         $section_structure);
         if (!$node_structure->{'associated_section'}) {
-          $node_structure->{'associated_section'} = $current;
+          $node_structure->{'associated_section'} = $command_element;
           $section_structure->{'associated_node'}
             = $node_structure->{'element'};
         }
@@ -4135,14 +4135,14 @@ sub _end_line_misc_line($$$)
       if ($self->{'current_part'}) {
         my $part_structure = $self->{'current_part'};
         $section_structure->{'associated_part'} = $part_structure->{'element'};
-        $part_structure->{'part_associated_section'} = $current;
+        $part_structure->{'part_associated_section'} = $command_element;
         if ($current->{'cmdname'} eq 'top') {
           $self->_line_warn("\@part should not be associated with \@top",
                           $part_structure->{'element'}->{'source_info'});
         }
         delete $self->{'current_part'};
       }
-      $self->{'current_section'} = $current;
+      $self->{'current_section'} = $section_structure;
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $section_structure;
       if ($self->{'current_node'}) {
@@ -4362,9 +4362,9 @@ sub _end_line_starting_block($$$)
     my $float_type = _parse_float_type($current,
                                        $arguments_line->{'contents'}->[0]);
 
-    my $float_section = $self->{'current_section'};
+    my $float_section_structure = $self->{'current_section'};
     push @{$document->{'listoffloats_list'}->{$float_type}},
-                         [$current, $float_section];
+                         [$current, $float_section_structure];
 
     # all the commands with @item
   } elsif ($blockitem_commands{$command}) {
