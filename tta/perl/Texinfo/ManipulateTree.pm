@@ -416,11 +416,11 @@ sub set_element_tree_numbers($$)
     $builtin_cmdname = $cmdname;
   }
 
-  if (($builtin_cmdname
-       # no reference to other commands in tree for now
-       and (0)
-       #and ($builtin_cmdname eq 'node'
-       #  or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname})
+  if ($builtin_cmdname
+      # no reference to other commands in tree for now
+      and (0)
+      #and ($builtin_cmdname eq 'node'
+      #  or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname})
     # no reason for this to happen, but if it does, avoid clobbering
       and not exists($element->{'_number'})) {
     $element->{'_number'} = $current_nr;
