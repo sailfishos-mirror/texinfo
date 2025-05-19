@@ -1218,7 +1218,7 @@ print_element_info (ELEMENT *element, int level,
       if (info_element)
         {
           text_append (&info_e_text, "");
-          current_nr = set_element_tree_numbers (element, current_nr);
+          current_nr = set_element_tree_numbers (info_element, current_nr);
 
           current_nr = print_element_add_prepend_info (info_element,
                               level+1, prepended, current_nr, &info_e_text,
@@ -1711,7 +1711,7 @@ print_tree_details (ELEMENT *tree, const char *fname_encoding,
                     int use_filename)
 {
   TEXT result;
-  uintptr_t current_nr;
+  uintptr_t current_nr = 0;
 
   text_init (&result);
   text_append (&result, "");

@@ -894,7 +894,8 @@ sub print_tree_details($;$$)
 
   my $result;
 
-  my $current_nr = set_element_tree_numbers($tree, 0);
+  my $current_nr = 0;
+  $current_nr = set_element_tree_numbers($tree, 0);
 
   ($current_nr, $result) = print_element_details($tree, 0, undef, $current_nr,
                                              $fname_encoding, $use_filename);
