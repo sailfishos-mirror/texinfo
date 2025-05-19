@@ -393,6 +393,9 @@ sub copy_contentsNonXS($;$)
 
 sub set_element_tree_numbers($$);
 
+# does nothing as there are no reference to tree elements
+# in the tree extra information currently, consistently no command
+# is selected, so this function has no effect.
 sub set_element_tree_numbers($$)
 {
   my $element = shift;
@@ -414,14 +417,10 @@ sub set_element_tree_numbers($$)
   }
 
   if (($builtin_cmdname
-       and ($builtin_cmdname eq 'node'
-            or $builtin_cmdname eq 'anchor' or $builtin_cmdname eq 'namedanchor'
-         or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname}
-            or $builtin_cmdname eq 'float'
-            or $builtin_cmdname eq 'menu'
-            or $builtin_cmdname eq 'nodedescription'
-            or $builtin_cmdname eq 'nodedescriptionblock'
-            or $builtin_cmdname eq 'xrefname'))
+       # no reference to other commands in tree for now
+       and (0)
+       #and ($builtin_cmdname eq 'node'
+       #  or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname})
     # no reason for this to happen, but if it does, avoid clobbering
       and not exists($element->{'_number'})) {
     $element->{'_number'} = $current_nr;
@@ -542,8 +541,7 @@ sub _print_element_add_prepend_info($$$$;$$)
                                $fname_encoding, $use_filename);
 }
 
-# extra elements out of tree.  Need to look at C add_extra_element_oot
-# to know which one are out of tree.  Use of gdt/copy is good evidence.
+# extra elements out of tree.  Corresponds to C AI_KEYS_LIST element_oot
 my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element');
 
 # keep in sync with elt_info_names in C/main/tree.c
@@ -558,6 +556,7 @@ foreach my $name (@extra_out_of_tree, @elt_info_names) {
 # from Texinfo::Structuring
 my @node_directions_names = ('next', 'prev', 'up');
 
+# not called for now, see _print_element_associated_info
 sub element_number_or_error($)
 {
   my $element = shift;
@@ -617,6 +616,8 @@ sub _debug_protect_eol($)
   return $line;
 }
 
+# currently no ARRAY, and for HASH only 'node_content' 'manual_content'
+# and out_of_tree_element_name, therefore no call to element_number_or_error
 sub _print_element_associated_info($$$$$;$$)
 {
   my $associated_info = shift;
@@ -886,6 +887,11 @@ sub remove_element_tree_numbers($)
   }
 }
 
+# no reference to other elements in extra information currently
+# (no extra element, content, direction), therefore no need for
+# element numbers to refer to.
+# The calls to set_element_tree_numbers and remove_element_tree_numbers
+# are thus commented out.
 sub print_tree_details($;$$)
 {
   my $tree = shift;
@@ -895,12 +901,12 @@ sub print_tree_details($;$$)
   my $result;
 
   my $current_nr = 0;
-  $current_nr = set_element_tree_numbers($tree, 0);
+  #$current_nr = set_element_tree_numbers($tree, 0);
 
   ($current_nr, $result) = print_element_details($tree, 0, undef, $current_nr,
                                              $fname_encoding, $use_filename);
 
-  remove_element_tree_numbers($tree);
+  #remove_element_tree_numbers($tree);
 
   return $result;
 }

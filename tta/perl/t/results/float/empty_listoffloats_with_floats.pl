@@ -10,7 +10,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
-  *0 @float C3 l2
+  *@float C3 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *1 @float C5 l6
+  *@float C5 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *2 @float C3 l11
+  *@float C3 l11
   |EXTRA
   |float_type:{}
   |global_command_number:{3}
@@ -104,7 +104,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *3 @float C5 l15
+  *@float C5 l15
   |EXTRA
   |float_type:{}
   |global_command_number:{4}

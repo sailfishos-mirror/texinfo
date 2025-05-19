@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'ref_to_top_in_anchor'} = '*document_root C2
  *before_node_section
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'ref_to_top_in_anchor'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
     {Top}
-  *1 @anchor C1 l2
+  *@anchor C1 l2
   |EXTRA
   |is_target:{1}
   |normalized:{TOP-Top}

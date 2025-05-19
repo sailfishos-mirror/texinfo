@@ -59,7 +59,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
      |{\\n}
      {documentdescription}
   {empty_line:\\n}
- *0 @top C1 l5 {top}
+ *@top C1 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }

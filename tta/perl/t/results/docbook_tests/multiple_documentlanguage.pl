@@ -20,7 +20,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
     |{\\n}
     {ja}
   {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {top}
+ *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -48,7 +48,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l6 {chap}
+ *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C3 l7 {Chap no new language}
+ *@chapter C3 l7 {Chap no new language}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {fr}
- *4 @node C1 l10 {chapter fr}
+ *@node C1 l10 {chapter fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chapter fr}
- *5 @chapter C3 l11 {chapter fr}
+ *@chapter C3 l11 {chapter fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -130,7 +130,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {pt}
- *6 @node C1 l14 {subnode pt}
+ *@node C1 l14 {subnode pt}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {subnode pt}
- *7 @section C3 l15 {section pt}
+ *@section C3 l15 {section pt}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {fr}
- *8 @node C1 l18 {subnode fr}
+ *@node C1 l18 {subnode fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -185,7 +185,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {subnode fr}
- *9 @section C2 l19 {section fr}
+ *@section C2 l19 {section fr}
  |INFO
  |spaces_before_argument:
   |{ }

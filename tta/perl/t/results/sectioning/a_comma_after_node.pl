@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'a_comma_after_node'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {Commands}
+ *@node C3 l1 {Commands}
  |INFO
  |spaces_before_argument:
   |{ }

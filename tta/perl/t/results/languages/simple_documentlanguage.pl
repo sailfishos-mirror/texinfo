@@ -21,7 +21,7 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
      |{\\n}
      {fr}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C3 l4 {chap}
+ *@node C3 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

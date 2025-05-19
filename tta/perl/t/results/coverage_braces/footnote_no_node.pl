@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'footnote_no_node'} = '*document_root C2
  *before_node_section
- *0 @top C3 l1 {top}
+ *@top C3 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }

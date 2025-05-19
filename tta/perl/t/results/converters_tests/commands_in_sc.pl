@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'commands_in_sc'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {commands in sc}
+ *@top C2 l2 {commands in sc}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
     |{\\n}
     {commands in sc}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C3 l5 {chap}
+ *@chapter C3 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
         *brace_container C1
          {raw:inverb}
      { }
-     *4 @anchor C1 l8
+     *@anchor C1 l8
      |EXTRA
      |is_target:{1}
      |normalized:{inanchor}

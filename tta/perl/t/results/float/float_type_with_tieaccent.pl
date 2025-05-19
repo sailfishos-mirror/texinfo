@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
  *before_node_section C4
   *preamble_before_content
-  *0 @float C3 l1
+  *@float C3 l1
   |INFO
   |spaces_before_argument:
    |{ }

@@ -7,11 +7,11 @@ use utf8;
 
 $result_tree_text{'empty_anchor'} = '*document_root C1
  *before_node_section C2
-  *0 @anchor C1 l1
+  *@anchor C1 l1
    *brace_arg
   *paragraph C3
    {. \\n}
-   *1 @anchor C1 l2
+   *@anchor C1 l2
     *brace_arg
     |INFO
     |spaces_before_argument:

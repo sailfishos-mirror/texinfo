@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C3 l2 {chap}
+ *@node C3 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -11,7 +11,7 @@ $result_tree_text{'simple'} = '*document_root C1
   *paragraph C1
    {Before menu.\\n}
   {empty_line:\\n}
-  *0 @menu C9 l4
+  *@menu C9 l4
    *arguments_line C1
     *block_line_arg
     |INFO

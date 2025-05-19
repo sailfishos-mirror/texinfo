@@ -25,7 +25,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      |{\\n}
      {ISO-8859-2}
    {empty_line:\\n}
- *0 @node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
+ *@node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
+ *@top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   {empty_line:\\n}
   *@c C1
    {rawline_arg: Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek\\n}
-  *2 @menu C3 char_latin2_latin2_in_refs.texi:l13
+  *@menu C3 char_latin2_latin2_in_refs.texi:l13
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -107,7 +107,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
+ *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -121,7 +121,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Ą ą ˛ Ę ę}
- *4 @chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
+ *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2 {top}
+ *@top C6 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
      {heading or chapter}
    {.\\n}
   {empty_line:\\n}
- *2 @node C3 l8 {heading or chapter}
+ *@node C3 l8 {heading or chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {heading or chapter}
-  *3 @heading C1 l9
+  *@heading C1 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
     |{\\n}
     {Heading}
   {empty_line:\\n}
- *4 @chapter C2 l11 {Chapter}
+ *@chapter C2 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

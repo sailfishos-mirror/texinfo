@@ -16,7 +16,7 @@ $result_tree_text{'section_in_footnote'} = '*document_root C2
     |{\\n}
     *brace_command_context C1
      {empty_line:\\n}
- *0 @section C1 l4 {a section}
+ *@section C1 l4 {a section}
  |INFO
  |spaces_before_argument:
   |{ }

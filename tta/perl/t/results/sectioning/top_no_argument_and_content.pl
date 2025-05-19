@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'top_no_argument_and_content'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
- *0 @top C3 l1
+ *@top C3 l1
  |EXTRA
  |section_level:{0}
  |section_number:{1}

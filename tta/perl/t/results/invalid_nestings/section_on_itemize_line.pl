@@ -18,7 +18,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      |{ }
      *@minus C1 l1
       *brace_container
- *0 @section C3 l1 {first}
+ *@section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      *@minus C1 l3
       *brace_container
      { aa}
- *1 @section C3 l3 {second}
+ *@section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
    |{ }
    *arguments_line C1
     *block_line_arg
- *2 @section C3 l5 {third}
+ *@section C3 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      |INFO
      |spaces_after_cmd_before_arg:
       |{ }
- *3 @section C1 l7 {fourth}
+ *@section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:
   |{ }

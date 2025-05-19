@@ -17,7 +17,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
      {heading between}
- *0 @node C1 l2 {Chapter}
+ *@node C1 l2 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *1 @chapter C4 l3 {Chapter}
+ *@chapter C4 l3 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *2 @subsubheading C1 l5
+  *@subsubheading C1 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
     |{\\n}
     {Topic}
   {empty_line:\\n}
- *3 @node C1 l7 {Section}
+ *@node C1 l7 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'heading_between'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Section}
- *4 @section C2 l8 {Section}
+ *@section C2 l8 {Section}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'float_long_captions'} = '*document_root C2
  *before_node_section
- *0 @node C7 l1 {Top}
+ *@node C7 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @float C4 l3
+  *@float C4 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
      |{\\n}
      {float}
   {empty_line:\\n}
-  *2 @float C4 l7
+  *@float C4 l7
   |INFO
   |spaces_before_argument:
    |{ }

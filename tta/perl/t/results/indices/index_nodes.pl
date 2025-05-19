@@ -11,7 +11,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C13 index_nodes.texi:l3 {Top}
+ *@node C13 index_nodes.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *1 @menu C3 index_nodes.texi:l14
+  *@menu C3 index_nodes.texi:l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -111,7 +111,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C7 index_nodes.texi:l18 {chap first}
+ *@node C7 index_nodes.texi:l18 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -207,7 +207,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *3 @menu C3 index_nodes.texi:l27
+  *@menu C3 index_nodes.texi:l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -236,7 +236,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C5 index_nodes.texi:l31 {second}
+ *@node C5 index_nodes.texi:l31 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -258,7 +258,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    |node_content:{chap first}
    |normalized:{chap-first}
     {chap first}
-  *5 @menu C4 index_nodes.texi:l32
+  *@menu C4 index_nodes.texi:l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -311,7 +311,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {fn}
   {empty_line:\\n}
- *6 @node C6 index_nodes.texi:l39 {another}
+ *@node C6 index_nodes.texi:l39 {another}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -385,7 +385,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {another}
   {empty_line:\\n}
- *7 @node C10 index_nodes.texi:l45 {a node}
+ *@node C10 index_nodes.texi:l45 {a node}
  |INFO
  |spaces_before_argument:
   |{ }

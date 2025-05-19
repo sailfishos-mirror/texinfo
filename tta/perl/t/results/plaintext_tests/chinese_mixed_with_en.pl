@@ -33,7 +33,7 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
      |{\\n}
      {chinese mixed with english}
    {empty_line:\\n}
- *0 @node C1 chinese_mixed_with_en.texi:l5 {Top}
+ *@node C1 chinese_mixed_with_en.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 chinese_mixed_with_en.texi:l6 {Mixed chinese and english}
+ *@top C4 chinese_mixed_with_en.texi:l6 {Mixed chinese and english}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
   *paragraph C1
    {Example of english and chinese, chinese aligned or not.\\n}
   {empty_line:\\n}
- *2 @node C1 chinese_mixed_with_en.texi:l10 {Mixed english and chinese}
+ *@node C1 chinese_mixed_with_en.texi:l10 {Mixed english and chinese}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Mixed english and chinese}
- *3 @chapter C19 chinese_mixed_with_en.texi:l11 {Mixed english and chinese}
+ *@chapter C19 chinese_mixed_with_en.texi:l11 {Mixed english and chinese}
  |INFO
  |spaces_before_argument:
   |{ }

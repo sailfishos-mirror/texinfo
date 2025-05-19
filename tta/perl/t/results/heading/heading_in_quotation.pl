@@ -14,7 +14,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *0 @heading C1 l3
+   *@heading C1 l3
    |INFO
    |spaces_before_argument:
     |{ }

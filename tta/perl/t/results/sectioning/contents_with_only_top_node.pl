@@ -10,7 +10,7 @@ $result_tree_text{'contents_with_only_top_node'} = '*document_root C2
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C3 l2 {Top}
+ *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

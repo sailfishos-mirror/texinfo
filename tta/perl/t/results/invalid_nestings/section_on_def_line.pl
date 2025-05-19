@@ -31,7 +31,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
      *def_name C1
       *def_line_arg C1
        {b}
- *0 @section C4 l1 {s}
+ *@section C4 l1 {s}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'shortcontents'} = '*document_root C12
  *before_node_section C1
   *preamble_before_content
- *0 @top C2 l1 {top}
+ *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {top}
   {empty_line:\\n}
- *1 @chapter C2 l3 {chapter}
+ *@chapter C2 l3 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {chapter}
   {empty_line:\\n}
- *2 @section C2 l5 {section}
+ *@section C2 l5 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {section}
   {empty_line:\\n}
- *3 @subsection C2 l7 {subsection}
+ *@subsection C2 l7 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {subsection}
   {empty_line:\\n}
- *4 @subsubsection C2 l9 {subsubsection}
+ *@subsubsection C2 l9 {subsubsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {subsubsection}
   {empty_line:\\n}
- *5 @part C2 l11 {part}
+ *@part C2 l11 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {part}
   {empty_line:\\n}
- *6 @chapter C2 l13 {chapter in part}
+ *@chapter C2 l13 {chapter in part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {chapter in part}
   {empty_line:\\n}
- *7 @chapter C2 l15 {second chapter in part}
+ *@chapter C2 l15 {second chapter in part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {second chapter in part}
   {empty_line:\\n}
- *8 @unnumbered C2 l17 {unnumbered}
+ *@unnumbered C2 l17 {unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -141,7 +141,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {unnumbered}
   {empty_line:\\n}
- *9 @appendix C2 l19 {appendix}
+ *@appendix C2 l19 {appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'shortcontents'} = '*document_root C12
     |{\\n}
     {appendix}
   {empty_line:\\n}
- *10 @appendixsec C3 l21 {appendixsec}
+ *@appendixsec C3 l21 {appendixsec}
  |INFO
  |spaces_before_argument:
   |{ }

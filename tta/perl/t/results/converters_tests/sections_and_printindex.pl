@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {for example}
+ *@top C2 l2 {for example}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
     |{\\n}
     {for example}
   {empty_line:\\n}
- *2 @node C1 l4 {node}
+ *@node C1 l4 {node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {node}
- *3 @chapter C3 l5 {chap}
+ *@chapter C3 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {entry1}
- *4 @node C1 l8 {sec}
+ *@node C1 l8 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {sec}
- *5 @section C3 l9 {Sec}
+ *@section C3 l9 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {entry2}
- *6 @appendix C4 l12 {App}
+ *@appendix C4 l12 {App}
  |INFO
  |spaces_before_argument:
   |{ }

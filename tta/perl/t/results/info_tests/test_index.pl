@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_index'} = '*document_root C13
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C12 l2 {Element top}
+ *@top C12 l2 {Element top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -251,7 +251,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *2 @menu C4 l26
+  *@menu C4 l26
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -291,7 +291,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l31 {name}
+ *@node C1 l31 {name}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -305,7 +305,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {name}
- *4 @chapter C171 l32 {A chapter}
+ *@chapter C171 l32 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -632,7 +632,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {after more than 100 lines}
   {empty_line:\\n}
- *5 @node C1 l205 {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
+ *@node C1 l205 {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -647,7 +647,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
- *6 @appendix C13 l206 {Index}
+ *@appendix C13 l206 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -722,7 +722,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {fn}
   {empty_line:\\n}
- *7 @appendixsec C2 l219 {appendixsec}
+ *@appendixsec C2 l219 {appendixsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -737,7 +737,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {appendixsec}
   {empty_line:\\n}
- *8 @appendixsubsec C2 l221 {appendixsubsec}
+ *@appendixsubsec C2 l221 {appendixsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -752,7 +752,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {appendixsubsec}
   {empty_line:\\n}
- *9 @appendixsubsubsec C4 l223 {appendixsubsubsec}
+ *@appendixsubsubsec C4 l223 {appendixsubsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -767,7 +767,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {appendixsubsubsec}
   {empty_line:\\n}
-  *10 @chapheading C1 l225
+  *@chapheading C1 l225
   |INFO
   |spaces_before_argument:
    |{ }
@@ -780,7 +780,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {chapheading}
   {empty_line:\\n}
- *11 @centerchap C2 l227 {centerchap}
+ *@centerchap C2 l227 {centerchap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -794,7 +794,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {centerchap}
   {empty_line:\\n}
- *12 @chapter C7 l229 {chapter end}
+ *@chapter C7 l229 {chapter end}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -823,7 +823,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {index in chapter end}
   {empty_line:\\n}
-  *13 @anchor C1 l233
+  *@anchor C1 l233
   |EXTRA
   |is_target:{1}
   |normalized:{a-counting-anchor}

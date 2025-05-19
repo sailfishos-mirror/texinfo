@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2 {test commands in nodedescriptionblock}
+ *@top C6 l2 {test commands in nodedescriptionblock}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     |{\\n}
     {test commands in nodedescriptionblock}
   {empty_line:\\n}
-  *2 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      {f1}
    {.\\n}
   {empty_line:\\n}
- *3 @node C1 l11 {node1}
+ *@node C1 l11 {node1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node1}
- *4 @chapter C4 l12 {chap1}
+ *@chapter C4 l12 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -120,13 +120,13 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     |{\\n}
     {chap1}
   {empty_line:\\n}
-  *5 @nodedescriptionblock C10 l14
+  *@nodedescriptionblock C10 l14
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *6 @anchor C1 l15
+   *@anchor C1 l15
    |EXTRA
    |is_target:{1}
    |normalized:{in-nodescription}
@@ -168,7 +168,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
       |{\\n}
       {in nodedescriptionblock}
    {empty_line:\\n}
-   *7 @float C6 l21
+   *@float C6 l21
    |INFO
    |spaces_before_argument:
     |{ }
@@ -224,7 +224,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *8 @node C1 l29 {node2}
+ *@node C1 l29 {node2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -239,7 +239,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node2}
- *9 @chapter C11 l30 {chap2}
+ *@chapter C11 l30 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -272,7 +272,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   {empty_line:\\n}
   *@c C1
    {rawline_arg: node1 again to test two nodescription expansions\\n}
-  *10 @menu C3 l35
+  *@menu C3 l35
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
      |{\\n}
      {macro}
   {empty_line:\\n}
- *2 @node C1 l8 {chap}
+ *@node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C36 l9 {Chapter}
+ *@chapter C36 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
       *paragraph C1
        {in footnote}
     {.</b>\\n}
-    *4 @anchor C1 l13
+    *@anchor C1 l13
     |EXTRA
     |is_target:{1}
     |normalized:{anchor-in-html}

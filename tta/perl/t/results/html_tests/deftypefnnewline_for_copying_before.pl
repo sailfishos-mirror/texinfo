@@ -88,7 +88,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
      |{\\n}
      {copying}
   {empty_line:\\n}
- *0 @node C1 l10 {Top}
+ *@node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l11 {top}
+ *@top C2 l11 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l13 {chap}
+ *@node C1 l13 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -130,7 +130,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C4 l14 {Chapter}
+ *@chapter C4 l14 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

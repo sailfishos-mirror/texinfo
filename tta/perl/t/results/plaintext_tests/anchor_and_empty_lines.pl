@@ -10,7 +10,7 @@ $result_tree_text{'anchor_and_empty_lines'} = '*document_root C1
   *paragraph C1
    {text 1.\\n}
   {empty_line:\\n}
-  *0 @anchor C1 l3
+  *@anchor C1 l3
   |EXTRA
   |is_target:{1}
   |normalized:{in-anchor}

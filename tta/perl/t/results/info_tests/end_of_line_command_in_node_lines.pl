@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l9 {chap @* f     nl Something? @* After punct}
+ *@node C1 l9 {chap @* f     nl Something? @* After punct}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     { f     nl Something? }
     *@*
     { After punct}
- *4 @chapter C11 l10 {Chap}
+ *@chapter C11 l10 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -114,7 +114,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     |{\\n}
     {Chap}
   {empty_line:\\n}
-  *5 @anchor C1 l12
+  *@anchor C1 l12
   |EXTRA
   |is_target:{1}
   |normalized:{ankh-p}
@@ -160,7 +160,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
- *6 @node C1 l20 {new n}
+ *@node C1 l20 {new n}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -174,7 +174,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {new n}
- *7 @chapter C9 l21 {Ochap}
+ *@chapter C9 l21 {Ochap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -231,7 +231,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
      {gg}
    {.\\n}
   {empty_line:\\n}
-  *8 @menu C5 l29
+  *@menu C5 l29
    *arguments_line C1
     *block_line_arg
     |INFO

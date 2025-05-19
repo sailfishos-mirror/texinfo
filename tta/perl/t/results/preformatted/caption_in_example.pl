@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'caption_in_example'} = '*document_root C1
  *before_node_section C1
-  *0 @float C4 l1
+  *@float C4 l1
   |INFO
   |spaces_before_argument:
    |{ }

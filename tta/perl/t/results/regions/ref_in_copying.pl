@@ -34,7 +34,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *0 @node C1 l5 {Top}
+ *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -48,7 +48,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l6 {top}
+ *@top C6 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *2 @menu C3 l10
+  *@menu C3 l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l14 {GFDL}
+ *@node C1 l14 {GFDL}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {GFDL}
- *4 @chapter C2 l15 {GFDL}
+ *@chapter C2 l15 {GFDL}
  |INFO
  |spaces_before_argument:
   |{ }

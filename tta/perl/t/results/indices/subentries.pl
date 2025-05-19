@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'subentries'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'subentries'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2
+ *@top C2 l2
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'subentries'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *2 @node C1 l4 {chapter index}
+ *@node C1 l4 {chapter index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'subentries'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter index}
- *3 @chapter C14 l5 {Index}
+ *@chapter C14 l5 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

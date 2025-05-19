@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'text_block_before_defline'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chapt}
+ *@node C1 l4 {chapt}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapt}
- *3 @chapter C3 l5 {Chap}
+ *@chapter C3 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
        |{\\n}
        {example}
     {empty_line:\\n}
-    *4 @menu C3 l14
+    *@menu C3 l14
      *arguments_line C1
       *block_line_arg
       |INFO

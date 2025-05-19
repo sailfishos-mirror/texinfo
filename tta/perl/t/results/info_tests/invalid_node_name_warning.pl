@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C4 l2 {Top}
+ *@node C4 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C5 l4
+  *@menu C5 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C2 l10 {@asis{nodename. a}}
+ *@node C2 l10 {@asis{nodename. a}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
      *brace_container C1
       {nodename. a}
   {empty_line:\\n}
- *3 @node C2 l12 {node@comma{}comma}
+ *@node C2 l12 {node@comma{}comma}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -121,7 +121,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
      *brace_container
     {comma}
   {empty_line:\\n}
- *4 @node C3 l14 {@asis{bidule:}}
+ *@node C3 l14 {@asis{bidule:}}
  |INFO
  |spaces_before_argument:
   |{ }

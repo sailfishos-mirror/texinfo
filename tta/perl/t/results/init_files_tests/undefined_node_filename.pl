@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'undefined_node_filename'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'undefined_node_filename'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C1 l3 {chap Other}
+ *@node C1 l3 {chap Other}
  |INFO
  |spaces_before_argument:
   |{ }

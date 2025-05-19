@@ -66,9 +66,11 @@ converter_customization_options, unique_at_command_options.
 Texinfo tree reader
 ===================
 
-Separate tree information from structuring information.  For that, add
-structures for nodes, sections and headings (including xrefname)
-separate from the tree.
+No more extra element, content, direction, all have been put in
+structure information in sections, nodes, headings structure info
+lists.  Should there be a design decision that prevents readding
+references to the tree in the tree, such that the corresponding 
+code can be completly removed?
 
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.

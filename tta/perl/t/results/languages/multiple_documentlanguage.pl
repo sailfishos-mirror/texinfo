@@ -108,7 +108,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *0 @node C1 l9 {Top}
+ *@node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -122,7 +122,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l10 {top}
+ *@top C2 l10 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -136,7 +136,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l12 {chap}
+ *@node C1 l12 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -151,7 +151,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C15 l13 {Chap}
+ *@chapter C15 l13 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

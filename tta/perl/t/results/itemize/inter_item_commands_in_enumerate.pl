@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chapter}
+ *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C14 l5 {chap}
+ *@chapter C14 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

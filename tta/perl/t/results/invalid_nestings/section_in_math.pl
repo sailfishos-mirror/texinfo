@@ -17,7 +17,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
       {{x^2\\n}
       {empty_line:\\n}
       {}}
- *0 @section C3 l4 {sec1}
+ *@section C3 l4 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -41,7 +41,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
     *brace_command_context C2
      {in math\\n}
      {empty_line:\\n}
- *1 @section C1 l8 {sec2}
+ *@section C1 l8 {sec2}
  |INFO
  |spaces_before_argument:
   |{ }

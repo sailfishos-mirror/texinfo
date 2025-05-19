@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_zero'} = '*document_root C2
  *before_node_section
- *0 @node C6 l1 {Top}
+ *@node C6 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'anchor_zero'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @anchor C1 l3
+  *@anchor C1 l3
   |EXTRA
   |is_target:{1}
   |normalized:{0}

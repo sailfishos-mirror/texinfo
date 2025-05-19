@@ -20,7 +20,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
      |{\\n}
      {10}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {section top}
+ *@top C2 l4 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -48,7 +48,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     |{\\n}
     {section top}
   {empty_line:\\n}
- *2 @node C1 l6 {chapter}
+ *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C2 l7 {Chapter}
+ *@chapter C2 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     |{\\n}
     {Chapter}
   {empty_line:\\n}
- *4 @section C2 l9 {section}
+ *@section C2 l9 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     |{\\n}
     {section}
   {empty_line:\\n}
- *5 @subsection C4 l11 {Subsection 10pts}
+ *@subsection C4 l11 {Subsection 10pts}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {11}
- *6 @subsection C5 l15 {Subsection 11pts}
+ *@subsection C5 l15 {Subsection 11pts}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {8}
- *7 @subsection C5 l20 {Subsection 8pts}
+ *@subsection C5 l20 {Subsection 8pts}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -174,7 +174,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {15}
- *8 @subsection C3 l25 {Subsection 15pts}
+ *@subsection C3 l25 {Subsection 15pts}
  |INFO
  |spaces_before_argument:
   |{ }

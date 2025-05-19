@@ -24,7 +24,7 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      |{\\n}
      {utf-8}
    {empty_line:\\n}
- *0 @node C1 encoding_index_utf8.texi:l4 {Top}
+ *@node C1 encoding_index_utf8.texi:l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 encoding_index_utf8.texi:l5 {encoding index utf8}
+ *@top C2 encoding_index_utf8.texi:l5 {encoding index utf8}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     |{\\n}
     {encoding index utf8}
   {empty_line:\\n}
- *2 @node C59 encoding_index_utf8.texi:l7 {chap}
+ *@node C59 encoding_index_utf8.texi:l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

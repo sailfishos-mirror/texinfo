@@ -13,7 +13,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {top}
+ *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -41,7 +41,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l6 {chapter}
+ *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C4 l7 {chap}
+ *@chapter C4 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
- *4 @node C1 l11 {@code{append}ix}
+ *@node C1 l11 {@code{append}ix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
      *brace_container C1
       {append}
     {ix}
- *5 @appendix C3 l12 {App}
+ *@appendix C3 l12 {App}
  |INFO
  |spaces_before_argument:
   |{ }

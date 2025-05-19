@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C1 l2 {top section}
+ *@top C1 l2 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {top section}
- *2 @chapter C5 l3 {Main}
+ *@chapter C5 l3 {Main}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
-  *3 @menu C3 l6
+  *@menu C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 l10 {Additional}
+ *@node C1 l10 {Additional}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Additional}
- *5 @appendix C1 l11 {Annex}
+ *@appendix C1 l11 {Annex}
  |INFO
  |spaces_before_argument:
   |{ }

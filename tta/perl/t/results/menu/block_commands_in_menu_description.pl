@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {first}
+ *@node C1 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {first}
- *1 @top C3 l2 {top}
+ *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO

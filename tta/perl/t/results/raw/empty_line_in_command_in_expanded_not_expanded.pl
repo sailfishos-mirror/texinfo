@@ -41,7 +41,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     |spaces_after_argument:
      |{\\n}
    *rawpreformatted C5
-    *0 @anchor C1 l15
+    *@anchor C1 l15
     |EXTRA
     |is_target:{1}
     |normalized:{ha-hb}

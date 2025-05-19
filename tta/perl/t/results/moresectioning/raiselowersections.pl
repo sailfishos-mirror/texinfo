@@ -12,7 +12,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    *@c C1
     {rawline_arg: -*-texinfo-*-\\n}
   {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l4
+ *@top C3 l4
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |INFO
    |spaces_after_argument:
     |{\\n}
-  *2 @menu C4 l5
+  *@menu C4 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10 {Chapter}
+ *@node C1 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *4 @chapter C11 l11 {Chapter}
+ *@chapter C11 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -104,7 +104,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *5 @menu C4 l13
+  *@menu C4 l13
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -227,7 +227,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
       >|{\\n}
       >{ifclear}
   {empty_line:\\n}
- *6 @node C1 section_file.texi:l12 {Chapter in included file}
+ *@node C1 section_file.texi:l12 {Chapter in included file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -241,7 +241,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Chapter in included file}
- *7 @chapter C4 section_file.texi:l13 {Chapter in included file}
+ *@chapter C4 section_file.texi:l13 {Chapter in included file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -257,7 +257,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     |{\\n}
     {Chapter in included file}
   {empty_line:\\n}
-  *8 @menu C3 section_file.texi:l15
+  *@menu C3 section_file.texi:l15
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -286,7 +286,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C1 section_file.texi:l19 {Section}
+ *@node C1 section_file.texi:l19 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -300,7 +300,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Section}
- *10 @section C4 section_file.texi:l20 {Section}
+ *@section C4 section_file.texi:l20 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -316,7 +316,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     |{\\n}
     {Section}
   {empty_line:\\n}
-  *11 @menu C3 section_file.texi:l22
+  *@menu C3 section_file.texi:l22
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -345,7 +345,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *12 @node C1 section_file.texi:l26 {Subsection}
+ *@node C1 section_file.texi:l26 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -359,7 +359,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Subsection}
- *13 @subsection C7 section_file.texi:l27 {Subsection}
+ *@subsection C7 section_file.texi:l27 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -451,7 +451,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |arg_line:{ do-top\\n}
    {rawline_arg:do-top}
   {empty_line:\\n}
- *14 @node C1 l30 {Second chapter}
+ *@node C1 l30 {Second chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -465,7 +465,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Second chapter}
- *15 @chapter C5 l31 {Second chapter}
+ *@chapter C5 l31 {Second chapter}
  |INFO
  |spaces_before_argument:
   |{ }

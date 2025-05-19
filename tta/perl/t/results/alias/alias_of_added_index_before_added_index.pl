@@ -31,7 +31,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
     |{\\n}
     {sli}
   {empty_line:\\n}
- *0 @node C1 l5 {Top}
+ *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l6 {top}
+ *@top C4 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
     |{\\n}
     {entry}
   {empty_line:\\n}
- *2 @node C1 l10 {chap}
+ *@node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C3 l11 {Chapter}
+ *@chapter C3 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

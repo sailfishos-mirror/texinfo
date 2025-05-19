@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'float_without_type'} = '*document_root C2
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C5 l2 {Top}
+ *@node C5 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'float_without_type'} = '*document_root C2
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @float C3 l4
+  *@float C3 l4
   |INFO
   |spaces_before_argument:
    |{ }

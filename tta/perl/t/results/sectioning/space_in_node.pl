@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'space_in_node'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C4 l2 {Top}
+ *@node C4 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C5 l4
+  *@menu C5 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -78,7 +78,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C2 l10 {Chap first  here}
+ *@node C2 l10 {Chap first  here}
  |INFO
  |spaces_before_argument:
   |{  }
@@ -93,7 +93,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
     |{\\n}
     {Chap first  here}
   {empty_line:\\n}
- *3 @node C2 l12 {Test               title}
+ *@node C2 l12 {Test               title}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
     |{\\n}
     {Test               title}
   {empty_line:\\n}
- *4 @node C1 l14 {Last with spaces}
+ *@node C1 l14 {Last with spaces}
  |INFO
  |spaces_before_argument:
   |{   }

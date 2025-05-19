@@ -18,7 +18,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
     {separate}
- *0 @node C3 l2 {Top}
+ *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

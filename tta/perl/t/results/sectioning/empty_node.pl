@@ -7,14 +7,14 @@ use utf8;
 
 $result_tree_text{'empty_node'} = '*document_root C3
  *before_node_section
- *0 @node C2 l1
+ *@node C2 l1
   *arguments_line C1
    *line_arg
    |INFO
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *1 @node C1 l3
+ *@node C1 l3
  |INFO
  |spaces_before_argument:
   |{ }

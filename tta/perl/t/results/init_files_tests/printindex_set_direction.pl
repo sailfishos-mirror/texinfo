@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {Chapter}
+ *@node C1 l4 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *3 @chapter C6 l5 {chap}
+ *@chapter C6 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     |{\\n}
     {FF}
   {empty_line:\\n}
- *4 @node C1 l11 {Vindex}
+ *@node C1 l11 {Vindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Vindex}
- *5 @appendix C4 l12 {Vindex}
+ *@appendix C4 l12 {Vindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     |{\\n}
     {vr}
   {empty_line:\\n}
- *6 @node C1 l16 {Cindex}
+ *@node C1 l16 {Cindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -163,7 +163,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Cindex}
- *7 @appendix C4 l17 {Cindex}
+ *@appendix C4 l17 {Cindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,7 +191,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     |{\\n}
     {cp}
   {empty_line:\\n}
- *8 @node C1 l21 {Findex}
+ *@node C1 l21 {Findex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -206,7 +206,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Findex}
- *9 @appendix C3 l22 {Findex}
+ *@appendix C3 l22 {Findex}
  |INFO
  |spaces_before_argument:
   |{ }

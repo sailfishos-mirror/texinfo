@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *before_node_section
- *0 @top C2 l1 {Top}
+ *@top C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @chapter C2 l3 {Chapter}
+ *@chapter C2 l3 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
     |{\\n}
     {Chapter}
   {empty_line:\\n}
- *2 @section C2 l5 {section}
+ *@section C2 l5 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
     |{\\n}
     {section}
   {empty_line:\\n}
- *3 @subsubsection C2 l7 {subsubsection with no subsection above}
+ *@subsubsection C2 l7 {subsubsection with no subsection above}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
     |{\\n}
     {subsubsection with no subsection above}
   {empty_line:\\n}
- *4 @subsection C1 l9 {the subsection}
+ *@subsection C1 l9 {the subsection}
  |INFO
  |spaces_before_argument:
   |{ }

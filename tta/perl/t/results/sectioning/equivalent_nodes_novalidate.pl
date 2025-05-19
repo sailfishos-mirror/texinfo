@@ -10,7 +10,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
   *@novalidate C1 l1
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C4 l3 {first}
+ *@node C4 l3 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
      *brace_container C1
       {node}
   {empty_line:\\n}
-  *1 @menu C3 l5
+  *@menu C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -65,7 +65,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C3 l9 {@samp{node}}
+ *@node C3 l9 {@samp{node}}
  |INFO
  |spaces_before_argument:
   |{ }

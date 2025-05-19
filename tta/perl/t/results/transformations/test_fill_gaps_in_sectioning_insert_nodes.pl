@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root C11
  *before_node_section
- *0 @node C1 {Top}
+ *@node C1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l1 {top}
+ *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 {Chap}
+ *@node C1 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Chap}
- *3 @chapter C2 l3 {Chap}
+ *@chapter C2 l3 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *4 @node C1 {Section}
+ *@node C1 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Section}
- *5 @section C2 l5 {Section}
+ *@section C2 l5 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     |{\\n}
     {Section}
   {empty_line:\\n}
- *6 @node C1 {@asis{} 1}
+ *@node C1 {@asis{} 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     *@asis C1
      *brace_container
     { 1}
- *7 @unnumberedsubsec C2 {@asis{}}
+ *@unnumberedsubsec C2 {@asis{}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -124,7 +124,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     *@asis C1
      *brace_container
   {empty_line:\\n}
- *8 @node C1 {There}
+ *@node C1 {There}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {There}
- *9 @subsubsection C1 l7 {There}
+ *@subsubsection C1 l7 {There}
  |INFO
  |spaces_before_argument:
   |{ }

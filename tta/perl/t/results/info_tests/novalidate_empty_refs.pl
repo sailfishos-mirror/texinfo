@@ -11,7 +11,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
   *@novalidate C1 l2
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C4 l4 {Top}
+ *@node C4 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
        { }
    {.\\n}
   {empty_line:\\n}
- *1 @node C1 l9 {@
+ *@node C1 l9 {@
 }
  |INFO
  |spaces_before_argument:
@@ -51,7 +51,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
   *arguments_line C1
    *line_arg C1
     *@\\n
- *2 @node C1 l10 {@:}
+ *@node C1 l10 {@:}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     *@:
- *3 @node C1 l11 {@asis{ }}
+ *@node C1 l11 {@asis{ }}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 in_menu_only_special_ascii_spaces_node.texi:l1 {Top}
+ *@node C1 in_menu_only_special_ascii_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
+ *@top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C4 in_menu_only_special_ascii_spaces_node.texi:l4
+  *@menu C4 in_menu_only_special_ascii_spaces_node.texi:l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -68,13 +68,13 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 in_menu_only_special_ascii_spaces_node.texi:l9
+ *@node C1 in_menu_only_special_ascii_spaces_node.texi:l9
   *arguments_line C1
    *line_arg
    |INFO
    |spaces_after_argument:
     |{ '."\r".'\\n}
- *4 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
+ *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,13 +89,13 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
     |{\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
- *5 @node C1 in_menu_only_special_ascii_spaces_node.texi:l12
+ *@node C1 in_menu_only_special_ascii_spaces_node.texi:l12
   *arguments_line C1
    *line_arg
    |INFO
    |spaces_after_argument:
     |{ \\t\\f\\n}
- *6 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
+ *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
  |INFO
  |spaces_before_argument:
   |{ }

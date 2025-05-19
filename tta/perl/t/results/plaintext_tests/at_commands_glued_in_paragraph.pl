@@ -89,7 +89,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
     {4}
   *paragraph C5
    {anchor}
-   *0 @anchor C1 l13
+   *@anchor C1 l13
    |EXTRA
    |is_target:{1}
    |normalized:{anchor}

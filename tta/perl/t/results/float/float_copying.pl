@@ -15,7 +15,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
      |spaces_after_argument:
       |{\\n}
     {empty_line:\\n}
-    *0 @float C7 l3
+    *@float C7 l3
     |INFO
     |spaces_before_argument:
      |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
          *brace_command_context C7
           *paragraph C3
            {The caption copying footnote\\n}
-           *1 @anchor C1 l10
+           *@anchor C1 l10
            |EXTRA
            |is_target:{1}
            |normalized:{caption-copying-footnote-anchor}
@@ -102,7 +102,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
           {empty_line:\\n}
         {\\n}
        {empty_line:\\n}
-       *2 @anchor C1 l19
+       *@anchor C1 l19
        |EXTRA
        |is_target:{1}
        |normalized:{public-domain-anchor}
@@ -161,7 +161,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *3 @node C1 l26 {Top}
+ *@node C1 l26 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -175,7 +175,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C6 l27 {Top}
+ *@top C6 l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -194,7 +194,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *5 @menu C3 l31
+  *@menu C3 l31
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -223,7 +223,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l35 {Copying and floats}
+ *@node C1 l35 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -238,7 +238,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Copying and floats}
- *7 @appendix C9 l36 {Copying and floats}
+ *@appendix C9 l36 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }

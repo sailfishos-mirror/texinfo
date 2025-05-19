@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'section_on_float_line'} = '*document_root C2
  *before_node_section C1
-  *0 @float C1 l1
+  *@float C1 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {l}
- *1 @section C1 l1 {first}
+ *@section C1 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }

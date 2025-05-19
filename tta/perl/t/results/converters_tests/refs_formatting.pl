@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'refs_formatting'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {chapter}
+ *@node C1 l1 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *1 @chapter C7 l2 {chapter}
+ *@chapter C7 l2 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

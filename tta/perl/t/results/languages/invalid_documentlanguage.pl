@@ -223,7 +223,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
- *0 @node C1 l21 {Top}
+ *@node C1 l21 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -237,7 +237,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l22 {top}
+ *@top C4 l22 {top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l8 {chapter}
+ *@node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 l9 {chapter}
+ *@chapter C4 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
     |{\\n}
     {chapter}
   {empty_line:\\n}
-  *5 @menu C4 l11
+  *@menu C4 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l16 {section}
+ *@node C1 l16 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C4 l17 {section}
+ *@section C4 l17 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -162,7 +162,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
     |{\\n}
     {section}
   {empty_line:\\n}
-  *8 @menu C3 l19
+  *@menu C3 l19
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -191,7 +191,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C1 l23 {subsection}
+ *@node C1 l23 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -205,7 +205,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {subsection}
- *10 @subsection C1 l24 {subsection}
+ *@subsection C1 l24 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }

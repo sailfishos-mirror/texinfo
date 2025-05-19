@@ -52,7 +52,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
      |{\\n}
      {quotation}
   {empty_line:\\n}
-  *0 @float C7 l10
+  *@float C7 l10
   |INFO
   |spaces_before_argument:
    |{ }

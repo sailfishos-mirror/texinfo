@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'image_not_found'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {Top}
+ *@node C3 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

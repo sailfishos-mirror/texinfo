@@ -19,7 +19,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
    *@c C1
     {rawline_arg: set bar\\n}
    {empty_line:\\n}
- *0 @top C4 defxcond.texi:l8 {deffnx inside conditional}
+ *@top C4 defxcond.texi:l8 {deffnx inside conditional}
  |INFO
  |spaces_before_argument:
   |{ }

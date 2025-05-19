@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'in_table'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2 {Top}
+ *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'in_table'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C11 l3 {chap}
+ *@node C11 l3 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *brace_container C1
          {in titlefont}
        { }
-       *2 @anchor C1 l9
+       *@anchor C1 l9
        |EXTRA
        |is_target:{1}
        |normalized:{in-anchor}

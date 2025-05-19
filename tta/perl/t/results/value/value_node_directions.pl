@@ -13,7 +13,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
    {rawline_arg:a--foo}
    {rawline_arg:bar}
   {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     {(}
     {dir}
     {)}
- *1 @top C3 l4 {Var bar}
+ *@top C3 l4 {Var bar}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
       >{a--foo}
    >value_expansion<end;3><p:3>
   {empty_line:\\n}
- *2 @node C1 l7 {bar}
+ *@node C1 l7 {bar}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     {(}
     {dir}
     {)}
- *3 @chapter C2 l8 {BarFoo}
+ *@chapter C2 l8 {BarFoo}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     |{\\n}
     {BarFoo}
   {empty_line:\\n}
- *4 @node C1 l10 {BarFoo}
+ *@node C1 l10 {BarFoo}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -188,7 +188,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     {(}
     {dir}
     {)}
- *5 @chapter C1 l11 {bar}
+ *@chapter C1 l11 {bar}
  |INFO
  |spaces_before_argument:
   |{ }

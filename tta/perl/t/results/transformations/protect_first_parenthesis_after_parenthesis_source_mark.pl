@@ -26,7 +26,7 @@ $result_tree_text{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *0 @anchor C1 l5
+  *@anchor C1 l5
   |EXTRA
   |is_target:{1}
   |normalized:{_0028my_005ff_0029}

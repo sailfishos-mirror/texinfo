@@ -47,7 +47,7 @@ $result_tree_text{'format_in_titlepage_titlepage'} = '*document_root C3
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *0 @node C1 l9 {Top}
+ *@node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'format_in_titlepage_titlepage'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C2 l10 {chap}
+ *@node C2 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -24,7 +24,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
      |{\\n}
      {iso-8859-1}
    {empty_line:\\n}
- *0 @node C1 encoding_index_latin1.texi:l4 {Top}
+ *@node C1 encoding_index_latin1.texi:l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 encoding_index_latin1.texi:l5 {encoding index latin1}
+ *@top C2 encoding_index_latin1.texi:l5 {encoding index latin1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
     |{\\n}
     {encoding index latin1}
   {empty_line:\\n}
- *2 @node C59 encoding_index_latin1.texi:l7 {chap}
+ *@node C59 encoding_index_latin1.texi:l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

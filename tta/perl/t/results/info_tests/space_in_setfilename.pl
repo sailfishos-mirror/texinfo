@@ -23,7 +23,7 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
       {raw: name }
     *@ 
   {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

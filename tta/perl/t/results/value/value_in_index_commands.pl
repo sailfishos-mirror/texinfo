@@ -130,7 +130,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    {rawline_arg:defcodeindex_entry}
    {rawline_arg:a @var{index entry} t@\'e @^{@dotless{i}}}
   {empty_line:\\n}
- *0 @node C1 l22 {Top}
+ *@node C1 l22 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C14 l23 {chap}
+ *@node C14 l23 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

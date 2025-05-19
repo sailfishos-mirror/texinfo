@@ -16,7 +16,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 double_contents.texi:l5 {Top}
+ *@node C1 double_contents.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 double_contents.texi:l6 {Double contents}
+ *@top C6 double_contents.texi:l6 {Double contents}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
   *paragraph C1
    {Double contents.\\n}
   {empty_line:\\n}
-  *2 @menu C3 double_contents.texi:l10
+  *@menu C3 double_contents.texi:l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 double_contents.texi:l14 {chapter}
+ *@node C1 double_contents.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -90,7 +90,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C7 double_contents.texi:l15 {Chapter 1}
+ *@chapter C7 double_contents.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
   *paragraph C1
    {The chapter\\n}
   {empty_line:\\n}
-  *5 @menu C3 double_contents.texi:l20
+  *@menu C3 double_contents.texi:l20
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -141,7 +141,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 double_contents.texi:l24 {section}
+ *@node C1 double_contents.texi:l24 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -155,7 +155,7 @@ $result_tree_text{'double_contents_inline_section'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C3 double_contents.texi:l25 {section with contents}
+ *@section C3 double_contents.texi:l25 {section with contents}
  |INFO
  |spaces_before_argument:
   |{ }

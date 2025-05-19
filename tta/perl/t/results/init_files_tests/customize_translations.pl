@@ -15,7 +15,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l5 {top}
+ *@top C2 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l7 {Chapter}
+ *@node C1 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *3 @chapter C5 l8 {chap}
+ *@chapter C5 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {fr}
- *4 @node C1 l13 {Chapter fr}
+ *@node C1 l13 {Chapter fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Chapter fr}
- *5 @chapter C4 l14 {chap fr}
+ *@chapter C4 l14 {chap fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -123,7 +123,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     *brace_container
    {.\\n}
   {empty_line:\\n}
- *6 @node C1 l18 {section fr}
+ *@node C1 l18 {section fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -137,7 +137,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {section fr}
- *7 @section C3 l19 {sec fr}
+ *@section C3 l19 {sec fr}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -164,7 +164,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {de}
- *8 @node C1 l22 {Chapter de}
+ *@node C1 l22 {Chapter de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -178,7 +178,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Chapter de}
- *9 @chapter C4 l23 {chap de}
+ *@chapter C4 l23 {chap de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -198,7 +198,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     *brace_container
    {.\\n}
   {empty_line:\\n}
- *10 @node C1 l27 {Last chapter}
+ *@node C1 l27 {Last chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -212,7 +212,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Last chapter}
- *11 @chapter C2 l28 {Last Chapter}
+ *@chapter C2 l28 {Last Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

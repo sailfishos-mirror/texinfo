@@ -121,7 +121,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *0 @menu C10 l25
+  *@menu C10 l25
    *arguments_line C1
     *block_line_arg
     |INFO

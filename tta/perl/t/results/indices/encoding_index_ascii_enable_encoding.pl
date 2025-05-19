@@ -36,7 +36,7 @@ $result_tree_text{'encoding_index_ascii_enable_encoding'} = '*document_root C4
      |{\\n}
      {us-ascii}
    {empty_line:\\n}
- *0 @node C1 l5 {Top}
+ *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'encoding_index_ascii_enable_encoding'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C1 l6 {top}
+ *@top C1 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'encoding_index_ascii_enable_encoding'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {top}
- *2 @node C61 l7 {chap}
+ *@node C61 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

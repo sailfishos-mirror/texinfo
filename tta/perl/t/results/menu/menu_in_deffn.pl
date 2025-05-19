@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'menu_in_deffn'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {first}
+ *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
       *def_line_arg C1
        {c}
    *def_item C1
-    *1 @menu C3 l4
+    *@menu C3 l4
      *arguments_line C1
       *block_line_arg
       |INFO

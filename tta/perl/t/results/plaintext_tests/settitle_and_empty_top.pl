@@ -17,7 +17,7 @@ $result_tree_text{'settitle_and_empty_top'} = '*document_root C2
     |{\\n}
     {Title}
   {empty_line:\\n}
- *0 @top C2 l3
+ *@top C2 l3
  |EXTRA
  |section_level:{0}
  |section_number:{1}

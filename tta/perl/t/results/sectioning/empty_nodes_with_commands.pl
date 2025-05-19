@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C2 l2
+ *@node C2 l2
  |INFO
  |spaces_before_argument:
   |{ }
@@ -19,7 +19,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
     |*@c C1
      |{rawline_arg: comment\\n}
   {empty_line:\\n}
- *1 @node C1 l4 {@
+ *@node C1 l4 {@
 }
  |INFO
  |spaces_before_argument:
@@ -27,7 +27,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
   *arguments_line C1
    *line_arg C1
     *@\\n
- *2 @node C1 l5 {@:}
+ *@node C1 l5 {@:}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     *@:
- *3 @node C1 l6 {@asis{ }}
+ *@node C1 l6 {@asis{ }}
  |INFO
  |spaces_before_argument:
   |{ }

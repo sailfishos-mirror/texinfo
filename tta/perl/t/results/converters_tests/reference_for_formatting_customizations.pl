@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'reference_for_formatting_customizations'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 formatting_customizations_input.texi:l1 {Top}
+ *@node C1 formatting_customizations_input.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'reference_for_formatting_customizations'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 formatting_customizations_input.texi:l2 {top}
+ *@top C2 formatting_customizations_input.texi:l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'reference_for_formatting_customizations'} = '*document_root C
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 formatting_customizations_input.texi:l4 {chapt}
+ *@node C1 formatting_customizations_input.texi:l4 {chapt}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'reference_for_formatting_customizations'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {chapt}
- *3 @chapter C4 formatting_customizations_input.texi:l5 {Chap}
+ *@chapter C4 formatting_customizations_input.texi:l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

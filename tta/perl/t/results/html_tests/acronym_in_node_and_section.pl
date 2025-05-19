@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1 {top}
+ *@node C1 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C2 l5 {chap}
+ *@chapter C2 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
     |{\\n}
     {chap}
   {empty_line:\\n}
- *4 @node C1 l7 {sec define}
+ *@node C1 l7 {sec define}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {sec define}
- *5 @section C4 l8 {define}
+ *@section C4 l8 {define}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -104,7 +104,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
      {Good Hypo Jolly}
    {\\n}
   {empty_line:\\n}
- *6 @node C1 l12 {sec here is @acronym{GHJ}}
+ *@node C1 l12 {sec here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -121,7 +121,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
     *@acronym C1 l12
      *brace_arg C1
       {GHJ}
- *7 @section C3 l13 {here is @acronym{GHJ}}
+ *@section C3 l13 {here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -17,7 +17,7 @@ $result_tree_text{'section_in_copying'} = '*document_root C2
    *paragraph C1
     {in copying\\n}
    {empty_line:\\n}
- *0 @section C1 l5 {section}
+ *@section C1 l5 {section}
  |INFO
  |spaces_before_argument:
   |{ }

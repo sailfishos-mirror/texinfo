@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @unnumbered C1 l1 {U}
+ *@unnumbered C1 l1 {U}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {U}
- *1 @section C1 l2 {S}
+ *@section C1 l2 {S}
  |INFO
  |spaces_before_argument:
   |{ }

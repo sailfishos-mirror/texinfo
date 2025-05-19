@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
  *before_node_section C3
-  *0 @float C5 l1
+  *@float C5 l1
   |INFO
   |spaces_before_argument:
    |{ }

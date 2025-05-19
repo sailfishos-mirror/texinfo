@@ -22,7 +22,7 @@ $result_tree_text{'known_encoding'} = '*document_root C2
     |{\\n}
     {latin1}
   {empty_line:\\n}
- *0 @node C2 l4 {Top}
+ *@node C2 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

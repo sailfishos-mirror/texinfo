@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {Chapter}
+ *@node C1 l4 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *3 @chapter C2 l5 {chap}
+ *@chapter C2 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
     |{\\n}
     {chap}
   {empty_line:\\n}
- *4 @node C1 l7 {section}
+ *@node C1 l7 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'automatic_menu_referencing_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {section}
- *5 @section C1 l8 {sec}
+ *@section C1 l8 {sec}
  |INFO
  |spaces_before_argument:
   |{ }

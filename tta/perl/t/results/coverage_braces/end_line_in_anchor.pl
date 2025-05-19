@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'end_line_in_anchor'} = '*document_root C1
  *before_node_section C2
-  *0 @anchor C1 l2
+  *@anchor C1 l2
   |EXTRA
   |is_target:{1}
   |normalized:{an-anchor}

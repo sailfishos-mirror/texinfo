@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_in_command'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {Top}
+ *@node C3 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'anchor_in_command'} = '*document_root C2
      *@emph C1 l5
       *brace_container C2
        {emph2 }
-       *1 @anchor C1 l5
+       *@anchor C1 l5
        |EXTRA
        |is_target:{1}
        |normalized:{anchor-in-emph}

@@ -205,7 +205,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {multitable}
    {empty_line:\\n}
-   *0 @float C7 l35
+   *@float C7 l35
    |INFO
    |spaces_before_argument:
     |{ }

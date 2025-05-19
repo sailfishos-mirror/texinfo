@@ -18,7 +18,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
      |{\\n}
      {headings nodes before chapter}
    {empty_line:\\n}
- *0 @node C3 l3 {Node 1}
+ *@node C3 l3 {Node 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Node 1}
-  *1 @heading C1 l4
+  *@heading C1 l4
   |INFO
   |spaces_before_argument:
    |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     |{\\n}
     {Topic One}
   {empty_line:\\n}
- *2 @node C3 l6 {Node 2}
+ *@node C3 l6 {Node 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Node 2}
-  *3 @heading C1 l7
+  *@heading C1 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     |{\\n}
     {Topic Two}
   {empty_line:\\n}
- *4 @node C1 l9 {Cap 1}
+ *@node C1 l9 {Cap 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Cap 1}
- *5 @chapter C4 l10 {Chapter One}
+ *@chapter C4 l10 {Chapter One}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     |{\\n}
     {Chapter One}
   {empty_line:\\n}
-  *6 @menu C4 l12
+  *@menu C4 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -141,7 +141,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 l17 {Cap 2}
+ *@node C1 l17 {Cap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -155,7 +155,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Cap 2}
- *8 @chapter C1 l18 {Chapter Two}
+ *@chapter C1 l18 {Chapter Two}
  |INFO
  |spaces_before_argument:
   |{ }

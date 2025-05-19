@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *before_node_section
- *0 @node C1 {Top}
+ *@node C1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l1 {top section}
+ *@top C2 l1 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @part C2 l3 {part}
+ *@part C2 l3 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {part}
   {empty_line:\\n}
- *3 @node C1 {chap@comma{} @code{a chap}}
+ *@node C1 {chap@comma{} @code{a chap}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     *@code C1
      *brace_container C1
       {a chap}
- *4 @chapter C2 l5 {chap, @code{a chap}}
+ *@chapter C2 l5 {chap, @code{a chap}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
      *brace_container C1
       {a chap}
   {empty_line:\\n}
- *5 @node C1 l7 {a node}
+ *@node C1 l7 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {a node}
- *6 @section C2 l8 {section}
+ *@section C2 l8 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -117,7 +117,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {section}
   {empty_line:\\n}
- *7 @node C1 {truc}
+ *@node C1 {truc}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -131,7 +131,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {truc}
- *8 @section C1 l10 {truc}
+ *@section C1 l10 {truc}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -145,7 +145,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {truc}
- *9 @node C1 {sub1}
+ *@node C1 {sub1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -159,7 +159,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {sub1}
- *10 @subsection C4 l11 {sub1}
+ *@subsection C4 l11 {sub1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -177,7 +177,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   *paragraph C1
    {Text.\\n}
   {empty_line:\\n}
- *11 @node C1 {sub2}
+ *@node C1 {sub2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,7 +191,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {sub2}
- *12 @subsection C2 l15 {sub2}
+ *@subsection C2 l15 {sub2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -209,7 +209,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{ }
     {sub2}
   {empty_line:\\n}
- *13 @node C1 {section}
+ *@node C1 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -223,7 +223,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
     {section}
- *14 @section C2 l17 {section}
+ *@section C2 l17 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -238,7 +238,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {section}
   {empty_line:\\n}
- *15 @node C1 {section 1}
+ *@node C1 {section 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -253,7 +253,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {section}
     { 1}
- *16 @section C2 l19 {section}
+ *@section C2 l19 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -268,7 +268,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {section}
   {empty_line:\\n}
- *17 @node C1 { 1}
+ *@node C1 { 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -283,7 +283,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{\\n}
     {}
     { 1}
- *18 @unnumbered C2 l21
+ *@unnumbered C2 l21
  |EXTRA
  |section_level:{1}
  |section_number:{10}
@@ -293,7 +293,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *19 @node C1 {@asis{} 2}
+ *@node C1 {@asis{} 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -309,7 +309,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     *@asis C1
      *brace_container
     { 2}
- *20 @section C2 l23 {@asis{}}
+ *@section C2 l23 {@asis{}}
  |INFO
  |spaces_before_argument:
   |{ }

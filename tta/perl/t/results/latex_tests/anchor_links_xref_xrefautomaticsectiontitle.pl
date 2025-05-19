@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1 {node before}
+ *@node C4 l1 {node before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   {empty_line:\\n}
   *paragraph C3
    {In node before\\n}
-   *1 @anchor C1 l4
+   *@anchor C1 l4
    |EXTRA
    |is_target:{1}
    |normalized:{anch_003a-in-node-before}
@@ -33,7 +33,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node before}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *2 @node C1 l6 {Top}
+ *@node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C4 l7 {top sectionning}
+ *@top C4 l7 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   {empty_line:\\n}
   *paragraph C3
    {in node Top\\n}
-   *4 @anchor C1 l10
+   *@anchor C1 l10
    |EXTRA
    |is_target:{1}
    |normalized:{anch_003a-in-node-top}
@@ -71,7 +71,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node top}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *5 @node C4 l12 {after}
+ *@node C4 l12 {after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   {empty_line:\\n}
   *paragraph C3
    {in node after\\n}
-   *6 @anchor C1 l15
+   *@anchor C1 l15
    |EXTRA
    |is_target:{1}
    |normalized:{anch_003a-in-node-after}
@@ -96,7 +96,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node after}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *7 @node C1 l17 {chap}
+ *@node C1 l17 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {chap}
- *8 @chapter C9 l18 {chap}
+ *@chapter C9 l18 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   {empty_line:\\n}
   *paragraph C3
    {in chap\\n}
-   *9 @anchor C1 l21
+   *@anchor C1 l21
    |EXTRA
    |is_target:{1}
    |normalized:{anch_003a-in-chap}

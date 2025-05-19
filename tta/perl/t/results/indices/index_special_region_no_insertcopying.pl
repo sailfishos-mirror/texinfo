@@ -31,7 +31,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |spaces_after_argument:
       |{\\n}
       {Copying this document}
-    *0 @anchor C1 index_special_region_no_insertcopying.texi:l6
+    *@anchor C1 index_special_region_no_insertcopying.texi:l6
     |EXTRA
     |is_target:{1}
     |normalized:{Copying-information}
@@ -48,7 +48,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C5
-       *1 @anchor C1 index_special_region_no_insertcopying.texi:l9
+       *@anchor C1 index_special_region_no_insertcopying.texi:l9
        |EXTRA
        |is_target:{1}
        |normalized:{Public-domain-reference}
@@ -146,7 +146,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |spaces_after_argument:
       |{\\n}
       {Titlepage index}
-    *2 @anchor C1 index_special_region_no_insertcopying.texi:l25
+    *@anchor C1 index_special_region_no_insertcopying.texi:l25
     |EXTRA
     |is_target:{1}
     |normalized:{Titlepage-anchor}
@@ -162,7 +162,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |EXTRA
      |global_command_number:{2}
       *brace_command_context C5
-       *3 @anchor C1 index_special_region_no_insertcopying.texi:l27
+       *@anchor C1 index_special_region_no_insertcopying.texi:l27
        |EXTRA
        |is_target:{1}
        |normalized:{Titlepage-footnote-anchor}
@@ -205,7 +205,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *4 @node C1 index_special_region_no_insertcopying.texi:l36 {Top}
+ *@node C1 index_special_region_no_insertcopying.texi:l36 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -219,7 +219,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C1 index_special_region_no_insertcopying.texi:l37 {Top}
+ *@top C1 index_special_region_no_insertcopying.texi:l37 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -232,7 +232,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
+ *@chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -375,7 +375,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *7 @menu C3 index_special_region_no_insertcopying.texi:l58
+  *@menu C3 index_special_region_no_insertcopying.texi:l58
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -404,7 +404,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 index_special_region_no_insertcopying.texi:l62 {Copying and indices}
+ *@node C1 index_special_region_no_insertcopying.texi:l62 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -418,7 +418,7 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Copying and indices}
- *9 @appendix C15 index_special_region_no_insertcopying.texi:l63 {Copying and indices}
+ *@appendix C15 index_special_region_no_insertcopying.texi:l63 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }

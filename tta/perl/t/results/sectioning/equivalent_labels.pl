@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'equivalent_labels'} = '*document_root C2
  *before_node_section
- *0 @node C8 l1 {first}
+ *@node C8 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     |{\\n}
     {first}
   {empty_line:\\n}
-  *1 @anchor C1 l3
+  *@anchor C1 l3
   |EXTRA
   |is_target:{1}
   |normalized:{anch}
@@ -33,7 +33,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
   *paragraph C1
    {.\\n}
   {empty_line:\\n}
-  *2 @float C3 l5
+  *@float C3 l5
   |INFO
   |spaces_before_argument:
    |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
      |{\\n}
      {float}
   {empty_line:\\n}
-  *3 @menu C4 l9
+  *@menu C4 l9
    *arguments_line C1
     *block_line_arg
     |INFO

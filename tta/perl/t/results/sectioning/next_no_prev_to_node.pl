@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
  *before_node_section
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C4 l3
+  *@menu C4 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C2 l8 {chap first node}
+ *@node C2 l8 {chap first node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
    |normalized:{Top}
     {Top}
   {empty_line:\\n}
- *3 @node C1 l10 {no return}
+ *@node C1 l10 {no return}
  |INFO
  |spaces_before_argument:
   |{ }

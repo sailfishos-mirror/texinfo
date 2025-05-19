@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'nodedescription_description'} = '*document_root C9
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {test of descriptions with nodedescription*}
+ *@top C2 l2 {test of descriptions with nodedescription*}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
     |{\\n}
     {test of descriptions with nodedescription*}
   {empty_line:\\n}
- *2 @node C1 l4 {toto}
+ *@node C1 l4 {toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {toto}
- *3 @chapter C6 l5 {Toto}
+ *@chapter C6 l5 {Toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
     |{\\n}
     {Toto}
   {empty_line:\\n}
-  *4 @nodedescription C1 l7
+  *@nodedescription C1 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -95,7 +95,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
       {a}
     {nexpected}
   {empty_line:\\n}
-  *5 @nodedescriptionblock C3 l9
+  *@nodedescriptionblock C3 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *6 @node C1 l13 {titi}
+ *@node C1 l13 {titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {titi}
- *7 @chapter C4 l14 {Titi}
+ *@chapter C4 l14 {Titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
     |{\\n}
     {Titi}
   {empty_line:\\n}
-  *8 @nodedescriptionblock C3 l16
+  *@nodedescriptionblock C3 l16
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -164,7 +164,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *9 @node C1 l20 {other}
+ *@node C1 l20 {other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -178,7 +178,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {other}
- *10 @chapter C3 l21 {Other}
+ *@chapter C3 l21 {Other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -193,7 +193,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
     |{\\n}
     {Other}
   {empty_line:\\n}
-  *11 @nodedescription C1 l23
+  *@nodedescription C1 l23
   |INFO
   |spaces_before_argument:
    |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top section}
+ *@top C2 l2 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @chapter C7 l4 {Chapter}
+ *@chapter C7 l4 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -75,7 +75,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
        |{\\n}
        {foo}
     *table_definition C4
-     *3 @anchor C1 l9
+     *@anchor C1 l9
      |EXTRA
      |is_target:{1}
      |normalized:{foo}
@@ -101,7 +101,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
        |{\\n}
        {Foo}
     *table_definition C4
-     *4 @anchor C1 l13
+     *@anchor C1 l13
      |EXTRA
      |is_target:{1}
      |normalized:{Foo}

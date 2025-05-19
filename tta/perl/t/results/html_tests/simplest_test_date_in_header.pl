@@ -11,7 +11,7 @@ $result_tree_text{'simplest_test_date_in_header'} = '*document_root C3
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C4 simplest.texi:l3 {Top}
+ *@node C4 simplest.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

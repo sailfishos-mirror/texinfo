@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
-  *0 @float C6 l1
+  *@float C6 l1
   |INFO
   |spaces_before_argument:
    |{ }

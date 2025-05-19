@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'space_in_anchor'} = '*document_root C1
  *before_node_section C2
-  *0 @anchor C1 l1
+  *@anchor C1 l1
   |EXTRA
   |is_target:{1}
   |normalized:{anchor-name}

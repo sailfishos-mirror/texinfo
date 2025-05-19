@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @unnumbered C2 l1 {before}
+ *@unnumbered C2 l1 {before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
     |{\\n}
     {before}
   {empty_line:\\n}
- *1 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l4 {top section}
+ *@top C2 l4 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
     |{\\n}
     {top section}
   {empty_line:\\n}
- *3 @chapter C4 l6 {Chapter}
+ *@chapter C4 l6 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   *paragraph C1
    {in chapter\\n}
   {empty_line:\\n}
- *4 @node C1 l10 {node after}
+ *@node C1 l10 {node after}
  |INFO
  |spaces_before_argument:
   |{ }

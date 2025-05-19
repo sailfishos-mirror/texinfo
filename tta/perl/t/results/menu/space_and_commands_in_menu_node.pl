@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C11 l4
+  *@menu C11 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -175,7 +175,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l16 {chap @: b}
+ *@node C1 l16 {chap @: b}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,7 +191,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
     {chap }
     *@:
     { b}
- *4 @chapter C1 l17 {Chap}
+ *@chapter C1 l17 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

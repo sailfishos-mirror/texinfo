@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'detailmenu'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
-  *0 @menu C5 l2
+  *@menu C5 l2
    *arguments_line C1
     *block_line_arg
     |INFO

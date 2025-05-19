@@ -79,7 +79,7 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
       >|{\\n}
       >{ifnothtml}
   {empty_line:\\n}
- *0 @node C1 cond.texi:l17 {Top}
+ *@node C1 cond.texi:l17 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 cond.texi:l18 {conditionals}
+ *@top C2 cond.texi:l18 {conditionals}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
     |{\\n}
     {conditionals}
   {empty_line:\\n}
- *2 @node C12 cond.texi:l20 {chap}
+ *@node C12 cond.texi:l20 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

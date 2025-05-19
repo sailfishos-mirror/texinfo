@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'xrefname'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l2 {top}
+ *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
     {top}
   {empty_line:\\n}
   {empty_line:\\n}
- *2 @node C3 l5 {ntiti}
+ *@node C3 l5 {ntiti}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {ntiti}
-  *3 @xrefname C1 l6
+  *@xrefname C1 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
     |{\\n}
     {titi}
   {empty_line:\\n}
- *4 @chapter C2 l8 {chap}
+ *@chapter C2 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
     |{\\n}
     {chap}
   {empty_line:\\n}
- *5 @node C1 l10 {chip}
+ *@node C1 l10 {chip}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chip}
- *6 @appendix C9 l11 {app}
+ *@appendix C9 l11 {app}
  |INFO
  |spaces_before_argument:
   |{ }

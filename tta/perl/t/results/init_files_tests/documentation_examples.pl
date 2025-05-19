@@ -44,7 +44,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l6 {Top}
+ *@node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l7 {top}
+ *@top C2 l7 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l9 {chapter}
+ *@node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C28 l10 {Chapter}
+ *@chapter C28 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -347,7 +347,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |global_command_number:{2}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *4 @node C1 l49 {my node}
+ *@node C1 l49 {my node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -361,7 +361,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {my node}
- *5 @chapter C8 l50 {New node}
+ *@chapter C8 l50 {New node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -399,7 +399,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *brace_container
    {\\n}
   {empty_line:\\n}
- *6 @node C1 l58 {Index}
+ *@node C1 l58 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -414,7 +414,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Index}
- *7 @appendix C4 l59 {Index}
+ *@appendix C4 l59 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -442,7 +442,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     |{\\n}
     {cp}
   {empty_line:\\n}
- *8 @node C1 l63 {Second appendix}
+ *@node C1 l63 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -456,7 +456,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Second appendix}
- *9 @appendix C2 l64 {Second appendix}
+ *@appendix C2 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }

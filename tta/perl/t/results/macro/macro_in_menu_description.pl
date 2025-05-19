@@ -26,7 +26,7 @@ $result_tree_text{'macro_in_menu_description'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *0 @menu C4 l5
+  *@menu C4 l5
    *arguments_line C1
     *block_line_arg
     |INFO

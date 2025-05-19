@@ -31,7 +31,7 @@ $result_tree_text{'paragraphindent_not_in_preamble'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *0 @node C1 l7 {Top}
+ *@node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'paragraphindent_not_in_preamble'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C10 l8 {test @@paragraphindent effect in preamble}
+ *@top C10 l8 {test @@paragraphindent effect in preamble}
  |INFO
  |spaces_before_argument:
   |{ }

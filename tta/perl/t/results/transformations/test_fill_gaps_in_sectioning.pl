@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
  *before_node_section
- *0 @top C2 l1 {top}
+ *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
     |{\\n}
     {top}
   {empty_line:\\n}
- *1 @chapter C2 l3 {Chap}
+ *@chapter C2 l3 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *2 @section C2 l5 {Section}
+ *@section C2 l5 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
     |{\\n}
     {Section}
   {empty_line:\\n}
- *3 @unnumberedsubsec C2 {@asis{}}
+ *@unnumberedsubsec C2 {@asis{}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
     *@asis C1
      *brace_container
   {empty_line:\\n}
- *4 @subsubsection C1 l7 {There}
+ *@subsubsection C1 l7 {There}
  |INFO
  |spaces_before_argument:
   |{ }

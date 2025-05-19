@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
  *before_node_section
- *0 @top C2 l1 {Top}
+ *@top C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -20,7 +20,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
-  *1 @subheading C1 l2
+  *@subheading C1 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Subheading}
- *2 @chapter C1 l3 {Chapter}
+ *@chapter C1 l3 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *3 @section C1 l4 {Section}
+ *@section C1 l4 {Section}
  |INFO
  |spaces_before_argument:
   |{ }

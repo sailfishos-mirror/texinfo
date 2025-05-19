@@ -34,7 +34,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
      |{\\n}
      {de}
    {empty_line:\\n}
- *0 @node C1 l5 {Top}
+ *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -48,7 +48,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l6 {top}
+ *@top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @part C2 l8 {Part I}
+ *@part C2 l8 {Part I}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     |{\\n}
     {Part I}
   {empty_line:\\n}
- *3 @node C1 l10 {chapter}
+ *@node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 l11 {Chap}
+ *@chapter C4 l11 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -119,7 +119,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     |{\\n}
     {fr}
   {empty_line:\\n}
- *5 @part C2 l15 {Part II}
+ *@part C2 l15 {Part II}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -134,7 +134,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     |{\\n}
     {Part II}
   {empty_line:\\n}
- *6 @node C1 l17 {other chap}
+ *@node C1 l17 {other chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {other chap}
- *7 @chapter C4 l18 {Other chap}
+ *@chapter C4 l18 {Other chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -176,7 +176,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     |{\\n}
     {hr}
   {empty_line:\\n}
- *8 @node C1 l22 {appendix}
+ *@node C1 l22 {appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -190,7 +190,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {appendix}
- *9 @appendix C1 l23 {App}
+ *@appendix C1 l23 {App}
  |INFO
  |spaces_before_argument:
   |{ }

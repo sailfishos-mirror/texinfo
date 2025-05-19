@@ -22,7 +22,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    {empty_line:\\n}
   *paragraph C1
    {truc machin et reuc machin  ze aze zea zae eaz eaz zae\\n}
- *0 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l5 {top}
+ *@top C6 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
   *paragraph C1
    {In top node\\n}
   {empty_line:\\n}
-  *2 @menu C3 l9
+  *@menu C3 l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l13 {chap1}
+ *@node C1 l13 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {chap1}
- *4 @chapter C4 l14 {chap}
+ *@chapter C4 l14 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

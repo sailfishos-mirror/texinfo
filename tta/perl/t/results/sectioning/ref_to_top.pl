@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'ref_to_top'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2 {ToP}
+ *@node C1 l2 {ToP}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'ref_to_top'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {ToP}
- *1 @top C3 l3 {top}
+ *@top C3 l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }

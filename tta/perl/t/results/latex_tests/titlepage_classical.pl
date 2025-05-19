@@ -112,7 +112,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *0 @node C1 l19 {Top}
+ *@node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -126,7 +126,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l20 {section top}
+ *@top C2 l20 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -140,7 +140,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *2 @node C1 l22 {chapter}
+ *@node C1 l22 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -154,7 +154,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C4 l23 {Chapter}
+ *@chapter C4 l23 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

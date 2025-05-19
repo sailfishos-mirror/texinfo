@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'sorted_subentries'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2
+ *@top C2 l2
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *2 @node C1 l4 {chapter one}
+ *@node C1 l4 {chapter one}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter one}
- *3 @chapter C15 l5 {one}
+ *@chapter C15 l5 {one}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -286,7 +286,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
           |{\\n}
           {ppp}
   {empty_line:\\n}
- *4 @node C1 l20 {chapter second}
+ *@node C1 l20 {chapter second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -301,7 +301,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter second}
- *5 @chapter C11 l21 {second}
+ *@chapter C11 l21 {second}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'menu'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2 {Top}
+ *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'menu'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l3
+ *@top C3 l3
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'menu'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
-  *2 @menu C10 l5
+  *@menu C10 l5
    *arguments_line C1
     *block_line_arg
     |INFO

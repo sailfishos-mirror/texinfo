@@ -11,7 +11,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 contents_in_middle_chapter.texi:l3 {Top}
+ *@node C1 contents_in_middle_chapter.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 contents_in_middle_chapter.texi:l4 {Contents in chapter}
+ *@top C6 contents_in_middle_chapter.texi:l4 {Contents in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
   *paragraph C1
    {Content in chapter.\\n}
   {empty_line:\\n}
-  *2 @menu C3 contents_in_middle_chapter.texi:l8
+  *@menu C3 contents_in_middle_chapter.texi:l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 contents_in_middle_chapter.texi:l12 {chapter}
+ *@node C1 contents_in_middle_chapter.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C7 contents_in_middle_chapter.texi:l13 {Chapter 1}
+ *@chapter C7 contents_in_middle_chapter.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *5 @menu C3 contents_in_middle_chapter.texi:l18
+  *@menu C3 contents_in_middle_chapter.texi:l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -136,7 +136,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 contents_in_middle_chapter.texi:l22 {section}
+ *@node C1 contents_in_middle_chapter.texi:l22 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -150,7 +150,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C4 contents_in_middle_chapter.texi:l23 {section}
+ *@section C4 contents_in_middle_chapter.texi:l23 {section}
  |INFO
  |spaces_before_argument:
   |{ }

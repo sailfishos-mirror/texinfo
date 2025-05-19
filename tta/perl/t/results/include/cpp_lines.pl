@@ -30,7 +30,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      {before top}
    {.\\n}
   {empty_line:\\n}
- *0 @node C1 g_f:l70 {Top}
+ *@node C1 g_f:l70 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C55 g_f:l71 {chap}
+ *@node C55 g_f:l71 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

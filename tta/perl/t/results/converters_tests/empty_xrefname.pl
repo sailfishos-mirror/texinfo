@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'empty_xrefname'} = '*document_root C8
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {Chap}
+ *@node C1 l4 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Chap}
- *3 @chapter C4 l5 {Chapter}
+ *@chapter C4 l5 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 @menu C3 l7
+  *@menu C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C5 l11 {entiti}
+ *@node C5 l11 {entiti}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {entiti}
-  *6 @xrefname C1 l12
+  *@xrefname C1 l12
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -116,7 +116,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
-  *7 @heading C1 l14
+  *@heading C1 l14
   |INFO
   |spaces_before_argument:
    |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
     |{\\n}
     {after empty}
   {empty_line:\\n}
- *8 @node C1 l16 {chip}
+ *@node C1 l16 {chip}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -143,7 +143,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chip}
- *9 @chapter C9 l17 {Chip}
+ *@chapter C9 l17 {Chip}
  |INFO
  |spaces_before_argument:
   |{ }

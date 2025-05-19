@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document_root C13
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chapter}
+ *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C2 l5 {Chap}
+ *@chapter C2 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *4 @node C1 l7 {sec}
+ *@node C1 l7 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {sec}
- *5 @appendixsec C2 l8 {Sec}
+ *@appendixsec C2 l8 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {Sec}
   {empty_line:\\n}
- *6 @part C2 l10 {P1}
+ *@part C2 l10 {P1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {P1}
   {empty_line:\\n}
- *7 @node C1 l12 {chap2}
+ *@node C1 l12 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -122,7 +122,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {chap2}
- *8 @chapter C2 l13 {Chap 2}
+ *@chapter C2 l13 {Chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -137,7 +137,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {Chap 2}
   {empty_line:\\n}
- *9 @part C2 l15 {Final}
+ *@part C2 l15 {Final}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
     |{\\n}
     {Final}
   {empty_line:\\n}
- *10 @node C1 l17 {app}
+ *@node C1 l17 {app}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -166,7 +166,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {app}
- *11 @appendix C1 l18 {GGG}
+ *@appendix C1 l18 {GGG}
  |INFO
  |spaces_before_argument:
   |{ }

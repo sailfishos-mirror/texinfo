@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'nodedescription'} = '*document_root C5
  *before_node_section C2
-  *0 @nodedescription C1 l1
+  *@nodedescription C1 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -17,7 +17,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
     |{\\n}
     {out of any node}
   {empty_line:\\n}
- *1 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l4 {top}
+ *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *3 @node C1 l6 {chap}
+ *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C7 l7 {Chapter}
+ *@chapter C7 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *5 @nodedescription C1 l9
+  *@nodedescription C1 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
       {first description}
     { of chapter}
   {empty_line:\\n}
-  *6 @nodedescription C1 l11
+  *@nodedescription C1 l11
   |INFO
   |spaces_before_argument:
    |{ }

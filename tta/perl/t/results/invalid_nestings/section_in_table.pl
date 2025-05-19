@@ -30,7 +30,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
        {Before}
     *table_definition C1
      {empty_line:\\n}
- *0 @section C5 l4 {Subsection}
+ *@section C5 l4 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }

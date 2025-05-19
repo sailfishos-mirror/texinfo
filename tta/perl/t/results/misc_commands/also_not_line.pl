@@ -56,7 +56,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    *@novalidate C1 l16
     {rawline_arg: something\\n}
   {empty_line:\\n}
-  *0 @subheading C1 l18
+  *@subheading C1 l18
   |INFO
   |spaces_before_argument:
    |{ }

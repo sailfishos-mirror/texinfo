@@ -21,7 +21,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
     |{\\n}
     {on}
   {empty_line:\\n}
- *0 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l5 {top}
+ *@top C2 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l7 {chapter frenchspacing}
+ *@node C1 l7 {chapter frenchspacing}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter frenchspacing}
- *3 @chapter C13 l8 {Chap frenchspacing}
+ *@chapter C13 l8 {Chap frenchspacing}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -287,7 +287,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {off}
- *4 @node C1 l27 {chap no}
+ *@node C1 l27 {chap no}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -301,7 +301,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap no}
- *5 @chapter C11 l28 {Chap no}
+ *@chapter C11 l28 {Chap no}
  |INFO
  |spaces_before_argument:
   |{ }

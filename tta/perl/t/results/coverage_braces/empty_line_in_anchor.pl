@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'empty_line_in_anchor'} = '*document_root C1
  *before_node_section C2
-  *0 @anchor C1 l1
+  *@anchor C1 l1
    *brace_arg C2
     {an\\n}
     {empty_line:\\n}

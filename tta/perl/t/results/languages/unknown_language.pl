@@ -21,7 +21,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
      |{\\n}
      {unknown}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {unknkown language}
+ *@top C2 l4 {unknkown language}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
     |{\\n}
     {unknkown language}
   {empty_line:\\n}
- *2 @node C1 l6 {chapter}
+ *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C7 l7 {Chapter}
+ *@chapter C7 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

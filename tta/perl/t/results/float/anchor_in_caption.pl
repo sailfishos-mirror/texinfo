@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'anchor_in_caption'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C5 l2 {chap}
+ *@node C5 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
     |{\\n}
     {fl}
   {empty_line:\\n}
-  *2 @float C5 l6
+  *@float C5 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -76,7 +76,7 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
     *brace_command_context C1
      *paragraph C2
       {in caption}
-      *3 @anchor C1 l8
+      *@anchor C1 l8
       |EXTRA
       |is_target:{1}
       |normalized:{in-anchor}

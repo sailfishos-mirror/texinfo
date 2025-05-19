@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
  *before_node_section C1
-  *0 @menu C4 l1
+  *@menu C4 l1
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @unnumbered C1 l1
+ *@unnumbered C1 l1
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -17,7 +17,7 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
- *1 @unnumbered C1 l2
+ *@unnumbered C1 l2
  |EXTRA
  |section_level:{1}
  |section_number:{2}

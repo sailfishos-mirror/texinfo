@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'loop_nodes'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -65,7 +65,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C4 l8 {chap node up}
+ *@node C4 l8 {chap node up}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    |normalized:{node-down}
     {node down}
   {empty_line:\\n}
-  *4 @menu C3 l10
+  *@menu C3 l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C4 l14 {node middle}
+ *@node C4 l14 {node middle}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    |normalized:{chap-node-up}
     {chap node up}
   {empty_line:\\n}
-  *6 @menu C3 l16
+  *@menu C3 l16
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -167,7 +167,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 l20 {node down}
+ *@node C1 l20 {node down}
  |INFO
  |spaces_before_argument:
   |{ }

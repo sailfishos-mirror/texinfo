@@ -11,7 +11,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 navigation.texi:l3 {Top}
+ *@node C1 navigation.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 navigation.texi:l4 {File used for navigation testing}
+ *@top C4 navigation.texi:l4 {File used for navigation testing}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
     |{\\n}
     {File used for navigation testing}
   {empty_line:\\n}
-  *2 @menu C3 navigation.texi:l6
+  *@menu C3 navigation.texi:l6
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 navigation.texi:l10 {chapter}
+ *@node C1 navigation.texi:l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 navigation.texi:l11 {First chapter}
+ *@chapter C4 navigation.texi:l11 {First chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
     |{\\n}
     {First chapter}
   {empty_line:\\n}
-  *5 @menu C3 navigation.texi:l13
+  *@menu C3 navigation.texi:l13
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -126,7 +126,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 navigation.texi:l17 {section}
+ *@node C1 navigation.texi:l17 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -140,7 +140,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C30 navigation.texi:l18 {Section in chapter}
+ *@section C30 navigation.texi:l18 {Section in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -195,7 +195,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    {b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b \\n}
    {b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.\\n}
   {empty_line:\\n}
-  *8 @menu C3 navigation.texi:l47
+  *@menu C3 navigation.texi:l47
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -224,7 +224,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C1 navigation.texi:l51 {subsection}
+ *@node C1 navigation.texi:l51 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -238,7 +238,7 @@ $result_tree_text{'navigation_section_no_header_vertical'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {subsection}
- *10 @subsection C4 navigation.texi:l52 {Sub section in section}
+ *@subsection C4 navigation.texi:l52 {Sub section in section}
  |INFO
  |spaces_before_argument:
   |{ }

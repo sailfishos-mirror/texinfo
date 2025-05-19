@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'node_line_arguments'} = '*document_root C8
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2 {one arg1}
+ *@node C1 l2 {one arg1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{ \\n}
     {one arg1}
- *1 @node C1 l3 {one arg2}
+ *@node C1 l3 {one arg2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |node_content:{two arg}
    |normalized:{two-arg}
     {two arg}
- *2 @node C1 l4 {one arg3}
+ *@node C1 l4 {one arg3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |node_content:{three arg}
    |normalized:{three-arg}
     {three arg}
- *3 @node C1 l5 {one arg4}
+ *@node C1 l5 {one arg4}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |node_content:{four arg}
    |normalized:{four-arg}
     {four arg}
- *4 @node C2 l6 {one arg5}
+ *@node C2 l6 {one arg5}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |normalized:{four-arg-five-arg}
     {four arg five arg}
   {empty_line:\\n}
- *5 @node C2 l8 {comment}
+ *@node C2 l8 {comment}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
     |{ }
     {comment}
   {empty_line:\\n}
- *6 @node C1 l10 {arg1 @comma{} arg2}
+ *@node C1 l10 {arg1 @comma{} arg2}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C13 l2 {t @r{in r}}
+ *@top C13 l2 {t @r{in r}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
      *brace_container C1
       {in r}
   {empty_line:\\n}
-  *2 @anchor C1 l4
+  *@anchor C1 l4
   |EXTRA
   |is_target:{1}
   |normalized:{yyyy}
@@ -47,7 +47,7 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
     {yyyy}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *3 @anchor C1 l6
+  *@anchor C1 l6
   |EXTRA
   |is_target:{1}
   |normalized:{gg}
@@ -57,7 +57,7 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
       {gg}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *4 @anchor C1 l8
+  *@anchor C1 l8
   |EXTRA
   |is_target:{1}
   |normalized:{ancher}
@@ -67,7 +67,7 @@ $result_tree_text{'command_in_node_redirection_multiple'} = '*document_root C3
       {ancher}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *5 @anchor C1 l10
+  *@anchor C1 l10
   |EXTRA
   |is_target:{1}
   |normalized:{ll-jj}

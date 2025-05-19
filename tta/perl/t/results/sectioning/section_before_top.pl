@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'section_before_top'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1 {section node}
+ *@node C1 l1 {section node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *1 @section C2 l2 {section}
+ *@section C2 l2 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
     |{ \\n}
     {section}
   {empty_line:\\n}
- *2 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C3 l5 {top}
+ *@top C3 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
-  *4 @menu C3 l7
+  *@menu C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -29,7 +29,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
     |INFO
     |spaces_before_argument:
      |{ }
-     *0 @anchor C1 l1
+     *@anchor C1 l1
      |EXTRA
      |is_target:{1}
      |normalized:{an-anchor}

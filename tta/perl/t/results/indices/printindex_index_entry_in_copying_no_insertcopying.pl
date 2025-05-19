@@ -178,7 +178,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |{\\n}
       {copying}
    {empty_line:\\n}
- *0 @node C1 l19 {Top}
+ *@node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -192,7 +192,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l20 {top}
+ *@top C6 l20 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -209,7 +209,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   *paragraph C1
    {Top.\\n}
   {empty_line:\\n}
-  *2 @menu C3 l24
+  *@menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -238,7 +238,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l28 {chapter}
+ *@node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -252,7 +252,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 l29 {Chapter}
+ *@chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

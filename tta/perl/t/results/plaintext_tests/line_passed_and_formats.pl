@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'line_passed_and_formats'} = '*document_root C2
  *before_node_section
- *0 @node C53 l1 {Top}
+ *@node C53 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -622,7 +622,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C1
    {menu\\n}
-  *1 @menu C3 l134
+  *@menu C3 l134
    *arguments_line C1
     *block_line_arg
     |INFO

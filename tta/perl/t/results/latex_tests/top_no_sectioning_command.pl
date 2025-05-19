@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C1 l3 {Chapter}
+ *@node C1 l3 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *2 @chapter C3 l4 {Chap}
+ *@chapter C3 l4 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

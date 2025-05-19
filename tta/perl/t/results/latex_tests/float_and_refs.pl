@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'float_and_refs'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chapter}
+ *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C8 l5 {chapter}
+ *@chapter C8 l5 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |{\\n}
     {chapter}
   {empty_line:\\n}
-  *4 @float C7 l7
+  *@float C7 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
-  *5 @float C7 l13
+  *@float C7 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
-  *6 @float C7 l19
+  *@float C7 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -196,7 +196,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
- *7 @chapter C8 l25 {refs}
+ *@chapter C8 l25 {refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -466,7 +466,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      {five}
    {.\\n}
   {empty_line:\\n}
- *8 @chapter C6 l45 {lists}
+ *@chapter C6 l45 {lists}
  |INFO
  |spaces_before_argument:
   |{ }

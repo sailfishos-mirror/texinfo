@@ -19,7 +19,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
      *bracketed_arg C1 l1
-      *0 @anchor C1 l1
+      *@anchor C1 l1
       |EXTRA
       |is_target:{1}
       |normalized:{in-anchor}
@@ -71,7 +71,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
       *brace_container C1
        {in titlefont}
      { }
-     *1 @anchor C1 l5
+     *@anchor C1 l5
      |EXTRA
      |is_target:{1}
      |normalized:{in-quotation-anchor}

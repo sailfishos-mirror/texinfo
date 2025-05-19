@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  *before_node_section
- *0 @part C4 l1 {part before}
+ *@part C4 l1 {part before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content before\\n}
   {empty_line:\\n}
- *1 @node C1 l5 {Top}
+ *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C4 l6 {top}
+ *@top C4 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
     |{\\n}
     {top}
   {empty_line:\\n}
-  *3 @menu C4 l8
+  *@menu C4 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @part C4 l13 {part I}
+ *@part C4 l13 {part I}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -111,7 +111,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content I\\n}
   {empty_line:\\n}
- *5 @chapter C2 l17 {chap in Top node}
+ *@chapter C2 l17 {chap in Top node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -126,7 +126,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
     |{\\n}
     {chap in Top node}
   {empty_line:\\n}
- *6 @part C4 l19 {Part II}
+ *@part C4 l19 {Part II}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content II\\n}
   {empty_line:\\n}
- *7 @node C1 l23 {part chapter node}
+ *@node C1 l23 {part chapter node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -158,7 +158,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {part chapter node}
- *8 @part C4 l24 {part III}
+ *@part C4 l24 {part III}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -176,7 +176,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content III\\n}
   {empty_line:\\n}
- *9 @chapter C2 l28 {chapter with part node}
+ *@chapter C2 l28 {chapter with part node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,7 +191,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
     |{\\n}
     {chapter with part node}
   {empty_line:\\n}
- *10 @part C4 l30 {Part IV}
+ *@part C4 l30 {Part IV}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -209,7 +209,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content IV\\n}
   {empty_line:\\n}
- *11 @part C4 l34 {Part V}
+ *@part C4 l34 {Part V}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -227,7 +227,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content V\\n}
   {empty_line:\\n}
- *12 @chapter C2 l38 {with part no node}
+ *@chapter C2 l38 {with part no node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -242,7 +242,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
     |{\\n}
     {with part no node}
   {empty_line:\\n}
- *13 @part C4 l40 {Part VI}
+ *@part C4 l40 {Part VI}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -260,7 +260,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   *paragraph C1
    {Content VI\\n}
   {empty_line:\\n}
- *14 @node C2 l44 {node between part and chapter}
+ *@node C2 l44 {node between part and chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -275,7 +275,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
     |{\\n}
     {node between part and chapter}
   {empty_line:\\n}
- *15 @chapter C2 l46 {chapter after part node}
+ *@chapter C2 l46 {chapter after part node}
  |INFO
  |spaces_before_argument:
   |{ }

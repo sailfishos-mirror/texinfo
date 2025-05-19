@@ -10,7 +10,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 reference_to_only_special_spaces_node.texi:l2 {Top}
+ *@node C1 reference_to_only_special_spaces_node.texi:l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 reference_to_only_special_spaces_node.texi:l3 {top}
+ *@top C2 reference_to_only_special_spaces_node.texi:l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 reference_to_only_special_spaces_node.texi:l5 {   }
+ *@node C1 reference_to_only_special_spaces_node.texi:l5 {   }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {   }
- *3 @chapter C4 reference_to_only_special_spaces_node.texi:l6 {EN QUAD| | EM QUAD| | EN SPACE| |}
+ *@chapter C4 reference_to_only_special_spaces_node.texi:l6 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
      {   }
    {.\\n}
   {empty_line:\\n}
- *4 @node C1 reference_to_only_special_spaces_node.texi:l10 {@code{   }}
+ *@node C1 reference_to_only_special_spaces_node.texi:l10 {@code{   }}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
     *@code C1 reference_to_only_special_spaces_node.texi:l10
      *brace_container C1
       {   }
- *5 @chapter C5 reference_to_only_special_spaces_node.texi:l11 {@code{EN QUAD| | EM QUAD| | EN SPACE| |}}
+ *@chapter C5 reference_to_only_special_spaces_node.texi:l11 {@code{EN QUAD| | EM QUAD| | EN SPACE| |}}
  |INFO
  |spaces_before_argument:
   |{ }

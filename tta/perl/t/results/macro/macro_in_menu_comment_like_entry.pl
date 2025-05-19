@@ -27,7 +27,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
      |{\\n}
      {macro}
   {empty_line:\\n}
-  *0 @menu C3 l6
+  *@menu C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO

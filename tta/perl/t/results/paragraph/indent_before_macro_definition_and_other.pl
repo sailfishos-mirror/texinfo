@@ -79,7 +79,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {on}
-  *0 @anchor C1 l13
+  *@anchor C1 l13
   |EXTRA
   |is_target:{1}
   |normalized:{spot}

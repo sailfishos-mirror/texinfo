@@ -27,7 +27,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
     *block_line_arg C7
      *def_category C1
       *bracketed_arg C1 l1
-       *0 @anchor C1 l1
+       *@anchor C1 l1
        |EXTRA
        |is_target:{1}
        |normalized:{in-anchor}
@@ -81,7 +81,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
     *line_arg C7
      *def_category C1
       *bracketed_arg C1 l2
-       *1 @anchor C1 l2
+       *@anchor C1 l2
        |EXTRA
        |is_target:{1}
        |normalized:{in-anchorx}

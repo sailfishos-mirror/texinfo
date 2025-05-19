@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C2 l5 {Chap}
+ *@chapter C2 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *4 @node C1 {Sec}
+ *@node C1 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Sec}
- *5 @section C5 l7 {Sec}
+ *@section C5 l7 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Sec}
-  *6 @nodedescriptionblock C3 l8
+  *@nodedescriptionblock C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -112,7 +112,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
-  *7 @nodedescriptionblock C3 l12
+  *@nodedescriptionblock C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -132,7 +132,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *8 @node C1 {Subsec}
+ *@node C1 {Subsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -146,7 +146,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Subsec}
- *9 @subsection C2 l16 {Subsec}
+ *@subsection C2 l16 {Subsec}
  |INFO
  |spaces_before_argument:
   |{ }

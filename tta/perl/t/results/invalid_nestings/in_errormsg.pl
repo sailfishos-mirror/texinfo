@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'in_errormsg'} = '*document_root C1
  *before_node_section C7
   {empty_line:\\n}
-  *0 @anchor C1 l2
+  *@anchor C1 l2
   |EXTRA
   |is_target:{1}
   |normalized:{in-ref}
@@ -19,7 +19,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
    {Text. }
    *@errormsg C1 l3
     *brace_arg C3
-     *1 @anchor C1 l3
+     *@anchor C1 l3
      |EXTRA
      |is_target:{1}
      |normalized:{in-anchor}

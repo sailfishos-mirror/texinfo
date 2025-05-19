@@ -18,7 +18,7 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
     *brace_command_context C4
      *paragraph C1
       {AAA\\n}
-     *0 @heading C1 l3
+     *@heading C1 l3
      |INFO
      |spaces_before_argument:
       |{ }

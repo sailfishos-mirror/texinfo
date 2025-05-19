@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'double_top_section'} = '*document_root C3
  *before_node_section
- *0 @top C4 l1 {First top}
+ *@top C4 l1 {First top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'double_top_section'} = '*document_root C3
   *paragraph C1
    {First top.\\n}
   {empty_line:\\n}
- *1 @top C3 l5 {Second top}
+ *@top C3 l5 {Second top}
  |INFO
  |spaces_before_argument:
   |{ }

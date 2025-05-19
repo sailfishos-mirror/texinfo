@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
  *before_node_section
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C8 l3
+  *@menu C8 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -130,7 +130,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C1 l18 {chap first}
+ *@node C1 l18 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {chap first}
- *3 @node C1 l19 {second}
+ *@node C1 l19 {second}
  |INFO
  |spaces_before_argument:
   |{ }

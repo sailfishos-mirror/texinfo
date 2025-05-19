@@ -11,7 +11,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
    *@code C1 l1
     *brace_container C1
      {\\n}
-  *0 @float C5 l2
+  *@float C5 l2
   |INFO
   |spaces_before_argument:
    |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'note_in_strong_end_of_line'} = '*document_root C2
  *before_node_section
- *0 @node C5 l1 {Top}
+ *@node C5 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -107,7 +107,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      |{\\n}
      {ISO-8859-1}
    {empty_line:\\n}
- *0 @node C1 multiple_include_encodings.texi:l12 {Top}
+ *@node C1 multiple_include_encodings.texi:l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -121,7 +121,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 multiple_include_encodings.texi:l13 {include files with multiple encodings}
+ *@top C4 multiple_include_encodings.texi:l13 {include files with multiple encodings}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -153,7 +153,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >SOURCEMARKS
    >include<end;2><p:2>
   {empty_line:\\n}
- *2 @node C1 multiple_include_encodings.texi:l17 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
+ *@node C1 multiple_include_encodings.texi:l17 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -167,7 +167,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
- *3 @chapter C6 multiple_include_encodings.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
+ *@chapter C6 multiple_include_encodings.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -222,7 +222,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     {ja}
   {empty_line:\\n}
   {empty_line:\\n}
- *4 @node C1 chapter_japanese_shift_jis.texi:l5 {Preface}
+ *@node C1 chapter_japanese_shift_jis.texi:l5 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -236,7 +236,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Preface}
- *5 @chapter C7 chapter_japanese_shift_jis.texi:l6 {Preface}
+ *@chapter C7 chapter_japanese_shift_jis.texi:l6 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -258,7 +258,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    {それは 1995 年のある日の EJE (Eindhoven Youth Orchestra) のリハーサル中のできごとでした − ある変わり者のバイオリン奏者であるジャンは同じく変わり者のフレンチホルン奏者のハン-ウェンに彼がかかわっている新しい大きなプロジェクトのことを話しました。それは音楽を出版するための自動化されたシステムです (正確には、それは MPP − MusiXTeX のプリプロセッサです)。それを聞いてハン-ウェンはすぐに楽譜からいくつかの部分をプリントアウトしたいと思い、彼はそのためのソフトウェアを探し始め、すぐにその虜になってしまいました。それが MPP の終わりを決定付けました。多くの哲学的考察を含み白熱した email の交換の後、ハン-ウェンは 1996 年に LilyPond の製作を開始しました。この時、ジャンはハン-ウェンの新しいプロジェクトに引きずり込まれました。\\n}
   {empty_line:\\n}
   {empty_line:\\n}
- *6 @node C1 chapter_japanese_shift_jis.texi:l13 {Introduction}
+ *@node C1 chapter_japanese_shift_jis.texi:l13 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -272,7 +272,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *7 @chapter C7 chapter_japanese_shift_jis.texi:l14 {Introduction}
+ *@chapter C7 chapter_japanese_shift_jis.texi:l14 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -320,7 +320,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {ISO-8859-2}
   {empty_line:\\n}
- *8 @node C1 chapter_char_latin2_latin2_in_refs.texi:l3 {char latin2 latin2}
+ *@node C1 chapter_char_latin2_latin2_in_refs.texi:l3 {char latin2 latin2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -335,7 +335,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {char latin2 latin2}
- *9 @chapter C9 chapter_char_latin2_latin2_in_refs.texi:l4 {char latin2 latin2 in refs}
+ *@chapter C9 chapter_char_latin2_latin2_in_refs.texi:l4 {char latin2 latin2 in refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -374,7 +374,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   {empty_line:\\n}
   *@c C1
    {rawline_arg: Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek\\n}
-  *10 @menu C3 chapter_char_latin2_latin2_in_refs.texi:l11
+  *@menu C3 chapter_char_latin2_latin2_in_refs.texi:l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -403,7 +403,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      |{\\n}
      {menu}
   {empty_line:\\n}
- *11 @node C1 chapter_char_latin2_latin2_in_refs.texi:l15 {Ą ą ˛ Ę ę}
+ *@node C1 chapter_char_latin2_latin2_in_refs.texi:l15 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -417,7 +417,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Ą ą ˛ Ę ę}
- *12 @section C7 chapter_char_latin2_latin2_in_refs.texi:l16 {Ą ą ˛ Ę ę}
+ *@section C7 chapter_char_latin2_latin2_in_refs.texi:l16 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -476,7 +476,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {EUC-CN}
   {empty_line:\\n}
- *13 @node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
+ *@node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -490,7 +490,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Mixed english and chinese EUC-CN}
- *14 @chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
+ *@chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -575,7 +575,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {utf-8}
   {empty_line:\\n}
- *15 @node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
+ *@node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -589,7 +589,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Mixed chinese and english utf-8}
- *16 @chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
+ *@chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
   |{ }

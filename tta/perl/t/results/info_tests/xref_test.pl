@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'xref_test'} = '*document_root C2
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C3 l2 {Top}
+ *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

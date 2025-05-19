@@ -21,7 +21,7 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
       *brace_container C1
        {in titlefont}
      { }
-     *0 @anchor C1 l1
+     *@anchor C1 l1
      |EXTRA
      |is_target:{1}
      |normalized:{in-anchor}

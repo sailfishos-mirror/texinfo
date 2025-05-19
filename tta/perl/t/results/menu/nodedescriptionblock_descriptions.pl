@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {test of nodedescriptionblock used in menu}
+ *@top C4 l2 {test of nodedescriptionblock used in menu}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {test of nodedescriptionblock used in menu}
   {empty_line:\\n}
-  *2 @menu C8 l4
+  *@menu C8 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -114,7 +114,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l13 {toto}
+ *@node C1 l13 {toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -128,7 +128,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {toto}
- *4 @chapter C6 l14 {Toto}
+ *@chapter C6 l14 {Toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -143,7 +143,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Toto}
   {empty_line:\\n}
-  *5 @nodedescription C1 l16
+  *@nodedescription C1 l16
   |INFO
   |spaces_before_argument:
    |{ }
@@ -173,7 +173,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
       {a}
     {nexpected}
   {empty_line:\\n}
-  *6 @nodedescriptionblock C3 l18
+  *@nodedescriptionblock C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -193,7 +193,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *7 @node C1 l22 {titi}
+ *@node C1 l22 {titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -207,7 +207,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {titi}
- *8 @chapter C4 l23 {Titi}
+ *@chapter C4 l23 {Titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -222,7 +222,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Titi}
   {empty_line:\\n}
-  *9 @nodedescriptionblock C3 l25
+  *@nodedescriptionblock C3 l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -242,7 +242,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *10 @node C1 l29 {other}
+ *@node C1 l29 {other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -256,7 +256,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {other}
- *11 @chapter C4 l30 {Other}
+ *@chapter C4 l30 {Other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -271,7 +271,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Other}
   {empty_line:\\n}
-  *12 @nodedescriptionblock C7 l32
+  *@nodedescriptionblock C7 l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -314,7 +314,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *13 @node C1 l42 {a somewhat long node without description nor following space}
+ *@node C1 l42 {a somewhat long node without description nor following space}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -328,7 +328,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {a somewhat long node without description nor following space}
- *14 @chapter C6 l43 {Somewhat long}
+ *@chapter C6 l43 {Somewhat long}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -343,7 +343,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {Somewhat long}
   {empty_line:\\n}
-  *15 @nodedescriptionblock C3 l45
+  *@nodedescriptionblock C3 l45
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -363,7 +363,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
-  *16 @nodedescription C1 l49
+  *@nodedescription C1 l49
   |INFO
   |spaces_before_argument:
    |{ }
@@ -373,7 +373,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {not as long as the node}
   {empty_line:\\n}
- *17 @node C1 l51 {node double nodedescriptionblock}
+ *@node C1 l51 {node double nodedescriptionblock}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -387,7 +387,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {node double nodedescriptionblock}
- *18 @chapter C6 l52 {test double}
+ *@chapter C6 l52 {test double}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -402,7 +402,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
     |{\\n}
     {test double}
   {empty_line:\\n}
-  *19 @nodedescriptionblock C3 l54
+  *@nodedescriptionblock C3 l54
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -422,7 +422,7 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
-  *20 @nodedescriptionblock C3 l58
+  *@nodedescriptionblock C3 l58
    *arguments_line C1
     *block_line_arg
     |INFO

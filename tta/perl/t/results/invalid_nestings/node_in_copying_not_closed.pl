@@ -18,7 +18,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
     {This is an unterminatted copyright notice\\n}
    {empty_line:\\n}
    {empty_line:\\n}
- *0 @node C1 l6 {Top}
+ *@node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l7 {Top section}
+ *@top C3 l7 {Top section}
  |INFO
  |spaces_before_argument:
   |{ }

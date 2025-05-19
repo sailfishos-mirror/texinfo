@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 l2 {2 footnotes in 2 nodes}
+ *@top C8 l2 {2 footnotes in 2 nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
       {para2}
    {\\n}
   {empty_line:\\n}
-  *2 @menu C3 l12
+  *@menu C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l16 {chapter}
+ *@node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C6 l17 {chapter}
+ *@chapter C6 l17 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

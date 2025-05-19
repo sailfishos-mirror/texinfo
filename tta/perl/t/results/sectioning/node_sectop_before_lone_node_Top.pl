@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {node before}
+ *@node C1 l1 {node before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {node before}
- *1 @top C4 l2 {top sectionning}
+ *@top C4 l2 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
   *paragraph C1
    {in node before\\n}
   {empty_line:\\n}
- *2 @node C4 l6 {Top}
+ *@node C4 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -57,7 +57,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
   *paragraph C1
    {in node Top\\n}
   {empty_line:\\n}
- *3 @node C1 l10 {chap}
+ *@node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C3 l11 {chap}
+ *@chapter C3 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

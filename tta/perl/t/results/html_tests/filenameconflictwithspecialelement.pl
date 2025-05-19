@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
       {a footnote}
    {\\n}
   {empty_line:\\n}
- *2 @node C1 l6 {chap}
+ *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C7 l7 {chap}
+ *@chapter C7 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
   *paragraph C1
    {Need 2 elements for separate footnotes.\\n}
   {empty_line:\\n}
-  *4 @anchor C1 l11
+  *@anchor C1 l11
   |EXTRA
   |is_target:{1}
   |normalized:{filenameconflictwithspecialelement-fot}

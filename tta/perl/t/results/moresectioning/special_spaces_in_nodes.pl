@@ -10,7 +10,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 special_spaces_in_nodes.texi:l2 {Top }
+ *@node C1 special_spaces_in_nodes.texi:l2 {Top }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
    |spaces_after_argument:
     |{ \\n}
     {Top }
- *1 @top C2 special_spaces_in_nodes.texi:l3 {top}
+ *@top C2 special_spaces_in_nodes.texi:l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 special_spaces_in_nodes.texi:l5 {EN QUAD| | EM QUAD| | EN SPACE| |}
+ *@node C1 special_spaces_in_nodes.texi:l5 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {EN QUAD| | EM QUAD| | EN SPACE| |}
- *3 @chapter C5 special_spaces_in_nodes.texi:l6 {chap}
+ *@chapter C5 special_spaces_in_nodes.texi:l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     {chap}
   {empty_line:\\n}
   {empty_line:\\n}
-  *4 @menu C10 special_spaces_in_nodes.texi:l9
+  *@menu C10 special_spaces_in_nodes.texi:l9
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -174,7 +174,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C2 special_spaces_in_nodes.texi:l20 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
+ *@node C2 special_spaces_in_nodes.texi:l20 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -189,7 +189,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
   {empty_line:\\n}
- *6 @node C2 special_spaces_in_nodes.texi:l22 {CARRIAGE RETURN|'."\r".'|}
+ *@node C2 special_spaces_in_nodes.texi:l22 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -204,7 +204,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
- *7 @node C2 special_spaces_in_nodes.texi:l24 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+ *@node C2 special_spaces_in_nodes.texi:l24 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -219,7 +219,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
   {empty_line:\\n}
- *8 @node C2 special_spaces_in_nodes.texi:l26 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+ *@node C2 special_spaces_in_nodes.texi:l26 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -234,7 +234,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
   {empty_line:\\n}
- *9 @node C2 special_spaces_in_nodes.texi:l28 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
+ *@node C2 special_spaces_in_nodes.texi:l28 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -249,7 +249,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
   {empty_line:\\n}
- *10 @node C2 special_spaces_in_nodes.texi:l30 {FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
+ *@node C2 special_spaces_in_nodes.texi:l30 {FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -264,7 +264,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
   {empty_line:\\n}
- *11 @node C2 special_spaces_in_nodes.texi:l32 {HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
+ *@node C2 special_spaces_in_nodes.texi:l32 {HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -279,7 +279,7 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
     |{\\n}
     {HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
   {empty_line:\\n}
- *12 @node C4 special_spaces_in_nodes.texi:l34 {NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+ *@node C4 special_spaces_in_nodes.texi:l34 {NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
  |INFO
  |spaces_before_argument:
   |{ }

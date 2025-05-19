@@ -11,7 +11,7 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 contents_at_end.texi:l3 {Top}
+ *@node C1 contents_at_end.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 contents_at_end.texi:l4 {Contents at end}
+ *@top C6 contents_at_end.texi:l4 {Contents at end}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
   *paragraph C1
    {Content at end.\\n}
   {empty_line:\\n}
-  *2 @menu C3 contents_at_end.texi:l8
+  *@menu C3 contents_at_end.texi:l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 contents_at_end.texi:l12 {chapter}
+ *@node C1 contents_at_end.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'contents_at_end_inline'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C5 contents_at_end.texi:l13 {Chapter 1}
+ *@chapter C5 contents_at_end.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }

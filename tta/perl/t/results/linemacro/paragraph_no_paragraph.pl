@@ -47,7 +47,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
     >|spaces_before_argument:
      >|{ }
      >{and @code{more}}
-  *0 @anchor C1 l5:@mycommand
+  *@anchor C1 l5:@mycommand
   |EXTRA
   |is_target:{1}
   |normalized:{aa}

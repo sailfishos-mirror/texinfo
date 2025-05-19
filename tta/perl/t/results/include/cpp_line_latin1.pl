@@ -25,7 +25,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
      |{\\n}
      {ISO-8859-1}
    {empty_line:\\n}
- *0 @node C1 cpp_line_latin1.texi:l5 {Top}
+ *@node C1 cpp_line_latin1.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 cpp_line_latin1.texi:l6
+ *@top C2 cpp_line_latin1.texi:l6
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -49,7 +49,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *2 @node C7 cpp_line_latin1.texi:l8 {chap}
+ *@node C7 cpp_line_latin1.texi:l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

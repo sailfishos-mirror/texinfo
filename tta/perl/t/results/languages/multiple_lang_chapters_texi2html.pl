@@ -66,7 +66,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
        >{iflatex}
     {rawline_arg: @node Top is ignored in TeX and LaTeX, so switch here\\n}
    {empty_line:\\n}
- *0 @node C1 l12 {Top}
+ *@node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l13 {Multi language file}
+ *@top C5 l13 {Multi language file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
     |{\\n}
     {Multi language file}
   {empty_line:\\n}
-  *2 @menu C7 l15
+  *@menu C7 l15
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -179,7 +179,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {ja}
- *3 @node C1 l24 {chapter ja}
+ *@node C1 l24 {chapter ja}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -193,7 +193,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter ja}
- *4 @chapter C6 l25 {ja}
+ *@chapter C6 l25 {ja}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -294,7 +294,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {en}
- *5 @node C1 l32 {chapter en}
+ *@node C1 l32 {chapter en}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -308,7 +308,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter en}
- *6 @chapter C6 l33 {en}
+ *@chapter C6 l33 {en}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -409,7 +409,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {fr_FR}
- *7 @node C1 l40 {chapter fr_FR}
+ *@node C1 l40 {chapter fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -423,7 +423,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter fr_FR}
- *8 @chapter C5 l41 {fr_FR}
+ *@chapter C5 l41 {fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -515,7 +515,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {de}
- *9 @node C1 l47 {chapter de}
+ *@node C1 l47 {chapter de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -529,7 +529,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter de}
- *10 @chapter C3 l48 {de}
+ *@chapter C3 l48 {de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -556,7 +556,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {pt_BR}
- *11 @node C1 l51 {chapter pt_BR}
+ *@node C1 l51 {chapter pt_BR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -570,7 +570,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter pt_BR}
- *12 @chapter C3 l52 {pt_bR}
+ *@chapter C3 l52 {pt_bR}
  |INFO
  |spaces_before_argument:
   |{ }

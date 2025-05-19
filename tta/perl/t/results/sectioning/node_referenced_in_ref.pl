@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  *before_node_section
- *0 @node C6 l1 {Top}
+ *@node C6 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -60,7 +60,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
      {second level node}
    {.\\n}
   {empty_line:\\n}
- *2 @node C2 l9 {chap first level node}
+ *@node C2 l9 {chap first level node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -75,7 +75,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
     |{\\n}
     {chap first level node}
   {empty_line:\\n}
- *3 @node C1 l11 {second level node}
+ *@node C1 l11 {second level node}
  |INFO
  |spaces_before_argument:
   |{ }

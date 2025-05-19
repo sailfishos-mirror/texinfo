@@ -16,7 +16,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 contents_at_document_begin.texi:l5 {Top}
+ *@node C1 contents_at_document_begin.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 contents_at_document_begin.texi:l6 {Contents at beginning}
+ *@top C6 contents_at_document_begin.texi:l6 {Contents at beginning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
   *paragraph C1
    {Content at the beginning.\\n}
   {empty_line:\\n}
-  *2 @menu C3 contents_at_document_begin.texi:l10
+  *@menu C3 contents_at_document_begin.texi:l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 contents_at_document_begin.texi:l14 {chapter}
+ *@node C1 contents_at_document_begin.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -90,7 +90,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 contents_at_document_begin.texi:l15 {Chapter 1}
+ *@chapter C4 contents_at_document_begin.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }

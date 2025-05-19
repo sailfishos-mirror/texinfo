@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {first}
+ *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'invalid_info_menu_entry'} = '*document_root C2
     |{\\n}
     {first}
   {empty_line:\\n}
-  *1 @menu C7 l3
+  *@menu C7 l3
    *arguments_line C1
     *block_line_arg
     |INFO

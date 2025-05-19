@@ -58,7 +58,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
      |{\\n}
      {ja}
    {empty_line:\\n}
- *0 @node C1 japanese_utf8.texi:l8 {Top}
+ *@node C1 japanese_utf8.texi:l8 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C9 japanese_utf8.texi:l9 {GNU LilyPond --- 学習マニュアル}
+ *@top C9 japanese_utf8.texi:l9 {GNU LilyPond --- 学習マニュアル}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -128,7 +128,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   *paragraph C1
    {これは GNU LilyPond バージョン \\n}
   {empty_line:\\n}
-  *2 @menu C4 japanese_utf8.texi:l25
+  *@menu C4 japanese_utf8.texi:l25
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -168,7 +168,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 japanese_utf8.texi:l30 {Preface}
+ *@node C1 japanese_utf8.texi:l30 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -182,7 +182,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Preface}
- *4 @chapter C5 japanese_utf8.texi:l31 {Preface}
+ *@chapter C5 japanese_utf8.texi:l31 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -201,7 +201,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    {それは 1995 年のある日の EJE (Eindhoven Youth Orchestra) のリハーサル中のできごとでした − ある変わり者のバイオリン奏者であるジャンは同じく変わり者のフレンチホルン奏者のハン-ウェンに彼がかかわっている新しい大きなプロジェクトのことを話しました。それは音楽を出版するための自動化されたシステムです (正確には、それは MPP − MusiXTeX のプリプロセッサです)。それを聞いてハン-ウェンはすぐに楽譜からいくつかの部分をプリントアウトしたいと思い、彼はそのためのソフトウェアを探し始め、すぐにその虜になってしまいました。それが MPP の終わりを決定付けました。多くの哲学的考察を含み白熱した email の交換の後、ハン-ウェンは 1996 年に LilyPond の製作を開始しました。この時、ジャンはハン-ウェンの新しいプロジェクトに引きずり込まれました。\\n}
   {empty_line:\\n}
   {empty_line:\\n}
- *5 @node C1 japanese_utf8.texi:l36 {Introduction}
+ *@node C1 japanese_utf8.texi:l36 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -215,7 +215,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *6 @chapter C4 japanese_utf8.texi:l37 {Introduction}
+ *@chapter C4 japanese_utf8.texi:l37 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }

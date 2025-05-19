@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2 {Top}
+ *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @chapter C4 l3 {chapter}
+ *@chapter C4 l3 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
     |{\\n}
     {chapter}
   {empty_line:\\n}
-  *2 @menu C3 l5
+  *@menu C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @part C2 l9 {part}
+ *@part C2 l9 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
     |{\\n}
     {part}
   {empty_line:\\n}
- *4 @node C1 l11 {after}
+ *@node C1 l11 {after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -95,7 +95,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {after}
- *5 @chapter C3 l12 {chapter 2}
+ *@chapter C3 l12 {chapter 2}
  |INFO
  |spaces_before_argument:
   |{ }

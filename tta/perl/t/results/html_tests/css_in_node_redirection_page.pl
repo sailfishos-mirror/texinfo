@@ -21,7 +21,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
      |{\\n}
      {en}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l4 {top}
+ *@top C3 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
     *brace_container C1
      {SANS}
    {.\\n}
-   *2 @anchor C1 l7
+   *@anchor C1 l7
    |EXTRA
    |is_target:{1}
    |normalized:{spot}

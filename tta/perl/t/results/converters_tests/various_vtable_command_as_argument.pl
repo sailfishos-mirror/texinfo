@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C16 l5 {Chap}
+ *@chapter C16 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -334,7 +334,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @anchor l33
+     *@anchor l33
    *table_entry C1
     *table_term C2
      *@item C1 l34
@@ -421,7 +421,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
      |{\\n}
      {vtable}
   {empty_line:\\n}
- *5 @node C1 l43 {Indices}
+ *@node C1 l43 {Indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -436,7 +436,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Indices}
- *6 @appendix C3 l44 {Print the index}
+ *@appendix C3 l44 {Print the index}
  |INFO
  |spaces_before_argument:
   |{ }

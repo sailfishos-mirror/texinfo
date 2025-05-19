@@ -25,7 +25,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph_usascii'} = '*document_roo
      |{\\n}
      {US-ASCII}
    {empty_line:\\n}
- *0 @node C1 punctuation_small_case_accents_us_ascii.texi:l5 {top}
+ *@node C1 punctuation_small_case_accents_us_ascii.texi:l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph_usascii'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 punctuation_small_case_accents_us_ascii.texi:l6 {top section}
+ *@top C2 punctuation_small_case_accents_us_ascii.texi:l6 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph_usascii'} = '*document_roo
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 punctuation_small_case_accents_us_ascii.texi:l8 {node chap}
+ *@node C1 punctuation_small_case_accents_us_ascii.texi:l8 {node chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph_usascii'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {node chap}
- *3 @chapter C11 punctuation_small_case_accents_us_ascii.texi:l9 {chapter}
+ *@chapter C11 punctuation_small_case_accents_us_ascii.texi:l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2 {Top}
+ *@top C6 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
     *brace_command_context C1
      *paragraph C3
       {in footnote\\n}
-      *2 @anchor C1 l5
+      *@anchor C1 l5
       |EXTRA
       |is_target:{1}
       |normalized:{Anchor-in-footnote}
@@ -53,7 +53,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
       {.\\n}
    {\\n}
   {empty_line:\\n}
-  *3 @menu C3 l8
+  *@menu C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 l12 {chapter}
+ *@node C1 l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *5 @chapter C3 l13 {Chap}
+ *@chapter C3 l13 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

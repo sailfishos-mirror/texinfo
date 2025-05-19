@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C23 l2 {chap}
+ *@node C23 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -146,7 +146,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
        {r-oman}
      { \\n}
      {anc-hor}
-     *2 @anchor C1 l21:@testallowcodebreakspara
+     *@anchor C1 l21:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node0}
@@ -260,7 +260,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
        {r-oman}
      { \\n}
      {anc-hor}
-     *3 @anchor C1 l26:@testallowcodebreakspara
+     *@anchor C1 l26:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node1}
@@ -364,7 +364,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
          {r-oman}
        { \\n}
        {anc-hor}
-       *4 @anchor C1 l30:@testallowcodebreakspara
+       *@anchor C1 l30:@testallowcodebreakspara
        |EXTRA
        |is_target:{1}
        |normalized:{A-nodew}
@@ -473,7 +473,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
        {r-oman}
      { \\n}
      {anc-hor}
-     *5 @anchor C1 l39:@testallowcodebreakspara
+     *@anchor C1 l39:@testallowcodebreakspara
      |EXTRA
      |is_target:{1}
      |normalized:{A-node2}

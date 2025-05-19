@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_and_spaces'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C7 l2 {Element}
+ *@top C7 l2 {Element}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Element}
-  *2 @anchor C1 l3
+  *@anchor C1 l3
   |EXTRA
   |is_target:{1}
   |normalized:{anchor-0}
@@ -44,7 +44,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {Now }
-   *3 @anchor C1 l5
+   *@anchor C1 l5
    |EXTRA
    |is_target:{1}
    |normalized:{anchor1}
@@ -54,7 +54,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C3
    {No space}
-   *4 @anchor C1 l7
+   *@anchor C1 l7
    |EXTRA
    |is_target:{1}
    |normalized:{anchor2}

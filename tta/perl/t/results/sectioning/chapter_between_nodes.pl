@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2 {top section}
+ *@top C5 l2 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
-  *2 @menu C3 l5
+  *@menu C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @chapter C4 l9 {Chapter}
+ *@chapter C4 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
   *paragraph C1
    {In chapter\\n}
   {empty_line:\\n}
- *4 @node C1 l13 {section node}
+ *@node C1 l13 {section node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *5 @section C5 l14 {section}
+ *@section C5 l14 {section}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -14,7 +14,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
    *@c C1
     {rawline_arg: test footnotes with nodes only\\n}
    {empty_line:\\n}
- *0 @node C4 node_footnote.texi:l5 {Top}
+ *@node C4 node_footnote.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C6 node_footnote.texi:l7
+  *@menu C6 node_footnote.texi:l7
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -97,7 +97,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 node_footnote.texi:l14 {@\'a}
+ *@node C4 node_footnote.texi:l14 {@\'a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
         {a}
    {.\\n}
   {empty_line:\\n}
- *3 @node C4 node_footnote.texi:l19 {@^a}
+ *@node C4 node_footnote.texi:l19 {@^a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -167,7 +167,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
         {a}
    {.\\n}
   {empty_line:\\n}
- *4 @node C1 node_footnote.texi:l24 {chapter}
+ *@node C1 node_footnote.texi:l24 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -181,7 +181,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *5 @chapter C4 node_footnote.texi:l25 {chapter}
+ *@chapter C4 node_footnote.texi:l25 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -196,7 +196,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
     |{\\n}
     {chapter}
   {empty_line:\\n}
-  *6 @menu C3 node_footnote.texi:l27
+  *@menu C3 node_footnote.texi:l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -227,7 +227,7 @@ $result_tree_text{'node_footnote_separated'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C4 node_footnote.texi:l31 {@`a}
+ *@node C4 node_footnote.texi:l31 {@`a}
  |INFO
  |spaces_before_argument:
   |{ }

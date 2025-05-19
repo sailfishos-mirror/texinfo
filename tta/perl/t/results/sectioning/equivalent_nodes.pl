@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'equivalent_nodes'} = '*document_root C3
  *before_node_section
- *0 @node C4 l1 {first}
+ *@node C4 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
      *brace_container C1
       {node}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C3 l7 {@samp{node}}
+ *@node C3 l7 {@samp{node}}
  |INFO
  |spaces_before_argument:
   |{ }

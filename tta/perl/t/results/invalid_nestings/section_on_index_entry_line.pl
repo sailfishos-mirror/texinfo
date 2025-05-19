@@ -19,7 +19,7 @@ $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
    |spaces_after_argument:
     |{ }
     {a}
- *0 @section C3 l1 {b}
+ *@section C3 l1 {b}
  |INFO
  |spaces_before_argument:
   |{ }

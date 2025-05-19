@@ -601,7 +601,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@comment C1
     {rawline_arg: %**end of header\\n}
    {empty_line:\\n}
- *0 @node C1 bib-example.texi:l30 {Top}
+ *@node C1 bib-example.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -615,7 +615,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 bib-example.texi:l31 {Top}
+ *@top C4 bib-example.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -629,7 +629,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *2 @menu C5 bib-example.texi:l33
+  *@menu C5 bib-example.texi:l33
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -684,7 +684,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 bib-example.texi:l39 {Introduction}
+ *@node C1 bib-example.texi:l39 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -698,7 +698,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *4 @chapter C4 bib-example.texi:l40 {Introduction}
+ *@chapter C4 bib-example.texi:l40 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -815,7 +815,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {, isn\'t\\n}
    {currently supported in Texinfo.\\n}
   {empty_line:\\n}
- *5 @node C1 bib-example.texi:l46 {References}
+ *@node C1 bib-example.texi:l46 {References}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -842,7 +842,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >SOURCEMARKS
     >value_expansion<end;3><p:10>
     >macro_expansion<end;7><p:10>
- *6 @chapter C4 bib-example.texi:l47 {References}
+ *@chapter C4 bib-example.texi:l47 {References}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -917,7 +917,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command:\\n}
-    *7 @anchor C1 bib-example.texi:l51:@mybibitem
+    *@anchor C1 bib-example.texi:l51:@mybibitem
     |EXTRA
     |is_target:{1}
     |normalized:{LaTeX2e}

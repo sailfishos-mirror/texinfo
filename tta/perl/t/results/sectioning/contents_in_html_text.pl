@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *before_node_section
- *0 @top C2 l1 {top}
+ *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *1 @chapter C2 l3 {Chap1}
+ *@chapter C2 l3 {Chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
     |{\\n}
     {Chap1}
   {empty_line:\\n}
- *2 @section C2 l5 {Sec 1}
+ *@section C2 l5 {Sec 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
     |{\\n}
     {Sec 1}
   {empty_line:\\n}
- *3 @chapter C4 l7 {Chap2}
+ *@chapter C4 l7 {Chap2}
  |INFO
  |spaces_before_argument:
   |{ }

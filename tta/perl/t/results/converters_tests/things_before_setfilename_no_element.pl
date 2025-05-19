@@ -11,7 +11,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    *preamble_before_beginning C2
     {text_before_beginning:\\input texinfo\\n}
     {text_before_beginning:\\n}
-   *0 @anchor C1 things_before_setfilename_no_element.texi:l3
+   *@anchor C1 things_before_setfilename_no_element.texi:l3
    |EXTRA
    |is_target:{1}
    |normalized:{An-anchor}
@@ -47,7 +47,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
       *paragraph C1
        {In footnote.\\n}
       {empty_line:\\n}
-      *1 @anchor C1 things_before_setfilename_no_element.texi:l13
+      *@anchor C1 things_before_setfilename_no_element.texi:l13
       |EXTRA
       |is_target:{1}
       |normalized:{Anchor-in-footnote}
@@ -66,7 +66,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
        {\\n}
     {\\n}
    {empty_line:\\n}
-   *2 @float C3 things_before_setfilename_no_element.texi:l19
+   *@float C3 things_before_setfilename_no_element.texi:l19
    |INFO
    |spaces_before_argument:
     |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
       {float anchor}
     {.\\n}
    {empty_line:\\n}
-   *3 @float C6 things_before_setfilename_no_element.texi:l26
+   *@float C6 things_before_setfilename_no_element.texi:l26
    |INFO
    |spaces_before_argument:
     |{ }
@@ -154,7 +154,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
-   *4 @menu C3 things_before_setfilename_no_element.texi:l34
+   *@menu C3 things_before_setfilename_no_element.texi:l34
     *arguments_line C1
      *block_line_arg
      |INFO

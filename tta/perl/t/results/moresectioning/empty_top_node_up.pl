@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'empty_top_node_up'} = '*document_root C4
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {empty top node up}
+ *@top C4 l2 {empty top node up}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
     |{\\n}
     {empty top node up}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l8 {chap}
+ *@node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

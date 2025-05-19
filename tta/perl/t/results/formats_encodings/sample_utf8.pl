@@ -125,7 +125,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       >|INFO
       >|spaces_after_argument:
        >|{\\n}
- *0 @node C1 sample_utf8.texi:l27 {Top}
+ *@node C1 sample_utf8.texi:l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -139,7 +139,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C7 sample_utf8.texi:l28 {Texinfo中文示例}
+ *@top C7 sample_utf8.texi:l28 {Texinfo中文示例}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      >{ifnottex}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *2 @menu C5 sample_utf8.texi:l33
+  *@menu C5 sample_utf8.texi:l33
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -224,7 +224,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
- *3 @node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
+ *@node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -238,7 +238,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {第一章（First Chapter）}
- *4 @chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
+ *@chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -347,7 +347,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      |{\\n}
      {enumerate}
   {empty_line:\\n}
- *5 @node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
+ *@node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -361,7 +361,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Second Chapter AE ĄĘ ae ąę}
- *6 @chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
+ *@chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -379,7 +379,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   *paragraph C1
    {Zażółć gęślą jaźń!\\n}
   {empty_line:\\n}
- *7 @node C1 sample_utf8.texi:l66 {Index node}
+ *@node C1 sample_utf8.texi:l66 {Index node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -394,7 +394,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Index node}
- *8 @unnumbered C4 sample_utf8.texi:l67 {Index}
+ *@unnumbered C4 sample_utf8.texi:l67 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

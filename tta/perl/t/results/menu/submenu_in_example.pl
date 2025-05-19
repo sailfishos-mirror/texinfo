@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'submenu_in_example'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {first}
+ *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     {empty_line:\\n}
     {in example\\n}
     {empty_line:\\n}
-   *1 @menu C9 l7
+   *@menu C9 l7
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
      *preformatted C2
       {in submenu\\n}
       {empty_line:\\n}
-    *2 @menu C2 l10
+    *@menu C2 l10
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
-    *3 @menu C3 l13
+    *@menu C3 l13
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
-    *4 @menu C3 l17
+    *@menu C3 l17
      *arguments_line C1
       *block_line_arg
       |INFO
@@ -125,7 +125,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
     *menu_comment C5
      *preformatted C1
       {empty_line:\\n}
-     *5 @subheading C1 l23
+     *@subheading C1 l23
      |INFO
      |spaces_before_argument:
       |{ }

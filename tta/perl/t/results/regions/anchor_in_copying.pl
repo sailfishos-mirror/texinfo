@@ -19,7 +19,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
     {empty_line:\\n}
     *paragraph C3
      {Copying.\\n}
-     *0 @anchor C1 l5
+     *@anchor C1 l5
      |EXTRA
      |is_target:{1}
      |normalized:{Copying-information}
@@ -41,7 +41,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
       |{\\n}
       {copying}
    {empty_line:\\n}
- *1 @node C2 l9 {Top}
+ *@node C2 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *2 @node C8 l11 {chap}
+ *@node C8 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

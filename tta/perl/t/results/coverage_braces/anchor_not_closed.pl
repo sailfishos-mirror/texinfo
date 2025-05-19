@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_not_closed'} = '*document_root C1
  *before_node_section C1
-  *0 @anchor C1 l1
+  *@anchor C1 l1
    *brace_arg C2
     {my anchor\\n}
     {empty_line:\\n}

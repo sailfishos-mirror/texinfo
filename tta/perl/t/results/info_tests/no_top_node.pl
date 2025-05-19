@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'no_top_node'} = '*document_root C2
  *before_node_section
- *0 @node C1 l1 {node Top not Top node}
+ *@node C1 l1 {node Top not Top node}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'unknown_node_in_menu'} = '*document_root C2
  *before_node_section
- *0 @node C3 l1 {first}
+ *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'unknown_node_in_menu'} = '*document_root C2
     |{\\n}
     {first}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO

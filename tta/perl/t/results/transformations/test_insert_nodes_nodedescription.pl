@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  *before_node_section
- *0 @node C1 {Top}
+ *@node C1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l1 {top}
+ *@top C3 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {top}
-  *2 @nodedescription C1 l2
+  *@nodedescription C1 l2
   |INFO
   |spaces_before_argument:
    |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{\\n}
     {D1}
   {empty_line:\\n}
- *3 @node C1 {Chap}
+ *@node C1 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Chap}
- *4 @chapter C2 l4 {Chap}
+ *@chapter C2 l4 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *5 @node C1 {Sec}
+ *@node C1 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Sec}
- *6 @section C4 l6 {Sec}
+ *@section C4 l6 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Sec}
-  *7 @nodedescription C1 l7
+  *@nodedescription C1 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {D2}
-  *8 @nodedescription C1 l8
+  *@nodedescription C1 l8
   |INFO
   |spaces_before_argument:
    |{ }
@@ -120,7 +120,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{\\n}
     {D3}
   {empty_line:\\n}
- *9 @node C1 {Subsec}
+ *@node C1 {Subsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -134,7 +134,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Subsec}
- *10 @subsection C2 l10 {Subsec}
+ *@subsection C2 l10 {Subsec}
  |INFO
  |spaces_before_argument:
   |{ }

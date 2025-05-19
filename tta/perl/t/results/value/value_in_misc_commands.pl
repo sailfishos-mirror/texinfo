@@ -13,7 +13,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    {rawline_arg:text}
    {rawline_arg:atext}
   {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {top atext}
+ *@top C2 l4 {top atext}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
        >{text}
     >value_expansion<end;1><p:9>
   {empty_line:\\n}
- *2 @node C136 l6 {chap}
+ *@node C136 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *3 @subheading C1 l8
+  *@subheading C1 l8
   |INFO
   |spaces_before_argument:
    |{ }

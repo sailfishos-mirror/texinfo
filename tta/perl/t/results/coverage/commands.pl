@@ -79,7 +79,7 @@ $result_tree_text{'commands'} = '*document_root C1
     *@LaTeX C1 l8
      *brace_container
   {empty_line:\\n}
-  *0 @majorheading C1 l10
+  *@majorheading C1 l10
   |INFO
   |spaces_before_argument:
    |{ }

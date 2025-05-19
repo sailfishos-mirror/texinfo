@@ -1,5 +1,18 @@
 2025-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers)
+	(print_tree_details), tta/perl/Texinfo/ManipulateTree.pm
+	(set_element_tree_numbers, print_tree_details): do not call
+	set_element_tree_numbers nor remove_element_tree_numbers in
+	print_tree_details since there are no reference to other elements in
+	extra information anymore.
+	Do not match any command in set_element_tree_numbers as there are no
+	command anymore that are target of extra keys.
+	Add comments to explain why the different functions or pieces of code
+	are not called.
+
+2025-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (print_element_info): set numbers on
 	info elements, not on the element itself.
 

@@ -14,7 +14,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *0 @float C5 l2
+   *@float C5 l2
    |INFO
    |spaces_before_argument:
     |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *1 @float C4 l8
+   *@float C4 l8
    |INFO
    |spaces_before_argument:
     |{ }
@@ -124,7 +124,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *2 @float C4 l14
+   *@float C4 l14
    |INFO
    |spaces_before_argument:
     |{ }

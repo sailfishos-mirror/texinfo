@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {start}
+ *@node C1 l1 {start}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {start}
- *1 @top C1 l2
+ *@top C1 l2
  |EXTRA
  |section_level:{0}
  |section_number:{1}

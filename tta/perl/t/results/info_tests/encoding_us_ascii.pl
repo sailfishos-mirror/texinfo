@@ -22,7 +22,7 @@ $result_tree_text{'encoding_us_ascii'} = '*document_root C2
     |{\\n}
     {US-ASCII}
   {empty_line:\\n}
- *0 @node C2 l4 {Top}
+ *@node C2 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

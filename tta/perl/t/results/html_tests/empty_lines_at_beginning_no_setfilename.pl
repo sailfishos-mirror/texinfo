@@ -15,7 +15,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
    *@c C1
     {rawline_arg: comment\\n}
    {empty_line:\\n}
- *0 @node C1 empty_lines_at_beginning_no_setfilename.texi:l6 {Top}
+ *@node C1 empty_lines_at_beginning_no_setfilename.texi:l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 empty_lines_at_beginning_no_setfilename.texi:l7 {top}
+ *@top C2 empty_lines_at_beginning_no_setfilename.texi:l7 {top}
  |INFO
  |spaces_before_argument:
   |{ }

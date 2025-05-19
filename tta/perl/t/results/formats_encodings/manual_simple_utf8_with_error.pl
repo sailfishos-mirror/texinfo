@@ -11,7 +11,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
    {text_before_beginning:\\input texinfo.tex\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 manual_simple_utf8_with_error.texi:l3 {Top}
+ *@node C1 manual_simple_utf8_with_error.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 manual_simple_utf8_with_error.texi:l4 {Testé}
+ *@top C2 manual_simple_utf8_with_error.texi:l4 {Testé}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
     |{\\n}
     {Testé}
   {empty_line:\\n}
- *2 @node C2 manual_simple_utf8_with_error.texi:l6 {ésseulé}
+ *@node C2 manual_simple_utf8_with_error.texi:l6 {ésseulé}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
     |{\\n}
     {ésseulé}
   {empty_line:\\n}
- *3 @node C1 manual_simple_utf8_with_error.texi:l8 {Chapitré}
+ *@node C1 manual_simple_utf8_with_error.texi:l8 {Chapitré}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Chapitré}
- *4 @chapter C4 manual_simple_utf8_with_error.texi:l9 {Chapitré}
+ *@chapter C4 manual_simple_utf8_with_error.texi:l9 {Chapitré}
  |INFO
  |spaces_before_argument:
   |{ }

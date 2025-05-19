@@ -212,7 +212,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {multitable}
   {empty_line:\\n}
-  *0 @float C3 l28
+  *@float C3 l28
   |INFO
   |spaces_before_argument:
    |{ }

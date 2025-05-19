@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C4 l5 {Chap}
+ *@chapter C4 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *4 @anchor C1 l9
+       *@anchor C1 l9
        |EXTRA
        |is_target:{1}
        |normalized:{label1}
@@ -113,7 +113,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *5 @anchor C1 l12
+       *@anchor C1 l12
        |EXTRA
        |is_target:{1}
        |normalized:{label2}
@@ -153,7 +153,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      |{\\n}
      {vtable}
   {empty_line:\\n}
- *6 @node C1 l19 {Idx}
+ *@node C1 l19 {Idx}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -168,7 +168,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Idx}
- *7 @chapter C5 l20 {Idx}
+ *@chapter C5 l20 {Idx}
  |INFO
  |spaces_before_argument:
   |{ }

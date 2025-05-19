@@ -25,7 +25,7 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_latin1'} = '*document_root C5
      |{\\n}
      {ISO-8859-1}
    {empty_line:\\n}
- *0 @node C1 punctuation_small_case_accents_latin1.texi:l5 {top}
+ *@node C1 punctuation_small_case_accents_latin1.texi:l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_latin1'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 punctuation_small_case_accents_latin1.texi:l6 {top section}
+ *@top C2 punctuation_small_case_accents_latin1.texi:l6 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_latin1'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 punctuation_small_case_accents_latin1.texi:l8 {node chap}
+ *@node C1 punctuation_small_case_accents_latin1.texi:l8 {node chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'punctuation_sc_accents_to_utf8_latin1'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {node chap}
- *3 @chapter C11 punctuation_small_case_accents_latin1.texi:l9 {chapter}
+ *@chapter C11 punctuation_small_case_accents_latin1.texi:l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

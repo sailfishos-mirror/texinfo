@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C4 l3
+  *@menu C4 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C14 l8 {One@asis{::}node@comma{} with entries.}
+ *@node C14 l8 {One@asis{::}node@comma{} with entries.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -195,7 +195,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
   *paragraph C1
    {node one\\n}
   {empty_line:\\n}
- *3 @node C4 l24 {Concept Index}
+ *@node C4 l24 {Concept Index}
  |INFO
  |spaces_before_argument:
   |{ }

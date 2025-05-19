@@ -19,7 +19,7 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {aa\\n}
- *0 @section C1 l2 {sec}
+ *@section C1 l2 {sec}
  |INFO
  |spaces_before_argument:
   |{ }

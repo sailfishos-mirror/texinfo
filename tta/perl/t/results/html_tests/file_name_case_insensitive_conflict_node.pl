@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top section}
+ *@top C2 l2 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C5 l5 {Chapter}
+ *@chapter C5 l5 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 @anchor C1 l7
+  *@anchor C1 l7
   |EXTRA
   |is_target:{1}
   |normalized:{fOO}
@@ -73,7 +73,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     {fOO}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *5 @node C1 l9 {Foo}
+ *@node C1 l9 {Foo}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Foo}
- *6 @section C2 l10 {Foo}
+ *@section C2 l10 {Foo}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     |{\\n}
     {Foo}
   {empty_line:\\n}
- *7 @node C1 l12 {Bar}
+ *@node C1 l12 {Bar}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Bar}
- *8 @section C2 l13 {Bar}
+ *@section C2 l13 {Bar}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -131,7 +131,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
     |{\\n}
     {Bar}
   {empty_line:\\n}
- *9 @node C1 l15 {foo}
+ *@node C1 l15 {foo}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -145,7 +145,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {foo}
- *10 @section C5 l16 {foo}
+ *@section C5 l16 {foo}
  |INFO
  |spaces_before_argument:
   |{ }

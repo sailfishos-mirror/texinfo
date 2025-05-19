@@ -94,7 +94,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       |{\\n}
       {4}
     {anchor}
-    *0 @anchor C1 l14
+    *@anchor C1 l14
     |EXTRA
     |is_target:{1}
     |normalized:{anchor}

@@ -31,7 +31,7 @@ $result_tree_text{'no_element'} = '*document_root C1
     {ISO-8859-1}
   {empty_line:\\n}
   {empty_line:\\n}
-  *0 @anchor C1 l5
+  *@anchor C1 l5
   |EXTRA
   |is_target:{1}
   |normalized:{An-anchor}
@@ -67,7 +67,7 @@ $result_tree_text{'no_element'} = '*document_root C1
      *paragraph C1
       {In footnote.\\n}
      {empty_line:\\n}
-     *1 @anchor C1 l15
+     *@anchor C1 l15
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-footnote}
@@ -86,7 +86,7 @@ $result_tree_text{'no_element'} = '*document_root C1
       {\\n}
    {\\n}
   {empty_line:\\n}
-  *2 @float C3 l21
+  *@float C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'no_element'} = '*document_root C1
      {float anchor}
    {.\\n}
   {empty_line:\\n}
-  *3 @menu C3 l28
+  *@menu C3 l28
    *arguments_line C1
     *block_line_arg
     |INFO

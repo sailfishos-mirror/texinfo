@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'semi_auto'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {Top}
+ *@top C4 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *2 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l9 {Chap1}
+ *@node C1 l9 {Chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Chap1}
- *4 @chapter C4 l10 {Chapter 1}
+ *@chapter C4 l10 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -104,7 +104,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
     |{\\n}
     {Chapter 1}
   {empty_line:\\n}
-  *5 @menu C3 l12
+  *@menu C3 l12
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l16 {Sec in chapter}
+ *@node C1 l16 {Sec in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Sec in chapter}
- *7 @section C2 l17 {Sec in chapter}
+ *@section C2 l17 {Sec in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -162,7 +162,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
     |{\\n}
     {Sec in chapter}
   {empty_line:\\n}
- *8 @node C1 l19 {Section non auto}
+ *@node C1 l19 {Section non auto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -192,7 +192,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *9 @section C1 l20 {Section}
+ *@section C1 l20 {Section}
  |INFO
  |spaces_before_argument:
   |{ }

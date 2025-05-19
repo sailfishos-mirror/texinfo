@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C1 l3 {chapter}
+ *@node C1 l3 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *2 @chapter C2 l4 {chapter}
+ *@chapter C2 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
     |{\\n}
     {chapter}
   {empty_line:\\n}
- *3 @part C2 l6 {part}
+ *@part C2 l6 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
     |{\\n}
     {part}
   {empty_line:\\n}
- *4 @top C1 l8 {top}
+ *@top C1 l8 {top}
  |INFO
  |spaces_before_argument:
   |{ }

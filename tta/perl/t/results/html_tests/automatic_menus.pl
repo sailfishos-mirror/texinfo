@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'automatic_menus'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2 {top}
+ *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4 {chap}
+ *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C3 l5 {Chap}
+ *@chapter C3 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Chap}
-  *4 @nodedescription C1 l6
+  *@nodedescription C1 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
     |{\\n}
     {Here we begin}
   {empty_line:\\n}
- *5 @node C1 l8 {sec}
+ *@node C1 l8 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {sec}
- *6 @section C3 l9 {A section}
+ *@section C3 l9 {A section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {A section}
-  *7 @nodedescription C1 l10
+  *@nodedescription C1 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -111,7 +111,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
     |{\\n}
     {Here in section}
   {empty_line:\\n}
- *8 @node C1 l12 {sec after}
+ *@node C1 l12 {sec after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -125,7 +125,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {sec after}
- *9 @section C1 l13 {Sec after}
+ *@section C1 l13 {Sec after}
  |INFO
  |spaces_before_argument:
   |{ }

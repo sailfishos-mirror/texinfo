@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *before_node_section
- *0 @top C1 l1 {top}
+ *@top C1 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -20,7 +20,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @chapter C1 l2 {0}
+ *@chapter C1 l2 {0}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -34,7 +34,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {0}
- *2 @unnumbered C1 l3 {_}
+ *@unnumbered C1 l3 {_}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {_}
- *3 @section C6 l4 {?}
+ *@section C6 l4 {?}
  |INFO
  |spaces_before_argument:
   |{ }

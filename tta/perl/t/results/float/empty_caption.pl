@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'empty_caption'} = '*document_root C1
  *before_node_section C6
   *preamble_before_content
-  *0 @float C5 l1
+  *@float C5 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *1 @float C5 l6
+  *@float C5 l6
   |INFO
   |spaces_before_argument:
    |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *2 @float C7 l11
+  *@float C7 l11
   |EXTRA
   |float_type:{}
   |global_command_number:{3}

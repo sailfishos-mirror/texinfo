@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  *before_node_section
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
   |INFO
   |spaces_before_argument:
    |{  }
@@ -55,7 +55,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @chapter C1 l7 {first}
+ *@chapter C1 l7 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {first}
- *3 @node C1 l8 {first}
+ *@node C1 l8 {first}
  |INFO
  |spaces_before_argument:
   |{ }

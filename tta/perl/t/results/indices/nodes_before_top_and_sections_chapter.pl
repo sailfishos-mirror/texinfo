@@ -11,7 +11,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C10 nodes_before_top_and_sections.texi:l3 {first before top}
+ *@node C10 nodes_before_top_and_sections.texi:l3 {first before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     {cp}
   *paragraph C1
    {after second printindex in first node\\n}
-  *1 @menu C3 nodes_before_top_and_sections.texi:l11
+  *@menu C3 nodes_before_top_and_sections.texi:l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
+ *@node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -185,7 +185,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     {printindex node in menu before top}
   {empty_line:\\n}
   {empty_line:\\n}
- *3 @node C11 nodes_before_top_and_sections.texi:l25 {Top}
+ *@node C11 nodes_before_top_and_sections.texi:l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -266,7 +266,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {cp}
   {empty_line:\\n}
- *4 @top C7 nodes_before_top_and_sections.texi:l36 {top section}
+ *@top C7 nodes_before_top_and_sections.texi:l36 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -296,7 +296,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *paragraph C1
    {in top section\\n}
   {empty_line:\\n}
-  *5 @menu C5 nodes_before_top_and_sections.texi:l41
+  *@menu C5 nodes_before_top_and_sections.texi:l41
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -347,7 +347,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C7 nodes_before_top_and_sections.texi:l47 {first}
+ *@node C7 nodes_before_top_and_sections.texi:l47 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -430,7 +430,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *7 @menu C3 nodes_before_top_and_sections.texi:l55
+  *@menu C3 nodes_before_top_and_sections.texi:l55
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -459,7 +459,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C5 nodes_before_top_and_sections.texi:l59 {second}
+ *@node C5 nodes_before_top_and_sections.texi:l59 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -481,7 +481,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |node_content:{first}
    |normalized:{first}
     {first}
-  *9 @menu C4 nodes_before_top_and_sections.texi:l60
+  *@menu C4 nodes_before_top_and_sections.texi:l60
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -534,7 +534,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {fn}
   {empty_line:\\n}
- *10 @node C6 nodes_before_top_and_sections.texi:l67 {another}
+ *@node C6 nodes_before_top_and_sections.texi:l67 {another}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -608,7 +608,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {another}
   {empty_line:\\n}
- *11 @node C10 nodes_before_top_and_sections.texi:l73 {a node}
+ *@node C10 nodes_before_top_and_sections.texi:l73 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -707,7 +707,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {cp}
   {empty_line:\\n}
- *12 @node C1 nodes_before_top_and_sections.texi:l83 {chapter}
+ *@node C1 nodes_before_top_and_sections.texi:l83 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -733,7 +733,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *13 @chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
+ *@chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -761,7 +761,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
     |{\\n}
     {cp}
   {empty_line:\\n}
- *14 @node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
+ *@node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
  |INFO
  |spaces_before_argument:
   |{ }

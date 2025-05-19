@@ -47,7 +47,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
   *paragraph C1
    {After paragraphindent.\\n}
   {empty_line:\\n}
- *0 @node C1 l11 {Top}
+ *@node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l12 {test @@paragraphindent in preamble effect in preamble}
+ *@top C6 l12 {test @@paragraphindent in preamble effect in preamble}
  |INFO
  |spaces_before_argument:
   |{ }

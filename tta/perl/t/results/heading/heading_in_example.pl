@@ -13,7 +13,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-   *0 @heading C1 l2
+   *@heading C1 l2
    |INFO
    |spaces_before_argument:
     |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {chap}
+ *@node C1 l1 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {chap}
- *1 @chapter C3 l2 {chapter @anchor{ggg} after}
+ *@chapter C3 l2 {chapter @anchor{ggg} after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {chapter }
-    *2 @anchor C1 l2
+    *@anchor C1 l2
     |EXTRA
     |is_target:{1}
     |normalized:{ggg}
@@ -44,7 +44,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
     {spaces_after_close_brace: }
     {after}
   {empty_line:\\n}
-  *3 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO

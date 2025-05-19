@@ -557,7 +557,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *0 @float C3 l69
+  *@float C3 l69
   |INFO
   |spaces_before_argument:
    |{ }

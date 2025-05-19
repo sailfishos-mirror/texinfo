@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
  *before_node_section
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
      *brace_container C1
       {chap}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C9 l7 {chap}
+ *@node C9 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *3 @float C3 l9
+  *@float C3 l9
   |INFO
   |spaces_before_argument:
    |{ }

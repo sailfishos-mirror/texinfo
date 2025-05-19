@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'all_commands_printindex'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C65 l2 {chap}
+ *@node C65 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {chap}
-  *2 @xrefname C1 l3
+  *@xrefname C1 l3
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1445,7 +1445,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypemethod}
   {empty_line:\\n}
-  *3 @heading C1 l113
+  *@heading C1 l113
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1470,7 +1470,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |{\\n}
     {fn}
   {empty_line:\\n}
-  *4 @heading C1 l116
+  *@heading C1 l116
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1495,7 +1495,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |{\\n}
     {tp}
   {empty_line:\\n}
-  *5 @heading C1 l119
+  *@heading C1 l119
   |INFO
   |spaces_before_argument:
    |{ }

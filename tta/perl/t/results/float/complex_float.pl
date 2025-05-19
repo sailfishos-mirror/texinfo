@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'complex_float'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C10 l2 {Test floats}
+ *@top C10 l2 {Test floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C1
    {After the listoffloats.\\n}
-  *2 @menu C3 l8
+  *@menu C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
-  *3 @float C24 l12
+  *@float C24 l12
   |INFO
   |spaces_before_argument:
    |{ }
@@ -322,7 +322,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {example}
      {empty_line:\\n}
-     *4 @anchor C1 l57
+     *@anchor C1 l57
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption}
@@ -595,7 +595,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
- *5 @node C1 l91 {chapter}
+ *@node C1 l91 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -609,7 +609,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C6 l92 {A chapter}
+ *@chapter C6 l92 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -624,7 +624,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |{\\n}
     {A chapter}
   {empty_line:\\n}
-  *7 @float C8 l94
+  *@float C8 l94
   |INFO
   |spaces_before_argument:
    |{ }
@@ -824,7 +824,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {itemize}
      {empty_line:\\n}
-     *8 @anchor C1 l124
+     *@anchor C1 l124
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption-2}

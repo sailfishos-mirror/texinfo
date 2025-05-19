@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'double_top_in_menu'} = '*document_root C3
  *before_node_section
- *0 @node C5 l1 {ToP}
+ *@node C5 l1 {ToP}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
-  *1 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C2 l9 {top}
+ *@node C2 l9 {top}
  |INFO
  |spaces_before_argument:
   |{ }

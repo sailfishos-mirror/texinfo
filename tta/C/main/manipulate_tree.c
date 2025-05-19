@@ -902,6 +902,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
+/* does nothing as there are no reference to tree elements
+   in the tree extra information currently, consistently no command
+   is selected, so this function has no effect.
+  */
 uintptr_t
 set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 {
@@ -913,14 +917,13 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
-  if (data_cmd == CM_node
-       || data_cmd == CM_anchor || data_cmd == CM_namedanchor
-       || (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
-       || data_cmd == CM_float
-       || data_cmd == CM_menu
-       || data_cmd == CM_nodedescription
-       || data_cmd == CM_nodedescriptionblock
-       || data_cmd == CM_xrefname)
+  /* no reference to other commands in tree for now.  The useless
+     condition on data_cmd is there to silence compiler warnings */
+  if (0 && data_cmd == CM_node)
+     /*
+      (data_cmd == CM_node
+       || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
+       */
     {
 
        /* Avoid clobbering elt_info_nr + 1 */
@@ -930,7 +933,10 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
           if (element->flags & EF_copy)
             fprintf (stderr, "WARNING: can't number, copy is set: %p '%s'\n",
                              element, debug_str);
-          /* TODO this happens in tests.  Is it ok?
+          /* TODO this happens in tests.  It may have been because of a bug
+             where the element was numbered instead of the elt_info.
+             If/when this code can be tested again, the bug should
+             be removed.
           else
             fprintf (stderr, "WARNING: already numbered: %p E%"
                                  PRIuPTR " '%s'\n", element,
@@ -1270,6 +1276,8 @@ print_element_info (ELEMENT *element, int level,
   return current_nr;
 }
 
+/* not called for now as there are no extra element, content, direction
+ */
 char *
 element_number_or_error (const ELEMENT *element)
 {
@@ -1331,6 +1339,8 @@ root_command_element_string (const ELEMENT *element)
   return root_command_texi;
 }
 
+/* NOTE there are currently no extra element, content, direction
+ */
 static uintptr_t
 print_element_extra (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,
@@ -1706,6 +1716,12 @@ remove_element_tree_numbers (ELEMENT *element)
     remove_element_tree_numbers (element->e.c->contents.list[i]);
 }
 
+/* no reference to other elements in extra information currently
+   (no extra element, content, direction), therefore no need for
+   element numbers to refer to.
+   The calls to set_element_tree_numbers and remove_element_tree_numbers
+   are thus commented out.
+ */
 char *
 print_tree_details (ELEMENT *tree, const char *fname_encoding,
                     int use_filename)
@@ -1716,12 +1732,16 @@ print_tree_details (ELEMENT *tree, const char *fname_encoding,
   text_init (&result);
   text_append (&result, "");
 
+  /*
   current_nr = set_element_tree_numbers (tree, 0);
+   */
 
   print_element_details (tree, 0, 0, current_nr, &result, fname_encoding,
                          use_filename);
 
+  /*
   remove_element_tree_numbers (tree);
+   */
 
   return result.text;
 }

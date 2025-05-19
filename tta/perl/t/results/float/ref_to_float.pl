@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'ref_to_float'} = '*document_root C1
  *before_node_section C8
   *preamble_before_content
-  *0 @float C3 l1
+  *@float C3 l1
   |INFO
   |spaces_before_argument:
    |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *1 @float C3 l5
+  *@float C3 l5
   |INFO
   |spaces_before_argument:
    |{ }

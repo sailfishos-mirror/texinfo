@@ -21,7 +21,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
      |{\\n}
      {fr}
    {empty_line:\\n}
- *0 @node C1 l3 {Top}
+ *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4 {top}
+ *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l6 {chap}
+ *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C4 l7 {Chap}
+ *@chapter C4 l7 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

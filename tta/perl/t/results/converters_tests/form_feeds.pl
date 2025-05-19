@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'form_feeds'} = '*document_root C3
  *before_node_section
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C40 l3 {chapnode}
+ *@node C40 l3 {chapnode}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      {middle\\f in code}
    {\\n}
   {empty_line:\\n}
-  *2 @anchor C1 l17
+  *@anchor C1 l17
   |EXTRA
   |is_target:{1}
   |normalized:{aa}
@@ -318,7 +318,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *3 @float C9 l36
+  *@float C9 l36
   |EXTRA
   |float_type:{}
   |global_command_number:{1}
@@ -371,7 +371,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{ \\f\\n}
      {float}
   {empty_line:\\n}
-  *4 @float C3 l42
+  *@float C3 l42
   |INFO
   |spaces_before_argument:
    |{ }

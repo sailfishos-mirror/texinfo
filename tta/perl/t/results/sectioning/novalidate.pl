@@ -11,7 +11,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
   *@novalidate C1 l2
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C5 l4 {first}
+ *@node C5 l4 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
    |normalized:{unknown-node}
     {unknown node}
   {empty_line:\\n}
-  *1 @menu C3 l6
+  *@menu C3 l6
    *arguments_line C1
     *block_line_arg
     |INFO

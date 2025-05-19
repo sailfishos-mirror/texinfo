@@ -174,7 +174,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *0 @node C1 l12 {Top}
+ *@node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -188,7 +188,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C16 l13 {chapter}
+ *@node C16 l13 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -482,7 +482,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{\\n}
      {example}
   {empty_line:\\n}
-  *2 @float C9 l24
+  *@float C9 l24
   |INFO
   |spaces_before_argument:
    |{ }

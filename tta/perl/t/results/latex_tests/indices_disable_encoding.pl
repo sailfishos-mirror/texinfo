@@ -16,7 +16,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     {rawline_arg:txiindexbackslashignore}
     {rawline_arg:}
    {empty_line:\\n}
- *0 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l5 {top section}
+ *@top C2 l5 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 l7 {chapter}
+ *@node C1 l7 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C22 l8 {Index}
+ *@chapter C22 l8 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

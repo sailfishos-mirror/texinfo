@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 l2 {top}
+ *@top C8 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
   *paragraph C1
    {Text\\n}
   {empty_line:\\n}
-  *2 @anchor C1 l6
+  *@anchor C1 l6
   |EXTRA
   |is_target:{1}
   |normalized:{An-anchor}
@@ -46,7 +46,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
     {An anchor}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
-  *3 @menu C3 l8
+  *@menu C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO

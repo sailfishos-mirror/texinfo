@@ -157,7 +157,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
      |{\\n}
      {macro}
   {empty_line:\\n}
- *0 @node C1 l25 {Top}
+ *@node C1 l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l26 {top}
+ *@top C2 l26 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -185,7 +185,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C8 l28 {chap}
+ *@node C8 l28 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

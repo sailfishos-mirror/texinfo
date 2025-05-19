@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'section_before_chapter'} = '*document_root C3
  *before_node_section
- *0 @section C2 l1 {section}
+ *@section C2 l1 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'section_before_chapter'} = '*document_root C3
     |{ \\n}
     {section}
   {empty_line:\\n}
- *1 @chapter C1 l3 {chapter}
+ *@chapter C1 l3 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

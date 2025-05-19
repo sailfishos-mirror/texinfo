@@ -44,7 +44,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *0 @node C1 l7 {Top}
+ *@node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l8 {section top}
+ *@top C2 l8 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *2 @node C1 l10 {chapter}
+ *@node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C3 l11 {Chapter}
+ *@chapter C3 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C5 l4
+  *@menu C5 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @chapter C2 l10 {c1}
+ *@chapter C2 l10 {c1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c1}
   {empty_line:\\n}
- *4 @node C1 l12 {n c2}
+ *@node C1 l12 {n c2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -115,7 +115,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {n c2}
- *5 @chapter C2 l13 {c2}
+ *@chapter C2 l13 {c2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -130,7 +130,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c2}
   {empty_line:\\n}
- *6 @section C2 l15 {s1}
+ *@section C2 l15 {s1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -145,7 +145,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {s1}
   {empty_line:\\n}
- *7 @node C1 l17 {n c3}
+ *@node C1 l17 {n c3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -182,7 +182,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *8 @chapter C4 l18 {c3}
+ *@chapter C4 l18 {c3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -197,7 +197,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3}
   {empty_line:\\n}
-  *9 @menu C3 l20
+  *@menu C3 l20
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -226,7 +226,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @section C2 l24 {C3 s1}
+ *@section C2 l24 {C3 s1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -241,7 +241,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {C3 s1}
   {empty_line:\\n}
- *11 @node C1 l26 {n c3 s 2}
+ *@node C1 l26 {n c3 s 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -255,7 +255,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {n c3 s 2}
- *12 @section C2 l27 {c3 s2}
+ *@section C2 l27 {c3 s2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -270,7 +270,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3 s2}
   {empty_line:\\n}
- *13 @section C2 l29 {c3 s3}
+ *@section C2 l29 {c3 s3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -285,7 +285,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3 s3}
   {empty_line:\\n}
- *14 @chapter C2 l31 {c4}
+ *@chapter C2 l31 {c4}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -300,7 +300,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c4}
   {empty_line:\\n}
- *15 @section C2 l33 {c3 s1}
+ *@section C2 l33 {c3 s1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -315,7 +315,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3 s1}
   {empty_line:\\n}
- *16 @subsection C2 l35 {c3 s1 s1}
+ *@subsection C2 l35 {c3 s1 s1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -330,7 +330,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3 s1 s1}
   {empty_line:\\n}
- *17 @node C1 l37 {n c3 s1 s2}
+ *@node C1 l37 {n c3 s1 s2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -355,7 +355,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *18 @subsection C2 l38 {c3 s1 s2}
+ *@subsection C2 l38 {c3 s1 s2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -370,7 +370,7 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
     |{\\n}
     {c3 s1 s2}
   {empty_line:\\n}
- *19 @appendix C1 l40 {appendix}
+ *@appendix C1 l40 {appendix}
  |INFO
  |spaces_before_argument:
   |{ }

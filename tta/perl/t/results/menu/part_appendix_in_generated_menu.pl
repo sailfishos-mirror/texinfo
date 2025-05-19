@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l2 {top}
+ *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
     {top}
   {empty_line:\\n}
   {empty_line:\\n}
- *2 @node C1 l5 {chapter}
+ *@node C1 l5 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C2 l6 {Chap}
+ *@chapter C2 l6 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *4 @node C1 l8 {sec}
+ *@node C1 l8 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -79,7 +79,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {sec}
- *5 @appendixsec C2 l9 {Sec}
+ *@appendixsec C2 l9 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
     |{\\n}
     {Sec}
   {empty_line:\\n}
- *6 @part C2 l11 {P1}
+ *@part C2 l11 {P1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
     |{\\n}
     {P1}
   {empty_line:\\n}
- *7 @node C1 l13 {chap2}
+ *@node C1 l13 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -123,7 +123,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {chap2}
- *8 @chapter C2 l14 {Chap 2}
+ *@chapter C2 l14 {Chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
     |{\\n}
     {Chap 2}
   {empty_line:\\n}
- *9 @node C1 l16 {app}
+ *@node C1 l16 {app}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'part_appendix_in_generated_menu'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {app}
- *10 @appendix C1 l17 {GGG}
+ *@appendix C1 l17 {GGG}
  |INFO
  |spaces_before_argument:
   |{ }

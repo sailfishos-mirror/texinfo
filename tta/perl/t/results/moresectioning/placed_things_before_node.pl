@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'placed_things_before_node'} = '*document_root C5
  *before_node_section C18
   *preamble_before_content
-  *0 @anchor C1 l1
+  *@anchor C1 l1
   |EXTRA
   |is_target:{1}
   |normalized:{An-anchor}
@@ -44,7 +44,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
      *paragraph C1
       {In footnote.\\n}
      {empty_line:\\n}
-     *1 @anchor C1 l11
+     *@anchor C1 l11
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-footnote}
@@ -63,7 +63,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
       {\\n}
    {\\n}
   {empty_line:\\n}
-  *2 @float C3 l17
+  *@float C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
      {float anchor}
    {.\\n}
   {empty_line:\\n}
-  *3 @menu C3 l24
+  *@menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -148,7 +148,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *4 @node C1 l30 {Top}
+ *@node C1 l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -162,7 +162,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C2 l31 {top section}
+ *@top C2 l31 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -176,7 +176,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *6 @node C1 l33 {chapter}
+ *@node C1 l33 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -190,7 +190,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *7 @chapter C5 l34 {Chapter}
+ *@chapter C5 l34 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

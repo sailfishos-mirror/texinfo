@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'rec_nodes'} = '*document_root C6
  *before_node_section
- *0 @node C5 l1 {Top}
+ *@node C5 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
-  *1 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 l9 {chap node}
+ *@node C4 l9 {chap node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -90,7 +90,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    |normalized:{Top}
     {Top}
   {empty_line:\\n}
-  *3 @menu C4 l11
+  *@menu C4 l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -130,7 +130,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C4 l16 {other node}
+ *@node C4 l16 {other node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    |normalized:{chap-node}
     {chap node}
   {empty_line:\\n}
-  *5 @menu C3 l18
+  *@menu C3 l18
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -181,7 +181,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C5 l22 {node up node following second}
+ *@node C5 l22 {node up node following second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -202,7 +202,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    |node_content:{node following second}
    |normalized:{node-following-second}
     {node following second}
-  *7 @menu C3 l23
+  *@menu C3 l23
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -234,7 +234,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   *paragraph C1
    {in node up node following second\\n}
   {empty_line:\\n}
- *8 @node C4 l29 {node following second}
+ *@node C4 l29 {node following second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -258,7 +258,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   {empty_line:\\n}
   *paragraph C1
    {in node following second\\n}
-  *9 @menu C3 l32
+  *@menu C3 l32
    *arguments_line C1
     *block_line_arg
     |INFO
