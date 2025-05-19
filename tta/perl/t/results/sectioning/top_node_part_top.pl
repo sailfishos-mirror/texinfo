@@ -10,7 +10,7 @@ UNIT_DIRECTIONS
 This: [U0]
  *before_node_section C1
   *preamble_before_content
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ This: [U0]
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @part C2 l3 {part}
+ *@part C2 l3 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ This: [U0]
     |{\\n}
     {part}
   {empty_line:\\n}
- *2 @top C1 l5 {top}
+ *@top C1 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -14,7 +14,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1 {top}
+ *@node C4 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ NodeForward: [U1]
     |{\\n}
     {top}
   {empty_line:\\n}
-  *1 @menu C5 l3
+  *@menu C5 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -95,7 +95,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *2 @node C1 l9 {@~a}
+ *@node C1 l9 {@~a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -111,7 +111,7 @@ NodeBack: [U0]
     *@~ C1 l9
      *following_arg C1
       {a}
- *3 @unnumbered C2 l10 {@~a}
+ *@unnumbered C2 l10 {@~a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -139,7 +139,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
- *4 @node C2 l12 {n}
+ *@node C2 l12 {n}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -163,7 +163,7 @@ FastBack: [U1]
 NodePrev: [U2]
 NodeUp: [U0]
 NodeBack: [U2]
- *5 @node C1 l14 {@^a}
+ *@node C1 l14 {@^a}
  |INFO
  |spaces_before_argument:
   |{ }

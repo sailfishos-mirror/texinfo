@@ -15,7 +15,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {the top}
+ *@top C4 l2 {the top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ NodeForward: [U1]
     |{\\n}
     {the top}
   {empty_line:\\n}
-  *2 @menu C5 l4
+  *@menu C5 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -106,7 +106,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U1]
 NodeBack: [U0]
- *3 @node C1 l12 {umlaut}
+ *@node C1 l12 {umlaut}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -120,7 +120,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {umlaut}
- *4 @chapter C4 l13 {umlaut}
+ *@chapter C4 l13 {umlaut}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -135,7 +135,7 @@ NodeBack: [U0]
     |{\\n}
     {umlaut}
   {empty_line:\\n}
-  *5 @menu C4 l15
+  *@menu C4 l15
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -181,7 +181,7 @@ NodeBack: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C2 l20 {@"i}
+ *@node C2 l20 {@"i}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -198,7 +198,7 @@ NodeBack: [U0]
      *following_arg C1
       {i}
   {empty_line:\\n}
- *7 @node C2 l22 {@~{@dotless{i}}}
+ *@node C2 l22 {@~{@dotless{i}}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -229,7 +229,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U2]
- *8 @node C1 l24 {circumflex}
+ *@node C1 l24 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -243,7 +243,7 @@ NodeBack: [U2]
    |spaces_after_argument:
     |{\\n}
     {circumflex}
- *9 @chapter C4 l25 {circumflex}
+ *@chapter C4 l25 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -258,7 +258,7 @@ NodeBack: [U2]
     |{\\n}
     {circumflex}
   {empty_line:\\n}
-  *10 @menu C3 l27
+  *@menu C3 l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -289,7 +289,7 @@ NodeBack: [U2]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *11 @node C1 l31 {@^i}
+ *@node C1 l31 {@^i}
  |INFO
  |spaces_before_argument:
   |{ }

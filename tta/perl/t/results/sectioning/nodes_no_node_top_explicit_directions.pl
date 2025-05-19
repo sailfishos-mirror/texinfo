@@ -13,7 +13,7 @@ Forward: [U1]
 NodeUp: (dir)
 NodeForward: [U1]
  *before_node_section
- *0 @node C5 l1 {first}
+ *@node C5 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -38,7 +38,7 @@ NodeForward: [U1]
   *paragraph C1
    {first node\\n}
   {empty_line:\\n}
-  *1 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -75,7 +75,7 @@ Back: [U0]
 NodePrev: [U0]
 NodeUp: [U0]
 NodeBack: [U0]
- *2 @node C2 l8 {second node}
+ *@node C2 l8 {second node}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -14,7 +14,7 @@ FastForward: [U0]
 FastBack: [U0]
 NodeUp: (dir)
  *before_node_section
- *0 @node C1 l1 {a node}
+ *@node C1 l1 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ NodeUp: (dir)
     {(}
     {dir}
     {)}
- *1 @unnumbered C4 l2 {unnumbered}
+ *@unnumbered C4 l2 {unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ NodeUp: (dir)
   *paragraph C1
    {in unnumbered\\n}
   {empty_line:\\n}
- *2 @top C3 l6 {top section}
+ *@top C3 l6 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -76,7 +76,7 @@ This: [U1]
 Back: [U0]
 Prev: [U0]
 NodeUp: (dir)
- *3 @node C1 l9 {second}
+ *@node C1 l9 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,7 +98,7 @@ NodeUp: (dir)
     {(}
     {dir}
     {)}
- *4 @chapter C3 l10 {Chapter}
+ *@chapter C3 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

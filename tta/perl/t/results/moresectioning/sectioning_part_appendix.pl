@@ -13,7 +13,7 @@ Forward: [U1]
 FastForward: [U1]
 Next: [U5]
  *before_node_section
- *0 @top C2 l1 {top}
+ *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ Back: [U0]
 FastForward: [U5]
 FastBack: [U0]
 Up: [U0]
- *1 @chapter C2 l3 {chapter}
+ *@chapter C2 l3 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -60,7 +60,7 @@ Back: [U1]
 FastForward: [U5]
 FastBack: [U1]
 Up: [U1]
- *2 @section C2 l5 {section}
+ *@section C2 l5 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ Back: [U2]
 FastForward: [U5]
 FastBack: [U1]
 Up: [U2]
- *3 @subsection C2 l7 {subsection}
+ *@subsection C2 l7 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ Back: [U3]
 FastForward: [U5]
 FastBack: [U1]
 Up: [U3]
- *4 @subsubsection C2 l9 {subsubsection}
+ *@subsubsection C2 l9 {subsubsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ Back: [U4]
 FastForward: [U6]
 FastBack: [U1]
 Next: [U6]
- *5 @part C2 l11 {part}
+ *@part C2 l11 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -147,7 +147,7 @@ Next: [U6]
     |{\\n}
     {part}
   {empty_line:\\n}
- *6 @chapter C2 l13 {chapter in part}
+ *@chapter C2 l13 {chapter in part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -173,7 +173,7 @@ FastBack: [U5]
 Next: [U7]
 Prev: [U5]
 Up: [U5]
- *7 @chapter C2 l15 {second chapter in part}
+ *@chapter C2 l15 {second chapter in part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -198,7 +198,7 @@ FastForward: [U8]
 FastBack: [U6]
 Prev: [U6]
 Up: [U5]
- *8 @unnumbered C2 l17 {unnumbered}
+ *@unnumbered C2 l17 {unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -220,7 +220,7 @@ Forward: [U9]
 Back: [U7]
 FastBack: [U7]
 Prev: [U5]
- *9 @appendix C2 l19 {appendix}
+ *@appendix C2 l19 {appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -242,7 +242,7 @@ This: [U9]
 Back: [U8]
 FastBack: [U8]
 Up: [U8]
- *10 @appendixsec C1 l21 {appendixsec}
+ *@appendixsec C1 l21 {appendixsec}
  |INFO
  |spaces_before_argument:
   |{ }

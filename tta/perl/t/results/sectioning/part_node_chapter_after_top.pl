@@ -15,7 +15,7 @@ Next: [U1]
 NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ NodeForward: [U1]
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C4 l4
+  *@menu C4 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -93,7 +93,7 @@ NodeNext: [U1]
 NodeUp: [U0]
 NodeForward: [U1]
 NodeBack: [U0]
- *3 @part C2 l9 {part}
+ *@part C2 l9 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ NodeBack: [U0]
     |{\\n}
     {part}
   {empty_line:\\n}
- *4 @node C3 l11 {a node after part}
+ *@node C3 l11 {a node after part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ NodeBack: [U0]
   *paragraph C1
    {After a node after part\\n}
   {empty_line:\\n}
- *5 @node C1 l14 {chapter}
+ *@node C1 l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -178,7 +178,7 @@ NodeBack: [U0]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *6 @chapter C1 l15 {chapter}
+ *@chapter C1 l15 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

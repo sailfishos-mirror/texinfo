@@ -9,7 +9,7 @@ $result_tree_text{'top_node_and_bye'} = 'U0 unit
 UNIT_DIRECTIONS
 This: [U0]
  *before_node_section
- *0 @node C2 l1 {Top}
+ *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

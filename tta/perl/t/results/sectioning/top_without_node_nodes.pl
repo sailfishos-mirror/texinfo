@@ -10,7 +10,7 @@ UNIT_DIRECTIONS
 This: [U0]
 NodeUp: (dir)
  *before_node_section
- *0 @top C3 l1 {top section}
+ *@top C3 l1 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ NodeUp: (dir)
   *paragraph C1
    {Top section\\n}
   {empty_line:\\n}
- *1 @node C1 l4 {second}
+ *@node C1 l4 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -48,7 +48,7 @@ NodeUp: (dir)
     {(}
     {dir}
     {)}
- *2 @chapter C3 l5 {Chapter}
+ *@chapter C3 l5 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

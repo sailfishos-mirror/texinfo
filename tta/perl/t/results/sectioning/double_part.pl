@@ -16,7 +16,7 @@ NodeNext: [U2]
 NodeForward: [U2]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ NodeForward: [U2]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2 {top}
+ *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ NodeForward: [U2]
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -82,7 +82,7 @@ Back: [U0]
 FastForward: [U2]
 Next: [U2]
 Prev: [U0]
- *3 @part C3 l8 {part first}
+ *@part C3 l8 {part first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ FastBack: [U1]
 NodePrev: [U0]
 NodeUp: [U0]
 NodeBack: [U0]
- *4 @part C3 l11 {part second}
+ *@part C3 l11 {part second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -125,7 +125,7 @@ NodeBack: [U0]
   *paragraph C1
    {Text part second.\\n}
   {empty_line:\\n}
- *5 @node C1 l14 {node chapter}
+ *@node C1 l14 {node chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -139,7 +139,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {node chapter}
- *6 @chapter C2 l15 {chapter after 2 parts}
+ *@chapter C2 l15 {chapter after 2 parts}
  |INFO
  |spaces_before_argument:
   |{ }

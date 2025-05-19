@@ -12,7 +12,7 @@ This: [U0]
 Forward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @chapter C2 l1 {chapter}
+ *@chapter C2 l1 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
 Back: [U0]
- *1 @part C1 l3 {part}
+ *@part C1 l3 {part}
  |INFO
  |spaces_before_argument:
   |{ }

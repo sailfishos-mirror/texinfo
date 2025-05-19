@@ -13,7 +13,7 @@ Forward: [U1]
 NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
- *0 @node C1 l1 {Top}
+ *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ NodeForward: [U1]
         {GNU}
       {\'s Not Unix}
     { manuals}
- *1 @top C4 l2 {internal top node up}
+ *@top C4 l2 {internal top node up}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ NodeForward: [U1]
     |{\\n}
     {internal top node up}
   {empty_line:\\n}
-  *2 @menu C3 l4
+  *@menu C3 l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -123,7 +123,7 @@ Back: [U0]
 FastBack: [U0]
 NodePrev: [U0]
 NodeBack: [U0]
- *3 @node C1 l8 {chap}
+ *@node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

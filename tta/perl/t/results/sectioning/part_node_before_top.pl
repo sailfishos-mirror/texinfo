@@ -12,7 +12,7 @@ NodeNext: [U0]
 NodeForward: [U0]
 NodeBack: [U0]
  *before_node_section
- *0 @node C1 l1 {part node before top}
+ *@node C1 l1 {part node before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ NodeBack: [U0]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *1 @part C2 l2 {part}
+ *@part C2 l2 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -55,7 +55,7 @@ NodeBack: [U0]
     |{\\n}
     {part}
   {empty_line:\\n}
- *2 @node C1 l4 {Top}
+ *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C3 l5 {top}
+ *@top C3 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -83,7 +83,7 @@ NodeBack: [U0]
     |{\\n}
     {top}
   {empty_line:\\n}
-  *4 @menu C3 l7
+  *@menu C3 l7
    *arguments_line C1
     *block_line_arg
     |INFO

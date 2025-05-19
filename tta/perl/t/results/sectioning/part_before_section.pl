@@ -9,7 +9,7 @@ $result_tree_text{'part_before_section'} = 'U0 unit{1 section}
 UNIT_DIRECTIONS
 This: [U0]
  *before_node_section
- *0 @part C2 l1 {part}
+ *@part C2 l1 {part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ This: [U0]
     |{\\n}
     {part}
   {empty_line:\\n}
- *1 @section C1 l3 {section}
+ *@section C1 l3 {section}
  |INFO
  |spaces_before_argument:
   |{ }

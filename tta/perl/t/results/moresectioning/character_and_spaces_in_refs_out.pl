@@ -15,7 +15,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
+ *@node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
+ *@top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ NodeForward: [U1]
     |{\\n}
     {Test refs}
   {empty_line:\\n}
-  *2 @menu C4 character_and_spaces_in_refs_text.texi:l4
+  *@menu C4 character_and_spaces_in_refs_text.texi:l4
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -98,7 +98,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *3 @node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
+ *@node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {node to avoid DocBook or LaTeX ignored}
- *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
+ *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ NodeBack: [U0]
     |{\\n}
     {first chapter}
   {empty_line:\\n}
-  *5 @subheading C1 character_and_spaces_in_refs_text.texi:l12
+  *@subheading C1 character_and_spaces_in_refs_text.texi:l12
   |INFO
   |spaces_before_argument:
    |{ }
@@ -211,7 +211,7 @@ NodeBack: [U0]
      {../manual/doc}
    {\\n}
   {empty_line:\\n}
-  *6 @subheading C1 character_and_spaces_in_refs_text.texi:l20
+  *@subheading C1 character_and_spaces_in_refs_text.texi:l20
   |INFO
   |spaces_before_argument:
    |{ }
@@ -274,7 +274,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
- *7 @node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
+ *@node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -311,7 +311,7 @@ NodeBack: [U1]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *8 @chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
+ *@chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -326,7 +326,7 @@ NodeBack: [U1]
     |{\\n}
     {Chapter with nodes}
   {empty_line:\\n}
-  *9 @menu C5 character_and_spaces_in_refs_text.texi:l30
+  *@menu C5 character_and_spaces_in_refs_text.texi:l30
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -389,7 +389,7 @@ NodePrev: [U2]
 NodeUp: [U2]
 NodeForward: [U4]
 NodeBack: [U2]
- *10 @node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
+ *@node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -439,7 +439,7 @@ NodePrev: [U3]
 NodeUp: [U2]
 NodeForward: [U5]
 NodeBack: [U3]
- *11 @node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
+ *@node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -481,7 +481,7 @@ NodePrev: [U4]
 NodeUp: [U2]
 NodeForward: [U3]
 NodeBack: [U4]
- *12 @node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
+ *@node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }

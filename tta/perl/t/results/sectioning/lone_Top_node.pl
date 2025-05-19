@@ -12,7 +12,7 @@ NodePrev: [U0]
 NodeUp: [U0]
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ NodeUp: [U0]
     |{\\n}
     {Top}
   {empty_line:\\n}
-  *1 @menu C3 l3
+  *@menu C3 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -56,7 +56,7 @@ NodeUp: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C1 l7 {First}
+ *@node C1 l7 {First}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ NodeUp: [U0]
    |spaces_after_argument:
     |{\\n}
     {First}
- *3 @chapter C1 l8 {chap}
+ *@chapter C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -9,7 +9,7 @@ $result_tree_text{'unnumbered_before_top_node'} = 'U0 unit{before nodes}
 UNIT_DIRECTIONS
 This: [U0]
  *before_node_section
- *0 @unnumbered C2 l1 {before nodes}
+ *@unnumbered C2 l1 {before nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ This: [U0]
     |{\\n}
     {before nodes}
   {empty_line:\\n}
- *1 @node C5 l3 {Top}
+ *@node C5 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -11,7 +11,7 @@ This: [U0]
 NodePrev: [U0]
 NodeUp: [U0]
  *before_node_section
- *0 @node C4 l1 {Top}
+ *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ NodeUp: [U0]
     {Top}
   *paragraph C1
    {Top node\\n}
-  *1 @menu C4 l3
+  *@menu C4 l3
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -67,7 +67,7 @@ NodeUp: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 l8 {second node}
+ *@node C4 l8 {second node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ NodeUp: [U0]
   *paragraph C1
    {second node\\n}
   {empty_line:\\n}
- *3 @node C1 l12 {third node}
+ *@node C1 l12 {third node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -128,7 +128,7 @@ NodeUp: [U0]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @chapter C1 l13 {chapter}
+ *@chapter C1 l13 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
