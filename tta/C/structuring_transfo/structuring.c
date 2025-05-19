@@ -488,10 +488,6 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
 {
   CONST_ELEMENT_LIST *node_childs = new_const_element_list ();
 
-  /* FIXME there are some namedanchor.  Remove in caller? */
-  if (node_structure->element->e.c->cmd != CM_node)
-    return node_childs;
-
   if (node_structure->associated_section)
     {
       const ELEMENT *associated_section

@@ -610,16 +610,6 @@ sub get_node_node_childs_from_sectioning($$)
 
   my @node_childs;
 
-  my $node = $node_structure->{'element'};
-
-  # FIXME there are some namedanchor.  Remove in caller.
-  # Not clear how it is possible with node_structure.
-  return @node_childs unless ($node and $node->{'cmdname'}
-                              and $node->{'cmdname'} eq 'node'
-                              # empty node name
-                              and $node->{'extra'}
-                              and defined($node->{'extra'}->{'normalized'}));
-
   if ($node_structure->{'associated_section'}) {
     my $associated_section = $node_structure->{'associated_section'};
     my $associated_structure
