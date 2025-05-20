@@ -1,3 +1,10 @@
+2025-05-20  Collin Funk <collin.funk1@gmail.com> (tiny change)
+
+	Fix an uninitialized variable.
+
+	* tta/C/main/get_perl_info.c (html_get_button_specification_list):
+	Initialize to text_type_p and then check it before accessing.
+
 2025-05-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (build_section_structure)

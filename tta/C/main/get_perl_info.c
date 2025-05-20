@@ -777,7 +777,7 @@ html_get_button_specification_list (const CONVERTER *converter,
                   int j;
                   char *text_type_string
                      = SvPVutf8_nolen (*button_spec_info_type);
-                  char *text_type_p;
+                  char *text_type_p = NULL;
                   if (strlen (text_type_string) > 2
                       && !(memcmp (text_type_string, "->", 2)))
                     {
@@ -787,15 +787,16 @@ html_get_button_specification_list (const CONVERTER *converter,
                       text_type_p += strspn (text_type_p, whitespace_chars);
                     }
                   button_spec->bi.direction_information_type = -1;
-                  for (j = 0; j < HTT_section +1; j++)
-                    {
-                      if (!strcmp (html_command_text_type_name[j],
+                  if (text_type_p)
+                    for (j = 0; j < HTT_section +1; j++)
+                      {
+                        if (!strcmp (html_command_text_type_name[j],
                                    text_type_p))
-                        {
-                          button_spec->bi.direction_information_type = j;
-                          break;
-                        }
-                    }
+                          {
+                            button_spec->bi.direction_information_type = j;
+                            break;
+                          }
+                      }
                 }
             }
         }
