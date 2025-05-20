@@ -259,11 +259,11 @@ typedef struct ELEMENT {
 typedef struct NODE_STRUCTURE {
     /* TODO try to add const.  Not easy as it is used for current_node */
     ELEMENT *element;
-    ELEMENT *associated_section;
-    ELEMENT *associated_title_command;
-    ELEMENT *node_preceding_part;
-    ELEMENT *node_description;
-    ELEMENT *node_long_description;
+    const ELEMENT *associated_section;
+    const ELEMENT *associated_title_command;
+    const ELEMENT *node_preceding_part;
+    const ELEMENT *node_description;
+    const ELEMENT *node_long_description;
     CONST_ELEMENT_LIST *menus;
     const struct ELEMENT **menu_directions;
     const struct ELEMENT **node_directions;
@@ -277,7 +277,7 @@ typedef struct NODE_STRUCTURE_LIST {
 
 typedef struct HEADING_STRUCTURE {
     const ELEMENT *element;
-    ELEMENT *associated_anchor_command;
+    const ELEMENT *associated_anchor_command;
 } HEADING_STRUCTURE;
 
 typedef struct HEADING_STRUCTURE_LIST {
@@ -288,11 +288,11 @@ typedef struct HEADING_STRUCTURE_LIST {
 
 typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
-    ELEMENT *associated_anchor_command;
-    ELEMENT *associated_node;
-    ELEMENT *associated_part;
-    ELEMENT *part_associated_section;
-    ELEMENT *part_following_node;
+    const ELEMENT *associated_anchor_command;
+    const ELEMENT *associated_node;
+    const ELEMENT *associated_part;
+    const ELEMENT *part_associated_section;
+    const ELEMENT *part_following_node;
     const struct SECTION_STRUCTURE **section_directions;
     const struct SECTION_STRUCTURE **toplevel_directions;
     struct SECTION_STRUCTURE_LIST *section_childs;

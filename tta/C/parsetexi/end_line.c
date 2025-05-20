@@ -1170,7 +1170,7 @@ associate_title_command_anchor (NODE_STRUCTURE *current_node_structure,
 {
   if (!current_node_structure->associated_title_command)
     {
-      ELEMENT *current_node = current_node_structure->element;
+      const ELEMENT *current_node = current_node_structure->element;
       current_node_structure->associated_title_command = current;
       if (section_structure)
         section_structure->associated_anchor_command = current_node;
@@ -1584,7 +1584,7 @@ end_line_misc_line (ELEMENT *current)
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
           node_structure->node_preceding_part
-            = (ELEMENT *)current_part->element;
+            = current_part->element;
           current_part->part_following_node = current;
         }
     }
@@ -1815,7 +1815,7 @@ end_line_misc_line (ELEMENT *current)
           if (current_part)
             {
               section_structure->associated_part
-                = (ELEMENT *)current_part->element;
+                = current_part->element;
               current_part->part_associated_section = current;
               if (current->e.c->cmd == CM_top)
                 {

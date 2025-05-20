@@ -1162,7 +1162,7 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
             {
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-              ELEMENT *section = node_structure->associated_section;
+              ELEMENT *section = (ELEMENT *)node_structure->associated_section;
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,

@@ -1,5 +1,12 @@
 2025-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/tree_types.h (NODE_STRUCTURE, HEADING_STRUCTURE)
+	(SECTION_STRUCTURE), tta/C/parsetexi/end_line.c,
+	tta/C/structuring_transfo/transformations.c: add const in structures.
+	Add/remove cast to remove const.
+
+2025-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	section structure information as section direction and child targets
 
 	* tta/C/main/structure_list.c (new_section_structure_list)
