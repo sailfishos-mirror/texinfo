@@ -5069,29 +5069,30 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           if (root_command && root_command->e.c->cmd != CM_NONE
               && root_command->e.c->cmd != CM_node)
             {
+              int status;
+              size_t section_number
+                        = lookup_extra_integer (root_command,
+                                         AI_key_section_number, &status);
+              const SECTION_STRUCTURE *section_structure
+                = sections_list->list[section_number -1];
+
               while (1)
                 {
-                  int status;
                   int section_level
                     = lookup_extra_integer (root_command, AI_key_section_level,
                                                                &status);
                   if (!status && section_level <= 1)
                     break;
 
-                  size_t section_number
-                        = lookup_extra_integer (root_command,
-                                         AI_key_section_number, &status);
-                  const SECTION_STRUCTURE *section_structure
-                    = sections_list->list[section_number -1];
-
-                  const ELEMENT * const *up_section_directions
+                  const SECTION_STRUCTURE * const *up_section_directions
                     = section_structure->section_directions;
                   if (up_section_directions
                       && up_section_directions[D_up]
                       && up_section_directions[D_up]
-                                     ->e.c->associated_unit)
+                                ->element->e.c->associated_unit)
                     {
-                      root_command = up_section_directions[D_up];
+                      section_structure = up_section_directions[D_up];
+                      root_command = section_structure->element;
                       document_unit = root_command->e.c->associated_unit;
                     }
                   else

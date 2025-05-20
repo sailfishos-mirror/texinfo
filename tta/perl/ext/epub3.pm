@@ -716,8 +716,10 @@ EOT
     # similar code as in chm.pm
     my $sectioning_root = $document->sectioning_root();
     my $upper_level = $sectioning_root->{'section_childs'}->[0]
-                                            ->{'extra'}->{'section_level'};
-    foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
+                               ->{'element'}->{'extra'}->{'section_level'};
+    foreach my $top_section_structure (
+                       @{$sectioning_root->{'section_childs'}}) {
+      my $top_section = $top_section_structure->{'element'};
       $upper_level = $top_section->{'extra'}->{'section_level'}
         if ($top_section->{'extra'}->{'section_level'} < $upper_level);
     }

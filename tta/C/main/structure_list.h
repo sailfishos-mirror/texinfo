@@ -1,6 +1,6 @@
-/* structure_lists.h - declarations for structure_lists.c */
-#ifndef STRUCTURE_LISTS_H
-#define STRUCTURE_LISTS_H
+/* structure_list.h - declarations for structure_list.c */
+#ifndef STRUCTURE_LIST_H
+#define STRUCTURE_LIST_H
 
 #include <stddef.h>
 
@@ -9,13 +9,18 @@
 #include "document_types.h"
 
 NODE_STRUCTURE_LIST *new_node_structure_list (void);
+SECTION_STRUCTURE_LIST *new_section_structure_list (void);
 
 void reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list);
+
+const struct SECTION_STRUCTURE **new_section_directions (void);
 
 void add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
                                  NODE_STRUCTURE *node_structure);
 NODE_STRUCTURE *add_node_to_node_structure_list (NODE_STRUCTURE_LIST *list,
                                             ELEMENT *e);
+void add_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                                    SECTION_STRUCTURE *section_structure);
 SECTION_STRUCTURE *add_section_to_section_structure_list (
                                                SECTION_STRUCTURE_LIST *list,
                                                   ELEMENT *e);

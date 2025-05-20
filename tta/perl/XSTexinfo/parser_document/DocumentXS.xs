@@ -320,6 +320,11 @@ document_headings_list (SV *document_in)
 
 SV *
 document_floats_information (SV *document_in)
+     CODE:
+        document_sections_list (document_in);
+        RETVAL = document_floats_information (document_in);
+    OUTPUT:
+        RETVAL
 
 SV *
 document_internal_references_information (SV *document_in)

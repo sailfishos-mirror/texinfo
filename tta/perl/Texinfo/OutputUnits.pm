@@ -425,10 +425,10 @@ sub units_directions($$$$;$)
           = _label_target_unit_element($menu_child);
       } elsif ($associated_structure
                and $associated_structure->{'section_childs'}
-               and $associated_structure->{'section_childs'}->[0]) {
+               and scalar(@{$associated_structure->{'section_childs'}})) {
         $directions->{'NodeForward'}
           = $associated_structure
-                  ->{'section_childs'}->[0]->{'associated_unit'};
+                  ->{'section_childs'}->[0]->{'element'}->{'associated_unit'};
       } elsif ($node_structure->{'node_directions'}
                and $node_structure->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
@@ -505,26 +505,19 @@ sub units_directions($$$$;$)
       my $section_structure
         = $sections_list->[$section->{'extra'}->{'section_number'} -1];
       my $section_directions = $section_structure->{'section_directions'};
-      foreach my $direction(['Up', 'up'], ['Next', 'next'],
-                            ['Prev', 'prev']) {
-        # in most cases $section_directions
-        #          ->{$direction->[1]}
-        #                 ->{'associated_unit'} is defined
-        # but it may not be the case for the up of @top.
-        # The section may be its own up in cases like
-        #  @part part
-        #  @chapter chapter
-        # in that cas the direction is not set up
-        $directions->{$direction->[0]}
-         = $section_directions->{$direction->[1]}->{'associated_unit'}
-          if ($section_directions
-           and $section_directions->{$direction->[1]}
-           and $section_directions->{$direction->[1]}
-                                           ->{'associated_unit'}
-           and (!$section->{'associated_unit'}
-                or $section_directions->{$direction->[1]}
-                    ->{'associated_unit'}
-                       ne $section->{'associated_unit'}));
+      if ($section_directions) {
+        foreach my $direction(['Up', 'up'], ['Next', 'next'],
+                              ['Prev', 'prev']) {
+          my $direction_structure = $section_directions->{$direction->[1]};
+
+          $directions->{$direction->[0]}
+            = $direction_structure->{'element'}->{'associated_unit'}
+          if ($direction_structure
+              and $direction_structure->{'element'}->{'associated_unit'}
+              and (!$section->{'associated_unit'}
+                   or $direction_structure->{'element'}->{'associated_unit'}
+                        ne $section->{'associated_unit'}));
+        }
       }
 
       # fastforward is the next element on same level than the upper parent
@@ -536,9 +529,8 @@ sub units_directions($$$$;$)
              and $up->{'extra'}->{'section_level'} > 1
              and $up_structure->{'section_directions'}
              and $up_structure->{'section_directions'}->{'up'}) {
-        $up = $up_structure->{'section_directions'}->{'up'};
-        $up_structure
-          = $sections_list->[$up->{'extra'}->{'section_number'} -1];
+        $up_structure = $up_structure->{'section_directions'}->{'up'};
+        $up = $up_structure->{'element'};
       }
 
       if ($up->{'extra'}
@@ -548,17 +540,18 @@ sub units_directions($$$$;$)
           and $up_structure->{'section_childs'}
           and scalar(@{$up_structure->{'section_childs'}})) {
         $directions->{'FastForward'}
-           = $up_structure->{'section_childs'}->[0]->{'associated_unit'};
+           = $up_structure->{'section_childs'}->[0]
+                                     ->{'element'}->{'associated_unit'};
       } elsif ($up_structure->{'toplevel_directions'}
                and $up_structure->{'toplevel_directions'}->{'next'}) {
         $directions->{'FastForward'}
           = $up_structure->{'toplevel_directions'}->{'next'}
-                                 ->{'associated_unit'};
+                              ->{'element'}->{'associated_unit'};
       } elsif ($up_structure->{'section_directions'}
                and $up_structure->{'section_directions'}->{'next'}) {
         $directions->{'FastForward'}
           = $up_structure->{'section_directions'}->{'next'}
-                              ->{'associated_unit'};
+                              ->{'element'}->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the
       # highest parent element

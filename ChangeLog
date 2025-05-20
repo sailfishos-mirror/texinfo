@@ -1,3 +1,57 @@
+2025-05-20  Patrice Dumas  <pertusus@free.fr>
+
+	section structure information as section direction and child targets
+
+	* tta/C/main/structure_list.c (new_section_structure_list)
+	(new_section_directions, add_to_section_structure_list)
+	(add_section_to_section_structure_list): add
+	new_section_structure_list, new_section_directions and
+	add_to_section_structure_list.
+
+	* tta/C/main/build_perl_info.c (build_perl_section_directions)
+	(build_perl_section_structure_array, build_section_structure)
+	(build_listoffloats_list), tta/C/main/tree_types.h
+	(SECTION_STRUCTURE), tta/C/main/structure_list.c
+	(free_section_structure_list): add an hv field in SECTION_STRUCTURE
+	for perl object caching.  Build structure information direction and
+	section_childs to Perl.
+
+	* tta/C/main/structure_list.c (print_sections_directions)
+	(print_sectioning_root), tta/C/main/tree_types.h (SECTION_STRUCTURE)
+	(SECTIONING_ROOT), tta/C/structuring_transfo/structuring.c
+	(sectioning_structure), tta/perl/Texinfo/Structuring.pm
+	(sectioning_structure, free_section_structure_list)
+	(print_sections_list, print_sectioning_root),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(document_floats_information): change section directions to point to
+	section structure information.  Change section_childs to be a list of
+	section structure information.  Build sections list to Perl before
+	building float information, as section structure information is
+	needed.
+
+	* tta/C/convert/format_html.c (html_default_format_contents)
+	(mini_toc_internal), tta/C/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets),
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning)
+	(section_direction_associated_node, complete_node_tree_with_menus)
+	(construct_nodes_tree, number_floats),
+	tta/C/main/output_unit.c (units_directions),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_prepare_output_units_global_targets, _mini_toc)
+	(_default_format_contents), tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm (format_contents),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
+	tta/perl/Texinfo/Structuring.pm (_print_sectioning_tree)
+	(get_node_node_childs_from_sectioning)
+	(_section_direction_associated_node, construct_nodes_tree)
+	(number_floats), tta/perl/ext/epub3.pm, tta/perl/init/book.pm
+	(book_print_up_toc, book_print_sub_toc)
+	(book_convert_heading_command), tta/perl/init/chm.pm: update for
+	change in section directions and children list.
+
 2025-05-20  Collin Funk <collin.funk1@gmail.com> (tiny change)
 
 	Fix an uninitialized variable.

@@ -1948,17 +1948,13 @@ sub _convert($$;$)
         = $sections_list->[$current->{'extra'}->{'section_number'} -1];
       while ($current_structure->{'section_directions'}
              and $current_structure->{'section_directions'}->{'up'}
-             # the most up element is a virtual sectioning root element, this
-             # condition avoids getting into it
-             and $current_structure->{'section_directions'}->{'up'}->{'cmdname'}
              and !$current_structure->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-               $current_structure->{'section_directions'}->{'up'}) ne 'top') {
-        $current = $current_structure->{'section_directions'}->{'up'};
+   $current_structure->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
+        $current_structure = $current_structure->{'section_directions'}->{'up'};
+        $current = $current_structure->{'element'};
         $result .= '</'._docbook_section_element($self, $current) .">\n";
         pop @{$self->{'lang_stack'}};
-        $current_structure
-          = $sections_list->[$current->{'extra'}->{'section_number'} -1];
       }
     }
   } elsif ($e_type and $e_type eq 'before_node_section'

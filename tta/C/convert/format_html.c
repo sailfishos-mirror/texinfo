@@ -3101,7 +3101,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   const char *filename_from;
   int is_contents = (cmd == CM_contents);
   TEXT result;
-  const CONST_ELEMENT_LIST *root_children;
+  const SECTION_STRUCTURE_LIST *root_children;
   int min_root_level;
   int max_root_level;
   int status;
@@ -3130,14 +3130,14 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
     }
 
   root_children = &self->document->sectioning_root->section_childs;
-  min_root_level = lookup_extra_integer (root_children->list[0],
+  min_root_level = lookup_extra_integer (root_children->list[0]->element,
                                          AI_key_section_level,
                                          &status);
   max_root_level = min_root_level;
 
   for (i = 0; i < root_children->number; i++)
     {
-      const ELEMENT *top_section = root_children->list[i];
+      const ELEMENT *top_section = root_children->list[i]->element;
       int section_level
         = lookup_extra_integer (top_section, AI_key_section_level, &status);
       if (section_level < min_root_level)
@@ -3194,20 +3194,14 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < root_children->number; i++)
     {
-      const ELEMENT *top_section = root_children->list[i];
-      const ELEMENT *section = top_section;
-      while (section)
+      const SECTION_STRUCTURE *top_structure = root_children->list[i];
+      const SECTION_STRUCTURE *section_structure = top_structure;
+      while (section_structure)
        {
-         int status;
-         size_t section_number
-                 = lookup_extra_integer (section,
-                                         AI_key_section_number, &status);
-         const SECTION_STRUCTURE *section_structure
-           = self->document->sections_list.list[section_number -1];
-
+         const ELEMENT *section = section_structure->element;
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
-         const CONST_ELEMENT_LIST *section_childs
+         const SECTION_STRUCTURE_LIST *section_childs
            = section_structure->section_childs;
          if (section->e.c->cmd != CM_top)
             {
@@ -3281,7 +3275,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
               text_append (&result, attribute_class);
               free (attribute_class);
               text_append_n (&result, ">\n", 2);
-              section = section_childs->list[0];
+              section_structure = section_childs->list[0];
             }
           else
             {
@@ -3290,14 +3284,15 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                   && section->e.c->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
-                  if (section == top_section)
+                  if (section_structure == top_structure)
                     break;
-                  section = section_structure->section_directions[D_next];
+                  section_structure
+                    = section_structure->section_directions[D_next];
                 }
               else
                 {
                   int is_top_section = 0;
-                  if (section == top_section)
+                  if (section_structure == top_structure)
                     {
                       if (section->e.c->cmd != CM_top)
                         text_append_n (&result, "</li>\n", 6);
@@ -3312,7 +3307,9 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                           || !section_structure->section_directions[D_up])
                         break;
 
-                      section = section_structure->section_directions[D_up];
+                      section_structure
+                        = section_structure->section_directions[D_up];
+                      section = section_structure->element;
 
                       section_level = lookup_extra_integer (section,
                                                 AI_key_section_level, &status);
@@ -3321,7 +3318,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       for (i = 0; i < 2 * (section_level - min_root_level); i++)
                         text_append_n (&result, " ", 1);
                       text_append_n (&result, "</ul>", 5);
-                      if (section == top_section)
+                      if (section_structure == top_structure)
                         {
                           if (has_toplevel_contents)
                             text_append_n (&result, "</li>\n", 6);
@@ -3329,16 +3326,11 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                           break;
                         }
 
-                      section_number
-                        = lookup_extra_integer (section,
-                                         AI_key_section_number, &status);
-                      section_structure
-                        = self->document->sections_list.list[section_number -1];
                       if (section_structure->section_directions
                           && section_structure->section_directions[D_next])
                         {
                           text_append_n (&result, "</li>\n", 6);
-                          section
+                          section_structure
                             = section_structure->section_directions[D_next];
                           break;
                         }
@@ -7247,7 +7239,7 @@ mini_toc_internal (CONVERTER *self, const SECTION_STRUCTURE *section_structure,
                    TEXT *result)
 {
   int entry_index = 0;
-  const CONST_ELEMENT_LIST *section_childs = 0;
+  const SECTION_STRUCTURE_LIST *section_childs = 0;
 
   if (section_structure)
     section_childs = section_structure->section_childs;
@@ -7265,7 +7257,7 @@ mini_toc_internal (CONVERTER *self, const SECTION_STRUCTURE *section_structure,
 
       for (i = 0; i < section_childs->number; i++)
         {
-          const ELEMENT *section = section_childs->list[i];
+          const ELEMENT *section = section_childs->list[i]->element;
      /* using command_text leads to the same HTML formatting, but does not give
         the same result for the other files, as the formatting is done in a
         global context, while taking the tree first and calling convert_tree

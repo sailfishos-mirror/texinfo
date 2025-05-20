@@ -11047,10 +11047,10 @@ sub _prepare_output_units_global_targets($$$$)
                and $section_structure->{'section_directions'}
                and $section_structure->{'section_directions'}->{'up'}
                and $section_structure->{'section_directions'}->{'up'}
-                                        ->{'associated_unit'}) {
-          $root_command = $section_structure->{'section_directions'}->{'up'};
+                                    ->{'element'}->{'associated_unit'}) {
           $section_structure
-            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+            = $section_structure->{'section_directions'}->{'up'};
+          $root_command = $section_structure->{'element'};
 
           $document_unit = $root_command->{'associated_unit'};
         }
@@ -11508,7 +11508,8 @@ sub _mini_toc($$)
       and scalar(@{$section_structure->{'section_childs'}})) {
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
-    foreach my $section (@{$section_structure->{'section_childs'}}) {
+    foreach my $section_structure (@{$section_structure->{'section_childs'}}) {
+      my $section = $section_structure->{'element'};
       # using command_text leads to the same HTML formatting, but does not give
       # the same result for the other files, as the formatting is done in a
       # global context, while taking the tree first and calling convert_tree
@@ -11570,9 +11571,10 @@ sub _default_format_contents($$;$$)
   $is_contents = 1 if ($cmdname eq 'contents');
 
   my $min_root_level = $sectioning_root->{'section_childs'}->[0]
-                                             ->{'extra'}->{'section_level'};
+                                ->{'element'}->{'extra'}->{'section_level'};
   my $max_root_level = $min_root_level;
-  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
+  foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
+    my $top_section = $top_structure->{'element'};
     $min_root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $min_root_level);
     $max_root_level = $top_section->{'extra'}->{'section_level'}
@@ -11607,12 +11609,11 @@ sub _default_format_contents($$;$$)
                      and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
                           or $self->_has_contents_or_shortcontents()));
 
-  foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
-    my $section = $top_section;
+  foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
+    my $section_structure = $top_structure;
  SECTION:
-    while ($section) {
-      my $section_structure
-        = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+    while ($section_structure) {
+      my $section = $section_structure->{'element'};
       if ($section->{'cmdname'} ne 'top') {
         my $text = $self->command_text($section);
         my $href;
@@ -11660,43 +11661,45 @@ sub _default_format_contents($$;$$)
          . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             if ($is_contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
-        $section = $section_structure->{'section_childs'}->[0];
+        $section_structure = $section_structure->{'section_childs'}->[0];
       } elsif ($section_structure->{'section_directions'}
                and $section_structure->{'section_directions'}->{'next'}
                and $section->{'cmdname'} ne 'top') {
         $result .= "</li>\n";
-        last if ($section eq $top_section);
-        $section = $section_structure->{'section_directions'}->{'next'};
+        last if ($section_structure eq $top_structure);
+        $section_structure
+           = $section_structure->{'section_directions'}->{'next'};
       } else {
         #last if ($section eq $top_section);
-        if ($section eq $top_section) {
+        if ($section_structure eq $top_structure) {
           $result .= "</li>\n" unless ($section->{'cmdname'} eq 'top');
           last;
         }
         while ($section_structure->{'section_directions'}
                and $section_structure->{'section_directions'}->{'up'}) {
-          $section = $section_structure->{'section_directions'}->{'up'};
           $section_structure
-            = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+            = $section_structure->{'section_directions'}->{'up'};
+          $section = $section_structure->{'element'};
 
           $result .= "</li>\n"
            . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             . "</ul>";
-          if ($section eq $top_section) {
+          if ($section_structure eq $top_structure) {
             $result .= "</li>\n" if ($has_toplevel_contents);
             last SECTION;
           }
           if ($section_structure->{'section_directions'}
               and $section_structure->{'section_directions'}->{'next'}) {
             $result .= "</li>\n";
-            $section = $section_structure->{'section_directions'}->{'next'};
+            $section_structure
+              = $section_structure->{'section_directions'}->{'next'};
             last;
           }
         }
       }
     }
   }
-  if (@{$sectioning_root->{'section_childs'}} > 1) {
+  if (scalar(@{$sectioning_root->{'section_childs'}}) > 1) {
     $result .= "\n</ul>";
   }
   if ($is_contents and !defined($self->get_conf('AFTER_TOC_LINES'))

@@ -695,7 +695,7 @@ units_directions (const C_HASHMAP *identifiers_target,
             {
               const ELEMENT *argument = node->e.c->contents.list[0];
               int automatic_directions = (argument->e.c->contents.number <= 1);
-              const CONST_ELEMENT_LIST *section_childs = 0;
+              const SECTION_STRUCTURE_LIST *section_childs = 0;
               if (node_structure->associated_section)
                 {
                   int status;
@@ -711,7 +711,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                   && section_childs && section_childs->number > 0)
                 {
                   directions[RUD_type_NodeForward]
-                   = section_childs->list[0]->e.c->associated_unit;
+                   = section_childs->list[0]->element->e.c->associated_unit;
                 }
               else if (node_directions
                        && node_directions[D_next])
@@ -820,19 +820,17 @@ units_directions (const C_HASHMAP *identifiers_target,
       else
         {
           const ELEMENT *up = section;
-          const CONST_ELEMENT_LIST *up_section_childs;
-          size_t up_section_number;
+          const SECTION_STRUCTURE_LIST *up_section_childs;
           int up_section_level;
           int status;
           size_t section_number
                       = lookup_extra_integer (section,
                                        AI_key_section_number, &status);
-          const SECTION_STRUCTURE *section_structure
+          const SECTION_STRUCTURE *up_structure
                       = sections_list->list[section_number -1];
           enum directions d;
-          const ELEMENT * const *section_directions
-                        = section_structure->section_directions;
-          const SECTION_STRUCTURE *up_structure = section_structure;
+          const SECTION_STRUCTURE * const *section_directions
+                        = up_structure->section_directions;
           if (section_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -846,12 +844,12 @@ units_directions (const C_HASHMAP *identifiers_target,
                @chapter chapter
              in that cas the direction is not set up */
                   if (section_directions[d]
-                      && section_directions[d]->e.c->associated_unit
+                      && section_directions[d]->element->e.c->associated_unit
                       && (!section->e.c->associated_unit
                           || section->e.c->associated_unit
-                     != section_directions[d]->e.c->associated_unit))
+                     != section_directions[d]->element->e.c->associated_unit))
                   directions[section_unit_directions[d]]
-                    = section_directions[d]->e.c->associated_unit;
+                    = section_directions[d]->element->e.c->associated_unit;
                 }
             }
 
@@ -866,10 +864,8 @@ units_directions (const C_HASHMAP *identifiers_target,
                   && up_structure->section_directions
                   && up_structure->section_directions[D_up])
                 {
-                  up = up_structure->section_directions[D_up];
-                  up_section_number = lookup_extra_integer (up,
-                                     AI_key_section_number, &status);
-                  up_structure = sections_list->list[up_section_number -1];
+                  up_structure = up_structure->section_directions[D_up];
+                  up = up_structure->element;
                 }
               else
                 break;
@@ -881,7 +877,7 @@ units_directions (const C_HASHMAP *identifiers_target,
               && up_section_childs->number > 0)
             {
               directions[RUD_type_FastForward]
-                = up_section_childs->list[0]->e.c->associated_unit;
+                = up_section_childs->list[0]->element->e.c->associated_unit;
             }
           else
             {
@@ -889,14 +885,14 @@ units_directions (const C_HASHMAP *identifiers_target,
                   && up_structure->toplevel_directions[D_next])
                 directions[RUD_type_FastForward]
                   = up_structure->toplevel_directions[D_next]
-                                             ->e.c->associated_unit;
+                                ->element->e.c->associated_unit;
               else
                 {
                   if (up_structure->section_directions
                       && up_structure->section_directions[D_next])
                     directions[RUD_type_FastForward]
                       = up_structure->section_directions[D_next]
-                                                     ->e.c->associated_unit;
+                                     ->element->e.c->associated_unit;
                 }
             }
 

@@ -139,12 +139,6 @@ typedef struct CONST_ELEMENT_LIST {
     size_t space;
 } CONST_ELEMENT_LIST;
 
-/* not used in parser */
-typedef struct SECTIONING_ROOT {
-    int section_root_level;
-    CONST_ELEMENT_LIST section_childs;
-} SECTIONING_ROOT;
-
 /* the index name is allocated in the index info main structure that
    should outlive the INDEX_ENTRY_LOCATION */
 typedef struct INDEX_ENTRY_LOCATION {
@@ -299,9 +293,13 @@ typedef struct SECTION_STRUCTURE {
     ELEMENT *associated_part;
     ELEMENT *part_associated_section;
     ELEMENT *part_following_node;
-    const struct ELEMENT **section_directions;
-    const struct ELEMENT **toplevel_directions;
-    CONST_ELEMENT_LIST *section_childs;
+    const struct SECTION_STRUCTURE **section_directions;
+    const struct SECTION_STRUCTURE **toplevel_directions;
+    struct SECTION_STRUCTURE_LIST *section_childs;
+
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
 } SECTION_STRUCTURE;
 
 typedef struct SECTION_STRUCTURE_LIST {
@@ -309,6 +307,12 @@ typedef struct SECTION_STRUCTURE_LIST {
     size_t number;
     size_t space;
 } SECTION_STRUCTURE_LIST;
+
+/* not used in parser */
+typedef struct SECTIONING_ROOT {
+    int section_root_level;
+    SECTION_STRUCTURE_LIST section_childs;
+} SECTIONING_ROOT;
 
 typedef struct IGNORED_CHARS {
     int backslash;

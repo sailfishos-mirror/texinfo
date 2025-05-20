@@ -142,7 +142,7 @@ sub sectioning_structure($)
   # lowest level with a number.  This is the lowest level above 0.
   my $number_top_level;
 
-  my $section_top;
+  my $top_structure;
 
   # holds the current number for all the levels.  It is not possible to use
   # something like the last child index, because of @unnumbered.
@@ -151,8 +151,8 @@ sub sectioning_structure($)
   my @command_unnumbered;
   foreach my $section_structure (@{$sections_list}) {
     my $content = $section_structure->{'element'};
-    if ($content->{'cmdname'} eq 'top' and not $section_top) {
-      $section_top = $content;
+    if ($content->{'cmdname'} eq 'top' and not $top_structure) {
+      $top_structure = $section_structure;
     }
 
     $content->{'extra'} = {} if (! $content->{'extra'});
@@ -176,10 +176,11 @@ sub sectioning_structure($)
                 $customization_information->get_conf('DEBUG'));
           $level = $prev_section_level + 1;
         }
-        $previous_section_structure->{'section_childs'} = [$content];
+        $previous_section_structure->{'section_childs'} = [$section_structure];
 
         $section_structure->{'section_directions'} = {};
-        $section_structure->{'section_directions'}->{'up'} = $previous_section;
+        $section_structure->{'section_directions'}->{'up'}
+           = $previous_section_structure;
 
         # if the up is unnumbered, the number information has to be kept,
         # to avoid reusing an already used number.
@@ -203,9 +204,8 @@ sub sectioning_structure($)
         while ($up_section_directions
                and $up_section_directions->{'up'}
                and $up->{'extra'}->{'section_level'} >= $level) {
-          $up = $up_section_directions->{'up'};
-          $up_structure
-          = $sections_list->[$up->{'extra'}->{'section_number'} -1];
+          $up_structure = $up_section_directions->{'up'};
+          $up = $up_structure->{'element'};
           $up_section_directions = $up_structure->{'section_directions'};
         }
         # no up found.  The element is below the sectioning root
@@ -247,22 +247,22 @@ sub sectioning_structure($)
           # In that case the root level has to be updated because the first
           # 'part' just appeared, no direction to set.
           $sec_root->{'section_root_level'} = $level - 1;
-          push @{$sec_root->{'section_childs'}}, $content;
+          push @{$sec_root->{'section_childs'}}, $section_structure;
           $number_top_level = $level;
           $number_top_level = 1 if (!$number_top_level);
         } else {
           $section_structure->{'section_directions'} = {};
           # do not set sec_root as up, but always put in section_childs.
-          $section_structure->{'section_directions'}->{'up'} = $up
-            if ($up);
-          my $prev = $up_structure->{'section_childs'}->[-1];
-          $section_structure->{'section_directions'}->{'prev'} = $prev;
-          my $prev_structure
-           = $sections_list->[$prev->{'extra'}->{'section_number'} -1];
+          $section_structure->{'section_directions'}->{'up'} = $up_structure
+            if ($up_structure ne $sec_root);
+          my $prev_structure = $up_structure->{'section_childs'}->[-1];
+          $section_structure->{'section_directions'}->{'prev'}
+            = $prev_structure;
           $prev_structure->{'section_directions'} = {}
               if (!$prev_structure->{'section_directions'});
-          $prev_structure->{'section_directions'}->{'next'} = $content;
-          push @{$up_structure->{'section_childs'}}, $content;
+          $prev_structure->{'section_directions'}->{'next'}
+            = $section_structure;
+          push @{$up_structure->{'section_childs'}}, $section_structure;
         }
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
           $command_numbers[$level]++;
@@ -274,7 +274,7 @@ sub sectioning_structure($)
     } else {
       # first section determines the level of the root.  It is
       # typically -1 when there is a @top.
-      $sec_root = {'section_childs' => [$content],
+      $sec_root = {'section_childs' => [$section_structure],
                    'section_root_level' => $level - 1};
       $document->{'sectioning_root'} = $sec_root;
       $number_top_level = $level;
@@ -330,17 +330,18 @@ sub sectioning_structure($)
 
     if ($content->{'cmdname'} ne 'part' and $level <= $number_top_level) {
       if ($previous_toplevel_structure
-          or ($section_top and $content ne $section_top)) {
+          or ($top_structure and $section_structure ne $top_structure)) {
         $section_structure->{'toplevel_directions'} = {};
         if ($previous_toplevel_structure) {
           $previous_toplevel_structure->{'toplevel_directions'} = {}
              if (!$previous_toplevel_structure->{'toplevel_directions'});
-          $previous_toplevel_structure->{'toplevel_directions'}->{'next'} = $content;
+          $previous_toplevel_structure->{'toplevel_directions'}->{'next'}
+            = $section_structure;
           $section_structure->{'toplevel_directions'}->{'prev'}
-            = $previous_toplevel_structure->{'element'};
+            = $previous_toplevel_structure;
         }
-        if ($section_top and $content ne $section_top) {
-          $section_structure->{'toplevel_directions'}->{'up'} = $section_top;
+        if ($top_structure and $section_structure ne $top_structure) {
+          $section_structure->{'toplevel_directions'}->{'up'} = $top_structure;
         }
       }
       $previous_toplevel_structure = $section_structure;
@@ -356,17 +357,15 @@ sub sectioning_structure($)
 }
 
 # for debugging
-sub _print_sectioning_tree($$);
-sub _print_sectioning_tree($$)
+sub _print_sectioning_tree($);
+sub _print_sectioning_tree($)
 {
-  my $current = shift;
-  my $sections_list = shift;
+  my $current_structure = shift;
+  my $current = $current_structure->{'element'};
   my $result = ' ' x $current->{'extra'}->{'section_level'}
    . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
-  my $current_structure
-    = $sections_list->[$current->{'extra'}->{'section_number'} -1];
-  foreach my $child (@{$current_structure->{'section_childs'}}) {
-    $result .= _print_sectioning_tree($child, $sections_list);
+  foreach my $child_structure (@{$current_structure->{'section_childs'}}) {
+    $result .= _print_sectioning_tree($child_structure);
   }
   return $result;
 }
@@ -419,7 +418,7 @@ sub print_sections_list($)
         $result .= " $directions_key:\n";
         foreach my $d_key (@node_directions_names) {
           if ($value->{$d_key}) {
-            my $e = $value->{$d_key};
+            my $e = $value->{$d_key}->{'element'};
             my $direction_texi = _print_root_command($e);
             if (defined($direction_texi)) {
               $result .= "  ${d_key}->$direction_texi\n";
@@ -437,7 +436,8 @@ sub print_sections_list($)
       $result .= " $key:\n";
       my $value = $section_structure->{$key};
       my $sec_idx = 1;
-      foreach my $e (@$value) {
+      foreach my $section_structure (@$value) {
+        my $e = $section_structure->{'element'};
         my $section_texi = _print_root_command($e);
         $result .= "  ${sec_idx}|";
         if (defined($section_texi)) {
@@ -467,8 +467,9 @@ sub print_sectioning_root($)
       $sectioning_root->{'section_root_level'}."\n";
     $result .= "list:\n";
     my $sec_idx = 1;
-    foreach my $section (@{$sectioning_root->{'section_childs'}}) {
+    foreach my $section_structure (@{$sectioning_root->{'section_childs'}}) {
       $result .= " $sec_idx|";
+      my $section = $section_structure->{'element'};
       my $section_texi = _print_root_command($section);
       if (defined($section_texi)) {
         $result .= $section_texi;
@@ -617,9 +618,8 @@ sub get_node_node_childs_from_sectioning($$)
 
     if ($associated_structure
         and $associated_structure->{'section_childs'}) {
-      foreach my $child (@{$associated_structure->{'section_childs'}}) {
-        my $child_structure
-          = $sections_list->[$child->{'extra'}->{'section_number'} -1];
+      foreach my $child_structure
+                        (@{$associated_structure->{'section_childs'}}) {
         if ($child_structure->{'associated_node'}) {
           push @node_childs, $child_structure->{'associated_node'};
         }
@@ -628,19 +628,16 @@ sub get_node_node_childs_from_sectioning($$)
     # Special case for @top.  Gather all the children of the @part following
     # @top.
     if ($associated_section->{'cmdname'} eq 'top') {
-      my $current = $associated_section;
       my $current_structure
-        = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+    = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
       while ($current_structure->{'section_directions'}
              and $current_structure->{'section_directions'}->{'next'}) {
-        $current = $current_structure->{'section_directions'}->{'next'};
         $current_structure
-          = $sections_list->[$current->{'extra'}->{'section_number'} -1];
-        if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part') {
+          = $current_structure->{'section_directions'}->{'next'};
+        if ($current_structure->{'element'}->{'cmdname'} eq 'part') {
           if ($current_structure->{'section_childs'}) {
-            foreach my $child (@{$current_structure->{'section_childs'}}) {
-              my $child_structure
-                = $sections_list->[$child->{'extra'}->{'section_number'} -1];
+            foreach my $child_structure
+                         (@{$current_structure->{'section_childs'}}) {
               if ($child_structure->{'associated_node'}) {
                 push @node_childs, $child_structure->{'associated_node'};
               }
@@ -890,15 +887,12 @@ sub _section_direction_associated_node($$$)
   foreach my $direction_base ('section', 'toplevel') {
     if ($section_structure->{$direction_base.'_directions'}
         and $section_structure->{$direction_base.'_directions'}->{$direction}
-        and $section_structure->{$direction_base.'_directions'}->{$direction}->{'extra'}
         and ($direction_base ne 'toplevel'
              or $direction eq 'up'
              or $section_structure->{$direction_base.'_directions'}->{$direction}
-                                                         ->{'cmdname'} ne 'top')) {
-      my $direction_element
-        = $section_structure->{$direction_base.'_directions'}->{$direction};
-      my $direction_structure
-        = $sections_list->[$direction_element->{'extra'}->{'section_number'} -1];
+                                          ->{'element'}->{'cmdname'} ne 'top')) {
+       my $direction_structure
+         = $section_structure->{$direction_base.'_directions'}->{$direction};
        if ($direction_structure->{'associated_node'}) {
         return $direction_structure->{'associated_node'};
       }
@@ -984,9 +978,8 @@ sub complete_node_tree_with_menus($)
               my $menus;
               if ($section_directions
                   and $section_directions->{'up'}) {
-                my $up_sec = $section_directions->{'up'};
-                my $up_structure
-                 = $sections_list->[$up_sec->{'extra'}->{'section_number'} -1];
+                my $up_structure = $section_directions->{'up'};
+                my $up_sec = $up_structure->{'element'};
 
                 if ($up_structure->{'associated_node'}) {
                   my $up_node = $up_structure->{'associated_node'};
@@ -1208,9 +1201,7 @@ sub construct_nodes_tree($)
           my $section_childs = $associated_structure->{'section_childs'};
           if ($section_childs
               and scalar(@$section_childs)) {
-            my $section_child = $section_childs->[0];
-            my $section_child_structure
-         = $sections_list->[$section_child->{'extra'}->{'section_number'} -1];
+            my $section_child_structure = $section_childs->[0];
             if ($section_child_structure->{'associated_node'}) {
               $top_node_section_child
                 = $section_child_structure->{'associated_node'};
@@ -1508,10 +1499,9 @@ sub number_floats($)
         while ($up_section_directions
                and $up_section_directions->{'up'}
                and $command_structuring_level{
-                 $up_section_directions->{'up'}->{'cmdname'}}) {
-          $up = $up_section_directions->{'up'};
-          $up_structure
-            = $sections_list->[$up->{'extra'}->{'section_number'} -1];
+                 $up_section_directions->{'up'}->{'element'}->{'cmdname'}}) {
+          $up_structure = $up_section_directions->{'up'};
+          $up = $up_structure->{'element'};
           $up_section_directions = $up_structure->{'section_directions'};
         }
         if (!defined($current_chapter_structure)

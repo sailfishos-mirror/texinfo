@@ -612,12 +612,11 @@ sub output_ixin($$)
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($sections_list) {
-    foreach my $top_section (@{$sectioning_root->{'section_childs'}}) {
-      my $section = $top_section;
+    foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
+      my $section_structure = $top_structure;
  SECTION:
-      while ($section) {
-        my $section_structure
-          = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+      while ($section_structure) {
+        my $section = $section_structure->{'element'};
 
         my $associated_node_id = $self->_associated_node_id($section,
                                                      \%node_label_number);
@@ -638,25 +637,25 @@ sub output_ixin($$)
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
         }
         if ($section_structure->{'section_childs'}) {
-          $section = $section_structure->{'section_childs'}->[0];
+          $section_structure = $section_structure->{'section_childs'}->[0];
         } elsif ($section_structure->{'section_directions'}
                  and $section_structure->{'section_directions'}->{'next'}) {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
-          last if ($section eq $top_section);
-          $section = $section_structure->{'section_directions'}->{'next'};
+          last if ($section_structure eq $top_structure);
+          $section_structure
+            = $section_structure->{'section_directions'}->{'next'};
         } else {
-          if ($section eq $top_section) {
+          if ($section_structure eq $top_structure) {
             $sectioning_tree .= $self->ixin_close_element('sectionentry')
               unless ($section->{'cmdname'} eq 'top');
             last;
           }
           while ($section_structure->{'section_directions'}
                  and $section_structure->{'section_directions'}->{'up'}) {
-            $section = $section_structure->{'section_directions'}->{'up'};
             $section_structure
-              = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+              = $section_structure->{'section_directions'}->{'up'};
             $sectioning_tree .= $self->ixin_close_element('sectionentry');
-            if ($section eq $top_section) {
+            if ($section_structure eq $top_structure) {
               $sectioning_tree .= $self->ixin_close_element('sectionentry')
                  unless ($section->{'cmdname'} eq 'top');
               last SECTION;
@@ -664,7 +663,8 @@ sub output_ixin($$)
             if ($section_structure->{'section_directions'}
                 and $section_structure->{'section_directions'}->{'next'}) {
               $sectioning_tree .= $self->ixin_close_element('sectionentry');
-              $section = $section_structure->{'section_directions'}->{'next'};
+              $section_structure
+                = $section_structure->{'section_directions'}->{'next'};
               last;
             }
           }

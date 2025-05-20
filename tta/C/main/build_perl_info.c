@@ -1036,15 +1036,73 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
   return list_av;
 }
 
+static SV *
+build_perl_section_directions (const SECTION_STRUCTURE * const *s_d)
+{
+  SV *sv;
+  HV *hv;
+  size_t d;
+
+  dTHX;
+
+  hv = newHV ();
+  sv = newRV_inc ((SV *) hv);
+
+  for (d = 0; d < directions_length; d++)
+    {
+      if (s_d[d])
+        {
+          const char *key = direction_names[d];
+
+          if (!s_d[d]->hv)
+            {
+              /* cast to modify */
+              SECTION_STRUCTURE *structure = (SECTION_STRUCTURE *)s_d[d];
+              structure->hv = newHV ();
+            }
+          hv_store (hv, key, strlen (key),
+            newRV_inc ((SV *) s_d[d]->hv), 0);
+        }
+    }
+  return sv;
+}
+
+static SV *
+build_perl_section_structure_array (const SECTION_STRUCTURE_LIST *list)
+{
+  SV *sv;
+  AV *av;
+  size_t i;
+
+  dTHX;
+
+  av = newAV ();
+  sv = newRV_inc ((SV *) av);
+
+  for (i = 0; i < list->number; i++)
+    {
+      SECTION_STRUCTURE *structure = list->list[i];
+      if (!structure->hv)
+        structure->hv = newHV ();
+      av_store (av, (SSize_t) i, newRV_inc ((SV *) structure->hv));
+    }
+  return sv;
+}
+
 HV *
-build_section_structure (const SECTION_STRUCTURE *structure)
+build_section_structure (SECTION_STRUCTURE *structure)
 {
   HV *structure_hv;
   SV *sv;
 
   dTHX;
 
-  structure_hv = newHV ();
+  if (!structure->hv)
+    {
+      structure->hv = newHV ();
+    }
+
+  structure_hv = structure->hv;
 
   sv = newRV_inc ((SV *) structure->element->hv);
   hv_store (structure_hv, "element", strlen ("element"), sv, 0);
@@ -1055,20 +1113,19 @@ build_section_structure (const SECTION_STRUCTURE *structure)
   STORE_STRUCT_INFO(part_following_node)
   if (structure->section_directions)
     {
-      sv = build_perl_directions (structure->section_directions, 0);
+      sv = build_perl_section_directions (structure->section_directions);
       hv_store (structure_hv, "section_directions",
                 strlen ("section_directions"), sv, 0);
     }
   if (structure->toplevel_directions)
     {
-      sv = build_perl_directions (structure->toplevel_directions, 0);
+      sv = build_perl_section_directions (structure->toplevel_directions);
       hv_store (structure_hv, "toplevel_directions",
                 strlen ("toplevel_directions"), sv, 0);
     }
   if (structure->section_childs)
     {
-      /* TODO pass avoid_recursion? */
-      sv = build_perl_const_element_array (structure->section_childs, 0);
+      sv = build_perl_section_structure_array (structure->section_childs);
       hv_store (structure_hv, "section_childs",
                 strlen ("section_childs"), sv, 0);
     }
@@ -1092,7 +1149,9 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
     {
       SECTION_STRUCTURE *structure = list->list[i];
       HV *structure_hv = build_section_structure (structure);
-      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
+      /* keep the reference, considering that it is associated to
+         the C code */
+      av_store (list_av, i, newRV_inc ((SV *) structure_hv));
     }
 
   return list_av;
@@ -1524,9 +1583,9 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
           av_push (float_section_av, sv);
           if (float_section)
             {
-              HV *float_section_hv = build_section_structure (float_section);
-              sv = newRV_inc ((SV *)float_section_hv);
-              av_push (float_section_av, sv);
+              if (!float_section->hv)
+                fatal ("Need to build sections first");
+              sv = newRV_inc ((SV *)float_section->hv);
             }
           else
             av_push (float_section_av, newSV (0));
@@ -1868,9 +1927,8 @@ build_sectioning_root (SECTIONING_ROOT *sectioning_root)
 
   hv = newHV ();
 
-  /* TODO pass avoid_recursion? */
-  SV *sv = build_perl_const_element_array (
-                            &sectioning_root->section_childs, 0);
+  SV *sv = build_perl_section_structure_array (
+                            &sectioning_root->section_childs);
   hv_store (hv, "section_childs", strlen ("section_childs"), sv, 0);
 
   hv_store (hv, "section_root_level", strlen ("section_root_level"),

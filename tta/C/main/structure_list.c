@@ -33,6 +33,7 @@
 #include "debug.h"
 /* root_command_element_string */
 #include "manipulate_tree.h"
+#include "api_to_perl.h"
 #include "structure_list.h"
 
 NODE_STRUCTURE_LIST *
@@ -41,6 +42,15 @@ new_node_structure_list (void)
   NODE_STRUCTURE_LIST *result = (NODE_STRUCTURE_LIST *)
      malloc (sizeof (NODE_STRUCTURE_LIST));
   memset (result, 0, sizeof (NODE_STRUCTURE_LIST));
+  return result;
+}
+
+SECTION_STRUCTURE_LIST *
+new_section_structure_list (void)
+{
+  SECTION_STRUCTURE_LIST *result = (SECTION_STRUCTURE_LIST *)
+     malloc (sizeof (SECTION_STRUCTURE_LIST));
+  memset (result, 0, sizeof (SECTION_STRUCTURE_LIST));
   return result;
 }
 
@@ -105,6 +115,16 @@ reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list)
     }
 }
 
+const struct SECTION_STRUCTURE **
+new_section_directions (void)
+{
+  const SECTION_STRUCTURE **result
+      = (const SECTION_STRUCTURE **) malloc ((D_up + 1)
+                          * sizeof (const SECTION_STRUCTURE *));
+  memset (result, 0, (D_up + 1) * sizeof (const SECTION_STRUCTURE *));
+  return result;
+}
+
 void
 add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
                             NODE_STRUCTURE *node_structure)
@@ -127,14 +147,22 @@ add_node_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e)
   return node_structure;
 }
 
+void
+add_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
+                               SECTION_STRUCTURE *section_structure)
+{
+  reallocate_section_structure_list (list);
+
+  list->list[list->number++] = section_structure;
+}
+
 SECTION_STRUCTURE *
 add_section_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
                                        ELEMENT *e)
 {
   SECTION_STRUCTURE *section = new_section_structure (e);
-  reallocate_section_structure_list (list);
 
-  list->list[list->number++] = section;
+  add_to_section_structure_list (list, section);
 
   return section;
 }
@@ -221,7 +249,12 @@ free_section_structure_list (SECTION_STRUCTURE_LIST *list)
       free (section_structure->section_directions);
       free (section_structure->toplevel_directions);
       if (section_structure->section_childs)
-        destroy_const_element_list (section_structure->section_childs);
+        {
+          free (section_structure->section_childs->list);
+          free (section_structure->section_childs);
+        }
+      if (section_structure->hv)
+        unregister_perl_data (section_structure->hv);
       free (section_structure);
     }
   free (list->list);
@@ -281,7 +314,8 @@ print_root_command (const ELEMENT *element)
         }
 
 static void
-print_sections_directions (TEXT *result, const ELEMENT * const *directions)
+print_sections_directions (TEXT *result,
+                           const SECTION_STRUCTURE * const *directions)
 {
   size_t d;
   for (d = 0; d < directions_length; d++)
@@ -289,7 +323,7 @@ print_sections_directions (TEXT *result, const ELEMENT * const *directions)
       if (directions[d])
         {
           const char *d_key = direction_names[d];
-          const ELEMENT *e = directions[d];
+          const ELEMENT *e = directions[d]->element;
           char *element_str = print_root_command (e);
           if (!element_str)
             /* not sure that it may happen */
@@ -350,7 +384,8 @@ print_sections_list (const DOCUMENT *document)
           text_printf (&result, " %s:\n", key);
           for (i = 0; i < structure->section_childs->number; i++)
             {
-              const ELEMENT *element = structure->section_childs->list[i];
+              const ELEMENT *element
+                = structure->section_childs->list[i]->element;
               char *section_texi = print_root_command (element);
               text_printf (&result, "  %zu|", i+1);
               if (section_texi)
@@ -368,7 +403,7 @@ print_sectioning_root (const DOCUMENT *document)
 {
   size_t i;
   const SECTIONING_ROOT *sectioning_root = document->sectioning_root;
-  const CONST_ELEMENT_LIST *section_childs;
+  const SECTION_STRUCTURE_LIST *section_childs;
 
   TEXT result;
 
@@ -386,7 +421,7 @@ print_sectioning_root (const DOCUMENT *document)
 
   for (i = 0; i < section_childs->number; i++)
     {
-      const ELEMENT *section = section_childs->list[i];
+      const ELEMENT *section = section_childs->list[i]->element;
       char *section_texi = print_root_command (section);
       text_printf (&result, " %zu|", i+1);
       if (section_texi)

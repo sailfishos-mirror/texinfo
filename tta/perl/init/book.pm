@@ -119,22 +119,16 @@ sub book_print_up_toc($$)
   my $sections_list = $document->sections_list();
 
   my $result = '';
-  my $current_command = $command;
   my $current_structure
-    = $sections_list->[$current_command->{'extra'}->{'section_number'} -1];
+    = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
   my @up_commands;
   while ($current_structure->{'section_directions'}
          and defined($current_structure->{'section_directions'}->{'up'})
          and ($current_structure->{'section_directions'}->{'up'}
-                                                           ne $current_command)
-         and defined($current_structure->{'section_directions'}->{'up'}
-                                                                ->{'cmdname'})) {
-    unshift (@up_commands,
-             $current_structure->{'section_directions'}->{'up'});
-    $current_command = $current_structure->{'section_directions'}->{'up'};
-    $current_structure
-      = $sections_list->[$current_command->{'extra'}->{'section_number'} -1];
+                                                      ne $current_structure)) {
+    $current_structure = $current_structure->{'section_directions'}->{'up'};
+    unshift @up_commands, $current_structure->{'element'};
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
@@ -185,36 +179,31 @@ sub book_format_navigation_header($$$$)
 texinfo_register_formatting_function('format_navigation_header',
                                      \&book_format_navigation_header);
 
-sub book_print_sub_toc($$$);
+sub book_print_sub_toc($$);
 
-sub book_print_sub_toc($$$)
+sub book_print_sub_toc($$)
 {
   my $converter = shift;
-  my $parent_command = shift;
-  my $command = shift;
+  my $section_structure = shift;
 
-  my $document = $converter->get_info('document');
-  my $sections_list = $document->sections_list();
-
-  my $section_structure
-    = $sections_list->[$command->{'extra'}->{'section_number'} -1];
   my $result = '';
+  my $command = $section_structure->{'element'};
   my $content_href = $converter->command_href($command);
   my $heading = $converter->command_text($command);
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  if ($section_structure->{'section_childs'}
-      and scalar(@{$section_structure->{'section_childs'}})) {
+  my $section_childs = $section_structure->{'section_childs'};
+  if ($section_childs and scalar(@{$section_childs})) {
     $result .= '<li>'.$converter->html_attribute_class('ul',
                                              [$toc_numbered_mark_class])
-     .">\n". book_print_sub_toc($converter, $parent_command,
-                                $section_structure->{'section_childs'}->[0])
+     .">\n". book_print_sub_toc($converter,
+                                $section_childs->[0])
      ."</ul></li>\n";
   }
   if ($section_structure->{'section_directions'}
       and exists($section_structure->{'section_directions'}->{'next'})) {
-    $result .= book_print_sub_toc($converter, $parent_command,
+    $result .= book_print_sub_toc($converter,
                   $section_structure->{'section_directions'}->{'next'});
   }
   return $result;
@@ -293,12 +282,12 @@ sub book_convert_heading_command($$$$$)
            or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')) {
     my $section_structure
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_structure and $section_structure->{'section_childs'}
-        and scalar(@{$section_structure->{'section_childs'}})) {
+    my $section_childs = $section_structure->{'section_childs'};
+    if ($section_childs and scalar(@{$section_childs})) {
       $toc_or_mini_toc_or_auto_menu
         .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
-      $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self, $element,
-                                 $section_structure->{'section_childs'}->[0]);
+      $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self,
+                                                          $section_childs->[0]);
       $toc_or_mini_toc_or_auto_menu .= "</ul>\n";
     }
   }
