@@ -496,7 +496,7 @@ $result_converted{'html_text'}->{'references_to_top_no_top_output'} = '
 [<a href="#chapter" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="top"></a><ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">Chap</a></li>
+<li><a href="#chapter">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">

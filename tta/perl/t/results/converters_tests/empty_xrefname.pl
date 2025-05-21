@@ -348,8 +348,8 @@ $result_converted{'html_text'}->{'empty_xrefname'} = '<div class="top-level-exte
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#Chap" accesskey="1">Chapter</a></li>
-<li><a href="#chip" accesskey="2">Chip</a></li>
+<li><a href="#Chap">Chapter</a></li>
+<li><a href="#chip">Chip</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="Chap">

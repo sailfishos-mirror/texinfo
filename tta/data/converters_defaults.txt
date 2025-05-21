@@ -123,7 +123,7 @@ SPLIT                  node
 # ignores EXTENSION
 TOP_FILE               index.html
 TOP_NODE_FILE_TARGET   index.html
-USE_ACCESSKEY          1
+USE_ACCESSKEY          undef
 USE_ISO                1
 USE_LINKS              1
 USE_NODES              1

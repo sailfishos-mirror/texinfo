@@ -280,8 +280,8 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 <h1 class="top" id="for-example"><span>for example<a class="copiable-link" href="#for-example"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#node" accesskey="1">chap</a></li>
-<li><a href="#App" accesskey="2">App</a></li>
+<li><a href="#node">chap</a></li>
+<li><a href="#App">App</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="node">
@@ -293,7 +293,7 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 
 <a class="index-entry-id" id="index-entry1"></a>
 <ul class="mini-toc">
-<li><a href="#sec" accesskey="1">Sec</a></li>
+<li><a href="#sec">Sec</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="sec">

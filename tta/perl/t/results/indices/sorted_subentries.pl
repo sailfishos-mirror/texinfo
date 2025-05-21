@@ -787,8 +787,8 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 </div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
-<li><a href="#chapter-one" accesskey="1">one</a></li>
-<li><a href="#chapter-second" accesskey="2">second</a></li>
+<li><a href="#chapter-one">one</a></li>
+<li><a href="#chapter-second">second</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-one">

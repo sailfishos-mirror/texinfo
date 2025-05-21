@@ -157,7 +157,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <p>In top<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chap</a></li>
+<li><a href="#chap">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

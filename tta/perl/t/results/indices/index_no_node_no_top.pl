@@ -1208,7 +1208,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 
 
 <ul class="mini-toc">
-<li><a href="#second" accesskey="1">second</a></li>
+<li><a href="#second">second</a></li>
 </ul>
 <div class="section-level-extent" id="second">
 <h3 class="section"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h3>

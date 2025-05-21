@@ -1416,7 +1416,7 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 <h1 class="top" id="test-quotes"><span>test quotes<a class="copiable-link" href="#test-quotes"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chapter</a></li>
+<li><a href="#chap">Chapter</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

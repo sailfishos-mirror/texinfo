@@ -149,14 +149,14 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top-lev
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#Chap1" accesskey="1">Chap1</a></li>
-<li><a href="#Chap2" accesskey="2">Chap2</a></li>
+<li><a href="#Chap1">Chap1</a></li>
+<li><a href="#Chap2">Chap2</a></li>
 </ul>
 <div class="chapter-level-extent" id="Chap1">
 <h2 class="chapter"><span>1 Chap1<a class="copiable-link" href="#Chap1"> &para;</a></span></h2>
 
 <ul class="mini-toc">
-<li><a href="#Sec-1" accesskey="1">Sec 1</a></li>
+<li><a href="#Sec-1">Sec 1</a></li>
 </ul>
 <div class="section-level-extent" id="Sec-1">
 <h3 class="section"><span>1.1 Sec 1<a class="copiable-link" href="#Sec-1"> &para;</a></span></h3>

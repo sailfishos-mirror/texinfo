@@ -710,8 +710,8 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chapter-frenchspacing" accesskey="1">Chap frenchspacing</a></li>
-<li><a href="#chap-no" accesskey="2">Chap no</a></li>
+<li><a href="#chapter-frenchspacing">Chap frenchspacing</a></li>
+<li><a href="#chap-no">Chap no</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-frenchspacing">

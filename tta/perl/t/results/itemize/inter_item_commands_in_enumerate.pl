@@ -483,7 +483,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '<div cla
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">chap</a></li>
+<li><a href="#chapter">chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">

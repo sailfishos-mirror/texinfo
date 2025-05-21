@@ -275,8 +275,8 @@ $result_converted{'html_text'}->{'xrefname'} = '<div class="top-level-extent" id
 
 
 <ul class="mini-toc">
-<li><a href="#ntiti" accesskey="1">chap</a></li>
-<li><a href="#chip" accesskey="2">app</a></li>
+<li><a href="#ntiti">chap</a></li>
+<li><a href="#chip">app</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="ntiti">

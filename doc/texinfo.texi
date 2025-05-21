@@ -18425,10 +18425,14 @@ the output file name for the top element.  This is, in general,
 only taken into account when output is split.
 
 @vindex USE_ACCESSKEY
-If @code{USE_ACCESSKEY} is set, the default, the @code{accesskey} attribute
+If @code{USE_ACCESSKEY} is set, the @code{accesskey} attribute
 is used to provide keyboard shortcuts on some navigation hyperlinks.
 @kbd{n} is used for links to the next node or section, @kbd{p} for links to
-the previous node or section, and @kbd{u} for up direction links.
+the previous node or section, and @kbd{u} for up direction links.  In the
+default case, this customization variable value is @code{undef}, and set
+automatically based on output document split, to avoid setting @code{accesskey}
+to multiple values in the same HTML page (@pxref{HTML Splitting}).
+
 
 @c internal links
 
@@ -19466,7 +19470,8 @@ more about the Top node pointers, @pxref{First Node}.
 
 @cindex @code{accesskey} @subentry customization variable for
 @item USE_ACCESSKEY
-Use @code{accesskey} in cross-references; default true.
+Use @code{accesskey} in cross-references; default @code{undef}. If
+@code{undef}, set if the output is split.
 
 @item USE_ISO
 Use entities for doubled single-quote characters

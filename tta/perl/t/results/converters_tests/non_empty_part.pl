@@ -681,7 +681,7 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 <p>Content I
 </p>
 <ul class="mini-toc">
-<li><a href="#chap-in-Top-node" accesskey="1">chap in Top node</a></li>
+<li><a href="#chap-in-Top-node">chap in Top node</a></li>
 </ul>
 <div class="chapter-level-extent" id="chap-in-Top-node">
 <h2 class="chapter"><span>1 chap in Top node<a class="copiable-link" href="#chap-in-Top-node"> &para;</a></span></h2>
@@ -705,7 +705,7 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 <p>Content III
 </p>
 <ul class="mini-toc">
-<li><a href="#part-chapter-node" accesskey="1">chapter with part node</a></li>
+<li><a href="#part-chapter-node">chapter with part node</a></li>
 </ul>
 <h2 class="chapter" id="chapter-with-part-node"><span>2 chapter with part node<a class="copiable-link" href="#chapter-with-part-node"> &para;</a></span></h2>
 
@@ -724,7 +724,7 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 <p>Content V
 </p>
 <ul class="mini-toc">
-<li><a href="#with-part-no-node" accesskey="1">with part no node</a></li>
+<li><a href="#with-part-no-node">with part no node</a></li>
 </ul>
 <div class="chapter-level-extent" id="with-part-no-node">
 <h2 class="chapter"><span>3 with part no node<a class="copiable-link" href="#with-part-no-node"> &para;</a></span></h2>
@@ -739,7 +739,7 @@ $result_converted{'html_text'}->{'non_empty_part'} = '<div class="part-level-ext
 <p>Content VI
 </p>
 <ul class="mini-toc">
-<li><a href="#node-between-part-and-chapter" accesskey="1">chapter after part node</a></li>
+<li><a href="#node-between-part-and-chapter">chapter after part node</a></li>
 </ul>
 <div class="chapter-level-extent" id="node-between-part-and-chapter">
 

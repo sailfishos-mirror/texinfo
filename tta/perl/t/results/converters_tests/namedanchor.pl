@@ -762,8 +762,8 @@ $result_converted{'html_text'}->{'namedanchor'} = '<div class="top-level-extent"
 
 <a class="namedanchor" id="in-Top"></a>
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">chapter <a class="namedanchor" id="Not-here_0021"></a>after</a></li>
-<li><a href="#chap1" accesskey="2">chap1</a></li>
+<li><a href="#chap">chapter <a class="namedanchor" id="Not-here_0021"></a>after</a></li>
+<li><a href="#chap1">chap1</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
@@ -775,7 +775,7 @@ $result_converted{'html_text'}->{'namedanchor'} = '<div class="top-level-extent"
 </p>
 <a class="namedanchor" id="normal"></a>
 <ul class="mini-toc">
-<li><a href="#secc1" accesskey="1">secc1</a></li>
+<li><a href="#secc1">secc1</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="secc1">
@@ -810,7 +810,7 @@ See <a class="xref" href="#Not-here_0021">There</a>
 
 
 <ul class="mini-toc">
-<li><a href="#secc2" accesskey="1">Secc2</a></li>
+<li><a href="#secc2">Secc2</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="secc2">

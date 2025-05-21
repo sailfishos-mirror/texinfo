@@ -111,7 +111,7 @@ set_html_converter_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->SPLIT, -2, "node");
   option_set_conf (&options->TOP_FILE, -2, "index.html");
   option_set_conf (&options->TOP_NODE_FILE_TARGET, -2, "index.html");
-  option_set_conf (&options->USE_ACCESSKEY, 1, 0);
+  option_set_conf (&options->USE_ACCESSKEY, -1, 0);
   option_set_conf (&options->USE_ISO, 1, 0);
   option_set_conf (&options->USE_LINKS, 1, 0);
   option_set_conf (&options->USE_NODES, 1, 0);
@@ -166,7 +166,7 @@ add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "SPLIT", -2, "node");
   add_option_value (options_list, "TOP_FILE", -2, "index.html");
   add_option_value (options_list, "TOP_NODE_FILE_TARGET", -2, "index.html");
-  add_option_value (options_list, "USE_ACCESSKEY", 1, 0);
+  add_option_value (options_list, "USE_ACCESSKEY", -1, 0);
   add_option_value (options_list, "USE_ISO", 1, 0);
   add_option_value (options_list, "USE_LINKS", 1, 0);
   add_option_value (options_list, "USE_NODES", 1, 0);

@@ -3216,6 +3216,10 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       && self->conf->SHOW_TITLE.o.integer < 0)
     option_set_conf (&self->conf->SHOW_TITLE, 1, 0);
 
+  if (self->conf->SPLIT.o.string != 0 && strlen (self->conf->SPLIT.o.string)
+      && self->conf->USE_ACCESSKEY.o.integer < 0)
+    option_set_conf (&self->conf->USE_ACCESSKEY, 1, 0);
+
 
   self->current_formatting_references = &self->formatting_references[0];
   self->current_commands_conversion_function

@@ -1,5 +1,18 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	Set default for USE_ACCESSKEY to undef and set to 1 if split
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_initialize_output_state), tta/data/converters_defaults.txt
+	(USE_ACCESSKEY), tta/perl/Texinfo/Convert/HTML.pm
+	(conversion_initialization), doc/texinfo.texi (File Names and Links
+	Customization for HTML, HTML Customization Variables List): set the
+	default to undef for ACCESSKEY for HTML.  If ACCESSKEY is undef, set
+	if the output document is split in conversion initialization.
+	Report from Vincent Lefevre.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	associated_section, node_preceding_part point to section information
 
 	* tta/C/main/build_perl_info.c (store_document_tree_output_units):

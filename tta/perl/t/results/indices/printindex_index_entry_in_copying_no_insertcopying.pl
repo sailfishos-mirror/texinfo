@@ -435,7 +435,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 </p>
 
 <ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">Chapter</a></li>
+<li><a href="#chapter">Chapter</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">

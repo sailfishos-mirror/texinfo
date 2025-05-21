@@ -146,7 +146,7 @@ $result_converted{'html_text'}->{'verb_delimiter_not_ascii'} = '<div class="top-
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chapter</a></li>
+<li><a href="#chap">Chapter</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

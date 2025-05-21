@@ -461,7 +461,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 </div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
-<li><a href="#chapter-index" accesskey="1">Index</a></li>
+<li><a href="#chapter-index">Index</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-index">

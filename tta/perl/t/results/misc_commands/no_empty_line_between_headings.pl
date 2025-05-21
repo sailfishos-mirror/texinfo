@@ -131,12 +131,12 @@ $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class
 <h1 class="top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <h4 class="subheading" id="Subheading"><span>Subheading<a class="copiable-link" href="#Subheading"> &para;</a></span></h4>
 <ul class="mini-toc">
-<li><a href="#Chapter" accesskey="1">Chapter</a></li>
+<li><a href="#Chapter">Chapter</a></li>
 </ul>
 <div class="chapter-level-extent" id="Chapter">
 <h2 class="chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 <ul class="mini-toc">
-<li><a href="#Section" accesskey="1">Section</a></li>
+<li><a href="#Section">Section</a></li>
 </ul>
 <div class="section-level-extent" id="Section">
 <h3 class="section"><span>1.1 Section<a class="copiable-link" href="#Section"> &para;</a></span></h3>

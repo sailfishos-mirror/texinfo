@@ -295,7 +295,7 @@ $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-ext
 <h1 class="top" id="commands-in-var"><span>commands in var<a class="copiable-link" href="#commands-in-var"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">chap</a></li>
+<li><a href="#chap">chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

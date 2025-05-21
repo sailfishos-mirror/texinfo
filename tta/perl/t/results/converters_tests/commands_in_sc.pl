@@ -295,7 +295,7 @@ $result_converted{'html_text'}->{'commands_in_sc'} = '<div class="top-level-exte
 <h1 class="top" id="commands-in-sc"><span>commands in sc<a class="copiable-link" href="#commands-in-sc"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">chap</a></li>
+<li><a href="#chap">chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

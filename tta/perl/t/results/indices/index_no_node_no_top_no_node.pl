@@ -1217,7 +1217,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 
 
 <ul class="mini-toc">
-<li><a href="#second" accesskey="1">second</a></li>
+<li><a href="#second">second</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="second">

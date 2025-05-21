@@ -187,7 +187,7 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">chap</a></li>
+<li><a href="#chap">chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

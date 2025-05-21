@@ -372,7 +372,7 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chap</a></li>
+<li><a href="#chap">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

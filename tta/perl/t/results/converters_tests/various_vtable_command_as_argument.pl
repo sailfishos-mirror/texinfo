@@ -729,8 +729,8 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chap</a></li>
-<li><a href="#Indices" accesskey="2">Print the index</a></li>
+<li><a href="#chap">Chap</a></li>
+<li><a href="#Indices">Print the index</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

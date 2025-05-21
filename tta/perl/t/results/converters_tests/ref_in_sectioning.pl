@@ -959,15 +959,15 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <h2 class="chapter" id="node-just-node"><span>2 <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node<a class="copiable-link" href="#node-just-node"> &para;</a></span></h2>
 
 <ul class="mini-toc">
-<li><a href="#for-example-node-_0028node_0029-_0028Top_0029-1" accesskey="1">for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
-<li><a href="#node-node_002c-crossref-arg2" accesskey="2"><a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
-<li><a href="#node-code-node_002c-samptitle-arg3" accesskey="3"><a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
-<li><a href="#node-code-node_002c-file-name" accesskey="4"><a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
-<li><a href="#node-node-and-manual" accesskey="5">&lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
-<li><a href="#Top-Top-and-manual" accesskey="6"><cite class="cite">Manual</cite> Top and manual</a></li>
-<li><a href="#Manual-no-node-just-manual" accesskey="7"><cite class="cite">Manual</cite> no node just manual</a></li>
-<li><a href="#file-name-no-node-just-file-name" accesskey="8"><a data-manual="file name" href="file%20name.html#Top">(file name)</a> no node just file name</a></li>
-<li><a href="#a-inforef-a-b-c" accesskey="9">See <a data-manual="c" href="c.html#a">b</a> inforef a b c</a></li>
+<li><a href="#for-example-node-_0028node_0029-_0028Top_0029-1">for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
+<li><a href="#node-node_002c-crossref-arg2"><a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
+<li><a href="#node-code-node_002c-samptitle-arg3"><a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
+<li><a href="#node-code-node_002c-file-name"><a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
+<li><a href="#node-node-and-manual">&lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
+<li><a href="#Top-Top-and-manual"><cite class="cite">Manual</cite> Top and manual</a></li>
+<li><a href="#Manual-no-node-just-manual"><cite class="cite">Manual</cite> no node just manual</a></li>
+<li><a href="#file-name-no-node-just-file-name"><a data-manual="file name" href="file%20name.html#Top">(file name)</a> no node just file name</a></li>
+<li><a href="#a-inforef-a-b-c">See <a data-manual="c" href="c.html#a">b</a> inforef a b c</a></li>
 <li><a href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">(see <a data-manual="file name" href="file%20name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
 <li><a href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">(see <a data-manual="file name" href="file%20name.html#Top">(file name)</a>) pxref file name only, spaces</a></li>
 <li><a href="#Top_002c-xref-Top-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>

@@ -356,7 +356,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <h1 class="top" id="top-element-"><span>top element&nbsp;<a class="copiable-link" href="#top-element-"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chap" accesskey="1">Chapter&nbsp;</a></li>
+<li><a href="#chap">Chapter&nbsp;</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">

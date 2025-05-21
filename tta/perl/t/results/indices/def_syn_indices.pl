@@ -759,7 +759,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#Chapter-index" accesskey="1">Index</a></li>
+<li><a href="#Chapter-index">Index</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="Chapter-index">

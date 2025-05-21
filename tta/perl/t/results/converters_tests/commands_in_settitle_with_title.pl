@@ -202,7 +202,7 @@ $result_converted{'html_text'}->{'commands_in_settitle_with_title'} = '<h1 class
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">Chap</a></li>
+<li><a href="#chapter">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">

@@ -5448,7 +5448,7 @@ $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
 <ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">chapter</a></li>
+<li><a href="#chapter">chapter</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">

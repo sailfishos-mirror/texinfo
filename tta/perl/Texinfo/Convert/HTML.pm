@@ -12874,6 +12874,11 @@ sub conversion_initialization($$;$)
     $self->set_conf('SHOW_TITLE', 1);
   }
 
+  my $use_accesskey = $self->get_conf('USE_ACCESSKEY');
+  if (!defined($use_accesskey) and $self->get_conf('SPLIT')) {
+    $self->set_conf('USE_ACCESSKEY', 1);
+  }
+
   $self->_new_document_context($context);
 }
 
