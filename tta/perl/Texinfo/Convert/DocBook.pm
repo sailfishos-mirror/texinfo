@@ -1018,10 +1018,12 @@ sub _convert($$;$)
           # start the section at the associated node or part, or at the
           # sectioning command if there is no associated node nor part
           my $section_element;
+          my $opening_structure;
           my $part;
           if ($cmdname eq 'node') {
             if ($node_structure) {
-              $section_element = $node_structure->{'associated_section'};
+              $opening_structure = $node_structure->{'associated_section'};
+              $section_element = $opening_structure->{'element'};
             }
           } elsif ($cmdname eq 'part') {
             $part = $element;
@@ -1035,7 +1037,11 @@ sub _convert($$;$)
           }
           # FIXME add !$part in condition?
           # FIXME reuse $section_structure if possible?
-          if ($section_element and $self->{'document'}) {
+          if ($opening_structure) {
+            if ($opening_structure->{'associated_part'}) {
+              $part = $opening_structure->{'associated_part'};
+            }
+          } elsif ($section_element and $self->{'document'}) {
             my $sections_list = $self->{'document'}->sections_list();
             my $section_structure
        = $sections_list->[$section_element->{'extra'}->{'section_number'} -1];

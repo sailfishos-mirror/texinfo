@@ -301,7 +301,7 @@ print_root_command (const ELEMENT *element)
       if (structure->name) \
         { \
           char *value \
-            = root_command_element_string (structure->name); \
+            = root_command_element_string (structure->name->element); \
           if (value) \
             { \
               text_printf (&result, " " #name ": %s", \
@@ -389,7 +389,10 @@ print_sections_list (const DOCUMENT *document)
               char *section_texi = print_root_command (element);
               text_printf (&result, "  %zu|", i+1);
               if (section_texi)
-                text_append (&result, section_texi);
+                {
+                  text_append (&result, section_texi);
+                  free (section_texi);
+                }
               text_append_n (&result, "\n", 1);
             }
         }
@@ -425,7 +428,10 @@ print_sectioning_root (const DOCUMENT *document)
       char *section_texi = print_root_command (section);
       text_printf (&result, " %zu|", i+1);
       if (section_texi)
-        text_append (&result, section_texi);
+        {
+          text_append (&result, section_texi);
+          free (section_texi);
+        }
       text_append_n (&result, "\n", 1);
     }
 

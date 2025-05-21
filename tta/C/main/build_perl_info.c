@@ -979,7 +979,7 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   return list_av;
 }
 
-#define STORE_STRUCT_INFO(keyname) \
+#define STORE_STRUCT_INFO_ELEMENT(keyname) \
        if (structure->keyname) \
         { \
           sv = newRV_inc ((SV *) structure->keyname->hv); \
@@ -987,6 +987,19 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
                     strlen (#keyname), sv, 0); \
         }
 
+#define STORE_STRUCT_INFO_SECTION_STRUCTURE(keyname) \
+       if (structure->keyname) \
+        { \
+          if (!structure->keyname->hv) \
+            { \
+              SECTION_STRUCTURE *section = (SECTION_STRUCTURE *) \
+                structure->keyname; \
+              section->hv = newHV (); \
+            } \
+          sv = newRV_inc ((SV *) structure->keyname->hv); \
+          hv_store (structure_hv, #keyname, \
+                    strlen (#keyname), sv, 0); \
+        }
 
 AV *
 build_node_structure_list (const NODE_STRUCTURE_LIST *list)
@@ -1007,14 +1020,13 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
       HV *structure_hv = newHV ();
       sv = newRV_inc ((SV *) structure->element->hv);
       hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-      STORE_STRUCT_INFO(associated_section)
-      STORE_STRUCT_INFO(associated_title_command)
-      STORE_STRUCT_INFO(node_preceding_part)
-      STORE_STRUCT_INFO(node_description)
-      STORE_STRUCT_INFO(node_long_description)
+      STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_section)
+      STORE_STRUCT_INFO_ELEMENT(associated_title_command)
+      STORE_STRUCT_INFO_SECTION_STRUCTURE(node_preceding_part)
+      STORE_STRUCT_INFO_ELEMENT(node_description)
+      STORE_STRUCT_INFO_ELEMENT(node_long_description)
       if (structure->menus)
         {
-          /* TODO pass avoid_recursion? */
           sv = build_perl_const_element_array (structure->menus, 0);
           hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
         }
@@ -1106,11 +1118,11 @@ build_section_structure (SECTION_STRUCTURE *structure)
 
   sv = newRV_inc ((SV *) structure->element->hv);
   hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-  STORE_STRUCT_INFO(associated_node)
-  STORE_STRUCT_INFO(associated_anchor_command)
-  STORE_STRUCT_INFO(associated_part)
-  STORE_STRUCT_INFO(part_associated_section)
-  STORE_STRUCT_INFO(part_following_node)
+  STORE_STRUCT_INFO_ELEMENT(associated_node)
+  STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
+  STORE_STRUCT_INFO_ELEMENT(associated_part)
+  STORE_STRUCT_INFO_ELEMENT(part_associated_section)
+  STORE_STRUCT_INFO_ELEMENT(part_following_node)
   if (structure->section_directions)
     {
       sv = build_perl_section_directions (structure->section_directions);
@@ -1149,8 +1161,9 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
     {
       SECTION_STRUCTURE *structure = list->list[i];
       HV *structure_hv = build_section_structure (structure);
-      /* keep the reference, considering that it is associated to
-         the C code */
+      /* In case the HV was just created, keep the reference created by
+         newHV instead of transferring it to the list_av, considering
+         that it is associated to the C code */
       av_store (list_av, i, newRV_inc ((SV *) structure_hv));
     }
 
@@ -1176,14 +1189,14 @@ build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
       HV *structure_hv = newHV ();
       sv = newRV_inc ((SV *) structure->element->hv);
       hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-      STORE_STRUCT_INFO(associated_anchor_command)
+      STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
       av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
     }
 
   return list_av;
 }
 
-#undef STORE_STRUCT_INFO
+#undef STORE_STRUCT_INFO_ELEMENT
 
 /* currently unused */
 AV *
@@ -2432,6 +2445,32 @@ store_document_tree_output_units (DOCUMENT *document)
       if (document->tree)
         result_sv = store_document_texinfo_tree (document);
 
+      /* systematically rebuild, as section structure information
+         can be accessed from the tree.  Done in this function,
+         as it is supposed to be called before an access to modified
+         tree and sectioning structure.
+       */
+      /* Also store, such that next call that get cached values
+         get the right structure */
+      if (document->modified_information & F_DOCM_sections_list)
+        {
+          const char *key = "sections_list";
+          AV *av_list
+            = build_section_structure_list (&document->sections_list);
+          hv_store (document->hv, key, strlen (key),
+                    newRV_inc ((SV *) av_list), 0);
+
+          document->modified_information &= ~F_DOCM_sections_list;
+        }
+
+      /*
+      if (document->sectioning_root
+          && document->modified_information & F_DOCM_sectioning_root)
+        {
+          build_sectioning_root (document->sectioning_root);
+          document->modified_information &= ~F_DOCM_sectioning_root;
+        }
+       */
       /* we hope that there are not two output units lists referring to the
          tree... */
       if (document->modified_information & F_DOCM_output_units)

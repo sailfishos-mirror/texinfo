@@ -1043,16 +1043,17 @@ sub _associate_other_nodes_to_sections($$$)
         and $element_content->{'cmdname'} eq 'node'
         and $element_content->{'extra'}
         and defined($element_content->{'extra'}->{'normalized'})) {
-      my $associated_section;
+      my $associated_section_structure;
       if ($element_content->{'extra'}
           and defined($element_content->{'extra'}->{'normalized'})) {
         if ($nodes_list) {
           my $node_structure
             = $nodes_list->[$element_content->{'extra'}->{'node_number'} -1];
-          $associated_section = $node_structure->{'associated_section'};
+          $associated_section_structure
+            = $node_structure->{'associated_section'};
         }
       }
-      if (!$associated_section) {
+      if (!$associated_section_structure) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
               ->{$element_content->{'extra'}->{'normalized'}}
@@ -3511,7 +3512,10 @@ sub _convert($$)
                       my $nodes_list = $self->{'document'}->nodes_list();
                       my $node_structure
                         = $nodes_list->[$current->{'extra'}->{'node_number'} -1];
-                      $section_command = $node_structure->{'associated_section'};
+                      if ($node_structure->{'associated_section'}) {
+                        $section_command
+                         = $node_structure->{'associated_section'}->{'element'};
+                      }
                     }
                     if (!$section_command
                         and (exists($current->{'extra'}->{'normalized'})
@@ -4052,15 +4056,16 @@ sub _convert($$)
       }
       if ($cmdname eq 'node') {
         # add the label only if not associated with a section
-        my $associated_section;
+        my $associated_section_structure;
         if ($self->{'document'} and $element->{'extra'}
             and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
           my $node_structure
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-          $associated_section = $node_structure->{'associated_section'};
+          $associated_section_structure
+            = $node_structure->{'associated_section'};
         }
-        if (!$associated_section) {
+        if (!$associated_section_structure) {
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
           my $line_arg = $arguments_line->{'contents'}->[0];

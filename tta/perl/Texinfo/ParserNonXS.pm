@@ -3959,8 +3959,7 @@ sub _end_line_misc_line($$$)
         # part is not already associate to a sectioning command,
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
-        $node_structure->{'node_preceding_part'}
-          = $part_structure->{'element'};
+        $node_structure->{'node_preceding_part'} = $part_structure;
         $part_structure->{'part_following_node'} = $current;
       }
     }
@@ -4127,7 +4126,7 @@ sub _end_line_misc_line($$$)
         _associate_title_command_anchor($node_structure, $command_element,
                                         $section_structure);
         if (!$node_structure->{'associated_section'}) {
-          $node_structure->{'associated_section'} = $command_element;
+          $node_structure->{'associated_section'} = $section_structure;
           $section_structure->{'associated_node'}
             = $node_structure->{'element'};
         }
@@ -9485,7 +9484,7 @@ directions.
 
 An I<associated_section> key holds the tree element of the
 sectioning command that follows the node.  An I<node_preceding_part>
-key holds the tree element of the C<@part> that precedes the node,
+key holds the struture information of the C<@part> that precedes the node,
 if there is no sectioning command between the C<@part> and the node.
 A I<node_description> key holds the first C<@nodedescription> associated
 to the node.

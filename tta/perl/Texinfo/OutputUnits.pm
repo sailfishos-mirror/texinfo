@@ -185,7 +185,7 @@ sub split_by_section($)
         my $node_structure
           = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
         if ($node_structure->{'associated_section'}) {
-          $new_section = $node_structure->{'associated_section'};
+          $new_section = $node_structure->{'associated_section'}->{'element'};
         }
       } else {
         if ($content->{'cmdname'} eq 'part') {
@@ -330,7 +330,7 @@ sub _output_unit_section($$)
     }
     my $node_structure = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
     if ($node_structure->{'associated_section'}) {
-      return $node_structure->{'associated_section'};
+      return $node_structure->{'associated_section'}->{'element'};
     } else {
       return undef;
     }
@@ -412,10 +412,7 @@ sub units_directions($$$$;$)
       my $automatic_directions
         = (scalar(@{$argument->{'contents'}}) <= 1);
       if ($automatic_directions and $node_structure->{'associated_section'}) {
-        my $associated_section = $node_structure->{'associated_section'};
-        $associated_structure
-         = $sections_list->[$associated_section
-                                 ->{'extra'}->{'section_number'} -1];
+        $associated_structure = $node_structure->{'associated_section'};
       }
       my $menu_child
          = Texinfo::ManipulateTree::first_menu_node($node_structure,

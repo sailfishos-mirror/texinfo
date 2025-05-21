@@ -523,7 +523,7 @@ sub insert_nodes_for_sectioning_commands($)
         $contents_nr++;
         # insert in nodes list
         my $new_node_structure = {'element' => $new_node,
-                                  'associated_section' => $content};
+                                  'associated_section' => $section_structure};
         splice(@{$nodes_list}, $node_idx, 0, $new_node_structure);
         $node_idx++;
         $new_node->{'extra'}->{'node_number'} = $node_idx;
@@ -632,7 +632,7 @@ sub complete_node_menu($$$;$)
     }
     if (scalar(@pending)) {
       if (!$current_menu) {
-        my $section = $node_structure->{'associated_section'};
+        my $section = $node_structure->{'associated_section'}->{'element'};
         $current_menu = {'contents' => \@pending, 'parent' => $section};
         Texinfo::Structuring::new_block_command($current_menu, 'menu');
         _prepend_new_menu_in_node_section($node_structure,
@@ -709,7 +709,7 @@ sub complete_tree_nodes_missing_menu($;$)
                                  $sections_list,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
-        my $section = $node_structure->{'associated_section'};
+        my $section = $node_structure->{'associated_section'}->{'element'};
         _prepend_new_menu_in_node_section($node_structure, $section,
                                           $current_menu);
       }

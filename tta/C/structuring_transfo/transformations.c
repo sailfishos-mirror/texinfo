@@ -910,7 +910,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                     = insert_node_into_node_structure_list (
                                                        &document->nodes_list,
                                                        added_node, node_idx);
-                  new_node_structure->associated_section = content;
+                  new_node_structure->associated_section = section_structure;
                   node_idx++;
                   add_extra_integer (added_node, AI_key_node_number,
                                      node_idx);
@@ -1162,7 +1162,8 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
             {
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-              ELEMENT *section = (ELEMENT *)node_structure->associated_section;
+              ELEMENT *section
+                = (ELEMENT *)node_structure->associated_section->element;
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
@@ -1265,7 +1266,8 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
         {
   /* cast to remove const, as the section is modified, with the new menu
      inserted */
-          ELEMENT *section = (ELEMENT *)node_structure->associated_section;
+          ELEMENT *section
+            = (ELEMENT *)node_structure->associated_section->element;
           ELEMENT *current_menu = new_complete_node_menu (node_structure,
                                                  nodes_list, sections_list,
                                                  document, lang_translation,

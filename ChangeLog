@@ -1,3 +1,58 @@
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
+	associated_section, node_preceding_part point to section information
+
+	* tta/C/main/build_perl_info.c (store_document_tree_output_units):
+	rebuild section structure information to Perl when the tree is
+	rebuilt.
+
+	* tta/C/main/structure_list.c (print_sections_list)
+	(print_sectioning_root): free section texinfo code variable.
+
+	* tta/C/main/build_perl_info.c (STORE_STRUCT_INFO_ELEMENT)
+	(build_node_structure_list, build_section_structure)
+	(build_heading_structure_list), tta/C/main/structure_list.c
+	(print_root_command), tta/C/main/tree_types.h
+	b/tta/C/main/tree_types.h (NODE_STRUCTURE), tta/C/parsetexi/end_line.c
+	(end_line_misc_line), tta/C/structuring_transfo/transformations.c
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_nodes_list),
+	tta/perl/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands): have associated_section and
+	node_preceding_part point to sectionstructure information rather than
+	to element trees.
+
+	* tta/C/convert/format_html.c (html_internal_command_href)
+	(from_element_direction, html_convert_heading_command)
+	(html_convert_xref_command, get_element_root_command_element),
+	tta/C/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets), tta/C/main/output_unit.c
+	(split_by_section, output_unit_section, units_directions), 
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning, check_nodes_are_referenced)
+	(complete_node_tree_with_menus, construct_nodes_tree)
+	(new_complete_node_menu, print_down_menus)
+	(new_complete_menu_master_menu),
+	tta/C/structuring_transfo/transformations.c (complete_node_menu)
+	(complete_tree_nodes_missing_menu),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_href)
+	(get_element_root_command_element, from_element_direction)
+	(_convert_heading_command, _convert_xref_commands)
+	(_prepare_output_units_global_targets),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_associate_other_nodes_to_sections)
+	(_convert), tta/perl/Texinfo/OutputUnits.pm (split_by_section)
+	(_output_unit_section, units_directions),
+	tta/perl/Texinfo/Structuring.pm (get_node_node_childs_from_sectioning)
+	(complete_node_tree_with_menus, construct_nodes_tree)
+	(new_complete_node_menu, new_complete_menu_master_menu)
+	(_print_down_menus), tta/perl/Texinfo/Transformations.pm
+	(complete_node_menu, complete_tree_nodes_missing_menu),
+	tta/perl/init/book.pm (book_in_contents_button)
+	(book_convert_heading_command, book_unit_file_name): adapt for
+	associated_section and node_preceding_part changes.
+
 2025-05-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/tree_types.h (NODE_STRUCTURE, HEADING_STRUCTURE)

@@ -259,9 +259,9 @@ typedef struct ELEMENT {
 typedef struct NODE_STRUCTURE {
     /* TODO try to add const.  Not easy as it is used for current_node */
     ELEMENT *element;
-    const ELEMENT *associated_section;
+    const struct SECTION_STRUCTURE *associated_section;
     const ELEMENT *associated_title_command;
-    const ELEMENT *node_preceding_part;
+    const struct SECTION_STRUCTURE *node_preceding_part;
     const ELEMENT *node_description;
     const ELEMENT *node_long_description;
     CONST_ELEMENT_LIST *menus;

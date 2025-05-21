@@ -1323,7 +1323,7 @@ directions.
 
 An @emph{associated_section} key holds the tree element of the
 sectioning command that follows the node.  An @emph{node_preceding_part}
-key holds the tree element of the @code{@@part} that precedes the node,
+key holds the struture information of the @code{@@part} that precedes the node,
 if there is no sectioning command between the @code{@@part} and the node.
 A @emph{node_description} key holds the first @code{@@nodedescription} associated
 to the node.

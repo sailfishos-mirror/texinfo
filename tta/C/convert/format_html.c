@@ -1492,7 +1492,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                         = self->document->nodes_list.list[node_number -1];
 
                       if (node_structure->associated_section
-                         && node_structure->associated_section == command)
+                     && node_structure->associated_section->element == command)
                         possible_empty_target = 1;
                     }
                 }
@@ -2523,7 +2523,7 @@ from_element_direction (CONVERTER *self, int direction,
                     = self->document->nodes_list.list[node_number -1];
 
                   if (node_structure->associated_section)
-                    command = node_structure->associated_section;
+                    command = node_structure->associated_section->element;
                 }
             }
           if (type == HTT_section_nonumber)
@@ -7533,7 +7533,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
 
               if (node_structure->associated_section)
                 {
-                  opening_section = node_structure->associated_section;
+                  opening_section
+                    = node_structure->associated_section->element;
                   level_corrected_opening_section_cmd
                     = section_level_adjusted_command_name (opening_section);
                 }
@@ -7905,7 +7906,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       const ELEMENT *target_root
              = html_command_root_element_command (self, target_node);
 
-      const ELEMENT *associated_section = 0;
+      const SECTION_STRUCTURE *associated_section_structure = 0;
       const ELEMENT *associated_title_command = 0;
 
       if (self->document && target_node->e.c->cmd == CM_node)
@@ -7917,7 +7918,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
           const NODE_STRUCTURE *node_structure
             = self->document->nodes_list.list[node_number -1];
 
-          associated_section = node_structure->associated_section;
+          associated_section_structure = node_structure->associated_section;
           associated_title_command = node_structure->associated_title_command;
         }
 
@@ -7925,7 +7926,8 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
 
-      if (!associated_section || associated_section != target_root)
+      if (!associated_section_structure
+          || associated_section_structure->element != target_root)
         target_root = target_node;
 
       if (!html_in_string (self))
@@ -10031,7 +10033,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
             = self->document->nodes_list.list[node_number -1];
 
           if (node_structure->associated_section)
-            root_unit->root = node_structure->associated_section;
+            root_unit->root = node_structure->associated_section->element;
         }
     }
   return root_unit;

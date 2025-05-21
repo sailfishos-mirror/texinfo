@@ -1197,7 +1197,7 @@ sub _internal_command_href($$;$$)
             = $nodes_list->[$command_root_element_command
                                       ->{'extra'}->{'node_number'} -1];
           if ($node_structure->{'associated_section'}
-              and $node_structure->{'associated_section'} eq $command) {
+       and $node_structure->{'associated_section'}->{'element'} eq $command) {
             $possible_empty_target = 1;
           }
         }
@@ -1901,7 +1901,8 @@ sub get_element_root_command_element($$)
         my $node_structure
           = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
         if ($node_structure->{'associated_section'}) {
-          return ($output_unit, $node_structure->{'associated_section'});
+          return ($output_unit,
+                  $node_structure->{'associated_section'}->{'element'});
         }
       }
     }
@@ -2052,7 +2053,7 @@ sub from_element_direction($$$;$$$)
           my $node_structure
             = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
           if ($node_structure->{'associated_section'}) {
-            $command = $node_structure->{'associated_section'};
+            $command = $node_structure->{'associated_section'}->{'element'};
           }
         }
       }
@@ -4910,7 +4911,7 @@ sub _convert_heading_command($$$$$)
       my $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       if ($node_structure->{'associated_section'}) {
-        $opening_section = $node_structure->{'associated_section'};
+        $opening_section = $node_structure->{'associated_section'}->{'element'};
         $level_corrected_opening_section_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
@@ -6159,18 +6160,19 @@ sub _convert_xref_commands($$$$)
     my $target_root = $self->command_root_element_command($target_node);
     my $document = $self->get_info('document');
 
-    my $associated_section;
+    my $associated_section_structure;
     my $associated_title_command;
     if ($document and $target_node->{'cmdname'} eq 'node') {
       my $nodes_list = $document->nodes_list();
       my $node_structure
         = $nodes_list->[$target_node->{'extra'}->{'node_number'} -1];
 
-      $associated_section = $node_structure->{'associated_section'};
+      $associated_section_structure = $node_structure->{'associated_section'};
       $associated_title_command
         = $node_structure->{'associated_title_command'};
     }
-    if (!$associated_section or $associated_section ne $target_root) {
+    if (!$associated_section_structure
+        or $associated_section_structure->{'element'} ne $target_root) {
       $target_root = $target_node;
     }
 
@@ -11028,31 +11030,37 @@ sub _prepare_output_units_global_targets($$$$)
      = $self->_html_get_tree_root_element(
                                $global_commands->{'printindex'}->[-1]);
     if (defined($document_unit)) {
-      if ($root_command and $root_command->{'cmdname'} eq 'node'
-          and $nodes_list) {
-        my $node_structure
-          = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
-        if ($node_structure->{'associated_section'}) {
-          $root_command = $node_structure->{'associated_section'};
-        }
-      }
-      # find the first level 1 sectioning element to associate the printindex
-      # with.  May not work correctly if structuring was not done
-      if ($root_command and $root_command->{'cmdname'} ne 'node') {
-        my $section_structure
-          = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
-        while ($root_command->{'extra'}
-               and defined($root_command->{'extra'}->{'section_level'})
-               and $root_command->{'extra'}->{'section_level'} > 1
-               and $section_structure->{'section_directions'}
-               and $section_structure->{'section_directions'}->{'up'}
-               and $section_structure->{'section_directions'}->{'up'}
-                                    ->{'element'}->{'associated_unit'}) {
+      if ($root_command) {
+        my $section_structure;
+        if ($root_command->{'cmdname'} eq 'node') {
+          if ($nodes_list) {
+            my $node_structure
+              = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
+            if ($node_structure->{'associated_section'}) {
+              $section_structure = $node_structure->{'associated_section'};
+            }
+          }
+        } else {
           $section_structure
-            = $section_structure->{'section_directions'}->{'up'};
-          $root_command = $section_structure->{'element'};
+            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+        }
 
-          $document_unit = $root_command->{'associated_unit'};
+        # find the first level 1 sectioning element to associate the printindex
+        # with.  May not work correctly if structuring was not done
+        if ($section_structure) {
+          my $current_command = $section_structure->{'element'};
+          while ($current_command->{'extra'}
+                 and defined($current_command->{'extra'}->{'section_level'})
+                 and $current_command->{'extra'}->{'section_level'} > 1
+                 and $section_structure->{'section_directions'}
+                 and $section_structure->{'section_directions'}->{'up'}
+                 and $section_structure->{'section_directions'}->{'up'}
+                                    ->{'element'}->{'associated_unit'}) {
+            $section_structure
+              = $section_structure->{'section_directions'}->{'up'};
+            $current_command = $section_structure->{'element'};
+            $document_unit = $current_command->{'associated_unit'};
+          }
         }
       }
       $self->{'global_units_directions'}->{'Index'} = $document_unit;

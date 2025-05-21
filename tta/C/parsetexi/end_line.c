@@ -1583,8 +1583,7 @@ end_line_misc_line (ELEMENT *current)
             part is not already associate to a sectioning command,
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
-          node_structure->node_preceding_part
-            = current_part->element;
+          node_structure->node_preceding_part = current_part;
           current_part->part_following_node = current;
         }
     }
@@ -1794,51 +1793,50 @@ end_line_misc_line (ELEMENT *current)
                             &parsed_document->sections_list, current);
           add_extra_integer (current, AI_key_section_number,
                              parsed_document->sections_list.number);
-        }
 
       /* Set 'associated_section' extra key for a node. */
-      if (cmd != CM_node && cmd != CM_part)
-        {
-         /* associate section with the current node as its title. */
-          if (current_node)
+          if (cmd != CM_part)
             {
-              associate_title_command_anchor (current_node, current,
-                                              section_structure, 0);
-              if (!current_node->associated_section)
+             /* associate section with the current node as its title. */
+              if (current_node)
                 {
-                  current_node->associated_section = current;
-                  section_structure->associated_node
-                    = current_node->element;
+                  associate_title_command_anchor (current_node, current,
+                                                  section_structure, 0);
+                  if (!current_node->associated_section)
+                    {
+                      current_node->associated_section = section_structure;
+                      section_structure->associated_node
+                        = current_node->element;
+                    }
+                }
+
+              if (current_part)
+                {
+                  section_structure->associated_part
+                    = current_part->element;
+                  current_part->part_associated_section = current;
+                  if (current->e.c->cmd == CM_top)
+                    {
+                      line_error_ext (MSG_warning, 0,
+                               &current_part->element->e.c->source_info,
+                             "@part should not be associated with @top");
+                    }
+                  current_part = 0;
+                }
+
+              current_section = section_structure;
+            }
+          else /* if (cmd == CM_part) */
+            {
+              current_part = section_structure;
+              if (current_node)
+                {
+                  if (!(current_node->associated_section))
+                    line_warn ("@node precedes @part, but parts may not be "
+                               "associated with nodes");
                 }
             }
-
-          if (current_part)
-            {
-              section_structure->associated_part
-                = current_part->element;
-              current_part->part_associated_section = current;
-              if (current->e.c->cmd == CM_top)
-                {
-                  line_error_ext (MSG_warning, 0,
-                           &current_part->element->e.c->source_info,
-                         "@part should not be associated with @top");
-                }
-              current_part = 0;
-            }
-
-          current_section = section_structure;
         }
-      else if (cmd == CM_part)
-        {
-          current_part = section_structure;
-          if (current_node)
-            {
-              if (!(current_node->associated_section))
-                line_warn ("@node precedes @part, but parts may not be "
-                           "associated with nodes");
-            }
-        }
-
     }
   /* only *heading as sectioning commands are handled just before */
   else if (command_data(data_cmd).flags & CF_sectioning_heading

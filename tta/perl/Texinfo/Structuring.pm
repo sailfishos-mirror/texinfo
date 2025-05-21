@@ -612,9 +612,7 @@ sub get_node_node_childs_from_sectioning($$)
   my @node_childs;
 
   if ($node_structure->{'associated_section'}) {
-    my $associated_section = $node_structure->{'associated_section'};
-    my $associated_structure
-      = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
+    my $associated_structure = $node_structure->{'associated_section'};
 
     if ($associated_structure
         and $associated_structure->{'section_childs'}) {
@@ -627,9 +625,8 @@ sub get_node_node_childs_from_sectioning($$)
     }
     # Special case for @top.  Gather all the children of the @part following
     # @top.
-    if ($associated_section->{'cmdname'} eq 'top') {
-      my $current_structure
-    = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
+    if ($associated_structure->{'element'}->{'cmdname'} eq 'top') {
+      my $current_structure = $associated_structure;
       while ($current_structure->{'section_directions'}
              and $current_structure->{'section_directions'}->{'next'}) {
         $current_structure
@@ -745,9 +742,9 @@ sub check_nodes_are_referenced($)
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions
           = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-        my $section = $node_structure->{'associated_section'};
         my $menu_directions = $node_structure->{'menu_directions'};
-        if (not (($section and $automatic_directions)
+        if (not (($node_structure->{'associated_section'}
+                  and $automatic_directions)
                  or ($menu_directions and $menu_directions->{'up'}))) {
           $registrar->line_warn(sprintf(__("node `%s' not in menu"),
                                         target_element_to_texi_label($node)),
@@ -950,12 +947,10 @@ sub complete_node_tree_with_menus($)
             }
             next;
           }
-          my $section = $node_structure->{'associated_section'};
-          if ($section
+          my $section_structure = $node_structure->{'associated_section'};
+          if ($section_structure
               and $customization_information->get_conf(
                                              'CHECK_NORMAL_MENU_STRUCTURE')) {
-            my $section_structure
-              = $sections_list->[$section->{'extra'}->{'section_number'} -1];
             # Check consistency with section and menu structure
             my $direction_structure = $section_structure;
 
@@ -1015,7 +1010,7 @@ sub complete_node_tree_with_menus($)
                                           ->{'extra'}->{'manual_content'}) {
             if ($customization_information->get_conf(
                                                'CHECK_NORMAL_MENU_STRUCTURE')
-                and $section) {
+                and $section_structure) {
               $registrar->line_warn(
           sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
                 target_element_to_texi_label(
@@ -1165,9 +1160,7 @@ sub construct_nodes_tree($)
             next;
           }
           if ($node_structure->{'associated_section'}) {
-            my $section = $node_structure->{'associated_section'};
-            my $section_structure
-              = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+            my $section_structure = $node_structure->{'associated_section'};
 
             my $direction_structure = $section_structure;
 
@@ -1195,12 +1188,9 @@ sub construct_nodes_tree($)
       } else {
         # Special case for Top node, use first section
         if ($node_structure->{'associated_section'}) {
-          my $associated_section = $node_structure->{'associated_section'};
-          my $associated_structure
-     = $sections_list->[$associated_section->{'extra'}->{'section_number'} -1];
+          my $associated_structure = $node_structure->{'associated_section'};
           my $section_childs = $associated_structure->{'section_childs'};
-          if ($section_childs
-              and scalar(@$section_childs)) {
+          if ($section_childs and scalar(@$section_childs)) {
             my $section_child_structure = $section_childs->[0];
             if ($section_child_structure->{'associated_node'}) {
               $top_node_section_child
@@ -1333,7 +1323,7 @@ sub print_nodes_list($)
       if ($node_structure->{$section_key}) {
         my $section_command
           = Texinfo::ManipulateTree::root_command_element_string(
-                $node_structure->{$section_key});
+                $node_structure->{$section_key}->{'element'});
         if (!defined($section_command)) {
           $result .= " $section_key\n";
         } else {
@@ -1726,7 +1716,7 @@ sub new_complete_node_menu($$$;$$$)
     return undef;
   }
 
-  my $section = $node_structure->{'associated_section'};
+  my $associated_structure = $node_structure->{'associated_section'};
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command below
@@ -1742,7 +1732,8 @@ sub new_complete_node_menu($$$;$$$)
   my $node = $node_structure->{'element'};
   # in top node, additionally insert menu comments for parts and for
   # the first appendix.
-  if ($section and $section->{'cmdname'} eq 'top'
+  if ($associated_structure
+      and $associated_structure->{'element'}->{'cmdname'} eq 'top'
       and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top') {
     my $content_index = 0;
@@ -1755,11 +1746,10 @@ sub new_complete_node_menu($$$;$$$)
       my $node_child_structure
         = $nodes_list->[$child->{'extra'}->{'node_number'} -1];
 
-      my $child_section = $node_child_structure->{'associated_section'};
-      if ($child_section) {
+      my $child_structure = $node_child_structure->{'associated_section'};
+      if ($child_structure) {
+        my $child_section = $child_structure->{'element'};
         my $part_added = 0;
-        my $child_structure
-          = $sections_list->[$child_section->{'extra'}->{'section_number'} -1];
         my $associated_part = $child_structure->{'associated_part'};
         if ($associated_part) {
           my $part_arguments_line = $associated_part->{'contents'}->[0];
@@ -1885,7 +1875,7 @@ sub new_complete_menu_master_menu($$$$$)
       and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top') {
     if ($node_structure->{'associated_section'}
-        and $node_structure->{'associated_section'}->{'cmdname'} eq 'top') {
+  and $node_structure->{'associated_section'}->{'element'}->{'cmdname'} eq 'top') {
       my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
                                       $self, undef, $labels, $nodes_list,
                                       $sections_list, [$menu_node]);
@@ -1966,7 +1956,8 @@ sub _print_down_menus($$$$$$$;$)
     my $node_name_element;
     my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
     if ($node_structure->{'associated_section'}) {
-      my $associated_section = $node_structure->{'associated_section'};
+      my $associated_section
+        = $node_structure->{'associated_section'}->{'element'};
       my $arguments_line = $associated_section->{'contents'}->[0];
       $node_name_element = $arguments_line->{'contents'}->[0];
     } else {

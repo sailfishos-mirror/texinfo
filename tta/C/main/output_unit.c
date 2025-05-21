@@ -249,7 +249,7 @@ split_by_section (DOCUMENT *document)
             = document->nodes_list.list[node_number -1];
 
           if (node_structure->associated_section)
-            new_section = node_structure->associated_section;
+            new_section = node_structure->associated_section->element;
         }
       else
         {
@@ -395,7 +395,7 @@ output_unit_section (OUTPUT_UNIT *output_unit,
       node_structure = nodes_list->list[node_number -1];
 
       if (node_structure->associated_section)
-        return node_structure->associated_section;
+        return node_structure->associated_section->element;
       else
         return 0;
     }
@@ -698,12 +698,8 @@ units_directions (const C_HASHMAP *identifiers_target,
               const SECTION_STRUCTURE_LIST *section_childs = 0;
               if (node_structure->associated_section)
                 {
-                  int status;
-                  size_t associated_section_number
-                    = lookup_extra_integer (node_structure->associated_section,
-                                            AI_key_section_number, &status);
                   const SECTION_STRUCTURE *associated_structure
-                    = sections_list->list[associated_section_number -1];
+                    = node_structure->associated_section;
                   section_childs = associated_structure->section_childs;
                 }
 

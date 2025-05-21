@@ -5052,51 +5052,56 @@ html_prepare_output_units_global_targets (CONVERTER *self)
         {
           const OUTPUT_UNIT *document_unit = root_unit->output_unit;
           const ELEMENT *root_command = root_unit->root;
-          if (root_command && root_command->e.c->cmd == CM_node)
+          if (root_command && root_command->e.c->cmd != CM_NONE)
             {
+              const SECTION_STRUCTURE *section_structure = 0;
               int status;
-              size_t node_number
-                = lookup_extra_integer (root_command,
-                                        AI_key_node_number, &status);
-              const NODE_STRUCTURE *node_structure
-                = self->document->nodes_list.list[node_number -1];
+              if (root_command->e.c->cmd == CM_node)
+                {
+                  size_t node_number
+                    = lookup_extra_integer (root_command,
+                                            AI_key_node_number, &status);
+                  const NODE_STRUCTURE *node_structure
+                    = self->document->nodes_list.list[node_number -1];
 
-              if (node_structure->associated_section)
-                root_command = node_structure->associated_section;
-            }
-       /* find the first level 1 sectioning element to associate the printindex
-           with */
-          if (root_command && root_command->e.c->cmd != CM_NONE
-              && root_command->e.c->cmd != CM_node)
-            {
-              int status;
-              size_t section_number
+                  if (node_structure->associated_section)
+                    section_structure = node_structure->associated_section;
+                }
+              else
+                {
+                  size_t section_number
                         = lookup_extra_integer (root_command,
                                          AI_key_section_number, &status);
-              const SECTION_STRUCTURE *section_structure
-                = sections_list->list[section_number -1];
-
-              while (1)
+                  section_structure
+                    = sections_list->list[section_number -1];
+                }
+       /* find the first level 1 sectioning element to associate the printindex
+           with */
+              if (section_structure)
                 {
-                  int section_level
-                    = lookup_extra_integer (root_command, AI_key_section_level,
-                                                               &status);
-                  if (!status && section_level <= 1)
-                    break;
-
-                  const SECTION_STRUCTURE * const *up_section_directions
-                    = section_structure->section_directions;
-                  if (up_section_directions
-                      && up_section_directions[D_up]
-                      && up_section_directions[D_up]
-                                ->element->e.c->associated_unit)
+                  int status;
+                  while (1)
                     {
-                      section_structure = up_section_directions[D_up];
-                      root_command = section_structure->element;
-                      document_unit = root_command->e.c->associated_unit;
+                      int section_level
+                        = lookup_extra_integer (section_structure->element,
+                                            AI_key_section_level, &status);
+                      if (!status && section_level <= 1)
+                        break;
+
+                      const SECTION_STRUCTURE * const *up_section_directions
+                        = section_structure->section_directions;
+                      if (up_section_directions
+                          && up_section_directions[D_up]
+                          && up_section_directions[D_up]
+                                ->element->e.c->associated_unit)
+                        {
+                          section_structure = up_section_directions[D_up];
+                          document_unit
+                            = section_structure->element->e.c->associated_unit;
+                        }
+                      else
+                        break;
                     }
-                  else
-                    break;
                 }
             }
           self->global_units_directions[D_Index] = document_unit;

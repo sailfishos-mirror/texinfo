@@ -50,7 +50,7 @@ sub book_in_contents_button {
       my $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       if ($node_structure->{'associated_section'}) {
-        $element = $node_structure->{'associated_section'};
+        $element = $node_structure->{'associated_section'}->{'element'};
       }
     }
   }
@@ -329,7 +329,8 @@ sub book_convert_heading_command($$$$$)
       my $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       if ($node_structure->{'associated_section'}) {
-        $opening_section = $node_structure->{'associated_section'};
+        $opening_section
+          = $node_structure->{'associated_section'}->{'element'};
         $level_corrected_opening_section_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
@@ -515,7 +516,7 @@ sub book_unit_file_name($$$$)
       $command = $output_unit->{'unit_command'};
     } elsif ($output_unit->{'unit_command'}->{'extra'}
              and $output_unit->{'unit_command'}->{'extra'}->{'associated_section'}) {
-      $command = $output_unit->{'unit_command'}->{'extra'}->{'associated_section'};
+      $command = $output_unit->{'unit_command'}->{'extra'}->{'associated_section'}->{'element'};
     }
   }
   return (undef, undef) unless ($command);
