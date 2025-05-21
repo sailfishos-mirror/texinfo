@@ -1,5 +1,24 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	part_following_node points to node information
+
+	* tta/C/main/build_perl_info.c (build_section_structure),
+	tta/C/main/structure_list.c (print_sections_list),
+	tta/C/main/tree_types.h (SECTION_STRUCTURE),
+	tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list): have
+	part_following_node points to node structure information instead of
+	pointing to tree elements.
+
+	* tta/C/convert/format_html.c (html_open_node_part_command),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_open_node_part_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (output, _convert): update for
+	change in part_following_node.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	associated_part and part_associated_section point to section information
 
 	* tta/perl/Texinfo/Structuring.pm (_print_key_section_with_number)
@@ -9,7 +28,7 @@
 	* tta/C/main/build_perl_info.c (build_section_structure),
 	tta/C/main/structure_list.c (print_sections_list),
 	tta/C/main/tree_types.h (SECTION_STRUCTURE),
-	tta/C/parsetexi/end_line.c (end_line_misc_line), 
+	tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tta/perl/Texinfo/Structuring.pm (print_sections_list): have
 	associated_part and part_associated_section point to section structure
@@ -32,7 +51,7 @@
 	* tta/C/main/build_perl_info.c (STORE_STRUCT_INFO_NODE_STRUCTURE)
 	(build_section_structure), tta/C/main/structure_list.c
 	(print_sections_list), tta/C/main/tree_types.h (SECTION_STRUCTURE),
-	tta/C/parsetexi/end_line.c (end_line_misc_line), 
+	tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/C/structuring_transfo/transformations.c
 	(insert_nodes_for_sectioning_commands),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
@@ -141,7 +160,7 @@
 	(html_convert_xref_command, get_element_root_command_element),
 	tta/C/convert/html_prepare_converter.c
 	(html_prepare_output_units_global_targets), tta/C/main/output_unit.c
-	(split_by_section, output_unit_section, units_directions), 
+	(split_by_section, output_unit_section, units_directions),
 	tta/C/structuring_transfo/structuring.c
 	(get_node_node_childs_from_sectioning, check_nodes_are_referenced)
 	(complete_node_tree_with_menus, construct_nodes_tree)
@@ -304,7 +323,7 @@
 	manipulate_tree.c and rename as root_command_element_string.  Also
 	duplicate print_root_command in manipulate_tree.c.
 
-	* tta/C/main/output_unit.c (print_output_units_details), 
+	* tta/C/main/output_unit.c (print_output_units_details),
 	tta/perl/Texinfo/OutputUnits.pm (print_output_units_details): use
 	root_command_element_string for output units unit_command textual
 	output.
@@ -365,7 +384,7 @@
 	tta/perl/Texinfo/Convert/IXIN.pm,
 	tta/perl/Texinfo/Convert/Plaintext.pm (format_contents, _convert),
 	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
-	tta/perl/Texinfo/OutputUnits.pm (units_directions), 
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
 	tta/perl/Texinfo/Structuring.pm (_print_sectioning_tree)
 	(get_node_node_childs_from_sectioning, construct_nodes_tree),
 	tta/perl/ext/epub3.pm, tta/perl/init/book.pm (book_print_sub_toc)
@@ -459,7 +478,7 @@
 	to node structure information out of extra information in tree.
 
 	* tta/C/structuring_transfo/structuring.c
-	(check_nodes_are_referenced, complete_node_tree_with_menus), 
+	(check_nodes_are_referenced, complete_node_tree_with_menus),
 	tta/perl/Texinfo/Structuring.pm (check_nodes_are_referenced)
 	(complete_node_tree_with_menus): update for change in menu_directions
 	information location.
@@ -539,7 +558,7 @@
 	(print_listoffloats_types), tta/C/main/tree_types.h (AI_KEYS_LIST)
 	(FLOAT_INFORMATION, FLOAT_INFORMATION_LIST, LISTOFFLOATS_TYPE)
 	(FLOAT_RECORD), tta/C/parsetexi/end_line.c (end_line_starting_block),
-	tta/C/structuring_transfo/structuring.c (number_floats), 
+	tta/C/structuring_transfo/structuring.c (number_floats),
 	tta/perl/Texinfo/ManipulateTree.pm (print_listoffloats_types),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block),
 	tta/perl/Texinfo/Structuring.pm (number_floats): put float section in

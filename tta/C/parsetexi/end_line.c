@@ -1584,7 +1584,7 @@ end_line_misc_line (ELEMENT *current)
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
           node_structure->node_preceding_part = current_part;
-          current_part->part_following_node = current;
+          current_part->part_following_node = node_structure;
         }
     }
   else if (current->e.c->cmd == CM_listoffloats)

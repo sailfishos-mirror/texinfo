@@ -1142,7 +1142,9 @@ sub output($$)
         my $sections_list = $self->{'document'}->sections_list();
         my $part_structure
     = $sections_list->[$element_content->{'extra'}->{'section_number'} -1];
-        $node_element = $part_structure->{'part_following_node'};
+        if ($part_structure->{'part_following_node'}) {
+          $node_element = $part_structure->{'part_following_node'}->{'element'};
+        }
       }
       if ($node_element or $cmdname eq 'part') {
         if ($node_element and $node_element->{'extra'}
@@ -2901,7 +2903,9 @@ sub _convert($$)
       my $sections_list = $self->{'document'}->sections_list();
       my $part_structure
        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-      $node_element = $part_structure->{'part_following_node'};
+      if ($part_structure->{'part_following_node'}) {
+        $node_element = $part_structure->{'part_following_node'}->{'element'};
+      }
     }
     if (($node_element
          and not ($node_element->{'extra'}
@@ -4047,7 +4051,9 @@ sub _convert($$)
         my $sections_list = $self->{'document'}->sections_list();
         my $part_structure
           = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-        $node_element = $part_structure->{'part_following_node'};
+        if ($part_structure->{'part_following_node'}) {
+          $node_element = $part_structure->{'part_following_node'}->{'element'};
+        }
       }
       if ($node_element and $node_element->{'extra'}
           and $node_element->{'extra'}->{'normalized'}

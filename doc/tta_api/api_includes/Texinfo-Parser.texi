@@ -1344,7 +1344,7 @@ The @emph{indent} or @emph{noindent} key value is set if the corresponding
 @anchor{Texinfo@asis{::}Parser @code{@@part}}
 
 The next sectioning command tree element is in @emph{part_associated_section}.
-The following node tree element is in @emph{part_following_node} if there is
+The following node structure info is in @emph{part_following_node} if there is
 no sectioning command between the @code{@@part} and the node.
 
 @item @code{@@ref}

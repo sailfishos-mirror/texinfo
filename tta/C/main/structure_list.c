@@ -370,8 +370,8 @@ print_sections_list (const DOCUMENT *document)
       text_append_n (&result, "\n", 1);
 
       SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
-      SECTION_STRUCT_PRINT_KEY(part_following_node)
       SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_node)
+      SECTION_STRUCT_PRINT_KEY_OR_NULL(part_following_node)
       SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_part)
       SECTION_STRUCT_PRINT_KEY_OR_NULL(part_associated_section)
       if (structure->section_directions)

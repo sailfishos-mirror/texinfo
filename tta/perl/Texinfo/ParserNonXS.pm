@@ -3960,7 +3960,7 @@ sub _end_line_misc_line($$$)
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
         $node_structure->{'node_preceding_part'} = $part_structure;
-        $part_structure->{'part_following_node'} = $current;
+        $part_structure->{'part_following_node'} = $node_structure;
       }
     }
   } elsif ($command eq 'listoffloats') {
@@ -4134,7 +4134,7 @@ sub _end_line_misc_line($$$)
         my $part_structure = $self->{'current_part'};
         $section_structure->{'associated_part'} = $part_structure;
         $part_structure->{'part_associated_section'} = $section_structure;
-        if ($current->{'cmdname'} eq 'top') {
+        if ($command_element->{'cmdname'} eq 'top') {
           $self->_line_warn("\@part should not be associated with \@top",
                           $part_structure->{'element'}->{'source_info'});
         }
@@ -9502,7 +9502,7 @@ The I<indent> or I<noindent> key value is set if the corresponding
 =item C<@part>
 
 The next sectioning command tree element is in I<part_associated_section>.
-The following node tree element is in I<part_following_node> if there is
+The following node structure info is in I<part_following_node> if there is
 no sectioning command between the C<@part> and the node.
 
 =item C<@ref>

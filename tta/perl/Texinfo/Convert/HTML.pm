@@ -7141,7 +7141,9 @@ sub _open_node_part_command($$$)
         my $sections_list = $document->sections_list();
         my $part_structure
           = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-        $node_element = $part_structure->{'part_following_node'};
+        if ($part_structure->{'part_following_node'}) {
+          $node_element = $part_structure->{'part_following_node'}->{'element'};
+        }
       }
     }
     if ($node_element or $cmdname eq 'part') {

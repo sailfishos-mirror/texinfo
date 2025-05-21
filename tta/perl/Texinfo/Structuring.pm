@@ -1194,15 +1194,15 @@ sub print_sections_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_anchor_command',
-                           'part_following_node')) {
+    foreach my $node_key (('associated_anchor_command')) {
       if ($section_structure->{$node_key}) {
         $result .= " $node_key: "
           ._print_root_command($section_structure->{$node_key})."\n";
       }
     }
 
-    foreach my $node_structure_key (('associated_node')) {
+    foreach my $node_structure_key (('associated_node',
+                                     'part_following_node')) {
       if ($section_structure->{$node_structure_key}) {
         $result .= " $node_structure_key: "
             ._print_root_command(

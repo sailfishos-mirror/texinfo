@@ -300,7 +300,7 @@ typedef struct SECTION_STRUCTURE {
     const NODE_STRUCTURE *associated_node;
     const struct SECTION_STRUCTURE *associated_part;
     const struct SECTION_STRUCTURE *part_associated_section;
-    const ELEMENT *part_following_node;
+    const NODE_STRUCTURE *part_following_node;
     const struct SECTION_STRUCTURE **section_directions;
     const struct SECTION_STRUCTURE **toplevel_directions;
     struct SECTION_STRUCTURE_LIST *section_childs;

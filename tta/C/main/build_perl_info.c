@@ -1152,7 +1152,7 @@ build_section_structure (SECTION_STRUCTURE *structure)
   STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
   STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_part)
   STORE_STRUCT_INFO_SECTION_STRUCTURE(part_associated_section)
-  STORE_STRUCT_INFO_ELEMENT(part_following_node)
+  STORE_STRUCT_INFO_SECTION_STRUCTURE(part_following_node)
   if (structure->section_directions)
     {
       sv = build_perl_section_directions (structure->section_directions);

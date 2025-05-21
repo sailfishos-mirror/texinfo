@@ -11253,7 +11253,8 @@ html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
           const SECTION_STRUCTURE *part_structure
             = self->document->sections_list.list[section_number -1];
 
-          node_element = part_structure->part_following_node;
+          if (part_structure->part_following_node)
+            node_element = part_structure->part_following_node->element;
         }
       if (node_element || cmd == CM_part)
         {

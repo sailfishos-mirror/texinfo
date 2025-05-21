@@ -985,8 +985,11 @@ sub _convert($$;$)
           my $node_element;
           if ($cmdname eq 'node') {
             $node_element = $element;
-          } elsif ($section_structure and $cmdname eq 'part') {
-            $node_element = $section_structure->{'part_following_node'};
+          } elsif ($section_structure
+                   and $section_structure->{'part_following_node'}) {
+            # the section is necessarily a part
+            $node_element
+              = $section_structure->{'part_following_node'}->{'element'};
           }
           if ($node_element or $cmdname eq 'part') {
             # $node_element->{'extra'}->{'normalized'} not defined happens for
