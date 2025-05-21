@@ -276,8 +276,8 @@ $result_sections_list{'part_node_part_node_appendix'} = '1|top
  toplevel_directions:
   next->chapter
 2|Part 1
- part_associated_section: chapter
  part_following_node: chapter node
+ part_associated_section: 1 chapter
  section_directions:
   next->Part Appendix
   prev->top
@@ -285,8 +285,8 @@ $result_sections_list{'part_node_part_node_appendix'} = '1|top
   1|chapter
 3|chapter
  associated_anchor_command: chapter node
- associated_part: Part 1
  associated_node: chapter node
+ associated_part: Part 1
  section_directions:
   up->Part 1
  toplevel_directions:
@@ -294,16 +294,16 @@ $result_sections_list{'part_node_part_node_appendix'} = '1|top
   prev->top
   up->top
 4|Part Appendix
- part_associated_section: Appendix
  part_following_node: appendix node
+ part_associated_section: A Appendix
  section_directions:
   prev->Part 1
  section_childs:
   1|Appendix
 5|Appendix
  associated_anchor_command: appendix node
- associated_part: Part Appendix
  associated_node: appendix node
+ associated_part: Part Appendix
  section_directions:
   up->Part Appendix
  toplevel_directions:

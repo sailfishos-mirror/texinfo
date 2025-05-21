@@ -249,16 +249,16 @@ $result_sections_list{'double_part'} = '1|top
   next->part second
   prev->top
 3|part second
- part_associated_section: chapter after 2 parts
  part_following_node: node chapter
+ part_associated_section: 1 chapter after 2 parts
  section_directions:
   prev->part first
  section_childs:
   1|chapter after 2 parts
 4|chapter after 2 parts
  associated_anchor_command: node chapter
- associated_part: part second
  associated_node: node chapter
+ associated_part: part second
  section_directions:
   up->part second
  toplevel_directions:

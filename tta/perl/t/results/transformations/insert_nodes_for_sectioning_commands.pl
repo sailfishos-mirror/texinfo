@@ -467,15 +467,15 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  toplevel_directions:
   next->chap, @code{a chap}
 2|part
- part_associated_section: chap, @code{a chap}
+ part_associated_section: 1 chap, @code{a chap}
  section_directions:
   prev->top section
  section_childs:
   1|chap, @code{a chap}
   2|
 3|chap, @code{a chap}
- associated_part: part
  associated_node: chap@comma{} @code{a chap}
+ associated_part: part
  section_directions:
   next->
   up->part

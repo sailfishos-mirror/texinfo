@@ -528,21 +528,21 @@ $result_nodes_list{'non_empty_part'} = '1|Top
 ';
 
 $result_sections_list{'non_empty_part'} = '1|part before
- part_associated_section: top
  part_following_node: Top
+ part_associated_section: top
  section_directions:
   next->top
 2|top
  associated_anchor_command: Top
- associated_part: part before
  associated_node: Top
+ associated_part: part before
  section_directions:
   next->part I
   prev->part before
  toplevel_directions:
   next->chap in Top node
 3|part I
- part_associated_section: chap in Top node
+ part_associated_section: 1 chap in Top node
  section_directions:
   next->Part II
   prev->top
@@ -562,7 +562,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
   next->part III
   prev->part I
 6|part III
- part_associated_section: chapter with part node
+ part_associated_section: 2 chapter with part node
  section_directions:
   next->Part IV
   prev->Part II
@@ -570,8 +570,8 @@ $result_sections_list{'non_empty_part'} = '1|part before
   1|chapter with part node
 7|chapter with part node
  associated_anchor_command: part chapter node
- associated_part: part III
  associated_node: part chapter node
+ associated_part: part III
  section_directions:
   up->part III
  toplevel_directions:
@@ -583,7 +583,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
   next->Part V
   prev->part III
 9|Part V
- part_associated_section: with part no node
+ part_associated_section: 3 with part no node
  section_directions:
   next->Part VI
   prev->Part IV
@@ -598,16 +598,16 @@ $result_sections_list{'non_empty_part'} = '1|part before
   prev->chapter with part node
   up->top
 11|Part VI
- part_associated_section: chapter after part node
  part_following_node: node between part and chapter
+ part_associated_section: 4 chapter after part node
  section_directions:
   prev->Part V
  section_childs:
   1|chapter after part node
 12|chapter after part node
  associated_anchor_command: node between part and chapter
- associated_part: Part VI
  associated_node: node between part and chapter
+ associated_part: Part VI
  section_directions:
   up->Part VI
  toplevel_directions:

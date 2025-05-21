@@ -1147,20 +1147,14 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       && ((!options)
                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
                     {
-                      int status;
                       const NODE_STRUCTURE *direction_associated_node;
                       const SECTION_STRUCTURE *direction_structure
                         = section_structure;
           /* Prefer the section associated with a @part for node directions. */
                       if (section_structure->part_associated_section)
                         {
-                          const ELEMENT *node_direction_section
-                            = section_structure->part_associated_section;
-                          size_t direction_number
-                            = lookup_extra_integer (node_direction_section,
-                                             AI_key_section_number, &status);
                           direction_structure
-                            = sections_list->list[direction_number -1];
+                            = section_structure->part_associated_section;
                         }
                       direction_associated_node
                         = section_direction_associated_node (sections_list,
@@ -1457,8 +1451,7 @@ construct_nodes_tree (DOCUMENT *document)
             enum directions d;
             for (d = 0; d < directions_length; d++)
               {
-                const SECTION_STRUCTURE *section_structure;
-                const ELEMENT *section;
+                const SECTION_STRUCTURE *direction_structure;
                 const NODE_STRUCTURE *direction_associated_node;
            /* prev defined as Top for the first Top node menu entry node */
                 if (d == D_prev && top_node_section_child
@@ -1469,16 +1462,17 @@ construct_nodes_tree (DOCUMENT *document)
                     node_structure->node_directions[D_prev] = top_node;
                     continue;
                   }
-                section_structure = node_structure->associated_section;
-                if (section_structure)
+                direction_structure = node_structure->associated_section;
+                if (direction_structure)
                   {
           /* Prefer the section associated with a @part for node directions. */
-                    if (section_structure->part_associated_section)
-                        section = section_structure->part_associated_section;
+                    if (direction_structure->part_associated_section)
+                        direction_structure
+                          = direction_structure->part_associated_section;
 
                     direction_associated_node
                       = section_direction_associated_node (sections_list,
-                                                        section_structure, d);
+                                                      direction_structure, d);
                     if (direction_associated_node)
                       {
                         if (!node_structure->node_directions)
@@ -2017,14 +2011,11 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
 
               if (child_structure)
                 {
-                  int part_added = 0;
-
-                  const ELEMENT *associated_part
-                    = child_structure->associated_part;
-                  if (associated_part)
+                  if (child_structure->associated_part)
                     {
                       const ELEMENT *part_arguments_line
-                        = associated_part->e.c->contents.list[0];
+                        = child_structure->associated_part
+                            ->element->e.c->contents.list[0];
                       const ELEMENT *part_line_arg
                         = part_arguments_line->e.c->contents.list[0];
                       ELEMENT *part_title_copy
@@ -2046,7 +2037,6 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
                       destroy_element (part_title);
 
                       content_index++;
-                      part_added = 1;
                       destroy_named_string_element_list (substrings);
                     }
                   if (!in_appendix
@@ -2060,7 +2050,8 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index,
                                                    appendix_title,
-                                         (content_index == 0 || part_added));
+                                     (content_index == 0
+                                      || child_structure->associated_part));
                       destroy_element (appendix_title);
 
                       content_index++;

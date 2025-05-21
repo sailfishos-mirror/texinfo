@@ -370,163 +370,6 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
-sub _print_root_command($)
-{
-  my $element = shift;
-  my $argument_line = $element->{'contents'}->[0];
-  if ($argument_line->{'contents'}
-      and $argument_line->{'contents'}->[0]->{'contents'}) {
-    my $root_command_texi
-      = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
-    return $root_command_texi;
-  }
-  return undef;
-}
-
-my @node_directions_names = ('next', 'prev', 'up');
-# used in t/*.t tests
-sub print_sections_list($)
-{
-  my $document = shift;
-
-  my $sections_list = $document->sections_list();
-
-  my $result = '';
-
-  my $idx = 1;
-
-  foreach my $section_structure (@$sections_list) {
-    my $element = $section_structure->{'element'};
-    my $root_command_texi = _print_root_command($element);
-    if (!defined($root_command_texi)) {
-      $result .= "$idx\n";
-    } else {
-      $result .= "$idx|$root_command_texi\n";
-    }
-    foreach my $node_key (('associated_anchor_command',
-                           'associated_part',
-                           'part_associated_section', 'part_following_node')) {
-      if ($section_structure->{$node_key}) {
-        $result .= " $node_key: "
-          ._print_root_command($section_structure->{$node_key})."\n";
-      }
-    }
-
-    foreach my $node_structure_key (('associated_node')) {
-      if ($section_structure->{$node_structure_key}) {
-        $result .= " $node_structure_key: "
-    ._print_root_command(
-        $section_structure->{$node_structure_key}->{'element'})."\n";
-      }
-    }
-
-    foreach my $directions_key (('section_directions', 'toplevel_directions')) {
-      if ($section_structure->{$directions_key}) {
-        my $value = $section_structure->{$directions_key};
-        $result .= " $directions_key:\n";
-        foreach my $d_key (@node_directions_names) {
-          if ($value->{$d_key}) {
-            my $e = $value->{$d_key}->{'element'};
-            my $direction_texi = _print_root_command($e);
-            if (defined($direction_texi)) {
-              $result .= "  ${d_key}->$direction_texi\n";
-            } else {
-              # happens with empty sections
-              $result .= "  ${d_key}->\n";
-            }
-          }
-        }
-      }
-    }
-
-    if ($section_structure->{'section_childs'}) {
-      my $key = 'section_childs';
-      $result .= " $key:\n";
-      my $value = $section_structure->{$key};
-      my $sec_idx = 1;
-      foreach my $section_structure (@$value) {
-        my $e = $section_structure->{'element'};
-        my $section_texi = _print_root_command($e);
-        $result .= "  ${sec_idx}|";
-        if (defined($section_texi)) {
-          $result .= $section_texi;
-        }
-        $result .= "\n";
-        $sec_idx++;
-      }
-    }
-
-    $idx++;
-  }
-
-  return $result;
-}
-
-sub print_sectioning_root($)
-{
-  my $document = shift;
-
-  my $sectioning_root = $document->sectioning_root();
-
-  my $result = '';
-
-  if ($sectioning_root) {
-    $result .= "level: ".
-      $sectioning_root->{'section_root_level'}."\n";
-    $result .= "list:\n";
-    my $sec_idx = 1;
-    foreach my $section_structure (@{$sectioning_root->{'section_childs'}}) {
-      $result .= " $sec_idx|";
-      my $section = $section_structure->{'element'};
-      my $section_texi = _print_root_command($section);
-      if (defined($section_texi)) {
-        $result .= $section_texi;
-      }
-      $result .= "\n";
-      $sec_idx++;
-    }
-  }
-
-  return $result;
-}
-
-sub print_headings_list($)
-{
-  my $document = shift;
-
-  my $headings_list = $document->headings_list();
-
-  my $result = '';
-
-  my $idx = 1;
-
-  foreach my $heading_structure (@$headings_list) {
-    my $element = $heading_structure->{'element'};
-    my $root_command_texi;
-    if ($element->{'contents'}->[0]
-        and $element->{'contents'}->[0]->{'contents'}) {
-      $root_command_texi
-        = Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}});
-    }
-    if (!defined($root_command_texi)) {
-      $result .= "$idx\n";
-    } else {
-      $result .= "$idx|$root_command_texi\n";
-    }
-    foreach my $node_key (('associated_anchor_command')) {
-      if ($heading_structure->{$node_key}) {
-        $result .= " $node_key: "
-          ._print_root_command($heading_structure->{$node_key})."\n";
-      }
-    }
-    $idx++;
-  }
-
-  return $result;
-}
-
 sub warn_non_empty_parts($)
 {
   my $document = shift;
@@ -664,6 +507,7 @@ sub get_node_node_childs_from_sectioning($$)
   return @node_childs;
 }
 
+my @node_directions_names = ('next', 'prev', 'up');
 # In general should be called only after complete_node_tree_with_menus
 # to generate the Top node first node directions automatically when there
 # are no sections nor menus before checking.
@@ -967,11 +811,8 @@ sub complete_node_tree_with_menus($)
 
             # Prefer the section associated with a @part for node directions.
             if ($section_structure->{'part_associated_section'}) {
-              my $direction_section
-                = $section_structure->{'part_associated_section'};
               $direction_structure
-                = $sections_list->[$direction_section
-                                     ->{'extra'}->{'section_number'} -1];
+                = $section_structure->{'part_associated_section'};
             }
             my $direction_associated_node
               = _section_direction_associated_node($sections_list,
@@ -1169,17 +1010,13 @@ sub construct_nodes_tree($)
             next;
           }
           if ($node_structure->{'associated_section'}) {
-            my $section_structure = $node_structure->{'associated_section'};
-
-            my $direction_structure = $section_structure;
+            my $direction_structure = $node_structure->{'associated_section'};
 
             # Prefer the section associated with a @part for node directions.
-            if ($section_structure->{'part_associated_section'}) {
-              my $direction_section
-                = $section_structure->{'part_associated_section'};
+            if ($direction_structure
+                and $direction_structure->{'part_associated_section'}) {
               $direction_structure
-                = $sections_list->[$direction_section
-                                     ->{'extra'}->{'section_number'} -1];
+                = $direction_structure->{'part_associated_section'};
             }
 
             my $direction_associated_node
@@ -1295,6 +1132,20 @@ sub _print_line_command_key_element($$)
   }
 }
 
+sub _print_key_section_with_number($$)
+{
+  my $section_key = shift;
+  my $element = shift;
+
+  my $section_texi
+      = Texinfo::ManipulateTree::root_command_element_string($element);
+  if (!defined($section_texi)) {
+    return " $section_key\n";
+  } else {
+    return " $section_key: ".$section_texi."\n";
+  }
+}
+
 sub _print_menu_node($)
 {
   my $element = shift;
@@ -1308,6 +1159,169 @@ sub _print_menu_node($)
   } else {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($element);
   }
+}
+
+sub _print_root_command($)
+{
+  my $element = shift;
+  my $argument_line = $element->{'contents'}->[0];
+  if ($argument_line->{'contents'}
+      and $argument_line->{'contents'}->[0]->{'contents'}) {
+    my $root_command_texi
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+    return $root_command_texi;
+  }
+  return undef;
+}
+
+# used in t/*.t tests
+sub print_sections_list($)
+{
+  my $document = shift;
+
+  my $sections_list = $document->sections_list();
+
+  my $result = '';
+
+  my $idx = 1;
+
+  foreach my $section_structure (@$sections_list) {
+    my $element = $section_structure->{'element'};
+    my $root_command_texi = _print_root_command($element);
+    if (!defined($root_command_texi)) {
+      $result .= "$idx\n";
+    } else {
+      $result .= "$idx|$root_command_texi\n";
+    }
+    foreach my $node_key (('associated_anchor_command',
+                           'part_following_node')) {
+      if ($section_structure->{$node_key}) {
+        $result .= " $node_key: "
+          ._print_root_command($section_structure->{$node_key})."\n";
+      }
+    }
+
+    foreach my $node_structure_key (('associated_node')) {
+      if ($section_structure->{$node_structure_key}) {
+        $result .= " $node_structure_key: "
+            ._print_root_command(
+            $section_structure->{$node_structure_key}->{'element'})."\n";
+      }
+    }
+
+    foreach my $section_structure_key (('associated_part',
+                                        'part_associated_section')) {
+      if ($section_structure->{$section_structure_key}) {
+        $result .= _print_key_section_with_number($section_structure_key,
+               $section_structure->{$section_structure_key}->{'element'});
+      }
+    }
+
+    foreach my $directions_key (('section_directions', 'toplevel_directions')) {
+      if ($section_structure->{$directions_key}) {
+        my $value = $section_structure->{$directions_key};
+        $result .= " $directions_key:\n";
+        foreach my $d_key (@node_directions_names) {
+          if ($value->{$d_key}) {
+            my $e = $value->{$d_key}->{'element'};
+            my $direction_texi = _print_root_command($e);
+            if (defined($direction_texi)) {
+              $result .= "  ${d_key}->$direction_texi\n";
+            } else {
+              # happens with empty sections
+              $result .= "  ${d_key}->\n";
+            }
+          }
+        }
+      }
+    }
+
+    if ($section_structure->{'section_childs'}) {
+      my $key = 'section_childs';
+      $result .= " $key:\n";
+      my $value = $section_structure->{$key};
+      my $sec_idx = 1;
+      foreach my $section_structure (@$value) {
+        my $e = $section_structure->{'element'};
+        my $section_texi = _print_root_command($e);
+        $result .= "  ${sec_idx}|";
+        if (defined($section_texi)) {
+          $result .= $section_texi;
+        }
+        $result .= "\n";
+        $sec_idx++;
+      }
+    }
+
+    $idx++;
+  }
+
+  return $result;
+}
+
+sub print_sectioning_root($)
+{
+  my $document = shift;
+
+  my $sectioning_root = $document->sectioning_root();
+
+  my $result = '';
+
+  if ($sectioning_root) {
+    $result .= "level: ".
+      $sectioning_root->{'section_root_level'}."\n";
+    $result .= "list:\n";
+    my $sec_idx = 1;
+    foreach my $section_structure (@{$sectioning_root->{'section_childs'}}) {
+      $result .= " $sec_idx|";
+      my $section = $section_structure->{'element'};
+      my $section_texi = _print_root_command($section);
+      if (defined($section_texi)) {
+        $result .= $section_texi;
+      }
+      $result .= "\n";
+      $sec_idx++;
+    }
+  }
+
+  return $result;
+}
+
+sub print_headings_list($)
+{
+  my $document = shift;
+
+  my $headings_list = $document->headings_list();
+
+  my $result = '';
+
+  my $idx = 1;
+
+  foreach my $heading_structure (@$headings_list) {
+    my $element = $heading_structure->{'element'};
+    my $root_command_texi;
+    if ($element->{'contents'}->[0]
+        and $element->{'contents'}->[0]->{'contents'}) {
+      $root_command_texi
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+    }
+    if (!defined($root_command_texi)) {
+      $result .= "$idx\n";
+    } else {
+      $result .= "$idx|$root_command_texi\n";
+    }
+    foreach my $node_key (('associated_anchor_command')) {
+      if ($heading_structure->{$node_key}) {
+        $result .= " $node_key: "
+          ._print_root_command($heading_structure->{$node_key})."\n";
+      }
+    }
+    $idx++;
+  }
+
+  return $result;
 }
 
 sub print_nodes_list($)
@@ -1330,14 +1344,8 @@ sub print_nodes_list($)
     }
     foreach my $section_key (('associated_section', 'node_preceding_part')) {
       if ($node_structure->{$section_key}) {
-        my $section_command
-          = Texinfo::ManipulateTree::root_command_element_string(
-                $node_structure->{$section_key}->{'element'});
-        if (!defined($section_command)) {
-          $result .= " $section_key\n";
-        } else {
-          $result .= " $section_key: ".$section_command."\n";
-        }
+        $result .= _print_key_section_with_number($section_key,
+                             $node_structure->{$section_key}->{'element'});
       }
     }
     foreach my $line_cmd_key (('associated_title_command',
@@ -1761,7 +1769,8 @@ sub new_complete_node_menu($$$;$$$)
         my $part_added = 0;
         my $associated_part = $child_structure->{'associated_part'};
         if ($associated_part) {
-          my $part_arguments_line = $associated_part->{'contents'}->[0];
+          my $part_arguments_line
+            = $associated_part->{'element'}->{'contents'}->[0];
           my $part_line_arg = $part_arguments_line->{'contents'}->[0];
           my $part_title_copy
             = Texinfo::ManipulateTree::copy_contentsNonXS($part_line_arg);

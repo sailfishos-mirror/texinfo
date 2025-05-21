@@ -1,5 +1,32 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	associated_part and part_associated_section point to section information
+
+	* tta/perl/Texinfo/Structuring.pm (_print_key_section_with_number)
+	(print_nodes_list): add _print_key_section_with_number based on
+	print_nodes_list code.
+
+	* tta/C/main/build_perl_info.c (build_section_structure),
+	tta/C/main/structure_list.c (print_sections_list),
+	tta/C/main/tree_types.h (SECTION_STRUCTURE),
+	tta/C/parsetexi/end_line.c (end_line_misc_line), 
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list): have
+	associated_part and part_associated_section point to section structure
+	information instead of pointing to tree elements.
+
+	* tta/C/main/output_unit.c (split_by_section),
+	tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, construct_nodes_tree)
+	(new_complete_node_menu), tta/perl/Texinfo/Convert/DocBook.pm
+	(_convert), tta/perl/Texinfo/OutputUnits.pm (split_by_section),
+	tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus)
+	(construct_nodes_tree, new_complete_node_menu): update for changes in
+	associated_part and part_associated_sectionpart_associated_section and
+	also try to fix code and have more legible code.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	associated_node points to node information
 
 	* tta/C/main/build_perl_info.c (STORE_STRUCT_INFO_NODE_STRUCTURE)

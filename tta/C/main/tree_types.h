@@ -298,8 +298,8 @@ typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
     const ELEMENT *associated_anchor_command;
     const NODE_STRUCTURE *associated_node;
-    const ELEMENT *associated_part;
-    const ELEMENT *part_associated_section;
+    const struct SECTION_STRUCTURE *associated_part;
+    const struct SECTION_STRUCTURE *part_associated_section;
     const ELEMENT *part_following_node;
     const struct SECTION_STRUCTURE **section_directions;
     const struct SECTION_STRUCTURE **toplevel_directions;

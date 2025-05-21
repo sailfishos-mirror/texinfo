@@ -1150,8 +1150,8 @@ build_section_structure (SECTION_STRUCTURE *structure)
   hv_store (structure_hv, "element", strlen ("element"), sv, 0);
   STORE_STRUCT_INFO_NODE_STRUCTURE(associated_node)
   STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
-  STORE_STRUCT_INFO_ELEMENT(associated_part)
-  STORE_STRUCT_INFO_ELEMENT(part_associated_section)
+  STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_part)
+  STORE_STRUCT_INFO_SECTION_STRUCTURE(part_associated_section)
   STORE_STRUCT_INFO_ELEMENT(part_following_node)
   if (structure->section_directions)
     {

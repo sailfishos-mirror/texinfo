@@ -4132,8 +4132,8 @@ sub _end_line_misc_line($$$)
       }
       if ($self->{'current_part'}) {
         my $part_structure = $self->{'current_part'};
-        $section_structure->{'associated_part'} = $part_structure->{'element'};
-        $part_structure->{'part_associated_section'} = $command_element;
+        $section_structure->{'associated_part'} = $part_structure;
+        $part_structure->{'part_associated_section'} = $section_structure;
         if ($current->{'cmdname'} eq 'top') {
           $self->_line_warn("\@part should not be associated with \@top",
                           $part_structure->{'element'}->{'source_info'});

@@ -296,8 +296,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
  toplevel_directions:
   next->Chap
 2|Part I
- part_associated_section: Chap
  part_following_node: chapter
+ part_associated_section: 1 Chap
  section_directions:
   next->Part II
   prev->top
@@ -305,8 +305,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
   1|Chap
 3|Chap
  associated_anchor_command: chapter
- associated_part: Part I
  associated_node: chapter
+ associated_part: Part I
  section_directions:
   up->Part I
  toplevel_directions:
@@ -314,8 +314,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
   prev->top
   up->top
 4|Part II
- part_associated_section: Other chap
  part_following_node: other chap
+ part_associated_section: 2 Other chap
  section_directions:
   next->App
   prev->Part I
@@ -323,8 +323,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
   1|Other chap
 5|Other chap
  associated_anchor_command: other chap
- associated_part: Part II
  associated_node: other chap
+ associated_part: Part II
  section_directions:
   up->Part II
  toplevel_directions:

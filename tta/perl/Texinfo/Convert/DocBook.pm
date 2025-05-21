@@ -1017,37 +1017,31 @@ sub _convert($$;$)
         if (!defined($anchor)) {
           # start the section at the associated node or part, or at the
           # sectioning command if there is no associated node nor part
-          my $section_element;
-          my $opening_structure;
+          my $opening_section_structure;
           my $part;
           if ($cmdname eq 'node') {
             if ($node_structure) {
-              $opening_structure = $node_structure->{'associated_section'};
-              $section_element = $opening_structure->{'element'};
+              $opening_section_structure
+                = $node_structure->{'associated_section'};
             }
           } elsif ($cmdname eq 'part') {
             $part = $element;
             if ($section_structure
                 and $section_structure->{'part_associated_section'}) {
-              $section_element
+              $opening_section_structure
                 = $section_structure->{'part_associated_section'};
             }
           } else {
-            $section_element = $element;
+            $opening_section_structure = $section_structure;
           }
           # FIXME add !$part in condition?
-          # FIXME reuse $section_structure if possible?
-          if ($opening_structure) {
-            if ($opening_structure->{'associated_part'}) {
-              $part = $opening_structure->{'associated_part'};
+          my $section_element;
+          if ($opening_section_structure) {
+            if ($opening_section_structure->{'associated_part'}) {
+              $part
+                = $opening_section_structure->{'associated_part'}->{'element'};
             }
-          } elsif ($section_element and $self->{'document'}) {
-            my $sections_list = $self->{'document'}->sections_list();
-            my $section_structure
-       = $sections_list->[$section_element->{'extra'}->{'section_number'} -1];
-            if ($section_structure->{'associated_part'}) {
-              $part = $section_structure->{'associated_part'};
-            }
+            $section_element = $opening_section_structure->{'element'};
           }
           my @opened_elements;
           # we need to check if the section was already done in case there is

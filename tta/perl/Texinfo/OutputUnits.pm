@@ -192,7 +192,10 @@ sub split_by_section($)
           my $sections_list = $document->sections_list();
           my $part_structure
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
-          $new_section = $part_structure->{'part_associated_section'};
+          if ($part_structure->{'part_associated_section'}) {
+            $new_section
+              = $part_structure->{'part_associated_section'}->{'element'};
+          }
         }
         if (not $new_section
             and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {

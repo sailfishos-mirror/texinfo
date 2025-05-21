@@ -261,7 +261,9 @@ split_by_section (DOCUMENT *document)
                                         AI_key_section_number, &status);
               const SECTION_STRUCTURE *part_structure
                 = document->sections_list.list[section_number -1];
-              new_section = part_structure->part_associated_section;
+              if (part_structure->part_associated_section)
+                new_section
+                  = part_structure->part_associated_section->element;
             }
           if (!new_section && (CF_root & flags))
             {

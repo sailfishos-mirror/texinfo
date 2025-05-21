@@ -1811,9 +1811,8 @@ end_line_misc_line (ELEMENT *current)
 
               if (current_part)
                 {
-                  section_structure->associated_part
-                    = current_part->element;
-                  current_part->part_associated_section = current;
+                  section_structure->associated_part = current_part;
+                  current_part->part_associated_section = section_structure;
                   if (current->e.c->cmd == CM_top)
                     {
                       line_error_ext (MSG_warning, 0,

@@ -61,7 +61,7 @@ $result_errors{'part_before_chapter'} = [];
 $result_nodes_list{'part_before_chapter'} = '';
 
 $result_sections_list{'part_before_chapter'} = '1|part
- part_associated_section: chapter
+ part_associated_section: 1 chapter
  section_childs:
   1|chapter
 2|chapter

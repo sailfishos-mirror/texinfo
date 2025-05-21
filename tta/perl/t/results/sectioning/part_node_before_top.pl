@@ -170,14 +170,14 @@ $result_nodes_list{'part_node_before_top'} = '1|part node before top
 ';
 
 $result_sections_list{'part_node_before_top'} = '1|part
- part_associated_section: top
  part_following_node: Top
+ part_associated_section: top
  section_directions:
   next->top
 2|top
  associated_anchor_command: Top
- associated_part: part
  associated_node: Top
+ associated_part: part
  section_directions:
   prev->part
 ';

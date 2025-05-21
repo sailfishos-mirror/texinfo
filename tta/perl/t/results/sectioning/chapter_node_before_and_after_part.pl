@@ -183,14 +183,14 @@ $result_sections_list{'chapter_node_before_and_after_part'} = '1|chapter
  toplevel_directions:
   next->chapter 2
 2|part
- part_associated_section: chapter 2
  part_following_node: after
+ part_associated_section: 2 chapter 2
  section_childs:
   1|chapter 2
 3|chapter 2
  associated_anchor_command: after
- associated_part: part
  associated_node: after
+ associated_part: part
  section_directions:
   up->part
  toplevel_directions:

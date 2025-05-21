@@ -93,7 +93,7 @@ $result_errors{'part_section_part'} = [
 $result_nodes_list{'part_section_part'} = '';
 
 $result_sections_list{'part_section_part'} = '1|Part1
- part_associated_section: section 1
+ part_associated_section: 1 section 1
  section_directions:
   next->Part 2
  section_childs:

@@ -352,7 +352,7 @@ $result_sections_list{'sectioning_part_appendix'} = '1|top
  section_directions:
   up->subsection
 6|part
- part_associated_section: chapter in part
+ part_associated_section: 2 chapter in part
  section_directions:
   next->appendix
   prev->top

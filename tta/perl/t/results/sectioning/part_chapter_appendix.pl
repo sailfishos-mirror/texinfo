@@ -81,7 +81,7 @@ $result_errors{'part_chapter_appendix'} = [];
 $result_nodes_list{'part_chapter_appendix'} = '';
 
 $result_sections_list{'part_chapter_appendix'} = '1|Part 1
- part_associated_section: chapter
+ part_associated_section: 1 chapter
  section_directions:
   next->Appendix
  section_childs:
