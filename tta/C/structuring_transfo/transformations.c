@@ -1076,8 +1076,7 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
 
           for (i = 0; i < menus->number; i++)
             {
-              /* cast to remove the const, as the menu is to be modified */
-              ELEMENT *menu = (ELEMENT *)menus->list[i];
+              const ELEMENT *menu = menus->list[i];
               size_t j;
               for (j = 0; j < menu->e.c->contents.number; j++)
                 {
@@ -1096,7 +1095,8 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
                             }
                           existing_entries[existing_entries_nr].normalized
                             = normalized_entry_node;
-                          existing_entries[existing_entries_nr].menu = menu;
+                        /* cast to remove the const, as the menu is to be modified */
+                          existing_entries[existing_entries_nr].menu = (ELEMENT *)menu;
                           existing_entries[existing_entries_nr].entry = entry;
                           existing_entries_nr++;
                         }
@@ -1264,24 +1264,26 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
       const CONST_ELEMENT_LIST *menus = node_structure->menus;
       if (!(menus && menus->number > 0))
         {
-  /* cast to remove const, as the section is modified, with the new menu
-     inserted */
-          ELEMENT *section
-            = (ELEMENT *)node_structure->associated_section->element;
+          const ELEMENT *section
+            = node_structure->associated_section->element;
           ELEMENT *current_menu = new_complete_node_menu (node_structure,
                                                  nodes_list, sections_list,
                                                  document, lang_translation,
                                                  debug_level, use_sections);
           if (current_menu)
             {
-              prepend_new_menu_in_node_section (node_structure, section,
+              prepend_new_menu_in_node_section (node_structure,
+      /* cast to remove const, as the section is modified, with the new menu
+         inserted */
+                                                (ELEMENT *)section,
                                                 current_menu);
               document->modified_information |= F_DOCM_tree
                                                 | F_DOCM_nodes_list;
             }
         }
     }
-  destroy_node_structure_list (non_automatic_nodes);
+  free (non_automatic_nodes->list);
+  free (non_automatic_nodes);
   if (lang_translation)
     {
       free_lang_translation (lang_translation);

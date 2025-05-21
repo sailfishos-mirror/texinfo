@@ -109,6 +109,7 @@ sectioning_structure (DOCUMENT *document)
   for (i = 0; i < sections_list->number; i++)
     {
       SECTION_STRUCTURE *section_structure = sections_list->list[i];
+      /* cast to remove const */
       ELEMENT *content = (ELEMENT *)section_structure->element;
       int level;
 

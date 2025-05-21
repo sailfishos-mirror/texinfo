@@ -267,6 +267,10 @@ typedef struct NODE_STRUCTURE {
     CONST_ELEMENT_LIST *menus;
     const struct ELEMENT **menu_directions;
     const struct ELEMENT **node_directions;
+
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
 } NODE_STRUCTURE;
 
 typedef struct NODE_STRUCTURE_LIST {
@@ -278,6 +282,10 @@ typedef struct NODE_STRUCTURE_LIST {
 typedef struct HEADING_STRUCTURE {
     const ELEMENT *element;
     const ELEMENT *associated_anchor_command;
+
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
 } HEADING_STRUCTURE;
 
 typedef struct HEADING_STRUCTURE_LIST {

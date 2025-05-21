@@ -1001,11 +1001,51 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
                     strlen (#keyname), sv, 0); \
         }
 
+static void
+build_node_structure (NODE_STRUCTURE *structure)
+{
+  HV *structure_hv;
+  SV *sv;
+
+  dTHX;
+
+  if (!structure->hv)
+    {
+      structure->hv = newHV ();
+    }
+
+  structure_hv = structure->hv;
+
+  sv = newRV_inc ((SV *) structure->element->hv);
+  hv_store (structure_hv, "element", strlen ("element"), sv, 0);
+  STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_section)
+  STORE_STRUCT_INFO_ELEMENT(associated_title_command)
+  STORE_STRUCT_INFO_SECTION_STRUCTURE(node_preceding_part)
+  STORE_STRUCT_INFO_ELEMENT(node_description)
+  STORE_STRUCT_INFO_ELEMENT(node_long_description)
+  if (structure->menus)
+    {
+      sv = build_perl_const_element_array (structure->menus, 0);
+      hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
+    }
+  if (structure->menu_directions)
+    {
+      sv = build_perl_directions (structure->menu_directions, 0);
+      hv_store (structure_hv, "menu_directions",
+                strlen ("menu_directions"), sv, 0);
+    }
+  if (structure->node_directions)
+    {
+      sv = build_perl_directions (structure->node_directions, 0);
+      hv_store (structure_hv, "node_directions",
+                strlen ("node_directions"), sv, 0);
+    }
+}
+
 AV *
 build_node_structure_list (const NODE_STRUCTURE_LIST *list)
 {
   AV *list_av;
-  SV *sv;
   size_t i;
 
   dTHX;
@@ -1017,32 +1057,8 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       NODE_STRUCTURE *structure = list->list[i];
-      HV *structure_hv = newHV ();
-      sv = newRV_inc ((SV *) structure->element->hv);
-      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-      STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_section)
-      STORE_STRUCT_INFO_ELEMENT(associated_title_command)
-      STORE_STRUCT_INFO_SECTION_STRUCTURE(node_preceding_part)
-      STORE_STRUCT_INFO_ELEMENT(node_description)
-      STORE_STRUCT_INFO_ELEMENT(node_long_description)
-      if (structure->menus)
-        {
-          sv = build_perl_const_element_array (structure->menus, 0);
-          hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
-        }
-      if (structure->menu_directions)
-        {
-          sv = build_perl_directions (structure->menu_directions, 0);
-          hv_store (structure_hv, "menu_directions",
-                    strlen ("menu_directions"), sv, 0);
-        }
-      if (structure->node_directions)
-        {
-          sv = build_perl_directions (structure->node_directions, 0);
-          hv_store (structure_hv, "node_directions",
-                    strlen ("node_directions"), sv, 0);
-        }
-      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
+      build_node_structure (structure);
+      av_store (list_av, i, newRV_noinc ((SV *) structure->hv));
     }
 
   return list_av;
@@ -1101,7 +1117,7 @@ build_perl_section_structure_array (const SECTION_STRUCTURE_LIST *list)
   return sv;
 }
 
-HV *
+static void
 build_section_structure (SECTION_STRUCTURE *structure)
 {
   HV *structure_hv;
@@ -1141,8 +1157,6 @@ build_section_structure (SECTION_STRUCTURE *structure)
       hv_store (structure_hv, "section_childs",
                 strlen ("section_childs"), sv, 0);
     }
-
-  return structure_hv;
 }
 
 AV *
@@ -1160,11 +1174,11 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       SECTION_STRUCTURE *structure = list->list[i];
-      HV *structure_hv = build_section_structure (structure);
+      build_section_structure (structure);
       /* In case the HV was just created, keep the reference created by
          newHV instead of transferring it to the list_av, considering
          that it is associated to the C code */
-      av_store (list_av, i, newRV_inc ((SV *) structure_hv));
+      av_store (list_av, i, newRV_inc ((SV *) structure->hv));
     }
 
   return list_av;
@@ -1186,11 +1200,15 @@ build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       HEADING_STRUCTURE *structure = list->list[i];
-      HV *structure_hv = newHV ();
+      HV *structure_hv;
+      if (!structure->hv)
+        structure->hv = newHV ();
+      structure_hv = structure->hv;
+
       sv = newRV_inc ((SV *) structure->element->hv);
       hv_store (structure_hv, "element", strlen ("element"), sv, 0);
       STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
-      av_store (list_av, i, newRV_noinc ((SV *) structure_hv));
+      av_store (list_av, i, newRV_inc ((SV *) structure_hv));
     }
 
   return list_av;
@@ -2461,6 +2479,28 @@ store_document_tree_output_units (DOCUMENT *document)
                     newRV_inc ((SV *) av_list), 0);
 
           document->modified_information &= ~F_DOCM_sections_list;
+        }
+
+      if (document->modified_information & F_DOCM_nodes_list)
+        {
+          const char *key = "nodes_list";
+          AV *av_list
+            = build_node_structure_list (&document->nodes_list);
+          hv_store (document->hv, key, strlen (key),
+                    newRV_inc ((SV *) av_list), 0);
+
+          document->modified_information &= ~F_DOCM_nodes_list;
+        }
+
+      if (document->modified_information & F_DOCM_headings_list)
+        {
+          const char *key = "headings_list";
+          AV *av_list
+            = build_heading_structure_list (&document->headings_list);
+          hv_store (document->hv, key, strlen (key),
+                    newRV_inc ((SV *) av_list), 0);
+
+          document->modified_information &= ~F_DOCM_headings_list;
         }
 
       /*

@@ -227,6 +227,8 @@ free_node_structure_list (NODE_STRUCTURE_LIST *list)
         destroy_const_element_list (node_structure->menus);
       free (node_structure->menu_directions);
       free (node_structure->node_directions);
+      if (node_structure->hv)
+        unregister_perl_data (node_structure->hv);
       free (node_structure);
     }
   free (list->list);
@@ -265,7 +267,12 @@ free_heading_structure_list (HEADING_STRUCTURE_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
-    free (list->list[i]);
+    {
+      HEADING_STRUCTURE *heading_structure = list->list[i];
+      if (heading_structure->hv)
+        unregister_perl_data (heading_structure->hv);
+      free (heading_structure);
+    }
   free (list->list);
 }
 

@@ -1,5 +1,35 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(complete_tree_nodes_missing_menu): free the non_automatic_nodes list
+	only, not the nodes structures inside.
+
+	* tta/C/main/build_perl_info.c (store_document_tree_output_units):
+	rebuild nodes and headings structure information list in that
+	function, to be sure to rebuild everytime the tree is used and the
+	lists are changed.
+
+	* tta/C/main/build_perl_info.c (build_section_structure)
+	(build_section_structure_list): do not have build_section_structure
+	return anything, use the hv in the structure.
+
+	* tta/C/main/build_perl_info.c (build_node_structure)
+	(build_node_structure_list): add build_node_structure from
+	build_node_structure_list code.
+
+	* tta/C/main/build_perl_info.c (build_node_structure)
+	(build_node_structure_list, build_heading_structure_list),
+	tta/C/main/structure_list.c (free_node_structure_list)
+	(free_heading_structure_list), tta/C/main/tree_types.h
+	(NODE_STRUCTURE, HEADING_STRUCTURE): add a reference to Perl objects
+	built from node and heading structure information.
+
+	* tta/C/structuring_transfo/transformations.c (complete_node_menu)
+	(complete_tree_nodes_missing_menu): change in const/casts to remove
+	const.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	Set default for USE_ACCESSKEY to undef and set to 1 if split
 
 	* tta/C/convert/html_prepare_converter.c
