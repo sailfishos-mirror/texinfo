@@ -1170,12 +1170,13 @@ associate_title_command_anchor (NODE_STRUCTURE *current_node_structure,
 {
   if (!current_node_structure->associated_title_command)
     {
-      const ELEMENT *current_node = current_node_structure->element;
       current_node_structure->associated_title_command = current;
       if (section_structure)
-        section_structure->associated_anchor_command = current_node;
+        section_structure->associated_anchor_command
+          = current_node_structure;
       else
-        heading_structure->associated_anchor_command = current_node;
+        heading_structure->associated_anchor_command
+          = current_node_structure;
     }
 }
 

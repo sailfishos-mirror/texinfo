@@ -1142,9 +1142,11 @@ sub _internal_command_href($$;$$)
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
         if ($section_structure->{'associated_node'}) {
-          $target_command = $section_structure->{'associated_node'}->{'element'};
+          $target_command
+            = $section_structure->{'associated_node'}->{'element'};
         } elsif ($section_structure->{'associated_anchor_command'}) {
-          $target_command = $section_structure->{'associated_anchor_command'};
+          $target_command
+            = $section_structure->{'associated_anchor_command'}->{'element'};
         }
       } elsif ($command->{'extra'}->{'heading_number'}) {
         my $headings_list = $self->{'document'}->headings_list();
@@ -1152,7 +1154,8 @@ sub _internal_command_href($$;$$)
           = $headings_list->[$command->{'extra'}->{'heading_number'} -1];
 
         if ($heading_structure->{'associated_anchor_command'}) {
-          $target_command = $heading_structure->{'associated_anchor_command'};
+          $target_command
+            = $heading_structure->{'associated_anchor_command'}->{'element'};
         }
       }
     }

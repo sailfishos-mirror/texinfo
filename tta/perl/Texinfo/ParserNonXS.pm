@@ -3666,7 +3666,7 @@ sub _associate_title_command_anchor($$$)
   if (not $current_node_structure->{'associated_title_command'}) {
     $current_node_structure->{'associated_title_command'} = $current;
     $section_structure->{'associated_anchor_command'}
-                        = $current_node_structure->{'element'};
+                        = $current_node_structure;
   }
 }
 

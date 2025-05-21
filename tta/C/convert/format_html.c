@@ -1406,7 +1406,8 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
               if (section_structure->associated_node)
                 target_command = section_structure->associated_node->element;
               else if (section_structure->associated_anchor_command)
-                target_command = section_structure->associated_anchor_command;
+                target_command
+                  = section_structure->associated_anchor_command->element;
             }
           else
             {
@@ -1423,7 +1424,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
                   if (heading_structure->associated_anchor_command)
                     target_command
-                       = heading_structure->associated_anchor_command;
+                      = heading_structure->associated_anchor_command->element;
                 }
             }
         }

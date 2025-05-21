@@ -1,5 +1,25 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	associated_anchor_command points to node information
+
+	* tta/C/main/build_perl_info.c (build_section_structure)
+	(build_heading_structure_list), tta/C/main/structure_list.c
+	(SECTION_STRUCT_PRINT_KEY, print_sections_list, print_nodes_list),
+	tta/C/main/tree_types.h (HEADING_STRUCTURE, SECTION_STRUCTURE),
+	tta/C/parsetexi/end_line.c (associate_title_command_anchor), 
+	tta/perl/Texinfo/ParserNonXS.pm (_associate_title_command_anchor),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list)
+	(print_headings_list): have associated_anchor_command point
+	to node structure information instead of pointing to tree elements.
+	Remove SECTION_STRUCT_PRINT_KEY which is not used anymore and rename
+	SECTION_STRUCT_PRINT_KEY_OR_NULL as SECTION_STRUCT_PRINT_KEY.
+
+	* tta/C/convert/format_html.c (html_internal_command_href),
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_href):
+	update for associated_anchor_command change.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	part_following_node points to node information
 
 	* tta/C/main/build_perl_info.c (build_section_structure),
@@ -8,7 +28,7 @@
 	tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tta/perl/Texinfo/Structuring.pm (print_sections_list): have
-	part_following_node points to node structure information instead of
+	part_following_node point to node structure information instead of
 	pointing to tree elements.
 
 	* tta/C/convert/format_html.c (html_open_node_part_command),

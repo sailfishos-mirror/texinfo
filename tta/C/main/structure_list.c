@@ -298,16 +298,6 @@ print_root_command (const ELEMENT *element)
       if (structure->name) \
         { \
           char *value \
-            = print_root_command (structure->name); \
-          text_printf (&result, " " #name ": %s\n", \
-                       value); \
-          free (value); \
-        }
-
-#define SECTION_STRUCT_PRINT_KEY_OR_NULL(name) \
-      if (structure->name) \
-        { \
-          char *value \
             = root_command_element_string (structure->name->element); \
           if (value) \
             { \
@@ -370,10 +360,10 @@ print_sections_list (const DOCUMENT *document)
       text_append_n (&result, "\n", 1);
 
       SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_node)
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(part_following_node)
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_part)
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(part_associated_section)
+      SECTION_STRUCT_PRINT_KEY(associated_node)
+      SECTION_STRUCT_PRINT_KEY(part_following_node)
+      SECTION_STRUCT_PRINT_KEY(associated_part)
+      SECTION_STRUCT_PRINT_KEY(part_associated_section)
       if (structure->section_directions)
         {
           text_append_n (&result, " section_directions:\n", 21);
@@ -548,8 +538,8 @@ print_nodes_list (const DOCUMENT *document)
         }
       text_append_n (&result, "\n", 1);
 
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(associated_section)
-      SECTION_STRUCT_PRINT_KEY_OR_NULL(node_preceding_part)
+      SECTION_STRUCT_PRINT_KEY(associated_section)
+      SECTION_STRUCT_PRINT_KEY(node_preceding_part)
 
       if (structure->associated_title_command)
         {
@@ -656,5 +646,4 @@ print_headings_list (const DOCUMENT *document)
   return result.text;
 }
 
-#undef SECTION_STRUCT_PRINT_KEY_OR_NULL
 #undef SECTION_STRUCT_PRINT_KEY

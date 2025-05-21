@@ -1146,6 +1146,28 @@ sub _print_key_section_with_number($$)
   }
 }
 
+sub _print_root_command($)
+{
+  my $element = shift;
+  #if (!defined($element)) {
+  #  confess('_print_root_command element undef');
+  #}
+  #if (!defined($element->{'contents'})) {
+  #  confess('_print_root_command element contents undef');
+  #}
+
+  my $argument_line = $element->{'contents'}->[0];
+  if ($argument_line->{'contents'}
+      and $argument_line->{'contents'}->[0]->{'contents'}) {
+    my $root_command_texi
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+    return $root_command_texi;
+  }
+  return undef;
+}
+
+# used in t/*.t tests
 sub _print_menu_node($)
 {
   my $element = shift;
@@ -1161,21 +1183,6 @@ sub _print_menu_node($)
   }
 }
 
-sub _print_root_command($)
-{
-  my $element = shift;
-  my $argument_line = $element->{'contents'}->[0];
-  if ($argument_line->{'contents'}
-      and $argument_line->{'contents'}->[0]->{'contents'}) {
-    my $root_command_texi
-      = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
-    return $root_command_texi;
-  }
-  return undef;
-}
-
-# used in t/*.t tests
 sub print_sections_list($)
 {
   my $document = shift;
@@ -1194,14 +1201,9 @@ sub print_sections_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_anchor_command')) {
-      if ($section_structure->{$node_key}) {
-        $result .= " $node_key: "
-          ._print_root_command($section_structure->{$node_key})."\n";
-      }
-    }
 
-    foreach my $node_structure_key (('associated_node',
+    foreach my $node_structure_key (('associated_anchor_command',
+                                      'associated_node',
                                      'part_following_node')) {
       if ($section_structure->{$node_structure_key}) {
         $result .= " $node_structure_key: "
@@ -1312,10 +1314,12 @@ sub print_headings_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_anchor_command')) {
-      if ($heading_structure->{$node_key}) {
-        $result .= " $node_key: "
-          ._print_root_command($heading_structure->{$node_key})."\n";
+
+    foreach my $node_structure_key (('associated_anchor_command')) {
+      if ($heading_structure->{$node_structure_key}) {
+        $result .= " $node_structure_key: "
+       ._print_root_command(
+          $heading_structure->{$node_structure_key}->{'element'})."\n";
       }
     }
     $idx++;

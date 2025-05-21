@@ -260,6 +260,9 @@ typedef struct NODE_STRUCTURE {
     /* TODO try to add const.  Not easy as it is used for current_node */
     ELEMENT *element;
     const struct SECTION_STRUCTURE *associated_section;
+    /* it can be associated to an heading or a section structure
+       information, so we prefer the element although a structure
+       information would have been more consistent */
     const ELEMENT *associated_title_command;
     const struct SECTION_STRUCTURE *node_preceding_part;
     const ELEMENT *node_description;
@@ -281,7 +284,7 @@ typedef struct NODE_STRUCTURE_LIST {
 
 typedef struct HEADING_STRUCTURE {
     const ELEMENT *element;
-    const ELEMENT *associated_anchor_command;
+    const NODE_STRUCTURE *associated_anchor_command;
 
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
@@ -296,7 +299,7 @@ typedef struct HEADING_STRUCTURE_LIST {
 
 typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
-    const ELEMENT *associated_anchor_command;
+    const NODE_STRUCTURE *associated_anchor_command;
     const NODE_STRUCTURE *associated_node;
     const struct SECTION_STRUCTURE *associated_part;
     const struct SECTION_STRUCTURE *part_associated_section;
