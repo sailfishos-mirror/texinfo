@@ -298,8 +298,8 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
   1|Chap 2
 5|Chap 2
  associated_anchor_command: chap2
- associated_node: chap2
  associated_part: P1
+ associated_node: chap2
  section_directions:
   up->P1
  toplevel_directions:
@@ -315,8 +315,8 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
   1|GGG
 7|GGG
  associated_anchor_command: app
- associated_node: app
  associated_part: Final
+ associated_node: app
  section_directions:
   up->Final
  toplevel_directions:

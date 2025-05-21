@@ -305,8 +305,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
   1|Chap
 3|Chap
  associated_anchor_command: chapter
- associated_node: chapter
  associated_part: Part I
+ associated_node: chapter
  section_directions:
   up->Part I
  toplevel_directions:
@@ -323,8 +323,8 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
   1|Other chap
 5|Other chap
  associated_anchor_command: other chap
- associated_node: other chap
  associated_part: Part II
+ associated_node: other chap
  section_directions:
   up->Part II
  toplevel_directions:

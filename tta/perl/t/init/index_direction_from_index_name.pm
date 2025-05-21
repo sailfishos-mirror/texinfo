@@ -51,7 +51,7 @@ sub _set_index_global_direction_from_index_name
          = $sections_list->[$top_level_element->{'extra'}->{'section_number'}];
               if ($section_structure->{'associated_node'}) {
                 $index_printindex_top_level_node
-                  = $section_structure->{'associated_node'};
+                  = $section_structure->{'associated_node'}->{'element'};
               }
             }
           }

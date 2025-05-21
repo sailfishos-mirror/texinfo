@@ -330,8 +330,8 @@ $result_sections_list{'contents_and_parts'} = '1|top
   2|chapter 2
 3|chapter 1
  associated_anchor_command: chapter 1 node
- associated_node: chapter 1 node
  associated_part: part 1: part 1
+ associated_node: chapter 1 node
  section_directions:
   next->chapter 2
   up->part 1: part 1
@@ -358,8 +358,8 @@ $result_sections_list{'contents_and_parts'} = '1|top
   1|chapter 3
 6|chapter 3
  associated_anchor_command: chapter 3 node
- associated_node: chapter 3 node
  associated_part: part2: part2
+ associated_node: chapter 3 node
  section_directions:
   up->part2: part2
  toplevel_directions:

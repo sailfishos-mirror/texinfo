@@ -4127,8 +4127,7 @@ sub _end_line_misc_line($$$)
                                         $section_structure);
         if (!$node_structure->{'associated_section'}) {
           $node_structure->{'associated_section'} = $section_structure;
-          $section_structure->{'associated_node'}
-            = $node_structure->{'element'};
+          $section_structure->{'associated_node'} = $node_structure;
         }
       }
       if ($self->{'current_part'}) {

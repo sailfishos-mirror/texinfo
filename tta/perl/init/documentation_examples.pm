@@ -138,7 +138,8 @@ sub _set_appendix_direction_node_name
     my $section = $section_structure->{'element'};
     if ($section->{'cmdname'} eq 'appendix') {
       if ($section_structure->{'associated_node'}) {
-        my $node = $section_structure->{'associated_node'};
+        my $node_structure = $section_structure->{'associated_node'};
+        my $node = $node_structure->{'element'};
         my $label_element = Texinfo::Common::get_label_element($node);
         if (defined($label_element)) {
           my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(

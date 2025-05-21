@@ -474,8 +474,8 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   1|chap, @code{a chap}
   2|
 3|chap, @code{a chap}
- associated_node: chap@comma{} @code{a chap}
  associated_part: part
+ associated_node: chap@comma{} @code{a chap}
  section_directions:
   next->
   up->part

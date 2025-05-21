@@ -4125,7 +4125,8 @@ sub _convert($$)
           my $section_structure
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
           if ($section_structure->{'associated_node'}) {
-            my $associated_node = $section_structure->{'associated_node'};
+            my $associated_node
+              = $section_structure->{'associated_node'}->{'element'};
             # arguments_line type element
             my $arguments_line = $associated_node->{'contents'}->[0];
             my $line_arg = $arguments_line->{'contents'}->[0];

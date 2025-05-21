@@ -1001,6 +1001,20 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
                     strlen (#keyname), sv, 0); \
         }
 
+#define STORE_STRUCT_INFO_NODE_STRUCTURE(keyname) \
+       if (structure->keyname) \
+        { \
+          if (!structure->keyname->hv) \
+            { \
+              NODE_STRUCTURE *node = (NODE_STRUCTURE *) \
+                structure->keyname; \
+              node->hv = newHV (); \
+            } \
+          sv = newRV_inc ((SV *) structure->keyname->hv); \
+          hv_store (structure_hv, #keyname, \
+                    strlen (#keyname), sv, 0); \
+        }
+
 static void
 build_node_structure (NODE_STRUCTURE *structure)
 {
@@ -1134,7 +1148,7 @@ build_section_structure (SECTION_STRUCTURE *structure)
 
   sv = newRV_inc ((SV *) structure->element->hv);
   hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-  STORE_STRUCT_INFO_ELEMENT(associated_node)
+  STORE_STRUCT_INFO_NODE_STRUCTURE(associated_node)
   STORE_STRUCT_INFO_ELEMENT(associated_anchor_command)
   STORE_STRUCT_INFO_ELEMENT(associated_part)
   STORE_STRUCT_INFO_ELEMENT(part_associated_section)

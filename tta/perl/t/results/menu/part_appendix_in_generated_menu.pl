@@ -280,8 +280,8 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
   1|Chap 2
 5|Chap 2
  associated_anchor_command: chap2
- associated_node: chap2
  associated_part: P1
+ associated_node: chap2
  section_directions:
   up->P1
  toplevel_directions:

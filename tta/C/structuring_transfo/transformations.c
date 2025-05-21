@@ -914,7 +914,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   node_idx++;
                   add_extra_integer (added_node, AI_key_node_number,
                                      node_idx);
-                  section_structure->associated_node = added_node;
+                  section_structure->associated_node = new_node_structure;
                   added_node->parent = content->parent;
                   /* reassociate index entries and menus that are
                      in the sectioning command contents */

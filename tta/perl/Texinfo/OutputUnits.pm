@@ -358,7 +358,7 @@ sub _output_unit_node($$)
     my $section_structure
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     if ($section_structure->{'associated_node'}) {
-      return $section_structure->{'associated_node'}
+      return $section_structure->{'associated_node'}->{'element'};
     } else {
       return undef;
     }
@@ -396,7 +396,7 @@ sub units_directions($$$$;$)
           and $output_unit->{'tree_unit_directions'}->{'prev'}
                                                      ->{'unit_type'} eq 'unit');
     my $node = _output_unit_node($output_unit, $sections_list);
-    if (defined($node)) {
+    if ($node) {
       my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {

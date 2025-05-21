@@ -297,7 +297,7 @@ typedef struct HEADING_STRUCTURE_LIST {
 typedef struct SECTION_STRUCTURE {
     const ELEMENT *element;
     const ELEMENT *associated_anchor_command;
-    const ELEMENT *associated_node;
+    const NODE_STRUCTURE *associated_node;
     const ELEMENT *associated_part;
     const ELEMENT *part_associated_section;
     const ELEMENT *part_following_node;

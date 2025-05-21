@@ -437,7 +437,7 @@ output_unit_node (OUTPUT_UNIT *output_unit,
       section_structure = sections_list->list[section_number -1];
 
       if (section_structure->associated_node)
-        return section_structure->associated_node;
+        return section_structure->associated_node->element;
       else
         return 0;
    }

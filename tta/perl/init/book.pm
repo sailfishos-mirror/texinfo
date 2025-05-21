@@ -338,17 +338,17 @@ sub book_convert_heading_command($$$$$)
     }
     # to avoid *heading* @-commands
   } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
-    my $associated_node;
+    my $associated_node_structure;
     if ($sections_list) {
       my $section_structure
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
       if ($section_structure->{'associated_node'}) {
-        $associated_node = $section_structure->{'associated_node'};
+        $associated_node_structure = $section_structure->{'associated_node'};
       }
     }
     # if there is an associated node, it is not a section opening
     # the section was opened before when the node was encountered
-    if (!$associated_node) {
+    if (!$associated_node_structure) {
       $opening_section = $element;
       $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
     }

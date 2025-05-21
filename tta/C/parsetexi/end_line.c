@@ -1805,8 +1805,7 @@ end_line_misc_line (ELEMENT *current)
                   if (!current_node->associated_section)
                     {
                       current_node->associated_section = section_structure;
-                      section_structure->associated_node
-                        = current_node->element;
+                      section_structure->associated_node = current_node;
                     }
                 }
 

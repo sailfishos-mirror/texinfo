@@ -610,12 +610,12 @@ sub _docbook_section_element($$)
     my $sections_list = $self->{'document'}->sections_list();
     my $section_structure
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_structure->{'associated_node'}
-        and $section_structure->{'associated_node'}->{'extra'}
-        and $section_structure->{'associated_node'}->{'extra'}->{'normalized'}
-        and $docbook_special_unnumbered{lc(
-      $section_structure->{'associated_node'}->{'extra'}->{'normalized'})}) {
-    return lc($section_structure->{'associated_node'}->{'extra'}->{'normalized'});
+    if ($section_structure->{'associated_node'}) {
+      my $associated_node = $section_structure->{'associated_node'}->{'element'};
+      if ($docbook_special_unnumbered{
+              lc($associated_node->{'extra'}->{'normalized'})}) {
+        return lc($associated_node->{'extra'}->{'normalized'});
+      }
     }
   }
 
@@ -1088,13 +1088,10 @@ sub _convert($$;$)
               my $sections_list = $self->{'document'}->sections_list();
               $section_structure
             = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
-              if ($section_structure->{'associated_node'}
-                  and $section_structure->{'associated_node'}->{'extra'}
-                  and defined($section_structure->{'associated_node'}
-                                                ->{'extra'}->{'normalized'})) {
+              if ($section_structure->{'associated_node'}) {
                 # FIXME DocBook 5 id -> xml:id
                 $section_attribute
-    .= " id=\"$section_structure->{'associated_node'}->{'extra'}->{'normalized'}\"";
+    .= " id=\"$section_structure->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
               }
             }
             my $language = '';

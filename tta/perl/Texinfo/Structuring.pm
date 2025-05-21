@@ -404,7 +404,7 @@ sub print_sections_list($)
     } else {
       $result .= "$idx|$root_command_texi\n";
     }
-    foreach my $node_key (('associated_anchor_command', 'associated_node',
+    foreach my $node_key (('associated_anchor_command',
                            'associated_part',
                            'part_associated_section', 'part_following_node')) {
       if ($section_structure->{$node_key}) {
@@ -412,6 +412,15 @@ sub print_sections_list($)
           ._print_root_command($section_structure->{$node_key})."\n";
       }
     }
+
+    foreach my $node_structure_key (('associated_node')) {
+      if ($section_structure->{$node_structure_key}) {
+        $result .= " $node_structure_key: "
+    ._print_root_command(
+        $section_structure->{$node_structure_key}->{'element'})."\n";
+      }
+    }
+
     foreach my $directions_key (('section_directions', 'toplevel_directions')) {
       if ($section_structure->{$directions_key}) {
         my $value = $section_structure->{$directions_key};
@@ -619,7 +628,7 @@ sub get_node_node_childs_from_sectioning($$)
       foreach my $child_structure
                         (@{$associated_structure->{'section_childs'}}) {
         if ($child_structure->{'associated_node'}) {
-          push @node_childs, $child_structure->{'associated_node'};
+          push @node_childs, $child_structure->{'associated_node'}->{'element'};
         }
       }
     }
@@ -636,7 +645,8 @@ sub get_node_node_childs_from_sectioning($$)
             foreach my $child_structure
                          (@{$current_structure->{'section_childs'}}) {
               if ($child_structure->{'associated_node'}) {
-                push @node_childs, $child_structure->{'associated_node'};
+                push @node_childs,
+                     $child_structure->{'associated_node'}->{'element'};
               }
             }
           }
@@ -644,7 +654,8 @@ sub get_node_node_childs_from_sectioning($$)
           if ($current_structure->{'associated_node'}) {
             # for @appendix, and what follows, as it stops a @part, but is
             # not below @top
-            push @node_childs, $current_structure->{'associated_node'};
+            push @node_childs,
+                 $current_structure->{'associated_node'}->{'element'};
           }
         }
       }
@@ -977,9 +988,7 @@ sub complete_node_tree_with_menus($)
                 my $up_sec = $up_structure->{'element'};
 
                 if ($up_structure->{'associated_node'}) {
-                  my $up_node = $up_structure->{'associated_node'};
-                  my $up_node_structure
-                    = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
+                  my $up_node_structure = $up_structure->{'associated_node'};
                   if ($up_node_structure->{'menus'}
                       and scalar(@{$up_node_structure->{'menus'}})) {
                     $menus = $up_node_structure->{'menus'};
@@ -994,7 +1003,7 @@ sub complete_node_tree_with_menus($)
            sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
                           $direction,
                           target_element_to_texi_label($node),
-                      target_element_to_texi_label($direction_associated_node)),
+         target_element_to_texi_label($direction_associated_node->{'element'})),
                                       $node->{'source_info'}, 0,
                                $customization_information->get_conf('DEBUG'));
               }
@@ -1181,7 +1190,7 @@ sub construct_nodes_tree($)
               $node_structure->{'node_directions'} = {}
                  if (!$node_structure->{'node_directions'});
               $node_structure->{'node_directions'}->{$direction}
-                                                = $direction_associated_node;
+                              = $direction_associated_node->{'element'};
             }
           }
         }
@@ -1194,7 +1203,7 @@ sub construct_nodes_tree($)
             my $section_child_structure = $section_childs->[0];
             if ($section_child_structure->{'associated_node'}) {
               $top_node_section_child
-                = $section_child_structure->{'associated_node'};
+                = $section_child_structure->{'associated_node'}->{'element'};
               $node_structure->{'node_directions'} = {}
                   if (! $node_structure->{'node_directions'});
               $node_structure->{'node_directions'}->{'next'}

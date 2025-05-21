@@ -1341,7 +1341,7 @@ html_command_node (CONVERTER *self, const ELEMENT *command)
                         = sections_list->list[section_number -1];
                       if (section_structure->associated_node)
                         target_info->node_command
-                          = section_structure->associated_node;
+                          = section_structure->associated_node->element;
                     }
                 }
               free (root_unit);
@@ -1404,7 +1404,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                 = sections_list->list[section_number -1];
 
               if (section_structure->associated_node)
-                target_command = section_structure->associated_node;
+                target_command = section_structure->associated_node->element;
               else if (section_structure->associated_anchor_command)
                 target_command = section_structure->associated_anchor_command;
             }
@@ -1582,7 +1582,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
               const SECTION_STRUCTURE *section_structure
                 = self->document->sections_list.list[section_number -1];
               if (section_structure->associated_node)
-                node = section_structure->associated_node;
+                node = section_structure->associated_node->element;
             }
 
           if (!node)
@@ -2501,7 +2501,7 @@ from_element_direction (CONVERTER *self, int direction,
                     = self->document->sections_list.list[section_number -1];
 
                   if (section_structure->associated_node)
-                    command = section_structure->associated_node;
+                    command = section_structure->associated_node->element;
                 }
             }
           type = HTT_text;
@@ -3236,7 +3236,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       if (section_structure->associated_node)
                         {
                           int is_index
-                     = (section_structure->associated_node->flags & EF_isindex);
+          = (section_structure->associated_node->element->flags & EF_isindex);
                           if (is_index)
                             text_append_n (&result, " rel=\"index\"", 12);
                         }
@@ -4326,7 +4326,8 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
 
           const SECTION_STRUCTURE *section_structure
             = self->document->sections_list.list[section_number -1];
-          node_command = section_structure->associated_node;
+          if (section_structure->associated_node)
+            node_command = section_structure->associated_node->element;
         }
       if (!node_command)
         node_command = element_command;
@@ -7433,19 +7434,15 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             {
               if (section_structure && section_structure->associated_node)
                 {
-                  const ELEMENT *node = section_structure->associated_node;
+                  const NODE_STRUCTURE *node_structure
+                    = section_structure->associated_node;
                   const NODE_STRUCTURE_LIST *nodes_list
                     = &self->document->nodes_list;
                   /* arguments_line type element */
-                  const ELEMENT *arguments_line = node->e.c->contents.list[0];
+                  const ELEMENT *arguments_line
+                    = node_structure->element->e.c->contents.list[0];
                   int automatic_directions
                     = (arguments_line->e.c->contents.number <= 1);
-
-                  int status;
-                  size_t node_number
-                   = lookup_extra_integer (node, AI_key_node_number, &status);
-                  const NODE_STRUCTURE *node_structure
-                    = nodes_list->list[node_number -1];
 
                   const CONST_ELEMENT_LIST *menus = node_structure->menus;
                   if (!menus && automatic_directions && self->document)
@@ -7544,7 +7541,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   /* to avoid *heading* @-commands */
   else if (builtin_command_data[cmd].flags & CF_root)
     {
-      const ELEMENT *associated_node = 0;
+      const NODE_STRUCTURE *associated_node_structure = 0;
 
       if (self->document)
         {
@@ -7556,12 +7553,13 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             = self->document->sections_list.list[section_number -1];
 
           if (section_structure->associated_node)
-            associated_node = section_structure->associated_node;
+            associated_node_structure
+              = section_structure->associated_node;
         }
 
        /* if there is an associated node, it is not a section opening
         the section was opened before when the node was encountered */
-      if (!associated_node)
+      if (!associated_node_structure)
         {
           opening_section = element;
           level_corrected_opening_section_cmd = level_corrected_cmd;
@@ -10019,7 +10017,8 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
                 = self->document->sections_list.list[section_number -1];
 
               if (section_structure->associated_node)
-                root_unit->root = section_structure->associated_node;
+                root_unit->root
+                  = section_structure->associated_node->element;
             }
         }
       else if (root_command->e.c->cmd == CM_node

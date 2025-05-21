@@ -1,5 +1,48 @@
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	associated_node points to node information
+
+	* tta/C/main/build_perl_info.c (STORE_STRUCT_INFO_NODE_STRUCTURE)
+	(build_section_structure), tta/C/main/structure_list.c
+	(print_sections_list), tta/C/main/tree_types.h (SECTION_STRUCTURE),
+	tta/C/parsetexi/end_line.c (end_line_misc_line), 
+	tta/C/structuring_transfo/transformations.c
+	(insert_nodes_for_sectioning_commands),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Structuring.pm (print_sections_list),
+	tta/perl/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands): let associated_node be a node
+	structure information instead of a node element in the tree.
+
+	* tta/C/convert/format_html.c (html_command_node)
+	(html_internal_command_href, html_command_description)
+	(from_element_direction, html_default_format_contents)
+	(html_default_format_begin_file, html_convert_heading_command)
+	(html_convert_heading_command, get_element_root_command_element),
+	tta/C/main/output_unit.c (output_unit_node),
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning)
+	(section_direction_associated_node, complete_node_tree_with_menus)
+	(construct_nodes_tree), tta/perl/Texinfo/Convert/DocBook.pm
+	(_docbook_section_element, _convert), tta/perl/Texinfo/Convert/HTML.pm
+	(command_node, _internal_command_href, command_description)
+	(get_element_root_command_element, from_element_direction)
+	(_convert_heading_command, _default_format_contents)
+	(_default_format_begin_file), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_convert), tta/perl/Texinfo/OutputUnits.pm (_output_unit_node)
+	(units_directions), tta/perl/Texinfo/Structuring.pm
+	(get_node_node_childs_from_sectioning, complete_node_tree_with_menus)
+	(construct_nodes_tree), tta/perl/init/book.pm
+	(book_convert_heading_command),
+	tta/perl/init/documentation_examples.pm,
+	tta/perl/t/init/index_direction_from_index_name.pm: update for change
+	of associated_node.
+
+	* doc/texi2any_api.texi (Setting Global Directions From Document
+	Information): update example.
+
+2025-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/transformations.c
 	(complete_tree_nodes_missing_menu): free the non_automatic_nodes list
 	only, not the nodes structures inside.

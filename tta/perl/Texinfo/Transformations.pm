@@ -527,7 +527,7 @@ sub insert_nodes_for_sectioning_commands($)
         splice(@{$nodes_list}, $node_idx, 0, $new_node_structure);
         $node_idx++;
         $new_node->{'extra'}->{'node_number'} = $node_idx;
-        $section_structure->{'associated_node'} = $new_node;
+        $section_structure->{'associated_node'} = $new_node_structure;
         $new_node->{'parent'} = $content->{'parent'};
         push @added_nodes, $new_node;
         # reassociate index entries and menus

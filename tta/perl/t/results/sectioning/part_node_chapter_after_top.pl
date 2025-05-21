@@ -276,8 +276,8 @@ $result_sections_list{'part_node_chapter_after_top'} = '1|top
   1|chapter
 3|chapter
  associated_anchor_command: chapter
- associated_node: chapter
  associated_part: part
+ associated_node: chapter
  section_directions:
   up->part
  toplevel_directions:

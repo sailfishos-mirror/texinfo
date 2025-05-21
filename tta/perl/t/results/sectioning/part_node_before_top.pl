@@ -176,8 +176,8 @@ $result_sections_list{'part_node_before_top'} = '1|part
   next->top
 2|top
  associated_anchor_command: Top
- associated_node: Top
  associated_part: part
+ associated_node: Top
  section_directions:
   prev->part
 ';

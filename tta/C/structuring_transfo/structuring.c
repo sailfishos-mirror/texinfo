@@ -505,7 +505,7 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
                 = section_childs->list[i];
               if (child_structure->associated_node)
                 add_to_const_element_list (node_childs,
-                                           child_structure->associated_node);
+                              child_structure->associated_node->element);
             }
         }
        /* Special case for @top.  Gather all the children of the @part following
@@ -533,7 +533,7 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
                                 = section_childs->list[i];
                               if (child_structure->associated_node)
                                 add_to_const_element_list (node_childs,
-                                               child_structure->associated_node);
+                                 child_structure->associated_node->element);
                             }
                         }
                     }
@@ -545,7 +545,7 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
                        */
                       if (current_structure->associated_node)
                         add_to_const_element_list (node_childs,
-                                       current_structure->associated_node);
+                          current_structure->associated_node->element);
                     }
                 }
               else
@@ -1059,7 +1059,7 @@ set_menus_node_directions (DOCUMENT *document)
     }
 }
 
-static const ELEMENT *
+static const NODE_STRUCTURE *
 section_direction_associated_node (const SECTION_STRUCTURE_LIST *sections_list,
                                    const SECTION_STRUCTURE *section_structure,
                                    enum directions direction)
@@ -1148,7 +1148,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
                     {
                       int status;
-                      const ELEMENT *direction_associated_node;
+                      const NODE_STRUCTURE *direction_associated_node;
                       const SECTION_STRUCTURE *direction_structure
                         = section_structure;
           /* Prefer the section associated with a @part for node directions. */
@@ -1178,12 +1178,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
                               if (up_structure->associated_node)
                                 {
-                                  size_t up_node_number
-                                    = lookup_extra_integer (
-                                           up_structure->associated_node,
-                                           AI_key_node_number, &status);
                                    const NODE_STRUCTURE *up_node_structure
-                                     = nodes_list->list[up_node_number -1];
+                                     = up_structure->associated_node;
                                    menus = up_node_structure->menus;
                                 }
                             }
@@ -1197,7 +1193,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                 = target_element_to_texi_label (node);
                               char *direction_texi
                                = target_element_to_texi_label
-                                               (direction_associated_node);
+                                 (direction_associated_node->element);
                               message_list_command_warn (error_messages,
                              (options && options->DEBUG.o.integer > 0),
                                        node, 0,
@@ -1463,7 +1459,7 @@ construct_nodes_tree (DOCUMENT *document)
               {
                 const SECTION_STRUCTURE *section_structure;
                 const ELEMENT *section;
-                const ELEMENT *direction_associated_node;
+                const NODE_STRUCTURE *direction_associated_node;
            /* prev defined as Top for the first Top node menu entry node */
                 if (d == D_prev && top_node_section_child
                     && node == top_node_section_child)
@@ -1488,7 +1484,7 @@ construct_nodes_tree (DOCUMENT *document)
                         if (!node_structure->node_directions)
                           node_structure->node_directions = new_directions ();
                         node_structure->node_directions[d]
-                           = direction_associated_node;
+                           = direction_associated_node->element;
                       }
                   }
               }
@@ -1510,7 +1506,7 @@ construct_nodes_tree (DOCUMENT *document)
                     if (!node_structure->node_directions)
                       node_structure->node_directions = new_directions ();
                     top_node_section_child
-                      = section_child_structure->associated_node;
+                      = section_child_structure->associated_node->element;
                     node_structure->node_directions[D_next]
                       = top_node_section_child;
                   }

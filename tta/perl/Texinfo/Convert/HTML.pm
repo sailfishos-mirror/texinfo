@@ -1098,7 +1098,7 @@ sub command_node($$)
             = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
           if ($section_structure->{'associated_node'}) {
             $target->{'node_command'}
-              = $section_structure->{'associated_node'};
+              = $section_structure->{'associated_node'}->{'element'};
           }
         }
       } else {
@@ -1142,7 +1142,7 @@ sub _internal_command_href($$;$$)
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
         if ($section_structure->{'associated_node'}) {
-          $target_command = $section_structure->{'associated_node'};
+          $target_command = $section_structure->{'associated_node'}->{'element'};
         } elsif ($section_structure->{'associated_anchor_command'}) {
           $target_command = $section_structure->{'associated_anchor_command'};
         }
@@ -1750,7 +1750,7 @@ sub command_description($$;$)
         my $section_structure
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
         if ($section_structure->{'associated_node'}) {
-          $node = $section_structure->{'associated_node'};
+          $node = $section_structure->{'associated_node'}->{'element'};
         }
       }
     }
@@ -1890,7 +1890,8 @@ sub get_element_root_command_element($$)
           my $section_structure
             = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
           if ($section_structure->{'associated_node'}) {
-            return ($output_unit, $section_structure->{'associated_node'});
+            return ($output_unit,
+                    $section_structure->{'associated_node'}->{'element'});
           }
         }
       }
@@ -2037,7 +2038,7 @@ sub from_element_direction($$$;$$$)
             my $section_structure
           = $sections_list->[$section_element->{'extra'}->{'section_number'} -1];
             if ($section_structure->{'associated_node'}) {
-              $command = $section_structure->{'associated_node'};
+              $command = $section_structure->{'associated_node'}->{'element'};
             }
           }
         }
@@ -4834,7 +4835,7 @@ sub _convert_heading_command($$$$$)
       $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $section_structure);
     } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
       if ($section_structure and $section_structure->{'associated_node'}) {
-        my $node = $section_structure->{'associated_node'};
+        my $node = $section_structure->{'associated_node'}->{'element'};
         # arguments_line type element
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions = 1;
@@ -4919,17 +4920,18 @@ sub _convert_heading_command($$$$$)
     }
     # to avoid *heading* @-commands
   } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
-    my $associated_node;
+    my $associated_node_structure;
     if ($sections_list) {
       my $section_structure
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
       if ($section_structure->{'associated_node'}) {
-        $associated_node = $section_structure->{'associated_node'};
+        $associated_node_structure
+          = $section_structure->{'associated_node'};
       }
     }
     # if there is an associated node, it is not a section opening
     # the section was opened before when the node was encountered
-    if (!$associated_node) {
+    if (!$associated_node_structure) {
       $opening_section = $element;
       $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
     }
@@ -11646,8 +11648,8 @@ sub _default_format_contents($$;$$)
               $result .= " href=\"$href\"";
             }
             if ($section_structure->{'associated_node'}
-                and $section_structure->{'associated_node'}->{'extra'}
-                and $section_structure->{'associated_node'}->{'extra'}->{'isindex'}) {
+                and $section_structure->{'associated_node'}
+                            ->{'element'}->{'extra'}->{'isindex'}) {
               $result .= ' rel="index"';
             }
             $result .= ">$text</a>";
@@ -12061,7 +12063,7 @@ sub _default_format_begin_file($$$)
       my $section_structure
         = $sections_list->[$element_command->{'extra'}->{'section_number'} -1];
       if ($section_structure->{'associated_node'}) {
-        $node_command = $section_structure->{'associated_node'};
+        $node_command = $section_structure->{'associated_node'}->{'element'};
       }
     }
 
