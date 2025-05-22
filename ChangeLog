@@ -1,3 +1,12 @@
+2025-05-22  Patrice Dumas  <pertusus@free.fr>
+
+	no empty nodes associated to output units
+
+	* tta/C/main/output_unit.c (split_by_node),
+	tta/perl/Texinfo/OutputUnits.pm (split_by_node): do not 'split' at
+	node that do not have a 'normalized' extra information, ie a node that
+	ends up being all spaces.
+
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
 	associated_anchor_command points to node information

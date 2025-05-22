@@ -297,11 +297,8 @@ $result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '
 $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
-<hr>
 
-<hr>
 
-<hr>
 
 <p>&lsquo;&nbsp;&nbsp;&rsquo;
 </p>
@@ -369,8 +366,6 @@ File: ,  Node: Top,  Up: (dir)
 *   ::
 *   ::
 *  ::
-
-
 
 *note   ::
 

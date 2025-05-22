@@ -126,7 +126,9 @@ sub split_by_node($)
       push @pending_parts, $content;
       next;
     }
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node') {
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
+        and $content->{'extra'}
+        and defined($content->{'extra'}->{'normalized'})) {
       if (not $current->{'unit_command'}) {
         $current->{'unit_command'} = $content;
       } else {
@@ -182,6 +184,9 @@ sub split_by_section($)
     my $new_section;
     if ($content->{'cmdname'}) {
       if ($content->{'cmdname'} eq 'node') {
+        # FIXME if node consists only of spaces and has not node_number
+        # set, there will be spurious autovivification here.  Such a
+        # situation is not in tests.
         my $node_structure
           = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
         if ($node_structure->{'associated_section'}) {

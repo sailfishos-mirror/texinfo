@@ -286,11 +286,9 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#CARRIAGE-RETURN_007c-_007c" accesskey="1">CARRIAGE RETURN|'."\r".'|</a></li>
 <li><a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c" accesskey="2">CHARACTER TABULATION|	| FORM FEED|&#12;|</a></li>
 </ul>
-<hr>
 <div class="chapter-level-extent" id="CARRIAGE-RETURN_007c-_007c">
 <h2 class="chapter"><span>1 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h2>
 
-<hr>
 </div>
 <div class="chapter-level-extent" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c">
 <h2 class="chapter"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;|<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"> &para;</a></span></h2>

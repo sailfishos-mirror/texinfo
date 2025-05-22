@@ -172,16 +172,22 @@ split_by_node (DOCUMENT *document)
         }
       if (data_cmd == CM_node)
         {
-          if (!current->uc.unit_command)
-            current->uc.unit_command = content;
-          else
+          const char *normalized
+            = lookup_extra_string (content, AI_key_normalized);
+          if (normalized)
             {
-              OUTPUT_UNIT *last = output_units->list[output_units->number -1];
-              current = new_output_unit (OU_unit);
-              current->uc.unit_command = content;
-              current->tree_unit_directions[D_prev] = last;
-              last->tree_unit_directions[D_next] = current;
-              add_to_output_unit_list (output_units, current);
+              if (!current->uc.unit_command)
+                current->uc.unit_command = content;
+              else
+                {
+                  OUTPUT_UNIT *last
+                    = output_units->list[output_units->number -1];
+                  current = new_output_unit (OU_unit);
+                  current->uc.unit_command = content;
+                  current->tree_unit_directions[D_prev] = last;
+                  last->tree_unit_directions[D_next] = current;
+                  add_to_output_unit_list (output_units, current);
+                }
             }
         }
       if (pending_parts->number > 0)
@@ -418,7 +424,7 @@ output_unit_node (OUTPUT_UNIT *output_unit,
 
   if (element->e.c->cmd == CM_node)
     {
-      char *normalized
+      const char *normalized
         = lookup_extra_string (element, AI_key_normalized);
       if (normalized)
         return element;
