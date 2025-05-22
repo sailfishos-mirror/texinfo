@@ -184,13 +184,13 @@ sub split_by_section($)
     my $new_section;
     if ($content->{'cmdname'}) {
       if ($content->{'cmdname'} eq 'node') {
-        # FIXME if node consists only of spaces and has not node_number
-        # set, there will be spurious autovivification here.  Such a
-        # situation is not in tests.
-        my $node_structure
-          = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
-        if ($node_structure->{'associated_section'}) {
-          $new_section = $node_structure->{'associated_section'}->{'element'};
+        if ($content->{'extra'} and $content->{'extra'}->{'node_number'}) {
+          my $node_structure
+            = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
+          if ($node_structure->{'associated_section'}) {
+            $new_section
+              = $node_structure->{'associated_section'}->{'element'};
+          }
         }
       } else {
         if ($content->{'cmdname'} eq 'part') {

@@ -1,5 +1,11 @@
 2025-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/output_unit.c (split_by_section),
+	tta/perl/Texinfo/OutputUnits.pm (split_by_section): check that a node
+	has a node number before looking for the associated section.
+
+2025-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	no empty nodes associated to output units
 
 	* tta/C/main/output_unit.c (split_by_node),

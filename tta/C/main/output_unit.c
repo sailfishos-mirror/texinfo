@@ -251,11 +251,14 @@ split_by_section (DOCUMENT *document)
           size_t node_number
                 = lookup_extra_integer (content,
                                         AI_key_node_number, &status);
-          const NODE_STRUCTURE *node_structure
-            = document->nodes_list.list[node_number -1];
+          if (node_number)
+            {
+              const NODE_STRUCTURE *node_structure
+                = document->nodes_list.list[node_number -1];
 
-          if (node_structure->associated_section)
-            new_section = node_structure->associated_section->element;
+              if (node_structure->associated_section)
+                new_section = node_structure->associated_section->element;
+            }
         }
       else
         {

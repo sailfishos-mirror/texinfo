@@ -1708,6 +1708,12 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
        },
        {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 0}],
+['simple_only_special_spaces_node_test_split_section',
+undef, {'test_file' => 'simple_only_special_spaces_node.texi',
+        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+        'test_split' => 'section',
+       },
+],
 # also in *sectioning.t.  Here we are interested both by the infinite
 # recursion and by the title strings to verify that they do not end up
 # with attributes
