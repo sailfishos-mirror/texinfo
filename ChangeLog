@@ -1,5 +1,11 @@
 2025-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
+	(simple_only_special_spaces_node_test_split_section): test split 
+	at sections with nodes consisting of spaces only.
+
+2025-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/output_unit.c (split_by_section),
 	tta/perl/Texinfo/OutputUnits.pm (split_by_section): check that a node
 	has a node number before looking for the associated section.

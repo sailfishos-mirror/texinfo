@@ -800,6 +800,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/simple_only_special_spaces_node/res_html \
   t/results/html_tests/simple_only_special_spaces_node_no_translit_files.pl \
   t/results/html_tests/simple_only_special_spaces_node_no_translit_files/res_html \
+  t/results/html_tests/simple_only_special_spaces_node_test_split_section.pl \
+  t/results/html_tests/simple_only_special_spaces_node_test_split_section/res_html \
   t/results/html_tests/simplest_test_date_in_header.pl \
   t/results/html_tests/simplest_test_date_in_header/res_html \
   t/results/html_tests/spaces_in_line_break_in_verb_w.pl \
