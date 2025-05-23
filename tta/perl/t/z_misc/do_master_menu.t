@@ -128,14 +128,13 @@ my $document = $parser->parse_texi_piece($in_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
 my $identifier_target = $document->labels_information();
 my $nodes_list = $document->nodes_list();
-my $sections_list = $document->sections_list();
 my $top_node = $identifier_target->{'Top'};
 my $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
 my $master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
                                           $document->registrar(),
-                         $identifier_target, $nodes_list, $sections_list,
+                                        $identifier_target, $nodes_list,
                                         $top_node_structure->{'menus'});
 my $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 
@@ -179,14 +178,13 @@ $document = $parser->parse_texi_piece($no_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
 $identifier_target = $document->labels_information();
 $nodes_list = $document->nodes_list();
-$sections_list = $document->sections_list();
 $top_node = $identifier_target->{'Top'};
 $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
 $master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
                                           $document->registrar(),
-                         $identifier_target, $nodes_list, $sections_list,
+                                          $identifier_target, $nodes_list,
                                            $top_node_structure->{'menus'});
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 is($out, $reference, 'master menu no detailmenu');

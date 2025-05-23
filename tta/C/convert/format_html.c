@@ -7407,8 +7407,6 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                   if (!menus && automatic_directions && self->document)
                     {
                       ELEMENT *menu_node;
-                      const SECTION_STRUCTURE_LIST *sections_list
-                        = &self->document->sections_list;
 
                       if (format_menu == 1)
                         menu_node
@@ -7416,12 +7414,12 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                             self->conf,
                             self->current_lang_translations,
                             &self->document->identifiers_target,
-                            nodes_list, sections_list, node_structure);
+                            nodes_list, node_structure);
                       else
                          /* menu_no_detailmenu */
                         menu_node
                           = new_complete_node_menu (node_structure, nodes_list,
-                                        sections_list, self->document,
+                                        self->document,
                                         self->current_lang_translations,
                                         self->conf->DEBUG.o.integer, 0);
                       if (menu_node)

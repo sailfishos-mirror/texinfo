@@ -4575,7 +4575,7 @@ sub _convert($$)
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                     $identifiers_target, $nodes_list,
-                                    $sections_list, $node_structure);
+                                    $node_structure);
         if ($menu_node) {
           _convert($self, $menu_node);
           _add_newline_if_needed($self);

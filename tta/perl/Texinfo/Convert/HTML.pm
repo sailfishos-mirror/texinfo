@@ -4766,11 +4766,12 @@ sub _convert_heading_command($$$$$)
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $output_unit;
-  # All the root commands are associated to an output unit, the condition
-  # on associated_unit is always true.
-  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
-      and $element->{'associated_unit'}) {
-    $output_unit = $element->{'associated_unit'};
+  if ($Texinfo::Commands::root_commands{$cmdname}) {
+    # All the root commands are associated to an output unit, the condition
+    # on associated_unit is always true.
+    if ($element->{'associated_unit'}) {
+      $output_unit = $element->{'associated_unit'};
+    }
   }
   my $element_header = '';
   if ($output_unit) {
@@ -4816,7 +4817,8 @@ sub _convert_heading_command($$$$$)
       $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $section_structure);
     } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
       if ($section_structure and $section_structure->{'associated_node'}) {
-        my $node = $section_structure->{'associated_node'}->{'element'};
+        my $node_structure = $section_structure->{'associated_node'};
+        my $node = $node_structure->{'element'};
         # arguments_line type element
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions = 1;
@@ -4824,31 +4826,26 @@ sub _convert_heading_command($$$$$)
           $automatic_directions = 0;
         }
 
-        my $node_structure;
-        if ($document) {
-          $node_structure
-            = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
-          if ($automatic_directions
-              and !$node_structure->{'menus'}) {
-            my $identifiers_target = $document->labels_information();
+       if ($document and $automatic_directions
+           and !$node_structure->{'menus'}) {
+         my $identifiers_target = $document->labels_information();
 
-            my $menu_node;
-            if ($format_menu eq 'menu') {
-              $menu_node
-                = Texinfo::Structuring::new_complete_menu_master_menu($self,
+        my $menu_node;
+        if ($format_menu eq 'menu') {
+          $menu_node
+            = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                     $identifiers_target, $nodes_list,
-                                    $sections_list, $node_structure);
-            } else { # $format_menu eq 'menu_no_detailmenu'
-              $menu_node
-                = Texinfo::Structuring::new_complete_node_menu($node_structure,
-                                  $nodes_list, $sections_list,
-                                  $self->{'current_lang_translations'},
-                                  $self->get_conf('DEBUG'));
-            }
-            if ($menu_node) {
-              $toc_or_mini_toc_or_auto_menu
-                    = $self->convert_tree($menu_node, 'master menu');
-            }
+                                    $node_structure);
+          } else { # $format_menu eq 'menu_no_detailmenu'
+            $menu_node
+              = Texinfo::Structuring::new_complete_node_menu($node_structure,
+                                $nodes_list,
+                                $self->{'current_lang_translations'},
+                                $self->get_conf('DEBUG'));
+          }
+          if ($menu_node) {
+            $toc_or_mini_toc_or_auto_menu
+                  = $self->convert_tree($menu_node, 'master menu');
           }
         }
       }
@@ -4889,7 +4886,6 @@ sub _convert_heading_command($$$$$)
   if ($cmdname eq 'node') {
     if ($document and $element->{'extra'}
         and $element->{'extra'}->{'node_number'}) {
-      my $nodes_list = $document->nodes_list();
       my $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       if ($node_structure->{'associated_section'}) {

@@ -1,5 +1,32 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_heading_command),
+	tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning)
+	(section_direction_associated_node, complete_node_tree_with_menus)
+	(construct_nodes_tree, new_complete_node_menu, print_down_menus)
+	(new_detailmenu, new_complete_menu_master_menu),
+	tta/C/structuring_transfo/transformations.c (complete_node_menu)
+	(complete_tree_nodes_menus_in_document)
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Structuring.pm (get_node_node_childs_from_sectioning)
+	(check_nodes_are_referenced, _section_direction_associated_node)
+	(complete_node_tree_with_menus, construct_nodes_tree, number_floats)
+	(new_complete_node_menu, new_detailmenu)
+	(new_complete_menu_master_menu, _print_down_menus),
+	tta/perl/Texinfo/Transformations.pm (_complete_node_menu)
+	(complete_tree_nodes_menus_in_document)
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/t/z_misc/do_master_menu.t: remove sections_list arguments
+	when they are not useful.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command): use
+	directly associated_node node structure.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Shared Conversion State in Default
 	Formatting), tta/perl/Texinfo/Convert/HTML.pm (command_description)
 	(_formatted_nodedescription_nr, _convert_menu_entry_type),

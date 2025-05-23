@@ -1048,14 +1048,13 @@ typedef struct EXISTING_ENTRY {
     ELEMENT *entry;
 } EXISTING_ENTRY;
 
-void
+static void
 complete_node_menu (NODE_STRUCTURE *node_structure,
                     const NODE_STRUCTURE_LIST *nodes_list,
-                    const SECTION_STRUCTURE_LIST *sections_list,
                     int use_sections)
 {
   CONST_ELEMENT_LIST *node_childs
-    = get_node_node_childs_from_sectioning (node_structure, sections_list);
+    = get_node_node_childs_from_sectioning (node_structure);
 
   if (node_childs->number)
     {
@@ -1226,13 +1225,12 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
   NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   size_t i;
 
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       NODE_STRUCTURE *node_structure = non_automatic_nodes->list[i];
-      complete_node_menu (node_structure, nodes_list, sections_list,
+      complete_node_menu (node_structure, nodes_list,
                           use_sections);
       document->modified_information |= F_DOCM_tree | F_DOCM_nodes_list;
     }
@@ -1244,7 +1242,6 @@ void
 complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   const OPTIONS *options = document->options;
   NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
@@ -1267,7 +1264,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
           const ELEMENT *section
             = node_structure->associated_section->element;
           ELEMENT *current_menu = new_complete_node_menu (node_structure,
-                                                 nodes_list, sections_list,
+                                                 nodes_list,
                                                  document, lang_translation,
                                                  debug_level, use_sections);
           if (current_menu)
@@ -1296,7 +1293,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const CONST_ELEMENT_LIST *menus;
@@ -1328,7 +1324,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options,
                                     lang_translation, identifiers_target,
-                                    nodes_list, sections_list,
+                                    nodes_list,
                                     menus, use_sections);
 
   if (lang_translation)

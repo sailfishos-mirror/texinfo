@@ -484,8 +484,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
 }
 
 CONST_ELEMENT_LIST *
-get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure,
-                                  const SECTION_STRUCTURE_LIST *sections_list)
+get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure)
 {
   CONST_ELEMENT_LIST *node_childs = new_const_element_list ();
 
@@ -599,7 +598,6 @@ void
 check_nodes_are_referenced (DOCUMENT *document)
 {
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
@@ -699,8 +697,7 @@ check_nodes_are_referenced (DOCUMENT *document)
           if (automatic_directions)
             {
               CONST_ELEMENT_LIST *node_childs
-                = get_node_node_childs_from_sectioning (node_structure,
-                                                        sections_list);
+                = get_node_node_childs_from_sectioning (node_structure);
               size_t j;
               for (j = 0; j < node_childs->number; j++)
                 {
@@ -1060,8 +1057,7 @@ set_menus_node_directions (DOCUMENT *document)
 }
 
 static const NODE_STRUCTURE *
-section_direction_associated_node (const SECTION_STRUCTURE_LIST *sections_list,
-                                   const SECTION_STRUCTURE *section_structure,
+section_direction_associated_node (const SECTION_STRUCTURE *section_structure,
                                    enum directions direction)
 {
   size_t i;
@@ -1097,7 +1093,6 @@ void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
   const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
@@ -1157,7 +1152,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                             = section_structure->part_associated_section;
                         }
                       direction_associated_node
-                        = section_direction_associated_node (sections_list,
+                        = section_direction_associated_node (
                                                        direction_structure, d);
                       if (direction_associated_node)
                         {
@@ -1411,7 +1406,6 @@ void
 construct_nodes_tree (DOCUMENT *document)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
-  const SECTION_STRUCTURE_LIST *sections_list = &document->sections_list;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1471,7 +1465,7 @@ construct_nodes_tree (DOCUMENT *document)
                           = direction_structure->part_associated_section;
 
                     direction_associated_node
-                      = section_direction_associated_node (sections_list,
+                      = section_direction_associated_node (
                                                       direction_structure, d);
                     if (direction_associated_node)
                       {
@@ -1948,14 +1942,12 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
 ELEMENT *
 new_complete_node_menu (const NODE_STRUCTURE *node_structure,
                         const NODE_STRUCTURE_LIST *nodes_list,
-                        const SECTION_STRUCTURE_LIST *sections_list,
                         DOCUMENT *document,
                         LANG_TRANSLATION *lang_translations,
                         int debug_level, int use_sections)
 {
   CONST_ELEMENT_LIST *node_childs
-    = get_node_node_childs_from_sectioning (node_structure,
-                                            sections_list);
+    = get_node_node_childs_from_sectioning (node_structure);
   const SECTION_STRUCTURE *associated_section_structure;
   ELEMENT *new_menu;
   size_t i;
@@ -2076,7 +2068,6 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   const OPTIONS *options,
                   const C_HASHMAP *identifiers_target,
                   const NODE_STRUCTURE_LIST *nodes_list,
-                  const SECTION_STRUCTURE_LIST *sections_list,
                   int use_sections)
 {
   ELEMENT_LIST *master_menu_contents;
@@ -2107,7 +2098,6 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */
       new_current_menu = new_complete_node_menu (node_structure, nodes_list,
-                                                 sections_list,
                                                  0, 0, 0, use_sections);
       if (new_current_menu)
         {
@@ -2219,7 +2209,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
               ELEMENT_LIST *child_menu_content
                = print_down_menus (child, up_nodes, error_messages,
                                    options, identifiers_target, nodes_list,
-                                   sections_list, use_sections);
+                                   use_sections);
               if (child_menu_content)
                 {
                   insert_list_slice_into_list (master_menu_contents,
@@ -2251,7 +2241,6 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 LANG_TRANSLATION *lang_translation,
                 const C_HASHMAP *identifiers_target,
                 const NODE_STRUCTURE_LIST *nodes_list,
-                const SECTION_STRUCTURE_LIST *sections_list,
                 const CONST_ELEMENT_LIST *menus, int use_sections)
 {
   /* only holds contents here, will add spaces and end in
@@ -2280,7 +2269,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                       ELEMENT_LIST *down_menus = print_down_menus (menu_node,
                                           0, error_messages, options,
                                           identifiers_target, nodes_list,
-                                          sections_list, use_sections);
+                                          use_sections);
                       if (down_menus)
                         {
                           size_t k;
@@ -2351,11 +2340,10 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                LANG_TRANSLATION *lang_translations,
                                const C_HASHMAP *identifiers_target,
                                const NODE_STRUCTURE_LIST *nodes_list,
-                               const SECTION_STRUCTURE_LIST *sections_list,
                                const NODE_STRUCTURE *node_structure)
 {
   ELEMENT *menu_node = new_complete_node_menu (node_structure,
-                                               nodes_list, sections_list,
+                                               nodes_list,
                                                0, lang_translations,
                                                options->DEBUG.o.integer, 0);
 
@@ -2375,7 +2363,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
               detailmenu = new_detailmenu (error_messages, options,
                                            lang_translations,
                                            identifiers_target, nodes_list,
-                                           sections_list, menus, 0);
+                                           menus, 0);
               destroy_const_element_list (menus);
 
               if (detailmenu)

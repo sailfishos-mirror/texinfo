@@ -572,16 +572,15 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$node_structure->{'menus'}}, $current_menu;
 }
 
-sub complete_node_menu($$$;$)
+sub _complete_node_menu($$;$)
 {
   my $node_structure = shift;
   my $nodes_list = shift;
-  my $sections_list = shift;
   my $use_sections = shift;
 
   my @node_childs
    = Texinfo::Structuring::get_node_node_childs_from_sectioning(
-                            $node_structure, $sections_list);
+                                                       $node_structure);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
@@ -678,11 +677,10 @@ sub complete_tree_nodes_menus_in_document($;$)
   my $use_sections = shift;
 
   my $nodes_list = $document->nodes_list();
-  my $sections_list = $document->sections_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_structure (@{$non_automatic_nodes}) {
-    complete_node_menu($node_structure, $nodes_list, $sections_list,
+    _complete_node_menu($node_structure, $nodes_list,
                        $use_sections);
   }
 }
@@ -697,7 +695,6 @@ sub complete_tree_nodes_missing_menu($;$)
   my $lang_translations = [$document->get_conf('documentlanguage')];
   my $debug = $document->get_conf('DEBUG');
   my $nodes_list = $document->nodes_list();
-  my $sections_list = $document->sections_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_structure (@{$non_automatic_nodes}) {
@@ -706,7 +703,6 @@ sub complete_tree_nodes_missing_menu($;$)
       my $current_menu
         = Texinfo::Structuring::new_complete_node_menu($node_structure,
                                  $nodes_list,
-                                 $sections_list,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
         my $section = $node_structure->{'associated_section'}->{'element'};
@@ -725,7 +721,6 @@ sub regenerate_master_menu($;$)
 
   my $identifier_target = $document->labels_information();
   my $nodes_list = $document->nodes_list();
-  my $sections_list = $document->sections_list();
 
   my $top_node = $identifier_target->{'Top'};
 
@@ -741,7 +736,7 @@ sub regenerate_master_menu($;$)
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
                       $document, $document->registrar(),
-                      $identifier_target, $nodes_list, $sections_list,
+                      $identifier_target, $nodes_list,
                       $top_node_structure->{'menus'},
                       $use_sections);
   # no need for a master menu

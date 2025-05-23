@@ -85,13 +85,12 @@ Complete nodes directions with menu directions and @emph{Top} node first node
 directions.  Check consistency of menus, sectionning and nodes direction
 structures.
 
-@item @@children_nodes = get_node_node_childs_from_sectioning($node_structure, $sections_list)
-@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node_structure@comma{} $sections_list)}
+@item @@children_nodes = get_node_node_childs_from_sectioning($node_structure)
+@anchor{Texinfo@asis{::}Structuring @@children_nodes = get_node_node_childs_from_sectioning($node_structure)}
 @cindex @code{get_node_node_childs_from_sectioning}
 
 @emph{$node_structure} is a node structuring information.
-@emph{$sections_list} is section lists structure information, usually obtained
-through @code{Texinfo::Document}. Find the @emph{$node_structure} children based on the
+Find the @emph{$node_structure} children based on the
 sectioning structure.  For the node associated with @code{@@top} sectioning
 command, the sections associated with parts are considered.
 
@@ -102,15 +101,14 @@ command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node_structure, $nodes_list, $sections_list, $lang_translations, $debug_level, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node_structure@comma{} $nodes_list@comma{} $sections_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node_structure, $nodes_list, $lang_translations, $debug_level, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node_structure@comma{} $nodes_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
 Returns a @code{@@menu} Texinfo tree element for node structure information
 @emph{$node_structure}, pointing to the
 children of the node obtained with the sectioning structure.
-@emph{$nodes_list} and @emph{$sections_list} are the list of nodes and sections
-structure information.
+@emph{$nodes_list} id the list of nodes structure information.
 If @emph{$use_sections} is set, use section names for the menu entry names.  The
 @emph{$lang_translations} argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
