@@ -572,10 +572,9 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$node_structure->{'menus'}}, $current_menu;
 }
 
-sub _complete_node_menu($$;$)
+sub _complete_node_menu($;$)
 {
   my $node_structure = shift;
-  my $nodes_list = shift;
   my $use_sections = shift;
 
   my @node_childs
@@ -601,13 +600,12 @@ sub _complete_node_menu($$;$)
     #print STDERR "existing_entries: ".join('|', keys(%existing_entries))."\n";
     my @pending;
     my $current_menu;
-    foreach my $node_entry (@node_childs) {
-      if ($node_entry->{'extra'}
-          and defined($node_entry->{'extra'}->{'normalized'})
-          and $existing_entries{$node_entry->{'extra'}->{'normalized'}}) {
+    foreach my $node_entry_structure (@node_childs) {
+      my $node_entry = $node_entry_structure->{'element'};
+      my $normalized = $node_entry->{'extra'}->{'normalized'};
+      if ($existing_entries{$normalized}) {
         my $entry;
-        ($current_menu, $entry)
-         = @{$existing_entries{$node_entry->{'extra'}->{'normalized'}}};
+        ($current_menu, $entry) = @{$existing_entries{$normalized}};
         if (@pending) {
           my $index;
           for ($index = 0; $index < scalar(@{$current_menu->{'contents'}}); $index++) {
@@ -621,8 +619,8 @@ sub _complete_node_menu($$;$)
           @pending = ();
         }
       } else {
-        my $entry = Texinfo::Structuring::new_node_menu_entry($node_entry,
-                                                              $nodes_list,
+        my $entry
+           = Texinfo::Structuring::new_node_menu_entry($node_entry_structure,
                                                               $use_sections);
         # not defined $entry should mean an empty node.  We do not warn as
         # we try, in general, to be silent in the transformations.
@@ -676,12 +674,9 @@ sub complete_tree_nodes_menus_in_document($;$)
   my $document = shift;
   my $use_sections = shift;
 
-  my $nodes_list = $document->nodes_list();
-
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_structure (@{$non_automatic_nodes}) {
-    _complete_node_menu($node_structure, $nodes_list,
-                       $use_sections);
+    _complete_node_menu($node_structure, $use_sections);
   }
 }
 
@@ -694,7 +689,6 @@ sub complete_tree_nodes_missing_menu($;$)
 
   my $lang_translations = [$document->get_conf('documentlanguage')];
   my $debug = $document->get_conf('DEBUG');
-  my $nodes_list = $document->nodes_list();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_structure (@{$non_automatic_nodes}) {
@@ -702,7 +696,6 @@ sub complete_tree_nodes_missing_menu($;$)
         or not scalar(@{$node_structure->{'menus'}})) {
       my $current_menu
         = Texinfo::Structuring::new_complete_node_menu($node_structure,
-                                 $nodes_list,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
         my $section = $node_structure->{'associated_section'}->{'element'};

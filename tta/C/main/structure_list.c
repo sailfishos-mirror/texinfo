@@ -45,6 +45,15 @@ new_node_structure_list (void)
   return result;
 }
 
+CONST_NODE_STRUCTURE_LIST *
+new_const_node_structure_list (void)
+{
+  CONST_NODE_STRUCTURE_LIST *result = (CONST_NODE_STRUCTURE_LIST *)
+     malloc (sizeof (CONST_NODE_STRUCTURE_LIST));
+  memset (result, 0, sizeof (CONST_NODE_STRUCTURE_LIST));
+  return result;
+}
+
 SECTION_STRUCTURE_LIST *
 new_section_structure_list (void)
 {
@@ -102,6 +111,19 @@ setup_reallocate_structure_list(node,NODE)
 setup_reallocate_structure_list(section,SECTION)
 setup_reallocate_structure_list(heading,HEADING)
 
+static void
+reallocate_const_node_structure_list (CONST_NODE_STRUCTURE_LIST *list)
+{
+    if (list->number + 1 >= list->space)
+    {
+      list->space += 10;
+      list->list = realloc (list->list,
+                            list->space * sizeof (const NODE_STRUCTURE *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
+}
+
 void
 reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list)
 {
@@ -133,6 +155,18 @@ add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
      list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
   reallocate_node_structure_list (list);
+
+  list->list[list->number++] = node_structure;
+}
+
+void
+add_to_const_node_structure_list (CONST_NODE_STRUCTURE_LIST *list,
+                                  const NODE_STRUCTURE *node_structure)
+{
+  /* NOTE there could be theoretically an overflow if
+     list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
+     to happen */
+  reallocate_const_node_structure_list (list);
 
   list->list[list->number++] = node_structure;
 }

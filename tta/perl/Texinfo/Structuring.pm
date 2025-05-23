@@ -471,7 +471,7 @@ sub get_node_node_childs_from_sectioning($)
       foreach my $child_structure
                         (@{$associated_structure->{'section_childs'}}) {
         if ($child_structure->{'associated_node'}) {
-          push @node_childs, $child_structure->{'associated_node'}->{'element'};
+          push @node_childs, $child_structure->{'associated_node'};
         }
       }
     }
@@ -489,7 +489,7 @@ sub get_node_node_childs_from_sectioning($)
                          (@{$current_structure->{'section_childs'}}) {
               if ($child_structure->{'associated_node'}) {
                 push @node_childs,
-                     $child_structure->{'associated_node'}->{'element'};
+                     $child_structure->{'associated_node'};
               }
             }
           }
@@ -498,7 +498,7 @@ sub get_node_node_childs_from_sectioning($)
             # for @appendix, and what follows, as it stops a @part, but is
             # not below @top
             push @node_childs,
-                 $current_structure->{'associated_node'}->{'element'};
+                 $current_structure->{'associated_node'};
           }
         }
       }
@@ -555,7 +555,7 @@ sub check_nodes_are_referenced($)
         my @node_childs
           = get_node_node_childs_from_sectioning($node_structure);
         foreach my $node_child (@node_childs) {
-          $referenced_nodes{$node_child} = 1;
+          $referenced_nodes{$node_child->{'element'}} = 1;
         }
       }
     }
@@ -1551,12 +1551,14 @@ sub section_level_adjusted_command_name($)
 # returns the Texinfo tree corresponding to a single menu entry pointing
 # to $NODE.
 # if $USE_SECTIONS is set, use the section name as menu entry name.
-sub new_node_menu_entry($$;$)
+sub new_node_menu_entry($;$)
 {
-  my ($node, $nodes_list, $use_sections) = @_;
+  my ($node_structure, $use_sections) = @_;
+
+  my $node = $node_structure->{'element'};
 
   my $node_name_element;
-  if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
+  if ($node->{'extra'}->{'is_target'}) {
     my $arguments_line = $node->{'contents'}->[0];
     $node_name_element = $arguments_line->{'contents'}->[0];
   }
@@ -1569,7 +1571,6 @@ sub new_node_menu_entry($$;$)
     my $name_element;
     # use associated_title_command and not associated_section as
     # it is more logical here.
-    my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
     if ($node_structure->{'associated_title_command'}) {
       my $arguments_line = $node_structure->{'associated_title_command'}
                ->{'contents'}->[0];
@@ -1716,9 +1717,9 @@ sub _insert_menu_comment_content($$$;$)
 
 # Creates a new @menu element based on $NODE sectioning information.
 # $LANG_TRANSLATIONS and $DEBUG are only used for the top menu.
-sub new_complete_node_menu($$;$$$)
+sub new_complete_node_menu($;$$$)
 {
-  my ($node_structure, $nodes_list, $lang_translations,
+  my ($node_structure, $lang_translations,
       $debug, $use_sections) = @_;
 
   my @node_childs
@@ -1734,7 +1735,7 @@ sub new_complete_node_menu($$;$$$)
   # command in new_block_command below
   my $new_menu = {'contents' => []};
   foreach my $child (@node_childs) {
-    my $entry = new_node_menu_entry($child, $nodes_list, $use_sections);
+    my $entry = new_node_menu_entry($child, $use_sections);
     if (defined($entry)) {
       $entry->{'parent'} = $new_menu;
       push @{$new_menu->{'contents'}}, $entry;
@@ -1746,18 +1747,13 @@ sub new_complete_node_menu($$;$$$)
   # the first appendix.
   if ($associated_structure
       and $associated_structure->{'element'}->{'cmdname'} eq 'top'
-      and $node->{'extra'}->{'normalized'}
       and $node->{'extra'}->{'normalized'} eq 'Top') {
     my $content_index = 0;
     my $in_appendix = 0;
-    foreach my $child (@node_childs) {
-      # can happen with node without argument or with empty argument
-      if (!$child->{'extra'} or !$child->{'extra'}->{'is_target'}) {
+    foreach my $node_child_structure (@node_childs) {
+      if (!$node_child_structure->{'element'}->{'extra'}->{'is_target'}) {
         next;
       }
-      my $node_child_structure
-        = $nodes_list->[$child->{'extra'}->{'node_number'} -1];
-
       my $child_structure = $node_child_structure->{'associated_section'};
       if ($child_structure) {
         my $child_section = $child_structure->{'element'};
@@ -1876,7 +1872,7 @@ sub new_complete_menu_master_menu($$$$)
   my $node_structure = shift;
 
   my $menu_node
-    = new_complete_node_menu($node_structure, $nodes_list,
+    = new_complete_node_menu($node_structure,
                         $self->{'current_lang_translations'},
                         $self->get_conf('DEBUG'));
 
@@ -1936,7 +1932,7 @@ sub _print_down_menus($$$$$$;$)
     @menus = @{$node_structure->{'menus'}};
   } else {
     my $current_menu
-      = new_complete_node_menu($node_structure, $nodes_list,
+      = new_complete_node_menu($node_structure,
                                undef, undef, $use_sections);
     if (defined($current_menu)) {
       @menus = ( $current_menu );
@@ -2109,13 +2105,12 @@ X<C<new_block_command>>
 Complete I<$element> by adding the I<$command_name>, the command line
 argument and C<@end> to turn the element to a proper block command.
 
-=item $new_menu = new_complete_node_menu($node_structure, $nodes_list, $lang_translations, $debug_level, $use_sections)
+=item $new_menu = new_complete_node_menu($node_structure, $lang_translations, $debug_level, $use_sections)
 X<C<new_complete_node_menu>>
 
 Returns a C<@menu> Texinfo tree element for node structure information
 I<$node_structure>, pointing to the
 children of the node obtained with the sectioning structure.
-I<$nodes_list> id the list of nodes structure information.
 If I<$use_sections> is set, use section names for the menu entry names.  The
 I<$lang_translations> argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
@@ -2142,11 +2137,11 @@ assumed to be a converter, and error reporting uses converters error
 messages reporting functions (L<Texinfo::Convert::Converter/Registering error
 and warning messages>).
 
-=item $entry = new_node_menu_entry($node, $nodes_list, $use_sections)
+=item $entry = new_node_menu_entry($node_structure, $use_sections)
 X<C<new_node_menu_entry>>
 
 Returns the Texinfo tree corresponding to a single menu entry pointing to
-I<$node>.  I<$nodes_list> is the list of nodes structure information.
+I<$node_structure>.
 If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 

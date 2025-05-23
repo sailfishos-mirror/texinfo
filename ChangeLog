@@ -1,5 +1,31 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/structure_list.c (new_const_node_structure_list)
+	(reallocate_const_node_structure_list)
+	(add_to_const_node_structure_list), tta/C/main/tree_types.h
+	(CONST_NODE_STRUCTURE_LIST): new type for a list of const node
+	structure and associated functions.
+
+	* tta/C/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning),
+	tta/perl/Texinfo/Structuring.pm
+	(get_node_node_childs_from_sectioning): use CONST_NODE_STRUCTURE_LIST.
+	Store node structure information instead of node tree elements.
+	Update callers.
+
+	* tta/C/structuring_transfo/structuring.c (new_node_menu_entry)
+	(new_complete_node_menu), tta/C/structuring_transfo/transformations.c
+	(complete_node_menu, complete_tree_nodes_menus_in_document),
+	tta/perl/Texinfo/Structuring.pm (new_node_menu_entry)
+	(new_complete_node_menu), tta/perl/Texinfo/Transformations.pm
+	(_complete_node_menu, complete_tree_nodes_menus_in_document)
+	(complete_tree_nodes_missing_menu): pass a node structure in argument
+	of new_node_menu_entry, remove nodes_list argument.  Update callers.
+	Remove nodes_list complete_node_menu, new_complete_node_menu and
+	complete_tree_nodes_menus_in_document arguments.  Update callers.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_heading_command),
 	tta/C/structuring_transfo/structuring.c
 	(get_node_node_childs_from_sectioning)

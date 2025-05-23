@@ -483,10 +483,10 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
     }
 }
 
-CONST_ELEMENT_LIST *
+CONST_NODE_STRUCTURE_LIST *
 get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure)
 {
-  CONST_ELEMENT_LIST *node_childs = new_const_element_list ();
+  CONST_NODE_STRUCTURE_LIST *node_childs = new_const_node_structure_list ();
 
   if (node_structure->associated_section)
     {
@@ -503,8 +503,8 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure)
               const SECTION_STRUCTURE *child_structure
                 = section_childs->list[i];
               if (child_structure->associated_node)
-                add_to_const_element_list (node_childs,
-                              child_structure->associated_node->element);
+                add_to_const_node_structure_list (node_childs,
+                              child_structure->associated_node);
             }
         }
        /* Special case for @top.  Gather all the children of the @part following
@@ -531,8 +531,8 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure)
                               const SECTION_STRUCTURE *child_structure
                                 = section_childs->list[i];
                               if (child_structure->associated_node)
-                                add_to_const_element_list (node_childs,
-                                 child_structure->associated_node->element);
+                                add_to_const_node_structure_list (node_childs,
+                                      child_structure->associated_node);
                             }
                         }
                     }
@@ -543,8 +543,8 @@ get_node_node_childs_from_sectioning (const NODE_STRUCTURE *node_structure)
                     not below @top
                        */
                       if (current_structure->associated_node)
-                        add_to_const_element_list (node_childs,
-                          current_structure->associated_node->element);
+                        add_to_const_node_structure_list (node_childs,
+                              current_structure->associated_node);
                     }
                 }
               else
@@ -696,19 +696,20 @@ check_nodes_are_referenced (DOCUMENT *document)
             = (arguments_line->e.c->contents.number <= 1);
           if (automatic_directions)
             {
-              CONST_ELEMENT_LIST *node_childs
+              CONST_NODE_STRUCTURE_LIST *node_childs
                 = get_node_node_childs_from_sectioning (node_structure);
               size_t j;
               for (j = 0; j < node_childs->number; j++)
                 {
                   referenced_identifiers =
-                   register_referenced_node (node_childs->list[j],
+                   register_referenced_node (node_childs->list[j]->element,
                                              referenced_identifiers,
                                              &referenced_identifier_space,
                                              &referenced_identifier_number);
 
                 }
-              destroy_const_element_list (node_childs);
+              free (node_childs->list);
+              free (node_childs);
             }
         }
     }
@@ -1776,8 +1777,7 @@ number_floats (DOCUMENT *document)
   to NODE.
   if USE_SECTIONS is set, use the section name as menu entry name. */
 ELEMENT *
-new_node_menu_entry (const ELEMENT *node,
-                     const NODE_STRUCTURE_LIST *nodes_list, int use_sections)
+new_node_menu_entry (const NODE_STRUCTURE *node_structure, int use_sections)
 {
   ELEMENT *node_name_element = 0;
   ELEMENT *menu_entry_name;
@@ -1789,6 +1789,7 @@ new_node_menu_entry (const ELEMENT *node,
   ELEMENT *menu_entry_leading_text;
   NODE_SPEC_EXTRA *parsed_entry_node;
   size_t i;
+  const ELEMENT *node = node_structure->element;
   int is_target = (node->flags & EF_is_target);
   if (is_target)
     node_name_element = node->e.c->contents.list[0]->e.c->contents.list[0];
@@ -1800,11 +1801,6 @@ new_node_menu_entry (const ELEMENT *node,
     {
       size_t i;
       ELEMENT *name_element;
-      int status;
-      size_t node_number
-        = lookup_extra_integer (node, AI_key_node_number, &status);
-      const NODE_STRUCTURE *node_structure
-        = nodes_list->list[node_number -1];
 
       if (node_structure->associated_title_command)
         {
@@ -1941,12 +1937,11 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
 
 ELEMENT *
 new_complete_node_menu (const NODE_STRUCTURE *node_structure,
-                        const NODE_STRUCTURE_LIST *nodes_list,
                         DOCUMENT *document,
                         LANG_TRANSLATION *lang_translations,
                         int debug_level, int use_sections)
 {
-  CONST_ELEMENT_LIST *node_childs
+  CONST_NODE_STRUCTURE_LIST *node_childs
     = get_node_node_childs_from_sectioning (node_structure);
   const SECTION_STRUCTURE *associated_section_structure;
   ELEMENT *new_menu;
@@ -1954,7 +1949,8 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
 
   if (node_childs->number <= 0)
     {
-      destroy_const_element_list (node_childs);
+      free (node_childs->list);
+      free (node_childs);
       return 0;
     }
 
@@ -1966,8 +1962,8 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
 
   for (i = 0; i < node_childs->number; i++)
     {
-      const ELEMENT *child = node_childs->list[i];
-      ELEMENT *entry = new_node_menu_entry (child, nodes_list, use_sections);
+      const NODE_STRUCTURE *child_structure = node_childs->list[i];
+      ELEMENT *entry = new_node_menu_entry (child_structure, use_sections);
       if (entry)
         {
           add_to_element_contents (new_menu, entry);
@@ -1986,20 +1982,15 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
           int in_appendix = 0;
           for (i = 0; i < node_childs->number; i++)
             {
-              const ELEMENT *child = node_childs->list[i];
-              int is_target = (child->flags & EF_is_target);
-              int status;
-              size_t node_child_number;
-              const NODE_STRUCTURE *node_child_structure;
-              const SECTION_STRUCTURE *child_structure;
+              const NODE_STRUCTURE *node_child_structure
+                = node_childs->list[i];
+              int is_target
+                = (node_child_structure->element->flags & EF_is_target);
+              const SECTION_STRUCTURE *child_structure
+                = node_child_structure->associated_section;
 
               if (!is_target)
                 continue;
-
-              node_child_number
-                = lookup_extra_integer (child, AI_key_node_number, &status);
-              node_child_structure = nodes_list->list[node_child_number -1];
-              child_structure = node_child_structure->associated_section;
 
               if (child_structure)
                 {
@@ -2055,7 +2046,8 @@ new_complete_node_menu (const NODE_STRUCTURE *node_structure,
         }
     }
 
-  destroy_const_element_list (node_childs);
+  free (node_childs->list);
+  free (node_childs);
 
   new_block_command (new_menu);
 
@@ -2097,7 +2089,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
     {
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */
-      new_current_menu = new_complete_node_menu (node_structure, nodes_list,
+      new_current_menu = new_complete_node_menu (node_structure,
                                                  0, 0, 0, use_sections);
       if (new_current_menu)
         {
@@ -2343,7 +2335,6 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const NODE_STRUCTURE *node_structure)
 {
   ELEMENT *menu_node = new_complete_node_menu (node_structure,
-                                               nodes_list,
                                                0, lang_translations,
                                                options->DEBUG.o.integer, 0);
 

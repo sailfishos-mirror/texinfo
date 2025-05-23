@@ -7418,7 +7418,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                       else
                          /* menu_no_detailmenu */
                         menu_node
-                          = new_complete_node_menu (node_structure, nodes_list,
+                          = new_complete_node_menu (node_structure,
                                         self->document,
                                         self->current_lang_translations,
                                         self->conf->DEBUG.o.integer, 0);

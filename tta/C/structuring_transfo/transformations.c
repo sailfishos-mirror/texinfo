@@ -1050,10 +1050,9 @@ typedef struct EXISTING_ENTRY {
 
 static void
 complete_node_menu (NODE_STRUCTURE *node_structure,
-                    const NODE_STRUCTURE_LIST *nodes_list,
                     int use_sections)
 {
-  CONST_ELEMENT_LIST *node_childs
+  CONST_NODE_STRUCTURE_LIST *node_childs
     = get_node_node_childs_from_sectioning (node_structure);
 
   if (node_childs->number)
@@ -1106,7 +1105,8 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
 
       for (i = 0; i < node_childs->number; i++)
         {
-          const ELEMENT *node_entry = node_childs->list[i];
+          const NODE_STRUCTURE *node_entry_structure = node_childs->list[i];
+          const ELEMENT *node_entry = node_entry_structure->element;
           const char *normalized = lookup_extra_string (node_entry,
                                                         AI_key_normalized);
           if (normalized)
@@ -1142,7 +1142,7 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
                 }
               else
                 {
-                  entry = new_node_menu_entry (node_entry, nodes_list,
+                  entry = new_node_menu_entry (node_entry_structure,
                                                use_sections);
              /*
               not set entry should mean an empty node.  We do not warn as
@@ -1194,7 +1194,8 @@ complete_node_menu (NODE_STRUCTURE *node_structure,
 
       free (existing_entries);
     }
-  destroy_const_element_list (node_childs);
+  free (node_childs->list);
+  free (node_childs);
 }
 
 static NODE_STRUCTURE_LIST *
@@ -1224,14 +1225,12 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 {
   NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
-  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   size_t i;
 
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       NODE_STRUCTURE *node_structure = non_automatic_nodes->list[i];
-      complete_node_menu (node_structure, nodes_list,
-                          use_sections);
+      complete_node_menu (node_structure, use_sections);
       document->modified_information |= F_DOCM_tree | F_DOCM_nodes_list;
     }
   free (non_automatic_nodes->list);
@@ -1241,7 +1240,6 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 void
 complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
-  const NODE_STRUCTURE_LIST *nodes_list = &document->nodes_list;
   const OPTIONS *options = document->options;
   NODE_STRUCTURE_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
@@ -1264,7 +1262,6 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
           const ELEMENT *section
             = node_structure->associated_section->element;
           ELEMENT *current_menu = new_complete_node_menu (node_structure,
-                                                 nodes_list,
                                                  document, lang_translation,
                                                  debug_level, use_sections);
           if (current_menu)

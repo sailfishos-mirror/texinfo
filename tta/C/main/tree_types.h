@@ -282,6 +282,12 @@ typedef struct NODE_STRUCTURE_LIST {
     size_t space;
 } NODE_STRUCTURE_LIST;
 
+typedef struct CONST_NODE_STRUCTURE_LIST {
+    const struct NODE_STRUCTURE **list;
+    size_t number;
+    size_t space;
+} CONST_NODE_STRUCTURE_LIST;
+
 typedef struct HEADING_STRUCTURE {
     const ELEMENT *element;
     const NODE_STRUCTURE *associated_anchor_command;

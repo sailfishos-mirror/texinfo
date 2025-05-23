@@ -101,14 +101,13 @@ command, the sections associated with parts are considered.
 Complete @emph{$element} by adding the @emph{$command_name}, the command line
 argument and @code{@@end} to turn the element to a proper block command.
 
-@item $new_menu = new_complete_node_menu($node_structure, $nodes_list, $lang_translations, $debug_level, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node_structure@comma{} $nodes_list@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
+@item $new_menu = new_complete_node_menu($node_structure, $lang_translations, $debug_level, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $new_menu = new_complete_node_menu($node_structure@comma{} $lang_translations@comma{} $debug_level@comma{} $use_sections)}
 @cindex @code{new_complete_node_menu}
 
 Returns a @code{@@menu} Texinfo tree element for node structure information
 @emph{$node_structure}, pointing to the
 children of the node obtained with the sectioning structure.
-@emph{$nodes_list} id the list of nodes structure information.
 If @emph{$use_sections} is set, use section names for the menu entry names.  The
 @emph{$lang_translations} argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
@@ -136,12 +135,12 @@ assumed to be a converter, and error reporting uses converters error
 messages reporting functions (@ref{Texinfo@asis{::}Convert@asis{::}Converter Registering error
 and warning messages}).
 
-@item $entry = new_node_menu_entry($node, $nodes_list, $use_sections)
-@anchor{Texinfo@asis{::}Structuring $entry = new_node_menu_entry($node@comma{} $nodes_list@comma{} $use_sections)}
+@item $entry = new_node_menu_entry($node_structure, $use_sections)
+@anchor{Texinfo@asis{::}Structuring $entry = new_node_menu_entry($node_structure@comma{} $use_sections)}
 @cindex @code{new_node_menu_entry}
 
 Returns the Texinfo tree corresponding to a single menu entry pointing to
-@emph{$node}.  @emph{$nodes_list} is the list of nodes structure information.
+@emph{$node_structure}.
 If @emph{$use_sections} is set, use the section name for the menu
 entry name.  Returns @code{undef} if the node argument is missing.
 
