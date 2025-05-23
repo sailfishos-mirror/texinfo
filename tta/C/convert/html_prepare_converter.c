@@ -3216,7 +3216,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       && self->conf->SHOW_TITLE.o.integer < 0)
     option_set_conf (&self->conf->SHOW_TITLE, 1, 0);
 
-  if (self->conf->SPLIT.o.string != 0 && strlen (self->conf->SPLIT.o.string)
+  if (self->conf->SPLIT.o.string != 0
+      && !strcmp (self->conf->SPLIT.o.string, "node")
       && self->conf->USE_ACCESSKEY.o.integer < 0)
     option_set_conf (&self->conf->USE_ACCESSKEY, 1, 0);
 

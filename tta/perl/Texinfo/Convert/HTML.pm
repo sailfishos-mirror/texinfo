@@ -12821,7 +12821,8 @@ sub conversion_initialization($$;$)
   }
 
   my $use_accesskey = $self->get_conf('USE_ACCESSKEY');
-  if (!defined($use_accesskey) and $self->get_conf('SPLIT')) {
+  if (!defined($use_accesskey) and $self->get_conf('SPLIT')
+      and $self->get_conf('SPLIT') eq 'node') {
     $self->set_conf('USE_ACCESSKEY', 1);
   }
 

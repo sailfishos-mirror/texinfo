@@ -1,5 +1,15 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	If undef, set USE_ACCESSKEY to 1 only if split at node
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_initialize_output_state), tta/perl/Texinfo/Convert/HTML.pm
+	(conversion_initialization): set USE_ACCESSKEY automatically if undef
+	only if split at node, as with other split options, there could 
+	be accesskey attributes with different targets.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_heading_command),
 	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command),
 	tta/perl/init/book.pm (book_convert_heading_command): reorganize code
@@ -271,9 +281,9 @@
 	(USE_ACCESSKEY), tta/perl/Texinfo/Convert/HTML.pm
 	(conversion_initialization), doc/texinfo.texi (File Names and Links
 	Customization for HTML, HTML Customization Variables List): set the
-	default to undef for ACCESSKEY for HTML.  If ACCESSKEY is undef, set
-	if the output document is split in conversion initialization.
-	Report from Vincent Lefevre.
+	default to undef for USE_ACCESSKEY for HTML.  If USE_ACCESSKEY is
+	undef, set if the output document is split in conversion
+	initialization.  Report from Vincent Lefevre.
 
 2025-05-21  Patrice Dumas  <pertusus@free.fr>
 
