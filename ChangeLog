@@ -1,5 +1,13 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/output_unit.c (print_output_units_tree_details),
+	tta/perl/Texinfo/OutputUnits.pm (print_output_units_tree_details):
+	comment out call of set_element_tree_numbers and
+	remove_element_tree_numbers as these are no-ops and there are no
+	element numbers generated anymore.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/structure_list.c (SECTION_STRUCT_PRINT_KEY)
 	(print_section_structure_info_internal, print_sections_list)
 	(print_node_structure_info_internal, print_nodes_list)

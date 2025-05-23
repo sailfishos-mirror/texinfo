@@ -843,15 +843,16 @@ sub print_output_units_tree_details($$;$$)
   my $fname_encoding = shift;
   my $use_filename = shift;
 
-  my $current_nr
-    = Texinfo::ManipulateTree::set_element_tree_numbers($tree, 0);
+  my $current_nr = 0;
+  #$current_nr
+  #  = Texinfo::ManipulateTree::set_element_tree_numbers($tree, $current_nr);
 
   my $output_unit_result;
   ($current_nr, $output_unit_result)
     = print_output_units_details($output_units, $current_nr,
                                  $fname_encoding, $use_filename);
 
-  Texinfo::ManipulateTree::remove_element_tree_numbers($tree);
+  #Texinfo::ManipulateTree::remove_element_tree_numbers($tree);
 
   return $output_unit_result;
 }

@@ -1189,17 +1189,23 @@ char *
 print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units, ELEMENT *tree,
                                  const char *fname_encoding, int use_filename)
 {
-  uintptr_t current_nr = set_element_tree_numbers (tree, 0);
+  uintptr_t current_nr = 0;
 
   TEXT result;
 
   text_init (&result);
   text_append (&result, "");
 
+ /*
+  current_nr = set_element_tree_numbers (tree, 0);
+  */
+
   current_nr = print_output_units_details (output_units,
                         current_nr, &result, fname_encoding, use_filename);
 
+ /*
   remove_element_tree_numbers (tree);
+  */
 
   return result.text;
 }
