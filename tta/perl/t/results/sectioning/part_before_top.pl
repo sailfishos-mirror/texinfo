@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'part_before_top'} = 'U0 unit{top}
+$result_tree_text{'part_before_top'} = 'U0 unit{S:top}
 UNIT_DIRECTIONS
 This: [U0]
  *before_node_section C1

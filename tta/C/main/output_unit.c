@@ -1081,15 +1081,67 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
       if (output_unit->unit_type != OU_special_unit
           && output_unit->uc.unit_command)
         {
-          char *element_string
+          char *additional_info = 0;
+          char *root_command_texi
             = root_command_element_string (output_unit->uc.unit_command);
-          if (element_string)
+
+          /* determine the kind of command by comparing with
+             unit node or unit section.  Also show the texinfo code
+             of the structure information not associated to unit_command.
+           */
+          if (output_unit->unit_node)
             {
-              text_printf (result, "{%s}", element_string);
-              free (element_string);
+              if (output_unit->unit_node->element
+                     == output_unit->uc.unit_command)
+                {
+                  text_append_n (result, "{N:", 3);
+                  if (root_command_texi)
+                    text_append (result, root_command_texi);
+                }
+              else
+                {
+                  char *node_texi
+                    = root_command_element_string (
+                                    output_unit->unit_node->element);
+                  if (node_texi)
+                    {
+                      xasprintf (&additional_info, "{n:%s}", node_texi);
+                      free (node_texi);
+                    }
+                  else
+                    xasprintf (&additional_info, "{n:}");
+                }
             }
-          else
-            text_append_n (result, "{}", 2);
+
+          if (output_unit->unit_section)
+            {
+              if (output_unit->unit_section->element
+                     == output_unit->uc.unit_command)
+                {
+                  text_append_n (result, "{S:", 3);
+                  if (root_command_texi)
+                    text_append (result, root_command_texi);
+                }
+              else
+                {
+                  char *section_texi
+                    = root_command_element_string (
+                                  output_unit->unit_section->element);
+                  if (section_texi)
+                    {
+                      xasprintf (&additional_info, "{s:%s}", section_texi);
+                      free (section_texi);
+                    }
+                  else
+                    xasprintf (&additional_info, "{s:}");
+                }
+            }
+          text_append_n (result, "}", 1);
+          if (additional_info)
+            {
+              text_append (result, additional_info);
+              free (additional_info);
+            }
         }
 
       if (output_unit->unit_filename)

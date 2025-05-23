@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'internal_top_node_up'} = 'U0 unit{Top}
+$result_tree_text{'internal_top_node_up'} = 'U0 unit{N:Top}{s:internal top node up}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -70,7 +70,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{chap}
+U1 unit{N:chap}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

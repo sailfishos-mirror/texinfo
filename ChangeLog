@@ -1,5 +1,14 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/output_unit.c (print_output_units_details),
+	tta/perl/Texinfo/OutputUnits.pm (print_output_units_details): when
+	showing the unit command associated to the output unit, determine the
+	kind of command by comparing with unit node or unit section.  Also
+	show the texinfo code of the structure information not associated to
+	unit_command.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/output_unit.c (print_output_units_tree_details),
 	tta/perl/Texinfo/OutputUnits.pm (print_output_units_tree_details):
 	comment out call of set_element_tree_numbers and

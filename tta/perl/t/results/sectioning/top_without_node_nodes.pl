@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'top_without_node_nodes'} = 'U0 unit{second}
+$result_tree_text{'top_without_node_nodes'} = 'U0 unit{N:second}{s:1 Chapter}
 UNIT_DIRECTIONS
 This: [U0]
 NodeUp: (dir)

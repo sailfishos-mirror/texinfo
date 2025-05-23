@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'nodes_after_top_before_chapter_nodes'} = 'U0 unit{Top}
+$result_tree_text{'nodes_after_top_before_chapter_nodes'} = 'U0 unit{N:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -69,7 +69,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{second node}
+U1 unit{N:second node}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -116,7 +116,7 @@ NodeBack: [U0]
   *paragraph C1
    {second node\\n}
   {empty_line:\\n}
-U2 unit{third node}
+U2 unit{N:third node}{s:1 chapter}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'transliterated_split_equivalent_nodes'} = 'U0 unit{top}
+$result_tree_text{'transliterated_split_equivalent_nodes'} = 'U0 unit{N:top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -84,7 +84,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{@~a}
+U1 unit{N:@~a}{s:@~a}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -127,7 +127,7 @@ NodeBack: [U0]
      *following_arg C1
       {a}
   {empty_line:\\n}
-U2 unit{n}
+U2 unit{N:n}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -154,7 +154,7 @@ NodeBack: [U1]
     |{\\n}
     {n}
   {empty_line:\\n}
-U3 unit{@^a}
+U3 unit{N:@^a}
 unit_directions:D[prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]

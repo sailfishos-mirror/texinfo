@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'transliterated_names_conflicts'} = 'U0 unit{Top}
+$result_tree_text{'transliterated_names_conflicts'} = 'U0 unit{N:Top}{s:Same transliterated names}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -46,7 +46,7 @@ NodeForward: [U1]
     |{\\n}
     {Same transliterated names}
   {empty_line:\\n}
-U1 unit{Prés}
+U1 unit{N:Prés}{s:1 Prés}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -90,7 +90,7 @@ NodeBack: [U0]
     |{\\n}
     {Prés}
   {empty_line:\\n}
-U2 unit{Other node}
+U2 unit{N:Other node}{s:2 Other chapter}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'simple_only_special_spaces_node_test_split_section'} = 'U0 unit{top}
+$result_tree_text{'simple_only_special_spaces_node_test_split_section'} = 'U0 unit{S:top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -43,7 +43,7 @@ NodeForward: [U1]
     |{\\n}
     {top}
   {empty_line:\\n}
-U1 unit{1 EN QUAD| |}
+U1 unit{S:1 EN QUAD| |}{n:  }
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -91,7 +91,7 @@ NodeBack: [U0]
    |INFO
    |spaces_after_argument:
     |{ '."\r".'\\n}
-U2 unit{2 CARRIAGE RETURN|'."\r".'|}
+U2 unit{S:2 CARRIAGE RETURN|'."\r".'|}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -117,7 +117,7 @@ Up: [U0]
     |{\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
-U3 unit{3 THREE-PER-EM SPACE}
+U3 unit{S:3 THREE-PER-EM SPACE}{n:  }
 unit_directions:D[prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]

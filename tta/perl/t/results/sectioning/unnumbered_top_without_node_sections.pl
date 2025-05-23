@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'unnumbered_top_without_node_sections'} = 'U0 unit{unnumbered}
+$result_tree_text{'unnumbered_top_without_node_sections'} = 'U0 unit{S:unnumbered}{n:a node}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -54,7 +54,7 @@ NodeUp: (dir)
   *paragraph C1
    {in unnumbered\\n}
   {empty_line:\\n}
-U1 unit{top section}
+U1 unit{S:top section}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -80,7 +80,7 @@ Prev: [U0]
   *paragraph C1
    {Top section\\n}
   {empty_line:\\n}
-U2 unit{1 Chapter}
+U2 unit{S:1 Chapter}{n:second}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'part_chapter_after_top'} = 'U0 unit{top}
+$result_tree_text{'part_chapter_after_top'} = 'U0 unit{S:top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -72,7 +72,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{1 chapter}
+U1 unit{S:1 chapter}{n:chapter}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

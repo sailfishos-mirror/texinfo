@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'split_html_text'} = 'U0 unit{Top}
+$result_tree_text{'split_html_text'} = 'U0 unit{N:Top}{s:top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -44,7 +44,7 @@ NodeForward: [U1]
   *paragraph C1
    {In top\\n}
   {empty_line:\\n}
-U1 unit{chap}
+U1 unit{N:chap}{s:1 Chap}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

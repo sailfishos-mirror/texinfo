@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'footnotestyle_separate_late'} = 'U0 unit{Top}
+$result_tree_text{'footnotestyle_separate_late'} = 'U0 unit{N:Top}{s:top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -43,7 +43,7 @@ NodeForward: [U1]
     |{\\n}
     {top}
   {empty_line:\\n}
-U1 unit{chap f}
+U1 unit{N:chap f}{s:1 Chapter f}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -96,7 +96,7 @@ NodeBack: [U0]
       {in fchap 1}
    {\\n}
   {empty_line:\\n}
-U2 unit{chap s}
+U2 unit{N:chap s}{s:2 Chapter s}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

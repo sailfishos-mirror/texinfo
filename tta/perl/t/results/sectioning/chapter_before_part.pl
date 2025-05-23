@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'chapter_before_part'} = 'U0 unit{1 chapter}
+$result_tree_text{'chapter_before_part'} = 'U0 unit{S:1 chapter}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -27,7 +27,7 @@ Forward: [U1]
     |{\\n}
     {chapter}
   {empty_line:\\n}
-U1 unit{part}
+U1 unit{S:part}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

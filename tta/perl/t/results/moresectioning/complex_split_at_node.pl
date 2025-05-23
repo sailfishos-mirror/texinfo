@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'complex_split_at_node'} = 'U0 unit{Top}
+$result_tree_text{'complex_split_at_node'} = 'U0 unit{N:Top}{s:}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -134,7 +134,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{First node}
+U1 unit{N:First node}{s:1 first node chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -244,7 +244,7 @@ NodeBack: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U2 unit{unnumbered}
+U2 unit{N:unnumbered}{s:unnumbered section}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -348,7 +348,7 @@ NodeBack: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U3 unit{unnumbered sub}
+U3 unit{N:unnumbered sub}{s:unnumbered subsection}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -390,7 +390,7 @@ NodeBack: [U2]
     |{\\n}
     {unnumbered subsection}
   {empty_line:\\n}
-U4 unit{numbered sub}
+U4 unit{N:numbered sub}{s:numbered subsection}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -434,7 +434,7 @@ NodeBack: [U3]
     |{\\n}
     {numbered subsection}
   {empty_line:\\n}
-U5 unit{unnumbered sub2}
+U5 unit{N:unnumbered sub2}{s:unnumbered subsection2}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -478,7 +478,7 @@ NodeBack: [U4]
     |{\\n}
     {unnumbered subsection2}
   {empty_line:\\n}
-U6 unit{numbered sub2}
+U6 unit{N:numbered sub2}{s:numbered subsection2}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -520,7 +520,7 @@ NodeBack: [U5]
     |{\\n}
     {numbered subsection2}
   {empty_line:\\n}
-U7 unit{unnumbered2}
+U7 unit{N:unnumbered2}{s:unnumbered section2}
 unit_directions:D[next->[U8]|prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]
@@ -593,7 +593,7 @@ NodeBack: [U6]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U8 unit{numbered sub3}
+U8 unit{N:numbered sub3}{s:numbered subsection3}
 unit_directions:D[next->[U9]|prev->[U7]]
 UNIT_DIRECTIONS
 This: [U8]
@@ -634,7 +634,7 @@ NodeBack: [U7]
     {numbered subsection3}
   {empty_line:\\n}
   {empty_line:\\n}
-U9 unit{numbered}
+U9 unit{N:numbered}{s:1.1 numbered section}
 unit_directions:D[next->[U10]|prev->[U8]]
 UNIT_DIRECTIONS
 This: [U9]
@@ -676,7 +676,7 @@ NodeBack: [U8]
     |{\\n}
     {numbered section}
   {empty_line:\\n}
-U10 unit{between node}
+U10 unit{N:between node}
 unit_directions:D[next->[U11]|prev->[U9]]
 UNIT_DIRECTIONS
 This: [U10]
@@ -710,7 +710,7 @@ NodeUp: [U0]
   *paragraph C1
    {between node, node without sectioning node\\n}
   {empty_line:\\n}
-U11 unit{Second node}
+U11 unit{N:Second node}{s:2 second node chapter}
 unit_directions:D[next->[U12]|prev->[U10]]
 UNIT_DIRECTIONS
 This: [U11]
@@ -771,7 +771,7 @@ NodeForward: [U12]
   *paragraph C1
    {second node chapter text.\\n}
   {empty_line:\\n}
-U12 unit{Third node unnumbered}
+U12 unit{N:Third node unnumbered}{s:unnumbered chapter}
 unit_directions:D[next->[U13]|prev->[U11]]
 UNIT_DIRECTIONS
 This: [U12]
@@ -818,7 +818,7 @@ NodeBack: [U11]
   *paragraph C1
    {unnumbered chapter text.\\n}
   {empty_line:\\n}
-U13 unit{continuity}
+U13 unit{N:continuity}{s:unnumbered continuity}
 unit_directions:D[next->[U14]|prev->[U12]]
 UNIT_DIRECTIONS
 This: [U13]
@@ -887,7 +887,7 @@ NodeBack: [U12]
    {Unumbered and node needed for continuity between automatic \\n}
    {directions and lone node.\\n}
   {empty_line:\\n}
-U14 unit{Last node no description}
+U14 unit{N:Last node no description}
 unit_directions:D[prev->[U13]]
 UNIT_DIRECTIONS
 This: [U14]

@@ -744,26 +744,45 @@ sub print_output_units_details($$;$$)
 
     if ($output_unit->{'unit_type'} ne 'special_unit'
         and $output_unit->{'unit_command'}) {
-      my $element_string = '';
+
+      my $additional_info = '';
+
+      my $node_or_section_indicator = '?';
+
       my $root_command_texi
         = Texinfo::ManipulateTree::root_command_element_string(
                                     $output_unit->{'unit_command'});
-      if (defined($root_command_texi)) {
-        $element_string .= $root_command_texi;
+      $root_command_texi = '' if (!defined($root_command_texi));
+
+      # determine the kind of command by comparing with
+      # unit node or unit section.  Also show the texinfo code
+      # of the structure information not associated to unit_command.
+      if ($output_unit->{'unit_node'}) {
+        if ($output_unit->{'unit_node'}->{'element'}
+                     eq $output_unit->{'unit_command'}) {
+          $node_or_section_indicator = 'N';
+        } else {
+          my $node_texi
+            = Texinfo::ManipulateTree::root_command_element_string(
+                                  $output_unit->{'unit_node'}->{'element'});
+          $node_texi = '' if (!defined($node_texi));
+          $additional_info .= "{n:$node_texi}";
+        }
       }
-      # TODO info on both unit section and unit node?
-      #if ($output_unit->{'unit_node'}) {
-      #  $element_string
-      #   = Texinfo::ManipulateTree::root_command_element_string(
-      #                  $output_unit->{'unit_node'}->{'element'});
-      #}
-      #if ($output_unit->{'unit_section'}) {
-      #  $element_string .= '|' if ($element_string);
-      #  $element_string
-      #   = Texinfo::ManipulateTree::root_command_element_string(
-      #                  $output_unit->{'unit_section'}->{'element'});
-      #}
-      $result .= "{$element_string}";
+      if ($output_unit->{'unit_section'}) {
+        if ($output_unit->{'unit_section'}->{'element'}
+                     eq $output_unit->{'unit_command'}) {
+          $node_or_section_indicator = 'S';
+        } else {
+          my $section_texi
+            = Texinfo::ManipulateTree::root_command_element_string(
+                               $output_unit->{'unit_section'}->{'element'});
+          $section_texi = '' if (!defined($section_texi));
+          $additional_info .= "{s:$section_texi}";
+        }
+      }
+      $result .= "{$node_or_section_indicator:$root_command_texi}";
+      $result .= $additional_info;
     }
 
     if (defined($output_unit->{'unit_filename'})) {

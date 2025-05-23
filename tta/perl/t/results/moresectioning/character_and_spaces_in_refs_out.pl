@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit{Top}
+$result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit{N:Top}{s:Test refs}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -83,7 +83,7 @@ NodeForward: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U1 unit{node to avoid DocBook or LaTeX ignored}
+U1 unit{N:node to avoid DocBook or LaTeX ignored}{s:1 first chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -260,7 +260,7 @@ NodeBack: [U0]
      {local   node}
    {\\n}
   {empty_line:\\n}
-U2 unit{other nodes}
+U2 unit{N:other nodes}{s:2 Chapter with nodes}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -377,7 +377,7 @@ NodeBack: [U1]
      |{\\n}
      {menu}
   {empty_line:\\n}
-U3 unit{!_"#$%&\'()*+-.}
+U3 unit{N:!_"#$%&\'()*+-.}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -427,7 +427,7 @@ NodeBack: [U2]
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
-U4 unit{/;<=>?[\\]^_`|~}
+U4 unit{N:/;<=>?[\\]^_`|~}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -471,7 +471,7 @@ NodeBack: [U3]
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
-U5 unit{local   node}
+U5 unit{N:local   node}
 unit_directions:D[prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]

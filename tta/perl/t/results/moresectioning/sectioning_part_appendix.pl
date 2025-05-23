@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'sectioning_part_appendix'} = 'U0 unit{top}
+$result_tree_text{'sectioning_part_appendix'} = 'U0 unit{S:top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -27,7 +27,7 @@ Next: [U5]
     |{\\n}
     {top}
   {empty_line:\\n}
-U1 unit{1 chapter}
+U1 unit{S:1 chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -51,7 +51,7 @@ Up: [U0]
     |{\\n}
     {chapter}
   {empty_line:\\n}
-U2 unit{1.1 section}
+U2 unit{S:1.1 section}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -75,7 +75,7 @@ Up: [U1]
     |{\\n}
     {section}
   {empty_line:\\n}
-U3 unit{1.1.1 subsection}
+U3 unit{S:1.1.1 subsection}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -99,7 +99,7 @@ Up: [U2]
     |{\\n}
     {subsection}
   {empty_line:\\n}
-U4 unit{1.1.1.1 subsubsection}
+U4 unit{S:1.1.1.1 subsubsection}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -123,7 +123,7 @@ Up: [U3]
     |{\\n}
     {subsubsection}
   {empty_line:\\n}
-U5 unit{2 chapter in part}
+U5 unit{S:2 chapter in part}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -162,7 +162,7 @@ Next: [U6]
     |{\\n}
     {chapter in part}
   {empty_line:\\n}
-U6 unit{3 second chapter in part}
+U6 unit{S:3 second chapter in part}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -188,7 +188,7 @@ Up: [U5]
     |{\\n}
     {second chapter in part}
   {empty_line:\\n}
-U7 unit{unnumbered}
+U7 unit{S:unnumbered}
 unit_directions:D[next->[U8]|prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]
@@ -212,7 +212,7 @@ Up: [U5]
     |{\\n}
     {unnumbered}
   {empty_line:\\n}
-U8 unit{A appendix}
+U8 unit{S:A appendix}
 unit_directions:D[next->[U9]|prev->[U7]]
 UNIT_DIRECTIONS
 This: [U8]
@@ -235,7 +235,7 @@ Prev: [U5]
     |{\\n}
     {appendix}
   {empty_line:\\n}
-U9 unit{A.1 appendixsec}
+U9 unit{S:A.1 appendixsec}
 unit_directions:D[prev->[U8]]
 UNIT_DIRECTIONS
 This: [U9]
