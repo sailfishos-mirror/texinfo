@@ -1910,11 +1910,27 @@ sub debug_print_output_unit
   my $type = $current->{'unit_type'};
   # Should never happen
   $type = 'UNDEF' if (!defined($type));
-  my $unit_cmd = '';
-  if ($current->{'unit_command'}) {
-    $unit_cmd = debug_print_element($current->{'unit_command'}, 0)
+  my $node_unit_cmd = '';
+  if ($current->{'unit_node'}) {
+    my $node_element = $current->{'unit_node'}->{'element'};
+    $node_unit_cmd = '{N';
+    if ($node_element eq $current->{'unit_command'}) {
+      $node_unit_cmd .= '*';
+    }
+    $node_unit_cmd .= ':' . debug_print_element($node_element, 0)
     .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                                       $current->{'unit_command'});
+                                                $node_element).'}';
+  }
+  my $section_unit_cmd = '';
+  if ($current->{'unit_section'}) {
+    my $section_element = $current->{'unit_section'}->{'element'};
+    $section_unit_cmd = '{S';
+    if ($section_element eq $current->{'unit_command'}) {
+      $section_unit_cmd .= '*';
+    }
+    $section_unit_cmd .= ':'.debug_print_element($section_element, 0)
+      .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
+                                               $section_element).'}';
   }
   my $fname = '';
   if (defined($current->{'unit_filename'})) {
@@ -1927,7 +1943,7 @@ sub debug_print_output_unit
   my $contents = '';
   $contents = "{C".scalar(@{$current->{'unit_contents'}}).'}'
     if $current->{'unit_contents'};
-  return "{$type}$fname$variety$contents$unit_cmd";
+  return "{$type}$fname$variety$contents$node_unit_cmd$section_unit_cmd";
 }
 
 # format list for debugging messages

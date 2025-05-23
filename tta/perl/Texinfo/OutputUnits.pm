@@ -116,6 +116,8 @@ sub split_by_node($)
   my $document = shift;
   my $root = $document->tree();
 
+  my $nodes_list = $document->nodes_list();
+
   my $output_units;
 
   my $current = { 'unit_type' => 'unit' };
@@ -129,15 +131,22 @@ sub split_by_node($)
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}
         and defined($content->{'extra'}->{'normalized'})) {
+      my $node_structure
+        = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
       if (not $current->{'unit_command'}) {
         $current->{'unit_command'} = $content;
+        $current->{'unit_node'} = $node_structure;
       } else {
         $current = { 'unit_type' => 'unit', 'unit_command' => $content,
+                     'unit_node' => $node_structure,
                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
         push @$output_units, $current;
+      }
+      if ($node_structure->{'associated_section'}) {
+        $current->{'unit_section'} = $node_structure->{'associated_section'};
       }
     }
     if (@pending_parts) {
@@ -177,44 +186,58 @@ sub split_by_section($)
   my $output_units;
 
   my $nodes_list = $document->nodes_list();
+  my $sections_list = $document->sections_list();
 
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
-    my $new_section;
+    my $new_section_structure;
+    my $node_structure;
     if ($content->{'cmdname'}) {
       if ($content->{'cmdname'} eq 'node') {
         if ($content->{'extra'} and $content->{'extra'}->{'node_number'}) {
-          my $node_structure
+          $node_structure
             = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
           if ($node_structure->{'associated_section'}) {
-            $new_section
-              = $node_structure->{'associated_section'}->{'element'};
+            $new_section_structure
+              = $node_structure->{'associated_section'};
           }
         }
-      } else {
+      } elsif ($Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
         if ($content->{'cmdname'} eq 'part') {
           my $sections_list = $document->sections_list();
           my $part_structure
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
           if ($part_structure->{'part_associated_section'}) {
-            $new_section
-              = $part_structure->{'part_associated_section'}->{'element'};
+            $new_section_structure
+              = $part_structure->{'part_associated_section'};
           }
         }
-        if (not $new_section
-            and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
-          $new_section = $content;
+        if (not $new_section_structure) {
+          $new_section_structure
+            = $sections_list->[$content->{'extra'}->{'section_number'} -1];
+        }
+
+        if ($new_section_structure->{'associated_node'}) {
+          $node_structure = $new_section_structure->{'associated_node'};
         }
       }
     }
-    if ($new_section) {
+    if ($new_section_structure) {
       if (not defined($current->{'unit_command'})) {
-        $current->{'unit_command'} = $new_section;
-      } elsif ($new_section ne $current->{'unit_command'}) {
+        $current->{'unit_command'} = $new_section_structure->{'element'};
+        $current->{'unit_section'} = $new_section_structure;
+        if ($node_structure) {
+          $current->{'unit_node'} = $node_structure;
+        }
+      } elsif ($new_section_structure ne $current->{'unit_section'}) {
         $current = { 'unit_type' => 'unit',
-                     'unit_command' => $new_section,
+                     'unit_command' => $new_section_structure->{'element'},
+                     'unit_section' => $new_section_structure,
                      'tree_unit_directions' => {'prev' => $output_units->[-1]}};
+        if ($node_structure) {
+          $current->{'unit_node'} = $node_structure;
+        }
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
@@ -287,9 +310,9 @@ sub split_pages($$$)
   my $current_first_in_page;
   foreach my $output_unit (@$output_units) {
     my $level;
-    my $section = _output_unit_section($output_unit, $nodes_list);
-    if (defined($section)) {
-      $level = $section->{'extra'}->{'section_level'};
+    if ($output_unit->{'unit_section'}) {
+      $level = $output_unit->{'unit_section'}
+                  ->{'element'}->{'extra'}->{'section_level'};
     }
     #print STDERR "level($split_level) $level "
     #       .output_unit_texi($output_unit)."\n";
@@ -319,57 +342,6 @@ sub _label_target_unit_element($)
   } else {
     # case of a @float or an @*anchor, no target element defined at this stage
     return undef;
-  }
-}
-
-sub _output_unit_section($$)
-{
-  my $output_unit = shift;
-  my $nodes_list = shift;
-
-  if (not defined($output_unit->{'unit_command'})) {
-    return undef;
-  }
-  my $element = $output_unit->{'unit_command'};
-  if ($element->{'cmdname'} eq 'node') {
-    if (!$element->{'extra'}
-        or !$element->{'extra'}->{'node_number'}) {
-      return undef;
-    }
-    my $node_structure = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-    if ($node_structure->{'associated_section'}) {
-      return $node_structure->{'associated_section'}->{'element'};
-    } else {
-      return undef;
-    }
-  } else {
-    return $element;
-  }
-}
-
-sub _output_unit_node($$)
-{
-  my $output_unit = shift;
-  my $sections_list = shift;
-
-  if (not defined($output_unit->{'unit_command'})) {
-    return undef;
-  }
-  my $element = $output_unit->{'unit_command'};
-  if ($element->{'cmdname'} eq 'node') {
-    if (!$element->{'extra'}
-        or !defined($element->{'extra'}->{'normalized'})) {
-      return undef;
-    }
-    return $element;
-  } else {
-    my $section_structure
-      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_structure->{'associated_node'}) {
-      return $section_structure->{'associated_node'}->{'element'};
-    } else {
-      return undef;
-    }
   }
 }
 
@@ -403,9 +375,10 @@ sub units_directions($$$$;$)
                                                                ->{'unit_type'})
           and $output_unit->{'tree_unit_directions'}->{'prev'}
                                                      ->{'unit_type'} eq 'unit');
-    my $node = _output_unit_node($output_unit, $sections_list);
-    if ($node) {
-      my $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+    my $node;
+    if ($output_unit->{'unit_node'}) {
+      my $node_structure = $output_unit->{'unit_node'};
+      my $node = $node_structure->{'element'};
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
         $directions->{$direction->[0]}
@@ -478,8 +451,7 @@ sub units_directions($$$$;$)
                                        ->{'NodeBack'} = $output_unit;
       }
     }
-    my $section = _output_unit_section($output_unit, $nodes_list);
-    if (not defined($section)) {
+    if (not $output_unit->{'unit_section'}) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
@@ -488,13 +460,13 @@ sub units_directions($$$$;$)
       while ($current_unit->{'tree_unit_directions'}
              and $current_unit->{'tree_unit_directions'}->{'prev'}) {
         $current_unit = $current_unit->{'tree_unit_directions'}->{'prev'};
-        $section = _output_unit_section($current_unit, $nodes_list);
-        if (defined($section)) {
+        if ($current_unit->{'unit_section'}) {
           $section_output_unit = $current_unit;
           last;
         }
       }
       if ($section_output_unit) {
+        my $section = $current_unit->{'unit_section'}->{'element'};
         if ($section_output_unit->{'directions'}->{'FastForward'}) {
           $directions->{'FastForward'}
             = $section_output_unit->{'directions'}->{'FastForward'};
@@ -507,8 +479,8 @@ sub units_directions($$$$;$)
         }
       }
     } else {
-      my $section_structure
-        = $sections_list->[$section->{'extra'}->{'section_number'} -1];
+      my $section_structure = $output_unit->{'unit_section'};
+      my $section = $section_structure->{'element'};
       my $section_directions = $section_structure->{'section_directions'};
       if ($section_directions) {
         foreach my $direction(['Up', 'up'], ['Next', 'next'],
@@ -723,7 +695,7 @@ sub output_unit_texi($)
     return "No associated command (type $output_unit->{'unit_type'})";
   }
   return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                                                          $unit_command);
+                                                         $unit_command);
 }
 
 sub _output_unit_name_string($)
@@ -772,14 +744,26 @@ sub print_output_units_details($$;$$)
 
     if ($output_unit->{'unit_type'} ne 'special_unit'
         and $output_unit->{'unit_command'}) {
-      my $element_string
+      my $element_string = '';
+      my $root_command_texi
         = Texinfo::ManipulateTree::root_command_element_string(
                                     $output_unit->{'unit_command'});
-      if (defined($element_string)) {
-        $result .= "{$element_string}";
-      } else {
-        $result .= '{}';
+      if (defined($root_command_texi)) {
+        $element_string .= $root_command_texi;
       }
+      # TODO info on both unit section and unit node?
+      #if ($output_unit->{'unit_node'}) {
+      #  $element_string
+      #   = Texinfo::ManipulateTree::root_command_element_string(
+      #                  $output_unit->{'unit_node'}->{'element'});
+      #}
+      #if ($output_unit->{'unit_section'}) {
+      #  $element_string .= '|' if ($element_string);
+      #  $element_string
+      #   = Texinfo::ManipulateTree::root_command_element_string(
+      #                  $output_unit->{'unit_section'}->{'element'});
+      #}
+      $result .= "{$element_string}";
     }
 
     if (defined($output_unit->{'unit_filename'})) {

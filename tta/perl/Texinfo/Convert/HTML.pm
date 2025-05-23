@@ -1781,7 +1781,7 @@ sub command_description($$;$)
     }
 
     my $formatted_nodedescription_nr
-       = _formatted_nodedescription_nr($self, $node_description);
+       = _formatted_nodedescription_nr($self, $node);
 
     my $cmdname = $command->{'cmdname'};
     my $context_name = "$cmdname description";
@@ -2031,35 +2031,13 @@ sub from_element_direction($$$;$$$)
         return $self->command_text($external_node_element, $type);
       }
     } elsif ($type eq 'node') {
-      if ($target_unit->{'unit_command'}) {
-        if ($target_unit->{'unit_command'}->{'cmdname'}) {
-          if ($target_unit->{'unit_command'}->{'cmdname'} eq 'node') {
-            $command = $target_unit->{'unit_command'};
-          } elsif ($self->{'document'}) {
-            my $section_element = $target_unit->{'unit_command'};
-            my $sections_list = $self->{'document'}->sections_list();
-            my $section_structure
-          = $sections_list->[$section_element->{'extra'}->{'section_number'} -1];
-            if ($section_structure->{'associated_node'}) {
-              $command = $section_structure->{'associated_node'}->{'element'};
-            }
-          }
-        }
+      if ($target_unit->{'unit_node'}) {
+        $command = $target_unit->{'unit_node'}->{'element'};
       }
       $type = 'text';
     } elsif ($type eq 'section' or $type eq 'section_nonumber') {
-      if ($target_unit->{'unit_command'}) {
-        if ($target_unit->{'unit_command'}->{'cmdname'} ne 'node') {
-          $command = $target_unit->{'unit_command'};
-        } elsif ($self->{'document'}) {
-          my $node_element = $target_unit->{'unit_command'};
-          my $nodes_list = $self->{'document'}->nodes_list();
-          my $node_structure
-            = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
-          if ($node_structure->{'associated_section'}) {
-            $command = $node_structure->{'associated_section'}->{'element'};
-          }
-        }
+      if ($target_unit->{'unit_section'}) {
+        $command = $target_unit->{'unit_section'}->{'element'};
       }
       if ($type eq 'section_nonumber') {
         $type = 'text_nonumber';
@@ -4958,12 +4936,8 @@ sub _convert_heading_command($$$$$)
       $associated_title_command
         = $node_structure->{'associated_title_command'};
     }
-    # NOTE: if USE_NODES = 0 and there are no sectioning commands,
-    # $output_unit->{'unit_command'} does not exist.
-    if ($output_unit->{'unit_command'}
-        and $output_unit->{'unit_command'} eq $element
-        and $element->{'extra'}
-        and defined($element->{'extra'}->{'normalized'})
+    if ($output_unit and $output_unit->{'unit_node'}
+        and $output_unit->{'unit_node'}->{'element'} eq $element
         and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -6463,7 +6437,7 @@ sub _convert_printindex_command($$$$)
   my $current_output_unit = $self->current_output_unit();
   if ($current_output_unit and $current_output_unit->{'unit_command'}) {
     $index_element_id
-     = $self->command_id ($current_output_unit->{'unit_command'});
+     = $self->command_id($current_output_unit->{'unit_command'});
   }
   if (!defined($index_element_id)) {
     my ($output_unit, $root_command)
@@ -7672,22 +7646,24 @@ sub _convert_multitable_body_type($$$$) {
 
 $default_types_conversion{'multitable_body'} = \&_convert_multitable_body_type;
 
+# The node is used, not the nodedescription because it is easier to
+# find the node in XS
 sub _formatted_nodedescription_nr($$)
 {
   my $self = shift;
-  my $node_description = shift;
+  my $node = shift;
 
   # update the number of time the node description was formatted
   my $formatted_nodedescription_nr
     = $self->get_shared_conversion_state('nodedescription',
                                     'formatted_nodedescriptions',
-                                     $node_description);
+                                     $node);
   $formatted_nodedescription_nr = 0
      if (!defined($formatted_nodedescription_nr));
   $formatted_nodedescription_nr++;
   $self->set_shared_conversion_state('nodedescription',
                                     'formatted_nodedescriptions',
-                    $node_description, $formatted_nodedescription_nr);
+                              $node, $formatted_nodedescription_nr);
   return $formatted_nodedescription_nr;
 }
 
@@ -7784,7 +7760,7 @@ sub _convert_menu_entry_type($$$)
                              and $menu_description->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/))))) {
         $formatted_nodedescription_nr
-          = _formatted_nodedescription_nr($self, $node_description);
+          = _formatted_nodedescription_nr($self, $node);
       }
     }
   }
@@ -7819,9 +7795,6 @@ sub _convert_menu_entry_type($$$)
     }
 
     if ($menu_entry_node) {
-      # 'contents' seems to always be defined.  If it is
-      # not the case, it should not be an issue as an undefined
-      # 'contents' is ignored.
       my $name = $self->convert_tree(
          {'type' => '_code',
           'contents' => [$menu_entry_node]},
@@ -10407,9 +10380,9 @@ sub _html_set_pages_files($$$$$$$$$)
         }
         if (not defined($node_filename)) {
           # use section to do the file name if there is no node
-          my $command = $file_output_unit->{'unit_command'};
+          my $command = $file_output_unit->{'unit_section'};
           if ($command) {
-            if ($command->{'cmdname'} eq 'top' and !$node_top
+            if ($command->{'element'}->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
               $unit_file_name_paths{$file_output_unit} = $top_node_filename;
 
@@ -10424,7 +10397,8 @@ sub _html_set_pages_files($$$$$$$$$)
                      'file_info_path' => undef};
             } else {
               my $section_filename
-                   = $self->{'targets'}->{$command}->{'section_filename'};
+                = $self->{'targets'}->{$command->{'element'}}
+                     ->{'section_filename'};
               $unit_file_name_paths{$file_output_unit} = $section_filename;
 
               if (not $files_source_info{$section_filename}
@@ -10436,7 +10410,7 @@ sub _html_set_pages_files($$$$$$$$$)
 
                 $files_source_info{$section_filename}
                   = {'file_info_type' => 'section',
-                     'file_info_element' => $command,
+                     'file_info_element' => $command->{'element'},
                      'file_info_path' => undef};
               }
             }
@@ -12053,25 +12027,13 @@ sub _default_format_begin_file($$$)
   my $filename = shift;
   my $output_unit = shift;
 
-  my ($element_command, $node_command, $command_for_title);
+  my ($node_command, $command_for_title);
   if ($output_unit) {
-    $element_command = $output_unit->{'unit_command'};
-    $node_command = $element_command;
-    my $document = $self->get_info('document');
-    my $sections_list;
-    if ($document) {
-      $sections_list = $document->sections_list();
-    }
-    if ($element_command and $element_command->{'cmdname'}
-        and $element_command->{'cmdname'} ne 'node'
-        and $sections_list) {
-      my $section_structure
-        = $sections_list->[$element_command->{'extra'}->{'section_number'} -1];
-      if ($section_structure->{'associated_node'}) {
-        $node_command = $section_structure->{'associated_node'}->{'element'};
-      }
+    if ($output_unit->{'unit_node'}) {
+      $node_command = $output_unit->{'unit_node'}->{'element'};
     }
 
+    my $element_command = $output_unit->{'unit_command'};
     if ($self->get_conf('SPLIT') and defined($element_command)) {
       $command_for_title = $element_command;
     }

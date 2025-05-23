@@ -174,8 +174,17 @@ split_by_node (DOCUMENT *document)
         {
           const char *normalized
             = lookup_extra_string (content, AI_key_normalized);
+
           if (normalized)
             {
+              int status;
+              size_t node_number
+                = lookup_extra_integer (content,
+                                        AI_key_node_number, &status);
+
+              const NODE_STRUCTURE *node_structure
+                = document->nodes_list.list[node_number -1];
+
               if (!current->uc.unit_command)
                 current->uc.unit_command = content;
               else
@@ -188,6 +197,9 @@ split_by_node (DOCUMENT *document)
                   last->tree_unit_directions[D_next] = current;
                   add_to_output_unit_list (output_units, current);
                 }
+              current->unit_node = node_structure;
+              if (node_structure->associated_section)
+                current->unit_section = node_structure->associated_section;
             }
         }
       if (pending_parts->number > 0)
@@ -240,56 +252,65 @@ split_by_section (DOCUMENT *document)
 
   for (i = 0; i < root->e.c->contents.number; i++)
     {
+      int status;
+
       ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
       unsigned long flags = builtin_command_data[data_cmd].flags;
+      const NODE_STRUCTURE *node_structure = 0;
+      const SECTION_STRUCTURE *new_section_structure = 0;
 
-      const ELEMENT *new_section = 0;
       if (data_cmd == CM_node)
         {
-          int status;
           size_t node_number
                 = lookup_extra_integer (content,
                                         AI_key_node_number, &status);
           if (node_number)
             {
-              const NODE_STRUCTURE *node_structure
+              node_structure
                 = document->nodes_list.list[node_number -1];
 
               if (node_structure->associated_section)
-                new_section = node_structure->associated_section->element;
+                new_section_structure = node_structure->associated_section;
             }
         }
-      else
+      else if (flags & CF_root)
         {
+          size_t section_number
+            = lookup_extra_integer (content,
+                                    AI_key_section_number, &status);
+          const SECTION_STRUCTURE *section_structure
+            = document->sections_list.list[section_number -1];
+
           if (data_cmd == CM_part)
             {
-              int status;
-              size_t section_number
-                = lookup_extra_integer (content,
-                                        AI_key_section_number, &status);
-              const SECTION_STRUCTURE *part_structure
-                = document->sections_list.list[section_number -1];
-              if (part_structure->part_associated_section)
-                new_section
-                  = part_structure->part_associated_section->element;
+              if (section_structure->part_associated_section)
+                new_section_structure
+                  = section_structure->part_associated_section;
             }
-          if (!new_section && (CF_root & flags))
-            {
-              new_section = content;
-            }
+          if (!new_section_structure)
+            new_section_structure = section_structure;
+
+          if (new_section_structure->associated_node)
+            node_structure = new_section_structure->associated_node;
         }
-      if (new_section)
+      if (new_section_structure)
         {
           if (!current->uc.unit_command)
             {
-              current->uc.unit_command = new_section;
+              current->uc.unit_command = new_section_structure->element;
+              current->unit_section = new_section_structure;
+              if (node_structure)
+                current->unit_node = node_structure;
             }
-          else if (new_section != current->uc.unit_command)
+          else if (new_section_structure != current->unit_section)
             {
               OUTPUT_UNIT *last = output_units->list[output_units->number -1];
               current = new_output_unit (OU_unit);
-              current->uc.unit_command = new_section;
+              current->uc.unit_command = new_section_structure->element;
+              current->unit_section = new_section_structure;
+              if (node_structure)
+                current->unit_node = node_structure;
               current->tree_unit_directions[D_prev] = last;
               last->tree_unit_directions[D_next] = current;
               add_to_output_unit_list (output_units, current);
@@ -382,78 +403,6 @@ free_output_units_lists (OUTPUT_UNIT_LISTS *output_units_lists)
 }
 
 
-static const ELEMENT *
-output_unit_section (OUTPUT_UNIT *output_unit,
-                     const NODE_STRUCTURE_LIST *nodes_list)
-{
-  const ELEMENT *element;
-
-  if (!output_unit->uc.unit_command)
-    return 0;
-
-  element = output_unit->uc.unit_command;
-  if (element->e.c->cmd == CM_node)
-    {
-      const NODE_STRUCTURE *node_structure;
-      int status;
-      size_t node_number
-                = lookup_extra_integer (element,
-                                        AI_key_node_number, &status);
-
-      if (!node_number)
-        return 0;
-
-      node_structure = nodes_list->list[node_number -1];
-
-      if (node_structure->associated_section)
-        return node_structure->associated_section->element;
-      else
-        return 0;
-    }
-  else
-    return element;
-}
-
-static const ELEMENT *
-output_unit_node (OUTPUT_UNIT *output_unit,
-                  const SECTION_STRUCTURE_LIST *sections_list)
-{
-  const ELEMENT *element;
-
-  if (!output_unit->uc.unit_command)
-    return 0;
-
-  element = output_unit->uc.unit_command;
-
-  if (element->e.c->cmd == CM_node)
-    {
-      const char *normalized
-        = lookup_extra_string (element, AI_key_normalized);
-      if (normalized)
-        return element;
-      else
-        return 0;
-    }
-  else
-   {
-      const SECTION_STRUCTURE *section_structure;
-      int status;
-      size_t section_number
-                = lookup_extra_integer (element,
-                                        AI_key_section_number, &status);
-
-      if (!section_number)
-        return 0;
-
-      section_structure = sections_list->list[section_number -1];
-
-      if (section_structure->associated_node)
-        return section_structure->associated_node->element;
-      else
-        return 0;
-   }
-}
-
 typedef struct LEVEL_SPLIT_STRING {
     int level;
     char *split;
@@ -509,12 +458,12 @@ split_pages (OUTPUT_UNIT_LIST *output_units,
   for (j = 0; j < output_units->number; j++)
     {
       OUTPUT_UNIT *output_unit = output_units->list[j];
-      const ELEMENT *section = output_unit_section (output_unit, nodes_list);
       int level = -3;
-      if (section)
+      if (output_unit->unit_section)
         {
           int status;
-          level = lookup_extra_integer (section, AI_key_section_level, &status);
+          level = lookup_extra_integer (output_unit->unit_section->element,
+                                        AI_key_section_level, &status);
           if (status < 0)
             level = -3;
         }
@@ -659,9 +608,7 @@ units_directions (const C_HASHMAP *identifiers_target,
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
       const OUTPUT_UNIT **directions = output_unit->directions;
-      const ELEMENT *node = output_unit_node (output_unit, sections_list);
       const ELEMENT * const *node_directions;
-      const ELEMENT *section = output_unit_section (output_unit, nodes_list);
 
       directions[RUD_type_This] = output_unit;
       if (output_unit->tree_unit_directions[D_next]
@@ -673,13 +620,10 @@ units_directions (const C_HASHMAP *identifiers_target,
         directions[RUD_type_Back]
           = output_unit->tree_unit_directions[D_prev];
 
-      if (node)
+      if (output_unit->unit_node)
         {
-          int status;
-          size_t node_number
-           = lookup_extra_integer (node, AI_key_node_number, &status);
-          const NODE_STRUCTURE *node_structure
-           = nodes_list->list[node_number -1];
+          const NODE_STRUCTURE *node_structure = output_unit->unit_node;
+          const ELEMENT *node = node_structure->element;
           const ELEMENT *menu_child
            = first_menu_node (node_structure, identifiers_target);
           enum directions d;
@@ -789,7 +733,7 @@ units_directions (const C_HASHMAP *identifiers_target,
               forward_unit->directions[RUD_type_NodeBack] = output_unit;
             }
         }
-      if (!section)
+      if (! output_unit->unit_section)
         {
   /* If there is no associated section, find the previous element section.
      Use the FastForward of this element.
@@ -799,8 +743,7 @@ units_directions (const C_HASHMAP *identifiers_target,
           while (current_unit->tree_unit_directions[D_prev])
             {
               current_unit = current_unit->tree_unit_directions[D_prev];
-              section = output_unit_section (current_unit, nodes_list);
-              if (section)
+              if (current_unit->unit_section)
                 {
                   section_output_unit = current_unit;
                   break;
@@ -808,6 +751,7 @@ units_directions (const C_HASHMAP *identifiers_target,
             }
           if (section_output_unit)
             {
+              const ELEMENT *section = current_unit->unit_section->element;
               int section_level;
               int status;
 
@@ -826,18 +770,22 @@ units_directions (const C_HASHMAP *identifiers_target,
         }
       else
         {
-          const ELEMENT *up = section;
-          const SECTION_STRUCTURE_LIST *up_section_childs;
-          int up_section_level;
           int status;
-          size_t section_number
-                      = lookup_extra_integer (section,
-                                       AI_key_section_number, &status);
-          const SECTION_STRUCTURE *up_structure
-                      = sections_list->list[section_number -1];
+
+          const SECTION_STRUCTURE *section_structure
+            = output_unit->unit_section;
+          const ELEMENT *section = section_structure->element;
+
           enum directions d;
           const SECTION_STRUCTURE * const *section_directions
-                        = up_structure->section_directions;
+                        = section_structure->section_directions;
+
+          const SECTION_STRUCTURE_LIST *up_section_childs;
+          int up_section_level;
+          const SECTION_STRUCTURE *up_structure
+            = section_structure;
+          const ELEMENT *up = section;
+
           if (section_directions)
             {
               for (d = 0; d < directions_length; d++)

@@ -5552,10 +5552,11 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
               if (!node_filename)
                 {
                   /* use section to do the file name if there is no node */
-                  const ELEMENT *command = file_output_unit->uc.unit_command;
+                  const SECTION_STRUCTURE *command
+                    = file_output_unit->unit_section;
                   if (command)
                     {
-                      if (command->e.c->cmd == CM_top && !node_top
+                      if (command->element->e.c->cmd == CM_top && !node_top
                           && top_node_filename_str)
                         {
                    /* existing top_node_filename can happen, see
@@ -5584,7 +5585,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       else
                         {
                           const HTML_TARGET *section_target
-                            = html_get_target (self, command);
+                            = html_get_target (self, command->element);
                           const char *section_filename
                             = section_target->section_filename;
 
@@ -5598,13 +5599,13 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                                 {/* NOTE we keep the order, as in perl */
                                   html_set_file_source_info (file_source_info,
                                                             "section",
-                                                            0, command, 0);
+                                                     0, command->element, 0);
                                 }
                             }
                           else
                             html_add_to_files_source_info (files_source_info,
                                                  section_filename, "section", 0,
-                                                 command, 0);
+                                                 command->element, 0);
                           output_unit_file_name
                             = add_to_unit_file_name_paths (unit_file_name_paths,
                                                            section_filename,

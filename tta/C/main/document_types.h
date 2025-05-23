@@ -228,11 +228,18 @@ typedef struct OUTPUT_UNIT {
 
     enum output_unit_type unit_type;
     size_t index;
+    /* for regular unit we have both access to the unit command,
+       which may be the node or section tree element, and to
+       unit_node and/or unit_section structure information which allow
+       to access directly the associated node and associated section
+       information without going through the unit command */
     union {
       const struct ELEMENT *unit_command;
       /* for special units, not in the tree */
       struct ELEMENT *special_unit_command;
     } uc;
+    const NODE_STRUCTURE *unit_node;
+    const SECTION_STRUCTURE *unit_section;
     char *unit_filename;
     ELEMENT_LIST unit_contents;
     struct OUTPUT_UNIT *tree_unit_directions[2];

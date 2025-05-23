@@ -575,6 +575,11 @@ sub element_number_or_error($)
 sub _print_root_command($)
 {
   my $element = shift;
+
+  if (!defined($element) or !defined($element->{'contents'})) {
+    confess("_print_root_command: unexpected element");
+  }
+
   my $argument_line = $element->{'contents'}->[0];
   if ($argument_line->{'contents'}
       and $argument_line->{'contents'}->[0]->{'contents'}) {

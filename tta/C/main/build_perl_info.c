@@ -2160,6 +2160,54 @@ store_document_texinfo_tree (DOCUMENT *document)
       hv_store (document->hv, key, strlen (key), result_sv, 0);
       document->modified_information &= ~F_DOCM_tree;
     }
+  /* systematically rebuild, as section structure information
+     can be accessed from the tree.  Done in this function,
+     as it is supposed to be called before an access to modified
+     tree and sectioning structure.
+   */
+  /* Also store, such that next call that get cached values
+     get the right structure */
+  if (document->modified_information & F_DOCM_sections_list)
+    {
+      const char *key = "sections_list";
+      AV *av_list
+        = build_section_structure_list (&document->sections_list);
+      hv_store (document->hv, key, strlen (key),
+                newRV_inc ((SV *) av_list), 0);
+
+      document->modified_information &= ~F_DOCM_sections_list;
+    }
+
+  if (document->modified_information & F_DOCM_nodes_list)
+    {
+      const char *key = "nodes_list";
+      AV *av_list
+        = build_node_structure_list (&document->nodes_list);
+      hv_store (document->hv, key, strlen (key),
+                newRV_inc ((SV *) av_list), 0);
+
+      document->modified_information &= ~F_DOCM_nodes_list;
+    }
+
+  if (document->modified_information & F_DOCM_headings_list)
+    {
+      const char *key = "headings_list";
+      AV *av_list
+        = build_heading_structure_list (&document->headings_list);
+      hv_store (document->hv, key, strlen (key),
+                newRV_inc ((SV *) av_list), 0);
+
+      document->modified_information &= ~F_DOCM_headings_list;
+    }
+
+  /*
+  if (document->sectioning_root
+      && document->modified_information & F_DOCM_sectioning_root)
+    {
+      build_sectioning_root (document->sectioning_root);
+      document->modified_information &= ~F_DOCM_sectioning_root;
+    }
+   */
   return result_sv;
 }
 
@@ -2224,6 +2272,16 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           sv = newRV_inc ((SV *) command->hv);
           STORE("unit_command");
+        }
+      if (output_unit->unit_section)
+        {
+          sv = newRV_inc ((SV *) output_unit->unit_section->hv);
+          STORE("unit_section");
+        }
+      if (output_unit->unit_node)
+        {
+          sv = newRV_inc ((SV *) output_unit->unit_node->hv);
+          STORE("unit_node");
         }
    /* there is nothing else of use for external_node_unit, exit now */
       if (output_unit->unit_type == OU_external_node_unit)
@@ -2477,54 +2535,6 @@ store_document_tree_output_units (DOCUMENT *document)
       if (document->tree)
         result_sv = store_document_texinfo_tree (document);
 
-      /* systematically rebuild, as section structure information
-         can be accessed from the tree.  Done in this function,
-         as it is supposed to be called before an access to modified
-         tree and sectioning structure.
-       */
-      /* Also store, such that next call that get cached values
-         get the right structure */
-      if (document->modified_information & F_DOCM_sections_list)
-        {
-          const char *key = "sections_list";
-          AV *av_list
-            = build_section_structure_list (&document->sections_list);
-          hv_store (document->hv, key, strlen (key),
-                    newRV_inc ((SV *) av_list), 0);
-
-          document->modified_information &= ~F_DOCM_sections_list;
-        }
-
-      if (document->modified_information & F_DOCM_nodes_list)
-        {
-          const char *key = "nodes_list";
-          AV *av_list
-            = build_node_structure_list (&document->nodes_list);
-          hv_store (document->hv, key, strlen (key),
-                    newRV_inc ((SV *) av_list), 0);
-
-          document->modified_information &= ~F_DOCM_nodes_list;
-        }
-
-      if (document->modified_information & F_DOCM_headings_list)
-        {
-          const char *key = "headings_list";
-          AV *av_list
-            = build_heading_structure_list (&document->headings_list);
-          hv_store (document->hv, key, strlen (key),
-                    newRV_inc ((SV *) av_list), 0);
-
-          document->modified_information &= ~F_DOCM_headings_list;
-        }
-
-      /*
-      if (document->sectioning_root
-          && document->modified_information & F_DOCM_sectioning_root)
-        {
-          build_sectioning_root (document->sectioning_root);
-          document->modified_information &= ~F_DOCM_sectioning_root;
-        }
-       */
       /* we hope that there are not two output units lists referring to the
          tree... */
       if (document->modified_information & F_DOCM_output_units)

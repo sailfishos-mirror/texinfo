@@ -977,15 +977,16 @@ sub set_output_units_files($$$$$$)
         }
         if (!defined($file_output_unit->{'unit_filename'})) {
           # use section to do the file name if there is no node
-          my $command = $file_output_unit->{'unit_command'};
+          my $command = $file_output_unit->{'unit_section'};
           if ($command) {
-            if ($command->{'cmdname'} eq 'top' and !$node_top
+            if ($command->{'element'}->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $top_node_filename);
             } else {
               my ($normalized_name, $filename)
-                 = $self->normalized_sectioning_command_filename($command);
+                 = $self->normalized_sectioning_command_filename(
+                                       $command->{'element'});
               $self->set_file_path($filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $filename);
             }
@@ -1826,8 +1827,14 @@ sub sort_element_counts($$;$$)
 
   foreach my $output_unit (@$output_units) {
     my $name;
-    if ($output_unit->{'unit_command'}) {
-      my $command = $output_unit->{'unit_command'};
+    my $command_structure;
+    if ($use_sections) {
+      $command_structure = $output_unit->{'unit_section'};
+    } else {
+      $command_structure = $output_unit->{'unit_node'};
+    }
+    if ($command_structure) {
+      my $command = $command_structure->{'element'};
       # arguments_line type element
       my $arguments_line = $command->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];

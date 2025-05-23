@@ -239,8 +239,7 @@ sub ixin_none_element($$)
 # which is always up to date and handles better content in @insertcopying
 # or @titlepage, but has specific HTML code related to separate
 # elements.
-sub _get_element($$);
-sub _get_element($$)
+sub _get_root_command_output_unit($$)
 {
   my $self = shift;
   my $current = shift;
@@ -280,15 +279,14 @@ sub _associated_node_id($$$;$)
   my $node_command = shift;
 
   if (!defined($node_command)) {
-    my ($element, $root_command) = $self->_get_element($command);
+    my ($output_unit, $root_command)
+      = $self->_get_root_command_output_unit($command);
 
     if ($root_command) {
       if (!$root_command->{'cmdname'} or $root_command->{'cmdname'} ne 'node') {
-        if ($element
-            and $element->{'unit_command'}
-            and $element->{'unit_command'}->{'cmdname'}
-            and $element->{'unit_command'}->{'cmdname'} eq 'node') {
-          $node_command = $element->{'unit_command'};
+        if ($output_unit
+            and $output_unit->{'unit_node'})
+          $node_command = $output_unit->{'unit_node'}->{'element'};
         }
       } else {
         $node_command = $root_command;

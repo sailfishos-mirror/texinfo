@@ -1815,28 +1815,15 @@ HTML_TARGET *
 find_node_target_info_nodedescription_sv (CONVERTER *converter,
                                           SV *element_sv)
 {
-  HV *element_hv;
-  SV **extra_sv;
-
   dTHX;
 
-  element_hv = (HV *)SvRV (element_sv);
-  extra_sv = hv_fetch (element_hv, "extra", strlen ("extra"), 0);
-  if (extra_sv)
+  const ELEMENT *node = html_find_element_from_sv (converter,
+                                                element_sv, 0);
+
+  if (node)
     {
-      HV *extra_hv = (HV *)SvRV (*extra_sv);
-      SV **element_node_sv = hv_fetch (extra_hv, "element_node",
-                                       strlen ("element_node"), 0);
-      if (element_node_sv)
-        {
-          const ELEMENT *node = html_find_element_from_sv (converter,
-                                                *element_node_sv, 0);
-          if (node)
-            {
-              HTML_TARGET *target_info = html_get_target (converter, node);
-              return target_info;
-            }
-        }
+      HTML_TARGET *target_info = html_get_target (converter, node);
+      return target_info;
     }
   return 0;
 }

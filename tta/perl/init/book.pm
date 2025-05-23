@@ -158,15 +158,12 @@ sub book_format_navigation_header($$$$)
   my $element = shift;
 
   my $output_unit = $element->{'associated_unit'};
-  if ($output_unit and $output_unit->{'unit_command'}
-      and not $output_unit->{'unit_command'}->{'cmdname'} eq 'node'
-      and ($output_unit->{'unit_contents'}->[0] eq $element
-          or (!$output_unit->{'unit_contents'}->[0]->{'cmdname'}
-              and $output_unit->{'unit_contents'}->[1] eq $element))
+  if ($output_unit and $output_unit->{'unit_section'}
       and defined($output_unit->{'unit_filename'})
       and $self->count_elements_in_filename('current',
                          $output_unit->{'unit_filename'}) == 1) {
-    return book_print_up_toc($self, $output_unit->{'unit_command'}) .
+    return book_print_up_toc($self,
+                             $output_unit->{'unit_section'}->{'element'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $element);
 
@@ -364,20 +361,17 @@ sub book_convert_heading_command($$$$$)
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     my $associated_title_command;
+    my $node_structure;
     if ($document and $element->{'extra'}
         and $element->{'extra'}->{'node_number'}) {
       my $nodes_list = $document->nodes_list();
-      my $node_structure
+      $node_structure
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       $associated_title_command
         = $node_structure->{'associated_title_command'};
     }
-    # NOTE: if USE_NODES = 0 and there are no sectioning commands,
-    # $output_unit->{'unit_command'} does not exist.
-    if ($output_unit->{'unit_command'}
-        and $output_unit->{'unit_command'} eq $element
-        and $element->{'extra'}
-        and defined($element->{'extra'}->{'normalized'})
+    if ($output_unit->{'unit_node'}
+        and $output_unit->{'unit_node'} eq $node_structure
         and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -511,13 +505,8 @@ sub book_unit_file_name($$$$)
   my $prefix = $converter->get_info('document_name');
   my $new_file_name;
   my $command;
-  if ($output_unit->{'unit_command'}) {
-    if ($output_unit->{'unit_command'}->{'cmdname'} ne 'node') {
-      $command = $output_unit->{'unit_command'};
-    } elsif ($output_unit->{'unit_command'}->{'extra'}
-             and $output_unit->{'unit_command'}->{'extra'}->{'associated_section'}) {
-      $command = $output_unit->{'unit_command'}->{'extra'}->{'associated_section'}->{'element'};
-    }
+  if ($output_unit->{'unit_section'}) {
+    $command = $output_unit->{'unit_section'}->{'element'};
   }
   return (undef, undef) unless ($command);
   if ($converter->unit_is_top_output_unit($output_unit)) {

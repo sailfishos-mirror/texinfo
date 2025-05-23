@@ -3910,7 +3910,7 @@ default formatting functions:
 @item @code{menu} @tab @code{html_menu_entry_index} @tab @tab integer
 @item @code{printindex} @tab @code{formatted_index_entries} @tab index_entry (index entry hash) @tab integer
 @item @code{top} @tab @code{in_skipped_node_top} @tab @tab integer
-@item @code{nodedescription} @tab @code{formatted_nodedescriptions} @tab element (@code{@@nodedescription} tree element) @tab integer
+@item @code{nodedescription} @tab @code{formatted_nodedescriptions} @tab element (@code{@@node} tree element) @tab integer
 @end multitable
 
 These shared information data correspond to:
@@ -3936,8 +3936,8 @@ Associate an index entry to the number of time it was formatted.
 Set to 1 in a @code{Top} node being skipped, in case
 @code{NO_TOP_NODE_OUTPUT} is set.
 @item formatted_nodedescriptions
-Associate a @code{@@nodedescription} tree element to the number of time
-it was formatted.
+Associate a @code{@@node} tree element to the number of time
+its description was formatted.
 @end vtable
 
 

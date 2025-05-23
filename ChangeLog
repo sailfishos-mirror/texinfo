@@ -1,3 +1,46 @@
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Shared Conversion State in Default
+	Formatting), tta/perl/Texinfo/Convert/HTML.pm (command_description)
+	(_formatted_nodedescription_nr, _convert_menu_entry_type),
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(find_node_target_info_nodedescription_sv): use the node element and
+	not the nodedescription element to select the node description for the
+	nodedescription shared conversion state, since it is easier to find
+	the C tree node from XS based on the node Perl tree element than based
+	on the nodedescription Perl tree element.
+
+	* tta/C/main/build_perl_info.c (store_document_texinfo_tree)
+	(store_document_tree_output_units): move building section, nodes and
+	heading lists to store_document_texinfo_tree to make sure that they
+	are rebuilt if needed in more cases.
+
+	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash),
+	tta/C/main/document_types.h (OUTPUT_UNIT), tta/C/main/output_unit.c
+	(split_by_node, split_by_section), tta/perl/Texinfo/Common.pm
+	(debug_print_output_unit), tta/perl/Texinfo/OutputUnits.pm
+	(split_by_node, split_by_section): add unit_node and unit_section
+	information to output unit, to hae a direct access to associated node
+	and section information.
+
+	* tta/C/convert/format_html.c (from_element_direction)
+	(html_default_format_begin_file, html_convert_heading_command),
+	tta/C/convert/html_prepare_converter.c (html_set_pages_files),
+	tta/C/main/output_unit.c (split_pages, units_directions),
+	tta/perl/Texinfo/Convert/Converter.pm (set_output_units_files)
+	(sort_element_counts), tta/perl/Texinfo/Convert/HTML.pm
+	(from_element_direction, _convert_heading_command)
+	(_html_set_pages_files, _default_format_begin_file),
+	tta/perl/Texinfo/Convert/IXIN.pm, tta/perl/Texinfo/OutputUnits.pm
+	(split_pages, units_directions), tta/perl/init/book.pm
+	(book_format_navigation_header, book_convert_heading_command)
+	(book_unit_file_name): use output unit unit_node and unit_section
+	instead of unit_command when relevant.  Remove _output_unit_node and
+	_output_unit_section functions.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (process_footnotes): rename
+	$element as $output_unit.
+
 2025-05-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t

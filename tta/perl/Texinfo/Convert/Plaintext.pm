@@ -1362,19 +1362,19 @@ sub _close_code($)
 my $footnote_indent = 3;
 sub process_footnotes($;$)
 {
-  my ($self, $element) = @_;
+  my ($self, $output_unit) = @_;
 
   my $formatter = new_formatter($self, 'line'); # may not be used
   push @{$self->{'formatters'}}, $formatter;
 
   if (scalar(@{$self->{'pending_footnotes'}})) {
 
-    $element = undef if ($element and
-                         not defined($element->{'unit_command'}));
+    $output_unit = undef if ($output_unit and
+                         not defined($output_unit->{'unit_command'}));
     my $node_element;
     my $label_element;
-    if ($element) {
-      $node_element = $element->{'unit_command'};
+    if ($output_unit) {
+      $node_element = $output_unit->{'unit_command'};
       if ($node_element->{'extra'}
           and defined($node_element->{'extra'}->{'normalized'})) {
         # arguments_line type element

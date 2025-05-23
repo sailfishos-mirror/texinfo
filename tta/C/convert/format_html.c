@@ -2487,46 +2487,16 @@ from_element_direction (CONVERTER *self, int direction,
         }
       else if (type == HTT_node)
         {
-          if (target_unit->unit_type == OU_unit && target_unit->uc.unit_command)
-            {
-              const ELEMENT *target_command = target_unit->uc.unit_command;
-              if (target_command->e.c->cmd == CM_node)
-                command = target_command;
-              else if (self->document)
-                {
-                  int status;
-                  size_t section_number
-                    = lookup_extra_integer (target_command,
-                                         AI_key_section_number, &status);
-                  const SECTION_STRUCTURE *section_structure
-                    = self->document->sections_list.list[section_number -1];
+          if (target_unit->unit_node)
+            command = target_unit->unit_node->element;
 
-                  if (section_structure->associated_node)
-                    command = section_structure->associated_node->element;
-                }
-            }
           type = HTT_text;
         }
       else if (type == HTT_section || type == HTT_section_nonumber)
         {
-          if (target_unit->unit_type == OU_unit && target_unit->uc.unit_command)
-            {
-              const ELEMENT *target_command = target_unit->uc.unit_command;
-              if (target_command->e.c->cmd != CM_node)
-                command = target_command;
-              else if (self->document)
-                {
-                  int status;
-                  size_t node_number
-                    = lookup_extra_integer (target_command,
-                                         AI_key_node_number, &status);
-                  const NODE_STRUCTURE *node_structure
-                    = self->document->nodes_list.list[node_number -1];
+          if (target_unit->unit_section)
+            command = target_unit->unit_section->element;
 
-                  if (node_structure->associated_section)
-                    command = node_structure->associated_section->element;
-                }
-            }
           if (type == HTT_section_nonumber)
             type = HTT_text_nonumber;
           else
@@ -4302,7 +4272,6 @@ char *
 html_default_format_begin_file (CONVERTER *self, const char *filename,
                                 const OUTPUT_UNIT *output_unit)
 {
-  const ELEMENT *element_command = 0;
   const ELEMENT *node_command = 0;
   const ELEMENT *command_for_title = 0;
   BEGIN_FILE_INFORMATION *begin_info;
@@ -4312,26 +4281,15 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
 
   if (output_unit)
     {
+      const ELEMENT *element_command = 0;
+
+      if (output_unit->unit_node)
+        node_command = output_unit->unit_node->element;
+
       if (output_unit->unit_type == OU_special_unit)
         element_command = output_unit->uc.special_unit_command;
       else
         element_command = output_unit->uc.unit_command;
-      if (element_command && element_command->e.c->cmd != CM_node
-          && builtin_command_data[element_command->e.c->cmd].flags & CF_root
-          && self->document)
-        {
-          int status;
-          size_t section_number
-            = lookup_extra_integer (element_command,
-                                    AI_key_section_number, &status);
-
-          const SECTION_STRUCTURE *section_structure
-            = self->document->sections_list.list[section_number -1];
-          if (section_structure->associated_node)
-            node_command = section_structure->associated_node->element;
-        }
-      if (!node_command)
-        node_command = element_command;
 
       if (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string)
           && element_command)
@@ -7596,11 +7554,9 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                 = node_structure->associated_title_command;
             }
         }
-      /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
-         output_unit->uc.unit_command is NUL (and not equal to element). */
-      if (output_unit->uc.unit_command == element
-          && !associated_title_command
-          && normalized)
+      if (output_unit && output_unit->unit_node
+          && output_unit->unit_node->element == element
+          && !associated_title_command)
         {
           if (!strcmp (normalized, "Top"))
             heading_level = 0;
