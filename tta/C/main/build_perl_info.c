@@ -1072,7 +1072,10 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
     {
       NODE_STRUCTURE *structure = list->list[i];
       build_node_structure (structure);
-      av_store (list_av, i, newRV_noinc ((SV *) structure->hv));
+      /* In case the HV was just created, keep the reference created by
+         newHV instead of transferring it to the list_av, considering
+         that it is associated to the C code */
+      av_store (list_av, i, newRV_inc ((SV *) structure->hv));
     }
 
   return list_av;
