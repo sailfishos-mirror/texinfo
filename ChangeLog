@@ -1,5 +1,14 @@
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/structure_list.c (SECTION_STRUCT_PRINT_KEY)
+	(print_section_structure_info_internal, print_sections_list)
+	(print_node_structure_info_internal, print_nodes_list)
+	(print_headings_list, print_heading_structure_info_internal): split
+	out functions that print one section, node or heading structure
+	information, to be able to use for debug, for example.
+
+2025-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_node_structure_list): keep a
 	reference to the node structure Perl HV in the C code.
 

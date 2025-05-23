@@ -335,13 +335,13 @@ print_root_command (const ELEMENT *element)
             = root_command_element_string (structure->name->element); \
           if (value) \
             { \
-              text_printf (&result, " " #name ": %s", \
+              text_printf (result, " " #name ": %s", \
                            value); \
               free (value); \
             } \
           else \
-            text_append (&result, " " #name); \
-          text_append_n (&result, "\n", 1); \
+            text_append (result, " " #name); \
+          text_append_n (result, "\n", 1); \
         }
 
 static void
@@ -368,6 +368,57 @@ print_sections_directions (TEXT *result,
     }
 }
 
+static void
+print_section_structure_info_internal (const SECTION_STRUCTURE *structure,
+                                       size_t i, TEXT *result)
+{
+  const ELEMENT *element = structure->element;
+  char *root_command_texi = print_root_command (element);
+  if (!root_command_texi)
+    text_printf (result, "%zu", i+1);
+  else
+    {
+      text_printf (result, "%zu|%s", i+1, root_command_texi);
+      free (root_command_texi);
+    }
+  text_append_n (result, "\n", 1);
+
+  SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
+  SECTION_STRUCT_PRINT_KEY(associated_node)
+  SECTION_STRUCT_PRINT_KEY(part_following_node)
+  SECTION_STRUCT_PRINT_KEY(associated_part)
+  SECTION_STRUCT_PRINT_KEY(part_associated_section)
+  if (structure->section_directions)
+    {
+      text_append_n (result, " section_directions:\n", 21);
+      print_sections_directions (result, structure->section_directions);
+    }
+  if (structure->toplevel_directions)
+    {
+      text_append_n (result, " toplevel_directions:\n", 22);
+      print_sections_directions (result, structure->toplevel_directions);
+    }
+  if (structure->section_childs)
+    {
+      size_t j;
+      const char *key = "section_childs";
+      text_printf (result, " %s:\n", key);
+      for (j = 0; j < structure->section_childs->number; j++)
+        {
+          const ELEMENT *element
+            = structure->section_childs->list[j]->element;
+          char *section_texi = print_root_command (element);
+          text_printf (result, "  %zu|", j+1);
+          if (section_texi)
+            {
+              text_append (result, section_texi);
+              free (section_texi);
+            }
+          text_append_n (result, "\n", 1);
+        }
+    }
+}
+
 char *
 print_sections_list (const DOCUMENT *document)
 {
@@ -382,51 +433,7 @@ print_sections_list (const DOCUMENT *document)
     {
       const SECTION_STRUCTURE *structure
         = document->sections_list.list[i];
-      const ELEMENT *element = structure->element;
-      char *root_command_texi = print_root_command (element);
-      if (!root_command_texi)
-        text_printf (&result, "%zu", i+1);
-      else
-        {
-          text_printf (&result, "%zu|%s", i+1, root_command_texi);
-          free (root_command_texi);
-        }
-      text_append_n (&result, "\n", 1);
-
-      SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
-      SECTION_STRUCT_PRINT_KEY(associated_node)
-      SECTION_STRUCT_PRINT_KEY(part_following_node)
-      SECTION_STRUCT_PRINT_KEY(associated_part)
-      SECTION_STRUCT_PRINT_KEY(part_associated_section)
-      if (structure->section_directions)
-        {
-          text_append_n (&result, " section_directions:\n", 21);
-          print_sections_directions (&result, structure->section_directions);
-        }
-      if (structure->toplevel_directions)
-        {
-          text_append_n (&result, " toplevel_directions:\n", 22);
-          print_sections_directions (&result, structure->toplevel_directions);
-        }
-      if (structure->section_childs)
-        {
-          size_t i;
-          const char *key = "section_childs";
-          text_printf (&result, " %s:\n", key);
-          for (i = 0; i < structure->section_childs->number; i++)
-            {
-              const ELEMENT *element
-                = structure->section_childs->list[i]->element;
-              char *section_texi = print_root_command (element);
-              text_printf (&result, "  %zu|", i+1);
-              if (section_texi)
-                {
-                  text_append (&result, section_texi);
-                  free (section_texi);
-                }
-              text_append_n (&result, "\n", 1);
-            }
-        }
+      print_section_structure_info_internal (structure, i, &result);
     }
 
   return result.text;
@@ -546,6 +553,89 @@ print_nodes_directions (TEXT *result, const ELEMENT * const *directions)
     }
 }
 
+static void
+print_node_structure_info_internal (const NODE_STRUCTURE *structure,
+                                    size_t i, TEXT *result)
+{
+  const ELEMENT *element = structure->element;
+  char *root_command_texi = print_root_command (element);
+  if (!root_command_texi)
+    text_printf (result, "%zu", i+1);
+  else
+    {
+      text_printf (result, "%zu|%s", i+1, root_command_texi);
+      free (root_command_texi);
+    }
+  text_append_n (result, "\n", 1);
+
+  SECTION_STRUCT_PRINT_KEY(associated_section)
+  SECTION_STRUCT_PRINT_KEY(node_preceding_part)
+
+  if (structure->associated_title_command)
+    {
+      print_line_command_key_element (result, "associated_title_command",
+                             structure->associated_title_command);
+      text_append_n (result, "\n", 1);
+    }
+  if (structure->node_description)
+    {
+      print_line_command_key_element (result, "node_description",
+                             structure->node_description);
+      text_append_n (result, "\n", 1);
+    }
+  if (structure->node_long_description)
+    {
+      const char *command_key = "node_long_description";
+      const ELEMENT *command_element = structure->node_long_description;
+      text_printf (result, " %s: @%s", command_key,
+                   builtin_command_name (command_element->e.c->cmd));
+      text_append_n (result, "\n", 1);
+    }
+
+  if (structure->menus && structure->menus->number)
+    {
+      text_append_n (result, " menus:\n", 8);
+      size_t j;
+      for (j = 0; j < structure->menus->number; j++)
+        {
+          const ELEMENT *menu = structure->menus->list[j];
+
+          size_t k;
+          for (k = 0; k < menu->e.c->contents.number; k++)
+            {
+              const ELEMENT *menu_content = menu->e.c->contents.list[k];
+              if (menu_content->type == ET_menu_entry)
+                {
+                  size_t l;
+                  for (l = 0; l < menu_content->e.c->contents.number; l++)
+                    {
+                      const ELEMENT *content
+                        = menu_content->e.c->contents.list[l];
+                      if (content->type == ET_menu_entry_node)
+                        {
+                          /* This is only supposed to identify the menu */
+                          char *node_menu_entry_texi
+                            = convert_to_texinfo (content);
+                          text_printf (result, "  %s\n",
+                                       node_menu_entry_texi);
+                          free (node_menu_entry_texi);
+                        }
+                    }
+                }
+            }
+        }
+    }
+  if (structure->menu_directions)
+    {
+      text_append_n (result, " menu_directions:\n", 18);
+      print_nodes_directions (result, structure->menu_directions);
+    }
+  if (structure->node_directions)
+    {
+      text_append_n (result, " node_directions:\n", 18);
+      print_nodes_directions (result, structure->node_directions);
+    }
+}
 
 char *
 print_nodes_list (const DOCUMENT *document)
@@ -561,87 +651,33 @@ print_nodes_list (const DOCUMENT *document)
     {
       const NODE_STRUCTURE *structure
         = document->nodes_list.list[i];
-      const ELEMENT *element = structure->element;
-      char *root_command_texi = print_root_command (element);
-      if (!root_command_texi)
-        text_printf (&result, "%zu", i+1);
-      else
-        {
-          text_printf (&result, "%zu|%s", i+1, root_command_texi);
-          free (root_command_texi);
-        }
-      text_append_n (&result, "\n", 1);
-
-      SECTION_STRUCT_PRINT_KEY(associated_section)
-      SECTION_STRUCT_PRINT_KEY(node_preceding_part)
-
-      if (structure->associated_title_command)
-        {
-          print_line_command_key_element (&result, "associated_title_command",
-                                 structure->associated_title_command);
-          text_append_n (&result, "\n", 1);
-        }
-      if (structure->node_description)
-        {
-          print_line_command_key_element (&result, "node_description",
-                                 structure->node_description);
-          text_append_n (&result, "\n", 1);
-        }
-      if (structure->node_long_description)
-        {
-          const char *command_key = "node_long_description";
-          const ELEMENT *command_element = structure->node_long_description;
-          text_printf (&result, " %s: @%s", command_key,
-                       builtin_command_name (command_element->e.c->cmd));
-          text_append_n (&result, "\n", 1);
-        }
-
-      if (structure->menus && structure->menus->number)
-        {
-          text_append_n (&result, " menus:\n", 8);
-          size_t j;
-          for (j = 0; j < structure->menus->number; j++)
-            {
-              const ELEMENT *menu = structure->menus->list[j];
-
-              size_t k;
-              for (k = 0; k < menu->e.c->contents.number; k++)
-                {
-                  const ELEMENT *menu_content = menu->e.c->contents.list[k];
-                  if (menu_content->type == ET_menu_entry)
-                    {
-                      size_t l;
-                      for (l = 0; l < menu_content->e.c->contents.number; l++)
-                        {
-                          const ELEMENT *content
-                            = menu_content->e.c->contents.list[l];
-                          if (content->type == ET_menu_entry_node)
-                            {
-                              /* This is only supposed to identify the menu */
-                              char *node_menu_entry_texi
-                                = convert_to_texinfo (content);
-                              text_printf (&result, "  %s\n",
-                                           node_menu_entry_texi);
-                              free (node_menu_entry_texi);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-      if (structure->menu_directions)
-        {
-          text_append_n (&result, " menu_directions:\n", 18);
-          print_nodes_directions (&result, structure->menu_directions);
-        }
-      if (structure->node_directions)
-        {
-          text_append_n (&result, " node_directions:\n", 18);
-          print_nodes_directions (&result, structure->node_directions);
-        }
+      print_node_structure_info_internal (structure, i, &result);
     }
 
   return result.text;
+}
+
+static void
+print_heading_structure_info_internal (const HEADING_STRUCTURE *structure,
+                                       size_t i, TEXT *result)
+{
+  const ELEMENT *element = structure->element;
+  const ELEMENT *line_arg = element->e.c->contents.list[0];
+  char *root_command_texi = 0;
+
+  if (line_arg->e.c->contents.number > 0)
+    root_command_texi = convert_contents_to_texinfo (line_arg);
+
+  if (!root_command_texi)
+    text_printf (result, "%zu", i+1);
+  else
+    {
+      text_printf (result, "%zu|%s", i+1, root_command_texi);
+      free (root_command_texi);
+    }
+  text_append_n (result, "\n", 1);
+
+  SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
 }
 
 char *
@@ -658,23 +694,7 @@ print_headings_list (const DOCUMENT *document)
     {
       const HEADING_STRUCTURE *structure
         = document->headings_list.list[i];
-      const ELEMENT *element = structure->element;
-      const ELEMENT *line_arg = element->e.c->contents.list[0];
-      char *root_command_texi = 0;
-
-      if (line_arg->e.c->contents.number > 0)
-        root_command_texi = convert_contents_to_texinfo (line_arg);
-
-      if (!root_command_texi)
-        text_printf (&result, "%zu", i+1);
-      else
-        {
-          text_printf (&result, "%zu|%s", i+1, root_command_texi);
-          free (root_command_texi);
-        }
-      text_append_n (&result, "\n", 1);
-
-      SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
+      print_heading_structure_info_internal (structure, i, &result);
     }
 
   return result.text;
