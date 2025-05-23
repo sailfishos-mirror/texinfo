@@ -7289,6 +7289,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   int do_heading;
   const char *heading_id = 0;
   char *level_set_class = 0;
+  const NODE_STRUCTURE *node_structure = 0;
+  const SECTION_STRUCTURE *section_structure = 0;
 
   const ELEMENT *opening_section = 0;
   enum command_id level_corrected_opening_section_cmd = 0;
@@ -7320,10 +7322,33 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
       free (root_heading_texi);
     }
 
+  if (flags & CF_root)
+    {
+      int status;
+      if (cmd == CM_node)
+        {
+          size_t node_number
+            = lookup_extra_integer (element, AI_key_node_number, &status);
+          if (node_number && self->document)
+            {
+              node_structure
+                = self->document->nodes_list.list[node_number -1];
+            }
+        }
+      else if (self->document)
+        {
+          size_t section_number
+            = lookup_extra_integer (element,
+                                    AI_key_section_number, &status);
+          section_structure
+            = self->document->sections_list.list[section_number -1];
+        }
+
   /* All the root commands are associated to an output unit, the condition
      on associated_unit is always true. */
-  if (flags & CF_root && element->e.c->associated_unit)
-    output_unit = element->e.c->associated_unit;
+      if (element->e.c->associated_unit)
+        output_unit = element->e.c->associated_unit;
+    }
 
   text_init (&element_header);
   text_append (&element_header, "");
@@ -7362,26 +7387,15 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
     }
 
   if (toc_or_mini_toc_or_auto_menu.end <= 0
-      && (flags & CF_sectioning_heading)
-      && self->conf->FORMAT_MENU.o.string)
+      && self->conf->FORMAT_MENU.o.string
+      && section_structure)
     {
-      const SECTION_STRUCTURE *section_structure = 0;
-      if (builtin_command_data[element->e.c->cmd].flags & CF_root)
-        {
-          int status;
-          size_t section_number
-            = lookup_extra_integer (element,
-                                    AI_key_section_number, &status);
-          section_structure
-            = self->document->sections_list.list[section_number -1];
-        }
-
       if (!strcmp (self->conf->FORMAT_MENU.o.string, "sectiontoc"))
         {
           mini_toc_internal (self, section_structure,
                              &toc_or_mini_toc_or_auto_menu);
         }
-      else if (self->document)
+      else
         {
           int format_menu = 0;
           if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
@@ -7391,20 +7405,21 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             format_menu = 2;
           if (format_menu)
             {
-              if (section_structure && section_structure->associated_node)
+              if (section_structure->associated_node)
                 {
-                  const NODE_STRUCTURE *node_structure
+                  const NODE_STRUCTURE *associated_node_structure
                     = section_structure->associated_node;
                   const NODE_STRUCTURE_LIST *nodes_list
                     = &self->document->nodes_list;
                   /* arguments_line type element */
                   const ELEMENT *arguments_line
-                    = node_structure->element->e.c->contents.list[0];
+                    = associated_node_structure->element->e.c->contents.list[0];
                   int automatic_directions
                     = (arguments_line->e.c->contents.number <= 1);
 
-                  const CONST_ELEMENT_LIST *menus = node_structure->menus;
-                  if (!menus && automatic_directions && self->document)
+                  const CONST_ELEMENT_LIST *menus
+                    = associated_node_structure->menus;
+                  if (!menus && automatic_directions)
                     {
                       ELEMENT *menu_node;
 
@@ -7414,11 +7429,11 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                             self->conf,
                             self->current_lang_translations,
                             &self->document->identifiers_target,
-                            nodes_list, node_structure);
+                            nodes_list, associated_node_structure);
                       else
                          /* menu_no_detailmenu */
                         menu_node
-                          = new_complete_node_menu (node_structure,
+                          = new_complete_node_menu (associated_node_structure,
                                         self->document,
                                         self->current_lang_translations,
                                         self->conf->DEBUG.o.integer, 0);
@@ -7473,54 +7488,17 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
  /* find the section starting here, can be through the associated node
     preceding the section, or the section itself */
 
-  if (cmd == CM_node)
+  if (node_structure && node_structure->associated_section)
     {
-      if (self->document)
-        {
-          int status;
-          size_t node_number
-            = lookup_extra_integer (element, AI_key_node_number, &status);
-          if (node_number)
-            {
-              const NODE_STRUCTURE *node_structure
-                = self->document->nodes_list.list[node_number -1];
-
-              if (node_structure->associated_section)
-                {
-                  opening_section
-                    = node_structure->associated_section->element;
-                  level_corrected_opening_section_cmd
-                    = section_level_adjusted_command_name (opening_section);
-                }
-            }
-        }
+      opening_section
+        = node_structure->associated_section->element;
+      level_corrected_opening_section_cmd
+        = section_level_adjusted_command_name (opening_section);
     }
-  /* to avoid *heading* @-commands */
-  else if (builtin_command_data[cmd].flags & CF_root)
+  else if (section_structure && !section_structure->associated_node)
     {
-      const NODE_STRUCTURE *associated_node_structure = 0;
-
-      if (self->document)
-        {
-          int status;
-          size_t section_number
-            = lookup_extra_integer (element,
-                                    AI_key_section_number, &status);
-          const SECTION_STRUCTURE *section_structure
-            = self->document->sections_list.list[section_number -1];
-
-          if (section_structure->associated_node)
-            associated_node_structure
-              = section_structure->associated_node;
-        }
-
-       /* if there is an associated node, it is not a section opening
-        the section was opened before when the node was encountered */
-      if (!associated_node_structure)
-        {
-          opening_section = element;
-          level_corrected_opening_section_cmd = level_corrected_cmd;
-        }
+      opening_section = element;
+      level_corrected_opening_section_cmd = level_corrected_cmd;
     }
 
   /*
@@ -7534,26 +7512,13 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   heading = html_command_text (self, element, 0);
 
   /* node is used as heading if there is nothing else. */
-  if (cmd == CM_node)
+  if (node_structure)
     {
-      const ELEMENT *associated_title_command = 0;
+      const ELEMENT *associated_title_command
+        = node_structure->associated_title_command;
       const char *normalized = lookup_extra_string (element, AI_key_normalized);
-      if (self->document)
-        {
-          int status;
-          size_t node_number
-            = lookup_extra_integer (element, AI_key_node_number, &status);
-          if (node_number)
-            {
-              const NODE_STRUCTURE *node_structure
-                = self->document->nodes_list.list[node_number -1];
-
-              associated_title_command
-                = node_structure->associated_title_command;
-            }
-        }
       if (output_unit && output_unit->unit_node
-          && output_unit->unit_node->element == element
+          && output_unit->unit_node == node_structure
           && !associated_title_command)
         {
           if (!strcmp (normalized, "Top"))

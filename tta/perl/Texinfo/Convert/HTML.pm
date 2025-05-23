@@ -4765,19 +4765,6 @@ sub _convert_heading_command($$$$$)
         #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
-  my $output_unit;
-  if ($Texinfo::Commands::root_commands{$cmdname}) {
-    # All the root commands are associated to an output unit, the condition
-    # on associated_unit is always true.
-    if ($element->{'associated_unit'}) {
-      $output_unit = $element->{'associated_unit'};
-    }
-  }
-  my $element_header = '';
-  if ($output_unit) {
-    $element_header = &{$self->formatting_function('format_element_header')}(
-                                        $self, $cmdname, $element, $output_unit);
-  }
 
   my $document = $self->get_info('document');
   my $sections_list;
@@ -4785,6 +4772,34 @@ sub _convert_heading_command($$$$$)
   if ($document) {
     $sections_list = $document->sections_list();
     $nodes_list = $document->nodes_list();
+  }
+
+  my $output_unit;
+  my $section_structure;
+  my $node_structure;
+
+  if ($Texinfo::Commands::root_commands{$cmdname}) {
+    if ($cmdname eq 'node') {
+      if ($nodes_list and $element->{'extra'}
+        and $element->{'extra'}->{'node_number'}) {
+        $node_structure
+          = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      }
+    } elsif ($sections_list) {
+      $section_structure
+        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    }
+    # All the root commands are associated to an output unit, the condition
+    # on associated_unit is always true.
+    if ($element->{'associated_unit'}) {
+      $output_unit = $element->{'associated_unit'};
+    }
+  }
+
+  my $element_header = '';
+  if ($output_unit) {
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $output_unit);
   }
 
   my $toc_or_mini_toc_or_auto_menu = '';
@@ -4804,49 +4819,40 @@ sub _convert_heading_command($$$$$)
   }
 
   my $format_menu = $self->get_conf('FORMAT_MENU');
-  if ($toc_or_mini_toc_or_auto_menu eq ''
-      and $sectioning_heading_commands{$cmdname}) {
-    my $section_structure;
-    if ($sections_list
-        and $Texinfo::Commands::root_commands{$cmdname}) {
-      $section_structure
-        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    }
-
+  if ($toc_or_mini_toc_or_auto_menu eq '' and $section_structure) {
     if ($format_menu eq 'sectiontoc') {
       $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $section_structure);
-    } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
-      if ($section_structure and $section_structure->{'associated_node'}) {
-        my $node_structure = $section_structure->{'associated_node'};
-        my $node = $node_structure->{'element'};
-        # arguments_line type element
-        my $arguments_line = $node->{'contents'}->[0];
-        my $automatic_directions = 1;
-        if (scalar(@{$arguments_line->{'contents'}}) > 1) {
-          $automatic_directions = 0;
-        }
+    } elsif (($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu')
+             and $section_structure->{'associated_node'}) {
+      my $associated_node_structure = $section_structure->{'associated_node'};
+      # arguments_line type element
+      my $arguments_line
+        = $associated_node_structure->{'element'}->{'contents'}->[0];
+      my $automatic_directions = 1;
+      if (scalar(@{$arguments_line->{'contents'}}) > 1) {
+        $automatic_directions = 0;
+      }
 
-       if ($document and $automatic_directions
-           and !$node_structure->{'menus'}) {
-         my $identifiers_target = $document->labels_information();
+      if ($automatic_directions
+         and !$associated_node_structure->{'menus'}) {
+        my $identifiers_target = $document->labels_information();
 
         my $menu_node;
         if ($format_menu eq 'menu') {
           $menu_node
             = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                    $identifiers_target, $nodes_list,
-                                    $node_structure);
-          } else { # $format_menu eq 'menu_no_detailmenu'
-            $menu_node
-              = Texinfo::Structuring::new_complete_node_menu($node_structure,
-                                $nodes_list,
-                                $self->{'current_lang_translations'},
-                                $self->get_conf('DEBUG'));
-          }
-          if ($menu_node) {
-            $toc_or_mini_toc_or_auto_menu
-                  = $self->convert_tree($menu_node, 'master menu');
-          }
+                                  $identifiers_target, $nodes_list,
+                                  $associated_node_structure);
+        } else { # $format_menu eq 'menu_no_detailmenu'
+          $menu_node
+            = Texinfo::Structuring::new_complete_node_menu(
+                              $associated_node_structure,
+                              $self->{'current_lang_translations'},
+                              $self->get_conf('DEBUG'));
+        }
+        if ($menu_node) {
+          $toc_or_mini_toc_or_auto_menu
+                = $self->convert_tree($menu_node, 'master menu');
         }
       }
     }
@@ -4883,35 +4889,16 @@ sub _convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node') {
-    if ($document and $element->{'extra'}
-        and $element->{'extra'}->{'node_number'}) {
-      my $node_structure
-        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      if ($node_structure->{'associated_section'}) {
-        $opening_section = $node_structure->{'associated_section'}->{'element'};
-        $level_corrected_opening_section_cmdname
+  if ($node_structure and $node_structure->{'associated_section'}) {
+    $opening_section = $node_structure->{'associated_section'}->{'element'};
+    $level_corrected_opening_section_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
-      }
-    }
-    # to avoid *heading* @-commands
-  } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
-    my $associated_node_structure;
-    if ($sections_list) {
-      my $section_structure
-        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-      if ($section_structure->{'associated_node'}) {
-        $associated_node_structure
-          = $section_structure->{'associated_node'};
-      }
-    }
-    # if there is an associated node, it is not a section opening
-    # the section was opened before when the node was encountered
-    if (!$associated_node_structure) {
-      $opening_section = $element;
-      $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
-    }
+  # if there is an associated node, it is not a section opening
+  # the section was opened before when the node was encountered
+  } elsif ($section_structure and !$section_structure->{'associated_node'}) {
+    $opening_section = $element;
+    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
   # could use empty args information also, to avoid calling command_text
@@ -4922,18 +4909,12 @@ sub _convert_heading_command($$$$$)
   my $heading = $self->command_text($element);
   my $heading_level;
   # node is used as heading if there is nothing else.
-  if ($cmdname eq 'node') {
+  if ($node_structure) {
     my $associated_title_command;
-    if ($document and $element->{'extra'}
-        and $element->{'extra'}->{'node_number'}) {
-      my $nodes_list = $document->nodes_list();
-      my $node_structure
-        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      $associated_title_command
-        = $node_structure->{'associated_title_command'};
-    }
+    $associated_title_command
+      = $node_structure->{'associated_title_command'};
     if ($output_unit and $output_unit->{'unit_node'}
-        and $output_unit->{'unit_node'}->{'element'} eq $element
+        and $output_unit->{'unit_node'} eq $node_structure
         and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;

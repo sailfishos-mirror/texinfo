@@ -234,23 +234,39 @@ sub book_convert_heading_command($$$$$)
         #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
-  my $output_unit;
-  # All the root commands are associated to an output unit, the condition
-  # on associated_unit is always true.
-  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
-      and $element->{'associated_unit'}) {
-    $output_unit = $element->{'associated_unit'};
-  }
-  my $element_header = '';
-  if ($output_unit) {
-    $element_header = &{$self->formatting_function('format_element_header')}(
-                                        $self, $cmdname, $element, $output_unit);
-  }
 
   my $document = $self->get_info('document');
   my $sections_list;
   if ($document) {
     $sections_list = $document->sections_list();
+  }
+  my $output_unit;
+  my $section_structure;
+  my $node_structure;
+
+  if ($Texinfo::Commands::root_commands{$cmdname}) {
+    if ($cmdname eq 'node') {
+      if ($document and $element->{'extra'}
+        and $element->{'extra'}->{'node_number'}) {
+        my $nodes_list = $document->nodes_list();
+        $node_structure
+          = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+      }
+    } elsif ($sections_list) {
+      $section_structure
+        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    }
+    # All the root commands are associated to an output unit, the condition
+    # on associated_unit is always true.
+    if ($element->{'associated_unit'}) {
+      $output_unit = $element->{'associated_unit'};
+    }
+  }
+
+  my $element_header = '';
+  if ($output_unit) {
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $output_unit);
   }
 
   my $toc_or_mini_toc_or_auto_menu = '';
@@ -269,16 +285,10 @@ sub book_convert_heading_command($$$$$)
     }
   }
 
-  if ($toc_or_mini_toc_or_auto_menu eq ''
-      and $sections_list
-      and $cmdname ne 'node'
-      # to avoid *heading* @-commands
-      and $Texinfo::Commands::root_commands{$cmdname}
+  if ($toc_or_mini_toc_or_auto_menu eq '' and $section_structure
       # avoid a double of contents if already after title
       and ($cmdname ne 'top'
            or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')) {
-    my $section_structure
-      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     my $section_childs = $section_structure->{'section_childs'};
     if ($section_childs and scalar(@{$section_childs})) {
       $toc_or_mini_toc_or_auto_menu
@@ -320,35 +330,16 @@ sub book_convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node') {
-    if ($document) {
-      my $nodes_list = $document->nodes_list();
-      my $node_structure
-        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      if ($node_structure->{'associated_section'}) {
-        $opening_section
-          = $node_structure->{'associated_section'}->{'element'};
-        $level_corrected_opening_section_cmdname
+  if ($node_structure and $node_structure->{'associated_section'}) {
+    $opening_section = $node_structure->{'associated_section'}->{'element'};
+    $level_corrected_opening_section_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
-      }
-    }
-    # to avoid *heading* @-commands
-  } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
-    my $associated_node_structure;
-    if ($sections_list) {
-      my $section_structure
-        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-      if ($section_structure->{'associated_node'}) {
-        $associated_node_structure = $section_structure->{'associated_node'};
-      }
-    }
-    # if there is an associated node, it is not a section opening
-    # the section was opened before when the node was encountered
-    if (!$associated_node_structure) {
-      $opening_section = $element;
-      $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
-    }
+  # if there is an associated node, it is not a section opening
+  # the section was opened before when the node was encountered
+  } elsif ($section_structure and !$section_structure->{'associated_node'}) {
+    $opening_section = $element;
+    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
   # could use empty args information also, to avoid calling command_text
@@ -359,18 +350,11 @@ sub book_convert_heading_command($$$$$)
   my $heading = $self->command_text($element);
   my $heading_level;
   # node is used as heading if there is nothing else.
-  if ($cmdname eq 'node') {
+  if ($node_structure) {
     my $associated_title_command;
-    my $node_structure;
-    if ($document and $element->{'extra'}
-        and $element->{'extra'}->{'node_number'}) {
-      my $nodes_list = $document->nodes_list();
-      $node_structure
-        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      $associated_title_command
-        = $node_structure->{'associated_title_command'};
-    }
-    if ($output_unit->{'unit_node'}
+    $associated_title_command
+      = $node_structure->{'associated_title_command'};
+    if ($output_unit and $output_unit->{'unit_node'}
         and $output_unit->{'unit_node'} eq $node_structure
         and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
