@@ -1,5 +1,10 @@
 2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/Makefile.am: Use variables and $@ to avoid repeating
+	some lists of filenames.
+
+2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/Makefile.am: Use variable to list products
 	of ../maintain/generate_code_commands_values.pl.  Add
 	convert/cmd_converter.c to MAINTAINERCLEANFILES but remove

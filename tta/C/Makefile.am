@@ -307,11 +307,11 @@ EXTRA_DIST += stamp.code_commands_values
 MAINTAINERCLEANFILES += $(products_code_commands_values)
 
 $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../perl/Texinfo/UnicodeData.pm $(srcdir)/../maintain/setup_accent_tables.pl
-	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_accent_tables.pl \
-	              $(srcdir)/main/accent_tables_8bit_codepoints.c
+	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_accent_tables.pl $@
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
+# Order matters
 products_C_options_info = $(srcdir)/main/options_init_free.c \
                           $(srcdir)/main/options_data.h \
                           $(srcdir)/main/options_defaults.c \
@@ -327,13 +327,7 @@ $(srcdir)/stamp.regenerate_C_options_info: ../data/options_data.txt ../data/conv
 	        < $(srcdir)/../data/options_data.txt \
 	              $(srcdir)/main/command_data.c \
 	              $(srcdir)/../data/converters_defaults.txt \
-	              $(srcdir)/main/options_init_free.c \
-	              $(srcdir)/main/options_data.h \
-	              $(srcdir)/main/options_defaults.c \
-	              $(srcdir)/main/options_defaults.h \
-	              $(srcdir)/convert/converters_options.c \
-	              $(srcdir)/convert/converters_options.h \
-	              $(srcdir)/main/options_get_perl.c
+	              $(products_C_options_info)
 	@mv -f tmp.regenerate_C_options_info $@
 
 $(products_C_options_info): $(srcdir)/stamp.regenerate_C_options_info
@@ -347,6 +341,7 @@ MAINTAINERCLEANFILES += $(products_C_options_info)
 # avoid make failing in po* directories.
 translated_source_files: $(srcdir)/main/html_conversion_data.c
 
+# Order matters
 products_code_convert_data = $(srcdir)/main/html_conversion_data.c \
                              $(srcdir)/main/html_conversion_data.h
 
@@ -359,8 +354,7 @@ $(srcdir)/stamp.code_convert_data: main/command_data.c $(srcdir)/../data/default
 	            $(srcdir)/../data/default_direction_strings.csv \
 	            $(srcdir)/../data/default_special_unit_info.csv \
 	            $(srcdir)/../data/html_style_commands_element.csv \
-	            C $(srcdir)/main/html_conversion_data.c \
-	            $(srcdir)/main/html_conversion_data.h
+	            C $(products_code_convert_data)
 	@mv -f tmp.code_convert_data $@
 
 $(products_code_convert_data): $(srcdir)/stamp.code_convert_data
