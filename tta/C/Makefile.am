@@ -242,8 +242,12 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
 EXTRA_DIST += main/element_types.txt main/element_types.awk \
 	       main/command_data.awk
 
+products_element_types = $(srcdir)/main/element_types.c \
+                         $(srcdir)/main/element_types.h
+
 # See "Multiple Outputs" in the automake manual for this and following
 # rules that produce multiple files from the same helper program.
+
 $(srcdir)/stamp.element_types: main/element_types.txt main/element_types.awk
 	@rm -f tmp.element_types
 	@touch tmp.element_types
@@ -251,12 +255,12 @@ $(srcdir)/stamp.element_types: main/element_types.txt main/element_types.awk
 	     $(srcdir)/main/element_types.txt
 	@mv -f tmp.element_types $@
 
-$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: $(srcdir)/stamp.element_types
+$(products_element_types): $(srcdir)/stamp.element_types
 	@test -f $@ || rm -f stamp.element_types
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.element_types
 EXTRA_DIST += stamp.element_types
 
-MAINTAINERCLEANFILES += main/element_types.c main/element_types.h
+MAINTAINERCLEANFILES += $(products_element_types)
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
@@ -267,16 +271,18 @@ $(srcdir)/stamp.command_data: ../data/command_data.txt main/command_data.awk
 	     $(srcdir)/../data/command_data.txt
 	@mv -f tmp.command_data $@
 
-$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: $(srcdir)/stamp.command_data
+products_command_data = $(srcdir)/main/command_data.c \
+                        $(srcdir)/main/command_ids.h \
+                        $(srcdir)/main/global_multi_commands_case.c \
+                        $(srcdir)/main/global_unique_commands_case.c \
+                        $(srcdir)/main/global_commands_types.h
+
+$(products_command_data): $(srcdir)/stamp.command_data
 	@test -f $@ || rm -f stamp.command_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.command_data
 EXTRA_DIST += stamp.command_data
 
-
-MAINTAINERCLEANFILES += main/command_data.c main/command_ids.h
-MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
-                        main/global_unique_commands_case.c
-MAINTAINERCLEANFILES += main/global_commands_types.h
+MAINTAINERCLEANFILES += $(products_command_data)
 
 $(srcdir)/stamp.code_commands_values: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_values.pl
 	@rm -f tmp.code_commands_values
@@ -304,6 +310,14 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../perl/Texinfo/Unicod
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
+products_C_options_info = $(srcdir)/main/options_init_free.c \
+                          $(srcdir)/main/options_data.h \
+                          $(srcdir)/main/options_defaults.c \
+                          $(srcdir)/main/options_defaults.h \
+                          $(srcdir)/convert/converters_options.c \
+                          $(srcdir)/convert/converters_options.h \
+                          $(srcdir)/main/options_get_perl.c
+
 $(srcdir)/stamp.regenerate_C_options_info: ../data/options_data.txt ../data/converters_defaults.txt main/command_data.c $(srcdir)/../maintain/regenerate_C_options_info.pl
 	@rm -f tmp.regenerate_C_options_info
 	@touch tmp.regenerate_C_options_info
@@ -320,21 +334,19 @@ $(srcdir)/stamp.regenerate_C_options_info: ../data/options_data.txt ../data/conv
 	              $(srcdir)/main/options_get_perl.c
 	@mv -f tmp.regenerate_C_options_info $@
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_data.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: $(srcdir)/stamp.regenerate_C_options_info
+$(products_C_options_info): $(srcdir)/stamp.regenerate_C_options_info
 	@test -f $@ || rm -f $(srcdir)/stamp.regenerate_C_options_info
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.regenerate_C_options_info
 EXTRA_DIST += stamp.regenerate_C_options_info
-
-MAINTAINERCLEANFILES += main/options_init_free.c main/options_data.h \
-                        main/options_defaults.c main/options_defaults.h \
-                        convert/converters_options.c \
-                        convert/converters_options.h \
-                        main/options_get_perl.c
+MAINTAINERCLEANFILES += $(products_C_options_info)
 
 # target that can be built upon cd'ing to the build directory, as needed
 # when building translated source files from the top level directory to
 # avoid make failing in po* directories.
 translated_source_files: $(srcdir)/main/html_conversion_data.c
+
+products_code_convert_data = $(srcdir)/main/html_conversion_data.c \
+                             $(srcdir)/main/html_conversion_data.h
 
 $(srcdir)/stamp.code_convert_data: main/command_data.c $(srcdir)/../data/default_css_element_class_styles.csv $(srcdir)/../data/default_direction_strings.csv $(srcdir)/../data/default_special_unit_info.csv $(srcdir)/../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
 	@rm -f tmp.code_convert_data
@@ -349,13 +361,11 @@ $(srcdir)/stamp.code_convert_data: main/command_data.c $(srcdir)/../data/default
 	            $(srcdir)/main/html_conversion_data.h
 	@mv -f tmp.code_convert_data $@
 
-$(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: $(srcdir)/stamp.code_convert_data
+$(products_code_convert_data): $(srcdir)/stamp.code_convert_data
 	@test -f $@ || rm -f $(srcdir)/stamp.code_convert_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.code_convert_data
 EXTRA_DIST += stamp.code_convert_data
-
-
-MAINTAINERCLEANFILES += main/html_conversion_data.c main/html_conversion_data.h
+MAINTAINERCLEANFILES += $(products_code_convert_data)
 
 
 ################################# common Perl C code shared library used

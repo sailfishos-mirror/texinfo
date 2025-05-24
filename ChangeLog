@@ -1,3 +1,8 @@
+2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/Makefile.am: Use variables to list outputs
+	of helper programs to avoid listing the files twice.
+
 2025-05-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Attempt at fixing "Multiple Outputs" build problem
