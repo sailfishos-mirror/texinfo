@@ -1,5 +1,22 @@
 2025-05-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Attempt at fixing "Multiple Outputs" build problem
+
+	* tta/C/Makefile.am: Use stamp files as intermediate
+	dependencies for files produced by the following scripts:
+
+	  main/element_types.awk
+	  main/command_data.awk
+	  ../maintain/generate_code_commands_values.pl
+	  ../maintain/regenerate_C_options_info.pl
+	  ../maintain/generate_code_convert_data.pl
+	
+	This should avoid rules running more than one in the case
+	of parallel builds.  See "Multiple Outputs" in the Automake
+	manual.
+
+2025-05-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info tests: avoid any default config files.
 
 	* info/t/Init-test.inc: Locate config files by setting
