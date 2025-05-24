@@ -7148,6 +7148,7 @@ This produces:
 @item foo
 This is the text for
 @samp{foo}.
+
 @item bar
 Text for @samp{bar}.
 @end table
