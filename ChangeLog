@@ -1,5 +1,12 @@
 2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/Makefile.am: Use variable to list products
+	of ../maintain/generate_code_commands_values.pl.  Add
+	convert/cmd_converter.c to MAINTAINERCLEANFILES but remove
+	main/cmd_symbol.c which seems not to exist.
+
+2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/Makefile.am: Use variables to list outputs
 	of helper programs to avoid listing the files twice.
 

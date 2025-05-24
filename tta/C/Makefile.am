@@ -284,25 +284,27 @@ EXTRA_DIST += stamp.command_data
 
 MAINTAINERCLEANFILES += $(products_command_data)
 
+# Order matters
+products_code_commands_values = $(srcdir)/main/cmd_text.c \
+                                $(srcdir)/main/cmd_unicode.c \
+                                $(srcdir)/main/cmd_structuring.c \
+                                $(srcdir)/convert/cmd_converter.c
+
 $(srcdir)/stamp.code_commands_values: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_values.pl
 	@rm -f tmp.code_commands_values
 	@touch -f tmp.code_commands_values
 	$(PERL) $(srcdir)/../maintain/generate_code_commands_values.pl \
 	      $(srcdir)/../data/commands_values.txt C \
-	      $(srcdir)/main/cmd_text.c \
-	      $(srcdir)/main/cmd_unicode.c \
-	      $(srcdir)/main/cmd_structuring.c \
-	      $(srcdir)/convert/cmd_converter.c \
+	      $(products_code_commands_values) \
 	      $(srcdir)/main/command_data.c
 	@mv -f tmp.code_commands_values $@
 
-$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: $(srcdir)/stamp.code_commands_values 
+$(products_code_commands_values): $(srcdir)/stamp.code_commands_values
 	@test -f $@ || rm -f stamp.code_commands_values
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.code_commands_values
 EXTRA_DIST += stamp.code_commands_values
 
-MAINTAINERCLEANFILES += main/cmd_unicode.c \
-                main/cmd_structuring.c main/cmd_symbol.c main/cmd_text.c
+MAINTAINERCLEANFILES += $(products_code_commands_values)
 
 $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../perl/Texinfo/UnicodeData.pm $(srcdir)/../maintain/setup_accent_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_accent_tables.pl \
