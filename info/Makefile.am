@@ -205,6 +205,6 @@ endif
 EXTRA_DIST += $(info_tests) $(info_tests_with_pseudotty) $(XFAIL_TESTS) \
   t/README t/infodir \
   t/Init-test.inc \
-  t/Infokey-config t/node-target
+  t/config/texinfo/infokey t/node-target
 dist-hook:
 	rm -rf `find $(distdir)/t/infodir -name '*~'`
