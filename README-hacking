@@ -421,6 +421,11 @@ make V=1 pdf and fix underfull/overfull boxes.
 -------------------------------------------------------------------------
 - Distribution checking
 
+"make distcheck" is the standard check that the build system is
+working correctly.  You can make it run quicker by disabling some
+of the texi2any tests:
+"make distcheck DISTCHECK_CONFIGURE_FLAGS=--disable-t2a-tests".
+
 In addition to "make distcheck", there are other build system checks
 which you can run manually.
 
