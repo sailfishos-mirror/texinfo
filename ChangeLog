@@ -1,5 +1,9 @@
 2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/Makefile.am: reorder slightly
+
+2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: Suggest using DISTCHECK_CONFIGURE_FLAGS
 	to make distcheck faster.
 

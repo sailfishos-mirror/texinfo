@@ -259,10 +259,13 @@ $(products_element_types): $(srcdir)/stamp.element_types
 	@test -f $@ || rm -f stamp.element_types
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.element_types
 EXTRA_DIST += stamp.element_types
-
 MAINTAINERCLEANFILES += $(products_element_types)
 
-TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
+products_command_data = $(srcdir)/main/command_data.c \
+                        $(srcdir)/main/command_ids.h \
+                        $(srcdir)/main/global_multi_commands_case.c \
+                        $(srcdir)/main/global_unique_commands_case.c \
+                        $(srcdir)/main/global_commands_types.h
 
 $(srcdir)/stamp.command_data: ../data/command_data.txt main/command_data.awk
 	@rm -f tmp.command_data
@@ -271,17 +274,10 @@ $(srcdir)/stamp.command_data: ../data/command_data.txt main/command_data.awk
 	     $(srcdir)/../data/command_data.txt
 	@mv -f tmp.command_data $@
 
-products_command_data = $(srcdir)/main/command_data.c \
-                        $(srcdir)/main/command_ids.h \
-                        $(srcdir)/main/global_multi_commands_case.c \
-                        $(srcdir)/main/global_unique_commands_case.c \
-                        $(srcdir)/main/global_commands_types.h
-
 $(products_command_data): $(srcdir)/stamp.command_data
 	@test -f $@ || rm -f stamp.command_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.command_data
 EXTRA_DIST += stamp.command_data
-
 MAINTAINERCLEANFILES += $(products_command_data)
 
 # Order matters
@@ -303,8 +299,9 @@ $(products_code_commands_values): $(srcdir)/stamp.code_commands_values
 	@test -f $@ || rm -f stamp.code_commands_values
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.code_commands_values
 EXTRA_DIST += stamp.code_commands_values
-
 MAINTAINERCLEANFILES += $(products_code_commands_values)
+
+TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
 $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../perl/Texinfo/UnicodeData.pm $(srcdir)/../maintain/setup_accent_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_accent_tables.pl $@
