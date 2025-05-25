@@ -1,3 +1,7 @@
+2025-05-25  Karl Berry <karl@freefriends.org>
+
+	* util/htmlxref.d/Texinfo_GNU.cnf: add automake-history.
+
 2025-05-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/Makefile.am: reorder slightly
