@@ -182,7 +182,7 @@ split_by_node (DOCUMENT *document)
                 = lookup_extra_integer (content,
                                         AI_key_node_number, &status);
 
-              const NODE_STRUCTURE *node_structure
+              const NODE_RELATIONS *node_relations
                 = document->nodes_list.list[node_number -1];
 
               if (!current->uc.unit_command)
@@ -197,9 +197,9 @@ split_by_node (DOCUMENT *document)
                   last->tree_unit_directions[D_next] = current;
                   add_to_output_unit_list (output_units, current);
                 }
-              current->unit_node = node_structure;
-              if (node_structure->associated_section)
-                current->unit_section = node_structure->associated_section;
+              current->unit_node = node_relations;
+              if (node_relations->associated_section)
+                current->unit_section = node_relations->associated_section;
             }
         }
       if (pending_parts->number > 0)
@@ -257,8 +257,8 @@ split_by_section (DOCUMENT *document)
       ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
       unsigned long flags = builtin_command_data[data_cmd].flags;
-      const NODE_STRUCTURE *node_structure = 0;
-      const SECTION_STRUCTURE *new_section_structure = 0;
+      const NODE_RELATIONS *node_relations = 0;
+      const SECTION_RELATIONS *new_section_relations = 0;
 
       if (data_cmd == CM_node)
         {
@@ -267,11 +267,11 @@ split_by_section (DOCUMENT *document)
                                         AI_key_node_number, &status);
           if (node_number)
             {
-              node_structure
+              node_relations
                 = document->nodes_list.list[node_number -1];
 
-              if (node_structure->associated_section)
-                new_section_structure = node_structure->associated_section;
+              if (node_relations->associated_section)
+                new_section_relations = node_relations->associated_section;
             }
         }
       else if (flags & CF_root)
@@ -279,38 +279,38 @@ split_by_section (DOCUMENT *document)
           size_t section_number
             = lookup_extra_integer (content,
                                     AI_key_section_number, &status);
-          const SECTION_STRUCTURE *section_structure
+          const SECTION_RELATIONS *section_relations
             = document->sections_list.list[section_number -1];
 
           if (data_cmd == CM_part)
             {
-              if (section_structure->part_associated_section)
-                new_section_structure
-                  = section_structure->part_associated_section;
+              if (section_relations->part_associated_section)
+                new_section_relations
+                  = section_relations->part_associated_section;
             }
-          if (!new_section_structure)
-            new_section_structure = section_structure;
+          if (!new_section_relations)
+            new_section_relations = section_relations;
 
-          if (new_section_structure->associated_node)
-            node_structure = new_section_structure->associated_node;
+          if (new_section_relations->associated_node)
+            node_relations = new_section_relations->associated_node;
         }
-      if (new_section_structure)
+      if (new_section_relations)
         {
           if (!current->uc.unit_command)
             {
-              current->uc.unit_command = new_section_structure->element;
-              current->unit_section = new_section_structure;
-              if (node_structure)
-                current->unit_node = node_structure;
+              current->uc.unit_command = new_section_relations->element;
+              current->unit_section = new_section_relations;
+              if (node_relations)
+                current->unit_node = node_relations;
             }
-          else if (new_section_structure != current->unit_section)
+          else if (new_section_relations != current->unit_section)
             {
               OUTPUT_UNIT *last = output_units->list[output_units->number -1];
               current = new_output_unit (OU_unit);
-              current->uc.unit_command = new_section_structure->element;
-              current->unit_section = new_section_structure;
-              if (node_structure)
-                current->unit_node = node_structure;
+              current->uc.unit_command = new_section_relations->element;
+              current->unit_section = new_section_relations;
+              if (node_relations)
+                current->unit_node = node_relations;
               current->tree_unit_directions[D_prev] = last;
               last->tree_unit_directions[D_next] = current;
               add_to_output_unit_list (output_units, current);
@@ -421,7 +421,7 @@ static LEVEL_SPLIT_STRING split_level_table[3] = {
  */
 void
 split_pages (OUTPUT_UNIT_LIST *output_units,
-             const NODE_STRUCTURE_LIST *nodes_list, const char *split)
+             const NODE_RELATIONS_LIST *nodes_list, const char *split)
 {
   int split_level = -2;
   int i;
@@ -587,7 +587,7 @@ static enum relative_unit_direction_type section_unit_directions[]
  */
 void
 units_directions (const C_HASHMAP *identifiers_target,
-                  const NODE_STRUCTURE_LIST *nodes_list,
+                  const NODE_RELATIONS_LIST *nodes_list,
                   OUTPUT_UNIT_LIST *output_units,
                   OUTPUT_UNIT_LIST *external_node_target_units,
                   int print_debug)
@@ -621,12 +621,12 @@ units_directions (const C_HASHMAP *identifiers_target,
 
       if (output_unit->unit_node)
         {
-          const NODE_STRUCTURE *node_structure = output_unit->unit_node;
-          const ELEMENT *node = node_structure->element;
+          const NODE_RELATIONS *node_relations = output_unit->unit_node;
+          const ELEMENT *node = node_relations->element;
           const ELEMENT *menu_child
-           = first_menu_node (node_structure, identifiers_target);
+           = first_menu_node (node_relations, identifiers_target);
           enum directions d;
-          node_directions = node_structure->node_directions;
+          node_directions = node_relations->node_directions;
           if (node_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -649,12 +649,12 @@ units_directions (const C_HASHMAP *identifiers_target,
             {
               const ELEMENT *argument = node->e.c->contents.list[0];
               int automatic_directions = (argument->e.c->contents.number <= 1);
-              const SECTION_STRUCTURE_LIST *section_childs = 0;
-              if (node_structure->associated_section)
+              const SECTION_RELATIONS_LIST *section_childs = 0;
+              if (node_relations->associated_section)
                 {
-                  const SECTION_STRUCTURE *associated_structure
-                    = node_structure->associated_section;
-                  section_childs = associated_structure->section_childs;
+                  const SECTION_RELATIONS *associated_relations
+                    = node_relations->associated_section;
+                  section_childs = associated_relations->section_childs;
                 }
 
               if (automatic_directions
@@ -678,7 +678,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                       size_t i;
                       int status;
                       size_t up_node_number;
-                      const NODE_STRUCTURE *up_node_structure = 0;
+                      const NODE_RELATIONS *up_node_relations = 0;
 
                       int in_up = 0;
                       for (i = 0; i < up_list.top; i++)
@@ -696,24 +696,24 @@ units_directions (const C_HASHMAP *identifiers_target,
                             = lookup_extra_integer (up,
                                            AI_key_node_number, &status);
 
-                          up_node_structure
+                          up_node_relations
                             = nodes_list->list[up_node_number -1];
                       }
-                      if (up_node_structure
-                          && up_node_structure->node_directions
-                          && up_node_structure->node_directions[D_next])
+                      if (up_node_relations
+                          && up_node_relations->node_directions
+                          && up_node_relations->node_directions[D_next])
                         {
                            directions[RUD_type_NodeForward]
                              = label_target_unit_element (
-                                up_node_structure->node_directions[D_next],
+                                up_node_relations->node_directions[D_next],
                                    external_node_target_units);
                            break;
                         }
                       push_stack_element (&up_list, up);
-                      if (up_node_structure
-                          && up_node_structure->node_directions
-                          && up_node_structure->node_directions[D_up])
-                        up = up_node_structure->node_directions[D_up];
+                      if (up_node_relations
+                          && up_node_relations->node_directions
+                          && up_node_relations->node_directions[D_up])
+                        up = up_node_relations->node_directions[D_up];
                       else
                         break;
                     }
@@ -771,18 +771,18 @@ units_directions (const C_HASHMAP *identifiers_target,
         {
           int status;
 
-          const SECTION_STRUCTURE *section_structure
+          const SECTION_RELATIONS *section_relations
             = output_unit->unit_section;
-          const ELEMENT *section = section_structure->element;
+          const ELEMENT *section = section_relations->element;
 
           enum directions d;
-          const SECTION_STRUCTURE * const *section_directions
-                        = section_structure->section_directions;
+          const SECTION_RELATIONS * const *section_directions
+                        = section_relations->section_directions;
 
-          const SECTION_STRUCTURE_LIST *up_section_childs;
+          const SECTION_RELATIONS_LIST *up_section_childs;
           int up_section_level;
-          const SECTION_STRUCTURE *up_structure
-            = section_structure;
+          const SECTION_RELATIONS *up_relations
+            = section_relations;
           const ELEMENT *up = section;
 
           if (section_directions)
@@ -815,17 +815,17 @@ units_directions (const C_HASHMAP *identifiers_target,
                 = lookup_extra_integer (up, AI_key_section_level, &status);
 
               if (status >= 0 && up_section_level > 1
-                  && up_structure->section_directions
-                  && up_structure->section_directions[D_up])
+                  && up_relations->section_directions
+                  && up_relations->section_directions[D_up])
                 {
-                  up_structure = up_structure->section_directions[D_up];
-                  up = up_structure->element;
+                  up_relations = up_relations->section_directions[D_up];
+                  up = up_relations->element;
                 }
               else
                 break;
             }
 
-          up_section_childs = up_structure->section_childs;
+          up_section_childs = up_relations->section_childs;
           if (status >= 0 && up_section_level < 1
               && up->e.c->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)
@@ -835,17 +835,17 @@ units_directions (const C_HASHMAP *identifiers_target,
             }
           else
             {
-              if (up_structure->toplevel_directions
-                  && up_structure->toplevel_directions[D_next])
+              if (up_relations->toplevel_directions
+                  && up_relations->toplevel_directions[D_next])
                 directions[RUD_type_FastForward]
-                  = up_structure->toplevel_directions[D_next]
+                  = up_relations->toplevel_directions[D_next]
                                 ->element->e.c->associated_unit;
               else
                 {
-                  if (up_structure->section_directions
-                      && up_structure->section_directions[D_next])
+                  if (up_relations->section_directions
+                      && up_relations->section_directions[D_next])
                     directions[RUD_type_FastForward]
-                      = up_structure->section_directions[D_next]
+                      = up_relations->section_directions[D_next]
                                      ->element->e.c->associated_unit;
                 }
             }
@@ -1086,7 +1086,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
 
           /* determine the kind of command by comparing with
              unit node or unit section.  Also show the texinfo code
-             of the structure information not associated to unit_command.
+             of the node or section relations not associated to unit_command.
            */
           if (output_unit->unit_node)
             {

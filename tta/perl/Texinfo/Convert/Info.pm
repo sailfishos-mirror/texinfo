@@ -837,7 +837,7 @@ sub format_node($$;$)
 {
   my $self = shift;
   my $node = shift;
-  my $node_structure = shift;
+  my $node_relations = shift;
 
   return '' if (not $node->{'extra'}
                 or not $node->{'extra'}->{'is_target'});
@@ -872,15 +872,15 @@ sub format_node($$;$)
 
   $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
 
-  if (!$node_structure) {
+  if (!$node_relations) {
     my $nodes_list = $self->{'document'}->nodes_list();
-    $node_structure = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
+    $node_relations = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
   }
   foreach my $direction (@directions) {
-    if ($node_structure->{'node_directions'}
-        and $node_structure->{'node_directions'}->{lc($direction)}) {
+    if ($node_relations->{'node_directions'}
+        and $node_relations->{'node_directions'}->{lc($direction)}) {
       my $node_direction
-          = $node_structure->{'node_directions'}->{lc($direction)};
+          = $node_relations->{'node_directions'}->{lc($direction)};
       $self->_stream_output(",  $direction: ");
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $self->convert_line({'type' => '_code',

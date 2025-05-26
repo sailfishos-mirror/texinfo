@@ -540,9 +540,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free_indices_info (&document->indices_info);
   wipe_error_message_list (&document->error_messages);
   wipe_error_message_list (&document->parser_error_messages);
-  free_node_structure_list (&document->nodes_list);
-  free_section_structure_list (&document->sections_list);
-  free_heading_structure_list (&document->headings_list);
+  free_node_relations_list (&document->nodes_list);
+  free_section_relations_list (&document->sections_list);
+  free_heading_relations_list (&document->headings_list);
   if (document->sectioning_root)
     {
       free (document->sectioning_root->section_childs.list);

@@ -205,8 +205,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
                                        'text' => "\n",
                                        'parent' => $new_section}];
 
-        my $new_section_structure = {'element' => $new_section};
-        splice(@{$sections_list}, $section_idx+1, 0, $new_section_structure);
+        my $new_section_relations = {'element' => $new_section};
+        splice(@{$sections_list}, $section_idx+1, 0, $new_section_relations);
         $section_idx++;
 
         $new_section->{'extra'} = {'section_number' => $section_idx+1};
@@ -426,26 +426,26 @@ sub _reassociate_to_node($$$)
   my $type = shift;
   my $current = shift;
   my $argument = shift;
-  my ($new_node_structure, $previous_node_structure) = @{$argument};
+  my ($new_node_relations, $previous_node_relations) = @{$argument};
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
-    if ($previous_node_structure) {
-      if (!$previous_node_structure->{'menus'}
-          or not scalar(@{$previous_node_structure->{'menus'}})
-          or not (grep {$current eq $_} @{$previous_node_structure->{'menus'}})) {
+    if ($previous_node_relations) {
+      if (!$previous_node_relations->{'menus'}
+          or not scalar(@{$previous_node_relations->{'menus'}})
+          or not (grep {$current eq $_} @{$previous_node_relations->{'menus'}})) {
         print STDERR
-           "BUG: menu $current not in previous node $previous_node_structure->{'element'}\n";
+           "BUG: menu $current not in previous node $previous_node_relations->{'element'}\n";
       } else {
-        @{$previous_node_structure->{'menus'}}
-          = grep {$_ ne $current} @{$previous_node_structure->{'menus'}};
-        delete $previous_node_structure->{'menus'}
-          if !(@{$previous_node_structure->{'menus'}});
+        @{$previous_node_relations->{'menus'}}
+          = grep {$_ ne $current} @{$previous_node_relations->{'menus'}};
+        delete $previous_node_relations->{'menus'}
+          if !(@{$previous_node_relations->{'menus'}});
       }
     }
-    push @{$new_node_structure->{'menus'}}, $current;
+    push @{$new_node_relations->{'menus'}}, $current;
   } elsif ($current->{'extra'} and $current->{'extra'}->{'element_node'}) {
-    if ($previous_node_structure) {
-      my $previous_node = $previous_node_structure->{'element'};
+    if ($previous_node_relations) {
+      my $previous_node = $previous_node_relations->{'element'};
       if ($current->{'extra'}->{'element_node'}
           ne $previous_node->{'extra'}->{'normalized'}) {
         print STDERR "Bug: element $current not in previous node $previous_node; "
@@ -457,26 +457,26 @@ sub _reassociate_to_node($$$)
       }
     }
     $current->{'extra'}->{'element_node'}
-      = $new_node_structure->{'element'}->{'extra'}->{'normalized'};
+      = $new_node_relations->{'element'}->{'extra'}->{'normalized'};
   } elsif ($current->{'cmdname'}
            and $current->{'cmdname'} eq 'nodedescription') {
-    if (!$new_node_structure->{'node_description'}) {
-      $new_node_structure->{'node_description'} = $current;
+    if (!$new_node_relations->{'node_description'}) {
+      $new_node_relations->{'node_description'} = $current;
     }
-    if ($previous_node_structure
-        and $previous_node_structure->{'node_description'}
-        and $previous_node_structure->{'node_description'} eq $current) {
-      delete $previous_node_structure->{'node_description'};
+    if ($previous_node_relations
+        and $previous_node_relations->{'node_description'}
+        and $previous_node_relations->{'node_description'} eq $current) {
+      delete $previous_node_relations->{'node_description'};
     }
   } elsif ($current->{'cmdname'}
            and $current->{'cmdname'} eq 'nodedescriptionblock') {
-    if (!$new_node_structure->{'node_long_description'}) {
-      $new_node_structure->{'node_long_description'} = $current;
+    if (!$new_node_relations->{'node_long_description'}) {
+      $new_node_relations->{'node_long_description'} = $current;
     }
-    if ($previous_node_structure
-        and $previous_node_structure->{'node_long_description'}
-        and $previous_node_structure->{'node_long_description'} eq $current) {
-      delete $previous_node_structure->{'node_long_description'};
+    if ($previous_node_relations
+        and $previous_node_relations->{'node_long_description'}
+        and $previous_node_relations->{'node_long_description'} eq $current) {
+      delete $previous_node_relations->{'node_long_description'};
     }
   }
   return undef;
@@ -492,7 +492,7 @@ sub insert_nodes_for_sectioning_commands($)
   my $sections_list = $document->sections_list();
 
   my @added_nodes;
-  my $previous_node_structure;
+  my $previous_node_relations;
   my $contents_nr = scalar(@{$root->{'contents'}});
   my $node_idx = 0;
   for (my $idx = 0; $idx < $contents_nr; $idx++) {
@@ -500,9 +500,9 @@ sub insert_nodes_for_sectioning_commands($)
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
         and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
-      my $section_structure
+      my $section_relations
         = $sections_list->[$content->{'extra'}->{'section_number'} -1];
-      if ($section_structure->{'associated_node'}) {
+      if ($section_relations->{'associated_node'}) {
         next;
       }
       my $new_node_tree;
@@ -522,17 +522,17 @@ sub insert_nodes_for_sectioning_commands($)
         $idx++;
         $contents_nr++;
         # insert in nodes list
-        my $new_node_structure = {'element' => $new_node,
-                                  'associated_section' => $section_structure};
-        splice(@{$nodes_list}, $node_idx, 0, $new_node_structure);
+        my $new_node_relations = {'element' => $new_node,
+                                  'associated_section' => $section_relations};
+        splice(@{$nodes_list}, $node_idx, 0, $new_node_relations);
         $node_idx++;
         $new_node->{'extra'}->{'node_number'} = $node_idx;
-        $section_structure->{'associated_node'} = $new_node_structure;
+        $section_relations->{'associated_node'} = $new_node_relations;
         $new_node->{'parent'} = $content->{'parent'};
         push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
-                             [$new_node_structure, $previous_node_structure]);
+                             [$new_node_relations, $previous_node_relations]);
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
@@ -540,11 +540,11 @@ sub insert_nodes_for_sectioning_commands($)
         and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}
         and $content->{'extra'}->{'is_target'}) {
-      $previous_node_structure = $nodes_list->[$node_idx];
+      $previous_node_relations = $nodes_list->[$node_idx];
       # debug
-      if ($previous_node_structure->{'element'} ne $content) {
+      if ($previous_node_relations->{'element'} ne $content) {
         confess("insert_nodes_for_sectioning_commands: wrong node: '"
-        .$previous_node_structure->{'element'}->{'extra'}->{'normalized'}.
+        .$previous_node_relations->{'element'}->{'extra'}->{'normalized'}.
                "' '".$content->{'extra'}->{'normalized'}."'\n");
       }
       $node_idx++;
@@ -557,7 +557,7 @@ sub insert_nodes_for_sectioning_commands($)
 
 sub _prepend_new_menu_in_node_section($$$)
 {
-  my $node_structure = shift;
+  my $node_relations = shift;
   my $section = shift;
   my $current_menu = shift;
 
@@ -569,22 +569,22 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$section->{'contents'}}, {'type' => 'empty_line',
                                    'text' => "\n",
                                    'parent' => $section};
-  push @{$node_structure->{'menus'}}, $current_menu;
+  push @{$node_relations->{'menus'}}, $current_menu;
 }
 
 sub _complete_node_menu($;$)
 {
-  my $node_structure = shift;
+  my $node_relations = shift;
   my $use_sections = shift;
 
   my @node_childs
    = Texinfo::Structuring::get_node_node_childs_from_sectioning(
-                                                       $node_structure);
+                                                       $node_relations);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
-    if ($node_structure->{'menus'} and scalar(@{$node_structure->{'menus'}})) {
-      foreach my $menu (@{$node_structure->{'menus'}}) {
+    if ($node_relations->{'menus'} and scalar(@{$node_relations->{'menus'}})) {
+      foreach my $menu (@{$node_relations->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my $normalized_entry_node
@@ -600,8 +600,8 @@ sub _complete_node_menu($;$)
     #print STDERR "existing_entries: ".join('|', keys(%existing_entries))."\n";
     my @pending;
     my $current_menu;
-    foreach my $node_entry_structure (@node_childs) {
-      my $node_entry = $node_entry_structure->{'element'};
+    foreach my $node_entry_relations (@node_childs) {
+      my $node_entry = $node_entry_relations->{'element'};
       my $normalized = $node_entry->{'extra'}->{'normalized'};
       if ($existing_entries{$normalized}) {
         my $entry;
@@ -620,7 +620,7 @@ sub _complete_node_menu($;$)
         }
       } else {
         my $entry
-           = Texinfo::Structuring::new_node_menu_entry($node_entry_structure,
+           = Texinfo::Structuring::new_node_menu_entry($node_entry_relations,
                                                               $use_sections);
         # not defined $entry should mean an empty node.  We do not warn as
         # we try, in general, to be silent in the transformations.
@@ -629,10 +629,10 @@ sub _complete_node_menu($;$)
     }
     if (scalar(@pending)) {
       if (!$current_menu) {
-        my $section = $node_structure->{'associated_section'}->{'element'};
+        my $section = $node_relations->{'associated_section'}->{'element'};
         $current_menu = {'contents' => \@pending, 'parent' => $section};
         Texinfo::Structuring::new_block_command($current_menu, 'menu');
-        _prepend_new_menu_in_node_section($node_structure,
+        _prepend_new_menu_in_node_section($node_relations,
                                           $section, $current_menu);
       } else {
         if ($current_menu->{'contents'}->[-1]->{'cmdname'}
@@ -658,11 +658,11 @@ sub _get_non_automatic_nodes_with_sections($)
   my $nodes_list = $document->nodes_list();
 
   my @non_automatic_nodes;
-  foreach my $node_structure (@{$nodes_list}) {
-    my $node_element = $node_structure->{'element'};
+  foreach my $node_relations (@{$nodes_list}) {
+    my $node_element = $node_relations->{'element'};
     if (not (scalar(@{$node_element->{'contents'}->[0]->{'contents'}}) > 1)
-        and $node_structure->{'associated_section'}) {
-      push @non_automatic_nodes, $node_structure;
+        and $node_relations->{'associated_section'}) {
+      push @non_automatic_nodes, $node_relations;
     }
   }
   return [ @non_automatic_nodes ];
@@ -675,8 +675,8 @@ sub complete_tree_nodes_menus_in_document($;$)
   my $use_sections = shift;
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
-  foreach my $node_structure (@{$non_automatic_nodes}) {
-    _complete_node_menu($node_structure, $use_sections);
+  foreach my $node_relations (@{$non_automatic_nodes}) {
+    _complete_node_menu($node_relations, $use_sections);
   }
 }
 
@@ -691,15 +691,15 @@ sub complete_tree_nodes_missing_menu($;$)
   my $debug = $document->get_conf('DEBUG');
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
-  foreach my $node_structure (@{$non_automatic_nodes}) {
-    if (not $node_structure->{'menus'}
-        or not scalar(@{$node_structure->{'menus'}})) {
+  foreach my $node_relations (@{$non_automatic_nodes}) {
+    if (not $node_relations->{'menus'}
+        or not scalar(@{$node_relations->{'menus'}})) {
       my $current_menu
-        = Texinfo::Structuring::new_complete_node_menu($node_structure,
+        = Texinfo::Structuring::new_complete_node_menu($node_relations,
                                  $lang_translations, $debug, $use_sections);
       if (defined($current_menu)) {
-        my $section = $node_structure->{'associated_section'}->{'element'};
-        _prepend_new_menu_in_node_section($node_structure, $section,
+        my $section = $node_relations->{'associated_section'}->{'element'};
+        _prepend_new_menu_in_node_section($node_relations, $section,
                                           $current_menu);
       }
     }
@@ -719,25 +719,25 @@ sub regenerate_master_menu($;$)
 
   return undef if (!defined($top_node));
 
-  my $top_node_structure
+  my $top_node_relations
     = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 
-  return if (!$top_node_structure->{'menus'}
-             or !scalar(@{$top_node_structure->{'menus'}}));
+  return if (!$top_node_relations->{'menus'}
+             or !scalar(@{$top_node_relations->{'menus'}}));
 
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
                       $document, $document->registrar(),
                       $identifier_target, $nodes_list,
-                      $top_node_structure->{'menus'},
+                      $top_node_relations->{'menus'},
                       $use_sections);
   # no need for a master menu
   return undef if (!defined($new_detailmenu));
 
   my $global_detailmenu
     = $document->global_commands_information()->{'detailmenu'};
-  foreach my $menu (@{$top_node_structure->{'menus'}}) {
+  foreach my $menu (@{$top_node_relations->{'menus'}}) {
     my $menu_contents_len = scalar(@{$menu->{'contents'}});
     for (my $current_idx = 0; $current_idx < $menu_contents_len;
          $current_idx++) {
@@ -778,7 +778,7 @@ sub regenerate_master_menu($;$)
     }
   }
 
-  my $last_menu = $top_node_structure->{'menus'}->[-1];
+  my $last_menu = $top_node_relations->{'menus'}->[-1];
   my $index = scalar(@{$last_menu->{'contents'}});
   if ($index
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'}

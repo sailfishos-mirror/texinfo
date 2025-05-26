@@ -1331,17 +1331,17 @@ html_command_node (CONVERTER *self, const ELEMENT *command)
                && builtin_command_data[root_command->e.c->cmd].flags & CF_root)
                     {
                       int status;
-                      const SECTION_STRUCTURE_LIST *sections_list
+                      const SECTION_RELATIONS_LIST *sections_list
                         = &self->document->sections_list;
                       size_t section_number
                         = lookup_extra_integer (root_command,
                                          AI_key_section_number, &status);
 
-                      const SECTION_STRUCTURE *section_structure
+                      const SECTION_RELATIONS *section_relations
                         = sections_list->list[section_number -1];
-                      if (section_structure->associated_node)
+                      if (section_relations->associated_node)
                         target_info->node_command
-                          = section_structure->associated_node->element;
+                          = section_relations->associated_node->element;
                     }
                 }
               free (root_unit);
@@ -1398,16 +1398,16 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
           if (section_number)
             {
-              const SECTION_STRUCTURE_LIST *sections_list
+              const SECTION_RELATIONS_LIST *sections_list
                 = &self->document->sections_list;
-              const SECTION_STRUCTURE *section_structure
+              const SECTION_RELATIONS *section_relations
                 = sections_list->list[section_number -1];
 
-              if (section_structure->associated_node)
-                target_command = section_structure->associated_node->element;
-              else if (section_structure->associated_anchor_command)
+              if (section_relations->associated_node)
+                target_command = section_relations->associated_node->element;
+              else if (section_relations->associated_anchor_command)
                 target_command
-                  = section_structure->associated_anchor_command->element;
+                  = section_relations->associated_anchor_command->element;
             }
           else
             {
@@ -1417,14 +1417,14 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
               if (heading_number)
                 {
-                  const HEADING_STRUCTURE_LIST *headings_list
+                  const HEADING_RELATIONS_LIST *headings_list
                     = &self->document->headings_list;
-                  const HEADING_STRUCTURE *heading_structure
+                  const HEADING_RELATIONS *heading_relations
                     = headings_list->list[heading_number -1];
 
-                  if (heading_structure->associated_anchor_command)
+                  if (heading_relations->associated_anchor_command)
                     target_command
-                      = heading_structure->associated_anchor_command->element;
+                      = heading_relations->associated_anchor_command->element;
                 }
             }
         }
@@ -1489,11 +1489,11 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
 
                   if (node_number)
                     {
-                      const NODE_STRUCTURE *node_structure
+                      const NODE_RELATIONS *node_relations
                         = self->document->nodes_list.list[node_number -1];
 
-                      if (node_structure->associated_section
-                     && node_structure->associated_section->element == command)
+                      if (node_relations->associated_section
+                     && node_relations->associated_section->element == command)
                         possible_empty_target = 1;
                     }
                 }
@@ -1580,10 +1580,10 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
               size_t section_number
                  = lookup_extra_integer (command,
                                          AI_key_section_number, &status);
-              const SECTION_STRUCTURE *section_structure
+              const SECTION_RELATIONS *section_relations
                 = self->document->sections_list.list[section_number -1];
-              if (section_structure->associated_node)
-                node = section_structure->associated_node->element;
+              if (section_relations->associated_node)
+                node = section_relations->associated_node->element;
             }
 
           if (!node)
@@ -1595,14 +1595,14 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
               size_t node_number
                 = lookup_extra_integer (node,
                                         AI_key_node_number, &status);
-              const NODE_STRUCTURE *node_structure
+              const NODE_RELATIONS *node_relations
                 = self->document->nodes_list.list[node_number -1];
 
-              if (node_structure->node_description)
-                node_description = node_structure->node_description;
-              else if (node_structure->node_long_description)
+              if (node_relations->node_description)
+                node_description = node_relations->node_description;
+              else if (node_relations->node_long_description)
                 {
-                  node_description = node_structure->node_long_description;
+                  node_description = node_relations->node_long_description;
                   long_description = 1;
                 }
             }
@@ -3072,7 +3072,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   const char *filename_from;
   int is_contents = (cmd == CM_contents);
   TEXT result;
-  const SECTION_STRUCTURE_LIST *root_children;
+  const SECTION_RELATIONS_LIST *root_children;
   int min_root_level;
   int max_root_level;
   int status;
@@ -3165,15 +3165,15 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < root_children->number; i++)
     {
-      const SECTION_STRUCTURE *top_structure = root_children->list[i];
-      const SECTION_STRUCTURE *section_structure = top_structure;
-      while (section_structure)
+      const SECTION_RELATIONS *top_relations = root_children->list[i];
+      const SECTION_RELATIONS *section_relations = top_relations;
+      while (section_relations)
        {
-         const ELEMENT *section = section_structure->element;
+         const ELEMENT *section = section_relations->element;
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
-         const SECTION_STRUCTURE_LIST *section_childs
-           = section_structure->section_childs;
+         const SECTION_RELATIONS_LIST *section_childs
+           = section_relations->section_childs;
          if (section->e.c->cmd != CM_top)
             {
               char *text;
@@ -3204,10 +3204,10 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         text_printf (&result, " id=\"%s\"", toc_id);
                       if (href)
                         text_printf (&result, " href=\"%s\"", href);
-                      if (section_structure->associated_node)
+                      if (section_relations->associated_node)
                         {
                           int is_index
-          = (section_structure->associated_node->element->flags & EF_isindex);
+          = (section_relations->associated_node->element->flags & EF_isindex);
                           if (is_index)
                             text_append_n (&result, " rel=\"index\"", 12);
                         }
@@ -3246,24 +3246,24 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
               text_append (&result, attribute_class);
               free (attribute_class);
               text_append_n (&result, ">\n", 2);
-              section_structure = section_childs->list[0];
+              section_relations = section_childs->list[0];
             }
           else
             {
-              if (section_structure->section_directions
-                  && section_structure->section_directions[D_next]
+              if (section_relations->section_directions
+                  && section_relations->section_directions[D_next]
                   && section->e.c->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
-                  if (section_structure == top_structure)
+                  if (section_relations == top_relations)
                     break;
-                  section_structure
-                    = section_structure->section_directions[D_next];
+                  section_relations
+                    = section_relations->section_directions[D_next];
                 }
               else
                 {
                   int is_top_section = 0;
-                  if (section_structure == top_structure)
+                  if (section_relations == top_relations)
                     {
                       if (section->e.c->cmd != CM_top)
                         text_append_n (&result, "</li>\n", 6);
@@ -3274,13 +3274,13 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       int section_level;
                       int i;
 
-                      if (!section_structure->section_directions
-                          || !section_structure->section_directions[D_up])
+                      if (!section_relations->section_directions
+                          || !section_relations->section_directions[D_up])
                         break;
 
-                      section_structure
-                        = section_structure->section_directions[D_up];
-                      section = section_structure->element;
+                      section_relations
+                        = section_relations->section_directions[D_up];
+                      section = section_relations->element;
 
                       section_level = lookup_extra_integer (section,
                                                 AI_key_section_level, &status);
@@ -3289,7 +3289,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       for (i = 0; i < 2 * (section_level - min_root_level); i++)
                         text_append_n (&result, " ", 1);
                       text_append_n (&result, "</ul>", 5);
-                      if (section_structure == top_structure)
+                      if (section_relations == top_relations)
                         {
                           if (has_toplevel_contents)
                             text_append_n (&result, "</li>\n", 6);
@@ -3297,12 +3297,12 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                           break;
                         }
 
-                      if (section_structure->section_directions
-                          && section_structure->section_directions[D_next])
+                      if (section_relations->section_directions
+                          && section_relations->section_directions[D_next])
                         {
                           text_append_n (&result, "</li>\n", 6);
-                          section_structure
-                            = section_structure->section_directions[D_next];
+                          section_relations
+                            = section_relations->section_directions[D_next];
                           break;
                         }
                     }
@@ -3980,10 +3980,10 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
               int status;
               size_t node_number
                 = lookup_extra_integer (command, AI_key_node_number, &status);
-              const NODE_STRUCTURE *node_structure
+              const NODE_RELATIONS *node_relations
                 = self->document->nodes_list.list[node_number -1];
               associated_title_command
-                = node_structure->associated_title_command;
+                = node_relations->associated_title_command;
             }
 
           if (associated_title_command)
@@ -7195,14 +7195,14 @@ static const STRING_LIST mini_toc_classes = {mini_toc_array, 1, 1};
 
 /* Output a list of the nodes immediately below this one */
 void
-mini_toc_internal (CONVERTER *self, const SECTION_STRUCTURE *section_structure,
+mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
                    TEXT *result)
 {
   int entry_index = 0;
-  const SECTION_STRUCTURE_LIST *section_childs = 0;
+  const SECTION_RELATIONS_LIST *section_childs = 0;
 
-  if (section_structure)
-    section_childs = section_structure->section_childs;
+  if (section_relations)
+    section_childs = section_relations->section_childs;
 
   if (section_childs && section_childs->number > 0)
     {
@@ -7289,8 +7289,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   int do_heading;
   const char *heading_id = 0;
   char *level_set_class = 0;
-  const NODE_STRUCTURE *node_structure = 0;
-  const SECTION_STRUCTURE *section_structure = 0;
+  const NODE_RELATIONS *node_relations = 0;
+  const SECTION_RELATIONS *section_relations = 0;
 
   const ELEMENT *opening_section = 0;
   enum command_id level_corrected_opening_section_cmd = 0;
@@ -7331,7 +7331,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             = lookup_extra_integer (element, AI_key_node_number, &status);
           if (node_number && self->document)
             {
-              node_structure
+              node_relations
                 = self->document->nodes_list.list[node_number -1];
             }
         }
@@ -7340,7 +7340,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
           size_t section_number
             = lookup_extra_integer (element,
                                     AI_key_section_number, &status);
-          section_structure
+          section_relations
             = self->document->sections_list.list[section_number -1];
         }
 
@@ -7388,11 +7388,11 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
 
   if (toc_or_mini_toc_or_auto_menu.end <= 0
       && self->conf->FORMAT_MENU.o.string
-      && section_structure)
+      && section_relations)
     {
       if (!strcmp (self->conf->FORMAT_MENU.o.string, "sectiontoc"))
         {
-          mini_toc_internal (self, section_structure,
+          mini_toc_internal (self, section_relations,
                              &toc_or_mini_toc_or_auto_menu);
         }
       else
@@ -7405,20 +7405,20 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             format_menu = 2;
           if (format_menu)
             {
-              if (section_structure->associated_node)
+              if (section_relations->associated_node)
                 {
-                  const NODE_STRUCTURE *associated_node_structure
-                    = section_structure->associated_node;
-                  const NODE_STRUCTURE_LIST *nodes_list
+                  const NODE_RELATIONS *associated_node_relations
+                    = section_relations->associated_node;
+                  const NODE_RELATIONS_LIST *nodes_list
                     = &self->document->nodes_list;
                   /* arguments_line type element */
                   const ELEMENT *arguments_line
-                    = associated_node_structure->element->e.c->contents.list[0];
+                    = associated_node_relations->element->e.c->contents.list[0];
                   int automatic_directions
                     = (arguments_line->e.c->contents.number <= 1);
 
                   const CONST_ELEMENT_LIST *menus
-                    = associated_node_structure->menus;
+                    = associated_node_relations->menus;
                   if (!menus && automatic_directions)
                     {
                       ELEMENT *menu_node;
@@ -7429,11 +7429,11 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                             self->conf,
                             self->current_lang_translations,
                             &self->document->identifiers_target,
-                            nodes_list, associated_node_structure);
+                            nodes_list, associated_node_relations);
                       else
                          /* menu_no_detailmenu */
                         menu_node
-                          = new_complete_node_menu (associated_node_structure,
+                          = new_complete_node_menu (associated_node_relations,
                                         self->document,
                                         self->current_lang_translations,
                                         self->conf->DEBUG.o.integer, 0);
@@ -7488,14 +7488,14 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
  /* find the section starting here, can be through the associated node
     preceding the section, or the section itself */
 
-  if (node_structure && node_structure->associated_section)
+  if (node_relations && node_relations->associated_section)
     {
       opening_section
-        = node_structure->associated_section->element;
+        = node_relations->associated_section->element;
       level_corrected_opening_section_cmd
         = section_level_adjusted_command_name (opening_section);
     }
-  else if (section_structure && !section_structure->associated_node)
+  else if (section_relations && !section_relations->associated_node)
     {
       opening_section = element;
       level_corrected_opening_section_cmd = level_corrected_cmd;
@@ -7512,13 +7512,13 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   heading = html_command_text (self, element, 0);
 
   /* node is used as heading if there is nothing else. */
-  if (node_structure)
+  if (node_relations)
     {
       const ELEMENT *associated_title_command
-        = node_structure->associated_title_command;
+        = node_relations->associated_title_command;
       const char *normalized = lookup_extra_string (element, AI_key_normalized);
       if (output_unit && output_unit->unit_node
-          && output_unit->unit_node == node_structure
+          && output_unit->unit_node == node_relations
           && !associated_title_command)
         {
           if (!strcmp (normalized, "Top"))
@@ -7824,7 +7824,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       const ELEMENT *target_root
              = html_command_root_element_command (self, target_node);
 
-      const SECTION_STRUCTURE *associated_section_structure = 0;
+      const SECTION_RELATIONS *associated_section_relations = 0;
       const ELEMENT *associated_title_command = 0;
 
       if (self->document && target_node->e.c->cmd == CM_node)
@@ -7833,19 +7833,19 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
           size_t node_number
                 = lookup_extra_integer (target_node,
                                         AI_key_node_number, &status);
-          const NODE_STRUCTURE *node_structure
+          const NODE_RELATIONS *node_relations
             = self->document->nodes_list.list[node_number -1];
 
-          associated_section_structure = node_structure->associated_section;
-          associated_title_command = node_structure->associated_title_command;
+          associated_section_relations = node_relations->associated_section;
+          associated_title_command = node_relations->associated_title_command;
         }
 
       reference_element = new_text_element (ET__converted);
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
 
-      if (!associated_section_structure
-          || associated_section_structure->element != target_root)
+      if (!associated_section_relations
+          || associated_section_relations->element != target_root)
         target_root = target_node;
 
       if (!html_in_string (self))
@@ -9933,12 +9933,12 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
               size_t section_number
                  = lookup_extra_integer (root_command,
                                          AI_key_section_number, &status);
-              const SECTION_STRUCTURE *section_structure
+              const SECTION_RELATIONS *section_relations
                 = self->document->sections_list.list[section_number -1];
 
-              if (section_structure->associated_node)
+              if (section_relations->associated_node)
                 root_unit->root
-                  = section_structure->associated_node->element;
+                  = section_relations->associated_node->element;
             }
         }
       else if (root_command->e.c->cmd == CM_node
@@ -9948,11 +9948,11 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
           size_t node_number
             = lookup_extra_integer (root_command,
                                     AI_key_node_number, &status);
-          const NODE_STRUCTURE *node_structure
+          const NODE_RELATIONS *node_relations
             = self->document->nodes_list.list[node_number -1];
 
-          if (node_structure->associated_section)
-            root_unit->root = node_structure->associated_section->element;
+          if (node_relations->associated_section)
+            root_unit->root = node_relations->associated_section->element;
         }
     }
   return root_unit;
@@ -11170,11 +11170,11 @@ html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
           size_t section_number
             = lookup_extra_integer (element,
                                     AI_key_section_number, &status);
-          const SECTION_STRUCTURE *part_structure
+          const SECTION_RELATIONS *part_relations
             = self->document->sections_list.list[section_number -1];
 
-          if (part_structure->part_following_node)
-            node_element = part_structure->part_following_node->element;
+          if (part_relations->part_following_node)
+            node_element = part_relations->part_following_node->element;
         }
       if (node_element || cmd == CM_part)
         {
@@ -11858,20 +11858,20 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                                      normalized);
           if (node)
             {
-              const NODE_STRUCTURE *node_structure = 0;
+              const NODE_RELATIONS *node_relations = 0;
               if (node->e.c->cmd == CM_node && self->document)
                 {
                   int status;
                   size_t node_number
                     = lookup_extra_integer (node, AI_key_node_number, &status);
-                  node_structure
+                  node_relations
                     = self->document->nodes_list.list[node_number -1];
 
-                  if (node_structure->node_description)
-                    node_description = node_structure->node_description;
-                  else if (node_structure->node_long_description)
+                  if (node_relations->node_description)
+                    node_description = node_relations->node_description;
+                  else if (node_relations->node_long_description)
                     {
-                      node_description = node_structure->node_long_description;
+                      node_description = node_relations->node_long_description;
                       long_description = 1;
                     }
                 }
@@ -11880,10 +11880,10 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                    command element
                  */
               if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0
-                  && node_structure)
+                  && node_relations)
                 {
                   associated_title_command
-                    = node_structure->associated_title_command;
+                    = node_relations->associated_title_command;
                 }
               if (associated_title_command)
                 href = html_command_href (self, associated_title_command,
@@ -13278,9 +13278,9 @@ html_output_internal_links (CONVERTER *self)
           size_t i;
           for (i = 0; i < self->document->sections_list.number; i++)
             {
-              const SECTION_STRUCTURE *section_structure
+              const SECTION_RELATIONS *section_relations
                 = self->document->sections_list.list[i];
-              const ELEMENT *command = section_structure->element;
+              const ELEMENT *command = section_relations->element;
               char *href = html_command_href (self, command, "", 0, 0);
               char *text = 0;
               TREE_ADDED_ELEMENTS *command_tree

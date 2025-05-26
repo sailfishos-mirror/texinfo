@@ -230,7 +230,7 @@ typedef struct OUTPUT_UNIT {
     size_t index;
     /* for regular unit we have both access to the unit command,
        which may be the node or section tree element, and to
-       unit_node and/or unit_section structure information which allow
+       unit_node and/or unit_section node/section relations which allow
        to access directly the associated node and associated section
        information without going through the unit command */
     union {
@@ -238,8 +238,8 @@ typedef struct OUTPUT_UNIT {
       /* for special units, not in the tree */
       struct ELEMENT *special_unit_command;
     } uc;
-    const NODE_STRUCTURE *unit_node;
-    const SECTION_STRUCTURE *unit_section;
+    const NODE_RELATIONS *unit_node;
+    const SECTION_RELATIONS *unit_section;
     char *unit_filename;
     ELEMENT_LIST unit_contents;
     struct OUTPUT_UNIT *tree_unit_directions[2];
@@ -280,9 +280,9 @@ typedef struct DOCUMENT {
     GLOBAL_INFO global_info;
     GLOBAL_COMMANDS global_commands;
 
-    NODE_STRUCTURE_LIST nodes_list;
-    HEADING_STRUCTURE_LIST headings_list;
-    SECTION_STRUCTURE_LIST sections_list;
+    NODE_RELATIONS_LIST nodes_list;
+    HEADING_RELATIONS_LIST headings_list;
+    SECTION_RELATIONS_LIST sections_list;
     SECTIONING_ROOT *sectioning_root;
 
     MERGED_INDICES *merged_indices;

@@ -47,11 +47,11 @@ sub _set_index_global_direction_from_index_name
           } else {
             my $sections_list = $document->sections_list();
             if ($sections_list) {
-              my $section_structure
+              my $section_relations
          = $sections_list->[$top_level_element->{'extra'}->{'section_number'}];
-              if ($section_structure->{'associated_node'}) {
+              if ($section_relations->{'associated_node'}) {
                 $index_printindex_top_level_node
-                  = $section_structure->{'associated_node'}->{'element'};
+                  = $section_relations->{'associated_node'}->{'element'};
               }
             }
           }

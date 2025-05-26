@@ -1,5 +1,17 @@
 2025-05-26  Patrice Dumas  <pertusus@free.fr>
 
+	use relations instead of structure for node section headings
+
+	* tta/C/main/tree_types.h (NODE_RELATIONS, NODE_RELATIONS_LIST)
+	(CONST_NODE_RELATIONS_LIST, HEADING_RELATIONS, HEADING_RELATIONS_LIST)
+	(SECTION_RELATIONS, SECTION_RELATIONS_LIST): rename *_STRUCTURE* as
+	*_RELATIONS.
+
+	Rename variables with structure in their names to varibles with
+	relations intheir name.  Update Pod.
+
+2025-05-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/OutputUnits.pm (split_by_section): remove redundant
 	$sections_list.
 

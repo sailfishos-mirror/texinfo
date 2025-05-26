@@ -134,12 +134,12 @@ sub _set_appendix_direction_node_name
     return 0;
   }
 
-  foreach my $section_structure (@{$sections_list}) {
-    my $section = $section_structure->{'element'};
+  foreach my $section_relations (@{$sections_list}) {
+    my $section = $section_relations->{'element'};
     if ($section->{'cmdname'} eq 'appendix') {
-      if ($section_structure->{'associated_node'}) {
-        my $node_structure = $section_structure->{'associated_node'};
-        my $node = $node_structure->{'element'};
+      if ($section_relations->{'associated_node'}) {
+        my $node_relations = $section_relations->{'associated_node'};
+        my $node = $node_relations->{'element'};
         my $label_element = Texinfo::Common::get_label_element($node);
         if (defined($label_element)) {
           my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(

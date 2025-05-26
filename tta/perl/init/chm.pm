@@ -335,16 +335,16 @@ sub chm_init($)
     my $sectioning_root = $document->sectioning_root();
     my $upper_level = $sectioning_root->{'section_childs'}->[0]
                                   {'element'}->{'extra'}->{'section_level'};
-    foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
-      my $top_section = $top_structure->{'element'};
+    foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+      my $top_section = $top_relations->{'element'};
       $upper_level = $top_section->{'extra'}->{'section_level'}
         if ($top_section->{'extra'}->{'section_level'} < $upper_level);
     }
     $upper_level = 1 if ($upper_level <= 0);
     my $root_level = $upper_level - 1;
     my $level = $root_level;
-    foreach my $section_structure (@{$sections_list}) {
-      my $section = $section_structure->{'element'};
+    foreach my $section_relations (@{$sections_list}) {
+      my $section = $section_relations->{'element'};
       next if ($section->{'cmdname'} eq 'part');
       my $section_level = $section->{'extra'}->{'section_level'};
       $section_level = 1 if ($section_level == 0);

@@ -429,18 +429,18 @@ sub _fix_texinfo_tree($$$$;$$)
       my $top_node_menus = $updated_labels_menus->{'Top'};
       if ($top_node_menus) {
         my $menus_nodes_list = $document_menus->nodes_list();
-        my $top_node_menus_structure
+        my $top_node_menus_relations
         = $menus_nodes_list->[$top_node_menus->{'extra'}->{'node_number'} -1];
-        if ($top_node_menus_structure->{'menus'}
-            and scalar(@{$top_node_menus_structure->{'menus'}})) {
-          my $top_node_menus_menu = $top_node_menus_structure->{'menus'}->[0];
+        if ($top_node_menus_relations->{'menus'}
+            and scalar(@{$top_node_menus_relations->{'menus'}})) {
+          my $top_node_menus_menu = $top_node_menus_relations->{'menus'}->[0];
           my $top_node = $updated_labels->{'Top'};
           $top_node_menus_menu->{'parent'} = $top_node;
           push @{$top_node->{'contents'}}, $top_node_menus_menu;
           my $nodes_list = $document->nodes_list();
-          my $top_node_structure
+          my $top_node_relations
             = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-          push @{$top_node_structure->{'menus'}}, $top_node_menus_menu;
+          push @{$top_node_relations->{'menus'}}, $top_node_menus_menu;
         }
       }
     }
@@ -473,10 +473,10 @@ sub _do_top_node_menu($)
   my $identifier_target = $document->labels_information();
   my $top_node = $identifier_target->{'Top'};
   my $nodes_list = $document->nodes_list();
-  my $top_node_structure
+  my $top_node_relations
     = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-  if ($top_node_structure->{'menus'}) {
-    my $top_node_menu = $top_node_structure->{'menus'}->[0];
+  if ($top_node_relations->{'menus'}) {
+    my $top_node_menu = $top_node_relations->{'menus'}->[0];
     if ($top_node_menu) {
       return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
     }

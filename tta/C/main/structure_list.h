@@ -8,40 +8,40 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-NODE_STRUCTURE_LIST *new_node_structure_list (void);
-CONST_NODE_STRUCTURE_LIST *new_const_node_structure_list (void);
-SECTION_STRUCTURE_LIST *new_section_structure_list (void);
+NODE_RELATIONS_LIST *new_node_relations_list (void);
+CONST_NODE_RELATIONS_LIST *new_const_node_relations_list (void);
+SECTION_RELATIONS_LIST *new_section_relations_list (void);
 
-void reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list);
+void reallocate_node_relations_for (size_t n, NODE_RELATIONS_LIST *list);
 
-const struct SECTION_STRUCTURE **new_section_directions (void);
+const struct SECTION_RELATIONS **new_section_directions (void);
 
-void add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
-                                 NODE_STRUCTURE *node_structure);
-NODE_STRUCTURE *add_node_to_node_structure_list (NODE_STRUCTURE_LIST *list,
+void add_to_node_relations_list (NODE_RELATIONS_LIST *list,
+                                 NODE_RELATIONS *node_relations);
+NODE_RELATIONS *add_node_to_node_relations_list (NODE_RELATIONS_LIST *list,
                                             ELEMENT *e);
-void add_to_const_node_structure_list (CONST_NODE_STRUCTURE_LIST *list,
-                                       const NODE_STRUCTURE *node_structure);
-void add_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
-                                    SECTION_STRUCTURE *section_structure);
-SECTION_STRUCTURE *add_section_to_section_structure_list (
-                                               SECTION_STRUCTURE_LIST *list,
+void add_to_const_node_relations_list (CONST_NODE_RELATIONS_LIST *list,
+                                       const NODE_RELATIONS *node_relations);
+void add_to_section_relations_list (SECTION_RELATIONS_LIST *list,
+                                    SECTION_RELATIONS *section_relations);
+SECTION_RELATIONS *add_section_to_section_relations_list (
+                                               SECTION_RELATIONS_LIST *list,
                                                   ELEMENT *e);
-HEADING_STRUCTURE *add_heading_to_heading_structure_list (
-                                            HEADING_STRUCTURE_LIST *list,
+HEADING_RELATIONS *add_heading_to_heading_relations_list (
+                                            HEADING_RELATIONS_LIST *list,
                                                   ELEMENT *e);
 
-NODE_STRUCTURE *insert_node_into_node_structure_list (
-                                                 NODE_STRUCTURE_LIST *list,
+NODE_RELATIONS *insert_node_into_node_relations_list (
+                                                 NODE_RELATIONS_LIST *list,
                                                  ELEMENT *e, size_t where);
-SECTION_STRUCTURE *insert_section_into_section_structure_list (
-                                 SECTION_STRUCTURE_LIST *list,
+SECTION_RELATIONS *insert_section_into_section_relations_list (
+                                 SECTION_RELATIONS_LIST *list,
                                  ELEMENT *e, size_t where);
 
-void free_node_structure_list (NODE_STRUCTURE_LIST *list);
-void destroy_node_structure_list (NODE_STRUCTURE_LIST *list);
-void free_section_structure_list (SECTION_STRUCTURE_LIST *list);
-void free_heading_structure_list (HEADING_STRUCTURE_LIST *list);
+void free_node_relations_list (NODE_RELATIONS_LIST *list);
+void destroy_node_relations_list (NODE_RELATIONS_LIST *list);
+void free_section_relations_list (SECTION_RELATIONS_LIST *list);
+void free_heading_relations_list (HEADING_RELATIONS_LIST *list);
 
 char *print_sections_list (const DOCUMENT *document);
 char *print_nodes_list (const DOCUMENT *document);

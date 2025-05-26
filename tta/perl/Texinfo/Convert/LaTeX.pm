@@ -1043,17 +1043,17 @@ sub _associate_other_nodes_to_sections($$$)
         and $element_content->{'cmdname'} eq 'node'
         and $element_content->{'extra'}
         and defined($element_content->{'extra'}->{'normalized'})) {
-      my $associated_section_structure;
+      my $associated_section_relations;
       if ($element_content->{'extra'}
           and defined($element_content->{'extra'}->{'normalized'})) {
         if ($nodes_list) {
-          my $node_structure
+          my $node_relations
             = $nodes_list->[$element_content->{'extra'}->{'node_number'} -1];
-          $associated_section_structure
-            = $node_structure->{'associated_section'};
+          $associated_section_relations
+            = $node_relations->{'associated_section'};
         }
       }
-      if (!$associated_section_structure) {
+      if (!$associated_section_relations) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
               ->{$element_content->{'extra'}->{'normalized'}}
@@ -1140,10 +1140,10 @@ sub output($$)
         $node_element = $element_content;
       } elsif ($cmdname eq 'part' and $self->{'document'}) {
         my $sections_list = $self->{'document'}->sections_list();
-        my $part_structure
+        my $part_relations
     = $sections_list->[$element_content->{'extra'}->{'section_number'} -1];
-        if ($part_structure->{'part_following_node'}) {
-          $node_element = $part_structure->{'part_following_node'}->{'element'};
+        if ($part_relations->{'part_following_node'}) {
+          $node_element = $part_relations->{'part_following_node'}->{'element'};
         }
       }
       if ($node_element or $cmdname eq 'part') {
@@ -2901,10 +2901,10 @@ sub _convert($$)
     } elsif (defined($cmdname) and $cmdname eq 'part'
              and $self->{'document'}) {
       my $sections_list = $self->{'document'}->sections_list();
-      my $part_structure
+      my $part_relations
        = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-      if ($part_structure->{'part_following_node'}) {
-        $node_element = $part_structure->{'part_following_node'}->{'element'};
+      if ($part_relations->{'part_following_node'}) {
+        $node_element = $part_relations->{'part_following_node'}->{'element'};
       }
     }
     if (($node_element
@@ -3481,10 +3481,10 @@ sub _convert($$)
               and $reference->{'extra'}
               and $reference->{'extra'}->{'node_number'}) {
             my $nodes_list = $self->{'document'}->nodes_list();
-            my $node_structure
+            my $node_relations
              = $nodes_list->[$reference->{'extra'}->{'node_number'} -1];
             $associated_title_command
-              = $node_structure->{'associated_title_command'};
+              = $node_relations->{'associated_title_command'};
           }
 
           if ($associated_title_command) {
@@ -3514,11 +3514,11 @@ sub _convert($$)
                   } else {
                     if ($self->{'document'}) {
                       my $nodes_list = $self->{'document'}->nodes_list();
-                      my $node_structure
+                      my $node_relations
                         = $nodes_list->[$current->{'extra'}->{'node_number'} -1];
-                      if ($node_structure->{'associated_section'}) {
+                      if ($node_relations->{'associated_section'}) {
                         $section_command
-                         = $node_structure->{'associated_section'}->{'element'};
+                         = $node_relations->{'associated_section'}->{'element'};
                       }
                     }
                     if (!$section_command
@@ -4049,10 +4049,10 @@ sub _convert($$)
         $node_element = $element;
       } elsif ($cmdname eq 'part' and $self->{'document'}) {
         my $sections_list = $self->{'document'}->sections_list();
-        my $part_structure
+        my $part_relations
           = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-        if ($part_structure->{'part_following_node'}) {
-          $node_element = $part_structure->{'part_following_node'}->{'element'};
+        if ($part_relations->{'part_following_node'}) {
+          $node_element = $part_relations->{'part_following_node'}->{'element'};
         }
       }
       if ($node_element and $node_element->{'extra'}
@@ -4062,16 +4062,16 @@ sub _convert($$)
       }
       if ($cmdname eq 'node') {
         # add the label only if not associated with a section
-        my $associated_section_structure;
+        my $associated_section_relations;
         if ($self->{'document'} and $element->{'extra'}
             and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
-          my $node_structure
+          my $node_relations
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-          $associated_section_structure
-            = $node_structure->{'associated_section'};
+          $associated_section_relations
+            = $node_relations->{'associated_section'};
         }
-        if (!$associated_section_structure) {
+        if (!$associated_section_relations) {
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
           my $line_arg = $arguments_line->{'contents'}->[0];
@@ -4128,11 +4128,11 @@ sub _convert($$)
         }
         if ($sections_list and $element->{'extra'}
             and $element->{'extra'}->{'section_number'}) {
-          my $section_structure
+          my $section_relations
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-          if ($section_structure->{'associated_node'}) {
+          if ($section_relations->{'associated_node'}) {
             my $associated_node
-              = $section_structure->{'associated_node'}->{'element'};
+              = $section_relations->{'associated_node'}->{'element'};
             # arguments_line type element
             my $arguments_line = $associated_node->{'contents'}->[0];
             my $line_arg = $arguments_line->{'contents'}->[0];

@@ -77,6 +77,6 @@ void protect_node_after_label_in_document (DOCUMENT *document);
 const char *normalized_menu_entry_internal_node (const ELEMENT *entry);
 ELEMENT *normalized_entry_associated_internal_node (const ELEMENT *entry,
                                  const C_HASHMAP *identifiers_target);
-const ELEMENT *first_menu_node (const NODE_STRUCTURE *node_structure,
+const ELEMENT *first_menu_node (const NODE_RELATIONS *node_relations,
                                 const C_HASHMAP *identifiers_target);
 #endif

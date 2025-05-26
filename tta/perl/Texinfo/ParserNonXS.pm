@@ -160,9 +160,9 @@ my %parser_document_state_initialization = (
   # parsing information still relevant at the end of the parsing
   'kbdinputstyle' => 'distinct',  #
   'source_mark_counters' => {},   #
-  'current_node'    => undef,     # last seen node structure.
-  'current_section' => undef,     # last seen section structure.
-  'current_part'    => undef,     # last seen part structure.
+  'current_node'    => undef,     # last seen node relations.
+  'current_section' => undef,     # last seen section relations.
+  'current_part'    => undef,     # last seen part relations.
   'internal_space_holder' => undef,
    # the element associated with the last internal spaces element added.
    # We know that there can only be one at a time as a non space
@@ -3640,7 +3640,7 @@ sub _text_contents_to_plain_text {
   return ($text, $superfluous_arg);
 }
 
-sub _add_to_structure_list($$$)
+sub _add_to_relations_list($$$)
 {
   my $document = shift;
   my $type = shift;
@@ -3649,28 +3649,28 @@ sub _add_to_structure_list($$$)
   my $list_key = $type.'s_list';
   my $number_key = $type.'_number';
 
-  my $structure_info = {'element' => $element};
-  push @{$document->{$list_key}}, $structure_info;
+  my $relations_info = {'element' => $element};
+  push @{$document->{$list_key}}, $relations_info;
   $element->{'extra'} = {} if (!$element->{'extra'});
   $element->{'extra'}->{$number_key} = scalar(@{$document->{$list_key}});
-  return $structure_info;
+  return $relations_info;
 }
 
-# the caller makes sure that $current_node_structure is set
+# the caller makes sure that $current_node_relations is set
 sub _associate_title_command_anchor($$$)
 {
-  my $current_node_structure = shift;
+  my $current_node_relations = shift;
   my $current = shift;
-  my $section_structure = shift;
+  my $section_relations = shift;
 
-  if (not $current_node_structure->{'associated_title_command'}) {
-    $current_node_structure->{'associated_title_command'} = $current;
-    $section_structure->{'associated_anchor_command'}
-                        = $current_node_structure;
+  if (not $current_node_relations->{'associated_title_command'}) {
+    $current_node_relations->{'associated_title_command'} = $current;
+    $section_relations->{'associated_anchor_command'}
+                        = $current_node_relations;
   }
 }
 
-sub _get_current_node_structure($$)
+sub _get_current_node_relations($$)
 {
   my $self = shift;
   my $document = shift;
@@ -3679,9 +3679,9 @@ sub _get_current_node_structure($$)
       and $self->{'current_node'}->{'extra'}->{'node_number'}) {
     my $current_node = $self->{'current_node'};
     my $nodes_list = $document->nodes_list();
-    my $node_structure
+    my $node_relations
       = $nodes_list->[$current_node->{'extra'}->{'node_number'} -1];
-    return $node_structure;
+    return $node_relations;
   }
   return undef;
 }
@@ -3944,23 +3944,23 @@ sub _end_line_misc_line($$$)
     _check_register_target_element_label($self, $line_arg,
                                          $current, $source_info);
 
-    my $node_structure;
+    my $node_relations;
     if ($current->{'extra'}
         and defined($current->{'extra'}->{'normalized'})) {
-      $node_structure
-        = _add_to_structure_list($document, 'node', $current);
-      $self->{'current_node'} = $node_structure;
+      $node_relations
+        = _add_to_relations_list($document, 'node', $current);
+      $self->{'current_node'} = $node_relations;
     }
     if ($self->{'current_part'}) {
-      my $part_structure = $self->{'current_part'};
-      if (not $part_structure->{'part_associated_section'}
-          and $node_structure) {
+      my $part_relations = $self->{'current_part'};
+      if (not $part_relations->{'part_associated_section'}
+          and $node_relations) {
         # we only associate a part to the following node if the
         # part is not already associate to a sectioning command,
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
-        $node_structure->{'node_preceding_part'} = $part_structure;
-        $part_structure->{'part_following_node'} = $node_structure;
+        $node_relations->{'node_preceding_part'} = $part_relations;
+        $part_relations->{'part_following_node'} = $node_relations;
       }
     }
   } elsif ($command eq 'listoffloats') {
@@ -4111,41 +4111,41 @@ sub _end_line_misc_line($$$)
   } elsif ($root_commands{$data_cmdname}) {
     $current = $command_element;
     delete $command_element->{'remaining_args'};
-    my $section_structure;
+    my $section_relations;
 
     if ($command ne 'node') {
-      $section_structure
-        = _add_to_structure_list($document, 'section', $command_element);
+      $section_relations
+        = _add_to_relations_list($document, 'section', $command_element);
     }
 
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       # associate section with the current node as its title.
       if ($self->{'current_node'}) {
-        my $node_structure = $self->{'current_node'};
-        _associate_title_command_anchor($node_structure, $command_element,
-                                        $section_structure);
-        if (!$node_structure->{'associated_section'}) {
-          $node_structure->{'associated_section'} = $section_structure;
-          $section_structure->{'associated_node'} = $node_structure;
+        my $node_relations = $self->{'current_node'};
+        _associate_title_command_anchor($node_relations, $command_element,
+                                        $section_relations);
+        if (!$node_relations->{'associated_section'}) {
+          $node_relations->{'associated_section'} = $section_relations;
+          $section_relations->{'associated_node'} = $node_relations;
         }
       }
       if ($self->{'current_part'}) {
-        my $part_structure = $self->{'current_part'};
-        $section_structure->{'associated_part'} = $part_structure;
-        $part_structure->{'part_associated_section'} = $section_structure;
+        my $part_relations = $self->{'current_part'};
+        $section_relations->{'associated_part'} = $part_relations;
+        $part_relations->{'part_associated_section'} = $section_relations;
         if ($command_element->{'cmdname'} eq 'top') {
           $self->_line_warn("\@part should not be associated with \@top",
-                          $part_structure->{'element'}->{'source_info'});
+                          $part_relations->{'element'}->{'source_info'});
         }
         delete $self->{'current_part'};
       }
-      $self->{'current_section'} = $section_structure;
+      $self->{'current_section'} = $section_relations;
     } elsif ($command eq 'part') {
-      $self->{'current_part'} = $section_structure;
+      $self->{'current_part'} = $section_relations;
       if ($self->{'current_node'}) {
-        my $node_structure = $self->{'current_node'};
-        if (!$node_structure->{'associated_section'}) {
+        my $node_relations = $self->{'current_node'};
+        if (!$node_relations->{'associated_section'}) {
           $self->_line_warn(sprintf(__(
       "\@node precedes \@%s, but parts may not be associated with nodes"),
                                     $command), $source_info);
@@ -4155,11 +4155,11 @@ sub _end_line_misc_line($$$)
     # only *heading as sectioning commands are handled just before
   } elsif ($sectioning_heading_commands{$data_cmdname}
            or $data_cmdname eq 'xrefname') {
-    my $heading_structure = _add_to_structure_list($document, 'heading',
+    my $heading_relations = _add_to_relations_list($document, 'heading',
                                                    $command_element);
     if ($self->{'current_node'}) {
       _associate_title_command_anchor($self->{'current_node'},
-                                    $command_element, $heading_structure);
+                                    $command_element, $heading_relations);
     }
   }
   return $current;
@@ -4360,9 +4360,9 @@ sub _end_line_starting_block($$$)
     my $float_type = _parse_float_type($current,
                                        $arguments_line->{'contents'}->[0]);
 
-    my $float_section_structure = $self->{'current_section'};
+    my $float_section_relations = $self->{'current_section'};
     push @{$document->{'listoffloats_list'}->{$float_type}},
-                         [$current, $float_section_structure];
+                         [$current, $float_section_relations];
 
     # all the commands with @item
   } elsif ($blockitem_commands{$command}) {
@@ -5919,12 +5919,12 @@ sub _handle_line_command($$$$$$)
       $command_e = { 'cmdname' => $command, 'source_info' => {%$source_info} };
       if ($command eq 'nodedescription') {
         if ($self->{'current_node'}) {
-          my $node_structure = $self->{'current_node'};
-          if ($node_structure->{'node_description'}) {
+          my $node_relations = $self->{'current_node'};
+          if ($node_relations->{'node_description'}) {
             $self->_line_warn(__("multiple node \@nodedescription"),
                                   $source_info);
           } else {
-            $node_structure->{'node_description'}
+            $node_relations->{'node_description'}
               = $command_e;
           }
         } else {
@@ -6051,10 +6051,10 @@ sub _handle_line_command($$$$$$)
       # Record that @printindex occurs in this node so we know it
       # is an index node.
       if ($self->{'current_node'}) {
-        my $node_structure = $self->{'current_node'};
-        $node_structure->{'element'}->{'extra'} = {}
-           if (!$node_structure->{'element'}->{'extra'});
-        $node_structure->{'element'}->{'extra'}->{'isindex'} = 1;
+        my $node_relations = $self->{'current_node'};
+        $node_relations->{'element'}->{'extra'} = {}
+           if (!$node_relations->{'element'}->{'extra'});
+        $node_relations->{'element'}->{'extra'}->{'isindex'} = 1;
       }
     }
 
@@ -6167,10 +6167,10 @@ sub _handle_block_command($$$$$)
         } elsif ($command eq 'menu') {
           if (!(defined($current->{'cmdname'}))
               or $root_commands{$current->{'cmdname'}}) {
-            my $node_structure = $self->{'current_node'};
-            $node_structure->{'menus'} = []
-              if (!defined($node_structure->{'menus'}));
-            push @{$node_structure->{'menus'}}, $block;
+            my $node_relations = $self->{'current_node'};
+            $node_relations->{'menus'} = []
+              if (!defined($node_relations->{'menus'}));
+            push @{$node_relations->{'menus'}}, $block;
           } else {
             $self->_line_warn(__("\@menu in invalid context"),
                               $source_info);
@@ -6183,12 +6183,12 @@ sub _handle_block_command($$$$$)
       $block->{'items_count'} = 0;
     } elsif ($command eq 'nodedescriptionblock') {
       if ($self->{'current_node'}) {
-        my $node_structure = $self->{'current_node'};
-        if ($node_structure->{'node_long_description'}) {
+        my $node_relations = $self->{'current_node'};
+        if ($node_relations->{'node_long_description'}) {
           $self->_line_warn(__("multiple node \@nodedescriptionblock"),
                             $source_info);
         } else {
-          $node_structure->{'node_long_description'}
+          $node_relations->{'node_long_description'}
             = $block;
         }
       } else {
@@ -9477,13 +9477,13 @@ normalized label, built as specified in the I<HTML Xref> Texinfo documentation
 node.
 
 If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/construct_nodes_tree($document)>,
-the I<node_directions> hash in the node structure information associates I<up>,
-I<next> and I<prev> keys to the elements corresponding to the node line
+the I<node_directions> hash in the nodes relations associates I<up>,
+I<next> and I<prev> keys to the node relations corresponding to the node line
 directions.
 
-An I<associated_section> key holds the tree element of the
-sectioning command that follows the node.  An I<node_preceding_part>
-key holds the struture information of the C<@part> that precedes the node,
+An I<associated_section> key holds the sectioning command relations
+object that follows the node.  An I<node_preceding_part>
+key holds the relations of the C<@part> that precedes the node,
 if there is no sectioning command between the C<@part> and the node.
 A I<node_description> key holds the first C<@nodedescription> associated
 to the node.
@@ -9501,8 +9501,8 @@ The I<indent> or I<noindent> key value is set if the corresponding
 
 =item C<@part>
 
-The next sectioning command tree element is in I<part_associated_section>.
-The following node structure info is in I<part_following_node> if there is
+The next sectioning command section relations is in I<part_associated_section>.
+The following node relations is in I<part_following_node> if there is
 no sectioning command between the C<@part> and the node.
 
 =item C<@ref>

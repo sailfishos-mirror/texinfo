@@ -1423,10 +1423,10 @@ sub normalized_entry_associated_internal_node($$)
 # element
 sub first_menu_node($$)
 {
-  my $node_structure = shift;
+  my $node_relations = shift;
   my $identifier_target = shift;
-  if ($node_structure->{'menus'}) {
-    foreach my $menu (@{$node_structure->{'menus'}}) {
+  if ($node_relations->{'menus'}) {
+    foreach my $menu (@{$node_relations->{'menus'}}) {
       foreach my $menu_content (@{$menu->{'contents'}}) {
         if ($menu_content->{'type'}
             and $menu_content->{'type'} eq 'menu_entry') {

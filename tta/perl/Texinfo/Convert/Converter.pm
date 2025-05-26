@@ -1827,14 +1827,14 @@ sub sort_element_counts($$;$$)
 
   foreach my $output_unit (@$output_units) {
     my $name;
-    my $command_structure;
+    my $command_relations;
     if ($use_sections) {
-      $command_structure = $output_unit->{'unit_section'};
+      $command_relations = $output_unit->{'unit_section'};
     } else {
-      $command_structure = $output_unit->{'unit_node'};
+      $command_relations = $output_unit->{'unit_node'};
     }
-    if ($command_structure) {
-      my $command = $command_structure->{'element'};
+    if ($command_relations) {
+      my $command = $command_relations->{'element'};
       # arguments_line type element
       my $arguments_line = $command->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];

@@ -1405,11 +1405,11 @@ sub process_footnotes($;$)
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
                    }
       };
-      my $footnotes_node_structure = {
+      my $footnotes_node_relations = {
          'element' => $footnotes_node,
          'node_directions' => {'up' => $node_element},
       };
-      $self->format_node($footnotes_node, $footnotes_node_structure);
+      $self->format_node($footnotes_node, $footnotes_node_relations);
       $self->{'current_node'} = $footnotes_node;
     }
     while (@{$self->{'pending_footnotes'}}) {
@@ -1630,8 +1630,8 @@ sub format_contents($$$)
 
   my $root_level = $sectioning_root->{'section_childs'}->[0]
                                 ->{'element'}->{'extra'}->{'section_level'};
-  foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
-    my $top_section = $top_structure->{'element'};
+  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+    my $top_section = $top_relations->{'element'};
     $root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $root_level);
   }
@@ -1639,11 +1639,11 @@ sub format_contents($$$)
   my $lines_count = 0;
   # This is done like that because the tree may not be well formed if
   # there is a @part after a @chapter for example.
-  foreach my $top_structure (@{$sectioning_root->{'section_childs'}}) {
-    my $section_structure = $top_structure;
+  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+    my $section_relations = $top_relations;
  SECTION:
-    while ($section_structure) {
-      my $section = $section_structure->{'element'};
+    while ($section_relations) {
+      my $section = $section_relations->{'element'};
       # arguments_line type element
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
@@ -1679,26 +1679,26 @@ sub format_contents($$$)
       $text .= "\n";
       _stream_output($self, $text);
       $lines_count++;
-      if ($section_structure->{'section_childs'}
+      if ($section_relations->{'section_childs'}
           and ($contents
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
-        $section_structure = $section_structure->{'section_childs'}->[0];
-      } elsif ($section_structure->{'section_directions'}
-               and $section_structure->{'section_directions'}->{'next'}) {
-        last if ($section_structure eq $top_structure);
-        $section_structure
-          = $section_structure->{'section_directions'}->{'next'};
+        $section_relations = $section_relations->{'section_childs'}->[0];
+      } elsif ($section_relations->{'section_directions'}
+               and $section_relations->{'section_directions'}->{'next'}) {
+        last if ($section_relations eq $top_relations);
+        $section_relations
+          = $section_relations->{'section_directions'}->{'next'};
       } else {
-        last if ($section_structure eq $top_structure);
-        while ($section_structure->{'section_directions'}
-               and $section_structure->{'section_directions'}->{'up'}) {
-          $section_structure
-            = $section_structure->{'section_directions'}->{'up'};
-          last SECTION if ($section_structure eq $top_structure);
-          if ($section_structure->{'section_directions'}
-              and $section_structure->{'section_directions'}->{'next'}) {
-            $section_structure
-              = $section_structure->{'section_directions'}->{'next'};
+        last if ($section_relations eq $top_relations);
+        while ($section_relations->{'section_directions'}
+               and $section_relations->{'section_directions'}->{'up'}) {
+          $section_relations
+            = $section_relations->{'section_directions'}->{'up'};
+          last SECTION if ($section_relations eq $top_relations);
+          if ($section_relations->{'section_directions'}
+              and $section_relations->{'section_directions'}->{'next'}) {
+            $section_relations
+              = $section_relations->{'section_directions'}->{'next'};
             last;
           }
         }
@@ -2365,7 +2365,7 @@ sub format_node($$;$)
 {
   my $self = shift;
   my $node = shift;
-  my $node_structure = shift;
+  my $node_relations = shift;
 }
 
 # no error in plaintext
@@ -4183,12 +4183,12 @@ sub _convert($$)
                 ->{$menu_entry_node->{'extra'}->{'normalized'}};
             if ($node_element->{'cmdname'} eq 'node' and $self->{'document'}) {
               my $nodes_list = $self->{'document'}->nodes_list();
-              my $node_structure
+              my $node_relations
                 = $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
-              if ($node_structure->{'node_description'}) {
-                $node_description = $node_structure->{'node_description'};
-              } elsif ($node_structure->{'node_long_description'}) {
-                $node_description = $node_structure->{'node_long_description'};
+              if ($node_relations->{'node_description'}) {
+                $node_description = $node_relations->{'node_description'};
+              } elsif ($node_relations->{'node_long_description'}) {
+                $node_description = $node_relations->{'node_long_description'};
                 $long_description = 1;
               }
             }
@@ -4568,14 +4568,14 @@ sub _convert($$)
         my $nodes_list = $self->{'document'}->nodes_list();
         my $sections_list = $self->{'document'}->sections_list();
 
-        my $node_structure
+        my $node_relations
           = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                     $identifiers_target, $nodes_list,
-                                    $node_structure);
+                                    $node_relations);
         if ($menu_node) {
           _convert($self, $menu_node);
           _add_newline_if_needed($self);

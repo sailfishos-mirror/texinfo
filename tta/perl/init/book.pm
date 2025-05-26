@@ -47,10 +47,10 @@ sub book_in_contents_button {
     my $document = $self->get_info('document');
     if ($document) {
       my $nodes_list = $document->nodes_list();
-      my $node_structure
+      my $node_relations
         = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      if ($node_structure->{'associated_section'}) {
-        $element = $node_structure->{'associated_section'}->{'element'};
+      if ($node_relations->{'associated_section'}) {
+        $element = $node_relations->{'associated_section'}->{'element'};
       }
     }
   }
@@ -119,16 +119,16 @@ sub book_print_up_toc($$)
   my $sections_list = $document->sections_list();
 
   my $result = '';
-  my $current_structure
+  my $current_relations
     = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
   my @up_commands;
-  while ($current_structure->{'section_directions'}
-         and defined($current_structure->{'section_directions'}->{'up'})
-         and ($current_structure->{'section_directions'}->{'up'}
-                                                      ne $current_structure)) {
-    $current_structure = $current_structure->{'section_directions'}->{'up'};
-    unshift @up_commands, $current_structure->{'element'};
+  while ($current_relations->{'section_directions'}
+         and defined($current_relations->{'section_directions'}->{'up'})
+         and ($current_relations->{'section_directions'}->{'up'}
+                                                      ne $current_relations)) {
+    $current_relations = $current_relations->{'section_directions'}->{'up'};
+    unshift @up_commands, $current_relations->{'element'};
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
@@ -181,16 +181,16 @@ sub book_print_sub_toc($$);
 sub book_print_sub_toc($$)
 {
   my $converter = shift;
-  my $section_structure = shift;
+  my $section_relations = shift;
 
   my $result = '';
-  my $command = $section_structure->{'element'};
+  my $command = $section_relations->{'element'};
   my $content_href = $converter->command_href($command);
   my $heading = $converter->command_text($command);
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  my $section_childs = $section_structure->{'section_childs'};
+  my $section_childs = $section_relations->{'section_childs'};
   if ($section_childs and scalar(@{$section_childs})) {
     $result .= '<li>'.$converter->html_attribute_class('ul',
                                              [$toc_numbered_mark_class])
@@ -198,10 +198,10 @@ sub book_print_sub_toc($$)
                                 $section_childs->[0])
      ."</ul></li>\n";
   }
-  if ($section_structure->{'section_directions'}
-      and exists($section_structure->{'section_directions'}->{'next'})) {
+  if ($section_relations->{'section_directions'}
+      and exists($section_relations->{'section_directions'}->{'next'})) {
     $result .= book_print_sub_toc($converter,
-                  $section_structure->{'section_directions'}->{'next'});
+                  $section_relations->{'section_directions'}->{'next'});
   }
   return $result;
 }
@@ -241,19 +241,19 @@ sub book_convert_heading_command($$$$$)
     $sections_list = $document->sections_list();
   }
   my $output_unit;
-  my $section_structure;
-  my $node_structure;
+  my $section_relations;
+  my $node_relations;
 
   if ($Texinfo::Commands::root_commands{$cmdname}) {
     if ($cmdname eq 'node') {
       if ($document and $element->{'extra'}
         and $element->{'extra'}->{'node_number'}) {
         my $nodes_list = $document->nodes_list();
-        $node_structure
+        $node_relations
           = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
       }
     } elsif ($sections_list) {
-      $section_structure
+      $section_relations
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     }
     # All the root commands are associated to an output unit, the condition
@@ -285,11 +285,11 @@ sub book_convert_heading_command($$$$$)
     }
   }
 
-  if ($toc_or_mini_toc_or_auto_menu eq '' and $section_structure
+  if ($toc_or_mini_toc_or_auto_menu eq '' and $section_relations
       # avoid a double of contents if already after title
       and ($cmdname ne 'top'
            or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')) {
-    my $section_childs = $section_structure->{'section_childs'};
+    my $section_childs = $section_relations->{'section_childs'};
     if ($section_childs and scalar(@{$section_childs})) {
       $toc_or_mini_toc_or_auto_menu
         .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
@@ -330,14 +330,14 @@ sub book_convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($node_structure and $node_structure->{'associated_section'}) {
-    $opening_section = $node_structure->{'associated_section'}->{'element'};
+  if ($node_relations and $node_relations->{'associated_section'}) {
+    $opening_section = $node_relations->{'associated_section'}->{'element'};
     $level_corrected_opening_section_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                              $opening_section);
   # if there is an associated node, it is not a section opening
   # the section was opened before when the node was encountered
-  } elsif ($section_structure and !$section_structure->{'associated_node'}) {
+  } elsif ($section_relations and !$section_relations->{'associated_node'}) {
     $opening_section = $element;
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
@@ -350,12 +350,12 @@ sub book_convert_heading_command($$$$$)
   my $heading = $self->command_text($element);
   my $heading_level;
   # node is used as heading if there is nothing else.
-  if ($node_structure) {
+  if ($node_relations) {
     my $associated_title_command;
     $associated_title_command
-      = $node_structure->{'associated_title_command'};
+      = $node_relations->{'associated_title_command'};
     if ($output_unit and $output_unit->{'unit_node'}
-        and $output_unit->{'unit_node'} eq $node_structure
+        and $output_unit->{'unit_node'} eq $node_relations
         and !$associated_title_command) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;

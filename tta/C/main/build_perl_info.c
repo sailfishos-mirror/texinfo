@@ -979,85 +979,85 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   return list_av;
 }
 
-#define STORE_STRUCT_INFO_ELEMENT(keyname) \
-       if (structure->keyname) \
+#define STORE_RELS_INFO_ELEMENT(keyname) \
+       if (relations->keyname) \
         { \
-          sv = newRV_inc ((SV *) structure->keyname->hv); \
-          hv_store (structure_hv, #keyname, \
+          sv = newRV_inc ((SV *) relations->keyname->hv); \
+          hv_store (relations_hv, #keyname, \
                     strlen (#keyname), sv, 0); \
         }
 
-#define STORE_STRUCT_INFO_SECTION_STRUCTURE(keyname) \
-       if (structure->keyname) \
+#define STORE_RELS_INFO_SECTION_RELATIONS(keyname) \
+       if (relations->keyname) \
         { \
-          if (!structure->keyname->hv) \
+          if (!relations->keyname->hv) \
             { \
-              SECTION_STRUCTURE *section = (SECTION_STRUCTURE *) \
-                structure->keyname; \
+              SECTION_RELATIONS *section = (SECTION_RELATIONS *) \
+                relations->keyname; \
               section->hv = newHV (); \
             } \
-          sv = newRV_inc ((SV *) structure->keyname->hv); \
-          hv_store (structure_hv, #keyname, \
+          sv = newRV_inc ((SV *) relations->keyname->hv); \
+          hv_store (relations_hv, #keyname, \
                     strlen (#keyname), sv, 0); \
         }
 
-#define STORE_STRUCT_INFO_NODE_STRUCTURE(keyname) \
-       if (structure->keyname) \
+#define STORE_RELS_INFO_NODE_RELATIONS(keyname) \
+       if (relations->keyname) \
         { \
-          if (!structure->keyname->hv) \
+          if (!relations->keyname->hv) \
             { \
-              NODE_STRUCTURE *node = (NODE_STRUCTURE *) \
-                structure->keyname; \
+              NODE_RELATIONS *node = (NODE_RELATIONS *) \
+                relations->keyname; \
               node->hv = newHV (); \
             } \
-          sv = newRV_inc ((SV *) structure->keyname->hv); \
-          hv_store (structure_hv, #keyname, \
+          sv = newRV_inc ((SV *) relations->keyname->hv); \
+          hv_store (relations_hv, #keyname, \
                     strlen (#keyname), sv, 0); \
         }
 
 static void
-build_node_structure (NODE_STRUCTURE *structure)
+build_node_relations (NODE_RELATIONS *relations)
 {
-  HV *structure_hv;
+  HV *relations_hv;
   SV *sv;
 
   dTHX;
 
-  if (!structure->hv)
+  if (!relations->hv)
     {
-      structure->hv = newHV ();
+      relations->hv = newHV ();
     }
 
-  structure_hv = structure->hv;
+  relations_hv = relations->hv;
 
-  sv = newRV_inc ((SV *) structure->element->hv);
-  hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-  STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_section)
-  STORE_STRUCT_INFO_ELEMENT(associated_title_command)
-  STORE_STRUCT_INFO_SECTION_STRUCTURE(node_preceding_part)
-  STORE_STRUCT_INFO_ELEMENT(node_description)
-  STORE_STRUCT_INFO_ELEMENT(node_long_description)
-  if (structure->menus)
+  sv = newRV_inc ((SV *) relations->element->hv);
+  hv_store (relations_hv, "element", strlen ("element"), sv, 0);
+  STORE_RELS_INFO_SECTION_RELATIONS(associated_section)
+  STORE_RELS_INFO_ELEMENT(associated_title_command)
+  STORE_RELS_INFO_SECTION_RELATIONS(node_preceding_part)
+  STORE_RELS_INFO_ELEMENT(node_description)
+  STORE_RELS_INFO_ELEMENT(node_long_description)
+  if (relations->menus)
     {
-      sv = build_perl_const_element_array (structure->menus, 0);
-      hv_store (structure_hv, "menus", strlen ("menus"), sv, 0);
+      sv = build_perl_const_element_array (relations->menus, 0);
+      hv_store (relations_hv, "menus", strlen ("menus"), sv, 0);
     }
-  if (structure->menu_directions)
+  if (relations->menu_directions)
     {
-      sv = build_perl_directions (structure->menu_directions, 0);
-      hv_store (structure_hv, "menu_directions",
+      sv = build_perl_directions (relations->menu_directions, 0);
+      hv_store (relations_hv, "menu_directions",
                 strlen ("menu_directions"), sv, 0);
     }
-  if (structure->node_directions)
+  if (relations->node_directions)
     {
-      sv = build_perl_directions (structure->node_directions, 0);
-      hv_store (structure_hv, "node_directions",
+      sv = build_perl_directions (relations->node_directions, 0);
+      hv_store (relations_hv, "node_directions",
                 strlen ("node_directions"), sv, 0);
     }
 }
 
 AV *
-build_node_structure_list (const NODE_STRUCTURE_LIST *list)
+build_node_relations_list (const NODE_RELATIONS_LIST *list)
 {
   AV *list_av;
   size_t i;
@@ -1070,19 +1070,19 @@ build_node_structure_list (const NODE_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      NODE_STRUCTURE *structure = list->list[i];
-      build_node_structure (structure);
+      NODE_RELATIONS *relations = list->list[i];
+      build_node_relations (relations);
       /* In case the HV was just created, keep the reference created by
          newHV instead of transferring it to the list_av, considering
          that it is associated to the C code */
-      av_store (list_av, i, newRV_inc ((SV *) structure->hv));
+      av_store (list_av, i, newRV_inc ((SV *) relations->hv));
     }
 
   return list_av;
 }
 
 static SV *
-build_perl_section_directions (const SECTION_STRUCTURE * const *s_d)
+build_perl_section_directions (const SECTION_RELATIONS * const *s_d)
 {
   SV *sv;
   HV *hv;
@@ -1102,8 +1102,8 @@ build_perl_section_directions (const SECTION_STRUCTURE * const *s_d)
           if (!s_d[d]->hv)
             {
               /* cast to modify */
-              SECTION_STRUCTURE *structure = (SECTION_STRUCTURE *)s_d[d];
-              structure->hv = newHV ();
+              SECTION_RELATIONS *relations = (SECTION_RELATIONS *)s_d[d];
+              relations->hv = newHV ();
             }
           hv_store (hv, key, strlen (key),
             newRV_inc ((SV *) s_d[d]->hv), 0);
@@ -1113,7 +1113,7 @@ build_perl_section_directions (const SECTION_STRUCTURE * const *s_d)
 }
 
 static SV *
-build_perl_section_structure_array (const SECTION_STRUCTURE_LIST *list)
+build_perl_section_relations_array (const SECTION_RELATIONS_LIST *list)
 {
   SV *sv;
   AV *av;
@@ -1126,58 +1126,58 @@ build_perl_section_structure_array (const SECTION_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      SECTION_STRUCTURE *structure = list->list[i];
-      if (!structure->hv)
-        structure->hv = newHV ();
-      av_store (av, (SSize_t) i, newRV_inc ((SV *) structure->hv));
+      SECTION_RELATIONS *relations = list->list[i];
+      if (!relations->hv)
+        relations->hv = newHV ();
+      av_store (av, (SSize_t) i, newRV_inc ((SV *) relations->hv));
     }
   return sv;
 }
 
 static void
-build_section_structure (SECTION_STRUCTURE *structure)
+build_section_relations (SECTION_RELATIONS *relations)
 {
-  HV *structure_hv;
+  HV *relations_hv;
   SV *sv;
 
   dTHX;
 
-  if (!structure->hv)
+  if (!relations->hv)
     {
-      structure->hv = newHV ();
+      relations->hv = newHV ();
     }
 
-  structure_hv = structure->hv;
+  relations_hv = relations->hv;
 
-  sv = newRV_inc ((SV *) structure->element->hv);
-  hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-  STORE_STRUCT_INFO_NODE_STRUCTURE(associated_node)
-  STORE_STRUCT_INFO_NODE_STRUCTURE(associated_anchor_command)
-  STORE_STRUCT_INFO_SECTION_STRUCTURE(associated_part)
-  STORE_STRUCT_INFO_SECTION_STRUCTURE(part_associated_section)
-  STORE_STRUCT_INFO_SECTION_STRUCTURE(part_following_node)
-  if (structure->section_directions)
+  sv = newRV_inc ((SV *) relations->element->hv);
+  hv_store (relations_hv, "element", strlen ("element"), sv, 0);
+  STORE_RELS_INFO_NODE_RELATIONS(associated_node)
+  STORE_RELS_INFO_NODE_RELATIONS(associated_anchor_command)
+  STORE_RELS_INFO_SECTION_RELATIONS(associated_part)
+  STORE_RELS_INFO_SECTION_RELATIONS(part_associated_section)
+  STORE_RELS_INFO_SECTION_RELATIONS(part_following_node)
+  if (relations->section_directions)
     {
-      sv = build_perl_section_directions (structure->section_directions);
-      hv_store (structure_hv, "section_directions",
+      sv = build_perl_section_directions (relations->section_directions);
+      hv_store (relations_hv, "section_directions",
                 strlen ("section_directions"), sv, 0);
     }
-  if (structure->toplevel_directions)
+  if (relations->toplevel_directions)
     {
-      sv = build_perl_section_directions (structure->toplevel_directions);
-      hv_store (structure_hv, "toplevel_directions",
+      sv = build_perl_section_directions (relations->toplevel_directions);
+      hv_store (relations_hv, "toplevel_directions",
                 strlen ("toplevel_directions"), sv, 0);
     }
-  if (structure->section_childs)
+  if (relations->section_childs)
     {
-      sv = build_perl_section_structure_array (structure->section_childs);
-      hv_store (structure_hv, "section_childs",
+      sv = build_perl_section_relations_array (relations->section_childs);
+      hv_store (relations_hv, "section_childs",
                 strlen ("section_childs"), sv, 0);
     }
 }
 
 AV *
-build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
+build_section_relations_list (const SECTION_RELATIONS_LIST *list)
 {
   AV *list_av;
   size_t i;
@@ -1190,19 +1190,19 @@ build_section_structure_list (const SECTION_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      SECTION_STRUCTURE *structure = list->list[i];
-      build_section_structure (structure);
+      SECTION_RELATIONS *relations = list->list[i];
+      build_section_relations (relations);
       /* In case the HV was just created, keep the reference created by
          newHV instead of transferring it to the list_av, considering
          that it is associated to the C code */
-      av_store (list_av, i, newRV_inc ((SV *) structure->hv));
+      av_store (list_av, i, newRV_inc ((SV *) relations->hv));
     }
 
   return list_av;
 }
 
 AV *
-build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
+build_heading_relations_list (const HEADING_RELATIONS_LIST *list)
 {
   AV *list_av;
   SV *sv;
@@ -1216,22 +1216,22 @@ build_heading_structure_list (const HEADING_STRUCTURE_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      HEADING_STRUCTURE *structure = list->list[i];
-      HV *structure_hv;
-      if (!structure->hv)
-        structure->hv = newHV ();
-      structure_hv = structure->hv;
+      HEADING_RELATIONS *relations = list->list[i];
+      HV *relations_hv;
+      if (!relations->hv)
+        relations->hv = newHV ();
+      relations_hv = relations->hv;
 
-      sv = newRV_inc ((SV *) structure->element->hv);
-      hv_store (structure_hv, "element", strlen ("element"), sv, 0);
-      STORE_STRUCT_INFO_NODE_STRUCTURE(associated_anchor_command)
-      av_store (list_av, i, newRV_inc ((SV *) structure_hv));
+      sv = newRV_inc ((SV *) relations->element->hv);
+      hv_store (relations_hv, "element", strlen ("element"), sv, 0);
+      STORE_RELS_INFO_NODE_RELATIONS(associated_anchor_command)
+      av_store (list_av, i, newRV_inc ((SV *) relations_hv));
     }
 
   return list_av;
 }
 
-#undef STORE_STRUCT_INFO_ELEMENT
+#undef STORE_RELS_INFO_ELEMENT
 
 /* currently unused */
 AV *
@@ -1625,7 +1625,7 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
         {
           const FLOAT_INFORMATION *float_info = &float_list->list[j];
           const ELEMENT *float_elt = float_info->float_element;
-          const SECTION_STRUCTURE *float_section = float_info->float_section;
+          const SECTION_RELATIONS *float_section = float_info->float_section;
           AV *float_section_av = newAV ();
           sv = newRV_inc ((SV *)float_elt->hv);
           av_push (float_section_av, sv);
@@ -1975,7 +1975,7 @@ build_sectioning_root (SECTIONING_ROOT *sectioning_root)
 
   hv = newHV ();
 
-  SV *sv = build_perl_section_structure_array (
+  SV *sv = build_perl_section_relations_array (
                             &sectioning_root->section_childs);
   hv_store (hv, "section_childs", strlen ("section_childs"), sv, 0);
 
@@ -2023,11 +2023,11 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 
   av_labels_list = build_target_elements_list (&document->labels_list);
 
-  av_nodes_list = build_node_structure_list (&document->nodes_list);
+  av_nodes_list = build_node_relations_list (&document->nodes_list);
 
-  av_sections_list = build_section_structure_list (&document->sections_list);
+  av_sections_list = build_section_relations_list (&document->sections_list);
 
-  av_headings_list = build_heading_structure_list (&document->headings_list);
+  av_headings_list = build_heading_relations_list (&document->headings_list);
 
   if (document->sectioning_root)
     hv_sectioning_root = build_sectioning_root (document->sectioning_root);
@@ -2163,18 +2163,18 @@ store_document_texinfo_tree (DOCUMENT *document)
       hv_store (document->hv, key, strlen (key), result_sv, 0);
       document->modified_information &= ~F_DOCM_tree;
     }
-  /* systematically rebuild, as section structure information
+  /* systematically rebuild, as section relations
      can be accessed from the tree.  Done in this function,
      as it is supposed to be called before an access to modified
      tree and sectioning structure.
    */
   /* Also store, such that next call that get cached values
-     get the right structure */
+     get the right information */
   if (document->modified_information & F_DOCM_sections_list)
     {
       const char *key = "sections_list";
       AV *av_list
-        = build_section_structure_list (&document->sections_list);
+        = build_section_relations_list (&document->sections_list);
       hv_store (document->hv, key, strlen (key),
                 newRV_inc ((SV *) av_list), 0);
 
@@ -2185,7 +2185,7 @@ store_document_texinfo_tree (DOCUMENT *document)
     {
       const char *key = "nodes_list";
       AV *av_list
-        = build_node_structure_list (&document->nodes_list);
+        = build_node_relations_list (&document->nodes_list);
       hv_store (document->hv, key, strlen (key),
                 newRV_inc ((SV *) av_list), 0);
 
@@ -2196,7 +2196,7 @@ store_document_texinfo_tree (DOCUMENT *document)
     {
       const char *key = "headings_list";
       AV *av_list
-        = build_heading_structure_list (&document->headings_list);
+        = build_heading_relations_list (&document->headings_list);
       hv_store (document->hv, key, strlen (key),
                 newRV_inc ((SV *) av_list), 0);
 
@@ -2724,11 +2724,11 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV)
 */
 
-BUILD_PERL_DOCUMENT_LIST(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_node_structure_list,AV)
+BUILD_PERL_DOCUMENT_LIST(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_node_relations_list,AV)
 
-BUILD_PERL_DOCUMENT_LIST(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_section_structure_list,AV)
+BUILD_PERL_DOCUMENT_LIST(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_section_relations_list,AV)
 
-BUILD_PERL_DOCUMENT_LIST(document_headings_list,headings_list,"headings_list",F_DOCM_headings_list,build_heading_structure_list,AV)
+BUILD_PERL_DOCUMENT_LIST(document_headings_list,headings_list,"headings_list",F_DOCM_headings_list,build_heading_relations_list,AV)
 
 BUILD_PERL_DOCUMENT_LIST(document_floats_information,listoffloats,"listoffloats_list",F_DOCM_floats,build_listoffloats_list,HV)
 

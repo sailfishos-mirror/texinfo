@@ -1317,13 +1317,13 @@ normalized label, built as specified in the @emph{HTML Xref} Texinfo documentati
 node.
 
 If you called @ref{Texinfo@asis{::}Structuring construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
-the @emph{node_directions} hash in the node structure information associates @emph{up},
-@emph{next} and @emph{prev} keys to the elements corresponding to the node line
+the @emph{node_directions} hash in the nodes relations associates @emph{up},
+@emph{next} and @emph{prev} keys to the node relations corresponding to the node line
 directions.
 
-An @emph{associated_section} key holds the tree element of the
-sectioning command that follows the node.  An @emph{node_preceding_part}
-key holds the struture information of the @code{@@part} that precedes the node,
+An @emph{associated_section} key holds the sectioning command relations
+object that follows the node.  An @emph{node_preceding_part}
+key holds the relations of the @code{@@part} that precedes the node,
 if there is no sectioning command between the @code{@@part} and the node.
 A @emph{node_description} key holds the first @code{@@nodedescription} associated
 to the node.
@@ -1343,8 +1343,8 @@ The @emph{indent} or @emph{noindent} key value is set if the corresponding
 @item @code{@@part}
 @anchor{Texinfo@asis{::}Parser @code{@@part}}
 
-The next sectioning command tree element is in @emph{part_associated_section}.
-The following node structure info is in @emph{part_following_node} if there is
+The next sectioning command section relations is in @emph{part_associated_section}.
+The following node relations is in @emph{part_following_node} if there is
 no sectioning command between the @code{@@part} and the node.
 
 @item @code{@@ref}

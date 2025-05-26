@@ -131,22 +131,22 @@ sub split_by_node($)
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}
         and defined($content->{'extra'}->{'normalized'})) {
-      my $node_structure
+      my $node_relations
         = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
       if (not $current->{'unit_command'}) {
         $current->{'unit_command'} = $content;
-        $current->{'unit_node'} = $node_structure;
+        $current->{'unit_node'} = $node_relations;
       } else {
         $current = { 'unit_type' => 'unit', 'unit_command' => $content,
-                     'unit_node' => $node_structure,
+                     'unit_node' => $node_relations,
                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
         push @$output_units, $current;
       }
-      if ($node_structure->{'associated_section'}) {
-        $current->{'unit_section'} = $node_structure->{'associated_section'};
+      if ($node_relations->{'associated_section'}) {
+        $current->{'unit_section'} = $node_relations->{'associated_section'};
       }
     }
     if (@pending_parts) {
@@ -191,51 +191,51 @@ sub split_by_section($)
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
-    my $new_section_structure;
-    my $node_structure;
+    my $new_section_relations;
+    my $node_relations;
     if ($content->{'cmdname'}) {
       if ($content->{'cmdname'} eq 'node') {
         if ($content->{'extra'} and $content->{'extra'}->{'node_number'}) {
-          $node_structure
+          $node_relations
             = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
-          if ($node_structure->{'associated_section'}) {
-            $new_section_structure
-              = $node_structure->{'associated_section'};
+          if ($node_relations->{'associated_section'}) {
+            $new_section_relations
+              = $node_relations->{'associated_section'};
           }
         }
       } elsif ($Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
         if ($content->{'cmdname'} eq 'part') {
-          my $part_structure
+          my $part_relations
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
-          if ($part_structure->{'part_associated_section'}) {
-            $new_section_structure
-              = $part_structure->{'part_associated_section'};
+          if ($part_relations->{'part_associated_section'}) {
+            $new_section_relations
+              = $part_relations->{'part_associated_section'};
           }
         }
-        if (not $new_section_structure) {
-          $new_section_structure
+        if (not $new_section_relations) {
+          $new_section_relations
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
         }
 
-        if ($new_section_structure->{'associated_node'}) {
-          $node_structure = $new_section_structure->{'associated_node'};
+        if ($new_section_relations->{'associated_node'}) {
+          $node_relations = $new_section_relations->{'associated_node'};
         }
       }
     }
-    if ($new_section_structure) {
+    if ($new_section_relations) {
       if (not defined($current->{'unit_command'})) {
-        $current->{'unit_command'} = $new_section_structure->{'element'};
-        $current->{'unit_section'} = $new_section_structure;
-        if ($node_structure) {
-          $current->{'unit_node'} = $node_structure;
+        $current->{'unit_command'} = $new_section_relations->{'element'};
+        $current->{'unit_section'} = $new_section_relations;
+        if ($node_relations) {
+          $current->{'unit_node'} = $node_relations;
         }
-      } elsif ($new_section_structure ne $current->{'unit_section'}) {
+      } elsif ($new_section_relations ne $current->{'unit_section'}) {
         $current = { 'unit_type' => 'unit',
-                     'unit_command' => $new_section_structure->{'element'},
-                     'unit_section' => $new_section_structure,
+                     'unit_command' => $new_section_relations->{'element'},
+                     'unit_section' => $new_section_relations,
                      'tree_unit_directions' => {'prev' => $output_units->[-1]}};
-        if ($node_structure) {
-          $current->{'unit_node'} = $node_structure;
+        if ($node_relations) {
+          $current->{'unit_node'} = $node_relations;
         }
         $output_units->[-1]->{'tree_unit_directions'} = {}
             if (! $output_units->[-1]->{'tree_unit_directions'});
@@ -375,66 +375,66 @@ sub units_directions($$$;$)
                                                      ->{'unit_type'} eq 'unit');
     my $node;
     if ($output_unit->{'unit_node'}) {
-      my $node_structure = $output_unit->{'unit_node'};
-      my $node = $node_structure->{'element'};
+      my $node_relations = $output_unit->{'unit_node'};
+      my $node = $node_relations->{'element'};
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
         $directions->{$direction->[0]}
            = _label_target_unit_element(
-               $node_structure->{'node_directions'}->{$direction->[1]})
-            if ($node_structure->{'node_directions'}
-                and $node_structure->{'node_directions'}->{$direction->[1]});
+               $node_relations->{'node_directions'}->{$direction->[1]})
+            if ($node_relations->{'node_directions'}
+                and $node_relations->{'node_directions'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
-      my $associated_structure;
+      my $associated_relations;
       my $argument = $node->{'contents'}->[0];
       my $automatic_directions
         = (scalar(@{$argument->{'contents'}}) <= 1);
-      if ($automatic_directions and $node_structure->{'associated_section'}) {
-        $associated_structure = $node_structure->{'associated_section'};
+      if ($automatic_directions and $node_relations->{'associated_section'}) {
+        $associated_relations = $node_relations->{'associated_section'};
       }
       my $menu_child
-         = Texinfo::ManipulateTree::first_menu_node($node_structure,
+         = Texinfo::ManipulateTree::first_menu_node($node_relations,
                                                     $identifier_target);
       if ($menu_child) {
         $directions->{'NodeForward'}
           = _label_target_unit_element($menu_child);
-      } elsif ($associated_structure
-               and $associated_structure->{'section_childs'}
-               and scalar(@{$associated_structure->{'section_childs'}})) {
+      } elsif ($associated_relations
+               and $associated_relations->{'section_childs'}
+               and scalar(@{$associated_relations->{'section_childs'}})) {
         $directions->{'NodeForward'}
-          = $associated_structure
+          = $associated_relations
                   ->{'section_childs'}->[0]->{'element'}->{'associated_unit'};
-      } elsif ($node_structure->{'node_directions'}
-               and $node_structure->{'node_directions'}->{'next'}) {
+      } elsif ($node_relations->{'node_directions'}
+               and $node_relations->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
             = _label_target_unit_element(
-                  $node_structure->{'node_directions'}->{'next'});
-      } elsif ($node_structure->{'node_directions'}
-               and $node_structure->{'node_directions'}->{'up'}) {
-        my $up = $node_structure->{'node_directions'}->{'up'};
+                  $node_relations->{'node_directions'}->{'next'});
+      } elsif ($node_relations->{'node_directions'}
+               and $node_relations->{'node_directions'}->{'up'}) {
+        my $up = $node_relations->{'node_directions'}->{'up'};
         my @up_list = ($node);
         # the condition with the up_list avoids infinite loops
         # the last condition stops when the Top node is reached.
         while (not (grep {$up eq $_} @up_list
                     or ($node_top and $up eq $node_top))) {
-          my $up_node_structure;
+          my $up_node_relations;
           if ($up->{'cmdname'} and $up->{'cmdname'} eq 'node') {
-            $up_node_structure
+            $up_node_relations
               = $nodes_list->[$up->{'extra'}->{'node_number'} -1];
-            if ($up_node_structure->{'node_directions'}
-                and $up_node_structure->{'node_directions'}->{'next'}) {
+            if ($up_node_relations->{'node_directions'}
+                and $up_node_relations->{'node_directions'}->{'next'}) {
               $directions->{'NodeForward'}
                 = _label_target_unit_element(
-                     $up_node_structure->{'node_directions'}->{'next'});
+                     $up_node_relations->{'node_directions'}->{'next'});
               last;
             }
           }
           push @up_list, $up;
-          last if (not $up_node_structure
-                   or not $up_node_structure->{'node_directions'}
-                   or not $up_node_structure->{'node_directions'}->{'up'});
-          $up = $up_node_structure->{'node_directions'}->{'up'};
+          last if (not $up_node_relations
+                   or not $up_node_relations->{'node_directions'}
+                   or not $up_node_relations->{'node_directions'}->{'up'});
+          $up = $up_node_relations->{'node_directions'}->{'up'};
         }
       }
 
@@ -477,20 +477,20 @@ sub units_directions($$$;$)
         }
       }
     } else {
-      my $section_structure = $output_unit->{'unit_section'};
-      my $section = $section_structure->{'element'};
-      my $section_directions = $section_structure->{'section_directions'};
+      my $section_relations = $output_unit->{'unit_section'};
+      my $section = $section_relations->{'element'};
+      my $section_directions = $section_relations->{'section_directions'};
       if ($section_directions) {
         foreach my $direction(['Up', 'up'], ['Next', 'next'],
                               ['Prev', 'prev']) {
-          my $direction_structure = $section_directions->{$direction->[1]};
+          my $direction_relation = $section_directions->{$direction->[1]};
 
           $directions->{$direction->[0]}
-            = $direction_structure->{'element'}->{'associated_unit'}
-          if ($direction_structure
-              and $direction_structure->{'element'}->{'associated_unit'}
+            = $direction_relation->{'element'}->{'associated_unit'}
+          if ($direction_relation
+              and $direction_relation->{'element'}->{'associated_unit'}
               and (!$section->{'associated_unit'}
-                   or $direction_structure->{'element'}->{'associated_unit'}
+                   or $direction_relation->{'element'}->{'associated_unit'}
                         ne $section->{'associated_unit'}));
         }
       }
@@ -498,34 +498,34 @@ sub units_directions($$$;$)
       # fastforward is the next element on same level than the upper parent
       # element.
       my $up = $section;
-      my $up_structure = $section_structure;
+      my $up_relations = $section_relations;
       while ($up->{'extra'}
              and defined($up->{'extra'}->{'section_level'})
              and $up->{'extra'}->{'section_level'} > 1
-             and $up_structure->{'section_directions'}
-             and $up_structure->{'section_directions'}->{'up'}) {
-        $up_structure = $up_structure->{'section_directions'}->{'up'};
-        $up = $up_structure->{'element'};
+             and $up_relations->{'section_directions'}
+             and $up_relations->{'section_directions'}->{'up'}) {
+        $up_relations = $up_relations->{'section_directions'}->{'up'};
+        $up = $up_relations->{'element'};
       }
 
       if ($up->{'extra'}
           and defined($up->{'extra'}->{'section_level'})
           and $up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
-          and $up_structure->{'section_childs'}
-          and scalar(@{$up_structure->{'section_childs'}})) {
+          and $up_relations->{'section_childs'}
+          and scalar(@{$up_relations->{'section_childs'}})) {
         $directions->{'FastForward'}
-           = $up_structure->{'section_childs'}->[0]
+           = $up_relations->{'section_childs'}->[0]
                                      ->{'element'}->{'associated_unit'};
-      } elsif ($up_structure->{'toplevel_directions'}
-               and $up_structure->{'toplevel_directions'}->{'next'}) {
+      } elsif ($up_relations->{'toplevel_directions'}
+               and $up_relations->{'toplevel_directions'}->{'next'}) {
         $directions->{'FastForward'}
-          = $up_structure->{'toplevel_directions'}->{'next'}
+          = $up_relations->{'toplevel_directions'}->{'next'}
                               ->{'element'}->{'associated_unit'};
-      } elsif ($up_structure->{'section_directions'}
-               and $up_structure->{'section_directions'}->{'next'}) {
+      } elsif ($up_relations->{'section_directions'}
+               and $up_relations->{'section_directions'}->{'next'}) {
         $directions->{'FastForward'}
-          = $up_structure->{'section_directions'}->{'next'}
+          = $up_relations->{'section_directions'}->{'next'}
                               ->{'element'}->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the
@@ -753,7 +753,7 @@ sub print_output_units_details($$;$$)
 
       # determine the kind of command by comparing with
       # unit node or unit section.  Also show the texinfo code
-      # of the node or section structure not associated to unit_command.
+      # of the node or section not associated to unit_command.
       if ($output_unit->{'unit_node'}) {
         if ($output_unit->{'unit_node'}->{'element'}
                      eq $output_unit->{'unit_command'}) {
@@ -1036,7 +1036,7 @@ X<C<split_pages>>
 
 Add the I<first_in_page> key to each output unit in the array
 reference argument I<$output_units>, set to the first output unit in the group.
-I<$nodes_list> is the nodes structures list.
+I<$nodes_list> is the nodes relations list.
 
 The first output unit in the group is based on the value of I<$split>:
 
@@ -1074,7 +1074,7 @@ X<C<units_directions>>
 The I<$identifier_target> argument associates identifiers with target elements
 and is generally obtained from a parsed document,
 L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
-The I<$nodes_list> argument holds nodes structures, and is also
+The I<$nodes_list> argument holds nodes relations, and is also
 generally obtained from a parsed document.
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated

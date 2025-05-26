@@ -151,7 +151,7 @@ You can call @code{split_pages} to group together output units:
 
 Add the @emph{first_in_page} key to each output unit in the array
 reference argument @emph{$output_units}, set to the first output unit in the group.
-@emph{$nodes_list} is the nodes structures list.
+@emph{$nodes_list} is the nodes relations list.
 
 The first output unit in the group is based on the value of @emph{$split}:
 
@@ -193,7 +193,7 @@ You can call the following methods to set output units directions:
 The @emph{$identifier_target} argument associates identifiers with target elements
 and is generally obtained from a parsed document,
 @ref{Texinfo@asis{::}Document $identifier_target = labels_information($document),, @code{Texinfo::Document::labels_information}}.
-The @emph{$nodes_list} argument holds nodes structures, and is also
+The @emph{$nodes_list} argument holds nodes relations, and is also
 generally obtained from a parsed document.
 Directions are set up for the output units in the array reference
 @emph{$output_units} given in argument. The corresponding hash is associated

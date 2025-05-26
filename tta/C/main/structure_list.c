@@ -36,214 +36,214 @@
 #include "api_to_perl.h"
 #include "structure_list.h"
 
-NODE_STRUCTURE_LIST *
-new_node_structure_list (void)
+NODE_RELATIONS_LIST *
+new_node_relations_list (void)
 {
-  NODE_STRUCTURE_LIST *result = (NODE_STRUCTURE_LIST *)
-     malloc (sizeof (NODE_STRUCTURE_LIST));
-  memset (result, 0, sizeof (NODE_STRUCTURE_LIST));
+  NODE_RELATIONS_LIST *result = (NODE_RELATIONS_LIST *)
+     malloc (sizeof (NODE_RELATIONS_LIST));
+  memset (result, 0, sizeof (NODE_RELATIONS_LIST));
   return result;
 }
 
-CONST_NODE_STRUCTURE_LIST *
-new_const_node_structure_list (void)
+CONST_NODE_RELATIONS_LIST *
+new_const_node_relations_list (void)
 {
-  CONST_NODE_STRUCTURE_LIST *result = (CONST_NODE_STRUCTURE_LIST *)
-     malloc (sizeof (CONST_NODE_STRUCTURE_LIST));
-  memset (result, 0, sizeof (CONST_NODE_STRUCTURE_LIST));
+  CONST_NODE_RELATIONS_LIST *result = (CONST_NODE_RELATIONS_LIST *)
+     malloc (sizeof (CONST_NODE_RELATIONS_LIST));
+  memset (result, 0, sizeof (CONST_NODE_RELATIONS_LIST));
   return result;
 }
 
-SECTION_STRUCTURE_LIST *
-new_section_structure_list (void)
+SECTION_RELATIONS_LIST *
+new_section_relations_list (void)
 {
-  SECTION_STRUCTURE_LIST *result = (SECTION_STRUCTURE_LIST *)
-     malloc (sizeof (SECTION_STRUCTURE_LIST));
-  memset (result, 0, sizeof (SECTION_STRUCTURE_LIST));
+  SECTION_RELATIONS_LIST *result = (SECTION_RELATIONS_LIST *)
+     malloc (sizeof (SECTION_RELATIONS_LIST));
+  memset (result, 0, sizeof (SECTION_RELATIONS_LIST));
   return result;
 }
 
-NODE_STRUCTURE *
-new_node_structure (ELEMENT *element)
+NODE_RELATIONS *
+new_node_relations (ELEMENT *element)
 {
-  NODE_STRUCTURE *node = (NODE_STRUCTURE *) malloc (sizeof (NODE_STRUCTURE));
-  memset (node, 0, sizeof (NODE_STRUCTURE));
+  NODE_RELATIONS *node = (NODE_RELATIONS *) malloc (sizeof (NODE_RELATIONS));
+  memset (node, 0, sizeof (NODE_RELATIONS));
   node->element = element;
   return node;
 }
 
-SECTION_STRUCTURE *
-new_section_structure (ELEMENT *element)
+SECTION_RELATIONS *
+new_section_relations (ELEMENT *element)
 {
-  SECTION_STRUCTURE *section
-    = (SECTION_STRUCTURE *) malloc (sizeof (SECTION_STRUCTURE));
-  memset (section, 0, sizeof (SECTION_STRUCTURE));
+  SECTION_RELATIONS *section
+    = (SECTION_RELATIONS *) malloc (sizeof (SECTION_RELATIONS));
+  memset (section, 0, sizeof (SECTION_RELATIONS));
   section->element = element;
   return section;
 }
 
-HEADING_STRUCTURE *
-new_heading_structure (ELEMENT *element)
+HEADING_RELATIONS *
+new_heading_relations (ELEMENT *element)
 {
-  HEADING_STRUCTURE *heading
-    = (HEADING_STRUCTURE *) malloc (sizeof (HEADING_STRUCTURE));
-  memset (heading, 0, sizeof (HEADING_STRUCTURE));
+  HEADING_RELATIONS *heading
+    = (HEADING_RELATIONS *) malloc (sizeof (HEADING_RELATIONS));
+  memset (heading, 0, sizeof (HEADING_RELATIONS));
   heading->element = element;
   return heading;
 }
 
 /* Make sure there is space for at least one more element. */
-#define setup_reallocate_structure_list(name, type) \
+#define setup_reallocate_relations_list(name, type) \
 static void \
-reallocate_##name##_structure_list (type##_STRUCTURE_LIST *list) \
+reallocate_##name##_relations_list (type##_RELATIONS_LIST *list) \
 { \
   if (list->number + 1 >= list->space) \
     { \
       list->space += 10; \
       list->list = realloc (list->list, \
-                            list->space * sizeof (type##_STRUCTURE *)); \
+                            list->space * sizeof (type##_RELATIONS *)); \
       if (!list->list) \
         fatal ("realloc failed"); \
     } \
 }
 
-setup_reallocate_structure_list(node,NODE)
-setup_reallocate_structure_list(section,SECTION)
-setup_reallocate_structure_list(heading,HEADING)
+setup_reallocate_relations_list(node,NODE)
+setup_reallocate_relations_list(section,SECTION)
+setup_reallocate_relations_list(heading,HEADING)
 
 static void
-reallocate_const_node_structure_list (CONST_NODE_STRUCTURE_LIST *list)
+reallocate_const_node_relations_list (CONST_NODE_RELATIONS_LIST *list)
 {
     if (list->number + 1 >= list->space)
     {
       list->space += 10;
       list->list = realloc (list->list,
-                            list->space * sizeof (const NODE_STRUCTURE *));
+                            list->space * sizeof (const NODE_RELATIONS *));
       if (!list->list)
         fatal ("realloc failed");
     }
 }
 
 void
-reallocate_node_structure_for (size_t n, NODE_STRUCTURE_LIST *list)
+reallocate_node_relations_for (size_t n, NODE_RELATIONS_LIST *list)
 {
   if (list->number + n >= list->space)
     {
       list->space += n + 1;
       list->list = realloc (list->list,
-                            list->space * sizeof (NODE_STRUCTURE *));
+                            list->space * sizeof (NODE_RELATIONS *));
       if (!list->list)
         fatal ("realloc failed");
     }
 }
 
-const struct SECTION_STRUCTURE **
+const struct SECTION_RELATIONS **
 new_section_directions (void)
 {
-  const SECTION_STRUCTURE **result
-      = (const SECTION_STRUCTURE **) malloc ((D_up + 1)
-                          * sizeof (const SECTION_STRUCTURE *));
-  memset (result, 0, (D_up + 1) * sizeof (const SECTION_STRUCTURE *));
+  const SECTION_RELATIONS **result
+      = (const SECTION_RELATIONS **) malloc ((D_up + 1)
+                          * sizeof (const SECTION_RELATIONS *));
+  memset (result, 0, (D_up + 1) * sizeof (const SECTION_RELATIONS *));
   return result;
 }
 
 void
-add_to_node_structure_list (NODE_STRUCTURE_LIST *list,
-                            NODE_STRUCTURE *node_structure)
+add_to_node_relations_list (NODE_RELATIONS_LIST *list,
+                            NODE_RELATIONS *node_relations)
 {
   /* NOTE there could be theoretically an overflow if
      list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
-  reallocate_node_structure_list (list);
+  reallocate_node_relations_list (list);
 
-  list->list[list->number++] = node_structure;
+  list->list[list->number++] = node_relations;
 }
 
 void
-add_to_const_node_structure_list (CONST_NODE_STRUCTURE_LIST *list,
-                                  const NODE_STRUCTURE *node_structure)
+add_to_const_node_relations_list (CONST_NODE_RELATIONS_LIST *list,
+                                  const NODE_RELATIONS *node_relations)
 {
   /* NOTE there could be theoretically an overflow if
      list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
-  reallocate_const_node_structure_list (list);
+  reallocate_const_node_relations_list (list);
 
-  list->list[list->number++] = node_structure;
+  list->list[list->number++] = node_relations;
 }
 
-NODE_STRUCTURE *
-add_node_to_node_structure_list (NODE_STRUCTURE_LIST *list, ELEMENT *e)
+NODE_RELATIONS *
+add_node_to_node_relations_list (NODE_RELATIONS_LIST *list, ELEMENT *e)
 {
-  NODE_STRUCTURE *node_structure = new_node_structure (e);
+  NODE_RELATIONS *node_relations = new_node_relations (e);
 
-  add_to_node_structure_list (list, node_structure);
+  add_to_node_relations_list (list, node_relations);
 
-  return node_structure;
+  return node_relations;
 }
 
 void
-add_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
-                               SECTION_STRUCTURE *section_structure)
+add_to_section_relations_list (SECTION_RELATIONS_LIST *list,
+                               SECTION_RELATIONS *section_relations)
 {
-  reallocate_section_structure_list (list);
+  reallocate_section_relations_list (list);
 
-  list->list[list->number++] = section_structure;
+  list->list[list->number++] = section_relations;
 }
 
-SECTION_STRUCTURE *
-add_section_to_section_structure_list (SECTION_STRUCTURE_LIST *list,
+SECTION_RELATIONS *
+add_section_to_section_relations_list (SECTION_RELATIONS_LIST *list,
                                        ELEMENT *e)
 {
-  SECTION_STRUCTURE *section = new_section_structure (e);
+  SECTION_RELATIONS *section = new_section_relations (e);
 
-  add_to_section_structure_list (list, section);
+  add_to_section_relations_list (list, section);
 
   return section;
 }
 
-HEADING_STRUCTURE *
-add_heading_to_heading_structure_list (HEADING_STRUCTURE_LIST *list,
+HEADING_RELATIONS *
+add_heading_to_heading_relations_list (HEADING_RELATIONS_LIST *list,
                                        ELEMENT *e)
 {
-  HEADING_STRUCTURE *heading = new_heading_structure (e);
-  reallocate_heading_structure_list (list);
+  HEADING_RELATIONS *heading = new_heading_relations (e);
+  reallocate_heading_relations_list (list);
 
   list->list[list->number++] = heading;
 
   return heading;
 }
 
-/* Add a node structure for the element E into the LIST at index WHERE. */
-NODE_STRUCTURE *
-insert_node_into_node_structure_list (NODE_STRUCTURE_LIST *list,
+/* Add a node relations for the element E into the LIST at index WHERE. */
+NODE_RELATIONS *
+insert_node_into_node_relations_list (NODE_RELATIONS_LIST *list,
                                       ELEMENT *e, size_t where)
 {
-  NODE_STRUCTURE *node = new_node_structure (e);
-  reallocate_node_structure_list (list);
+  NODE_RELATIONS *node = new_node_relations (e);
+  reallocate_node_relations_list (list);
 
   if (where > list->number)
     fatal ("elements list index out of bounds");
 
   memmove (&list->list[where + 1], &list->list[where],
-           (list->number - where) * sizeof (NODE_STRUCTURE *));
+           (list->number - where) * sizeof (NODE_RELATIONS *));
   list->list[where] = node;
   list->number++;
 
   return node;
 }
 
-SECTION_STRUCTURE *
-insert_section_into_section_structure_list (SECTION_STRUCTURE_LIST *list,
+SECTION_RELATIONS *
+insert_section_into_section_relations_list (SECTION_RELATIONS_LIST *list,
                                              ELEMENT *e, size_t where)
 {
-  SECTION_STRUCTURE *section = new_section_structure (e);
-  reallocate_section_structure_list (list);
+  SECTION_RELATIONS *section = new_section_relations (e);
+  reallocate_section_relations_list (list);
 
   if (where > list->number)
     fatal ("elements list index out of bounds");
 
   memmove (&list->list[where + 1], &list->list[where],
-           (list->number - where) * sizeof (SECTION_STRUCTURE *));
+           (list->number - where) * sizeof (SECTION_RELATIONS *));
   list->list[where] = section;
   list->number++;
 
@@ -251,61 +251,61 @@ insert_section_into_section_structure_list (SECTION_STRUCTURE_LIST *list,
 }
 
 void
-free_node_structure_list (NODE_STRUCTURE_LIST *list)
+free_node_relations_list (NODE_RELATIONS_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
     {
-      NODE_STRUCTURE *node_structure = list->list[i];
-      if (node_structure->menus)
-        destroy_const_element_list (node_structure->menus);
-      free (node_structure->menu_directions);
-      free (node_structure->node_directions);
-      if (node_structure->hv)
-        unregister_perl_data (node_structure->hv);
-      free (node_structure);
+      NODE_RELATIONS *node_relations = list->list[i];
+      if (node_relations->menus)
+        destroy_const_element_list (node_relations->menus);
+      free (node_relations->menu_directions);
+      free (node_relations->node_directions);
+      if (node_relations->hv)
+        unregister_perl_data (node_relations->hv);
+      free (node_relations);
     }
   free (list->list);
 }
 
 void
-destroy_node_structure_list (NODE_STRUCTURE_LIST *list)
+destroy_node_relations_list (NODE_RELATIONS_LIST *list)
 {
-  free_node_structure_list (list);
+  free_node_relations_list (list);
   free (list);
 }
 
 void
-free_section_structure_list (SECTION_STRUCTURE_LIST *list)
+free_section_relations_list (SECTION_RELATIONS_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
     {
-      SECTION_STRUCTURE *section_structure = list->list[i];
-      free (section_structure->section_directions);
-      free (section_structure->toplevel_directions);
-      if (section_structure->section_childs)
+      SECTION_RELATIONS *section_relations = list->list[i];
+      free (section_relations->section_directions);
+      free (section_relations->toplevel_directions);
+      if (section_relations->section_childs)
         {
-          free (section_structure->section_childs->list);
-          free (section_structure->section_childs);
+          free (section_relations->section_childs->list);
+          free (section_relations->section_childs);
         }
-      if (section_structure->hv)
-        unregister_perl_data (section_structure->hv);
-      free (section_structure);
+      if (section_relations->hv)
+        unregister_perl_data (section_relations->hv);
+      free (section_relations);
     }
   free (list->list);
 }
 
 void
-free_heading_structure_list (HEADING_STRUCTURE_LIST *list)
+free_heading_relations_list (HEADING_RELATIONS_LIST *list)
 {
   size_t i;
   for (i = 0; i < list->number; i++)
     {
-      HEADING_STRUCTURE *heading_structure = list->list[i];
-      if (heading_structure->hv)
-        unregister_perl_data (heading_structure->hv);
-      free (heading_structure);
+      HEADING_RELATIONS *heading_relations = list->list[i];
+      if (heading_relations->hv)
+        unregister_perl_data (heading_relations->hv);
+      free (heading_relations);
     }
   free (list->list);
 }
@@ -328,11 +328,11 @@ print_root_command (const ELEMENT *element)
 }
 
 /* used in t/X.t tests */
-#define SECTION_STRUCT_PRINT_KEY(name) \
-      if (structure->name) \
+#define SECTION_RELS_PRINT_KEY(name) \
+      if (relations->name) \
         { \
           char *value \
-            = root_command_element_string (structure->name->element); \
+            = root_command_element_string (relations->name->element); \
           if (value) \
             { \
               text_printf (result, " " #name ": %s", \
@@ -346,7 +346,7 @@ print_root_command (const ELEMENT *element)
 
 static void
 print_sections_directions (TEXT *result,
-                           const SECTION_STRUCTURE * const *directions)
+                           const SECTION_RELATIONS * const *directions)
 {
   size_t d;
   for (d = 0; d < directions_length; d++)
@@ -369,10 +369,10 @@ print_sections_directions (TEXT *result,
 }
 
 static void
-print_section_structure_info_internal (const SECTION_STRUCTURE *structure,
+print_section_relations_info_internal (const SECTION_RELATIONS *relations,
                                        size_t i, TEXT *result)
 {
-  const ELEMENT *element = structure->element;
+  const ELEMENT *element = relations->element;
   char *root_command_texi = print_root_command (element);
   if (!root_command_texi)
     text_printf (result, "%zu", i+1);
@@ -383,30 +383,30 @@ print_section_structure_info_internal (const SECTION_STRUCTURE *structure,
     }
   text_append_n (result, "\n", 1);
 
-  SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
-  SECTION_STRUCT_PRINT_KEY(associated_node)
-  SECTION_STRUCT_PRINT_KEY(part_following_node)
-  SECTION_STRUCT_PRINT_KEY(associated_part)
-  SECTION_STRUCT_PRINT_KEY(part_associated_section)
-  if (structure->section_directions)
+  SECTION_RELS_PRINT_KEY(associated_anchor_command)
+  SECTION_RELS_PRINT_KEY(associated_node)
+  SECTION_RELS_PRINT_KEY(part_following_node)
+  SECTION_RELS_PRINT_KEY(associated_part)
+  SECTION_RELS_PRINT_KEY(part_associated_section)
+  if (relations->section_directions)
     {
       text_append_n (result, " section_directions:\n", 21);
-      print_sections_directions (result, structure->section_directions);
+      print_sections_directions (result, relations->section_directions);
     }
-  if (structure->toplevel_directions)
+  if (relations->toplevel_directions)
     {
       text_append_n (result, " toplevel_directions:\n", 22);
-      print_sections_directions (result, structure->toplevel_directions);
+      print_sections_directions (result, relations->toplevel_directions);
     }
-  if (structure->section_childs)
+  if (relations->section_childs)
     {
       size_t j;
       const char *key = "section_childs";
       text_printf (result, " %s:\n", key);
-      for (j = 0; j < structure->section_childs->number; j++)
+      for (j = 0; j < relations->section_childs->number; j++)
         {
           const ELEMENT *element
-            = structure->section_childs->list[j]->element;
+            = relations->section_childs->list[j]->element;
           char *section_texi = print_root_command (element);
           text_printf (result, "  %zu|", j+1);
           if (section_texi)
@@ -431,9 +431,9 @@ print_sections_list (const DOCUMENT *document)
 
   for (i = 0; i < document->sections_list.number; i++)
     {
-      const SECTION_STRUCTURE *structure
+      const SECTION_RELATIONS *relations
         = document->sections_list.list[i];
-      print_section_structure_info_internal (structure, i, &result);
+      print_section_relations_info_internal (relations, i, &result);
     }
 
   return result.text;
@@ -444,7 +444,7 @@ print_sectioning_root (const DOCUMENT *document)
 {
   size_t i;
   const SECTIONING_ROOT *sectioning_root = document->sectioning_root;
-  const SECTION_STRUCTURE_LIST *section_childs;
+  const SECTION_RELATIONS_LIST *section_childs;
 
   TEXT result;
 
@@ -554,10 +554,10 @@ print_nodes_directions (TEXT *result, const ELEMENT * const *directions)
 }
 
 static void
-print_node_structure_info_internal (const NODE_STRUCTURE *structure,
+print_node_relations_info_internal (const NODE_RELATIONS *relations,
                                     size_t i, TEXT *result)
 {
-  const ELEMENT *element = structure->element;
+  const ELEMENT *element = relations->element;
   char *root_command_texi = print_root_command (element);
   if (!root_command_texi)
     text_printf (result, "%zu", i+1);
@@ -568,37 +568,37 @@ print_node_structure_info_internal (const NODE_STRUCTURE *structure,
     }
   text_append_n (result, "\n", 1);
 
-  SECTION_STRUCT_PRINT_KEY(associated_section)
-  SECTION_STRUCT_PRINT_KEY(node_preceding_part)
+  SECTION_RELS_PRINT_KEY(associated_section)
+  SECTION_RELS_PRINT_KEY(node_preceding_part)
 
-  if (structure->associated_title_command)
+  if (relations->associated_title_command)
     {
       print_line_command_key_element (result, "associated_title_command",
-                             structure->associated_title_command);
+                             relations->associated_title_command);
       text_append_n (result, "\n", 1);
     }
-  if (structure->node_description)
+  if (relations->node_description)
     {
       print_line_command_key_element (result, "node_description",
-                             structure->node_description);
+                             relations->node_description);
       text_append_n (result, "\n", 1);
     }
-  if (structure->node_long_description)
+  if (relations->node_long_description)
     {
       const char *command_key = "node_long_description";
-      const ELEMENT *command_element = structure->node_long_description;
+      const ELEMENT *command_element = relations->node_long_description;
       text_printf (result, " %s: @%s", command_key,
                    builtin_command_name (command_element->e.c->cmd));
       text_append_n (result, "\n", 1);
     }
 
-  if (structure->menus && structure->menus->number)
+  if (relations->menus && relations->menus->number)
     {
       text_append_n (result, " menus:\n", 8);
       size_t j;
-      for (j = 0; j < structure->menus->number; j++)
+      for (j = 0; j < relations->menus->number; j++)
         {
-          const ELEMENT *menu = structure->menus->list[j];
+          const ELEMENT *menu = relations->menus->list[j];
 
           size_t k;
           for (k = 0; k < menu->e.c->contents.number; k++)
@@ -625,15 +625,15 @@ print_node_structure_info_internal (const NODE_STRUCTURE *structure,
             }
         }
     }
-  if (structure->menu_directions)
+  if (relations->menu_directions)
     {
       text_append_n (result, " menu_directions:\n", 18);
-      print_nodes_directions (result, structure->menu_directions);
+      print_nodes_directions (result, relations->menu_directions);
     }
-  if (structure->node_directions)
+  if (relations->node_directions)
     {
       text_append_n (result, " node_directions:\n", 18);
-      print_nodes_directions (result, structure->node_directions);
+      print_nodes_directions (result, relations->node_directions);
     }
 }
 
@@ -649,19 +649,19 @@ print_nodes_list (const DOCUMENT *document)
 
   for (i = 0; i < document->nodes_list.number; i++)
     {
-      const NODE_STRUCTURE *structure
+      const NODE_RELATIONS *relations
         = document->nodes_list.list[i];
-      print_node_structure_info_internal (structure, i, &result);
+      print_node_relations_info_internal (relations, i, &result);
     }
 
   return result.text;
 }
 
 static void
-print_heading_structure_info_internal (const HEADING_STRUCTURE *structure,
+print_heading_relations_info_internal (const HEADING_RELATIONS *relations,
                                        size_t i, TEXT *result)
 {
-  const ELEMENT *element = structure->element;
+  const ELEMENT *element = relations->element;
   const ELEMENT *line_arg = element->e.c->contents.list[0];
   char *root_command_texi = 0;
 
@@ -677,7 +677,7 @@ print_heading_structure_info_internal (const HEADING_STRUCTURE *structure,
     }
   text_append_n (result, "\n", 1);
 
-  SECTION_STRUCT_PRINT_KEY(associated_anchor_command)
+  SECTION_RELS_PRINT_KEY(associated_anchor_command)
 }
 
 char *
@@ -692,12 +692,12 @@ print_headings_list (const DOCUMENT *document)
 
   for (i = 0; i < document->headings_list.number; i++)
     {
-      const HEADING_STRUCTURE *structure
+      const HEADING_RELATIONS *relations
         = document->headings_list.list[i];
-      print_heading_structure_info_internal (structure, i, &result);
+      print_heading_relations_info_internal (relations, i, &result);
     }
 
   return result.text;
 }
 
-#undef SECTION_STRUCT_PRINT_KEY
+#undef SECTION_RELS_PRINT_KEY

@@ -113,9 +113,9 @@ extern DOCUMENT *parsed_document;
 
 extern FLOAT_RECORD_LIST parser_float_records;
 
-extern NODE_STRUCTURE *current_node;
-extern const SECTION_STRUCTURE *current_section;
-extern SECTION_STRUCTURE *current_part;
+extern NODE_RELATIONS *current_node;
+extern const SECTION_RELATIONS *current_section;
+extern SECTION_RELATIONS *current_part;
 
 extern char *global_documentlanguage;
 

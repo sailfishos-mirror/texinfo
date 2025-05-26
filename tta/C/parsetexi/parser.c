@@ -236,9 +236,9 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 
 /* Current node, section and part. */
 
-NODE_STRUCTURE *current_node = 0;
-const SECTION_STRUCTURE *current_section = 0;
-SECTION_STRUCTURE *current_part = 0;
+NODE_RELATIONS *current_node = 0;
+const SECTION_RELATIONS *current_section = 0;
+SECTION_RELATIONS *current_part = 0;
 
 
 /* Conditional stack. */

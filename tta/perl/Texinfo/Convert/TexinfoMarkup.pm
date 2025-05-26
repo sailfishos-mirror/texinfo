@@ -897,11 +897,11 @@ sub _convert($$;$)
       } elsif ($type eq 'line') {
         if ($cmdname eq 'node') {
           my $nodename;
-          my $node_structure;
+          my $node_relations;
           if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
             $nodename = $element->{'extra'}->{'normalized'};
             my $nodes_list = $self->{'document'}->nodes_list();
-            $node_structure
+            $node_relations
               = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
           } else {
             $nodename = '';
@@ -923,10 +923,10 @@ sub _convert($$;$)
           my $pending_empty_directions = '';
           foreach my $direction (@node_directions) {
             my $format_element = 'node'.lc($direction);
-            if ($node_structure and $node_structure->{'node_directions'}
-                and $node_structure->{'node_directions'}->{lc($direction)}) {
+            if ($node_relations and $node_relations->{'node_directions'}
+                and $node_relations->{'node_directions'}->{lc($direction)}) {
               my $node_direction
-                  = $node_structure->{'node_directions'}->{lc($direction)};
+                  = $node_relations->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
               if ($arguments_line->{'contents'}->[$direction_index]) {
@@ -1711,24 +1711,24 @@ sub _convert($$;$)
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
     my $sections_list = $self->{'document'}->sections_list();
-    my $section_structure
+    my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if (!($section_structure
-          and $section_structure->{'section_childs'}
-          and scalar(@{$section_structure->{'section_childs'}}))
+    if (!($section_relations
+          and $section_relations->{'section_childs'}
+          and scalar(@{$section_relations->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;
-      my $current_structure
+      my $current_relations
           = $sections_list->[$current->{'extra'}->{'section_number'} -1];
-      while ($current_structure->{'section_directions'}
-             and $current_structure->{'section_directions'}->{'up'}
-             and !$current_structure->{'section_directions'}->{'next'}
+      while ($current_relations->{'section_directions'}
+             and $current_relations->{'section_directions'}->{'up'}
+             and !$current_relations->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-   $current_structure->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
-        $current_structure
-          = $current_structure->{'section_directions'}->{'up'};
-        $current = $current_structure->{'element'};
+   $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
+        $current_relations
+          = $current_relations->{'section_directions'}->{'up'};
+        $current = $current_relations->{'element'};
         my $level_adjusted_current_cmdname
           = Texinfo::Structuring::section_level_adjusted_command_name($current);
         $result

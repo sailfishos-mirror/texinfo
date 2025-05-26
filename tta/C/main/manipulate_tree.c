@@ -2031,10 +2031,10 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 }
 
 const ELEMENT *
-first_menu_node (const NODE_STRUCTURE *node_structure,
+first_menu_node (const NODE_RELATIONS *node_relations,
                  const C_HASHMAP *identifiers_target)
 {
-  const CONST_ELEMENT_LIST *menus = node_structure->menus;
+  const CONST_ELEMENT_LIST *menus = node_relations->menus;
   if (menus)
     {
       size_t i;

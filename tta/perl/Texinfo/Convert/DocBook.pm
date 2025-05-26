@@ -608,10 +608,10 @@ sub _docbook_section_element($$)
   if ($level_adjusted_cmdname eq 'unnumbered'
       and $self->{'document'}) {
     my $sections_list = $self->{'document'}->sections_list();
-    my $section_structure
+    my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_structure->{'associated_node'}) {
-      my $associated_node = $section_structure->{'associated_node'}->{'element'};
+    if ($section_relations->{'associated_node'}) {
+      my $associated_node = $section_relations->{'associated_node'}->{'element'};
       if ($docbook_special_unnumbered{
               lc($associated_node->{'extra'}->{'normalized'})}) {
         return lc($associated_node->{'extra'}->{'normalized'});
@@ -975,21 +975,21 @@ sub _convert($$;$)
         return '';
       }
       if ($Texinfo::Commands::root_commands{$cmdname}) {
-        my $section_structure;
+        my $section_relations;
         if ($cmdname ne 'node' and $self->{'document'}) {
           my $sections_list = $self->{'document'}->sections_list();
-          $section_structure
+          $section_relations
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
         }
         if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
           my $node_element;
           if ($cmdname eq 'node') {
             $node_element = $element;
-          } elsif ($section_structure
-                   and $section_structure->{'part_following_node'}) {
+          } elsif ($section_relations
+                   and $section_relations->{'part_following_node'}) {
             # the section is necessarily a part
             $node_element
-              = $section_structure->{'part_following_node'}->{'element'};
+              = $section_relations->{'part_following_node'}->{'element'};
           }
           if ($node_element or $cmdname eq 'part') {
             # $node_element->{'extra'}->{'normalized'} not defined happens for
@@ -1005,14 +1005,14 @@ sub _convert($$;$)
           }
         }
         my $anchor;
-        my $node_structure;
+        my $node_relations;
         if ($cmdname eq 'node' and $self->{'document'}
             and $element->{'extra'}
             and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
-          $node_structure
+          $node_relations
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-          if (not $node_structure->{'associated_section'}) {
+          if (not $node_relations->{'associated_section'}) {
             $anchor = _output_anchor($element);
             $result .= $anchor . "\n" if ($anchor ne '');
           }
@@ -1020,31 +1020,31 @@ sub _convert($$;$)
         if (!defined($anchor)) {
           # start the section at the associated node or part, or at the
           # sectioning command if there is no associated node nor part
-          my $opening_section_structure;
+          my $opening_section_relations;
           my $part;
           if ($cmdname eq 'node') {
-            if ($node_structure) {
-              $opening_section_structure
-                = $node_structure->{'associated_section'};
+            if ($node_relations) {
+              $opening_section_relations
+                = $node_relations->{'associated_section'};
             }
           } elsif ($cmdname eq 'part') {
             $part = $element;
-            if ($section_structure
-                and $section_structure->{'part_associated_section'}) {
-              $opening_section_structure
-                = $section_structure->{'part_associated_section'};
+            if ($section_relations
+                and $section_relations->{'part_associated_section'}) {
+              $opening_section_relations
+                = $section_relations->{'part_associated_section'};
             }
           } else {
-            $opening_section_structure = $section_structure;
+            $opening_section_relations = $section_relations;
           }
           # FIXME add !$part in condition?
           my $section_element;
-          if ($opening_section_structure) {
-            if ($opening_section_structure->{'associated_part'}) {
+          if ($opening_section_relations) {
+            if ($opening_section_relations->{'associated_part'}) {
               $part
-                = $opening_section_structure->{'associated_part'}->{'element'};
+                = $opening_section_relations->{'associated_part'}->{'element'};
             }
-            $section_element = $opening_section_structure->{'element'};
+            $section_element = $opening_section_relations->{'element'};
           }
           my @opened_elements;
           # we need to check if the section was already done in case there is
@@ -1080,15 +1080,15 @@ sub _convert($$;$)
             if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
               $section_attribute .= " label=\"$label\"";
             }
-            my $section_structure;
+            my $section_relations;
             if ($self->{'document'}) {
               my $sections_list = $self->{'document'}->sections_list();
-              $section_structure
+              $section_relations
             = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
-              if ($section_structure->{'associated_node'}) {
+              if ($section_relations->{'associated_node'}) {
                 # FIXME DocBook 5 id -> xml:id
                 $section_attribute
-    .= " id=\"$section_structure->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
+    .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
               }
             }
             my $language = '';
@@ -1112,8 +1112,8 @@ sub _convert($$;$)
             # appears after the sectioning command opening, no need for
             # partintro.
             if ($docbook_sectioning_element eq 'part'
-                and not ($section_structure
-                         and $section_structure->{'part_associated_section'})
+                and not ($section_relations
+                         and $section_relations->{'part_associated_section'})
                 and !Texinfo::Common::is_content_empty($opened_element)) {
               $result .= "<partintro>\n";
             }
@@ -1921,38 +1921,38 @@ sub _convert($$;$)
   # close sectioning command
   } elsif ($cmdname and $cmdname ne 'node'
            and $Texinfo::Commands::root_commands{$cmdname}) {
-    my $section_structure;
+    my $section_relations;
     my $sections_list;
     if ($self->{'document'}) {
       $sections_list = $self->{'document'}->sections_list();
-      $section_structure
+      $section_relations
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     }
     my $docbook_sectioning_element = _docbook_section_element($self, $element);
     if ($docbook_sectioning_element eq 'part'
-        and not ($section_structure
-                 and $section_structure->{'part_associated_section'})
+        and not ($section_relations
+                 and $section_relations->{'part_associated_section'})
         and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($section_structure
-          and $section_structure->{'section_childs'}
-          and scalar(@{$section_structure->{'section_childs'}}))
+    if (!($section_relations
+          and $section_relations->{'section_childs'}
+          and scalar(@{$section_relations->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
-      my $current_structure
+      my $current_relations
         = $sections_list->[$current->{'extra'}->{'section_number'} -1];
-      while ($current_structure->{'section_directions'}
-             and $current_structure->{'section_directions'}->{'up'}
-             and !$current_structure->{'section_directions'}->{'next'}
+      while ($current_relations->{'section_directions'}
+             and $current_relations->{'section_directions'}->{'up'}
+             and !$current_relations->{'section_directions'}->{'next'}
              and Texinfo::Structuring::section_level_adjusted_command_name(
-   $current_structure->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
-        $current_structure = $current_structure->{'section_directions'}->{'up'};
-        $current = $current_structure->{'element'};
+   $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
+        $current_relations = $current_relations->{'section_directions'}->{'up'};
+        $current = $current_relations->{'element'};
         $result .= '</'._docbook_section_element($self, $current) .">\n";
         pop @{$self->{'lang_stack'}};
       }

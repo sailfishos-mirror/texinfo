@@ -1164,19 +1164,19 @@ end_line_starting_block (ELEMENT *current)
 }
 
 static void
-associate_title_command_anchor (NODE_STRUCTURE *current_node_structure,
-                       ELEMENT *current, SECTION_STRUCTURE *section_structure,
-                       HEADING_STRUCTURE *heading_structure)
+associate_title_command_anchor (NODE_RELATIONS *current_node_relations,
+                       ELEMENT *current, SECTION_RELATIONS *section_relations,
+                       HEADING_RELATIONS *heading_relations)
 {
-  if (!current_node_structure->associated_title_command)
+  if (!current_node_relations->associated_title_command)
     {
-      current_node_structure->associated_title_command = current;
-      if (section_structure)
-        section_structure->associated_anchor_command
-          = current_node_structure;
+      current_node_relations->associated_title_command = current;
+      if (section_relations)
+        section_relations->associated_anchor_command
+          = current_node_relations;
       else
-        heading_structure->associated_anchor_command
-          = current_node_structure;
+        heading_relations->associated_anchor_command
+          = current_node_relations;
     }
 }
 
@@ -1530,7 +1530,7 @@ end_line_misc_line (ELEMENT *current)
       /* arguments_line type element */
       ELEMENT *arguments_line = current->e.c->contents.list[0];
       char *node_normalized;
-      NODE_STRUCTURE *node_structure = 0;
+      NODE_RELATIONS *node_relations = 0;
 
       for (i = 1; i < arguments_line->e.c->contents.number && i < 4; i++)
         {
@@ -1569,23 +1569,23 @@ end_line_misc_line (ELEMENT *current)
       node_normalized = lookup_extra_string (current, AI_key_normalized);
       if (node_normalized)
         {
-          node_structure
-           = add_node_to_node_structure_list (&parsed_document->nodes_list,
+          node_relations
+           = add_node_to_node_relations_list (&parsed_document->nodes_list,
                                               current);
           add_extra_integer (current, AI_key_node_number,
                              parsed_document->nodes_list.number);
-          current_node = node_structure;
+          current_node = node_relations;
         }
 
       if (current_part && !current_part->part_associated_section
-          && node_structure)
+          && node_relations)
         {
          /* we only associate a part to the following node if the
             part is not already associate to a sectioning command,
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
-          node_structure->node_preceding_part = current_part;
-          current_part->part_following_node = node_structure;
+          node_relations->node_preceding_part = current_part;
+          current_part->part_following_node = node_relations;
         }
     }
   else if (current->e.c->cmd == CM_listoffloats)
@@ -1783,14 +1783,14 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (command_data(data_cmd).flags & CF_root)
     {
-      SECTION_STRUCTURE *section_structure = 0;
+      SECTION_RELATIONS *section_relations = 0;
       current = last_contents_child (current);
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
 
       if (cmd != CM_node)
         {
-          section_structure = add_section_to_section_structure_list (
+          section_relations = add_section_to_section_relations_list (
                             &parsed_document->sections_list, current);
           add_extra_integer (current, AI_key_section_number,
                              parsed_document->sections_list.number);
@@ -1802,18 +1802,18 @@ end_line_misc_line (ELEMENT *current)
               if (current_node)
                 {
                   associate_title_command_anchor (current_node, current,
-                                                  section_structure, 0);
+                                                  section_relations, 0);
                   if (!current_node->associated_section)
                     {
-                      current_node->associated_section = section_structure;
-                      section_structure->associated_node = current_node;
+                      current_node->associated_section = section_relations;
+                      section_relations->associated_node = current_node;
                     }
                 }
 
               if (current_part)
                 {
-                  section_structure->associated_part = current_part;
-                  current_part->part_associated_section = section_structure;
+                  section_relations->associated_part = current_part;
+                  current_part->part_associated_section = section_relations;
                   if (current->e.c->cmd == CM_top)
                     {
                       line_error_ext (MSG_warning, 0,
@@ -1823,11 +1823,11 @@ end_line_misc_line (ELEMENT *current)
                   current_part = 0;
                 }
 
-              current_section = section_structure;
+              current_section = section_relations;
             }
           else /* if (cmd == CM_part) */
             {
-              current_part = section_structure;
+              current_part = section_relations;
               if (current_node)
                 {
                   if (!(current_node->associated_section))
@@ -1841,15 +1841,15 @@ end_line_misc_line (ELEMENT *current)
   else if (command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
-     HEADING_STRUCTURE *heading_structure
-       = add_heading_to_heading_structure_list (
+     HEADING_RELATIONS *heading_relations
+       = add_heading_to_heading_relations_list (
                                         &parsed_document->headings_list,
                                         command_element);
      add_extra_integer (command_element, AI_key_heading_number,
                         parsed_document->headings_list.number);
      if (current_node)
        associate_title_command_anchor (current_node, command_element,
-                                       0, heading_structure);
+                                       0, heading_relations);
    }
 
   return current;

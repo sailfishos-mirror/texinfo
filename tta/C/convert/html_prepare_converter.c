@@ -4617,9 +4617,9 @@ set_root_commands_targets_node_files (CONVERTER *self)
       size_t i;
       for (i = 0; i < self->document->sections_list.number; i++)
         {
-          const SECTION_STRUCTURE *section_structure
+          const SECTION_RELATIONS *section_relations
             = self->document->sections_list.list[i];
-          const ELEMENT *section_element = section_structure->element;
+          const ELEMENT *section_element = section_relations->element;
           new_sectioning_command_target (self, section_element);
         }
     }
@@ -5020,7 +5020,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   int i;
   int all_special_units_nr = 0;
   int s;
-  const SECTION_STRUCTURE_LIST *sections_list = &self->document->sections_list;
+  const SECTION_RELATIONS_LIST *sections_list = &self->document->sections_list;
 
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
    (self->document, self->output_units_descriptors[OUDT_units]);
@@ -5059,50 +5059,50 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           const ELEMENT *root_command = root_unit->root;
           if (root_command && root_command->e.c->cmd != CM_NONE)
             {
-              const SECTION_STRUCTURE *section_structure = 0;
+              const SECTION_RELATIONS *section_relations = 0;
               int status;
               if (root_command->e.c->cmd == CM_node)
                 {
                   size_t node_number
                     = lookup_extra_integer (root_command,
                                             AI_key_node_number, &status);
-                  const NODE_STRUCTURE *node_structure
+                  const NODE_RELATIONS *node_relations
                     = self->document->nodes_list.list[node_number -1];
 
-                  if (node_structure->associated_section)
-                    section_structure = node_structure->associated_section;
+                  if (node_relations->associated_section)
+                    section_relations = node_relations->associated_section;
                 }
               else
                 {
                   size_t section_number
                         = lookup_extra_integer (root_command,
                                          AI_key_section_number, &status);
-                  section_structure
+                  section_relations
                     = sections_list->list[section_number -1];
                 }
        /* find the first level 1 sectioning element to associate the printindex
            with */
-              if (section_structure)
+              if (section_relations)
                 {
                   int status;
                   while (1)
                     {
                       int section_level
-                        = lookup_extra_integer (section_structure->element,
+                        = lookup_extra_integer (section_relations->element,
                                             AI_key_section_level, &status);
                       if (!status && section_level <= 1)
                         break;
 
-                      const SECTION_STRUCTURE * const *up_section_directions
-                        = section_structure->section_directions;
+                      const SECTION_RELATIONS * const *up_section_directions
+                        = section_relations->section_directions;
                       if (up_section_directions
                           && up_section_directions[D_up]
                           && up_section_directions[D_up]
                                 ->element->e.c->associated_unit)
                         {
-                          section_structure = up_section_directions[D_up];
+                          section_relations = up_section_directions[D_up];
                           document_unit
-                            = section_structure->element->e.c->associated_unit;
+                            = section_relations->element->e.c->associated_unit;
                         }
                       else
                         break;
@@ -5553,7 +5553,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
               if (!node_filename)
                 {
                   /* use section to do the file name if there is no node */
-                  const SECTION_STRUCTURE *command
+                  const SECTION_RELATIONS *command
                     = file_output_unit->unit_section;
                   if (command)
                     {
@@ -5915,7 +5915,7 @@ html_prepare_units_directions_files (CONVERTER *self,
   OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
     (self->document,
      self->output_units_descriptors[OUDT_associated_special_units]);
-  const NODE_STRUCTURE_LIST *nodes_list = &self->document->nodes_list;
+  const NODE_RELATIONS_LIST *nodes_list = &self->document->nodes_list;
 
    self->output_units_descriptors[OUDT_external_nodes_units]
      = external_nodes_units_descriptor;

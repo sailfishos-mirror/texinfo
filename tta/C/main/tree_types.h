@@ -256,15 +256,15 @@ typedef struct ELEMENT {
 
 } ELEMENT;
 
-typedef struct NODE_STRUCTURE {
+typedef struct NODE_RELATIONS {
     /* TODO try to add const.  Not easy as it is used for current_node */
     ELEMENT *element;
-    const struct SECTION_STRUCTURE *associated_section;
-    /* it can be associated to an heading or a section structure
-       information, so we prefer the element although a structure
-       information would have been more consistent */
+    const struct SECTION_RELATIONS *associated_section;
+    /* it can be associated to an heading or a section relations
+       so we prefer the element although relations structures 
+       would have been more consistent */
     const ELEMENT *associated_title_command;
-    const struct SECTION_STRUCTURE *node_preceding_part;
+    const struct SECTION_RELATIONS *node_preceding_part;
     const ELEMENT *node_description;
     const ELEMENT *node_long_description;
     CONST_ELEMENT_LIST *menus;
@@ -274,61 +274,61 @@ typedef struct NODE_STRUCTURE {
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
     void *hv;
-} NODE_STRUCTURE;
+} NODE_RELATIONS;
 
-typedef struct NODE_STRUCTURE_LIST {
-    struct NODE_STRUCTURE **list;
+typedef struct NODE_RELATIONS_LIST {
+    struct NODE_RELATIONS **list;
     size_t number;
     size_t space;
-} NODE_STRUCTURE_LIST;
+} NODE_RELATIONS_LIST;
 
-typedef struct CONST_NODE_STRUCTURE_LIST {
-    const struct NODE_STRUCTURE **list;
+typedef struct CONST_NODE_RELATIONS_LIST {
+    const struct NODE_RELATIONS **list;
     size_t number;
     size_t space;
-} CONST_NODE_STRUCTURE_LIST;
+} CONST_NODE_RELATIONS_LIST;
 
-typedef struct HEADING_STRUCTURE {
+typedef struct HEADING_RELATIONS {
     const ELEMENT *element;
-    const NODE_STRUCTURE *associated_anchor_command;
+    const NODE_RELATIONS *associated_anchor_command;
 
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
     void *hv;
-} HEADING_STRUCTURE;
+} HEADING_RELATIONS;
 
-typedef struct HEADING_STRUCTURE_LIST {
-    struct HEADING_STRUCTURE **list;
+typedef struct HEADING_RELATIONS_LIST {
+    struct HEADING_RELATIONS **list;
     size_t number;
     size_t space;
-} HEADING_STRUCTURE_LIST;
+} HEADING_RELATIONS_LIST;
 
-typedef struct SECTION_STRUCTURE {
+typedef struct SECTION_RELATIONS {
     const ELEMENT *element;
-    const NODE_STRUCTURE *associated_anchor_command;
-    const NODE_STRUCTURE *associated_node;
-    const struct SECTION_STRUCTURE *associated_part;
-    const struct SECTION_STRUCTURE *part_associated_section;
-    const NODE_STRUCTURE *part_following_node;
-    const struct SECTION_STRUCTURE **section_directions;
-    const struct SECTION_STRUCTURE **toplevel_directions;
-    struct SECTION_STRUCTURE_LIST *section_childs;
+    const NODE_RELATIONS *associated_anchor_command;
+    const NODE_RELATIONS *associated_node;
+    const struct SECTION_RELATIONS *associated_part;
+    const struct SECTION_RELATIONS *part_associated_section;
+    const NODE_RELATIONS *part_following_node;
+    const struct SECTION_RELATIONS **section_directions;
+    const struct SECTION_RELATIONS **toplevel_directions;
+    struct SECTION_RELATIONS_LIST *section_childs;
 
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
     void *hv;
-} SECTION_STRUCTURE;
+} SECTION_RELATIONS;
 
-typedef struct SECTION_STRUCTURE_LIST {
-    struct SECTION_STRUCTURE **list;
+typedef struct SECTION_RELATIONS_LIST {
+    struct SECTION_RELATIONS **list;
     size_t number;
     size_t space;
-} SECTION_STRUCTURE_LIST;
+} SECTION_RELATIONS_LIST;
 
 /* not used in parser */
 typedef struct SECTIONING_ROOT {
     int section_root_level;
-    SECTION_STRUCTURE_LIST section_childs;
+    SECTION_RELATIONS_LIST section_childs;
 } SECTIONING_ROOT;
 
 typedef struct IGNORED_CHARS {
@@ -390,7 +390,7 @@ typedef struct {
 
 typedef struct {
     ELEMENT *float_element;
-    const SECTION_STRUCTURE *float_section;
+    const SECTION_RELATIONS *float_section;
 } FLOAT_INFORMATION;
 
 typedef struct {
@@ -417,7 +417,7 @@ typedef struct {
 typedef struct {
     const char *type;
     ELEMENT *element;
-    const SECTION_STRUCTURE *section;
+    const SECTION_RELATIONS *section;
 } FLOAT_RECORD;
 
 typedef struct {
