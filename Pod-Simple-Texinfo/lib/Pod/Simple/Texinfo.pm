@@ -32,6 +32,10 @@
 #   using _convert_pod_simple_tree.  The possibility to convert SimpleTree
 #   is actually used in the code for L<> formatting.
 #
+# The output goes through $self->{'output_fh'} filehandle (could also
+# have been obtained by $self->output_fh()).  It is not documented very
+# clearly in Pod::Simple manuals, but it is what parsers do.
+#
 # bare_output flag described in Pod::Simple::Subclassing is taken into
 # account.
 

@@ -10621,11 +10621,9 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $document_name = shift;
 
   my $identifiers_target;
-  my $sections_list;
   my $nodes_list;
   if ($self->{'document'}) {
     $identifiers_target = $self->{'document'}->labels_information();
-    $sections_list = $self->{'document'}->sections_list();
     $nodes_list = $self->{'document'}->nodes_list();
   }
 
@@ -10647,7 +10645,7 @@ sub _prepare_units_directions_files($$$$$$$$)
 
   # do output units directions.
   Texinfo::OutputUnits::units_directions($identifiers_target, $nodes_list,
-                                         $sections_list, $output_units,
+                                         $output_units,
                                          $self->get_conf('DEBUG'));
 
   _prepare_special_units_directions($self, $special_units);

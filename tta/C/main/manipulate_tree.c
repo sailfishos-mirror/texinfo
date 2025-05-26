@@ -1116,6 +1116,10 @@ compare_name_value (const void *a, const void *b)
 
 #define ADDITIONAL_INFO_PREPEND "|"
 
+/* INFO_STRING is a list of key values (plus "need end of line" hint).
+   The function sorts the list and append to RESULT taking into account
+   LEVEL indentation level and PREPENDED text.
+ */
 static void
 print_info_strings (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings, int level,
                     const char *prepended, TEXT *result, const char *header)

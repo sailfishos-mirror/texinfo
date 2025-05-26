@@ -205,7 +205,6 @@ sub split_by_section($)
         }
       } elsif ($Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
         if ($content->{'cmdname'} eq 'part') {
-          my $sections_list = $document->sections_list();
           my $part_structure
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
           if ($part_structure->{'part_associated_section'}) {
@@ -347,11 +346,10 @@ sub _label_target_unit_element($)
 
 # Do output units directions and store them in 'directions'.
 # The directions are only created if pointing to other output units.
-sub units_directions($$$$;$)
+sub units_directions($$$;$)
 {
   my $identifier_target = shift;
   my $nodes_list = shift;
-  my $sections_list = shift;
   my $output_units = shift;
   my $print_debug = shift;
 
@@ -653,9 +651,8 @@ sub do_units_directions_pages($$;$$)
   my $nodes_list = $document->nodes_list();
   if ($output_units) {
     my $identifier_target = $document->labels_information();
-    my $sections_list = $document->sections_list;
     units_directions($identifier_target, $nodes_list,
-                     $sections_list, $output_units, $debug);
+                     $output_units, $debug);
   }
   if (defined($split_pages)) {
     split_pages($output_units, $nodes_list, $split_pages);
@@ -756,7 +753,7 @@ sub print_output_units_details($$;$$)
 
       # determine the kind of command by comparing with
       # unit node or unit section.  Also show the texinfo code
-      # of the structure information not associated to unit_command.
+      # of the node or section structure not associated to unit_command.
       if ($output_unit->{'unit_node'}) {
         if ($output_unit->{'unit_node'}->{'element'}
                      eq $output_unit->{'unit_command'}) {
@@ -922,11 +919,9 @@ Texinfo::OutputUnits - setup and manage Texinfo document output units
     $output_units = split_by_section($document);
   }
   my $nodes_list = $document->nodes_list();
-  my $sections_list = $document->sections_list();
   split_pages($output_units, $nodes_list, $split);
   units_directions($identifier_target, $output_units,
-                   $nodes_list, $sections_list,
-                   $document->get_conf('DEBUG'));
+                   $nodes_list, $document->get_conf('DEBUG'));
   units_file_directions($output_units);
 
 =head1 NOTES
@@ -1041,7 +1036,7 @@ X<C<split_pages>>
 
 Add the I<first_in_page> key to each output unit in the array
 reference argument I<$output_units>, set to the first output unit in the group.
-I<$nodes_list> is the node sctructure information list.
+I<$nodes_list> is the nodes structures list.
 
 The first output unit in the group is based on the value of I<$split>:
 
@@ -1073,14 +1068,14 @@ You can call the following methods to set output units directions:
 
 =over
 
-=item units_directions($identifier_target, $nodes_list, $sections_list, $output_units, $print_debug)
+=item units_directions($identifier_target, $nodes_list, $output_units, $print_debug)
 X<C<units_directions>>
 
 The I<$identifier_target> argument associates identifiers with target elements
 and is generally obtained from a parsed document,
 L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
-The I<$nodes_list> and I<$sections_list> arguments holds nodes and section
-structures information, and are also generally obtained from a parsed document.
+The I<$nodes_list> argument holds nodes structures, and is also
+generally obtained from a parsed document.
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated
 with the I<directions> key. In this hash, keys correspond to directions

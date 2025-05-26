@@ -124,6 +124,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
   return text.text;
 }
 
+/* TODO use the functions called by print_element_details */
 char *
 print_associate_info_debug (const ASSOCIATED_INFO *info)
 {
@@ -261,8 +262,8 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
       free (associated_info_str);
     }
 
-  /* TODO could print extra flags */
-  /* TODO could print elt_info and string_info arrays
+  /* TODO could print extra flags elt_info and string_info arrays,
+     by reusing functions called by print_element_details
   if (e->e.c->info_info.info_number > 0)
     {
       text_append (&text, " INFO\n");

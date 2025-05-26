@@ -588,7 +588,6 @@ static enum relative_unit_direction_type section_unit_directions[]
 void
 units_directions (const C_HASHMAP *identifiers_target,
                   const NODE_STRUCTURE_LIST *nodes_list,
-                  const SECTION_STRUCTURE_LIST *sections_list,
                   OUTPUT_UNIT_LIST *output_units,
                   OUTPUT_UNIT_LIST *external_node_target_units,
                   int print_debug)
@@ -1005,7 +1004,7 @@ do_units_directions_pages (DOCUMENT *document,
                                            external_nodes_units_descriptor);
 
       units_directions (&document->identifiers_target,
-                        &document->nodes_list, &document->sections_list,
+                        &document->nodes_list,
                         output_units,
                         external_node_target_units, debug);
 

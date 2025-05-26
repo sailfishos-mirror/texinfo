@@ -1,3 +1,18 @@
+2025-05-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/OutputUnits.pm (split_by_section): remove redundant
+	$sections_list.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_prepare_units_directions_files), tta/C/main/output_unit.c
+	(units_directions, do_units_directions_pages),
+	tta/perl/Texinfo/Convert/HTML.pm (_prepare_units_directions_files),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions)
+	(do_units_directions_pages): remove unused sections_list argument of
+	units_directions.  Update callers.
+
+	Changes in comments, Pod, TODO.
+
 2025-05-25  Karl Berry <karl@freefriends.org>
 
 	* util/htmlxref.d/Texinfo_GNU.cnf: add automake-history.

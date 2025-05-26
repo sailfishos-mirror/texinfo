@@ -5916,7 +5916,6 @@ html_prepare_units_directions_files (CONVERTER *self,
     (self->document,
      self->output_units_descriptors[OUDT_associated_special_units]);
   const NODE_STRUCTURE_LIST *nodes_list = &self->document->nodes_list;
-  const SECTION_STRUCTURE_LIST *sections_list = &self->document->sections_list;
 
    self->output_units_descriptors[OUDT_external_nodes_units]
      = external_nodes_units_descriptor;
@@ -5936,7 +5935,7 @@ html_prepare_units_directions_files (CONVERTER *self,
     html_setup_output_simple_page (self, output_filename);
 
   units_directions (&self->document->identifiers_target,
-                    nodes_list, sections_list, output_units,
+                    nodes_list, output_units,
                     external_node_target_units,
                     self->conf->DEBUG.o.integer);
 
@@ -5944,9 +5943,11 @@ html_prepare_units_directions_files (CONVERTER *self,
 
   units_file_directions (output_units);
 
-  /* FIXME do something like that?  It would make sense to
-     use DUMP_STRUCTURE but it is already done in main program.
-     Need to be added to Perl.
+  /* TODO do something like that?  It would be somewhat redundant
+     with the detailed print of the tree in the main program done
+     with DEBUG high enough.
+     It could have made sense to use DUMP_STRUCTURE but it is already
+     used in main program, so it is not possible.
    */
   /*
   if (1 || self->conf->DEBUG.o.integer >= 30)

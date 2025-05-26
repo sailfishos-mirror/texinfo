@@ -72,12 +72,28 @@ lists.  Should there be a design decision that prevents readding
 references to the tree in the tree, such that the corresponding 
 code can be completly removed?
 
+For Perl/C.
+One option is to keep a list of allocated handles on the C side, and
+mark the list as invalid once the tree is destroyed.  Access to tree
+elements would go through the handle list and return an error if an
+invalid handle is used (rather than blindly attempting to access the
+memory referenced). There could be an API to relinquish a handle.
+
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
 
-Treat spaces in info as tree elements, not as attributes.  With ignorable
-as a category.  Maybe treat verb delimiter the same.  And also braces
+Treat spaces and comments in info as tree elements, not as attributes.  With
+ignorable as a category.  Maybe treat verb delimiter the same.  And also braces
 of types with implicit braces?
+
+Initialization:
+ from a DOCUMENT, starting at the root
+ from a tree; need an action from the user to get the tree from an element
+
+Maybe, in converters, add a function called
+ convert_element_tree
+which gets the tree from the element, calls _convert and destroys the
+ tree.
 
 Categories:
 ignorable text
@@ -87,14 +103,47 @@ element end
 
 accessors for all:
  * parent
+     elementParent
  * source marks
- * type?
+    SourceMarksCount
+    SourceMark[n]
+ * type? (elementType)
 
 accessors for elements:
- * command_name/and or enum
+ * command_name/and or enum (elementCommand)
  * attributes (extra/some string info)
- * associated_unit?
+     attributeCount ()
+     getAttribute (name)
+     getAttributeNo (no)
+     maybe: moveToFirstAttribute ()
+            moveToNextAttribute ()
 
+ * associated_unit? <- output units API
+
+Tree access
+ ChildElementCount
+ ChildElement[n]
+
+Cross references:
+ * getTargetById
+
+[Probably not needed]
+Recreation of a tree (DOM)
+ preserveElement or get_tree? (preserveNode in XML::LibXML::Reader
+   returns a handler on the element
+ documentElements (document in XML::LibXML::Reader)
+
+
+Another API for access to node, section, heading structure information.
+access to structure associated to element. Accessors for fields. What about
+lists? Also API for output units, but maybe later.
+
+
+for accents formatting, going through a stack of commands, obtained from
+find_innermost_accent_contents, two options
+* return a stack object with an API to access elements in it (using
+    the same functions as existing C functions)
+* populate the stack with elements handlers
 
 Delayed bugs/features
 =====================

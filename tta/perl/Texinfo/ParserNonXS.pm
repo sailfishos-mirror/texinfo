@@ -160,9 +160,9 @@ my %parser_document_state_initialization = (
   # parsing information still relevant at the end of the parsing
   'kbdinputstyle' => 'distinct',  #
   'source_mark_counters' => {},   #
-  'current_node'    => undef,     # last seen node.
-  'current_section' => undef,     # last seen section.
-  'current_part'    => undef,     # last seen part structure information.
+  'current_node'    => undef,     # last seen node structure.
+  'current_section' => undef,     # last seen section structure.
+  'current_part'    => undef,     # last seen part structure.
   'internal_space_holder' => undef,
    # the element associated with the last internal spaces element added.
    # We know that there can only be one at a time as a non space

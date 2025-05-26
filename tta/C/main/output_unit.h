@@ -35,7 +35,6 @@ char *output_unit_texi (const OUTPUT_UNIT *output_unit);
 
 void units_directions (const C_HASHMAP *identifiers_target,
                        const NODE_STRUCTURE_LIST *nodes_list,
-                       const SECTION_STRUCTURE_LIST *sections_list,
                        OUTPUT_UNIT_LIST *output_units,
                        OUTPUT_UNIT_LIST *external_node_target_units,
                        int print_debug);
