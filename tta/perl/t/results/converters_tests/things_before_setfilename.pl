@@ -376,31 +376,6 @@ Ref to footnote anchor
 
 
 $result_texts{'things_before_setfilename'} = '
-Ref to the anchor:
-An anchor
-
-Ref to the anchor in footnote:
-Anchor in footnote.
-
-
-
-float anchor
-In float
-
-Ref to float
-float anchor.
-
-Text, ta
-In float
-
-
-
-* An anchor::                menu entry pointing to the anchor.
-
-
-
-
-
 top section
 ***********
 

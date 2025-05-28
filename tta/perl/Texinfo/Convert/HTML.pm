@@ -7217,17 +7217,24 @@ sub default_type_open($$)
   return $default_types_open{$type};
 }
 
-
 # Ignored commands
 foreach my $type (
             'ignorable_spaces_after_command',
             'ignorable_spaces_before_command',
+            'spaces_at_end',
+            'spaces_before_paragraph',
+            # may be better not to ignore spaces when a : is postpended
+            # and the user really wants a space
+            #'space_at_end_menu_node',
+            'spaces_after_close_brace') {
+  $default_types_conversion{$type} = undef;
+}
+
+foreach my $type (
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'spaces_at_end',
-            'spaces_before_paragraph',
-            'spaces_after_close_brace', 'arguments_line') {
+            'arguments_line') {
   $default_types_conversion{$type} = undef;
 }
 

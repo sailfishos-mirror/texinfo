@@ -300,7 +300,7 @@ In chapter
 $result_texts{'direntry_dircategory'} = '
 * foo: (foo).   "hello--there?"
 
-* aaa ::               aaaa
+* aaa::               aaaa
                    bbbbb
 
 menutitle

@@ -275,7 +275,7 @@ $result_texts{'value_in_node'} = '
 Expansion in Node Names
 ***********************
 
-* Node 1  ::
+* Node 1::
 
 1 Chapter 1
 ***********

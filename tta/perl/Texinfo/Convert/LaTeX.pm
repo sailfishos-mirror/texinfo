@@ -563,16 +563,21 @@ my %LaTeX_non_floating_environment_commands = (
 my $non_floating_float_environment = 'Texinfononfloatingfloat';
 
 my %ignorable_space_types;
-foreach my $type ('ignorable_spaces_after_command',
+foreach my $type (
+            'ignorable_spaces_after_command',
             'ignorable_spaces_before_command',
             'spaces_at_end',
+            #'space_at_end_menu_node',
             'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }
 
 my %ignored_types;
-foreach my $type ('postamble_after_end', 'preamble_before_beginning',
-            'preamble_before_setfilename', 'arguments_line') {
+foreach my $type (
+            'postamble_after_end',
+            'preamble_before_beginning',
+            'preamble_before_setfilename',
+            'arguments_line') {
   $ignored_types{$type} = 1;
 }
 

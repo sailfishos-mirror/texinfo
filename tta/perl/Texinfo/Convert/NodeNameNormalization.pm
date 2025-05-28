@@ -97,7 +97,8 @@ foreach my $type (
 my %ignored_types;
 foreach my $type (
             'postamble_after_end',
-            'preamble_before_beginning') {
+            'preamble_before_beginning',
+            'preamble_before_setfilename') {
   $ignored_types{$type} = 1;
 }
 

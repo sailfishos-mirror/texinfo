@@ -1,3 +1,19 @@
+2025-05-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal),
+	tta/C/main/node_name_normalization.c (convert_to_normalized_internal), 
+	tta/perl/Texinfo/Convert/NodeNameNormalization.pm (%ignored_types),
+	tta/perl/Texinfo/Convert/Text.pm (%ignored_types)
+	(%ignored_text_types), tta/perl/Texinfo/Convert/TextContent.pm:
+	add spaces_at_end_menu_node and preamble_before_setfilename as ignored
+	for some output formats.
+
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/LaTeX.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm,
+	tta/perl/Texinfo/Convert/TextContent.pm: reformat ignorable text types
+	and types setting for a more easily comparable code across converters.
+
 2025-05-26  Patrice Dumas  <pertusus@free.fr>
 
 	use relations instead of structure for node section headings

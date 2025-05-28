@@ -49,12 +49,21 @@ foreach my $ignored_command (
 }
 
 my %ignored_types;
-foreach my $type ('ignorable_spaces_after_command',
+
+foreach my $type (
+            'ignorable_spaces_after_command',
             'ignorable_spaces_before_command',
-            'postamble_after_end',
-            'preamble_before_beginning',
+            'spaces_at_end',
+            'space_at_end_menu_node',
             'spaces_before_paragraph',
             'spaces_after_close_brace') {
+  $ignored_types{$type} = 1;
+}
+
+foreach my $type (
+            'postamble_after_end',
+            'preamble_before_beginning',
+            'preamble_before_setfilename') {
   $ignored_types{$type} = 1;
 }
 

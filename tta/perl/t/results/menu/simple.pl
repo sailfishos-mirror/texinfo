@@ -137,7 +137,7 @@ comment
                  still description
 
 new comment
-* last node entry ::
+* last node entry::
 
 After menu.
 ';

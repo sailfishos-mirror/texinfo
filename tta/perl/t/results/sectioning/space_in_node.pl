@@ -146,7 +146,7 @@ $result_texts{'space_in_node'} = '
 
 * Chap    first here::
 * Test    title   :Test   title.
-*   Last with spaces    ::
+*   Last with spaces::
 
 
 

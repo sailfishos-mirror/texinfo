@@ -73,11 +73,13 @@ references to the tree in the tree, such that the corresponding
 code can be completly removed?
 
 For Perl/C.
-One option is to keep a list of allocated handles on the C side, and
-mark the list as invalid once the tree is destroyed.  Access to tree
-elements would go through the handle list and return an error if an
-invalid handle is used (rather than blindly attempting to access the
-memory referenced). There could be an API to relinquish a handle.
+One option is to keep a list of allocated handles on the C side, and mark the
+list as invalid once the tree is destroyed, for dynamic removal of tree
+elements.  Access to tree elements would go through the handle list and return
+an error if an invalid handle is used (rather than blindly attempting to access
+the memory referenced). There could be an API to relinquish a handle, but also
+automatic relinquishing, for example when reaching a root command @node or
+sectioning command.
 
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
@@ -88,12 +90,11 @@ of types with implicit braces?
 
 Initialization:
  from a DOCUMENT, starting at the root
- from a tree; need an action from the user to get the tree from an element
+ from a tree
 
 Maybe, in converters, add a function called
  convert_element_tree
-which gets the tree from the element, calls _convert and destroys the
- tree.
+which calls _convert/convert_tree and relinquish handlers.
 
 Categories:
 ignorable text
@@ -144,6 +145,7 @@ find_innermost_accent_contents, two options
 * return a stack object with an API to access elements in it (using
     the same functions as existing C functions)
 * populate the stack with elements handlers
+
 
 Delayed bugs/features
 =====================

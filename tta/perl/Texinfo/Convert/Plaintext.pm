@@ -288,17 +288,22 @@ my %upper_case_commands = (
 );
 
 my %ignorable_space_types;
-foreach my $type ('ignorable_spaces_after_command',
+foreach my $type (
+            'ignorable_spaces_after_command',
             'ignorable_spaces_before_command',
             'spaces_at_end',
+            # not ignored as menu manual formatting is kept as is
+            #'space_at_end_menu_node',
             'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }
 
 my %ignored_types;
-foreach my $type ('postamble_after_end',
+foreach my $type (
+            'postamble_after_end',
             'preamble_before_beginning',
-            'preamble_before_setfilename', 'arguments_line') {
+            'preamble_before_setfilename',
+            'arguments_line') {
   $ignored_types{$type} = 1;
 }
 

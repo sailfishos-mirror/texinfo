@@ -517,6 +517,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       if (element->type == ET_ignorable_spaces_after_command
           || element->type == ET_ignorable_spaces_before_command
           || element->type == ET_spaces_at_end
+          || element->type == ET_spaces_at_end_menu_node
           || element->type == ET_spaces_before_paragraph
           || element->type == ET_spaces_after_close_brace)
         return;
@@ -624,6 +625,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       || data_cmd == CM_seealso
       || element->type == ET_postamble_after_end
       || element->type == ET_preamble_before_beginning
+      || element->type == ET_preamble_before_setfilename
       || element->type == ET_arguments_line)
     return;
 
