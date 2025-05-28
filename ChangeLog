@@ -1,5 +1,17 @@
 2025-05-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (%XS_structure_overrides, import):
+	override print_document_listoffloats only if XS structuring is
+	enabled.  Report from Gavin.
+
+	* tta/C/main/build_perl_info.c (build_listoffloats_list): push
+	float section HV.  Report from Gavin.
+
+	* tta/C/structuring_transfo/structuring.c (number_floats): use %d for
+	int, not %zu.
+
+2025-05-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_to_text.c (convert_to_text_internal): fix typo in
 	type name.
 

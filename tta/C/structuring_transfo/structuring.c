@@ -1760,7 +1760,7 @@ number_floats (DOCUMENT *document)
                   const char *section_number
                     = lookup_extra_string (up, AI_key_section_heading_number);
                   nr_in_chapter++;
-                  text_printf (&number, "%s.%zu", section_number,
+                  text_printf (&number, "%s.%d", section_number,
                                                   nr_in_chapter);
                 }
             }

@@ -1634,6 +1634,7 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
               if (!float_section->hv)
                 fatal ("Need to build sections first");
               sv = newRV_inc ((SV *)float_section->hv);
+              av_push (float_section_av, sv);
             }
           else
             av_push (float_section_av, newSV (0));
