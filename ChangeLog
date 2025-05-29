@@ -1,5 +1,12 @@
 2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Structuring.pm, tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure):
+	In the loop over the nodes, if node is Top, do a "next" or "continue" to skip
+	the body of the loop.  This allows exdenting a conditional block.
+
+2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus):
 	Remove useless line of code.
 
