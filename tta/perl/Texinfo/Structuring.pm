@@ -962,7 +962,6 @@ sub complete_node_tree_with_menus($)
           # Direction was not set with sections, use menus.  This allows
           # using only automatic direction for manuals without sectioning
           # commands but with explicit menus.
-          my $section_relations = $node_relations->{'associated_section'};
           if ((!$node_directions or !$node_directions->{$direction})
               and $menu_directions
               and $menu_directions->{$direction}

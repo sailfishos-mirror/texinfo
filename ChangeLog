@@ -1,5 +1,10 @@
 2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus):
+	Remove useless line of code.
+
+2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate structure checking and structure fixing code
 
 	* tta/perl/Texinfo/Structuring.pm
