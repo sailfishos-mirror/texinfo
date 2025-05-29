@@ -1,5 +1,14 @@
 2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Simplify a conditional
+
+	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus),
+	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus):
+	Hoist code setting and checking variables outside of loop over
+	node directions.
+
+2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate structure checking and structure fixing code
 
 	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus)

@@ -777,71 +777,70 @@ sub complete_node_tree_with_menus($)
     if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
       my $normalized = $node->{'extra'}->{'normalized'};
       my $menu_directions = $node_relations->{'menu_directions'};
+      my $section_relations = $node_relations->{'associated_section'};
+      my $direction_relation = $section_relations;
+
+      # Prefer the section associated with a @part for node directions.
+      if ($section_relations
+            and $section_relations->{'part_associated_section'}) {
+        $direction_relation
+          = $section_relations->{'part_associated_section'};
+      }
 
       if ($normalized ne 'Top') {
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions
           = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
-        if ($automatic_directions) {
+        if ($automatic_directions and $section_relations) {
           foreach my $direction (@node_directions_names) {
-            my $section_relations = $node_relations->{'associated_section'};
-            if ($section_relations) {
-              # Check consistency with section and menu structure
-              my $direction_relation = $section_relations;
+            # Check consistency with section and menu structure
+            my $direction_associated_node
+              = _section_direction_associated_node($direction_relation,
+                                                   $direction);
+            if ($direction_associated_node) {
+              my $section_directions
+                = $direction_relation->{'section_directions'};
 
-              # Prefer the section associated with a @part for node directions.
-              if ($section_relations->{'part_associated_section'}) {
-                $direction_relation
-                  = $section_relations->{'part_associated_section'};
-              }
-              my $direction_associated_node
-                = _section_direction_associated_node($direction_relation,
-                                                     $direction);
-              if ($direction_associated_node) {
-                my $section_directions
-                  = $direction_relation->{'section_directions'};
-
-                my $menus;
-                if ($section_directions
-                    and $section_directions->{'up'}) {
-                  my $up_relations = $section_directions->{'up'};
-                  if ($up_relations->{'associated_node'}) {
-                    my $up_node_relations = $up_relations->{'associated_node'};
-                    if ($up_node_relations->{'menus'}
-                        and scalar(@{$up_node_relations->{'menus'}})) {
-                      $menus = $up_node_relations->{'menus'};
-                    }
+              my $menus;
+              if ($section_directions
+                  and $section_directions->{'up'}) {
+                my $up_relations = $section_directions->{'up'};
+                if ($up_relations->{'associated_node'}) {
+                  my $up_node_relations = $up_relations->{'associated_node'};
+                  if ($up_node_relations->{'menus'}
+                      and scalar(@{$up_node_relations->{'menus'}})) {
+                    $menus = $up_node_relations->{'menus'};
                   }
                 }
-
-                if ($menus
-                    and (!$menu_directions
-                         or !$menu_directions->{$direction})) {
-                  $registrar->line_warn(
-             sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
-                            $direction,
-                            target_element_to_texi_label($node),
-           target_element_to_texi_label($direction_associated_node->{'element'})),
-                                        $node->{'source_info'}, 0,
-                                 $customization_information->get_conf('DEBUG'));
-                }
               }
 
-              if ((!$node_directions or !$node_directions->{$direction})
-                  and $menu_directions
-                  and $menu_directions->{$direction}
-                  and !$menu_directions->{$direction}
-                                              ->{'extra'}->{'manual_content'}) {
+              if ($menus
+                  and (!$menu_directions
+                       or !$menu_directions->{$direction})) {
                 $registrar->line_warn(
-            sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
-                  target_element_to_texi_label(
-                           $menu_directions->{$direction}),
-                                     $direction,
-                                   target_element_to_texi_label($node)),
+           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
+                          $direction,
+                          target_element_to_texi_label($node),
+         target_element_to_texi_label($direction_associated_node->{'element'})),
                                       $node->{'source_info'}, 0,
-                              $customization_information->get_conf('DEBUG'));
+                               $customization_information->get_conf('DEBUG'));
               }
+            }
+
+            if ((!$node_directions or !$node_directions->{$direction})
+                and $menu_directions
+                and $menu_directions->{$direction}
+                and !$menu_directions->{$direction}
+                                            ->{'extra'}->{'manual_content'}) {
+              $registrar->line_warn(
+          sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
+                target_element_to_texi_label(
+                         $menu_directions->{$direction}),
+                                   $direction,
+                                 target_element_to_texi_label($node)),
+                                    $node->{'source_info'}, 0,
+                            $customization_information->get_conf('DEBUG'));
             }
           }
         }
