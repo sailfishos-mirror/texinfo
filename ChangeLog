@@ -1,3 +1,12 @@
+2025-05-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/test_utils.pl (test), tta/perl/texi2any.pl: if
+	XS_structuring is not set (with TEXINFO_XS_STRUCTURE=0), rebuild every
+	information associated to the document before calling structuring
+	code, such that no flags of modified structure in C are set and XS
+	code called to get document structures directly returns the Perl data.
+	Report from Gavin.
+
 2025-05-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Document.pm (%XS_structure_overrides, import):

@@ -979,7 +979,16 @@ sub test($$)
   # Get the tree object.  Note that if XS structuring in on, the argument
   # prevents the tree being built as a Perl structure at this stage; only
   # a "handle" is returned.
-  my $tree = $document->tree($XS_structuring);
+  my $tree;
+  if (!$XS_structuring) {
+    $tree = $document->tree();
+    # rebuild every information associated to the document, such that
+    # no flags of modified structure in C are set and XS code called
+    # to get document structures directly returns the Perl data.
+    $tree = Texinfo::Document::build_tree($tree);
+  } else {
+    $tree = $document->tree($XS_structuring);
+  }
 
   my ($errors, $error_nrs) = $document->parser_errors();
 

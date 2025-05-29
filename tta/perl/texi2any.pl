@@ -1911,6 +1911,13 @@ while(@input_files) {
     goto NEXT;
   }
 
+  if (!$XS_structuring) {
+    # rebuild every information associated to the document, such that
+    # no flags of modified structure in C are set and XS code called
+    # to get document structures directly returns the Perl data.
+    $tree = Texinfo::Document::build_tree($tree);
+  }
+
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
   }
