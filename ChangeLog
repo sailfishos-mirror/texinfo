@@ -1,5 +1,16 @@
 2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Separate structure checking and structure fixing code
+
+	* tta/perl/Texinfo/Structuring.pm
+	(complete_node_tree_with_menus, check_node_tree_menu_structure),
+	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs,
+	tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, check_node_tree_menu_structure):
+	Split out check_node_tree_menu_structure as a separate function.
+
+2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Simplify a conditional
 
 	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus),

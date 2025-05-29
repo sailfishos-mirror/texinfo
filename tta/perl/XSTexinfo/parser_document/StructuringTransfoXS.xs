@@ -202,6 +202,16 @@ complete_node_tree_with_menus (SV *document_in)
           complete_node_tree_with_menus (document);
 
 void
+check_node_tree_menu_structure (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+    CODE:
+        document = get_sv_document_document (document_in,
+                                      "check_node_tree_menu_structure");
+        if (document)
+          check_node_tree_menu_structure (document);
+
+void
 check_nodes_are_referenced (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;

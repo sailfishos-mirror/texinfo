@@ -1085,13 +1085,9 @@ section_direction_associated_node (const SECTION_RELATIONS *section_relations,
   return 0;
 }
 
-/*
- complete automatic directions with menus (and first node
- for Top node).
- Checks on structure related to menus.
-*/
+/* Checks on structure related to menus. */
 void
-complete_node_tree_with_menus (DOCUMENT *document)
+check_node_tree_menu_structure (DOCUMENT *document)
 {
   const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
@@ -1104,8 +1100,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   if (nodes_list->number < 1)
     return;
-
-  document->modified_information |= F_DOCM_tree;
 
   /* Node-by-node structure checking. */
   for (i = 0; i < nodes_list->number; i++)
@@ -1323,6 +1317,31 @@ complete_node_tree_with_menus (DOCUMENT *document)
             }
         }
     }
+
+}
+
+/* Complete automatic directions with menus (and first node
+   for Top node). */
+void
+complete_node_tree_with_menus (DOCUMENT *document)
+{
+  const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
+  OPTIONS *options = document->options;
+
+  size_t i;
+  const ELEMENT *top_node = 0;
+  const ELEMENT *top_node_next = 0;
+
+  if (nodes_list->number < 1)
+    return;
+
+  /* TODO: do not call this in this function.  call it from
+     calling code instead. */
+  check_node_tree_menu_structure (document);
+
+  document->modified_information |= F_DOCM_tree;
 
   /* Go through all the nodes and complete any gaps in the directions
      using the menus. */

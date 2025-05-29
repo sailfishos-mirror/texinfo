@@ -15,6 +15,7 @@ CONST_NODE_RELATIONS_LIST *get_node_node_childs_from_sectioning (
 void warn_non_empty_parts (DOCUMENT *document);
 void set_menus_node_directions (DOCUMENT *document);
 void complete_node_tree_with_menus (DOCUMENT *document);
+void check_node_tree_menu_structure (DOCUMENT *document);
 void check_nodes_are_referenced (DOCUMENT *document);
 void number_floats (DOCUMENT *document);
 
