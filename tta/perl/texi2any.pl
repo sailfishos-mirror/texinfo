@@ -1784,7 +1784,7 @@ while(@input_files) {
                  get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
                  get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
-      = Texinfo::ManipulateTree::print_tree_details($tree,
+      = Texinfo::ManipulateTree::tree_print_details($tree,
                      $input_file_names_encoding, get_conf('TEST'));
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
@@ -2010,7 +2010,7 @@ while(@input_files) {
                  get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
                  get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
-      = Texinfo::ManipulateTree::print_tree_details($tree,
+      = Texinfo::ManipulateTree::tree_print_details($tree,
                          $input_file_names_encoding, get_conf('TEST'));
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {

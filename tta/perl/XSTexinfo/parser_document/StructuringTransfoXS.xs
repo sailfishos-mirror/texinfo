@@ -356,13 +356,13 @@ protect_first_parenthesis_in_targets_in_document (SV *document_in)
 
 # could that be called in a situation where the document is not found?
 SV *
-print_tree_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
+tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
     PREINIT:
         const DOCUMENT *document = 0;
         SV *result_sv = 0;
      CODE:
         document = get_sv_tree_document (tree_in,
-                                         "print_tree_details");
+                                         "tree_print_details");
         if (document)
           {
             char *result;
@@ -375,7 +375,7 @@ print_tree_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
             if (use_filename_in && SvOK (use_filename_in))
               use_filename = SvIV (use_filename_in);
 
-            result = print_tree_details (document->tree,
+            result = tree_print_details (document->tree,
                                 fname_encoding, use_filename);
             result_sv = newSVpv_utf8 (result, 0);
             free (result);

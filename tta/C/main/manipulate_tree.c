@@ -1030,7 +1030,7 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
 
       if (s_mark->element)
         {
-          current_nr = print_element_details (s_mark->element, level+1,
+          current_nr = print_tree_details (s_mark->element, level+1,
                         s_mark_prepended, current_nr, result,
                         fname_encoding, use_filename);
         }
@@ -1196,7 +1196,7 @@ print_element_add_prepend_info (ELEMENT *element, int level,
   else
     info_prepended = ADDITIONAL_INFO_PREPEND;
 
-  current_nr = print_element_details (element, level, info_prepended,
+  current_nr = print_tree_details (element, level, info_prepended,
                           current_nr, result, fname_encoding, use_filename);
 
   if (prepended)
@@ -1587,7 +1587,7 @@ print_element_source_info (ELEMENT *element, TEXT *result,
 /* a number is given in argument as out of tree elements may need to be
    numbered too */
 uintptr_t
-print_element_details (ELEMENT *element, int level, const char *prepended,
+print_tree_details (ELEMENT *element, int level, const char *prepended,
                               uintptr_t current_nr, TEXT *result,
                               const char *fname_encoding, int use_filename)
 {
@@ -1665,7 +1665,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
 
   for (i = 0; i < element->e.c->contents.number; i++)
     current_nr
-      = print_element_details (element->e.c->contents.list[i], level +1,
+      = print_tree_details (element->e.c->contents.list[i], level +1,
                                 prepended, current_nr, result,
                                 fname_encoding, use_filename);
 
@@ -1727,7 +1727,7 @@ remove_element_tree_numbers (ELEMENT *element)
    are thus commented out.
  */
 char *
-print_tree_details (ELEMENT *tree, const char *fname_encoding,
+tree_print_details (ELEMENT *tree, const char *fname_encoding,
                     int use_filename)
 {
   TEXT result;
@@ -1740,7 +1740,7 @@ print_tree_details (ELEMENT *tree, const char *fname_encoding,
   current_nr = set_element_tree_numbers (tree, 0);
    */
 
-  print_element_details (tree, 0, 0, current_nr, &result, fname_encoding,
+  print_tree_details (tree, 0, 0, current_nr, &result, fname_encoding,
                          use_filename);
 
   /*

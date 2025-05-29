@@ -80,8 +80,8 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::protect_comma_in_document",
   "Texinfo::ManipulateTree::protect_node_after_label_in_document"
     => "Texinfo::StructTransfXS::protect_node_after_label_in_document",
-  "Texinfo::ManipulateTree::print_tree_details"
-    => "Texinfo::StructTransfXS::print_tree_details",
+  "Texinfo::ManipulateTree::tree_print_details"
+    => "Texinfo::StructTransfXS::tree_print_details",
 );
 
 our $module_loaded = 0;
@@ -437,7 +437,7 @@ sub set_element_tree_numbers($$)
 
 my $SOURCE_MARK_PREPEND = '>';
 
-sub print_element_details($$$$;$$);
+sub print_tree_details($$$$;$$);
 
 sub _print_source_marks($$$$;$$)
 {
@@ -477,7 +477,7 @@ sub _print_source_marks($$$$;$$)
     if ($s_mark->{'element'}) {
       my $element_result;
       ($current_nr, $element_result)
-       = print_element_details($s_mark->{'element'}, $level+1,
+       = print_tree_details($s_mark->{'element'}, $level+1,
                          $s_mark_prepended, $current_nr, $fname_encoding,
                          $use_filename);
       $result .= $element_result;
@@ -537,7 +537,7 @@ sub _print_element_add_prepend_info($$$$;$$)
     $info_prepended = $ADDITIONAL_INFO_PREPEND;
   }
 
-  return print_element_details($element, $level, $info_prepended, $current_nr,
+  return print_tree_details($element, $level, $info_prepended, $current_nr,
                                $fname_encoding, $use_filename);
 }
 
@@ -853,11 +853,27 @@ sub print_element_details($$$$;$$)
                           $fname_encoding, $use_filename);
   $result .= $source_marks_result;
 
-  if ($contents_nr) {
+  return ($current_nr, $result);
+}
+
+sub print_tree_details($$$$;$$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $fname_encoding = shift;
+  my $use_filename = shift;
+
+  my $result;
+  ($current_nr, $result) = print_element_details($element, $level, $prepended,
+                                  $current_nr, $fname_encoding, $use_filename);
+
+  if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
       my $content_result;
       ($current_nr, $content_result)
-        = print_element_details($content, $level+1, $prepended,
+        = print_tree_details($content, $level+1, $prepended,
                                 $current_nr, $fname_encoding, $use_filename);
       $result .= $content_result;
     }
@@ -897,7 +913,7 @@ sub remove_element_tree_numbers($)
 # element numbers to refer to.
 # The calls to set_element_tree_numbers and remove_element_tree_numbers
 # are thus commented out.
-sub print_tree_details($;$$)
+sub tree_print_details($;$$)
 {
   my $tree = shift;
   my $fname_encoding = shift;
@@ -908,7 +924,7 @@ sub print_tree_details($;$$)
   my $current_nr = 0;
   #$current_nr = set_element_tree_numbers($tree, 0);
 
-  ($current_nr, $result) = print_element_details($tree, 0, undef, $current_nr,
+  ($current_nr, $result) = print_tree_details($tree, 0, undef, $current_nr,
                                              $fname_encoding, $use_filename);
 
   #remove_element_tree_numbers($tree);

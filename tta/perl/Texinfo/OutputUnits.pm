@@ -838,7 +838,7 @@ sub print_output_units_details($$;$$)
       foreach my $element (@{$output_unit->{'unit_contents'}}) {
         my $element_result;
         ($current_nr, $element_result)
-          = Texinfo::ManipulateTree::print_element_details($element,
+          = Texinfo::ManipulateTree::print_tree_details($element,
                  1, undef, $current_nr, $fname_encoding, $use_filename);
         $result .= $element_result;
       }
