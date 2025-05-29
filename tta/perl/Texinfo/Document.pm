@@ -1077,8 +1077,9 @@ functions need to be called to pass information from C to Perl or perform
 actions related to C data.
 
 When the tree is directly accessed in Perl (not through a document)
-but is modified by C code, or when the Perl tree holds only a reference to
-C data, but no Perl data, you can build the Perl data from the C data
+but is modified by C code, when the Perl tree holds only a reference to
+C data, but no Perl data, or when you want to update all the Perl data
+before doing changes in Perl only, you can build the Perl data from the C data
 with C<build_tree>:
 
 =over
@@ -1101,7 +1102,7 @@ but on the modified Perl data.
 Note that the Perl tree associated to a document is rebuilt from C data
 when calling C<< $document->tree() >>.  Similarly, the tree is rebuilt when
 calling other accessors that depend on the document tree.  Therefore
-C<build_tree> should only be called when there is no document associated to a
+C<build_tree> should mainly be called when there is no document associated to a
 tree and C<< $document->tree() >> cannot be called to rebuild the tree,
 or with the I<$no_store> argument, if you want to remove the link with C data.
 

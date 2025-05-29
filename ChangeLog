@@ -1,5 +1,9 @@
 2025-05-29  Patrice Dumas  <pertusus@free.fr>
 
+	Pod and tta/TODO information on on-demand Document interface issues
+
+2025-05-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test), tta/perl/texi2any.pl: if
 	XS_structuring is not set (with TEXINFO_XS_STRUCTURE=0), rebuild every
 	information associated to the document before calling structuring

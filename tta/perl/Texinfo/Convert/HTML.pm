@@ -10095,9 +10095,6 @@ sub _set_root_commands_targets_node_files($)
   my $labels_list;
   if ($self->{'document'}) {
     $sections_list = $self->{'document'}->sections_list();
-    # FIXME if the Texinfo::Document::register_label_element function
-    # is used to register a node, for example from _new_node, the
-    # C data will not be changed and the not be in labels list called from C
     $labels_list = $self->{'document'}->labels_list();
   }
 

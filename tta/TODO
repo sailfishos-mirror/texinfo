@@ -150,6 +150,24 @@ find_innermost_accent_contents, two options
 Delayed bugs/features
 =====================
 
+There is no XS interface for everything and as a consequence, the Perl C
+interface when no XS code is used for structuring works because all the C data
+is built as Perl structure at one point after which C code is not supposed to
+be called anymore to modify the tree or other Document data.  At that point the
+F_DOCM_* flags should all be unset as there is no modification in C data
+needing to be built to Perl.  Therefore all the calls to XS interfaces
+afterwards, mainly on a Document, returns the Perl data.  This is not
+fundamentaly problematic, as it works.  However, the design of the Document XS
+interface was that the Perl structure could be built on demand, and in that
+case, it is not possible.  There is no clear need to rebuild all the document
+data to Perl similarly when the structure code is done in C and conversion is
+done in Perl.  This is probably because there is no Perl code modifying the
+document data without alsomodifying the underlying C code, ie no case of
+missing XS interface in code run in tests at that point, before conversion.
+But it is probably more by chance than by design, if code changing the
+structure of the tree that lack XS to changr the C data was called at that
+point, the same problem would arise.
+
 There is disagreement on the strategy to use for libraries versioning.
 For Gavin, the code that can link against libraries should be the code
 with the exact same version than the libraries.
