@@ -1107,7 +1107,229 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   document->modified_information |= F_DOCM_tree;
 
-  /* Go through all the nodes */
+  /* Node-by-node structure checking. */
+  for (i = 0; i < nodes_list->number; i++)
+    {
+      NODE_RELATIONS *node_relations = nodes_list->list[i];
+      ELEMENT *node = (ELEMENT *)node_relations->element;
+      const ELEMENT * const *node_directions
+                       = node_relations->node_directions;
+      if (!options
+          || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
+        {
+          const char *normalized = lookup_extra_string (node, AI_key_normalized);
+          const ELEMENT * const *menu_directions = node_relations->menu_directions;
+
+          if (strcmp (normalized, "Top"))
+            {
+              const ELEMENT *arguments_line = node->e.c->contents.list[0];
+              int automatic_directions = (arguments_line->e.c->contents.number <= 1);
+              if (automatic_directions)
+                {
+                  size_t d;
+                  for (d = 0; d < directions_length; d++)
+                    {
+                      const SECTION_RELATIONS *section_relations;
+                      section_relations = node_relations->associated_section;
+                      if (section_relations)
+                        {
+                          /* Check consistency with section and menu structure. */
+                          const SECTION_RELATIONS *direction_relation
+                            = section_relations;
+              /* Prefer the section associated with a @part for node directions. */
+                          if (section_relations->part_associated_section)
+                            {
+                              direction_relation
+                                = section_relations->part_associated_section;
+                            }
+                          const NODE_RELATIONS *direction_associated_node;
+                          direction_associated_node
+                            = section_direction_associated_node (
+                                                           direction_relation, d);
+                          if (direction_associated_node)
+                            {
+                              const SECTION_RELATIONS * const *section_directions
+                                = direction_relation->section_directions;
+                              const CONST_ELEMENT_LIST *menus = 0;
+                              if (section_directions
+                                  && section_directions[D_up])
+                                {
+                                  const SECTION_RELATIONS *up_relations
+                                    = section_directions[D_up];
+
+                                  if (up_relations->associated_node)
+                                    {
+                                       const NODE_RELATIONS *up_node_relations
+                                         = up_relations->associated_node;
+                                       menus = up_node_relations->menus;
+                                    }
+                                }
+
+                              if (menus
+                                  && menus->number > 0
+                                  && (!menu_directions
+                                      || !menu_directions[d]))
+                                {
+                                  char *node_texi
+                                    = target_element_to_texi_label (node);
+                                  char *direction_texi
+                                   = target_element_to_texi_label
+                                     (direction_associated_node->element);
+                                  message_list_command_warn (error_messages,
+                                 (options && options->DEBUG.o.integer > 0),
+                                           node, 0,
+                          "node %s for `%s' is `%s' in sectioning but not in menu",
+                                           direction_names[d], node_texi,
+                                           direction_texi);
+                                  free (node_texi);
+                                  free (direction_texi);
+                                }
+                            }
+                          if ((!node_relations->node_directions
+                               || !node_relations->node_directions[d])
+                              && menu_directions
+                              && menu_directions[d])
+                            {
+                              const ELEMENT *elt_menu_direction
+                               = menu_directions[d];
+                              const ELEMENT *menu_direction_manual_content
+                                = lookup_extra_container (elt_menu_direction,
+                                                        AI_key_manual_content);
+                              if (!menu_direction_manual_content)
+                                {
+                                  char *node_texi
+                                    = target_element_to_texi_label (node);
+                                  char *entry_texi
+                                    = target_element_to_texi_label
+                                                     (elt_menu_direction);
+                                  message_list_command_warn (error_messages,
+                                 (options && options->DEBUG.o.integer > 0),
+                                 node, 0,
+                   "node `%s' is %s for `%s' in menu but not in sectioning",
+                                    entry_texi, direction_names[d], node_texi);
+                                  free (node_texi);
+                                  free (entry_texi);
+                                }
+                            }
+                        }
+                    }
+                }
+              /* check consistency between node pointer and node entries menu order */
+              if (node_directions && menu_directions)
+                {
+                  size_t d;
+                  for (d = 0; d < directions_length; d++)
+                    {
+                      if (node_directions[d]
+                          && menu_directions[d]
+                          && node_directions[d]
+                               != menu_directions[d])
+                        {
+                          const ELEMENT *menu_direction
+                           = menu_directions[d];
+                          const ELEMENT *menu_dir_manual_content
+                           = lookup_extra_container (menu_direction,
+                                                     AI_key_manual_content);
+                          const ELEMENT *node_dir_manual_content
+                           = lookup_extra_container (node_directions[d],
+                                                     AI_key_manual_content);
+                          if (!menu_dir_manual_content && !node_dir_manual_content)
+                            {
+                              char *node_texi = target_element_to_texi_label (node);
+                              char *dir_texi = target_element_to_texi_label
+                                                (node_directions[d]);
+                              char *menu_dir_texi
+                                 = target_element_to_texi_label (menu_direction);
+                              message_list_command_warn (error_messages,
+                                 (options && options->DEBUG.o.integer > 0),
+                                               node, 0,
+                        "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                                               direction_names[d], node_texi,
+                                               dir_texi, direction_names[d],
+                                               menu_dir_texi);
+                              free (node_texi);
+                              free (dir_texi);
+                              free (menu_dir_texi);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      /* check for node up / menu up mismatch */
+      if ((!options)
+          || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
+        {
+          const ELEMENT *up_node = 0;
+          if (node_directions && node_directions[D_up])
+            up_node = node_directions[D_up];
+          if (up_node)
+            {
+              const ELEMENT *manual_content = lookup_extra_container (up_node,
+                                                       AI_key_manual_content);
+              int is_target = (node->flags & EF_is_target);
+
+              /* No check if node up is an external manual */
+              if (!manual_content
+            /* no check for a redundant node, the node registered in the menu
+               was the main equivalent node */
+                  && is_target)
+                {
+                  int status;
+                  size_t up_node_number
+                    = lookup_extra_integer (up_node,
+                                            AI_key_node_number, &status);
+                  const NODE_RELATIONS *up_node_relations
+                    = nodes_list->list[up_node_number -1];
+                  const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
+                  int found = 0;
+                  /* check only if there are menus */
+                  if (menus)
+                    {
+                      size_t j;
+                      for (j = 0; j < menus->number; j++)
+                        {
+                          const ELEMENT *menu = menus->list[j];
+                          size_t k;
+                          for (k = 0; k < menu->e.c->contents.number; k++)
+                            {
+                              const ELEMENT *menu_content = menu->e.c->contents.list[k];
+                              if (menu_content->type == ET_menu_entry)
+                                {
+                                  const ELEMENT *menu_node
+                                    = normalized_entry_associated_internal_node (
+                                                             menu_content,
+                                                              identifiers_target);
+                                  if (menu_node == node)
+                                    {
+                                      found = 1;
+                                      break;
+                                    }
+                                }
+                            }
+                          if (found)
+                            break;
+                        }
+                      if (!found)
+                        {
+                          char *up_texi = target_element_to_texi_label (up_node);
+                          char *node_texi = target_element_to_texi_label (node);
+                          message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                                  up_node, 0,
+           "node `%s' lacks menu item for `%s' despite being its Up target",
+                                  up_texi, node_texi);
+                          free (up_texi);
+                          free (node_texi);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+  /* Go through all the nodes and complete any gaps in the directions
+     using the menus. */
 
   for (i = 0; i < nodes_list->number; i++)
     {
@@ -1127,7 +1349,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
               size_t d;
               for (d = 0; d < directions_length; d++)
                 {
-                  const SECTION_RELATIONS *section_relations;
               /* prev already defined for the node first Top node menu entry */
                   if (d == D_prev && top_node_next && node == top_node_next)
                     {
@@ -1137,63 +1358,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       if (!node_relations->node_directions[D_prev])
                          node_relations->node_directions[D_prev] = top_node;
                       continue;
-                    }
-                  section_relations = node_relations->associated_section;
-                  if (section_relations
-                      && ((!options)
-                          || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
-                    {
-                      const NODE_RELATIONS *direction_associated_node;
-                      const SECTION_RELATIONS *direction_relation
-                        = section_relations;
-          /* Prefer the section associated with a @part for node directions. */
-                      if (section_relations->part_associated_section)
-                        {
-                          direction_relation
-                            = section_relations->part_associated_section;
-                        }
-                      direction_associated_node
-                        = section_direction_associated_node (
-                                                       direction_relation, d);
-                      if (direction_associated_node)
-                        {
-                          const CONST_ELEMENT_LIST *menus = 0;
-                          const SECTION_RELATIONS * const *section_directions
-                            = direction_relation->section_directions;
-                          if (section_directions
-                              && section_directions[D_up])
-                            {
-                              const SECTION_RELATIONS *up_relations
-                                = section_directions[D_up];
-
-                              if (up_relations->associated_node)
-                                {
-                                   const NODE_RELATIONS *up_node_relations
-                                     = up_relations->associated_node;
-                                   menus = up_node_relations->menus;
-                                }
-                            }
-
-                          if (menus
-                              && menus->number > 0
-                              && (!menu_directions
-                                  || !menu_directions[d]))
-                            {
-                              char *node_texi
-                                = target_element_to_texi_label (node);
-                              char *direction_texi
-                               = target_element_to_texi_label
-                                 (direction_associated_node->element);
-                              message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                       node, 0,
-                      "node %s for `%s' is `%s' in sectioning but not in menu",
-                                       direction_names[d], node_texi,
-                                       direction_texi);
-                              free (node_texi);
-                              free (direction_texi);
-                            }
-                        }
                     }
           /*
             Direction was not set with sections, use menus.  This allows
@@ -1212,23 +1376,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                 AI_key_manual_content);
                       if (!menu_direction_manual_content)
                         {
-                          if (((!options)
-                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
-                              && section_relations)
-                            {
-                              char *node_texi
-                                = target_element_to_texi_label (node);
-                              char *entry_texi
-                                = target_element_to_texi_label
-                                                 (elt_menu_direction);
-                              message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                             node, 0,
-               "node `%s' is %s for `%s' in menu but not in sectioning",
-                                entry_texi, direction_names[d], node_texi);
-                              free (node_texi);
-                              free (entry_texi);
-                            }
                           if (!node_relations->node_directions)
                             node_relations->node_directions = new_directions ();
 
@@ -1277,125 +1424,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                     top_node = node;
                   else
                     top_node_next = 0;
-                }
-            }
-        }
-  /* check consistency between node pointer and node entries menu order */
-      if (((!options)
-           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
-          && strcmp (normalized, "Top"))
-        {
-          const ELEMENT * const *node_directions
-                           = node_relations->node_directions;
-          if (node_directions && menu_directions)
-            {
-              size_t d;
-              for (d = 0; d < directions_length; d++)
-                {
-                  if (node_directions[d]
-                      && menu_directions[d]
-                      && node_directions[d]
-                           != menu_directions[d])
-                    {
-                      const ELEMENT *menu_direction
-                       = menu_directions[d];
-                      const ELEMENT *menu_dir_manual_content
-                       = lookup_extra_container (menu_direction,
-                                                 AI_key_manual_content);
-                      const ELEMENT *node_dir_manual_content
-                       = lookup_extra_container (node_directions[d],
-                                                 AI_key_manual_content);
-                      if (!menu_dir_manual_content && !node_dir_manual_content)
-                        {
-                          char *node_texi = target_element_to_texi_label (node);
-                          char *dir_texi = target_element_to_texi_label
-                                            (node_directions[d]);
-                          char *menu_dir_texi
-                             = target_element_to_texi_label (menu_direction);
-                          message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                           node, 0,
-                    "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
-                                           direction_names[d], node_texi,
-                                           dir_texi, direction_names[d],
-                                           menu_dir_texi);
-                          free (node_texi);
-                          free (dir_texi);
-                          free (menu_dir_texi);
-                        }
-                    }
-                }
-            }
-        }
-      /* check for node up / menu up mismatch */
-      if ((!options)
-          || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
-        {
-          const ELEMENT * const *node_directions
-                           = node_relations->node_directions;
-          const ELEMENT *up_node = 0;
-          if (node_directions && node_directions[D_up])
-            up_node = node_directions[D_up];
-          if (up_node)
-            {
-              const ELEMENT *manual_content = lookup_extra_container (up_node,
-                                                       AI_key_manual_content);
-              int is_target = (node->flags & EF_is_target);
-
-              /* No check if node up is an external manual */
-              if (!manual_content
-            /* no check for a redundant node, the node registered in the menu
-               was the main equivalent node */
-                  && is_target)
-                {
-                  int status;
-                  size_t up_node_number
-                    = lookup_extra_integer (up_node,
-                                            AI_key_node_number, &status);
-                  const NODE_RELATIONS *up_node_relations
-                    = nodes_list->list[up_node_number -1];
-                  const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
-                  int found = 0;
-                    /* check only if there are menus */
-                  if (menus)
-                    {
-                      size_t j;
-                      for (j = 0; j < menus->number; j++)
-                        {
-                          const ELEMENT *menu = menus->list[j];
-                          size_t k;
-                          for (k = 0; k < menu->e.c->contents.number; k++)
-                            {
-                              const ELEMENT *menu_content = menu->e.c->contents.list[k];
-                              if (menu_content->type == ET_menu_entry)
-                                {
-                                  const ELEMENT *menu_node
-                                    = normalized_entry_associated_internal_node (
-                                                             menu_content,
-                                                              identifiers_target);
-                                  if (menu_node == node)
-                                    {
-                                      found = 1;
-                                      break;
-                                    }
-                                }
-                            }
-                          if (found)
-                            break;
-                        }
-                      if (!found)
-                        {
-                          char *up_texi = target_element_to_texi_label (up_node);
-                          char *node_texi = target_element_to_texi_label (node);
-                          message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                  up_node, 0,
-           "node `%s' lacks menu item for `%s' despite being its Up target",
-                                  up_texi, node_texi);
-                          free (up_texi);
-                          free (node_texi);
-                        }
-                    }
                 }
             }
         }

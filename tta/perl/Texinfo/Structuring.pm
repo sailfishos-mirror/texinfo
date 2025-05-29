@@ -750,12 +750,12 @@ sub _section_direction_associated_node($$)
   return undef;
 }
 
-# Set first node/Top node directions.
 # The checks on structure assume that nodes with automatic directions and
 # associated sections will have the directions set, but the directions are
 # not set according to sections in that function.
-# Complete automatic directions with menus.
 # Checks on structure related to menus.
+# Set first node/Top node directions.
+# Complete automatic directions with menus.
 sub complete_node_tree_with_menus($)
 {
   my $document = shift;
@@ -767,11 +767,154 @@ sub complete_node_tree_with_menus($)
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
+  my %cached_menu_nodes;
+
+  # Node-by-node structure checking
+  foreach my $node_relations (@{$nodes_list}) {
+    my $node = $node_relations->{'element'};
+    my $node_directions = $node_relations->{'node_directions'};
+
+    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+      my $normalized = $node->{'extra'}->{'normalized'};
+      my $menu_directions = $node_relations->{'menu_directions'};
+
+      if ($normalized ne 'Top') {
+        my $arguments_line = $node->{'contents'}->[0];
+        my $automatic_directions
+          = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
+
+        if ($automatic_directions) {
+          foreach my $direction (@node_directions_names) {
+            my $section_relations = $node_relations->{'associated_section'};
+            if ($section_relations) {
+              # Check consistency with section and menu structure
+              my $direction_relation = $section_relations;
+
+              # Prefer the section associated with a @part for node directions.
+              if ($section_relations->{'part_associated_section'}) {
+                $direction_relation
+                  = $section_relations->{'part_associated_section'};
+              }
+              my $direction_associated_node
+                = _section_direction_associated_node($direction_relation,
+                                                     $direction);
+              if ($direction_associated_node) {
+                my $section_directions
+                  = $direction_relation->{'section_directions'};
+
+                my $menus;
+                if ($section_directions
+                    and $section_directions->{'up'}) {
+                  my $up_relations = $section_directions->{'up'};
+                  if ($up_relations->{'associated_node'}) {
+                    my $up_node_relations = $up_relations->{'associated_node'};
+                    if ($up_node_relations->{'menus'}
+                        and scalar(@{$up_node_relations->{'menus'}})) {
+                      $menus = $up_node_relations->{'menus'};
+                    }
+                  }
+                }
+
+                if ($menus
+                    and (!$menu_directions
+                         or !$menu_directions->{$direction})) {
+                  $registrar->line_warn(
+             sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
+                            $direction,
+                            target_element_to_texi_label($node),
+           target_element_to_texi_label($direction_associated_node->{'element'})),
+                                        $node->{'source_info'}, 0,
+                                 $customization_information->get_conf('DEBUG'));
+                }
+              }
+
+              if ((!$node_directions or !$node_directions->{$direction})
+                  and $menu_directions
+                  and $menu_directions->{$direction}
+                  and !$menu_directions->{$direction}
+                                              ->{'extra'}->{'manual_content'}) {
+                $registrar->line_warn(
+            sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
+                  target_element_to_texi_label(
+                           $menu_directions->{$direction}),
+                                     $direction,
+                                   target_element_to_texi_label($node)),
+                                      $node->{'source_info'}, 0,
+                              $customization_information->get_conf('DEBUG'));
+              }
+            }
+          }
+        }
+
+        # check consistency between node pointer and node entries menu order
+        if ($node_directions and $menu_directions) {
+          foreach my $direction (@node_directions_names) {
+            if ($node_directions->{$direction}
+                and not $node_directions->{$direction}
+                      ->{'extra'}->{'manual_content'}
+                and $menu_directions->{$direction}
+                and $menu_directions->{$direction}
+                  ne $node_directions->{$direction}
+                and not $menu_directions->{$direction}
+                              ->{'extra'}->{'manual_content'}) {
+              $registrar->line_warn(
+             sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                    $direction,
+                    target_element_to_texi_label($node),
+                    target_element_to_texi_label(
+                        $node_directions->{$direction}),
+                    $direction,
+                    target_element_to_texi_label(
+                        $menu_directions->{$direction})),
+                                    $node->{'source_info'}, 0,
+                             $customization_information->get_conf('DEBUG'));
+            }
+          }
+        }
+      }
+    }
+
+    # check for node up / menu up mismatch
+    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
+      my $up_node;
+      if ($node_directions
+          and $node_directions->{'up'}) {
+        $up_node = $node_directions->{'up'};
+      }
+      if ($up_node
+          # No check if node up is an external manual
+          and not $up_node->{'extra'}->{'manual_content'}
+          # no check for a redundant node, the node registered in the menu
+          # was the main equivalent node
+          and $node->{'extra'}->{'is_target'}) {
+        my $up_node_relations
+          = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
+
+        # check only if there are menus
+        if ($up_node_relations->{'menus'}) {
+          if (!$cached_menu_nodes{$up_node}) {
+            $cached_menu_nodes{$up_node} = {};
+            _register_menu_node_targets($identifier_target, $up_node_relations,
+                                        $cached_menu_nodes{$up_node});
+          }
+          if (!$cached_menu_nodes{$up_node}->{$node}) {
+            $registrar->line_warn(sprintf(
+               __("node `%s' lacks menu item for `%s' despite being its Up target"),
+               target_element_to_texi_label($up_node),
+               target_element_to_texi_label($node)),
+                                $up_node->{'source_info'}, 0,
+                                $customization_information->get_conf('DEBUG'));
+          }
+        }
+      }
+    }
+  }
+
   my $top_node_next;
   my $top_node;
 
-  my %cached_menu_nodes;
-  # Go through all the nodes
+  # Go through all the nodes and complete any gaps in the directions
+  # using the menus.
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
     my $arguments_line = $node->{'contents'}->[0];
@@ -782,7 +925,6 @@ sub complete_node_tree_with_menus($)
     my $menu_directions = $node_relations->{'menu_directions'};
 
     if ($automatic_directions) {
-
       my $node_directions = $node_relations->{'node_directions'};
 
       if ($normalized ne 'Top') {
@@ -798,73 +940,15 @@ sub complete_node_tree_with_menus($)
             }
             next;
           }
-          my $section_relations = $node_relations->{'associated_section'};
-          if ($section_relations
-              and $customization_information->get_conf(
-                                             'CHECK_NORMAL_MENU_STRUCTURE')) {
-            # Check consistency with section and menu structure
-            my $direction_relation = $section_relations;
-
-            # Prefer the section associated with a @part for node directions.
-            if ($section_relations->{'part_associated_section'}) {
-              $direction_relation
-                = $section_relations->{'part_associated_section'};
-            }
-            my $direction_associated_node
-              = _section_direction_associated_node($direction_relation,
-                                                   $direction);
-            if ($direction_associated_node) {
-              my $section_directions
-                = $direction_relation->{'section_directions'};
-
-              my $menus;
-              if ($section_directions
-                  and $section_directions->{'up'}) {
-                my $up_relations = $section_directions->{'up'};
-                my $up_sec = $up_relations->{'element'};
-
-                if ($up_relations->{'associated_node'}) {
-                  my $up_node_relations = $up_relations->{'associated_node'};
-                  if ($up_node_relations->{'menus'}
-                      and scalar(@{$up_node_relations->{'menus'}})) {
-                    $menus = $up_node_relations->{'menus'};
-                  }
-                }
-              }
-
-              if ($menus
-                  and (!$menu_directions
-                       or !$menu_directions->{$direction})) {
-                $registrar->line_warn(
-           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
-                          $direction,
-                          target_element_to_texi_label($node),
-         target_element_to_texi_label($direction_associated_node->{'element'})),
-                                      $node->{'source_info'}, 0,
-                               $customization_information->get_conf('DEBUG'));
-              }
-            }
-          }
           # Direction was not set with sections, use menus.  This allows
           # using only automatic direction for manuals without sectioning
           # commands but with explicit menus.
+          my $section_relations = $node_relations->{'associated_section'};
           if ((!$node_directions or !$node_directions->{$direction})
               and $menu_directions
               and $menu_directions->{$direction}
               and !$menu_directions->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
-            if ($customization_information->get_conf(
-                                               'CHECK_NORMAL_MENU_STRUCTURE')
-                and $section_relations) {
-              $registrar->line_warn(
-          sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
-                target_element_to_texi_label(
-                         $menu_directions->{$direction}),
-                                   $direction,
-                                 target_element_to_texi_label($node)),
-                                    $node->{'source_info'}, 0,
-                            $customization_information->get_conf('DEBUG'));
-            }
             $node_relations->{'node_directions'} = {}
                if (!$node_relations->{'node_directions'});
             $node_relations->{'node_directions'}->{$direction}
@@ -899,72 +983,6 @@ sub complete_node_tree_with_menus($)
             $top_node_next = undef;
           } else {
             $top_node = $node;
-          }
-        }
-      }
-    }
-    # check consistency between node pointer and node entries menu order
-    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-        and $normalized ne 'Top') {
-      my $node_directions = $node_relations->{'node_directions'};
-      if ($node_directions and $menu_directions) {
-        foreach my $direction (@node_directions_names) {
-          if ($node_directions->{$direction}
-              and not $node_directions->{$direction}
-                    ->{'extra'}->{'manual_content'}
-              and $menu_directions->{$direction}
-              and $menu_directions->{$direction}
-                ne $node_directions->{$direction}
-              and not $menu_directions->{$direction}
-                            ->{'extra'}->{'manual_content'}) {
-            $registrar->line_warn(
-           sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
-                  $direction,
-                  target_element_to_texi_label($node),
-                  target_element_to_texi_label(
-                      $node_directions->{$direction}),
-                  $direction,
-                  target_element_to_texi_label(
-                      $menu_directions->{$direction})),
-                                  $node->{'source_info'}, 0,
-                           $customization_information->get_conf('DEBUG'));
-          }
-        }
-      }
-
-    }
-
-    # check for node up / menu up mismatch
-    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
-      my $node_directions = $node_relations->{'node_directions'};
-      my $up_node;
-      if ($node_directions
-          and $node_directions->{'up'}) {
-        $up_node = $node_directions->{'up'};
-      }
-      if ($up_node
-          # No check if node up is an external manual
-          and not $up_node->{'extra'}->{'manual_content'}
-          # no check for a redundant node, the node registered in the menu
-          # was the main equivalent node
-          and $node->{'extra'}->{'is_target'}) {
-        my $up_node_relations
-          = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
-
-        # check only if there are menus
-        if ($up_node_relations->{'menus'}) {
-          if (!$cached_menu_nodes{$up_node}) {
-            $cached_menu_nodes{$up_node} = {};
-            _register_menu_node_targets($identifier_target, $up_node_relations,
-                                        $cached_menu_nodes{$up_node});
-          }
-          if (!$cached_menu_nodes{$up_node}->{$node}) {
-            $registrar->line_warn(sprintf(
-               __("node `%s' lacks menu item for `%s' despite being its Up target"),
-               target_element_to_texi_label($up_node),
-               target_element_to_texi_label($node)),
-                                $up_node->{'source_info'}, 0,
-                                $customization_information->get_conf('DEBUG'));
           }
         }
       }

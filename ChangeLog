@@ -1,3 +1,12 @@
+2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Separate structure checking and structure fixing code
+
+	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus)
+	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus):
+	Separate structure checking code from code completing structural
+	information using the menus.  No functional changes intended.
+
 2025-05-29  Patrice Dumas  <pertusus@free.fr>
 
 	Pod and tta/TODO information on on-demand Document interface issues
