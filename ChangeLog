@@ -1,3 +1,11 @@
+2025-05-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Split out function
+
+	* tta/perl/Texinfo/Structuring.pm,
+	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus):
+	Do not call check_node_tree_menu_structure.  All callers updated.
+
 2025-05-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Structuring.pm, tta/C/structuring_transfo/structuring.c

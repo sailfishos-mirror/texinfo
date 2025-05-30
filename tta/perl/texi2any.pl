@@ -1974,6 +1974,7 @@ while(@input_files) {
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($document);
 
+      Texinfo::Structuring::check_node_tree_menu_structure($document);
       Texinfo::Structuring::complete_node_tree_with_menus($document);
 
       Texinfo::Structuring::check_nodes_are_referenced($document);

@@ -1335,10 +1335,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
   if (nodes_list->number < 1)
     return;
 
-  /* TODO: do not call this in this function.  call it from
-     calling code instead. */
-  check_node_tree_menu_structure (document);
-
   document->modified_information |= F_DOCM_tree;
 
   /* Go through all the nodes and complete any gaps in the directions

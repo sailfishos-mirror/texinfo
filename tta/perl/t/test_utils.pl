@@ -1083,6 +1083,7 @@ sub test($$)
 
   if (not defined($document->get_conf('FORMAT_MENU'))
       or $document->get_conf('FORMAT_MENU') eq 'menu') {
+    Texinfo::Structuring::check_node_tree_menu_structure($document);
     Texinfo::Structuring::complete_node_tree_with_menus($document);
 
     Texinfo::Structuring::check_nodes_are_referenced($document);

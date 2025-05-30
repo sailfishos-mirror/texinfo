@@ -753,9 +753,6 @@ sub _section_direction_associated_node($$)
   return undef;
 }
 
-# The checks on structure assume that nodes with automatic directions and
-# associated sections will have the directions set, but the directions are
-# not set according to sections in that function.
 # Checks on structure related to menus.
 sub check_node_tree_menu_structure($)
 {
@@ -923,10 +920,6 @@ sub complete_node_tree_with_menus($)
   my $registrar = $document->registrar();
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
-
-  # TODO: do not call this in this function.  call it from
-  # calling code instead.
-  check_node_tree_menu_structure($document);
 
   my $top_node_next;
   my $top_node;

@@ -494,6 +494,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
       if (format_menu)
         {
           set_menus_node_directions (document);
+          check_node_tree_menu_structure (document);
           complete_node_tree_with_menus (document);
           check_nodes_are_referenced (document);
         }
