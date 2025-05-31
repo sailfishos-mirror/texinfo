@@ -1,3 +1,21 @@
+2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Simplify node directions check
+
+	* tta/perl/Texinfo/Structuring.pm,
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Do not use 'node directions' object to check for nodes that have
+	no directions information.
+	Instead, re-use a check for whether sectioning directions could
+	be followed, placing code in an "else" clause.
+	This is possible because the 'node directions' were set in
+	construct_nodes_tree using very similar logic to that used to follow
+	the sectioning directions.
+
+	This affects the outcome of a small number of tests where the "previous"
+	node direction was set to the Top node, which isn't included in the
+	original sectioning directions themselves.
+
 2025-05-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Split out function

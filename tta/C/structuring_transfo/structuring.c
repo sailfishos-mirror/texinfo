@@ -1175,10 +1175,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                           free (direction_texi);
                         }
                     }
-                  if ((!node_relations->node_directions
-                       || !node_relations->node_directions[d])
-                      && menu_directions
-                      && menu_directions[d])
+                  else if (menu_directions && menu_directions[d])
                     {
                       const ELEMENT *elt_menu_direction
                        = menu_directions[d];

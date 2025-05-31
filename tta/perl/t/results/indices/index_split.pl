@@ -1115,6 +1115,14 @@ Second chapter
 
 $result_errors{'index_split'} = [
   {
+    'error_line' => 'warning: node `Top\' is prev for `first\' in menu but not in sectioning
+',
+    'file_name' => 'index_split.texi',
+    'line_nr' => 21,
+    'text' => 'node `Top\' is prev for `first\' in menu but not in sectioning',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
 ',
     'file_name' => 'index_split.texi',

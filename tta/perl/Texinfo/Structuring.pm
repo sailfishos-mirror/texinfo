@@ -824,12 +824,9 @@ sub check_node_tree_menu_structure($)
                                     $node->{'source_info'}, 0,
                              $customization_information->get_conf('DEBUG'));
             }
-          }
-
-          if ((!$node_directions or !$node_directions->{$direction})
-              and $menu_directions
-              and $menu_directions->{$direction}
-              and !$menu_directions->{$direction}
+          } elsif ($menu_directions
+                     and $menu_directions->{$direction}
+                     and !$menu_directions->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
             $registrar->line_warn(
         sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
