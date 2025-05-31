@@ -1223,7 +1223,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
           for (j = 0; j < output_unit->unit_contents.number; j++)
             {
               ELEMENT *element = output_unit->unit_contents.list[j];
-              current_nr = print_element_details (element, 1, 0, current_nr,
+              current_nr = print_tree_details (element, 1, 0, current_nr,
                                                   result, fname_encoding,
                                                   use_filename);
             }

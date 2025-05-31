@@ -44,13 +44,14 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 
+uintptr_t print_tree_details (ELEMENT *element, int level,
+                              const char *prepended,
+                              uintptr_t current_nr, TEXT *result,
+                              const char *fname_encoding, int use_filename);
 char *tree_print_details (ELEMENT *tree, const char *fname_encoding,
                           int use_filename);
 char *element_number_or_error (const ELEMENT *element);
 char *root_command_element_string (const ELEMENT *element);
-uintptr_t print_element_details (ELEMENT *element, int level,
-                  const char *prepended, uintptr_t current_nr,
-                  TEXT *result, const char *fname_encoding, int use_filename);
 
 uintptr_t set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr);
 void remove_element_tree_numbers (ELEMENT *element);
