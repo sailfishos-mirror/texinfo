@@ -1,5 +1,13 @@
 2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove cast away from const.
+
+	* tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, set_top_node_next):
+	Declare a variable as const and do not cast its assignment.
+
+2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Split out function to set Top node next
 
 	* tta/perl/Texinfo/Structuring.pm, tta/C/structuring_transfo/structuring.c

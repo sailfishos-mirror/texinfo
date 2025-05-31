@@ -1328,9 +1328,7 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
   for (i = 0; i < nodes_list->number; i++)
     {
       NODE_RELATIONS *node_relations = nodes_list->list[i];
-    /* as an exception to the rule we modify an element of the nodes list,
-       so use a cast to remove const */
-      ELEMENT *node = (ELEMENT *)node_relations->element;
+      const ELEMENT *node = node_relations->element;
       const ELEMENT *arguments_line = node->e.c->contents.list[0];
       int automatic_directions = (arguments_line->e.c->contents.number <= 1);
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
@@ -1426,9 +1424,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   for (i = 0; i < nodes_list->number; i++)
     {
       NODE_RELATIONS *node_relations = nodes_list->list[i];
-    /* as an exception to the rule we modify an element of the nodes list,
-       so use a cast to remove const */
-      ELEMENT *node = (ELEMENT *)node_relations->element;
+      const ELEMENT *node = node_relations->element;
       if (top_node && node == top_node)
         continue;
       const ELEMENT *arguments_line = node->e.c->contents.list[0];
