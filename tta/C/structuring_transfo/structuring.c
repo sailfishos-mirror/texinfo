@@ -1315,6 +1315,92 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
 }
 
+/* Set node next pointer for Top node based on menus, and return
+   reference to Top node. */
+static const ELEMENT *
+set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
+                   const C_HASHMAP *identifiers_target)
+{
+  const ELEMENT *top_node = 0;
+  const ELEMENT *top_node_next = 0;
+
+  size_t i;
+  for (i = 0; i < nodes_list->number; i++)
+    {
+      NODE_RELATIONS *node_relations = nodes_list->list[i];
+    /* as an exception to the rule we modify an element of the nodes list,
+       so use a cast to remove const */
+      ELEMENT *node = (ELEMENT *)node_relations->element;
+      const ELEMENT *arguments_line = node->e.c->contents.list[0];
+      int automatic_directions = (arguments_line->e.c->contents.number <= 1);
+      const char *normalized = lookup_extra_string (node, AI_key_normalized);
+      const ELEMENT * const *menu_directions = node_relations->menu_directions;
+
+      if (automatic_directions)
+        {
+          if (!strcmp (normalized, "Top"))
+            {
+              top_node = node;
+              if (!node_relations->node_directions
+                       || !node_relations->node_directions[D_next])
+                {
+                  /* use first menu entry if available as next for Top */
+                  const ELEMENT *menu_child
+                     = first_menu_node (node_relations, identifiers_target);
+                  if (menu_child)
+                    {
+                      top_node_next = menu_child;
+                    }
+                  else
+                    {
+                      /* use the first non top node as next for Top */
+                      size_t j;
+                      for (j = 0; j < nodes_list->number; j++)
+                        {
+                          const NODE_RELATIONS *first_non_top_node_relations
+                            = nodes_list->list[j];
+                          const ELEMENT *first_non_top_node
+                            = first_non_top_node_relations->element;
+                          if (first_non_top_node != node)
+                            {
+                              top_node_next = first_non_top_node;
+                              break;
+                            }
+                        }
+                    }
+                  if (top_node_next)
+                    {
+                      if (!node_relations->node_directions)
+                        node_relations->node_directions = new_directions ();
+                      node_relations->node_directions[D_next] = top_node_next;
+                      const ELEMENT *top_node_next_manual_content
+                       = lookup_extra_container (top_node_next,
+                                                 AI_key_manual_content);
+                      if (top_node_next_manual_content)
+                        top_node_next = 0;
+                    }
+                }
+              else
+                break;
+            }
+          else
+            {
+              /* prev already defined for the node first Top node menu entry */
+              if (top_node_next && node == top_node_next)
+                {
+                  if (!node_relations->node_directions)
+                    node_relations->node_directions = new_directions ();
+
+                  if (!node_relations->node_directions[D_prev])
+                     node_relations->node_directions[D_prev] = top_node;
+                  break;
+                }
+            }
+        }
+    }
+  return top_node;
+}
+
 /* Complete automatic directions with menus (and first node
    for Top node). */
 void
@@ -1326,13 +1412,13 @@ complete_node_tree_with_menus (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   size_t i;
-  const ELEMENT *top_node = 0;
-  const ELEMENT *top_node_next = 0;
 
   if (nodes_list->number < 1)
     return;
 
   document->modified_information |= F_DOCM_tree;
+
+  const ELEMENT *top_node = set_top_node_next (nodes_list, identifiers_target);
 
   /* Go through all the nodes and complete any gaps in the directions
      using the menus. */
@@ -1343,93 +1429,38 @@ complete_node_tree_with_menus (DOCUMENT *document)
     /* as an exception to the rule we modify an element of the nodes list,
        so use a cast to remove const */
       ELEMENT *node = (ELEMENT *)node_relations->element;
-      const char *normalized = lookup_extra_string (node, AI_key_normalized);
-      const ELEMENT * const *menu_directions = node_relations->menu_directions;
+      if (top_node && node == top_node)
+        continue;
       const ELEMENT *arguments_line = node->e.c->contents.list[0];
       int automatic_directions = (arguments_line->e.c->contents.number <= 1);
+      const ELEMENT * const *menu_directions = node_relations->menu_directions;
 
       if (automatic_directions)
         {
-          if (strcmp (normalized, "Top"))
+          size_t d;
+          for (d = 0; d < directions_length; d++)
             {
-              size_t d;
-              for (d = 0; d < directions_length; d++)
+              /* Direction was not set with sections, use menus.  This allows
+                 using only automatic direction for manuals without sectioning
+                 commands but with explicit menus. */
+              if ((!node_relations->node_directions
+                   || !node_relations->node_directions[d])
+                  && menu_directions
+                  && menu_directions[d])
                 {
-              /* prev already defined for the node first Top node menu entry */
-                  if (d == D_prev && top_node_next && node == top_node_next)
+                  const ELEMENT *elt_menu_direction
+                   = menu_directions[d];
+                  const ELEMENT *menu_direction_manual_content
+                    = lookup_extra_container (elt_menu_direction,
+                                            AI_key_manual_content);
+                  if (!menu_direction_manual_content)
                     {
                       if (!node_relations->node_directions)
                         node_relations->node_directions = new_directions ();
 
-                      if (!node_relations->node_directions[D_prev])
-                         node_relations->node_directions[D_prev] = top_node;
-                      continue;
+                      node_relations->node_directions[d]
+                         = elt_menu_direction;
                     }
-          /*
-            Direction was not set with sections, use menus.  This allows
-            using only automatic direction for manuals without sectioning
-            commands but with explicit menus.
-           */
-                  if ((!node_relations->node_directions
-                       || !node_relations->node_directions[d])
-                      && menu_directions
-                      && menu_directions[d])
-                    {
-                      const ELEMENT *elt_menu_direction
-                       = menu_directions[d];
-                      const ELEMENT *menu_direction_manual_content
-                        = lookup_extra_container (elt_menu_direction,
-                                                AI_key_manual_content);
-                      if (!menu_direction_manual_content)
-                        {
-                          if (!node_relations->node_directions)
-                            node_relations->node_directions = new_directions ();
-
-                          node_relations->node_directions[d]
-                             = elt_menu_direction;
-                        }
-                    }
-                }
-            }
-          else if (!node_relations->node_directions
-                   || !node_relations->node_directions[D_next])
-            {
-              /* use first menu entry if available as next for Top */
-              const ELEMENT *menu_child
-                 = first_menu_node (node_relations, identifiers_target);
-              if (menu_child)
-                {
-                  top_node_next = menu_child;
-                }
-              else
-                {
-                  /* use the first non top node as next for Top */
-                  size_t j;
-                  for (j = 0; j < nodes_list->number; j++)
-                    {
-                      const NODE_RELATIONS *first_non_top_node_relations
-                        = nodes_list->list[j];
-                      const ELEMENT *first_non_top_node
-                        = first_non_top_node_relations->element;
-                      if (first_non_top_node != node)
-                        {
-                          top_node_next = first_non_top_node;
-                          break;
-                        }
-                    }
-                }
-              if (top_node_next)
-                {
-                  if (!node_relations->node_directions)
-                    node_relations->node_directions = new_directions ();
-                  node_relations->node_directions[D_next] = top_node_next;
-                  const ELEMENT *top_node_next_manual_content
-                   = lookup_extra_container (top_node_next,
-                                             AI_key_manual_content);
-                  if (!top_node_next_manual_content)
-                    top_node = node;
-                  else
-                    top_node_next = 0;
                 }
             }
         }

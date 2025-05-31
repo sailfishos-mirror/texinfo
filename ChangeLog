@@ -1,5 +1,13 @@
 2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Split out function to set Top node next
+
+	* tta/perl/Texinfo/Structuring.pm, tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, _set_top_node_next, set_top_node_next):
+	Split out _set_top_node_next from complete_node_tree_with_menus.
+
+2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Simplify node directions check
 
 	* tta/perl/Texinfo/Structuring.pm,

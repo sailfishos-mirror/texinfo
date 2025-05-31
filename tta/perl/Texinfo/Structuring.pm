@@ -902,7 +902,78 @@ sub check_node_tree_menu_structure($)
       }
     }
   }
+}
 
+# Set node next pointer for Top node based on menus, and return
+# reference to Top node.
+sub _set_top_node_next($$)
+{
+  my $nodes_list = shift;
+  my $identifier_target = shift;
+
+  my $top_node_next;
+  my $top_node;
+
+  foreach my $node_relations (@{$nodes_list}) {
+    my $node = $node_relations->{'element'};
+    my $arguments_line = $node->{'contents'}->[0];
+    my $automatic_directions
+      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
+
+    my $normalized = $node->{'extra'}->{'normalized'};
+    my $menu_directions = $node_relations->{'menu_directions'};
+
+    if ($automatic_directions) {
+      my $node_directions = $node_relations->{'node_directions'};
+
+      if ($normalized eq 'Top') {
+        $top_node = $node;
+        if (not $node_directions
+                 or not $node_directions->{'next'}) {
+          # use first menu entry if available as next for Top
+          my $menu_child
+             = Texinfo::ManipulateTree::first_menu_node($node_relations,
+                                                        $identifier_target);
+          if ($menu_child) {
+            $top_node_next = $menu_child;
+          } else {
+            # use the first non top node as next for Top
+            foreach my $first_non_top_node_relations (@{$nodes_list}) {
+              my $first_non_top_node
+                = $first_non_top_node_relations->{'element'};
+              if ($first_non_top_node ne $node) {
+                $top_node_next = $first_non_top_node;
+                last;
+              }
+            }
+          }
+          if ($top_node_next) {
+            $node_relations->{'node_directions'} = {}
+               if (!$node_relations->{'node_directions'});
+            $node_relations->{'node_directions'}->{'next'}
+              = $top_node_next;
+            if ($top_node_next->{'extra'}->{'manual_content'}) {
+              $top_node_next = undef;
+            }
+          }
+        } else {
+          last;
+        }
+      } else { # $normalized ne 'Top'
+        # prev defined as first Top node menu entry node
+        if ($top_node_next and $node eq $top_node_next) {
+          $node_relations->{'node_directions'} = {}
+            if (!$node_relations->{'node_directions'});
+          if (!$node_relations->{'node_directions'}->{'prev'}) {
+            $node_relations->{'node_directions'}->{'prev'}
+              = $top_node;
+          }
+          last;
+        }
+      }
+    }
+  }
+  return $top_node;
 }
 
 # Set first node/Top node directions.
@@ -918,79 +989,35 @@ sub complete_node_tree_with_menus($)
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
-  my $top_node_next;
-  my $top_node;
+  my $top_node = _set_top_node_next($nodes_list, $identifier_target);
 
   # Go through all the nodes and complete any gaps in the directions
   # using the menus.
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
+    next if $top_node and $node eq $top_node;
     my $arguments_line = $node->{'contents'}->[0];
     my $automatic_directions
       = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
-    my $normalized = $node->{'extra'}->{'normalized'};
     my $menu_directions = $node_relations->{'menu_directions'};
 
     if ($automatic_directions) {
       my $node_directions = $node_relations->{'node_directions'};
 
-      if ($normalized ne 'Top') {
-        foreach my $direction (@node_directions_names) {
-          # prev defined as first Top node menu entry node
-          if ($direction eq 'prev' and $top_node_next
-              and $node eq $top_node_next) {
-            $node_relations->{'node_directions'} = {}
-              if (!$node_relations->{'node_directions'});
-            if (!$node_relations->{'node_directions'}->{'prev'}) {
-              $node_relations->{'node_directions'}->{'prev'}
-                = $top_node;
-            }
-            next;
-          }
-          # Direction was not set with sections, use menus.  This allows
-          # using only automatic direction for manuals without sectioning
-          # commands but with explicit menus.
-          if ((!$node_directions or !$node_directions->{$direction})
-              and $menu_directions
-              and $menu_directions->{$direction}
-              and !$menu_directions->{$direction}
-                                          ->{'extra'}->{'manual_content'}) {
-            $node_relations->{'node_directions'} = {}
-               if (!$node_relations->{'node_directions'});
-            $node_relations->{'node_directions'}->{$direction}
-               = $menu_directions->{$direction};
-          }
-        }
-      } elsif (not $node_directions
-               or not $node_directions->{'next'}) {
-        # use first menu entry if available as next for Top
-        my $menu_child
-           = Texinfo::ManipulateTree::first_menu_node($node_relations,
-                                                      $identifier_target);
-        if ($menu_child) {
-          $top_node_next = $menu_child;
-        } else {
-          # use the first non top node as next for Top
-          foreach my $first_non_top_node_relations (@{$nodes_list}) {
-            my $first_non_top_node
-              = $first_non_top_node_relations->{'element'};
-            if ($first_non_top_node ne $node) {
-              $top_node_next = $first_non_top_node;
-              last;
-            }
-          }
-        }
-        if ($top_node_next) {
+      foreach my $direction (@node_directions_names) {
+        # Direction was not set with sections, use menus.  This allows
+        # using only automatic direction for manuals without sectioning
+        # commands but with explicit menus.
+        if ((!$node_directions or !$node_directions->{$direction})
+            and $menu_directions
+            and $menu_directions->{$direction}
+            and !$menu_directions->{$direction}
+                                        ->{'extra'}->{'manual_content'}) {
           $node_relations->{'node_directions'} = {}
              if (!$node_relations->{'node_directions'});
-          $node_relations->{'node_directions'}->{'next'}
-            = $top_node_next;
-          if ($top_node_next->{'extra'}->{'manual_content'}) {
-            $top_node_next = undef;
-          } else {
-            $top_node = $node;
-          }
+          $node_relations->{'node_directions'}->{$direction}
+             = $menu_directions->{$direction};
         }
       }
     }
