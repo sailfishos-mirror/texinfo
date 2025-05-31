@@ -107,10 +107,10 @@ $result_texts{'lone_Top_node'} = '
 
 $result_errors{'lone_Top_node'} = [
   {
-    'error_line' => 'warning: node `Top\' is up for `First\' in menu but not in sectioning
+    'error_line' => 'warning: node up for `First\' is `Top\' in menu but not in sectioning
 ',
     'line_nr' => 7,
-    'text' => 'node `Top\' is up for `First\' in menu but not in sectioning',
+    'text' => 'node up for `First\' is `Top\' in menu but not in sectioning',
     'type' => 'warning'
   }
 ];

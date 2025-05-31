@@ -150,10 +150,10 @@ part
 
 $result_errors{'chapter_node_before_and_after_part'} = [
   {
-    'error_line' => 'warning: node `Top\' is up for `after\' in menu but not in sectioning
+    'error_line' => 'warning: node up for `after\' is `Top\' in menu but not in sectioning
 ',
     'line_nr' => 11,
-    'text' => 'node `Top\' is up for `after\' in menu but not in sectioning',
+    'text' => 'node up for `after\' is `Top\' in menu but not in sectioning',
     'type' => 'warning'
   }
 ];

@@ -455,10 +455,10 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node `sub2\' is next for `sub3\' in menu but not in sectioning
+    'error_line' => 'warning: node next for `sub3\' is `sub2\' in menu but not in sectioning
 ',
     'line_nr' => 35,
-    'text' => 'node `sub2\' is next for `sub3\' in menu but not in sectioning',
+    'text' => 'node next for `sub3\' is `sub2\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {

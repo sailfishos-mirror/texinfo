@@ -212,17 +212,17 @@ a~
 
 $result_errors{'transliterated_split_equivalent_nodes'} = [
   {
-    'error_line' => 'warning: node `n\' is next for `@~a\' in menu but not in sectioning
+    'error_line' => 'warning: node next for `@~a\' is `n\' in menu but not in sectioning
 ',
     'line_nr' => 9,
-    'text' => 'node `n\' is next for `@~a\' in menu but not in sectioning',
+    'text' => 'node next for `@~a\' is `n\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node `top\' is up for `@~a\' in menu but not in sectioning
+    'error_line' => 'warning: node up for `@~a\' is `top\' in menu but not in sectioning
 ',
     'line_nr' => 9,
-    'text' => 'node `top\' is up for `@~a\' in menu but not in sectioning',
+    'text' => 'node up for `@~a\' is `top\' in menu but not in sectioning',
     'type' => 'warning'
   }
 ];

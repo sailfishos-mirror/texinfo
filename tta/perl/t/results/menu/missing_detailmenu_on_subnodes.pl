@@ -408,31 +408,31 @@ unnumberedsec
 
 $result_errors{'missing_detailmenu_on_subnodes'} = [
   {
-    'error_line' => 'warning: node `section chap 2\' is next for `section\' in menu but not in sectioning
+    'error_line' => 'warning: node next for `section\' is `section chap 2\' in menu but not in sectioning
 ',
     'line_nr' => 23,
-    'text' => 'node `section chap 2\' is next for `section\' in menu but not in sectioning',
+    'text' => 'node next for `section\' is `section chap 2\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node `chapter 2\' is prev for `section\' in menu but not in sectioning
+    'error_line' => 'warning: node prev for `section\' is `chapter 2\' in menu but not in sectioning
 ',
     'line_nr' => 23,
-    'text' => 'node `chapter 2\' is prev for `section\' in menu but not in sectioning',
+    'text' => 'node prev for `section\' is `chapter 2\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node `section\' is next for `chapter 2\' in menu but not in sectioning
+    'error_line' => 'warning: node next for `chapter 2\' is `section\' in menu but not in sectioning
 ',
     'line_nr' => 26,
-    'text' => 'node `section\' is next for `chapter 2\' in menu but not in sectioning',
+    'text' => 'node next for `chapter 2\' is `section\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node `section\' is prev for `section chap 2\' in menu but not in sectioning
+    'error_line' => 'warning: node prev for `section chap 2\' is `section\' in menu but not in sectioning
 ',
     'line_nr' => 34,
-    'text' => 'node `section\' is prev for `section chap 2\' in menu but not in sectioning',
+    'text' => 'node prev for `section chap 2\' is `section\' in menu but not in sectioning',
     'type' => 'warning'
   }
 ];

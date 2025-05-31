@@ -829,12 +829,11 @@ sub check_node_tree_menu_structure($)
                      and !$menu_directions->{$direction}
                                           ->{'extra'}->{'manual_content'}) {
             $registrar->line_warn(
-        sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
-              target_element_to_texi_label(
-                       $menu_directions->{$direction}),
-                                 $direction,
-                               target_element_to_texi_label($node)),
-                                  $node->{'source_info'}, 0,
+        sprintf(__("node %s for `%s' is `%s' in menu but not in sectioning"),
+                       $direction,
+                       target_element_to_texi_label($node),
+       target_element_to_texi_label($menu_directions->{$direction})),
+                                    $node->{'source_info'}, 0,
                           $customization_information->get_conf('DEBUG'));
           }
         }

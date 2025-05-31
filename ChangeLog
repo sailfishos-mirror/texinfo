@@ -1,5 +1,14 @@
 2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reword a warning
+
+	* tta/perl/Texinfo/Structuring.pm, tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure):
+	Reword a warning to be consistent with a very similar warning in the
+	same function.
+
+2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove cast away from const.
 
 	* tta/C/structuring_transfo/structuring.c

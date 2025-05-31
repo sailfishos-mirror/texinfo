@@ -1191,9 +1191,10 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                              (elt_menu_direction);
                           message_list_command_warn (error_messages,
                          (options && options->DEBUG.o.integer > 0),
-                         node, 0,
-           "node `%s' is %s for `%s' in menu but not in sectioning",
-                            entry_texi, direction_names[d], node_texi);
+                                   node, 0,
+                 "node %s for `%s' is `%s' in menu but not in sectioning",
+                                   direction_names[d], node_texi,
+                                   entry_texi);
                           free (node_texi);
                           free (entry_texi);
                         }

@@ -892,11 +892,11 @@ unnumbered chapter text.
 
 $result_errors{'sectioning_check_menu_structure'} = [
   {
-    'error_line' => 'warning: node `Last node no description\' is next for `Third node unnumbered\' in menu but not in sectioning
+    'error_line' => 'warning: node next for `Third node unnumbered\' is `Last node no description\' in menu but not in sectioning
 ',
     'file_name' => 'sectioning.texi',
     'line_nr' => 88,
-    'text' => 'node `Last node no description\' is next for `Third node unnumbered\' in menu but not in sectioning',
+    'text' => 'node next for `Third node unnumbered\' is `Last node no description\' in menu but not in sectioning',
     'type' => 'warning'
   }
 ];
