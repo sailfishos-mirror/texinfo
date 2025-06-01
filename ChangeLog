@@ -1,3 +1,7 @@
+2025-06-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: mention accesskey changes for HTML output.
+
 2025-05-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Reword a warning
