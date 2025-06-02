@@ -1,5 +1,10 @@
 2025-06-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next):
+	Add check for undef variable.
+
+2025-06-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Use identifier_target argument to get Top node
 
 	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next):

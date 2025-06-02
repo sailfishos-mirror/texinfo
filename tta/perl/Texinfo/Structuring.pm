@@ -928,7 +928,7 @@ sub _set_top_node_next($$)
     if ($automatic_directions) {
       my $node_directions = $node_relations->{'node_directions'};
 
-      if ($node eq $top_node) {
+      if ($top_node and $node eq $top_node) {
         if (not $node_directions
                  or not $node_directions->{'next'}) {
           # use first menu entry if available as next for Top
