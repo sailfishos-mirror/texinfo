@@ -40,6 +40,13 @@
 
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (debug_print_element),
+	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo): add
+	messages if an element is not blessed into Texinfo::TreeElement
+	now that both Perl and C generated tree element should be.
+
+2025-06-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (new_element_perl_data): add a function
 	to setup an empty Perl sv in a C element.
 

@@ -230,8 +230,8 @@ sub _convert_to_texinfo($)
   my $result = '';
   if (ref($element) ne 'Texinfo::TreeElement') {
     if (ref($element) eq 'HASH') {
-      #$result = 'CTTXI:HASH['
-      #            .Texinfo::Common::debug_print_element($element)."]";
+      $result = 'CTTXI:HASH['
+                  .Texinfo::Common::debug_print_element($element)."]";
     } else {
       confess "convert_to_texinfo: bad element type (".
                     ref($element).") $element";

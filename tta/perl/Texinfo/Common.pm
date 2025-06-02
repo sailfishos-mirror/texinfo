@@ -1856,7 +1856,7 @@ sub debug_print_element($;$)
   my $warning = '';
   if (ref($current) ne 'Texinfo::TreeElement') {
     if (ref($current) eq 'HASH') {
-      #$warning = '[ERROR:HASH]';
+      $warning = '[ERROR:HASH]';
     } else {
       return "debug_print_element: $current not a tree element";
     }
