@@ -26,6 +26,9 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 
 # for debugging
@@ -1303,8 +1306,9 @@ sub _convert($$;$)
           if ($book_element) {
             if ($section_name) {
               my $substituted_strings = {
-                  'section_name' => {'type' => '_converted',
-                                     'text' => $section_name},
+                  'section_name' =>
+                    Texinfo::TreeElement::new({'type' => '_converted',
+                                               'text' => $section_name}),
                   'book' => $book_element
                 };
               if ($command_name eq 'ref') {
@@ -1322,8 +1326,9 @@ sub _convert($$;$)
               }
             } elsif ($node_name) {
               my $substituted_strings = {
-                 'node_name' => {'type' => '_converted',
-                                 'text' => $node_name},
+                 'node_name' =>
+                    Texinfo::TreeElement::new({'type' => '_converted',
+                                               'text' => $node_name}),
                  'book' => $book_element
                 };
               if ($command_name eq 'ref') {
@@ -1357,8 +1362,9 @@ sub _convert($$;$)
           } elsif ($manual_file_element) {
             if ($section_name) {
               my $substituted_strings = {
-                'section_name' => {'type' => '_converted',
-                                   'text' => $section_name},
+                'section_name' =>
+                   Texinfo::TreeElement::new({'type' => '_converted',
+                                              'text' => $section_name}),
                 'manual' => $manual_file_element
                };
               if ($command_name eq 'ref') {
@@ -1376,8 +1382,9 @@ sub _convert($$;$)
               }
             } elsif ($node_name) {
               my $substituted_strings = {
-                  'node_name' => {'type' => '_converted',
-                                  'text' => $node_name},
+                  'node_name' =>
+                    Texinfo::TreeElement::new({'type' => '_converted',
+                                               'text' => $node_name}),
                   'manual' => $manual_file_element
                 };
               if ($command_name eq 'ref') {
@@ -1425,18 +1432,18 @@ sub _convert($$;$)
                 or $cmdname eq 'link') {
               $result = _convert($self,
                       $self->cdt('{title_ref}', {'title_ref' =>
-                           {'type' => '_converted',
-                            'text' => $argument}}));
+                       Texinfo::TreeElement::new({'type' => '_converted',
+                                                  'text' => $argument})}));
             } elsif ($cmdname eq 'xref') {
               $result = _convert($self,
                       $self->cdt('See {title_ref}', {'title_ref' =>
-                           {'type' => '_converted',
-                            'text' => $argument}}));
+                        Texinfo::TreeElement::new({'type' => '_converted',
+                                                   'text' => $argument})}));
             } elsif ($cmdname eq 'pxref') {
               $result = _convert($self,
                       $self->cdt('see {title_ref}', {'title_ref' =>
-                           {'type' => '_converted',
-                            'text' => $argument}}));
+                       Texinfo::TreeElement::new({'type' => '_converted',
+                                                  'text' => $argument})}));
             }
           }
           pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1554,7 +1561,7 @@ sub _convert($$;$)
                                  $self->{'convert_text_options'});
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
-            $url_text = _protect_text($self, 
+            $url_text = _protect_text($self,
               Texinfo::Convert::Text::convert_to_text($url_arg,
                                        $self->{'convert_text_options'}));
             Texinfo::Convert::Text::reset_options_code(
@@ -1604,8 +1611,9 @@ sub _convert($$;$)
               and $element->{'contents'}->[1]->{'contents'}) {
             if (defined($argument)) {
               my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
-                             {'abbr_or_acronym' => {'type' => '_converted',
-                                                    'text' => $argument},
+                             {'abbr_or_acronym' =>
+                        Texinfo::TreeElement::new({'type' => '_converted',
+                                                   'text' => $argument}),
                               'explanation' =>
                                   $element->{'contents'}->[1]});
               return _convert($self, $tree);

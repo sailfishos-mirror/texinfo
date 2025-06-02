@@ -49,6 +49,8 @@ use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
 
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 
 require Exporter;
@@ -136,7 +138,7 @@ sub _copy_tree($;$)
     return $current->{'_copy'};
   }
 
-  my $new = {};
+  my $new = Texinfo::TreeElement::new({});
   foreach my $key ('type', 'text') {
     $new->{$key} = $current->{$key} if (exists($current->{$key}));
   }
@@ -189,7 +191,8 @@ sub _copy_tree($;$)
         $new->{$info_type}->{$key} = $value;
       } elsif (ref($value) eq 'ARRAY') {
         # menus
-        if (ref($value->[0]) eq 'HASH') {
+        if (ref($value->[0]) eq 'HASH'
+            or ref($value->[0]) eq 'Texinfo::TreeElement') {
           #print STDERR "II ARRAY $key $value\n";
           if ($other_trees) {
             $new->{$info_type}->{$key} = [];
@@ -205,7 +208,7 @@ sub _copy_tree($;$)
           print STDERR "Unexpected array $info_type [$command_or_type]{$key}: "
                                                      .ref($value->[0])."\n";
         }
-      } elsif (ref($value) eq 'HASH') {
+      } elsif (ref($value) eq 'HASH' or ref($value) eq 'Texinfo::TreeElement') {
         #print STDERR "II HASH $key $value\n";
         if (not $other_trees
             and ($info_type eq 'extra' and $key ne 'node_content'
@@ -286,7 +289,8 @@ sub _remove_element_copy_info($;$$)
       my $value = $current->{$info_type}->{$key};
       #print STDERR (' ' x $level) . "K $info_type $key |$value\n";
       if (ref($value) eq 'ARRAY') {
-        if (ref($value->[0]) eq 'HASH') {
+        if (ref($value->[0]) eq 'HASH'
+            or ref($value->[0]) eq 'Texinfo::TreeElement') {
         #print STDERR (' ' x $level) .
         #           "Array $command_or_type $info_type -> $key\n";
           # manual_content menus node_content
@@ -296,7 +300,8 @@ sub _remove_element_copy_info($;$$)
                                       $added_root_elements);
           }
         }
-      } elsif (ref($value) eq 'HASH') {
+      } elsif (ref($value) eq 'HASH'
+               or ref($value) eq 'Texinfo::TreeElement') {
         #print STDERR (' ' x $level)
         #         . "Hash $command_or_type $info_type -> $key\n";
         if ($extra_directions{$key}) {
@@ -369,7 +374,8 @@ sub copy_contents($;$)
 {
   my $element = shift;
   my $type = shift;
-  my $tmp = {'contents' => $element->{'contents'}};
+  # Done for consistenct, but not sure that it is needed
+  my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
   my $copy = copy_tree($tmp);
   if (defined($type)) {
     $copy->{'type'} = $type;
@@ -561,7 +567,9 @@ sub element_number_or_error($)
 {
   my $element = shift;
 
-  if (ref($element) eq '' or ref($element) ne 'HASH') {
+  if (ref($element) eq ''
+      or (ref($element) ne 'HASH'
+          and ref($element) ne 'Texinfo::TreeElement')) {
     cluck("element_number_or_error: not an hash: $element\n");
   }
 
@@ -585,7 +593,8 @@ sub _print_root_command($)
       and $argument_line->{'contents'}->[0]->{'contents'}) {
     my $root_command_texi
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+         Texinfo::TreeElement::new(
+          {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
     return $root_command_texi;
   }
   return undef;
@@ -660,7 +669,16 @@ sub _print_element_associated_info($$$$$;$$)
       } else {
         $result .= "{${value}}";
       }
-    } elsif ($ref eq 'HASH') {
+    } elsif (($ref eq 'HASH' or $ref eq 'Texinfo::TreeElement')
+              and $out_of_tree_element_name{$key}) {
+      my $info_e_text;
+      ($current_nr, $info_e_text)
+        = _print_element_add_prepend_info($value, $level+1, $prepended,
+                                          $current_nr,
+                                          $fname_encoding, $use_filename);
+      $result .= "\n$info_e_text";
+      $had_eol = 1;
+    } elsif ($ref eq 'HASH' or $ref eq 'Texinfo::TreeElement') {
       if ($extra_directions{$key}) {
         my @directions_strings;
         foreach my $d_key (@node_directions_names) {
@@ -676,14 +694,6 @@ sub _print_element_associated_info($$$$$;$$)
           = Texinfo::Convert::Texinfo::convert_to_texinfo($value);
         $container_value = _debug_protect_eol($container_value);
         $result .= "{$container_value}";
-      } elsif ($out_of_tree_element_name{$key}) {
-        my $info_e_text;
-        ($current_nr, $info_e_text)
-          = _print_element_add_prepend_info($value, $level+1, $prepended,
-                                            $current_nr,
-                                            $fname_encoding, $use_filename);
-        $result .= "\n$info_e_text";
-        $had_eol = 1;
       } else {
         my $element_value = element_number_or_error($value);
         $result .= "[$element_value]";
@@ -806,7 +816,8 @@ sub print_element_details($$$$;$$)
         and $argument_line->{'contents'}->[0]->{'contents'}) {
       my $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
-             {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+            Texinfo::TreeElement::new(
+              {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
       $result .= " {${root_command_texi}}";
     }
   }
@@ -944,7 +955,8 @@ sub modify_tree($$;$)
   my $argument = shift;
   #print STDERR "modify_tree tree: $tree\n";
 
-  if (!defined($tree) or ref($tree) ne 'HASH') {
+  if (!defined($tree)
+      or (ref($tree) ne 'HASH' and ref($tree) ne 'Texinfo::TreeElement')) {
     cluck "tree ".(!defined($tree) ? 'UNDEF' : "not a hash: $tree");
     return undef;
   }
@@ -968,6 +980,7 @@ sub modify_tree($$;$)
     my @source_marks = @{$tree->{'source_marks'}};
     for (my $i = 0; $i <= $#source_marks; $i++) {
       if ($source_marks[$i]->{'element'}) {
+        # TODO call Texinfo::TreeElement::new or let the user call.
         my $new_element
           = &$operation('source_mark', $source_marks[$i]->{'element'},
                         $argument);
@@ -1010,12 +1023,14 @@ sub _new_asis_command_with_text($$;$)
   my $text = shift;
   my $parent = shift;
   my $text_type = shift;
-  my $new_command = {'cmdname' => 'asis', 'parent' => $parent };
-  push @{$new_command->{'contents'}}, {'type' => 'brace_container',
-                                   'parent' => $new_command};
-  push @{$new_command->{'contents'}->[0]->{'contents'}}, {
-    'text' => $text,
-    'parent' => $new_command->{'contents'}->[0]};
+  my $new_command
+    = Texinfo::TreeElement::new({'cmdname' => 'asis', 'parent' => $parent });
+  push @{$new_command->{'contents'}},
+        Texinfo::TreeElement::new({'type' => 'brace_container',
+                                   'parent' => $new_command});
+  push @{$new_command->{'contents'}->[0]->{'contents'}},
+    Texinfo::TreeElement::new({'text' => $text,
+                               'parent' => $new_command->{'contents'}->[0]});
   if (defined($text_type)) {
     $new_command->{'contents'}->[0]->{'contents'}->[0]->{'type'} = $text_type;
   }
@@ -1047,7 +1062,8 @@ sub _protect_text($$)
         # Note that it includes for completeness the case of $1 eq ''
         # although it is unclear that source marks may happen in that case
         # as they are rather associated to the previous element.
-        my $e = {'text' => $1, 'parent' => $current->{'parent'}};
+        my $e = Texinfo::TreeElement::new({'text' => $1,
+                                           'parent' => $current->{'parent'}});
         $e->{'type'} = $current->{'type'} if defined($current->{'type'});
         $current_position = Texinfo::Common::relocate_source_marks(
                                         $remaining_source_marks, $e,
@@ -1057,9 +1073,11 @@ sub _protect_text($$)
         }
         if ($to_protect eq quotemeta(',')) {
           for (my $i = 0; $i < length($2); $i++) {
-            my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'}};
-            my $brace_container = {'type' => 'brace_container',
-                                   'parent' => $e};
+            my $e = Texinfo::TreeElement::new({'cmdname' => 'comma',
+                                         'parent' => $current->{'parent'}});
+            my $brace_container
+              = Texinfo::TreeElement::new({'type' => 'brace_container',
+                                           'parent' => $e});
             $e->{'contents'} = [$brace_container];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
@@ -1076,7 +1094,8 @@ sub _protect_text($$)
           push @result, $new_asis;
         }
       } else {
-        my $e = {'text' => $remaining_text, 'parent' => $current->{'parent'}};
+        my $e = Texinfo::TreeElement::new({'text' => $remaining_text,
+                                           'parent' => $current->{'parent'}});
         $e->{'type'} = $current->{'type'} if defined($current->{'type'});
         $current_position = Texinfo::Common::relocate_source_marks(
                                       $remaining_source_marks, $e,
@@ -1149,7 +1168,7 @@ sub protect_first_parenthesis($)
   confess("BUG: protect_first_parenthesis element undef")
     if (!defined($element));
   confess("BUG: protect_first_parenthesis not a hash")
-    if (ref($element) ne 'HASH');
+    if (ref($element) ne 'HASH' and ref($element) ne 'Texinfo::TreeElement');
   #print STDERR "protect_first_parenthesis: $element->{'contents'}\n";
   return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
 

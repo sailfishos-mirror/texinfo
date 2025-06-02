@@ -21,6 +21,10 @@
 
 use strict;
 
+use Texinfo::TreeElement;
+
+use Texinfo::Common;
+
 use Texinfo::Convert::Texinfo;
     
 my $selected_index_name = 'cp';
@@ -65,7 +69,8 @@ sub _set_index_global_direction_from_index_name
                                   $index_printindex_top_level_node);
     if (defined($label_element)) {
       my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                           {'contents' => $label_element->{'contents'}});
+          Texinfo::TreeElement::new(
+              {'contents' => $label_element->{'contents'}}));
       $self->set_global_direction('Index', $node_name);
     }
   }

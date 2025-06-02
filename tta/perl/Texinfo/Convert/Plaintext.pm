@@ -39,7 +39,11 @@ use Encode;
 use Texinfo::Commands;
 use Texinfo::CommandsValues;
 use Texinfo::Common;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Convert::Texinfo;
+
 use Texinfo::Structuring;
 use Texinfo::OutputUnits;
 use Texinfo::Convert::Utils;
@@ -1399,17 +1403,18 @@ sub process_footnotes($;$)
       _add_lines_count($self, 2);
     } else {
       my $footnotes_node_arg
-            = {'type' => 'line_arg',
-               'contents' => [$label_element, {'text' => '-Footnotes'}]};
-      my $footnotes_node = {
+            = Texinfo::TreeElement::new({'type' => 'line_arg',
+                             'contents' => [$label_element,
+                        Texinfo::TreeElement::new({'text' => '-Footnotes'})]});
+      my $footnotes_node = Texinfo::TreeElement::new({
         'cmdname' => 'node',
-        'contents' => [{'type' => 'arguments_line',
-                        'contents' => [$footnotes_node_arg],}],
+        'contents' => [Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                      'contents' => [$footnotes_node_arg],})],
         'extra' => {'is_target' => 1,
                 'normalized'
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
                    }
-      };
+      });
       my $footnotes_node_relations = {
          'element' => $footnotes_node,
          'node_directions' => {'up' => $node_element},
@@ -1429,15 +1434,16 @@ sub process_footnotes($;$)
       if ($label_element) {
         my $footnote_anchor_postfix = "-Footnote-$footnote_number";
         my $footnote_anchor_arg
-         = {'type' => 'brace_arg',
-            'contents' => [$label_element,
-                           {'text' => $footnote_anchor_postfix}]};
-        $self->add_location({'cmdname' => 'anchor',
-                    'contents' => [$footnote_anchor_arg],
-                    'extra' => {'is_target' => 1,
-                        'normalized'
+         = Texinfo::TreeElement::new({'type' => 'brace_arg',
+                  'contents' => [$label_element,
+            Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix})]});
+        $self->add_location(
+         Texinfo::TreeElement::new({'cmdname' => 'anchor',
+                                    'contents' => [$footnote_anchor_arg],
+                                    'extra' => {'is_target' => 1,
+                                   '            normalized'
        => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
-                            });
+                            }));
       }
       # this pushes on 'context', 'formatters', 'format_context',
       # 'text_element_context' and 'document_context'
@@ -1660,13 +1666,13 @@ sub format_contents($$$)
         if ($section->{'cmdname'} eq 'appendix'
             and $section->{'extra'}->{'section_level'} == 1) {
           $section_title_tree = $self->cdt('Appendix {number} {section_title}',
-               {'number' => {'text'
-                      => $section->{'extra'}->{'section_heading_number'}},
+               {'number' => Texinfo::TreeElement::new({'text'
+                      => $section->{'extra'}->{'section_heading_number'}}),
                 'section_title' => $line_arg});
         } else {
           $section_title_tree = $self->cdt('{number} {section_title}',
-               {'number' => {'text'
-                      => $section->{'extra'}->{'section_heading_number'}},
+               {'number' => Texinfo::TreeElement::new({'text'
+                      => $section->{'extra'}->{'section_heading_number'}}),
                 'section_title' => $line_arg});
         }
       } else {
@@ -1753,8 +1759,8 @@ sub node_name($$)
       # node direction to an external node
       $label_element = $node->{'extra'}->{'node_content'};
     }
-    my $node_text = {'type' => '_code',
-                     'contents' => [$label_element]};
+    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
+                                       'contents' => [$label_element]});
     my ($result, $width) = $self->convert_line_new_context($node_text,
                                     {'suppress_styles' => 1,
                                      'no_added_eol' => 1,});
@@ -1789,8 +1795,8 @@ sub _cache_node_names($$)
       my $label_element;
       #$label_element = Texinfo::Common::get_label_element($node);
       $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
-      my $node_text = {'type' => '_code',
-                       'contents' => [$label_element]};
+      my $node_text = Texinfo::TreeElement::new({'type' => '_code',
+                                         'contents' => [$label_element]});
 
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       _convert($self, $node_text);
@@ -1943,7 +1949,8 @@ sub process_printindex($$;$)
     my $entry_index_name = $entry->{'index_name'};
     my $entry_content_element
         = Texinfo::Common::index_content_element($main_entry_element);
-    my $entry_tree = {'contents' => [$entry_content_element]};
+    my $entry_tree
+     = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
     my $subentries_tree
        = $self->comma_index_subentries_tree($main_entry_element);
     if ($indices_information->{$entry_index_name}->{'in_code'}) {
@@ -1985,7 +1992,7 @@ sub process_printindex($$;$)
 
     if ($referred_entry) {
       my $line_width = 0;
-      my $referred_tree = {};
+      my $referred_tree = Texinfo::TreeElement::new({});
       $referred_tree->{'type'} = '_code'
         if ($indices_information->{$entry_index_name}->{'in_code'});
       if ($referred_entry->{'contents'} and $referred_entry->{'contents'}->[0]
@@ -2214,22 +2221,22 @@ sub format_ref($$$)
   my $file;
   my $book;
   if (defined($args[3])) {
-    $file = {'type' => '_stop_upper_case',
-             'contents' => [{'type' => '_code',
-                             'contents' => [$args[3]]}],
-            };
+    $file = Texinfo::TreeElement::new({'type' => '_stop_upper_case',
+             'contents' => [Texinfo::TreeElement::new({'type' => '_code',
+                                                  'contents' => [$args[3]]})],
+            });
   } elsif (defined($args[4])) {
     $book = $args[4];
   }
 
   my $node;
   if (defined($label_element)) {
-    $node = {'type' => '_stop_upper_case',
+    $node = Texinfo::TreeElement::new({'type' => '_stop_upper_case',
                    'contents' => [
-                     {'type' => '_code',
+                     Texinfo::TreeElement::new({'type' => '_code',
                       'contents' => [
-                       {'type' => '_suppress_styles',
-                        'contents' => [$label_element]}]}]};
+                       Texinfo::TreeElement::new({'type' => '_suppress_styles',
+                        'contents' => [$label_element]})]})]});
   }
 
   my $tree;
@@ -2351,7 +2358,8 @@ sub format_ref($$$)
         }
       } else {
         # case of a completely empty @*ref.
-        my $substrings = {'node' => {'text' => 'Top'}};
+        my $substrings = {'node'
+                           => Texinfo::TreeElement::new({'text' => 'Top'})};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
           $tree = $self->cdt('See {node}', $substrings);
         } elsif ($cmdname eq 'pxref') {
@@ -2534,8 +2542,8 @@ sub _text_heading($$$;$$)
   }
 
   my ($heading, undef) = $self->convert_line_new_context (
-                              {'type' => 'frenchspacing',
-                               'contents' => [$heading_element]});
+    Texinfo::TreeElement::new({'type' => 'frenchspacing',
+                               'contents' => [$heading_element]}));
 
   my $text;
   if (defined($number)) {
@@ -2604,13 +2612,15 @@ sub _convert_def_line($$)
     }
     my $formatted_name;
     if (defined($name)) {
-      $formatted_name = {'type' => '_code', 'contents' => [$name]};
+      $formatted_name
+       = Texinfo::TreeElement::new({'type' => '_code', 'contents' => [$name]});
     } else {
-      $formatted_name = {'text' => ''};
+      $formatted_name = Texinfo::TreeElement::new({'text' => ''});
     }
     my $formatted_arguments;
     if ($arguments) {
-      $formatted_arguments = {'type' => '_code', 'contents' => [$arguments]};
+      $formatted_arguments = Texinfo::TreeElement::new({'type' => '_code',
+                                                'contents' => [$arguments]});
     }
 
     my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
@@ -2646,7 +2656,8 @@ sub _convert_def_line($$)
         my $strings = {
           'category' => $category,
           'name' => $formatted_name,
-          'type' => {'type' => '_code', 'contents' => [$type]},
+          'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$type]}),
           'arguments' => $formatted_arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
@@ -2674,7 +2685,8 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => {'type' => '_code', 'contents' => [$type]},
+         'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$type]}),
          'name' => $formatted_name};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
@@ -2693,7 +2705,8 @@ sub _convert_def_line($$)
         my $strings = {
          'category' => $category,
          'name' => $formatted_name,
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
@@ -2707,7 +2720,8 @@ sub _convert_def_line($$)
       } else {
         $tree = $self->cdt('@tie{}--- {category} of {class}: {name}', {
          'category' => $category,
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'name' => $formatted_name});
       }
     } elsif ($cmdname eq 'defop'
@@ -2717,7 +2731,8 @@ sub _convert_def_line($$)
         my $strings = {
          'category' => $category,
          'name' => $formatted_name,
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
@@ -2731,7 +2746,8 @@ sub _convert_def_line($$)
       } else {
         $tree = $self->cdt('@tie{}--- {category} on {class}: {name}', {
          'category' => $category,
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'name' => $formatted_name});
       }
     } elsif ($cmdname eq 'deftypeop') {
@@ -2739,8 +2755,10 @@ sub _convert_def_line($$)
         my $strings = {
          'category' => $category,
          'name' => $formatted_name,
-         'class' => {'type' => '_code', 'contents' => [$class]},
-         'type' => {'type' => '_code', 'contents' => [$type]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
+         'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$type]}),
          'arguments' => $formatted_arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
@@ -2771,8 +2789,10 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => {'type' => '_code', 'contents' => [$type]},
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$type]}),
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'name' => $formatted_name};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
@@ -2790,8 +2810,10 @@ sub _convert_def_line($$)
         my $strings = {
          'category' => $category,
          'name' => $formatted_name,
-         'class' => {'type' => '_code', 'contents' => [$class]},
-         'type' => {'type' => '_code', 'contents' => [$type]},
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
+         'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$type]}),
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
@@ -2807,8 +2829,10 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => {'type' => '_code', 'contents' => [$type]},
-         'class' => {'type' => '_code', 'contents' => [$class]},
+         'type' => Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$type]}),
+         'class' => Texinfo::TreeElement::new({'type' => '_code',
+                                               'contents' => [$class]}),
          'name' => $formatted_name};
         $tree
           = $self->cdt('@tie{}--- {category} of {class}: {type} {name}',
@@ -3286,14 +3310,16 @@ sub _convert($$)
         if ($element->{'contents'}) {
           if (scalar(@{$element->{'contents'}}) == 3
                and $element->{'contents'}->[2]->{'contents'}) {
-            $inserted = {'type' => '_stop_upper_case',
-                         'contents' => [$element->{'contents'}->[2]]};
+            $inserted = Texinfo::TreeElement::new(
+                        {'type' => '_stop_upper_case',
+                         'contents' => [$element->{'contents'}->[2]]});
           } elsif ($element->{'contents'}->[0]->{'contents'}) {
             # no mangling of --- and similar in url.
-            my $url = {'type' => '_stop_upper_case',
+            my $url = Texinfo::TreeElement::new(
+             {'type' => '_stop_upper_case',
               'contents' => [
-               {'type' => '_code',
-                'contents' => [$element->{'contents'}->[0]]}]};
+               Texinfo::TreeElement::new({'type' => '_code',
+                'contents' => [$element->{'contents'}->[0]]})]});
             if (scalar(@{$element->{'contents'}}) == 2
                 and $element->{'contents'}->[1]->{'contents'}) {
               $inserted = $self->cdt('{text} ({url})',
@@ -3335,20 +3361,21 @@ sub _convert($$)
           # arguments_line type element
           my $arguments_line = $self->{'current_node'}->{'contents'}->[0];
           my $line_arg = $arguments_line->{'contents'}->[0];
-          _convert($self, {'contents' =>
-           [{'text' => ' ('},
-            {'cmdname' => 'pxref',
+          _convert($self, Texinfo::TreeElement::new({'contents' =>
+           [Texinfo::TreeElement::new({'text' => ' ('}),
+            Texinfo::TreeElement::new({'cmdname' => 'pxref',
              'contents' => [
-               {'type' => 'brace_arg',
+               Texinfo::TreeElement::new({'type' => 'brace_arg',
                 'contents' => [
                    $line_arg,
-                   {'text' => "-Footnote-$self->{'footnote_index'}"}
+                   Texinfo::TreeElement::new(
+                        {'text' => "-Footnote-$self->{'footnote_index'}"})
                 ]
-               }
+               })
              ]
-            },
-            {'text' => ')'}],
-            });
+            }),
+            Texinfo::TreeElement::new({'text' => ')'})],
+            }));
         }
         return;
       } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
@@ -3362,8 +3389,8 @@ sub _convert($$)
           # in abbr spaces never end a sentence.
           my $argument;
           if ($cmdname eq 'abbr') {
-            $argument = {'type' => 'frenchspacing',
-                         'contents' => [$element->{'contents'}->[0]]};
+            $argument = Texinfo::TreeElement::new({'type' => 'frenchspacing',
+                         'contents' => [$element->{'contents'}->[0]]});
           } else {
             $argument = $element->{'contents'}->[0];
           }
@@ -3399,9 +3426,11 @@ sub _convert($$)
           my $arg = $element->{'contents'}->[$arg_index];
           my $argument;
           if ($cmdname eq 'inlineraw') {
-            $argument = {'type' => '_stop_upper_case',
-                         'contents' => [{'type' => '_code',
-                                         'contents' => [$arg]}]};
+            $argument = Texinfo::TreeElement::new(
+                        {'type' => '_stop_upper_case',
+                         'contents' => [
+              Texinfo::TreeElement::new({'type' => '_code',
+                                         'contents' => [$arg]})]});
           } else {
             $argument = $arg;
           }
@@ -3427,9 +3456,9 @@ sub _convert($$)
                                                'encoding_disabled' => 1,
                                                    'locations' => []};
           }
-          _convert($self, {'type' => 'frenchspacing',
-               'contents' => [{'type' => '_code',
-                              'contents' => [$element->{'contents'}->[0]]}]});
+          _convert($self, Texinfo::TreeElement::new({'type' => 'frenchspacing',
+           'contents' => [Texinfo::TreeElement::new({'type' => '_code',
+                          'contents' => [$element->{'contents'}->[0]]})]}));
           if ($self->{'elements_images'}
               and $self->{'elements_images'}->{$element}) {
             # flush @math, including spaces
@@ -3453,8 +3482,8 @@ sub _convert($$)
       } elsif ($cmdname eq 'titlefont') {
         if ($element->{'contents'}) {
           my $result = _text_heading($self, 
-                          {'extra' => {'section_level' => 0},
-                           'cmdname' => 'titlefont'},
+           Texinfo::TreeElement::new({'extra' => {'section_level' => 0},
+                                      'cmdname' => 'titlefont'}),
                             $element->{'contents'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
@@ -3751,7 +3780,7 @@ sub _convert($$)
           = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
         # this is the text prepended to items.
         _convert($self, $prepended_element);
-        _convert($self, { 'text' => ' ' });
+        _convert($self, Texinfo::TreeElement::new({ 'text' => ' ' }));
       }
       _stream_output($self,
                      Texinfo::Convert::Paragraph::end($line->{'container'}),
@@ -3888,9 +3917,9 @@ sub _convert($$)
 
           _stream_output_add_next($self, ': ');
 
-          _convert($self, {'type' => '_code',
+          _convert($self, Texinfo::TreeElement::new({'type' => '_code',
                           'contents' =>
-                      [$float->{'contents'}->[0]->{'contents'}->[1]]});
+                      [$float->{'contents'}->[0]->{'contents'}->[1]]}));
           _stream_output_add_next($self, '.');
           _stream_output($self,
                    Texinfo::Convert::Paragraph::add_pending_word($container),
@@ -4090,8 +4119,8 @@ sub _convert($$)
 
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                              'encoding_disabled' => 1};
-          _convert($self, {'type' => '_code',
-                          'contents' => [$content]});
+          _convert($self, Texinfo::TreeElement::new({'type' => '_code',
+                                              'contents' => [$content]}));
 
           _stream_output($self,
                         Texinfo::Convert::Paragraph::add_pending_word

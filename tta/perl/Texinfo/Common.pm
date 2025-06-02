@@ -48,6 +48,8 @@ use Texinfo::Commands;
 use Texinfo::Options;
 use Texinfo::CommandsValues;
 
+use Texinfo::TreeElement;
+
 require Exporter;
 our @ISA = qw(Exporter);
 
@@ -445,6 +447,7 @@ foreach my $command (
 # Not supposed to be called in user-defined code.
 
 # Called in perl parser
+# FIXME move to Parser code
 sub rearrange_tree_beginning($$)
 {
   my $document = shift;
@@ -455,9 +458,10 @@ sub rearrange_tree_beginning($$)
   if ($document->global_commands_information()->{'setfilename'}
       and $document->global_commands_information()->{'setfilename'}->{'parent'}
                                                  eq $before_node_section) {
-    my $before_setfilename = {'type' => 'preamble_before_setfilename',
-                              'parent' => $before_node_section,
-                              'contents' => []};
+    my $before_setfilename
+      = Texinfo::TreeElement::new({'type' => 'preamble_before_setfilename',
+                                   'parent' => $before_node_section,
+                                   'contents' => []});
     while (@{$before_node_section->{'contents'}}
         and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
           or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
@@ -479,8 +483,9 @@ sub _add_preamble_before_content($)
   my $before_node_section = shift;
 
   # add a preamble for informational commands
-  my $informational_preamble = {'type' => 'preamble_before_content',
-                                'parent' => $before_node_section,};
+  my $informational_preamble
+    = Texinfo::TreeElement::new({'type' => 'preamble_before_content',
+                                 'parent' => $before_node_section,});
   my @first_types;
   if ($before_node_section->{'contents'}) {
     while (@{$before_node_section->{'contents'}}) {
@@ -697,11 +702,13 @@ sub parse_node_manual($;$)
     my $first = $contents->[0];
     if ($first->{'text'} ne '(') {
       if ($modify_node) {
-        $opening_brace = {'text' => '(', 'parent' => $label_contents_container};
+        $opening_brace
+          = Texinfo::TreeElement::new({'text' => '(',
+                                 'parent' => $label_contents_container});
       }
       my $brace_text = $first->{'text'};
       $brace_text =~ s/^\(//;
-      $new_first = { 'text' => $brace_text};
+      $new_first = Texinfo::TreeElement::new({'text' => $brace_text});
     } else {
       # first element is "(", it is not part of the manual, keep it
       $idx++;
@@ -735,7 +742,7 @@ sub parse_node_manual($;$)
               # remove the original first element and prepend the
               # split "(" and text elements
               shift @$contents;
-              $new_first ->{'parent'} = $label_contents_container;
+              $new_first->{'parent'} = $label_contents_container;
               unshift @$contents, $new_first;
               unshift @$contents, $opening_brace;
               $idx++;
@@ -756,7 +763,8 @@ sub parse_node_manual($;$)
           my $end_paren = $1;
           if ($before ne '') {
             # text before ), part of the manual name
-            my $last_manual_element = { 'text' => $before };
+            my $last_manual_element
+              = Texinfo::TreeElement::new({ 'text' => $before });
             push @$manual, $last_manual_element;
             if ($modify_node) {
               $last_manual_element->{'parent'} = $content->{'parent'};
@@ -768,8 +776,9 @@ sub parse_node_manual($;$)
             }
           }
           if ($modify_node) {
-            my $closing_brace = {'text' => ')',
-                                 'parent' => $content->{'parent'}};
+            my $closing_brace
+              = Texinfo::TreeElement::new({'text' => ')',
+                                   'parent' => $content->{'parent'}});
             splice(@$contents, $idx, 0, $closing_brace);
             $idx++;
             $current_position = relocate_source_marks(
@@ -779,8 +788,9 @@ sub parse_node_manual($;$)
           $after =~ s/^(\s*)//;
           my $spaces_after = $1;
           if ($spaces_after and $modify_node) {
-            my $spaces_element = {'text' => $spaces_after,
-                                  'parent' => $content->{'parent'}};
+            my $spaces_element
+              = Texinfo::TreeElement::new({'text' => $spaces_after,
+                                           'parent' => $content->{'parent'}});
             splice(@$contents, $idx, 0, $spaces_element);
             $idx++;
             $current_position = relocate_source_marks(
@@ -789,7 +799,8 @@ sub parse_node_manual($;$)
           }
           if ($after ne '') {
             # text after ), part of the node name.
-            my $leading_node_content = {'text' => $after};
+            my $leading_node_content
+              = Texinfo::TreeElement::new({'text' => $after});
             push @$node_content, $leading_node_content;
             if ($modify_node) {
               $leading_node_content->{'parent'} = $content->{'parent'};
@@ -812,7 +823,8 @@ sub parse_node_manual($;$)
       $idx = 0;
     } else {
       $result = {};
-      $result->{'manual_content'} = {'contents' => $manual};
+      $result->{'manual_content'}
+        = Texinfo::TreeElement::new({'contents' => $manual});
     }
   }
 
@@ -821,8 +833,9 @@ sub parse_node_manual($;$)
   }
 
   if (scalar(@$node_content)) {
-    $result = {} if (!$result);
-    $result->{'node_content'} = {'contents' => $node_content};
+    $result = Texinfo::TreeElement::new({}) if (!$result);
+    $result->{'node_content'}
+      = Texinfo::TreeElement::new({'contents' => $node_content});
   }
 
   return $result;
@@ -876,7 +889,7 @@ sub block_line_argument_command($)
   return undef;
 }
 
-my $default_bullet_command = {'cmdname' => 'bullet'};
+my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 sub itemize_item_prepended_element($)
 {
@@ -910,7 +923,7 @@ sub item_line_block_line_argument_command($)
   return $arg;
 }
 
-my $default_asis_command = {'cmdname' => 'asis'};
+my $default_asis_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
 
 sub block_item_line_command($)
 {
@@ -1840,8 +1853,13 @@ sub debug_print_element($;$)
   if (!defined($current)) {
     return "debug_print_element: UNDEF";
   }
-  if (ref($current) ne 'HASH') {
-    return "debug_print_element: $current not a hash";
+  my $warning = '';
+  if (ref($current) ne 'Texinfo::TreeElement') {
+    if (ref($current) eq 'HASH') {
+      #$warning = '[ERROR:HASH]';
+    } else {
+      return "debug_print_element: $current not a tree element";
+    }
   }
   my $type = '';
   my $cmd = '';
@@ -1869,7 +1887,7 @@ sub debug_print_element($;$)
     $parent_string = _parent_string($current);
     $parent_string = '' if (!defined($parent_string));
   }
-  return "$cmd$type$text$args$contents$parent_string";
+  return "$warning$cmd$type$text$args$contents$parent_string";
 }
 
 # for debugging

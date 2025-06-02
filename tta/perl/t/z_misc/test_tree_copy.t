@@ -11,6 +11,8 @@ use Data::Dumper;
 use File::Spec;
 #use Text::Diff;
 
+use Texinfo::TreeElement;
+
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::ManipulateTree;
@@ -42,20 +44,20 @@ ok(1, 'modules loading');
 # FIXME does not test the XS code
 # a tree with a reference seen after one within the extra tree.
 # Not sure that it exists in real trees, so check it here
-my $tref = {'type' => 'document_root',
-            'contents' => [{'text' => 'x'},
-                           {'type' => 'paragraph',
+my $tref = Texinfo::TreeElement::new({'type' => 'document_root',
+            'contents' => [Texinfo::TreeElement::new({'text' => 'x'}),
+                           Texinfo::TreeElement::new({'type' => 'paragraph',
                             'extra' => {'thing' =>
-                              {'type' => 'container',
-                               'contents' => [{'type' => 'e1',
-                                              'extra' => {}}
+                              Texinfo::TreeElement::new({'type' => 'container',
+                               'contents' => [Texinfo::TreeElement::new({'type' => 'e1',
+                                              'extra' => {}})
                                              ]
-                              }
+                              })
                              }
-                            },
-                            {'text' => "\n"},
+                            }),
+                            Texinfo::TreeElement::new({'text' => "\n"}),
                            ]
-            };
+            });
 
 $tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'ref'}
   = $tref->{'contents'}->[0];

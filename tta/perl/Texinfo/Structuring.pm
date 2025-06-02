@@ -42,7 +42,11 @@ use Texinfo::StructTransfXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
+
 use Texinfo::ManipulateTree;
 
 # for error messages
@@ -1156,7 +1160,8 @@ sub _print_line_command($)
         and $element->{'contents'}->[0]->{'contents'}) {
       my $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+           Texinfo::TreeElement::new(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
       return '@'."$element->{'cmdname'} ".$root_command_texi;
     }
     return undef;
@@ -1205,7 +1210,8 @@ sub _print_root_command($)
       and $argument_line->{'contents'}->[0]->{'contents'}) {
     my $root_command_texi
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+         Texinfo::TreeElement::new(
+           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
     return $root_command_texi;
   }
   return undef;
@@ -1221,7 +1227,8 @@ sub _print_menu_node($)
            and $element->{'contents'}->[0]
            and $element->{'contents'}->[0]->{'contents'}) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+             Texinfo::TreeElement::new(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
   } else {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($element);
   }
@@ -1351,7 +1358,8 @@ sub print_headings_list($)
         and $element->{'contents'}->[0]->{'contents'}) {
       $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+            Texinfo::TreeElement::new(
+               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
     }
     if (!defined($root_command_texi)) {
       $result .= "$idx\n";
@@ -1641,7 +1649,7 @@ sub new_node_menu_entry($;$)
     Texinfo::ManipulateTree::protect_colon_in_tree($menu_entry_name);
   }
 
-  my $entry = {'type' => 'menu_entry'};
+  my $entry = Texinfo::TreeElement::new({'type' => 'menu_entry'});
 
   if ($node->{'source_info'}) {
     $entry->{'source_info'} = {%{$node->{'source_info'}}};
@@ -1658,27 +1666,35 @@ sub new_node_menu_entry($;$)
   # the menu entry should be the same as the node
   #Texinfo::ManipulateTree::protect_colon_in_tree($menu_entry_node);
 
-  my $description = {'type' => 'menu_entry_description',
-                     'contents' => []};
-  $description->{'contents'}->[0] = {'type' => 'preformatted',
-                                     'parent' => $description,
-                                     'contents' => []};
-  $description->{'contents'}->[0]->{'contents'}->[0] = {'text' => "\n",
-                           'parent' => $description->{'contents'}->[0]};
+  my $description
+    = Texinfo::TreeElement::new({'type' => 'menu_entry_description',
+                                 'contents' => []});
+  $description->{'contents'}->[0]
+    = Texinfo::TreeElement::new({'type' => 'preformatted',
+                                 'parent' => $description,
+                                 'contents' => []});
+  $description->{'contents'}->[0]->{'contents'}->[0]
+    = Texinfo::TreeElement::new({'text' => "\n",
+                           'parent' => $description->{'contents'}->[0]});
 
   if ($use_sections) {
     $entry->{'contents'}
-     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
+     = [Texinfo::TreeElement::new({'text' => '* ',
+                              'type' => 'menu_entry_leading_text'}),
         $menu_entry_name,
-        {'text' => ': ', 'type' => 'menu_entry_separator'},
+        Texinfo::TreeElement::new({'text' => ': ',
+                                   'type' => 'menu_entry_separator'}),
         $menu_entry_node,
-        {'text' => '.', 'type' => 'menu_entry_separator'},
+        Texinfo::TreeElement::new({'text' => '.',
+                                   'type' => 'menu_entry_separator'}),
         $description];
   } else {
     $entry->{'contents'}
-     = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
+     = [Texinfo::TreeElement::new({'text' => '* ',
+                                   'type' => 'menu_entry_leading_text'}),
         $menu_entry_node,
-        {'text' => '::', 'type' => 'menu_entry_separator'},
+        Texinfo::TreeElement::new({'text' => '::',
+                                   'type' => 'menu_entry_separator'}),
         $description];
   }
 
@@ -1712,25 +1728,31 @@ sub new_block_command($$)
 
   $element->{'cmdname'} = $command_name;
 
-  my $arguments_line = {'type' => 'arguments_line', 'parent' => $element};
-  $arguments_line->{'contents'} = [{'type' => 'block_line_arg',
-                                    'parent' => $arguments_line,
-                                    'info' => { 'spaces_after_argument' =>
-                                               {'text' => "\n",}}}];
+  my $arguments_line
+    = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                 'parent' => $element});
+  $arguments_line->{'contents'} = [
+      Texinfo::TreeElement::new({'type' => 'block_line_arg',
+                                  'parent' => $arguments_line,
+          'info' => { 'spaces_after_argument'
+                      => Texinfo::TreeElement::new({'text' => "\n",})}})];
   unshift @{$element->{'contents'}}, $arguments_line;
 
-  my $end = {'cmdname' => 'end', 'parent' => $element,
-             'extra' => {'text_arg' => $command_name}};
+  my $end = Texinfo::TreeElement::new({'cmdname' => 'end',
+                                       'parent' => $element,
+                               'extra' => {'text_arg' => $command_name}});
   $end->{'info'} = {'spaces_before_argument' =>
-                                         {'text' => ' '}};
-  my $end_args = {'type' => 'line_arg', 'parent' => $end,
-                  'contents' => [],
+                    Texinfo::TreeElement::new({'text' => ' '})};
+  my $end_args
+   = Texinfo::TreeElement::new({'type' => 'line_arg', 'parent' => $end,
+                                'contents' => [],
                   'info' => {'spaces_after_argument' =>
-                                        {'text' => "\n"}}};
+                        Texinfo::TreeElement::new({'text' => "\n"})}});
   $end->{'contents'} = [$end_args];
 
-  my $command_name_text = {'text' => $command_name,
-                           'parent' => $end_args};
+  my $command_name_text
+    = Texinfo::TreeElement::new({'text' => $command_name,
+                                 'parent' => $end_args});
   push @{$end_args->{'contents'}}, $command_name_text;
 
   push @{$element->{'contents'}}, $end;
@@ -1745,20 +1767,23 @@ sub _insert_menu_comment_content($$$;$)
   my $inserted_element = shift;
   my $no_leading_empty_line = shift;
 
-  my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
-  my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment,
-                      'contents' => []};
+  my $menu_comment
+    = Texinfo::TreeElement::new({'type' => 'menu_comment', 'contents' => []});
+  my $preformatted
+    = Texinfo::TreeElement::new({'type' => 'preformatted',
+                                 'parent' => $menu_comment,
+                                 'contents' => []});
   $menu_comment->{'contents'}->[0] = $preformatted;
 
   if (!$no_leading_empty_line) {
     push @{$preformatted->{'contents'}},
-           {'text' => "\n", 'type' => 'empty_line'};
+     Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'});
   }
 
   push @{$preformatted->{'contents'}},
-          @{$inserted_element->{'contents'}},
-          {'text' => "\n", 'type' => 'empty_line'},
-          {'text' => "\n", 'type' => 'empty_line'};
+    @{$inserted_element->{'contents'}},
+    Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'}),
+    Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'});
 
   foreach my $content (@{$preformatted->{'contents'}}) {
     $content->{'parent'} = $preformatted;
@@ -1784,7 +1809,7 @@ sub new_complete_node_menu($;$$$)
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command below
-  my $new_menu = {'contents' => []};
+  my $new_menu = Texinfo::TreeElement::new({'contents' => []});
   foreach my $child (@node_childs) {
     my $entry = new_node_menu_entry($child, $use_sections);
     if (defined($entry)) {
@@ -1862,7 +1887,7 @@ sub new_detailmenu($$$$$$;$)
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command
-  my $new_detailmenu = {'contents' => []};
+  my $new_detailmenu = Texinfo::TreeElement::new({'contents' => []});
   if (defined($menus) and ref($menus) ne 'ARRAY') {
     cluck();
   }
@@ -1896,7 +1921,8 @@ sub new_detailmenu($$$$$$;$)
                   $lang_translations,
                   undef, $customization_information->get_conf('DEBUG'));
     my @master_menu_title_contents;
-    foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
+    foreach my $content (@{$master_menu_title->{'contents'}},
+                         Texinfo::TreeElement::new({'text' => "\n"})) {
       $content->{'parent'} = $first_preformatted;
       push @master_menu_title_contents, $content;
     }
@@ -1939,14 +1965,17 @@ sub new_complete_menu_master_menu($$$$)
                                       [$menu_node]);
       if ($detailmenu) {
         # add a blank line before the detailed node listing
-        my $menu_comment = {'type' => 'menu_comment',
-                            'parent' => $menu_node};
+        my $menu_comment
+          = Texinfo::TreeElement::new({'type' => 'menu_comment',
+                                       'parent' => $menu_node});
         push @{$menu_node->{'contents'}}, $menu_comment;
-        my $preformatted = {'type' => 'preformatted',
-                            'parent' => $menu_comment};
+        my $preformatted
+         = Texinfo::TreeElement::new({'type' => 'preformatted',
+                                      'parent' => $menu_comment});
         push @{$menu_comment->{'contents'}}, $preformatted;
-        my $empty_line = {'type' => 'after_menu_description_line',
-                          'text' => "\n", 'parent' => $preformatted};
+        my $empty_line = Texinfo::TreeElement::new(
+                          {'type' => 'after_menu_description_line',
+                           'text' => "\n", 'parent' => $preformatted});
         push @{$preformatted->{'contents'}}, $empty_line;
 
         $detailmenu->{'parent'} = $menu_node;

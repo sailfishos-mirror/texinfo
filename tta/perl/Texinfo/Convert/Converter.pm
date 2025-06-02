@@ -42,6 +42,9 @@ use Texinfo::XSLoader;
 use Texinfo::Options;
 use Texinfo::CommandsValues;
 use Texinfo::UnicodeData;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 
 use Texinfo::Report;
@@ -699,7 +702,8 @@ sub normalized_sectioning_command_filename($$)
   }
   my $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-         {'contents' => $label_element->{'contents'}}, $in_test,
+        Texinfo::TreeElement::new(
+         {'contents' => $label_element->{'contents'}}), $in_test,
                   $no_unidecode);
 
   my $filename = $self->_id_to_filename($normalized_name);
@@ -726,14 +730,17 @@ sub node_information_filename($$$)
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
       $filename
   = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-       {'contents' => $label_element->{'contents'}}, $in_test,
+     Texinfo::TreeElement::new(
+       {'contents' => $label_element->{'contents'}}), $in_test,
             $no_unidecode);
     } else {
       $filename = $normalized;
     }
   } elsif (defined($label_element)) {
-    $filename = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-             { 'contents' => $label_element->{'contents'} });
+    $filename
+     = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+           Texinfo::TreeElement::new(
+             { 'contents' => $label_element->{'contents'} }));
   } else {
     $filename = '';
   }
@@ -1513,14 +1520,16 @@ sub float_type_number($$)
     if (defined($float_number)) {
       $tree = $self->cdt("{float_type} {float_number}",
                          {'float_type' => $type_element,
-                          'float_number' => {'text' => $float_number}});
+                          'float_number' =>
+                      Texinfo::TreeElement::new({'text' => $float_number})});
     } else {
       $tree = $self->cdt("{float_type}",
                          {'float_type' => $type_element});
     }
   } elsif (defined($float_number)) {
     $tree = $self->cdt("{float_number}",
-                       {'float_number' => {'text' => $float_number}});
+                       {'float_number' =>
+                    Texinfo::TreeElement::new({'text' => $float_number})});
   }
   return $tree;
 }
@@ -1542,7 +1551,8 @@ sub float_name_caption($$)
   #if ($self->get_conf('DEBUG')) {
   #  my $caption_texi =
   #    Texinfo::Convert::Texinfo::convert_to_texinfo(
-  #       { 'contents' => $caption_element->{'contents'}});
+  #    Texinfo::TreeElement::new(
+  #       { 'contents' => $caption_element->{'contents'}}));
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
 
@@ -1551,7 +1561,8 @@ sub float_name_caption($$)
   my $float_number_element;
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'float_number'})) {
-    $float_number_element = {'text' => $element->{'extra'}->{'float_number'}};
+    $float_number_element = Texinfo::TreeElement::new(
+       {'text' => $element->{'extra'}->{'float_number'}});
     $substrings->{'float_number'} = $float_number_element;
   }
 
@@ -1609,8 +1620,9 @@ sub table_item_content_tree($$)
 
   if ($command_as_argument) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
-    my $command = {'cmdname' => $command_as_argument_cmdname,
-                   'source_info' => $element->{'source_info'},};
+    my $command = Texinfo::TreeElement::new(
+                  {'cmdname' => $command_as_argument_cmdname,
+                   'source_info' => $element->{'source_info'},});
     if ($table_command->{'extra'}
         and $table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
@@ -1633,25 +1645,26 @@ sub table_item_content_tree($$)
       # or @math.  We do not really care about the formatting of the result
       # but we want to avoid debug messages, so we setup expected trees
       # for those @-commands.
-      $arg = {'type' => 'brace_command_context',
-              'parent' => $command,};
+      $arg = Texinfo::TreeElement::new({'type' => 'brace_command_context',
+                                        'parent' => $command,});
       if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
         $arg->{'contents'} = [$element->{'contents'}->[0]];
       } else {
-        my $paragraph = {'type' => 'paragraph',
-                         'contents' => [$element->{'contents'}->[0]],
-                         'parent' => $arg};
+        my $paragraph
+         = Texinfo::TreeElement::new({'type' => 'paragraph',
+                            'contents' => [$element->{'contents'}->[0]],
+                            'parent' => $arg});
         $arg->{'contents'} = [$paragraph];
       }
     } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
                                                    eq 'arguments') {
-      $arg = {'type' => 'brace_arg',
-              'contents' => [$element->{'contents'}->[0]],
-              'parent' => $command,};
+      $arg = Texinfo::TreeElement::new({'type' => 'brace_arg',
+                      'contents' => [$element->{'contents'}->[0]],
+                      'parent' => $command,});
     } else {
-      $arg = {'type' => 'brace_container',
-              'contents' => [$element->{'contents'}->[0]],
-              'parent' => $command,};
+      $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
+                         'contents' => [$element->{'contents'}->[0]],
+                         'parent' => $command,});
     }
     $command->{'contents'} = [$arg];
     return $command;
@@ -1700,7 +1713,7 @@ sub _comma_index_subentries_tree($$$$)
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
-      push @$results, {'text' => $separator};
+      push @$results, Texinfo::TreeElement::new({'text' => $separator});
       _comma_index_subentries_tree($self, $content, $separator, $results);
     } else {
       push @$results, $content;
@@ -1722,13 +1735,13 @@ sub comma_index_subentries_tree($$;$)
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
-      push @contents, {'text' => $separator};
+      push @contents, Texinfo::TreeElement::new({'text' => $separator});
       _comma_index_subentries_tree($self, $content, $separator, \@contents);
     }
   }
 
   if (scalar(@contents)) {
-    return {'contents' => \@contents};
+    return Texinfo::TreeElement::new({'contents' => \@contents});
   }
   return undef;
 }
@@ -1841,8 +1854,8 @@ sub sort_element_counts($$;$$)
       if ($line_arg->{'contents'}) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
-          .Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $line_arg->{'contents'}});
+         .Texinfo::Convert::Texinfo::convert_to_texinfo(
+           Texinfo::TreeElement::new({'contents' => $line_arg->{'contents'}}));
       }
     }
     $name = 'UNNAMED output unit' if (!defined($name));

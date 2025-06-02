@@ -35,8 +35,12 @@ use Texinfo::StructTransfXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 use Texinfo::Translations;
+
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
@@ -108,11 +112,14 @@ sub _correct_level($$;$)
     }
     my $remaining_level = abs($level_to_remove);
     while ($remaining_level) {
-      my $element = {'cmdname' => $cmdname,
-                     'parent' => $parent};
+      my $element
+       = Texinfo::TreeElement::new({'cmdname' => $cmdname,
+                                    'parent' => $parent});
       push @{$parent->{'contents'}}, $element;
-      my $rawline_arg = {'type' => 'rawline_arg', 'text' => "\n",
-                         'parent' => $element};
+      my $rawline_arg
+        = Texinfo::TreeElement::new(
+                        {'type' => 'rawline_arg', 'text' => "\n",
+                         'parent' => $element});
       push @{$element->{'contents'}}, $rawline_arg;
       $remaining_level--;
     }
@@ -171,19 +178,24 @@ sub fill_gaps_in_sectioning_in_document($;$)
       my @new_sections;
       while ($next_section_level - $current_section_level > 1) {
         $current_section_level++;
-        my $new_section = {'cmdname' =>
+        my $new_section =
+         Texinfo::TreeElement::new({'cmdname' =>
           $Texinfo::Common::level_to_structuring_command{'unnumbered'}
                                                 ->[$current_section_level],
           'parent' => $root,
-        };
-        $new_section->{'info'} = {'spaces_before_argument' =>
-                                              {'text' => ' ',}};
-        my $arguments_line = {'type' => 'arguments_line',
-                              'parent' => $new_section};
+        });
+        $new_section->{'info'}
+          = Texinfo::TreeElement::new({'spaces_before_argument' =>
+                                              {'text' => ' ',}});
+        my $arguments_line
+          = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                       'parent' => $new_section});
 
-        my $line_arg = {'type' => 'line_arg', 'parent' => $arguments_line,
-                        'info' => {'spaces_after_argument'
-                                                 => {'text' => "\n",}}};
+        my $line_arg
+          = Texinfo::TreeElement::new({'type' => 'line_arg',
+                                       'parent' => $arguments_line,
+            'info' => {'spaces_after_argument'
+                        => Texinfo::TreeElement::new({'text' => "\n",})}});
         $arguments_line->{'contents'} = [$line_arg];
 
         my $line_content;
@@ -193,17 +205,19 @@ sub fill_gaps_in_sectioning_in_document($;$)
                                                $commands_heading_content);
           $line_content->{'parent'} = $line_arg;
         } else {
-          my $asis_command = {'cmdname' => 'asis',
-                              'parent' => $line_arg};
-          $asis_command->{'contents'} = [{'type' => 'brace_container',
-                                          'parent' => $asis_command}];
+          my $asis_command
+            = Texinfo::TreeElement::new({'cmdname' => 'asis',
+                                         'parent' => $line_arg});
+          $asis_command->{'contents'} = [
+             Texinfo::TreeElement::new({'type' => 'brace_container',
+                                        'parent' => $asis_command})];
           $line_content = $asis_command;
         }
         $line_arg->{'contents'} = [$line_content];
         $new_section->{'contents'} = [$arguments_line,
-                                      {'type' => 'empty_line',
+            Texinfo::TreeElement::new({'type' => 'empty_line',
                                        'text' => "\n",
-                                       'parent' => $new_section}];
+                                       'parent' => $new_section})];
 
         my $new_section_relations = {'element' => $new_section};
         splice(@{$sections_list}, $section_idx+1, 0, $new_section_relations);
@@ -279,8 +293,8 @@ sub _reference_to_arg($$$)
         if (!Texinfo::Common::is_content_empty($arg)) {
           # avoid the type and spaces by getting only the contents
           my $result
-            = {'contents' => $arg->{'contents'},
-                        'parent' => $current->{'parent'}};
+            = Texinfo::TreeElement::new({'contents' => $arg->{'contents'},
+                                         'parent' => $current->{'parent'}});
           foreach my $content (@{$arg->{'contents'}}) {
             $content->{'parent'} = $result;
           }
@@ -288,7 +302,8 @@ sub _reference_to_arg($$$)
         }
       }
     }
-    return {'text' => '', 'parent' => $current->{'parent'}};
+    return Texinfo::TreeElement::new({'text' => '',
+                                      'parent' => $current->{'parent'}});
   } else {
     return undef;
   }
@@ -348,7 +363,7 @@ sub _new_node($$;$)
   my $empty_node = 0;
   if (!$node_tree->{'contents'}
       or !scalar(@{$node_tree->{'contents'}})) {
-    $node_tree->{'contents'} = [{'text' => ''}];
+    $node_tree->{'contents'} = [Texinfo::TreeElement::new({'text' => ''})];
     $empty_node = 1;
   }
 
@@ -374,21 +389,27 @@ sub _new_node($$;$)
   while (!defined($node)
          or ($identifier_target and $identifier_target->{$normalized})) {
 
-    $node = {'cmdname' => 'node', 'extra' => {}};
-    $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
+    $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
+    $node->{'info'} = {'spaces_before_argument'
+                         => Texinfo::TreeElement::new({'text' => ' '})};
 
-    my $arguments_line = {'type' => 'arguments_line', 'parent' => $node};
+    my $arguments_line
+      = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                   'parent' => $node});
     $node->{'contents'} = [$arguments_line];
 
-    my $node_line_arg = {'type' => 'line_arg', 'parent' => $arguments_line};
+    my $node_line_arg
+      = Texinfo::TreeElement::new({'type' => 'line_arg',
+                                   'parent' => $arguments_line});
     $arguments_line->{'contents'} = [$node_line_arg];
     $node_line_arg->{'info'} = {'spaces_after_argument' =>
-                                     {'text' => $spaces_after_argument}};
+           Texinfo::TreeElement::new({'text' => $spaces_after_argument})};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
       if (defined($comment_at_end));
     @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});
     if ($appended_number) {
-      push @{$node_line_arg->{'contents'}}, {'text' => " $appended_number"};
+      push @{$node_line_arg->{'contents'}},
+            Texinfo::TreeElement::new({'text' => " $appended_number"});
     }
     foreach my $content (@{$node_line_arg->{'contents'}}) {
       $content->{'parent'} = $node_line_arg;
@@ -396,7 +417,8 @@ sub _new_node($$;$)
 
     $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                       { 'contents' => $node_line_arg->{'contents'} });
+           Texinfo::TreeElement::new(
+                       { 'contents' => $node_line_arg->{'contents'} }));
 
     if ($normalized !~ /[^-]/) {
       if ($appended_number) {
@@ -507,7 +529,9 @@ sub insert_nodes_for_sectioning_commands($)
       }
       my $new_node_tree;
       if ($content->{'cmdname'} eq 'top') {
-        $new_node_tree = {'contents' => [{'text' => 'Top'}]};
+        $new_node_tree
+         = Texinfo::TreeElement::new({'contents' => [
+                      Texinfo::TreeElement::new({'text' => 'Top'})]});
       } else {
         my $arguments_line = $content->{'contents'}->[0];
         my $line_arg = $arguments_line->{'contents'}->[0];
@@ -566,9 +590,10 @@ sub _prepend_new_menu_in_node_section($$$)
   }
   push @{$section->{'contents'}}, $current_menu;
   $current_menu->{'parent'} = $section;
-  push @{$section->{'contents'}}, {'type' => 'empty_line',
+  push @{$section->{'contents'}},
+        Texinfo::TreeElement::new({'type' => 'empty_line',
                                    'text' => "\n",
-                                   'parent' => $section};
+                                   'parent' => $section});
   push @{$node_relations->{'menus'}}, $current_menu;
 }
 
@@ -630,7 +655,9 @@ sub _complete_node_menu($;$)
     if (scalar(@pending)) {
       if (!$current_menu) {
         my $section = $node_relations->{'associated_section'}->{'element'};
-        $current_menu = {'contents' => \@pending, 'parent' => $section};
+        $current_menu
+          = Texinfo::TreeElement::new({'contents' => \@pending,
+                                       'parent' => $section});
         Texinfo::Structuring::new_block_command($current_menu, 'menu');
         _prepend_new_menu_in_node_section($node_relations,
                                           $section, $current_menu);
@@ -796,21 +823,28 @@ sub regenerate_master_menu($;$)
       {
         # already a menu comment at the end of the menu, add an empty line
         my $preformatted = $last_element->{'contents'}->[-1];
-        my $empty_line = {'type' => 'empty_line', 'text' => "\n",
-                          'parent' => $preformatted};
+        my $empty_line
+          = Texinfo::TreeElement::new({'type' => 'empty_line',
+                                       'text' => "\n",
+                                       'parent' => $preformatted});
         push @{$preformatted->{'contents'}}, $empty_line;
       }
     } elsif ($last_element->{'type'}
              and $last_element->{'type'} eq 'menu_entry') {
       # there is a last menu entry, add a menu comment containing an empty line
       # after it
-      my $menu_comment = {'type' => 'menu_comment', 'parent' => $last_menu};
+      my $menu_comment
+        = Texinfo::TreeElement::new({'type' => 'menu_comment',
+                                     'parent' => $last_menu});
       splice (@{$last_menu->{'contents'}}, $index, 0, $menu_comment);
       $index++;
-      my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
+      my $preformatted
+        = Texinfo::TreeElement::new({'type' => 'preformatted',
+                                     'parent' => $menu_comment});
       push @{$menu_comment->{'contents'}}, $preformatted;
-      my $empty_line = {'type' => 'after_menu_description_line', 'text' => "\n",
-                        'parent' => $preformatted};
+      my $empty_line = Texinfo::TreeElement::new(
+               {'type' => 'after_menu_description_line', 'text' => "\n",
+                'parent' => $preformatted});
       push @{$preformatted->{'contents'}}, $empty_line;
     }
   }
@@ -936,7 +970,8 @@ sub _protect_hashchar_at_line_beginning($$$)
 
             $current->{'text'} =~ s/^(\s*)#//;
 
-            my $e = {'text' => $1, 'parent' => $parent};
+            my $e = Texinfo::TreeElement::new({'text' => $1,
+                                               'parent' => $parent});
             $current_position = Texinfo::Common::relocate_source_marks(
                                         $remaining_source_marks, $e,
                                         $current_position, length($1));
@@ -944,8 +979,10 @@ sub _protect_hashchar_at_line_beginning($$$)
               push @result, $e;
             }
 
-            $e = {'cmdname' => 'hashchar', 'parent' => $parent};
-            my $arg = {'type' => 'brace_container', 'parent' => $e};
+            $e = Texinfo::TreeElement::new({'cmdname' => 'hashchar',
+                                            'parent' => $parent});
+            my $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
+                                                 'parent' => $e});
             $e->{'contents'} = [$arg];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,

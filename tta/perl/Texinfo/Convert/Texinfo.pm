@@ -37,6 +37,9 @@ use Texinfo::XSLoader;
 
 # commands definitions
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 # get_label_element
 use Texinfo::Common;
 
@@ -128,7 +131,8 @@ sub target_element_to_texi_label($)
   if (!defined($label_element)) {
     return link_element_to_texi($element);
   }
-  return convert_to_texinfo({'contents' => $label_element->{'contents'}});
+  return convert_to_texinfo(
+   Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}));
 }
 
 # only used in Texinfo::Structuring.  Here and not in Texinfo::Structuring
@@ -144,7 +148,7 @@ sub check_node_same_texinfo_code($$)
   if (defined($reference_node->{'extra'}->{'normalized'})) {
     my $label_element = Texinfo::Common::get_label_element($reference_node);
     $reference_node_texi = convert_to_texinfo(
-                                {'contents' => $label_element->{'contents'}});
+     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}));
     $reference_node_texi =~ s/\s+/ /g;
   } else {
     $reference_node_texi = '';
@@ -156,8 +160,10 @@ sub check_node_same_texinfo_code($$)
     if ($node_content->{'contents'}->[-1]->{'type'}
         and $node_content->{'contents'}->[-1]->{'type'}
                                       eq 'space_at_end_menu_node') {
-      $contents_node = {'contents' => [@{$node_content->{'contents'}}]};
-      pop @{$contents_node->{'contents'}};
+      my $contents = [@{$node_content->{'contents'}}];
+      pop @$contents;
+      $contents_node
+        = Texinfo::TreeElement::new({'contents' => $contents});
     }
     $node_texi = convert_to_texinfo($contents_node);
     $node_texi =~ s/\s+/ /g;
@@ -189,7 +195,8 @@ sub root_heading_command_to_texinfo($)
   }
   if ($tree) {
     return '@'.$element->{'cmdname'}.' '
-                .convert_to_texinfo({'contents' => $tree->{'contents'}});
+                .convert_to_texinfo(
+               Texinfo::TreeElement::new({'contents' => $tree->{'contents'}}));
   } else {
     return '@'.$element->{'cmdname'};
   }
@@ -220,9 +227,16 @@ sub _convert_to_texinfo($)
   my $element = shift;
 
   confess "convert_to_texinfo: element undef" if (!defined($element));
-  confess "convert_to_texinfo: bad element type (".ref($element).") $element"
-     if (ref($element) ne 'HASH');
   my $result = '';
+  if (ref($element) ne 'Texinfo::TreeElement') {
+    if (ref($element) eq 'HASH') {
+      #$result = 'CTTXI:HASH['
+      #            .Texinfo::Common::debug_print_element($element)."]";
+    } else {
+      confess "convert_to_texinfo: bad element type (".
+                    ref($element).") $element";
+    }
+  }
 
   return '' if (($element->{'info'}
                  and $element->{'info'}->{'inserted'})

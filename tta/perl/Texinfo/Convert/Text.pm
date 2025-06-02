@@ -40,6 +40,9 @@ use Texinfo::XSLoader;
 use Texinfo::Report;
 use Texinfo::Commands;
 use Texinfo::CommandsValues;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 # for debugging
@@ -481,20 +484,23 @@ sub _convert_def_line($$)
                                    $options->{'current_lang_translations'},
                                    $options->{'DEBUG'});
   if (defined($parsed_definition_category)) {
-    my $converted_element = {'contents' =>
-                    [$parsed_definition_category, {'text' => ': '}]};
+    my $converted_element = Texinfo::TreeElement::new(
+       {'contents' => [$parsed_definition_category,
+                       Texinfo::TreeElement::new({'text' => ': '})]});
     my $contents = $converted_element->{'contents'};
     if ($type_element) {
-      push @$contents, ($type_element, {'text' => ' '});
+      push @$contents, ($type_element,
+          Texinfo::TreeElement::new({'text' => ' '}));
     }
     if ($name_element) {
       push @$contents, $name_element;
     }
 
     if ($arguments) {
-      push @$contents, ({'text' => ' '}, $arguments);
+      push @$contents, (Texinfo::TreeElement::new({'text' => ' '}),
+                        $arguments);
     }
-    push @$contents, {'text' => "\n"};
+    push @$contents, Texinfo::TreeElement::new({'text' => "\n"});
     $options->{'_code_state'}++;
     $result = _convert($options, $converted_element);
     $options->{'_code_state'}--;
@@ -882,7 +888,8 @@ sub convert_to_text($;$)
   my $root = shift;
   my $options = shift;
 
-  if (ref($root) ne 'HASH') {
+  if (ref($root) ne 'HASH' and ref($root) ne 'Texinfo::TreeElement') {
+  #if (ref($root) ne 'Texinfo::TreeElement') {
     confess "root not a hash";
   }
 

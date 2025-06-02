@@ -72,6 +72,9 @@ use Texinfo::Options;
 use Texinfo::CommandsValues;
 use Texinfo::UnicodeData;
 use Texinfo::HTMLData;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 
 use Texinfo::Config;
@@ -1374,8 +1377,8 @@ sub _internal_command_tree($$$)
           my $arguments_line = $command->{'contents'}->[0];
           $label_element = $arguments_line->{'contents'}->[0];
         }
-        $tree = {'type' => '_code',
-                 'contents' => [$label_element]};
+        $tree = Texinfo::TreeElement::new({'type' => '_code',
+                                           'contents' => [$label_element]});
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
       } else {
@@ -1397,7 +1400,8 @@ sub _internal_command_tree($$$)
               and ($self->get_conf('NUMBER_SECTIONS')
                    or !defined($self->get_conf('NUMBER_SECTIONS')))) {
             my $substituted_strings
-              = {'number' => {'text' => $section_number},
+              = {'number' =>
+                  Texinfo::TreeElement::new({'text' => $section_number}),
                  'section_title'
                 => Texinfo::ManipulateTree::copy_treeNonXS($line_arg)};
 
@@ -1433,10 +1437,11 @@ sub _external_command_tree($$)
   my $command = shift;
 
   my $node_content = $command->{'extra'}->{'node_content'};
-  my $tree = {'type' => '_code',
-        'contents' => [{'text' => '('},
+  my $tree = Texinfo::TreeElement::new(
+       {'type' => '_code',
+        'contents' => [Texinfo::TreeElement::new({'text' => '('}),
                        $command->{'extra'}->{'manual_content'},
-                       {'text' => ')'}]};
+                       Texinfo::TreeElement::new({'text' => ')'})]});
   if ($node_content) {
     push @{$tree->{'contents'}}, $node_content;
   }
@@ -1509,8 +1514,8 @@ sub _convert_command_tree($$$$$)
 
   my $tree_root;
   if ($type eq 'string' or $type eq 'string_nonumber') {
-    $tree_root = {'type' => '_string',
-                  'contents' => [$selected_tree]};
+    $tree_root = Texinfo::TreeElement::new({'type' => '_string',
+                                    'contents' => [$selected_tree]});
   } else {
     $tree_root = $selected_tree;
   }
@@ -1588,8 +1593,8 @@ sub command_text($$;$)
   if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
     my $tree = _external_command_tree($self, $command);
     if ($type eq 'string' or $type eq 'string_nonumber') {
-      $tree = {'type' => '_string',
-               'contents' => [$tree]};
+      $tree = Texinfo::TreeElement::new({'type' => '_string',
+                                         'contents' => [$tree]});
     }
     my $context_str = "command_text $type ";
     if (defined($command->{'cmdname'})) {
@@ -1792,7 +1797,8 @@ sub command_description($$;$)
       $description_element = $node_description->{'contents'}->[0];
     } else {
       # nodedescriptionblock
-      $description_element = {'contents' => $node_description->{'contents'}};
+      $description_element = Texinfo::TreeElement::new(
+            {'contents' => $node_description->{'contents'}});
     }
     my $multiple_formatted;
     if ($formatted_nodedescription_nr > 1) {
@@ -1802,8 +1808,8 @@ sub command_description($$;$)
 
     my $tree_root;
     if ($type eq 'string') {
-      $tree_root = {'type' => '_string',
-                    'contents' => [$description_element]};
+      $tree_root = Texinfo::TreeElement::new({'type' => '_string',
+                               'contents' => [$description_element]});
     } else {
       $tree_root = $description_element;
     }
@@ -2163,9 +2169,9 @@ sub direction_string($$$;$)
                                             ->{$direction}->{'to_convert'});
       my $converted_tree;
       if ($context eq 'string') {
-        $converted_tree = {
-              'type' => '_string',
-              'contents' => [$translated_tree]};
+        $converted_tree = Texinfo::TreeElement::new({
+                             'type' => '_string',
+                             'contents' => [$translated_tree]});
       } else {
         $converted_tree = $translated_tree;
       }
@@ -3519,7 +3525,8 @@ sub _convert_value_command($$$$)
   my $args = shift;
 
   return $self->convert_tree($self->cdt('@{No value for `{value}\'@}',
-                 {'value' => {'text' => $args->[0]->{'monospacestring'}}}),
+          {'value' => Texinfo::TreeElement::new(
+                        {'text' => $args->[0]->{'monospacestring'}}) }),
                              'Tr missing value');
 }
 
@@ -3611,10 +3618,13 @@ sub _convert_explained_command($$$$)
     my $explanation_result = $args->[1]->{'normal'};
     # TRANSLATORS: abbreviation or acronym explanation
     $result = $self->convert_tree($self->cdt('{explained_string} ({explanation})',
-          {'explained_string' => {'type' => '_converted',
-                   'text' => $result},
-           'explanation' => {'type' => '_converted',
-                   'text' => $explanation_result}}), "convert explained $cmdname");
+          {'explained_string' =>
+              Texinfo::TreeElement::new({'type' => '_converted',
+                                         'text' => $result}),
+           'explanation' =>
+             Texinfo::TreeElement::new({'type' => '_converted',
+                                        'text' => $explanation_result})}),
+                                  "convert explained $cmdname");
   }
 
   return $result;
@@ -5463,8 +5473,9 @@ sub _convert_insertcopying_command($$$)
   }
 
   if ($global_commands and $global_commands->{'copying'}) {
-    return $self->convert_tree({'contents'
-               => $global_commands->{'copying'}->{'contents'}},
+    return $self->convert_tree(
+      Texinfo::TreeElement::new(
+       {'contents' => $global_commands->{'copying'}->{'contents'}}),
                                'convert insertcopying');
   }
   return '';
@@ -5637,9 +5648,10 @@ sub _convert_float_command($$$$$)
     # TODO add a span with a class name for the prependend information
     # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
-                               {'cmdname' => 'strong',
-                                'contents' => [{'type' => 'brace_container',
-                                               'contents' => [$prepended]}]},
+     Texinfo::TreeElement::new({'cmdname' => 'strong',
+                                'contents' => [
+                   Texinfo::TreeElement::new({'type' => 'brace_container',
+                                              'contents' => [$prepended]})]}),
                                'float number type');
     if ($caption_element) {
       # register the converted prepended tree to be prepended to
@@ -6202,7 +6214,9 @@ sub _convert_xref_commands($$$$)
                       ." href=\"$href\">$name</a>";
     }
     my $substrings
-      = { 'reference_name' => {'type' => '_converted', 'text' => $reference} };
+      = { 'reference_name'
+         => Texinfo::TreeElement::new({'type' => '_converted',
+                                       'text' => $reference}) };
 
     if ($cmdname eq 'pxref') {
       $tree = $self->cdt('see {reference_name}', $substrings);
@@ -6221,7 +6235,8 @@ sub _convert_xref_commands($$$$)
     if ($arg_node and $arg_node->{'extra'}
         and $arg_node->{'extra'}->{'node_content'}) {
       $node_content = $arg_node->{'extra'}->{'node_content'};
-      $label_element = {'extra' => {'node_content' => $node_content}};
+      $label_element = Texinfo::TreeElement::new(
+          {'extra' => {'node_content' => $node_content}});
       if (exists($arg_node->{'extra'}->{'normalized'})) {
         $label_element->{'extra'}->{'normalized'}
           = $arg_node->{'extra'}->{'normalized'};
@@ -6230,7 +6245,7 @@ sub _convert_xref_commands($$$$)
     # file argument takes precedence over the file in the node (file)node entry
     if (defined($file)) {
       if (!$label_element) {
-        $label_element = {'extra' => {}};
+        $label_element = Texinfo::TreeElement::new({'extra' => {}});
       } elsif (!$label_element->{'extra'}) {
         $label_element->{'extra'} = {};
       }
@@ -6239,21 +6254,23 @@ sub _convert_xref_commands($$$$)
              and $arg_node->{'extra'}->{'manual_content'}) {
       my $manual_content = $arg_node->{'extra'}->{'manual_content'};
       if (!$label_element) {
-        $label_element = {'extra' => {}};
+        $label_element = Texinfo::TreeElement::new({'extra' => {}});
       } elsif (!$label_element->{'extra'}) {
         $label_element->{'extra'} = {};
       }
       $label_element->{'extra'}->{'manual_content'} = $manual_content;
-      my $file_with_node_tree = {'type' => '_code',
-                                 'contents' => [$manual_content]};
+      my $file_with_node_tree
+       = Texinfo::TreeElement::new({'type' => '_code',
+                                    'contents' => [$manual_content]});
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
 
     if (!defined($name)) {
       if ($book) {
         if ($node_content) {
-          my $node_no_file_tree = {'type' => '_code',
-                                   'contents' => [$node_content]};
+          my $node_no_file_tree
+            = Texinfo::TreeElement::new({'type' => '_code',
+                                         'contents' => [$node_content]});
           my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
           if (defined($node_name) and $node_name ne 'Top') {
             $name = $node_name;
@@ -6298,9 +6315,10 @@ sub _convert_xref_commands($$$$)
     }
     my $substrings;
     if (defined($book) and defined($reference)) {
-      $substrings = {'reference'
-                       => {'type' => '_converted', 'text' => $reference},
-                     'book' => {'type' => '_converted', 'text' => $book }};
+      $substrings = {'reference' =>
+     Texinfo::TreeElement::new({'type' => '_converted', 'text' => $reference}),
+                     'book' =>
+        Texinfo::TreeElement::new({'type' => '_converted', 'text' => $book })};
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see {reference} in @cite{{book}}', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6309,8 +6327,9 @@ sub _convert_xref_commands($$$$)
         $tree = $self->cdt('{reference} in @cite{{book}}', $substrings);
       }
     } elsif (defined($book_reference)) {
-      $substrings = { 'book_reference' => {'type' => '_converted',
-                                           'text' => $book_reference }};
+      $substrings = { 'book_reference' =>
+          Texinfo::TreeElement::new({'type' => '_converted',
+                                     'text' => $book_reference })};
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see @cite{{book_reference}}', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6320,8 +6339,10 @@ sub _convert_xref_commands($$$$)
       }
     } elsif (defined($book) and defined($name)) {
       $substrings = {
-              'section' => {'type' => '_converted', 'text' => $name},
-              'book' => {'type' => '_converted', 'text' => $book }};
+       'section' =>
+         Texinfo::TreeElement::new({'type' => '_converted', 'text' => $name}),
+        'book' =>
+         Texinfo::TreeElement::new({'type' => '_converted', 'text' => $book })};
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see `{section}\' in @cite{{book}}', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6330,7 +6351,8 @@ sub _convert_xref_commands($$$$)
         $tree = $self->cdt('`{section}\' in @cite{{book}}', $substrings);
       }
     } elsif (defined($book)) { # should seldom or even never happen
-      $substrings = {'book' => {'type' => '_converted', 'text' => $book }};
+      $substrings = {'book' =>
+        Texinfo::TreeElement::new({'type' => '_converted', 'text' => $book })};
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see @cite{{book}}', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6339,8 +6361,9 @@ sub _convert_xref_commands($$$$)
         $tree = $self->cdt('@cite{{book}}', $substrings);
       }
     } elsif (defined($reference)) {
-      $substrings = { 'reference'
-                        => {'type' => '_converted', 'text' => $reference} };
+      $substrings = { 'reference' =>
+            Texinfo::TreeElement::new({'type' => '_converted',
+                                       'text' => $reference}) };
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see {reference}', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6349,8 +6372,8 @@ sub _convert_xref_commands($$$$)
         $tree = $self->cdt('{reference}', $substrings);
       }
     } elsif (defined($name)) {
-      $substrings = { 'section'
-                        => {'type' => '_converted', 'text' => $name} };
+      $substrings = { 'section' =>
+        Texinfo::TreeElement::new({'type' => '_converted', 'text' => $name}) };
       if ($cmdname eq 'pxref') {
         $tree = $self->cdt('see `{section}\'', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -6452,7 +6475,8 @@ sub _convert_printindex_command($$$$)
     } else {
       my $normalized_letter =
   Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-               {'text' => $letter}, $in_test, $no_unidecode);
+              Texinfo::TreeElement::new({'text' => $letter}),
+                                              $in_test, $no_unidecode);
       my $letter_identifier = $normalized_letter;
       if ($normalized_letter ne $letter) {
         # disambiguate, as it could be another letter, case of @l, for example
@@ -6509,7 +6533,8 @@ sub _convert_printindex_command($$$$)
       my $in_code = 0;
       $in_code = 1
        if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
-      my $entry_ref_tree = {'contents' => [$entry_content_element]};
+      my $entry_ref_tree
+        = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
       $entry_ref_tree->{'type'} = '_code' if ($in_code);
 
 
@@ -6539,7 +6564,8 @@ sub _convert_printindex_command($$$$)
               push @contents, $content unless ($content->{'cmdname'}
                                   and $content->{'cmdname'} eq 'subentry');
             }
-            $subentry_tree = {'contents' => \@contents};
+            $subentry_tree
+              = Texinfo::TreeElement::new({'contents' => \@contents});
             $subentry_tree->{'type'} = '_code' if ($in_code);
           }
           if ($subentry_level >= $subentries_max_level) {
@@ -6551,8 +6577,8 @@ sub _convert_printindex_command($$$$)
                 push @{$subentry_tree->{'contents'}},
                   @{$other_subentries_tree->{'contents'}};
               } else {
-                $subentry_tree
-                  = {'contents' => [@{$other_subentries_tree->{'contents'}}]};
+                $subentry_tree = Texinfo::TreeElement::new(
+                  {'contents' => [@{$other_subentries_tree->{'contents'}}]});
                 $subentry_tree->{'type'} = '_code' if ($in_code);
               }
             }
@@ -6628,7 +6654,7 @@ sub _convert_printindex_command($$$$)
 
       # index entry with @seeentry or @seealso
       if ($referred_entry) {
-        my $referred_tree = {};
+        my $referred_tree = Texinfo::TreeElement::new({});
         $referred_tree->{'type'} = '_code' if ($in_code);
         if ($referred_entry->{'contents'}
             and $referred_entry->{'contents'}->[0]
@@ -6858,7 +6884,8 @@ sub _convert_printindex_command($$$$)
         my $cmdname = $letter_command->{'cmdname'};
         if ($letter_no_arg_commands{$cmdname}
             and $letter_no_arg_commands{uc($cmdname)}) {
-          $letter_command = {'cmdname' => uc($cmdname)};
+          $letter_command
+            = Texinfo::TreeElement::new({'cmdname' => uc($cmdname)});
         }
         $formatted_letter = $self->convert_tree($letter_command,
                                                 "index letter $letter command");
@@ -7780,8 +7807,8 @@ sub _convert_menu_entry_type($$$)
 
     if ($menu_entry_node) {
       my $name = $self->convert_tree(
-         {'type' => '_code',
-          'contents' => [$menu_entry_node]},
+         Texinfo::TreeElement::new({'type' => '_code',
+                                    'contents' => [$menu_entry_node]}),
                        "menu_arg menu_entry_node preformatted");
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
@@ -7809,7 +7836,8 @@ sub _convert_menu_entry_type($$$)
         $description_element = $node_description->{'contents'}->[0];
       } else {
         # nodedescriptionblock
-        $description_element = {'contents' => $node_description->{'contents'}};
+        $description_element = Texinfo::TreeElement::new(
+           {'contents' => $node_description->{'contents'}});
       }
       my $multiple_formatted;
       if ($formatted_nodedescription_nr > 1) {
@@ -7852,8 +7880,9 @@ sub _convert_menu_entry_type($$$)
         $name = $self->command_text($menu_entry_node);
       } elsif ($menu_entry_node->{'extra'}
                and $menu_entry_node->{'extra'}->{'node_content'}) {
-        $name = $self->convert_tree({'type' => '_code',
-                 'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]},
+        $name = $self->convert_tree(
+                 Texinfo::TreeElement::new({'type' => '_code',
+            'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]}),
                                     'menu_arg name');
       } else {
         $name = '';
@@ -7873,7 +7902,8 @@ sub _convert_menu_entry_type($$$)
       $description_element = $node_description->{'contents'}->[0];
     } else {
       # nodedescriptionblock
-      $description_element = {'contents' => $node_description->{'contents'}};
+      $description_element = Texinfo::TreeElement::new(
+        {'contents' => $node_description->{'contents'}});
     }
     my $multiple_formatted;
     if ($formatted_nodedescription_nr > 1) {
@@ -8012,8 +8042,9 @@ sub _convert_def_line_type($$$$)
   my $def_call = '';
   if ($type_element) {
     my $explanation = "DEF_TYPE $def_command";
-    my $type_text = $self->convert_tree({'type' => '_code',
-                                         'contents' => [$type_element]},
+    my $type_text = $self->convert_tree(
+         Texinfo::TreeElement::new({'type' => '_code',
+                                    'contents' => [$type_element]}),
                                         $explanation);
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
@@ -8031,7 +8062,9 @@ sub _convert_def_line_type($$$$)
 
   if ($name_element) {
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->convert_tree({'type' => '_code', 'contents' => [$name_element]},
+       $self->convert_tree(
+          Texinfo::TreeElement::new({'type' => '_code',
+                                     'contents' => [$name_element]}),
                            "DEF_NAME $def_command")
        .'</strong>';
   }
@@ -8042,7 +8075,9 @@ sub _convert_def_line_type($$$$)
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if ($Texinfo::Common::def_no_var_arg_commands{$base_command_name}) {
       my $arguments_formatted
-        = $self->convert_tree({'type' => '_code', 'contents' => [$arguments]},
+        = $self->convert_tree(
+          Texinfo::TreeElement::new({'type' => '_code',
+                                     'contents' => [$arguments]}),
                               $explanation);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
@@ -8375,8 +8410,9 @@ sub _default_format_titlepage($)
     # we use a little trick to initialize the authors number to -1
     # to mean that we are in titlepage
     _open_quotation_titlepage_stack($self, -1);
-    $titlepage_text = $self->convert_tree({'contents'
-               => $global_commands->{'titlepage'}->{'contents'}},
+    $titlepage_text = $self->convert_tree(
+      Texinfo::TreeElement::new(
+       {'contents' => $global_commands->{'titlepage'}->{'contents'}}),
                                           'convert titlepage');
     my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
                                                   'quotation_titlepage_stack');
@@ -10700,8 +10736,9 @@ sub _register_special_unit($$)
                       'directions' => {}};
 
   # a "virtual" out of tree element used for targets
-  my $unit_command = {'type' => 'special_unit_element',
-                      'associated_unit' => $special_unit};
+  my $unit_command
+    = Texinfo::TreeElement::new({'type' => 'special_unit_element',
+                                 'associated_unit' => $special_unit});
   $special_unit->{'unit_command'} = $unit_command;
 
   return $special_unit;
@@ -11134,8 +11171,8 @@ sub _prepare_index_entries_targets($)
           = Texinfo::Common::index_content_element($main_entry_element, 1);
         # construct element to convert to a normalized identifier to use as
         # hrefs target
-        my $normalize_index_element
-           = {'contents' => [$entry_reference_content_element]};
+        my $normalize_index_element = Texinfo::TreeElement::new(
+           {'contents' => [$entry_reference_content_element]});
 
         my $subentries_tree
          = $self->comma_index_subentries_tree($main_entry_element, ' ');
@@ -11693,9 +11730,10 @@ sub _default_format_program_string($)
       and defined($self->get_conf('PACKAGE_URL'))) {
     return $self->convert_tree(
       $self->cdt('This document was generated on @emph{@today{}} using @uref{{program_homepage}, @emph{{program}}}.',
-         { 'program_homepage' => {'text'
-                           => $self->get_conf('PACKAGE_URL')},
-           'program' => {'text' => $self->get_conf('PROGRAM')} }),
+         { 'program_homepage' => Texinfo::TreeElement::new(
+                {'text' => $self->get_conf('PACKAGE_URL')}),
+           'program' => Texinfo::TreeElement::new(
+                      {'text' => $self->get_conf('PROGRAM')}) }),
                               'Tr program string program');
   } else {
     return $self->convert_tree(
@@ -11817,8 +11855,9 @@ sub _file_header_information($$;$)
       # for each file.  We are in string context, though, so it is
       # probably not important.
       $title
-        = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                 'contents' => [$title_tree]},
+        = $self->convert_tree_new_formatting_context(
+                  Texinfo::TreeElement::new({'type' => '_string',
+                                             'contents' => [$title_tree]}),
                                                      $context_str,
                                                      'element_title');
     }
@@ -11848,7 +11887,8 @@ sub _file_header_information($$;$)
   my $date = '';
   if ($self->get_conf('DATE_IN_HEADER')) {
     my $today
-      = $self->convert_tree_new_formatting_context({'cmdname' => 'today'},
+      = $self->convert_tree_new_formatting_context(
+           Texinfo::TreeElement::new({'cmdname' => 'today'}),
                                                    'DATE_IN_HEADER');
     $date =
       $self->close_html_lone_element(
@@ -12073,7 +12113,9 @@ sub _default_format_node_redirection_page($$;$)
   my $direction = "<a href=\"$href\">$name</a>";
   my $string = $self->convert_tree(
     $self->cdt('The node you are looking for is at {href}.',
-      { 'href' => {'type' => '_converted', 'text' => $direction }}),
+      { 'href' =>
+        Texinfo::TreeElement::new({'type' => '_converted',
+                                   'text' => $direction })}),
       'Tr redirection sentence');
 
   my ($title, $description, $keywords, $encoding, $date, $css_lines, $doctype,
@@ -13160,7 +13202,7 @@ sub output_internal_links($)
             push @contents, @{$subentries_tree->{'contents'}};
           }
           my $index_term = Texinfo::Convert::Text::convert_to_text(
-                                             {'contents' => \@contents},
+                Texinfo::TreeElement::new({'contents' => \@contents}),
                                             $self->{'convert_text_options'});
           if ($in_code) {
             Texinfo::Convert::Text::reset_options_code(
@@ -13363,8 +13405,9 @@ sub _prepare_converted_output_info($$$$)
   if ($fulltitle_tree) {
     $title_tree = $fulltitle_tree;
     $html_title_string
-      = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                       'contents' => [$title_tree]},
+      = $self->convert_tree_new_formatting_context(
+                    Texinfo::TreeElement::new({'type' => '_string',
+                                       'contents' => [$title_tree]}),
                                                    'title_string');
     if ($html_title_string !~ /\S/) {
       $html_title_string = undef;
@@ -13375,8 +13418,9 @@ sub _prepare_converted_output_info($$$$)
     $title_tree = $default_title;
     $self->{'converter_info'}->{'title_tree'} = $title_tree;
     $self->{'converter_info'}->{'title_string'}
-      = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                     'contents' => [$title_tree]},
+      = $self->convert_tree_new_formatting_context(
+                  Texinfo::TreeElement::new({'type' => '_string',
+                                     'contents' => [$title_tree]}),
                                                    'title_string');
 
     my $input_file_name;
@@ -13403,7 +13447,8 @@ sub _prepare_converted_output_info($$$$)
   # copying comment
   if ($global_commands and $global_commands->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $global_commands->{'copying'}->{'contents'}},
+     Texinfo::TreeElement::new(
+      {'contents' => $global_commands->{'copying'}->{'contents'}}),
      $self->{'convert_text_options'});
     if ($copying_comment ne '') {
       $self->{'converter_info'}->{'copying_comment'}
@@ -13416,11 +13461,12 @@ sub _prepare_converted_output_info($$$$)
     $self->{'converter_info'}->{'documentdescription_string'}
       = $self->get_conf('documentdescription');
   } elsif ($global_commands and $global_commands->{'documentdescription'}) {
-    my $tmp = {'contents'
-               => $global_commands->{'documentdescription'}->{'contents'}};
+    my $tmp = Texinfo::TreeElement::new({'contents'
+               => $global_commands->{'documentdescription'}->{'contents'}});
     my $documentdescription_string
-      = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                    'contents' => [$tmp],},
+      = $self->convert_tree_new_formatting_context(
+           Texinfo::TreeElement::new({'type' => '_string',
+                                      'contents' => [$tmp],}),
                                                    'documentdescription');
     chomp($documentdescription_string);
     $self->{'converter_info'}->{'documentdescription_string'}
@@ -13683,7 +13729,8 @@ sub _node_redirections($$$$)
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $target_element->{'cmdname'},
                Texinfo::Convert::Texinfo::convert_to_texinfo(
-                       {'contents' => $label_element->{'contents'}}),
+                  Texinfo::TreeElement::new(
+                       {'contents' => $label_element->{'contents'}})),
                $node_redirection_filename),
             $target_element->{'source_info'});
           my $file_source = $files_source_info->{$node_redirection_filename};
@@ -13719,8 +13766,9 @@ sub _node_redirections($$$$)
          sprintf(__p('conflict of redirection file with file based on node name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                => $label_element->{'contents'}})
+                 Texinfo::Convert::Texinfo::convert_to_texinfo(
+                    Texinfo::TreeElement::new(
+                       {'contents' => $label_element->{'contents'}}))
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'redirection') {
@@ -13731,7 +13779,8 @@ sub _node_redirections($$$$)
                sprintf(__("conflict with \@%s `%s' redirection file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo(
-                  {'contents' => $conflicting_label_element->{'contents'}})
+                  Texinfo::TreeElement::new(
+                   {'contents' => $conflicting_label_element->{'contents'}}))
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
@@ -13744,7 +13793,8 @@ sub _node_redirections($$$$)
                      "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo(
-                             {'contents' => $line_arg->{'contents'}}),
+                   Texinfo::TreeElement::new(
+                             {'contents' => $line_arg->{'contents'}})),
                  ),
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_unit') {
@@ -13772,7 +13822,8 @@ sub _node_redirections($$$$)
 
         my $translit_filename
    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-          {'contents' => $label_element->{'contents'}}, $in_test,
+        Texinfo::TreeElement::new(
+          {'contents' => $label_element->{'contents'}}), $in_test,
             $no_unidecode);
 
         $translit_filename = $self->_id_to_filename($translit_filename);
@@ -14305,7 +14356,7 @@ sub _convert($$;$)
     print STDERR "\n";
   }
 
-  if (ref($element) ne 'HASH') {
+  if (ref($element) ne 'HASH' and ref($element) ne 'Texinfo::TreeElement') {
     cluck "_convert: tree element not a HASH\n";
     return '';
   }
@@ -14379,7 +14430,7 @@ sub _convert($$;$)
           # displaymath
           $content_formatted
            = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
-                                    {'contents' => $element->{'contents'}},
+            Texinfo::TreeElement::new({'contents' => $element->{'contents'}}),
                                          $self->{'options_latex_math'});
         } else {
           my $contents_nr = scalar(@{$element->{'contents'}});

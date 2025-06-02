@@ -10,6 +10,8 @@ use utf8;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::HTML;
@@ -143,7 +145,8 @@ sub _set_appendix_direction_node_name
         my $label_element = Texinfo::Common::get_label_element($node);
         if (defined($label_element)) {
           my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                            {'contents' => $label_element->{'contents'}});
+                            Texinfo::TreeElement::new(
+                              {'contents' => $label_element->{'contents'}}));
           $self->set_global_direction('Appendix', $node_name);
         }
       }
@@ -204,8 +207,10 @@ sub my_email_formatting_function {
 
   my $tree = $converter->cdt('Generated @emph{@today{}} using '
                    .'@uref{{homepage}, @emph{{program}}}.',
-           { 'homepage' => { 'text' => $converter->get_conf('PACKAGE_URL') },
-             'program' => { 'text' => $converter->get_conf('PROGRAM') }});
+           { 'homepage' => Texinfo::TreeElement::new(
+               { 'text' => $converter->get_conf('PACKAGE_URL') }),
+             'program' => Texinfo::TreeElement::new(
+               { 'text' => $converter->get_conf('PROGRAM') }) });
   my $translated1 = $converter->convert_tree($tree);
 
   my $explanation_result;
@@ -217,10 +222,10 @@ sub my_email_formatting_function {
   }
   my $translated2 = $converter->convert_tree($converter->cdt(
                                       '{explained_string} ({explanation})',
-                                {'explained_string' => {'type' => '_converted',
-                                                        'text' => $translated1},
-                                 'explanation' => {'type' => '_converted',
-                                               'text' => $explanation_result}}),
+     {'explained_string' => Texinfo::TreeElement::new({'type' => '_converted',
+                                                       'text' => $translated1}),
+      'explanation' => Texinfo::TreeElement::new({'type' => '_converted',
+                                            'text' => $explanation_result}) }),
                                   "convert explained $cmdname");
 
   $text .= " $translated2;";
@@ -312,10 +317,12 @@ sub my_final_convert_paragraph_type($$$$)
   }
 
   my @contents = @{$element->{'contents'}};
-  push @contents, {'text' => ' <code>HTML</code> text ',
-                   'type' => '_converted'};
-  my $result = $converter->convert_tree({'type' => '_code',
-                                   'contents' => \@contents});
+  push @contents,
+    Texinfo::TreeElement::new({'text' => ' <code>HTML</code> text ',
+                               'type' => '_converted'});
+  my $result = $converter->convert_tree(
+     Texinfo::TreeElement::new({'type' => '_code',
+                                'contents' => \@contents}));
   return "<p>".$prepended.$result."</p>";
 }
 

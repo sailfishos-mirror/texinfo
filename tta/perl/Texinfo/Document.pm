@@ -32,7 +32,10 @@ use Texinfo::DocumentXS;
 
 use Texinfo::XSLoader;
 
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
+
 use Texinfo::Report;
 use Texinfo::Indices;
 use Texinfo::ManipulateTree;
@@ -545,7 +548,7 @@ sub _existing_label_error($$;$$)
       $registrar->line_error(sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
-                         {'contents' => $label_element->{'contents'}})),
+    Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                               $element->{'source_info'}, 0, $debug);
       $registrar->line_error(
                     sprintf(__("here is the previous definition as \@%s"),

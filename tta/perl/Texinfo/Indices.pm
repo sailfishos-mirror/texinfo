@@ -48,7 +48,10 @@ use Texinfo::IndicesXS;
 
 use Texinfo::XSLoader;
 
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
+
 use Texinfo::Convert::Text;
 
 # In general, Texinfo::Document depends on this here module, but there
@@ -600,7 +603,8 @@ sub index_entry_first_letter_text_or_command($;$)
     }
     my $parsed_element;
     if (!$entry_tree_element->{'contents'}) {
-      $parsed_element = {'contents' => [$entry_tree_element]};
+      $parsed_element
+        = Texinfo::TreeElement::new({'contents' => [$entry_tree_element]});
     } else {
       $parsed_element = $entry_tree_element;
     }

@@ -33,6 +33,9 @@ use Carp qw(cluck);
 use File::Spec;
 
 use Texinfo::Common;
+
+use Texinfo::TreeElement;
+
 use Texinfo::OutputUnits;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Plaintext;
@@ -355,8 +358,9 @@ sub output($$)
       $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
-          Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
-                                                  $label_element->{'contents'}})),
+          Texinfo::Convert::Texinfo::convert_to_texinfo(
+            Texinfo::TreeElement::new(
+               {'contents' => $label_element->{'contents'}}))),
         $label->{'root'}->{'source_info'});
       next;
     } else {
@@ -625,11 +629,15 @@ sub format_ref($$$)
               undef, undef, undef, undef, 1);
 
   if ($cmdname eq 'xref') {
-    $self->_convert({'type' => '_stop_upper_case',
-                     'contents' => [{'text' => '*Note '}]});
+    $self->_convert(Texinfo::TreeElement::new(
+                    {'type' => '_stop_upper_case',
+                     'contents' => [
+               Texinfo::TreeElement::new({'text' => '*Note '})]}));
   } else {
-    $self->_convert({'type' => '_stop_upper_case',
-                     'contents' => [{'text' => '*note '}]});
+    $self->_convert(Texinfo::TreeElement::new(
+                    {'type' => '_stop_upper_case',
+                     'contents' => [
+                Texinfo::TreeElement::new({'text' => '*note '})]}));
   }
   my $name;
   if (defined($args[1])) {
@@ -639,12 +647,13 @@ sub format_ref($$$)
   }
   my $file;
   if (defined($args[3])) {
-    $file = {'contents' => [
-               {'text' => '('},
-               {'type' => '_stop_upper_case',
-                  'contents' => [{'type' => '_code',
-                                   'contents' => [$args[3]]}],},
-               {'text' => ')'},]};
+    $file = Texinfo::TreeElement::new({'contents' => [
+               Texinfo::TreeElement::new({'text' => '('}),
+               Texinfo::TreeElement::new({'type' => '_stop_upper_case',
+                  'contents' => [Texinfo::TreeElement::new(
+                                  {'type' => '_code',
+                                   'contents' => [$args[3]]})],}),
+               Texinfo::TreeElement::new({'text' => ')'}),]});
   } elsif (defined($args[4])) {
     # add a () such that the node is considered to be external,
     # even though the manual name is not known.  This should only
@@ -705,8 +714,8 @@ sub format_ref($$$)
     $self->{'silent'}++;
 
     ($node_name, undef) = $self->convert_line_new_context(
-                                  {'type' => '_code',
-                                   'contents' => [$label_element]},
+        Texinfo::TreeElement::new({'type' => '_code',
+                                   'contents' => [$label_element]}),
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
     $self->{'silent'}--;
@@ -749,10 +758,11 @@ sub format_ref($$$)
          if $pre_quote;
 
   $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-  $self->_convert({'type' => '_stop_upper_case',
+  $self->_convert(Texinfo::TreeElement::new(
+                  {'type' => '_stop_upper_case',
                    'contents' => [
-                     {'type' => '_code',
-                      'contents' => [$label_element]}]});
+                     Texinfo::TreeElement::new({'type' => '_code',
+                      'contents' => [$label_element]})]}));
   delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
   $self->_stream_output_add_next($post_quote)
@@ -883,10 +893,12 @@ sub format_node($$;$)
           = $node_relations->{'node_directions'}->{lc($direction)};
       $self->_stream_output(",  $direction: ");
       if ($node_direction->{'extra'}->{'manual_content'}) {
-        $self->convert_line({'type' => '_code',
-                          'contents' => [{'text' => '('},
+        $self->convert_line(Texinfo::TreeElement::new(
+                         {'type' => '_code',
+                          'contents' => [
+                        Texinfo::TreeElement::new({'text' => '('}),
                              $node_direction->{'extra'}->{'manual_content'},
-                                          {'text' => ')'}]});
+                               Texinfo::TreeElement::new({'text' => ')'})]}));
       }
       if (defined($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';

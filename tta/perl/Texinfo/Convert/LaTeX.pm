@@ -179,7 +179,11 @@ use Carp qw(cluck confess);
 
 use Texinfo::Commands;
 use Texinfo::CommandsValues;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
+
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Convert::Text;
@@ -1169,13 +1173,16 @@ sub output($$)
   # in a container that can be used to mark that content should not
   # be ignored anymore.
   if ($in_top_node) {
-    $modified_root = {'contents' => [ @{$root->{'contents'}} ],
-                      'type' => $root->{'type'}}
+    $modified_root
+      = Texinfo::TreeElement::new({'contents' => [ @{$root->{'contents'}} ],
+                                   'type' => $root->{'type'}})
       if (not defined($modified_root));
     push @{$modified_root->{'contents'}},
-        {'type' => 'ignored_top_node_paragraph', 'contents' => [
-         {'type' => 'paragraph', 'contents' => [
-          {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'}]}]};
+        Texinfo::TreeElement::new({'type' => 'ignored_top_node_paragraph',
+         'contents' => [
+          Texinfo::TreeElement::new({'type' => 'paragraph', 'contents' => [
+           Texinfo::TreeElement::new({'text' => "\n(`Top' node ignored)\n",
+                                      'type' => 'ignored_top_node'})]})]});
   }
 
   if (not defined($modified_root)) {
@@ -2525,8 +2532,9 @@ sub _finish_front_cover_page($)
 sub _tree_anchor_label {
   my $node_content = shift;
 
-  my $label = Texinfo::Convert::NodeNameNormalization::convert_to_identifier
-    ({'contents' => $node_content});
+  my $label
+   = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+       Texinfo::TreeElement::new({'contents' => $node_content}));
   return "anchor:$label";
 }
 
@@ -3747,8 +3755,9 @@ sub _convert($$)
         # in abbr spaces never end a sentence.
         my $argument;
         if ($cmdname eq 'abbr') {
-          $argument = {'type' => '_dot_not_end_sentence',
-                       'contents' => [$element->{'contents'}->[0]]};
+          $argument
+            = Texinfo::TreeElement::new({'type' => '_dot_not_end_sentence',
+                                'contents' => [$element->{'contents'}->[0]]});
         } else {
         # TODO in TeX, acronym is in a smaller font (1pt less).
           $argument = $element->{'contents'}->[0];

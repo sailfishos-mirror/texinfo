@@ -78,6 +78,9 @@ use Storable qw(dclone); # standard in 5.007003
 use Texinfo::Commands;
 use Texinfo::Common;
 
+# associate tree element to its class
+use Texinfo::TreeElement;
+
 # Error reporting and counting
 use Texinfo::Report;
 
@@ -834,7 +837,7 @@ sub parse_texi_line($$;$)
 
   _input_push_text($self, $text, $line_nr);
 
-  my $root = {'type' => 'root_line'};
+  my $root = Texinfo::TreeElement::new({'type' => 'root_line'});
   $self->_parse_texi($root, $root);
   get_parser_info($self);
 
@@ -996,14 +999,15 @@ sub _parse_texi_document($)
     # non ascii spaces do not start content
     if ($line =~ /^ *\\input/ or $line =~ /^\s*$/) {
       if (not defined($preamble_before_beginning)) {
-        $preamble_before_beginning = {'type' => 'preamble_before_beginning',
-                        'contents' => [], 'parent' => $before_node_section };
+        $preamble_before_beginning
+          = Texinfo::TreeElement::new({'type' => 'preamble_before_beginning',
+                        'contents' => [], 'parent' => $before_node_section });
         push @{$before_node_section->{'contents'}}, $preamble_before_beginning;
       }
       push @{$preamble_before_beginning->{'contents'}},
-                               { 'text' => $line,
-                                 'type' => 'text_before_beginning',
-                                 'parent' => $preamble_before_beginning };
+        Texinfo::TreeElement::new({ 'text' => $line,
+                                     'type' => 'text_before_beginning',
+                                     'parent' => $preamble_before_beginning });
     } else {
       # This line is not part of the preamble_before_beginning.
       # Shove back into input stream.
@@ -1235,7 +1239,8 @@ sub _place_source_mark
     # can only be before the opening brace
     $element->{'info'} = {} if (!$element->{'info'});
     if (!$element->{'info'}->{'spaces_after_cmd_before_arg'}) {
-      $element->{'info'}->{'spaces_after_cmd_before_arg'} = {'text' => ''};
+      $element->{'info'}->{'spaces_after_cmd_before_arg'}
+        = Texinfo::TreeElement::new({'text' => ''});
       $add_element_string = 'add';
     } else {
       $source_mark->{'position'}
@@ -1245,7 +1250,8 @@ sub _place_source_mark
   } else {
     # add an empty element only used for source marks
     # 'text' is here to have merge_text work as expected
-    $mark_element = {'parent' => $element, 'text' => ''};
+    $mark_element
+      = Texinfo::TreeElement::new({'parent' => $element, 'text' => ''});
     $element->{'contents'} = [] unless (defined($element->{'contents'}));
     push @{$element->{'contents'}}, $mark_element;
     $add_element_string = 'add';
@@ -1293,12 +1299,16 @@ sub _parse_macro_command_line($$$$$;$)
 {
   my ($self, $command, $line, $parent, $source_info) = @_;
 
-  my $macro = { 'cmdname' => $command, 'parent' => $parent,
-                'source_info' => $source_info };
-  my $arguments = {'type' => 'arguments_line', 'parent' => $macro};
+  my $macro
+    = Texinfo::TreeElement::new({ 'cmdname' => $command, 'parent' => $parent,
+                                  'source_info' => $source_info });
+  my $arguments
+    = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                 'parent' => $macro});
   $macro->{'contents'} = [$arguments];
-  my $macro_line = {'type' => 'macro_line', 'text' => $line,
-                    'parent' => $arguments};
+  my $macro_line
+    = Texinfo::TreeElement::new({'type' => 'macro_line', 'text' => $line,
+                                 'parent' => $arguments});
   $arguments->{'contents'} = [$macro_line];
 
   # REMACRO
@@ -1394,7 +1404,8 @@ sub _begin_paragraph($$)
     }
   }
   push @{$current->{'contents'}},
-          { 'type' => 'paragraph', 'parent' => $current };
+    Texinfo::TreeElement::new(
+          { 'type' => 'paragraph', 'parent' => $current });
   $current = $current->{'contents'}->[-1];
   if ($indent) {
     $current->{'extra'} = {$indent => 1};
@@ -1410,8 +1421,8 @@ sub _begin_preformatted($$)
 
   if ($self->_top_context() eq 'ct_preformatted') {
     push @{$current->{'contents'}},
-          { 'type' => 'preformatted',
-            'parent' => $current };
+          Texinfo::TreeElement::new({ 'type' => 'preformatted',
+                                      'parent' => $current });
     $current = $current->{'contents'}->[-1];
     print STDERR "PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
   }
@@ -1826,8 +1837,9 @@ sub _gather_previous_item($$;$$)
     my $new_contents = [];
     @{$new_contents} = splice @{$current->{'contents'}},
                               $begin, $end - $begin;
-    $table_after_terms = {'type' => $type,
-                           'contents' => $new_contents};
+    $table_after_terms
+      = Texinfo::TreeElement::new({'type' => $type,
+                                   'contents' => $new_contents});
     foreach my $child (@{$new_contents}) {
       $child->{'parent'} = $table_after_terms;
     }
@@ -1837,11 +1849,13 @@ sub _gather_previous_item($$;$$)
     my $before_item;
 
     # setup a table_entry
-    my $table_entry = {'type' => 'table_entry',
-                    'parent' => $current,
-                    'contents' => []};
-    my $table_term = {'type' => 'table_term',
-                    'parent' => $table_entry, };
+    my $table_entry
+      = Texinfo::TreeElement::new({'type' => 'table_entry',
+                                   'parent' => $current,
+                                   'contents' => []});
+    my $table_term
+      = Texinfo::TreeElement::new({'type' => 'table_term',
+                                   'parent' => $table_entry, });
     push @{$table_entry->{'contents'}}, $table_term;
 
     # We previously collected elements into a table_definition.  Now
@@ -1946,9 +1960,9 @@ sub _gather_def_item($$;$)
                    and $current->{'contents'}->[0]->{'type'}
             and $current->{'contents'}->[0]->{'type'} eq 'arguments_line');
 
-  my $def_item = {'type' => $type,
-                  'parent' => $current,
-                  'contents' => []};
+  my $def_item = Texinfo::TreeElement::new({'type' => $type,
+                                            'parent' => $current,
+                                            'contents' => []});
   # remove everything that is not a def_line to put it in the def_item,
   # starting from the end.
   for (my $i = 0; $i < $contents_count; $i++) {
@@ -1993,14 +2007,16 @@ sub _close_command_cleanup($$) {
           delete $row->{'cells_count'};
           if ($row->{'contents'}->[0]->{'cmdname'} eq 'headitem') {
             if (!$in_head_or_rows) {
-              push @{$current->{'contents'}}, {'type' => 'multitable_head',
-                                               'parent' => $current};
+              push @{$current->{'contents'}},
+               Texinfo::TreeElement::new({'type' => 'multitable_head',
+                                               'parent' => $current});
               $in_head_or_rows = 1;
             }
           } elsif ($row->{'contents'}->[0]->{'cmdname'} eq 'item') {
             if (!defined($in_head_or_rows) or $in_head_or_rows) {
-              push @{$current->{'contents'}}, {'type' => 'multitable_body',
-                                               'parent' => $current};
+              push @{$current->{'contents'}},
+                 Texinfo::TreeElement::new({'type' => 'multitable_body',
+                                               'parent' => $current});
               $in_head_or_rows = 0;
             }
           }
@@ -2177,7 +2193,8 @@ sub _close_current($$$;$$)
       # be at the end of the document after an empty line we
       # do not want to modify
       #$current = _merge_text($self, $current, '}');
-      my $close_brace = {'text' => '}', 'parent' => $current};
+      my $close_brace
+       = Texinfo::TreeElement::new({'text' => '}', 'parent' => $current});
       push @{$current->{'contents'}}, $close_brace;
       $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'line_arg') {
@@ -2282,7 +2299,8 @@ sub _merge_text {
   # or menu_entry_name, otherwise there is always some kind of element
   # leading added for leading spaces when the element is created
   if (!$current->{'contents'}) {
-    my $new_element = { 'text' => $text, 'parent' => $current };
+    my $new_element
+      = Texinfo::TreeElement::new({ 'text' => $text, 'parent' => $current });
     _transfer_source_marks($transfer_marks_element, $new_element)
       if ($transfer_marks_element);
     $current->{'contents'} = [];
@@ -2392,7 +2410,8 @@ sub _merge_text {
          if ($self->{'conf'}->{'DEBUG'});
     $last_element->{'text'} .= $text;
   } else {
-    my $new_element = { 'text' => $text, 'parent' => $current };
+    my $new_element
+     = Texinfo::TreeElement::new({ 'text' => $text, 'parent' => $current });
     _transfer_source_marks($transfer_marks_element, $new_element)
       if ($transfer_marks_element);
     if (!defined($current->{'contents'})) {
@@ -2675,12 +2694,14 @@ sub _expand_macro_arguments($$$$$)
 
   my $braces_level = 1;
 
-  my $argument = {'type' => 'brace_arg',
-                  'contents' => [],
-                  'parent' => $current};
+  my $argument
+    = Texinfo::TreeElement::new({'type' => 'brace_arg',
+                                 'contents' => [],
+                                 'parent' => $current});
   push @{$current->{'contents'}}, $argument;
-  my $argument_content = {'text' => '',
-                          'parent' => $argument};
+  my $argument_content
+    = Texinfo::TreeElement::new({'text' => '',
+                                 'parent' => $argument});
   push @{$argument->{'contents'}}, $argument_content;
 
   my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
@@ -2691,7 +2712,8 @@ sub _expand_macro_arguments($$$$$)
   $line =~ s/^{(\s*)//;
   if ($1 ne '') {
     $argument->{'info'} = {} if (!$argument->{'info'});
-    $argument->{'info'}->{'spaces_before_argument'} = {'text' => $1};
+    $argument->{'info'}->{'spaces_before_argument'}
+      = Texinfo::TreeElement::new({'text' => $1});
   }
 
   while (1) {
@@ -2720,17 +2742,20 @@ sub _expand_macro_arguments($$$$$)
           if (scalar(@{$current->{'contents'}}) < $args_total) {
             _remove_empty_content($self, $argument);
 
-            $argument = {'type' => 'brace_arg',
-                         'contents' => [],
-                         'parent' => $current};
+            $argument
+              = Texinfo::TreeElement::new({'type' => 'brace_arg',
+                                           'contents' => [],
+                                           'parent' => $current});
             push @{$current->{'contents'}}, $argument;
-            $argument_content = {'text' => '',
-                                 'parent' => $argument};
+            $argument_content
+              = Texinfo::TreeElement::new({'text' => '',
+                                           'parent' => $argument});
             push @{$argument->{'contents'}}, $argument_content;
             $line =~ s/^(\s*)//;
             if ($1 ne '') {
               $argument->{'info'}
-                = {'spaces_before_argument' => {'text' => $1}};
+                = {'spaces_before_argument'
+                    => Texinfo::TreeElement::new({'text' => $1})};
             }
             print STDERR "MACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
           } else {
@@ -2783,17 +2808,20 @@ sub _expand_linemacro_arguments($$$$$)
   my ($self, $macro, $line, $source_info, $current) = @_;
 
   my $braces_level = 0;
-  my $argument = {'type' => 'line_arg',
-                  'contents' => [],
-                  'parent' => $current};
+  my $argument
+    = Texinfo::TreeElement::new({'type' => 'line_arg',
+                                 'contents' => [],
+                                 'parent' => $current});
   push @{$current->{'contents'}}, $argument;
-  my $argument_content = {'text' => '',
-                          'parent' => $argument};
+  my $argument_content
+    = Texinfo::TreeElement::new({'text' => '',
+                                 'parent' => $argument});
   push @{$argument->{'contents'}}, $argument_content;
   # based on whitespace_chars_except_newline in XS parser
   if ($line =~ s/^([ \t\cK\f]+)//) {
     $current->{'info'} = {} if (!$current->{'info'});
-    $current->{'info'}->{'spaces_before_argument'} = {'text' => $1};
+    $current->{'info'}->{'spaces_before_argument'}
+      = Texinfo::TreeElement::new({'text' => $1});
   }
   my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
@@ -2842,15 +2870,18 @@ sub _expand_linemacro_arguments($$$$$)
             or scalar(@{$current->{'contents'}}) >= $args_total) {
           $argument_content->{'text'} .= $separator;
         } else {
-          $argument = {'type' => 'line_arg',
-                       'contents' => [],
-                       'parent' => $current};
+          $argument
+            = Texinfo::TreeElement::new({'type' => 'line_arg',
+                                         'contents' => [],
+                                         'parent' => $current});
           push @{$current->{'contents'}}, $argument;
-          $argument_content = {'text' => '',
-                               'parent' => $argument};
+          $argument_content
+            = Texinfo::TreeElement::new({'text' => '',
+                                         'parent' => $argument});
           push @{$argument->{'contents'}}, $argument_content;
           $argument->{'info'}
-            = {'spaces_before_argument' => {'text' => $separator}};
+            = {'spaces_before_argument' =>
+                Texinfo::TreeElement::new({'text' => $separator})};
           print STDERR "LINEMACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
         }
       }
@@ -3105,7 +3136,7 @@ sub _isolate_trailing_spaces_element($)
   my $new_space_element;
 
   if ($element->{'text'} =~ s/(\s+)$//) {
-    $new_space_element = {'text' => $1};
+    $new_space_element = Texinfo::TreeElement::new({'text' => $1});
     if ($element->{'source_marks'}) {
       my $current_position = length($element->{'text'});
       Texinfo::Common::relocate_source_marks(
@@ -3226,8 +3257,10 @@ sub _split_delimiters
       and ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg')) {
     return $root;
   } elsif (!defined($root->{'text'})) {
-    my $new = {'type' => 'def_line_arg', 'parent' => $current,
-               'contents' => [$root]};
+    my $new
+      = Texinfo::TreeElement::new({'type' => 'def_line_arg',
+                                   'parent' => $current,
+                                   'contents' => [$root]});
     $root->{'parent'} = $current;
     return $new;
   } else {
@@ -3243,15 +3276,18 @@ sub _split_delimiters
     }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
-        my $new = {'type' => 'def_line_arg', 'parent' => $root->{'parent'}};
-        $new->{'contents'} = [{'text' => $1, 'parent' => $new}];
+        my $new = Texinfo::TreeElement::new({'type' => 'def_line_arg',
+                                           'parent' => $root->{'parent'}});
+        $new->{'contents'} = [
+             Texinfo::TreeElement::new({'text' => $1, 'parent' => $new})];
         push @elements, $new;
         $current_position = Texinfo::Common::relocate_source_marks(
                               $remaining_source_marks, $new->{'contents'}->[0],
                               $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
-        push @elements, {'text' => $1, 'type' => 'delimiter',
-                         'parent' => $root->{'parent'}};
+        push @elements,
+          Texinfo::TreeElement::new({'text' => $1, 'type' => 'delimiter',
+                                     'parent' => $root->{'parent'}});
         $current_position = Texinfo::Common::relocate_source_marks(
                                  $remaining_source_marks, $elements[-1],
                                  $current_position, length($1));
@@ -3293,7 +3329,7 @@ sub _split_def_args
       $root->{'source_marks'} = undef;
     }
     foreach my $t (@split_text) {
-      my $e = {'text' => $t };
+      my $e = Texinfo::TreeElement::new({'text' => $t});
       $current_position = Texinfo::Common::relocate_source_marks(
                                $remaining_source_marks, $e,
                                $current_position, length($t));
@@ -3358,8 +3394,10 @@ sub _next_bracketed_or_word_agg($$)
   }
   my @gathered_contents
     = splice(@{$current->{'contents'}}, $$index_ref - $num, $num);
-  my $new = {'type' => 'def_line_arg', 'parent' => $current,
-             'contents' => \@gathered_contents};
+  my $new
+    = Texinfo::TreeElement::new({'type' => 'def_line_arg',
+                                 'parent' => $current,
+                                 'contents' => \@gathered_contents});
   foreach my $content (@gathered_contents) {
     $content->{'parent'} = $new;
   }
@@ -3400,9 +3438,11 @@ sub _parse_def($$$$)
     }
 
     $inserted_category = 1;
-    my $def_line_arg = {'type' => 'def_line_arg',
-                        'parent' => $current};
-    my $content = { 'text' => $category, 'parent' => $def_line_arg };
+    my $def_line_arg
+      = Texinfo::TreeElement::new({'type' => 'def_line_arg',
+                                   'parent' => $current});
+    my $content = Texinfo::TreeElement::new({ 'text' => $category,
+                                              'parent' => $def_line_arg });
     # the category string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
     if (defined($self->{'documentlanguage'})) {
@@ -3418,10 +3458,10 @@ sub _parse_def($$$$)
     @{$def_line_arg->{'contents'}} = ($content);
 
     unshift @contents, $def_line_arg,
-                       { 'text' => ' ', 'type' => 'spaces',
-                         'info' => {'inserted' => 1},
-                         'parent' => $current,
-                       };
+     Texinfo::TreeElement::new({ 'text' => ' ', 'type' => 'spaces',
+                                 'info' => {'inserted' => 1},
+                                 'parent' => $current,
+                               });
 
     $command = $def_aliases{$command};
   }
@@ -3447,8 +3487,9 @@ sub _parse_def($$$$)
   for ($i = 0; $i < $arg_types_nr; $i++) {
     my $element = _next_bracketed_or_word_agg($current, \$contents_idx);
     if ($element) {
-      my $new_def_type = {'type' => 'def_'.$args[$i],
-                          'parent' => $element->{'parent'}};
+      my $new_def_type
+        = Texinfo::TreeElement::new({'type' => 'def_'.$args[$i],
+                                     'parent' => $element->{'parent'}});
       $new_def_type->{'contents'} = [$element];
       $element->{'parent'} = $new_def_type;
       $current->{'contents'}->[$contents_idx - 1] = $new_def_type;
@@ -3496,8 +3537,9 @@ sub _parse_def($$$$)
       $type = $type * $set_type_not_arg;
     }
     if (defined($def_type)) {
-      my $new_def_type = {'type' => $def_type,
-                          'parent' => $content->{'parent'},};
+      my $new_def_type
+        = Texinfo::TreeElement::new({'type' => $def_type,
+                              'parent' => $content->{'parent'},});
       $new_def_type->{'contents'} = [$content];
       $content->{'parent'} = $new_def_type;
       $args_results[$j] = $new_def_type;
@@ -4025,9 +4067,10 @@ sub _end_line_misc_line($$$)
           and $block_commands{$self->_current_context_command()} eq 'menu') {
         print STDERR "CLOSE menu but still in menu context\n"
           if ($self->{'conf'}->{'DEBUG'});
-        push @{$current->{'contents'}}, {'type' => 'menu_comment',
+        push @{$current->{'contents'}},
+              Texinfo::TreeElement::new({'type' => 'menu_comment',
                                          'parent' => $current,
-                                         'contents' => [] };
+                                         'contents' => [] });
         $current = $current->{'contents'}->[-1];
       } elsif ($closed_command and $closed_command->{'cmdname'} eq 'float') {
         my $caption;
@@ -4422,7 +4465,8 @@ sub _end_line_starting_block($$$)
           # expand the contents to avoid surrounding spaces
           my $texi_arg
             = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                    {'contents' => $block_line_arg->{'contents'}});
+                Texinfo::TreeElement::new(
+                  {'contents' => $block_line_arg->{'contents'}}));
           $self->_command_error($current,
                                 __("bad argument to \@%s: %s"),
                                 $command, $texi_arg);
@@ -4442,8 +4486,9 @@ sub _end_line_starting_block($$$)
         $command_as_argument = undef;
       }
     }
-    push @{$current->{'contents'}}, { 'type' => 'before_item',
-                                      'parent', $current };
+    push @{$current->{'contents'}},
+      Texinfo::TreeElement::new({ 'type' => 'before_item',
+                                  'parent', $current });
     $current = $current->{'contents'}->[-1];
   } elsif (not $commands_args_number{$command}
            and not exists($variadic_commands{$command})
@@ -4451,7 +4496,8 @@ sub _end_line_starting_block($$$)
            and scalar(@{$block_line_arg->{'contents'}})) {
     # expand the contents to avoid surrounding spaces
     my $texi_arg = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                       {'contents' => $block_line_arg->{'contents'}});
+           Texinfo::TreeElement::new(
+                 {'contents' => $block_line_arg->{'contents'}}));
     $self->_command_warn($current,
                          __("unexpected argument on \@%s line: %s"),
                          $command, $texi_arg);
@@ -4545,17 +4591,18 @@ sub _end_line_starting_block($$$)
     }
   }
   if ($block_commands{$command} eq 'menu') {
-    push @{$current->{'contents'}}, {'type' => 'menu_comment',
-                                     'parent' => $current,
-                                     'contents' => [] };
+    push @{$current->{'contents'}},
+      Texinfo::TreeElement::new({'type' => 'menu_comment',
+                                 'parent' => $current,
+                                  'contents' => [] });
     $current = $current->{'contents'}->[-1];
     print STDERR "MENU_COMMENT OPEN\n" if ($self->{'conf'}->{'DEBUG'});
   }
   if ($block_commands{$command} eq 'format_raw'
       and $self->{'expanded_formats_hash'}->{$command}) {
     push @{$current->{'contents'}},
-        { 'type' => 'rawpreformatted',
-          'parent' => $current };
+      Texinfo::TreeElement::new({ 'type' => 'rawpreformatted',
+                                  'parent' => $current });
     $current = $current->{'contents'}->[-1];
   }
   $current = _begin_preformatted($self, $current)
@@ -4613,8 +4660,9 @@ sub _end_line_menu_entry ($$$)
         # Normally this cannot happen
         $self->_bug_message("no description in menu_entry",
                              $source_info, $current);
-        push @{$entry->{'contents'}}, {'type' => 'menu_entry_description',
-                                   'parent' => $entry, };
+        push @{$entry->{'contents'}},
+          Texinfo::TreeElement::new({'type' => 'menu_entry_description',
+                                     'parent' => $entry, });
         $description_or_menu_comment = $entry->{'contents'}->[-1];
       }
     } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
@@ -4633,17 +4681,20 @@ sub _end_line_menu_entry ($$$)
         # this should not happen
         $self->_bug_message("description or menu comment not in preformatted",
                             $source_info, $current);
-        push @{$current->{'contents'}}, {'type' => 'preformatted',
-                                  'parent' => $current, };
+        push @{$current->{'contents'}},
+          Texinfo::TreeElement::new({'type' => 'preformatted',
+                                     'parent' => $current, });
         $current = $current->{'contents'}->[-1];
       }
     } else {
-      push @{$menu->{'contents'}}, {'type' => 'menu_comment',
-                                  'parent' => $menu,
-                                  'contents' => [] };
+      push @{$menu->{'contents'}},
+        Texinfo::TreeElement::new({'type' => 'menu_comment',
+                                   'parent' => $menu,
+                                   'contents' => [] });
       $current = $menu->{'contents'}->[-1];
-      push @{$current->{'contents'}}, {'type' => 'preformatted',
-                                'parent' => $current, };
+      push @{$current->{'contents'}},
+        Texinfo::TreeElement::new({'type' => 'preformatted',
+                                   'parent' => $current, });
       $current = $current->{'contents'}->[-1];
       print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'conf'}->{'DEBUG'});
     }
@@ -4734,18 +4785,20 @@ sub _end_line($$$)
       # first parent is menu_entry
       $current = $current->{'parent'}->{'parent'};
 
-      push @{$current->{'contents'}}, { 'type' => 'menu_comment',
+      push @{$current->{'contents'}},
+            Texinfo::TreeElement::new({ 'type' => 'menu_comment',
                                         'parent' => $current,
-                                        'contents' => [] };
+                                        'contents' => [] });
       $current = $current->{'contents'}->[-1];
-      push @{$current->{'contents'}}, { 'type' => 'preformatted',
+      push @{$current->{'contents'}},
+            Texinfo::TreeElement::new({ 'type' => 'preformatted',
                                         'parent' => $current,
-                                        'contents' => [] };
+                                        'contents' => [] });
       $current = $current->{'contents'}->[-1];
-      my $after_menu_description_line = {
-                                        'type' => 'after_menu_description_line',
-                                        'text' => $empty_line->{'text'},
-                                        'parent' => $current };
+      my $after_menu_description_line =
+        Texinfo::TreeElement::new({'type' => 'after_menu_description_line',
+                                   'text' => $empty_line->{'text'},
+                                   'parent' => $current });
       _transfer_source_marks($empty_line, $after_menu_description_line);
       push @{$current->{'contents'}}, $after_menu_description_line;
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n"
@@ -4864,10 +4917,10 @@ sub _start_empty_line_after_command($$$$) {
 
   # based on whitespace_chars_except_newline in XS parser
   $line =~ s/^([ \t\cK\f]*)//;
-  my $spaces_after_command = { 'type' => $type,
-                               'text' => $1,
-                               'parent' => $current,
-                             };
+  my $spaces_after_command
+   = Texinfo::TreeElement::new({'type' => $type,
+                                'text' => $1,
+                                'parent' => $current,});
   push @{$current->{'contents'}}, $spaces_after_command;
   return $line;
 }
@@ -4883,7 +4936,8 @@ sub _check_register_target_element_label($$$$)
       $self->_line_error(sprintf(__("syntax for an external node used for `%s'"),
        # use contents to avoid leading/trailing spaces
        Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                    {'contents' => $label_element->{'contents'}})),
+          Texinfo::TreeElement::new(
+                {'contents' => $label_element->{'contents'}}))),
                          $source_info);
     }
     my $normalized
@@ -4893,7 +4947,7 @@ sub _check_register_target_element_label($$$$)
       $self->_line_error(sprintf(__("empty node name after expansion `%s'"),
                          # convert the contents only, to avoid spaces
                               Texinfo::Convert::Texinfo::convert_to_texinfo(
-                               {'contents' => $label_element->{'contents'}})),
+    Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                                  $target_element->{'source_info'});
     } else {
       $target_element->{'extra'} = {} if (!$target_element->{'extra'});
@@ -4975,13 +5029,15 @@ sub _enter_menu_entry_node($$$)
   push @{$self->{'document'}->{'internal_references'}}, $menu_entry_node
      if (defined($menu_entry_node));
 
-  my $description = { 'type' => 'menu_entry_description',
-                      'parent' => $current };
+  my $description
+    = Texinfo::TreeElement::new({ 'type' => 'menu_entry_description',
+                                  'parent' => $current });
   push @{$current->{'contents'}}, $description;
 
   $current = $description;
-  push @{$current->{'contents'}}, {'type' => 'preformatted',
-                                   'parent' => $current, };
+  push @{$current->{'contents'}},
+        Texinfo::TreeElement::new({'type' => 'preformatted',
+                                   'parent' => $current, });
   $current = $current->{'contents'}->[-1];
   return $current;
 }
@@ -5215,9 +5271,11 @@ sub _check_valid_nesting_context
 
 sub _setup_document_root_and_before_node_section()
 {
-  my $before_node_section = { 'type' => 'before_node_section' };
-  my $document_root = { 'contents' => [$before_node_section],
-                        'type' => 'document_root' };
+  my $before_node_section
+    = Texinfo::TreeElement::new({ 'type' => 'before_node_section' });
+  my $document_root
+    = Texinfo::TreeElement::new({ 'contents' => [$before_node_section],
+                                  'type' => 'document_root' });
   $before_node_section->{'parent'} = $document_root;
   return ($document_root, $before_node_section);
 }
@@ -5229,14 +5287,16 @@ sub _new_value_element($$;$$)
   my $current = shift;
   my $spaces_element = shift;
 
-  my $value_elt = { 'cmdname' => $command,
-                      'contents' => [] };
+  my $value_elt = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                              'contents' => [] });
   $value_elt->{'parent'} = $current if (defined($current));
-  my $brace_container = {'type' => 'brace_container',
-                         'contents' => [], 'parent' => $value_elt};
+  my $brace_container
+    = Texinfo::TreeElement::new({'type' => 'brace_container',
+                                 'contents' => [], 'parent' => $value_elt});
   push @{$value_elt->{'contents'}}, $brace_container;
-  push @{$brace_container->{'contents'}}, {'text' => $flag,
-                                           'parent' => $brace_container};
+  push @{$brace_container->{'contents'}},
+            Texinfo::TreeElement::new({'text' => $flag,
+                                       'parent' => $brace_container});
   if ($spaces_element) {
     $value_elt->{'info'} = {} if (!$value_elt->{'info'});
     $value_elt->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
@@ -5287,10 +5347,11 @@ sub _handle_macro($$$$$)
     }
   }
 
-  my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
-                            'info' => {'command_name' => $command},
-                            'contents' => []};
-
+  my $macro_call_element
+    = Texinfo::TreeElement::new(
+                       {'type' => $expanded_macro->{'cmdname'}.'_call',
+                        'info' => {'command_name' => $command},
+                        'contents' => []});
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
     ($line, $source_info)
@@ -5300,7 +5361,7 @@ sub _handle_macro($$$$$)
     my $args_number = scalar(@{$expanded_macro->{'extra'}->{'misc_args'}});
     if ($line =~ /^\s*{/) { # } macro with args
       if ($line =~ s/^(\s+)//) {
-        my $spaces_element = {'text' => $1};
+        my $spaces_element = Texinfo::TreeElement::new({'text' => $1});
         $macro_call_element->{'info'} = {} if (!$macro_call_element->{'info'});
         $macro_call_element->{'info'}->{'spaces_after_cmd_before_arg'}
           = $spaces_element;
@@ -5317,8 +5378,8 @@ sub _handle_macro($$$$$)
          if ($args_number >= 2);
     } else {
       $macro_call_element->{'type'} = $expanded_macro->{'cmdname'}.'_call_line';
-      my $arg_elt = {'type' => 'line_arg',
-                     'parent' => $macro_call_element};
+      my $arg_elt = Texinfo::TreeElement::new({'type' => 'line_arg',
+                                         'parent' => $macro_call_element});
       push @{$macro_call_element->{'contents'}}, $arg_elt;
       while (1) {
         if ($line eq '') {
@@ -5330,7 +5391,7 @@ sub _handle_macro($$$$$)
         } else {
           # based on whitespace_chars_except_newline in XS parser
           if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
-            my $internal_space = {'text' => $1};
+            my $internal_space = Texinfo::TreeElement::new({'text' => $1});
             $macro_call_element->{'info'} = {}
                 if (!$macro_call_element->{'info'});
             $macro_call_element->{'info'}->{'spaces_before_argument'}
@@ -5338,8 +5399,9 @@ sub _handle_macro($$$$$)
           } else {
             my $has_end_of_line = chomp $line;
             if (not $arg_elt->{'contents'}) {
-              push @{$arg_elt->{'contents'}}, {'text' => $line,
-                                               'parent' => $arg_elt};
+              push @{$arg_elt->{'contents'}},
+                    Texinfo::TreeElement::new({'text' => $line,
+                                               'parent' => $arg_elt});
             } else {
               $arg_elt->{'contents'}->[0]->{'text'} .= $line;
             }
@@ -5488,16 +5550,18 @@ sub _handle_menu_entry_separators($$$$$$)
         $current = _close_container($self, $current, $source_info);
       }
 
-      my $menu_entry = { 'type' => 'menu_entry',
-                         'parent' => $current,
-                       };
-      my $leading_text = { 'type' => 'menu_entry_leading_text',
-                           'text' => $star_leading_spaces,
-                           'parent' => $menu_entry };
+      my $menu_entry
+        = Texinfo::TreeElement::new({ 'type' => 'menu_entry',
+                                       'parent' => $current, });
+      my $leading_text
+        = Texinfo::TreeElement::new({ 'type' => 'menu_entry_leading_text',
+                                      'text' => $star_leading_spaces,
+                                      'parent' => $menu_entry });
       # transfer source marks from removed menu star to leading text
       _transfer_source_marks($menu_star_element, $leading_text);
-      my $entry_name = { 'type' => 'menu_entry_name',
-                         'parent' => $menu_entry };
+      my $entry_name
+        = Texinfo::TreeElement::new({ 'type' => 'menu_entry_name',
+                                      'parent' => $menu_entry });
       push @{$current->{'contents'}}, $menu_entry;
       push @{$menu_entry->{'contents'}}, $leading_text;
       push @{$menu_entry->{'contents'}}, $entry_name;
@@ -5513,9 +5577,10 @@ sub _handle_menu_entry_separators($$$$$$)
                     and $current->{'type'} eq 'menu_entry_name'))) {
     substr($$line_ref, 0, 1) = '';
     $current = $current->{'parent'};
-    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
-                                      'text' => $menu_separator,
-                                      'parent' => $current };
+    push @{$current->{'contents'}},
+         Texinfo::TreeElement::new({ 'type' => 'menu_entry_separator',
+                                     'text' => $menu_separator,
+                                     'parent' => $current });
   # after a separator in menu
   } elsif ($last_element
            and $last_element->{'type'}
@@ -5552,8 +5617,9 @@ sub _handle_menu_entry_separators($$$$$$)
     } elsif ($separator =~ /^:/) {
       print STDERR "MENU ENTRY done $separator\n"
                      if ($self->{'conf'}->{'DEBUG'});
-      push @{$current->{'contents'}}, { 'type' => 'menu_entry_node',
-                                        'parent' => $current };
+      push @{$current->{'contents'}},
+        Texinfo::TreeElement::new({ 'type' => 'menu_entry_node',
+                                    'parent' => $current });
       $current = $current->{'contents'}->[-1];
     # anything else corresponds to a separator that does not contain
     # : and is after a menu node (itself following a menu_entry_name)
@@ -5596,7 +5662,9 @@ sub _handle_other_command($$$$$)
   my $command_e;
 
   if ($arg_spec ne 'skipspace') {
-    $command_e = {'cmdname' => $command, 'parent' => $current};
+    $command_e
+      = Texinfo::TreeElement::new({'cmdname' => $command,
+                                   'parent' => $current});
     push @{$current->{'contents'}}, $command_e;
 
     if ($in_heading_spec_commands{$command}) {
@@ -5652,9 +5720,11 @@ sub _handle_other_command($$$$$)
         if ($command eq 'item') {
           print STDERR "ITEM CONTAINER\n" if ($self->{'conf'}->{'DEBUG'});
           $parent->{'items_count'}++;
-          $command_e = { 'cmdname' => $command, 'parent' => $parent,
-                         'extra' =>
-                          {'item_number' => $parent->{'items_count'}} };
+          $command_e
+            = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                          'parent' => $parent,
+                                       'extra' =>
+                          {'item_number' => $parent->{'items_count'}} });
           push @{$parent->{'contents'}}, $command_e;
           $current = $parent->{'contents'}->[-1];
         } else {
@@ -5687,30 +5757,33 @@ sub _handle_other_command($$$$$)
                    $parent->{'extra'}->{'max_columns'}), $source_info);
           } else {
             $row->{'cells_count'}++;
-            $command_e = { 'cmdname' => $command,
+            $command_e
+              = Texinfo::TreeElement::new({ 'cmdname' => $command,
                            'parent' => $row,
                            'contents' => [],
                            'extra' =>
-                              {'cell_number' => $row->{'cells_count'}} };
+                              {'cell_number' => $row->{'cells_count'}} });
             push @{$row->{'contents'}}, $command_e;
             $current = $row->{'contents'}->[-1];
             print STDERR "TAB\n" if ($self->{'conf'}->{'DEBUG'});
           }
         } else {
           print STDERR "ROW\n" if ($self->{'conf'}->{'DEBUG'});
-          my $row = { 'type' => 'row', 'contents' => [],
-                      'cells_count' => 1,
-                      'parent' => $parent };
+          my $row
+            = Texinfo::TreeElement::new({ 'type' => 'row', 'contents' => [],
+                                          'cells_count' => 1,
+                                          'parent' => $parent });
           push @{$parent->{'contents'}}, $row;
           # Note that the "row_number" extra value
           # isn't actually used anywhere at present.
           # -2 because of the 'arguments_line'
           $row->{'extra'}
               = {'row_number' => scalar(@{$parent->{'contents'}}) - 2};
-          $command_e = { 'cmdname' => $command,
-                         'parent' => $row,
-                         'contents' => [],
-                         'extra' => {'cell_number' => 1}};
+          $command_e
+            = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                          'parent' => $row,
+                                          'contents' => [],
+                                      'extra' => {'cell_number' => 1}});
           push @{$row->{'contents'}}, $command_e;
           $current = $command_e;
         }
@@ -5726,8 +5799,10 @@ sub _handle_other_command($$$$$)
       }
       $command_e->{'source_info'} = {%$source_info} if (defined($command_e));
     } else {
-      $command_e = { 'cmdname' => $command, 'parent' => $current,
-                     'source_info' => {%$source_info} };
+      $command_e
+        = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                      'parent' => $current,
+                                  'source_info' => {%$source_info} });
       push @{$current->{'contents'}}, $command_e;
       if (($command eq 'indent' or $command eq 'noindent')
            and _in_paragraph($self, $current)) {
@@ -5819,8 +5894,8 @@ sub _handle_line_command($$$$$$)
                  = _new_line($self, $current);
       $line .= $new_line if (defined($new_line));
     }
-    $command_e = {'cmdname' => $command,
-                  'parent' => $current};
+    $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
+                                            'parent' => $current});
 
     my ($args, $has_comment, $special_arg)
       = _parse_rawline_command($self, $line, $command, $source_info);
@@ -5843,19 +5918,21 @@ sub _handle_line_command($$$$$$)
       }
       # note that those commands are line 'specific' type.
       $command = $set_flag_command_equivalent{$args->[0]};
-      $command_e = {'cmdname' => $command,
+      $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
                     'parent' => $current,
                     'source_info' => $source_info,
                     'extra' => {'misc_args' => [$arg],},
-                    'info' => {'spaces_before_argument' => {'text' => ' '}}};
-      my $misc_line_args = {'type' => 'line_arg',
+                    'info' => {'spaces_before_argument'
+                        => Texinfo::TreeElement::new({'text' => ' '})}});
+      my $misc_line_args
+        = Texinfo::TreeElement::new({'type' => 'line_arg',
                             'parent' => $command_e,
                             'info' => {'spaces_after_argument'
-                                   => {'text' => "\n",}}};
+                    => Texinfo::TreeElement::new({'text' => "\n",})}});
       $command_e->{'contents'} = [$misc_line_args];
       $misc_line_args->{'contents'} = [
-        { 'text' => $arg,
-          'parent' => $misc_line_args, },
+        Texinfo::TreeElement::new({ 'text' => $arg,
+                                    'parent' => $misc_line_args, }),
       ];
       push @{$current->{'contents'}}, $command_e;
     } else {
@@ -5865,8 +5942,9 @@ sub _handle_line_command($$$$$$)
           $command_e->{'contents'} = [];
           foreach my $arg (@$args) {
             push @{$command_e->{'contents'}},
-              { 'type' => 'rawline_arg', 'text' => $arg,
-                'parent' => $current->{'contents'}->[-1] };
+              Texinfo::TreeElement::new({ 'type' => 'rawline_arg',
+                                   'text' => $arg,
+                         'parent' => $current->{'contents'}->[-1] });
           }
         }
       } else {
@@ -5912,11 +5990,13 @@ sub _handle_line_command($$$$$$)
            "\@%s outside of table or list"), $command), $source_info);
         $current = _begin_preformatted($self, $current);
       }
-      $command_e = { 'cmdname' => $command, 'parent' => $current };
+      $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                               'parent' => $current });
       push @{$current->{'contents'}}, $command_e;
       $command_e->{'source_info'} = {%$source_info};
     } else {
-      $command_e = { 'cmdname' => $command, 'source_info' => {%$source_info} };
+      $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                      'source_info' => {%$source_info} });
       if ($command eq 'nodedescription') {
         if ($self->{'current_node'}) {
           my $node_relations = $self->{'current_node'};
@@ -6001,13 +6081,17 @@ sub _handle_line_command($$$$$$)
     }
     $current = $current->{'contents'}->[-1];
     if ($root_commands{$data_cmdname}) {
-      my $arguments_line = {'type' => 'arguments_line', 'parent' => $current};
+      my $arguments_line
+        = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                     'parent' => $current});
       $current->{'contents'} = [$arguments_line];
-      $arguments_line->{'contents'} = [{ 'type' => 'line_arg',
-                                         'parent' => $arguments_line }];
+      $arguments_line->{'contents'} = [
+             Texinfo::TreeElement::new({ 'type' => 'line_arg',
+                                         'parent' => $arguments_line })];
     } else {# def or line command
-      $current->{'contents'} = [{ 'type' => 'line_arg',
-                                  'parent' => $current }];
+      $current->{'contents'} = [
+        Texinfo::TreeElement::new({ 'type' => 'line_arg',
+                                    'parent' => $current })];
     }
     if ($self->{'basic_inline_commands'}
         and $self->{'basic_inline_commands'}->{$data_cmdname}) {
@@ -6122,10 +6206,10 @@ sub _handle_block_command($$$$$)
   # definition line.  This allows to have a treatement similar
   # with def*x.
   if ($def_commands{$command}) {
-    $block = { 'parent' => $current,
-               'cmdname' => $command,
-               'contents' => [] };
-    my $def_line = {
+    $block = Texinfo::TreeElement::new({ 'parent' => $current,
+                                         'cmdname' => $command,
+                                         'contents' => [] });
+    my $def_line = Texinfo::TreeElement::new({
                      'type' => 'def_line',
                      'parent' => $block,
                      'source_info' => {%$source_info},
@@ -6133,7 +6217,7 @@ sub _handle_block_command($$$$$)
                        {'def_command' => $command,
                         'original_def_cmdname' => $command,
                        },
-                    };
+                    });
     if (defined($self->{'values'}->{'txidefnamenospace'})) {
       $def_line->{'extra'}->{'omit_def_name_space'} = 1;
     }
@@ -6141,9 +6225,9 @@ sub _handle_block_command($$$$$)
     $block_line_e = $def_line;
     $self->_push_context('ct_def', $command);
   } else {
-    $block = { 'cmdname' => $command,
-               'parent' => $current,
-             };
+    $block = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                         'parent' => $current,
+             });
 
     if ($preformatted_commands{$command}) {
       $self->_push_context('ct_preformatted', $command);
@@ -6219,14 +6303,16 @@ sub _handle_block_command($$$$$)
   my $bla_element;
 
   if (!$def_commands{$command}) {
-    my $arguments = {'type' => 'arguments_line', 'parent' => $block_line_e};
+    my $arguments
+      = Texinfo::TreeElement::new({'type' => 'arguments_line',
+                                   'parent' => $block_line_e});
     $block_line_e->{'contents'} = [$arguments];
-    $bla_element = {'type' => 'block_line_arg',
-                    'parent' => $arguments};
+    $bla_element = Texinfo::TreeElement::new({'type' => 'block_line_arg',
+                                               'parent' => $arguments});
     $arguments->{'contents'} = [$bla_element];
   } else {
-    $bla_element = {'type' => 'block_line_arg',
-                    'parent' => $block_line_e};
+    $bla_element = Texinfo::TreeElement::new({'type' => 'block_line_arg',
+                                              'parent' => $block_line_e});
 
     $block_line_e->{'contents'} = [$bla_element];
   }
@@ -6251,7 +6337,8 @@ sub _handle_brace_command($$$$)
   print STDERR "OPEN BRACE \@$command\n"
      if ($self->{'conf'}->{'DEBUG'});
 
-  my $command_e = { 'cmdname' => $command, 'parent' => $current,};
+  my $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
+                                              'parent' => $current,});
   $command_e->{'source_info'} = {%{$source_info}};
   push @{$current->{'contents'}}, $command_e;
   # can only be sortas, which cannot be definfoenclose'd
@@ -6297,7 +6384,7 @@ sub _handle_open_brace($$$$)
           = $commands_args_number{$command} - 1;
     }
 
-    my $arg = {'parent' => $current};
+    my $arg = Texinfo::TreeElement::new({'parent' => $current});
     $current->{'contents'} = [$arg];
     $current = $arg;
     push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
@@ -6344,7 +6431,7 @@ sub _handle_open_brace($$$$)
         $self->{'nesting_context'}->{'footnote'} += 1;
       }
 
-      my $spaces_e = {'parent' => $current};
+      my $spaces_e = Texinfo::TreeElement::new({'parent' => $current});
       push @{$current->{'contents'}}, $spaces_e;
 
       if ($math_commands{$command}) {
@@ -6368,11 +6455,11 @@ sub _handle_open_brace($$$$)
         $current->{'type'} = 'brace_arg';
         # internal_spaces_before_argument is a transient internal type,
         # which should end up in info spaces_before_argument.
-        push @{$current->{'contents'}}, {
+        push @{$current->{'contents'}}, Texinfo::TreeElement::new({
                     'type' => 'internal_spaces_before_argument',
                     'text' => '',
                     'parent' => $current,
-                  };
+                  });
         $self->{'internal_space_holder'} = $current;
       } else {
         $current->{'type'} = 'brace_container';
@@ -6393,8 +6480,8 @@ sub _handle_open_brace($$$$)
                      and $current->{'parent'}->{'extra'}->{'def_command'}))) {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
-         { 'type' => 'bracketed_arg',
-           'parent' => $current };
+       Texinfo::TreeElement::new({ 'type' => 'bracketed_arg',
+                                   'parent' => $current });
     $current = $current->{'contents'}->[-1];
     # we need the line number here in case @ protects end of line
     # and also for misplaced { errors.
@@ -6402,10 +6489,11 @@ sub _handle_open_brace($$$$)
     # internal_spaces_before_argument is a transient internal type,
     # which should end up in info spaces_before_argument.
     push @{$current->{'contents'}},
+      Texinfo::TreeElement::new(
         {'type' => 'internal_spaces_before_argument',
          'text' => '',
          'parent' => $current,
-       };
+       });
     $self->{'internal_space_holder'} = $current;
 
     print STDERR "BRACKETED in def/multitable\n"
@@ -6424,13 +6512,15 @@ sub _handle_open_brace($$$$)
            or $self->_top_context() eq 'ct_rawpreformatted'
            or $self->_top_context() eq 'ct_inlineraw') {
     _abort_empty_line($self, $current);
-    my $balanced_braces = {'type' => 'balanced_braces',
-                           'contents' => [],
-                           'parent' => $current,
-                           'source_info' => {%{$source_info}}};
+    my $balanced_braces
+      = Texinfo::TreeElement::new({'type' => 'balanced_braces',
+                                   'contents' => [],
+                                   'parent' => $current,
+                                   'source_info' => {%{$source_info}}});
     push @{$current->{'contents'}}, $balanced_braces;
     $current = $balanced_braces;
-    my $open_brace = {'text' => '{', 'parent' => $current};
+    my $open_brace
+      = Texinfo::TreeElement::new({'text' => '{', 'parent' => $current});
     push @{$current->{'contents'}}, $open_brace;
     print STDERR "BALANCED BRACES in math/rawpreformatted/inlineraw\n"
        if ($self->{'conf'}->{'DEBUG'});
@@ -6550,7 +6640,7 @@ sub _handle_close_brace($$$)
           "in \@%s empty cross reference name after expansion `%s'"),
                 $closed_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                          {'contents' => $args[1]})),
+                   Texinfo::TreeElement::new({'contents' => $args[1]}))),
                   $source_info);
         }
       }
@@ -6560,7 +6650,7 @@ sub _handle_close_brace($$$)
            "in \@%s empty cross reference title after expansion `%s'"),
                 $closed_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                        {'contents' => $args[2]})),
+              Texinfo::TreeElement::new({'contents' => $args[2]}))),
                   $source_info);
         }
       }
@@ -6669,10 +6759,9 @@ sub _handle_close_brace($$$)
 
     if ($command_ignore_space_after{$closed_cmdname}) {
       push @{$current->{'contents'}},
-         {'type' => 'spaces_after_close_brace',
-          'text' => '',
-          'parent' => $current
-         };
+         Texinfo::TreeElement::new({'type' => 'spaces_after_close_brace',
+                                    'text' => '',
+                                    'parent' => $current});
     }
 
     $current = _begin_preformatted($self, $current)
@@ -6756,12 +6845,14 @@ sub _handle_comma($$$$)
       if (!$expandp and $command_element->{'cmdname'} eq 'inlinefmtifelse') {
         $command_element->{'extra'}->{'expand_index'} = 2;
 
-        my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
-                              'contents' => [],
-                              'parent' => $command_element,};
+        my $elided_arg_elt
+          = Texinfo::TreeElement::new({'type' => 'elided_brace_command_arg',
+                                       'contents' => [],
+                                       'parent' => $command_element,});
         push @{$command_element->{'contents'}}, $elided_arg_elt;
-        my $arg_text_e = {'type' => 'raw', 'text' => '',
-                          'parent' => $elided_arg_elt};
+        my $arg_text_e
+          = Texinfo::TreeElement::new({'type' => 'raw', 'text' => '',
+                                       'parent' => $elided_arg_elt});
         push @{$elided_arg_elt->{'contents'}}, $arg_text_e;
 
         # Scan forward to get the next argument.
@@ -6816,12 +6907,14 @@ sub _handle_comma($$$$)
     # If this command is not being expanded, add an elided argument,
     # and scan forward to the closing brace.
     if (!$expandp) {
-      my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
-                            'contents' => [],
-                            'parent' => $command_element,};
+      my $elided_arg_elt
+        = Texinfo::TreeElement::new({'type' => 'elided_brace_command_arg',
+                                     'contents' => [],
+                                     'parent' => $command_element,});
       push @{$command_element->{'contents'}}, $elided_arg_elt;
-      my $arg_text_e = {'type' => 'raw', 'text' => '',
-                        'parent' => $elided_arg_elt};
+      my $arg_text_e
+        = Texinfo::TreeElement::new({'type' => 'raw', 'text' => '',
+                                     'parent' => $elided_arg_elt});
       push @{$elided_arg_elt->{'contents'}}, $arg_text_e;
 
       my $brace_count = 1;
@@ -6857,15 +6950,17 @@ sub _handle_comma($$$$)
       # goto funexit;  # used in XS code
     }
   }
-  my $new_arg = {'type' => $type, 'parent' => $argument,
-                 'contents' => []};
+  my $new_arg
+    = Texinfo::TreeElement::new({'type' => $type, 'parent' => $argument,
+                                 'contents' => []});
   push @{$argument->{'contents'}}, $new_arg;
 
   # internal_spaces_before_argument is a transient internal type,
   # which should end up in info spaces_before_argument.
-  my $space_before = {'type' => 'internal_spaces_before_argument',
-                      'text' => '', 'parent' => $new_arg,
-                     };
+  my $space_before
+    = Texinfo::TreeElement::new({'type' => 'internal_spaces_before_argument',
+                                 'text' => '', 'parent' => $new_arg,
+                                });
   $self->{'internal_space_holder'} = $new_arg;
   push @{$new_arg->{'contents'}}, $space_before;
 
@@ -6884,7 +6979,7 @@ sub _new_macro($$$)
   if (defined($current->{'contents'})) {
     $macrobody =
        Texinfo::Convert::Texinfo::convert_to_texinfo(
-                    { 'contents' => $current->{'contents'} });
+         Texinfo::TreeElement::new({ 'contents' => $current->{'contents'} }));
   }
   $self->{'macros'}->{$name} = {
     'element' => $current,
@@ -6927,8 +7022,8 @@ sub _process_macro_block_contents($$)
       if (scalar(@{$self->{'macro_block_stack'}}) == 0) {
         if ($line =~ s/^(\s+)//) {
           push @{$current->{'contents'}},
-            { 'text' => $1,
-              'type' => 'raw', 'parent' => $current };
+            Texinfo::TreeElement::new({ 'text' => $1,
+                           'type' => 'raw', 'parent' => $current });
           $self->_line_warn(sprintf(
                 __("\@end %s should only appear at the beginning of a line"),
                                    $current->{'cmdname'}), $source_info);
@@ -6964,16 +7059,18 @@ sub _process_macro_block_contents($$)
         # an empty line will not appear in the output, but it is needed to
         # avoid a duplicate warning on @end not appearing at the beginning
         # of the line
-        push @{$current->{'contents'}}, { 'type' => 'empty_line',
+        push @{$current->{'contents'}},
+              Texinfo::TreeElement::new({ 'type' => 'empty_line',
                                           'text' => '',
-                                          'parent' => $current };
+                                          'parent' => $current });
         last;
       } else {
         my $closed_cmdname = pop @{$self->{'macro_block_stack'}};
       }
     }
     push @{$current->{'contents'}},
-      { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+      Texinfo::TreeElement::new({ 'text' => $line, 'type' => 'raw',
+                                  'parent' => $current });
 
     ($line, $source_info) = _next_text($self, $current);
   }
@@ -7017,8 +7114,8 @@ sub _process_raw_block_contents($$)
       if ($level == 0) {
         if ($line =~ s/^(\s+)//) {
           push @{$current->{'contents'}},
-            { 'text' => $1,
-              'type' => 'raw', 'parent' => $current };
+            Texinfo::TreeElement::new({ 'text' => $1, 'type' => 'raw',
+                                        'parent' => $current });
           $self->_line_warn(sprintf(
                 __("\@end %s should only appear at the beginning of a line"),
                                    $cmdname), $source_info);
@@ -7032,14 +7129,16 @@ sub _process_raw_block_contents($$)
         # an empty line will not appear in the output, but it is needed to
         # avoid a duplicate warning on @end not appearing at the beginning
         # of the line
-        push @{$current->{'contents'}}, { 'type' => 'empty_line',
+        push @{$current->{'contents'}},
+              Texinfo::TreeElement::new({ 'type' => 'empty_line',
                                           'text' => '',
-                                          'parent' => $current };
+                                          'parent' => $current });
         last;
       }
     }
     push @{$current->{'contents'}},
-      { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+      Texinfo::TreeElement::new({ 'text' => $line, 'type' => 'raw',
+                                  'parent' => $current });
 
     ($line, $source_info) = _next_text($self, $current);
   }
@@ -7057,8 +7156,9 @@ sub _process_ignored_raw_format_block_contents($$)
   # by the following call to process_remaining_on_line
   my ($line, $source_info) = _next_text($self, $current);
 
-  my $e_elided_rawpreformatted = {'type' => 'elided_rawpreformatted',
-                                 'parent' => $current };
+  my $e_elided_rawpreformatted
+    = Texinfo::TreeElement::new({'type' => 'elided_rawpreformatted',
+                                 'parent' => $current });
   push @{$current->{'contents'}}, $e_elided_rawpreformatted;
   while (1) {
   # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
@@ -7070,8 +7170,9 @@ sub _process_ignored_raw_format_block_contents($$)
         if ($self->{'conf'}->{'DEBUG'});
       last;
     } else {
-      my $raw_text = {'type' => 'raw', 'text' => $line,
-                      'parent' => $e_elided_rawpreformatted};
+      my $raw_text
+        = Texinfo::TreeElement::new({'type' => 'raw', 'text' => $line,
+                                     'parent' => $e_elided_rawpreformatted});
       push @{$e_elided_rawpreformatted->{'contents'}}, $raw_text;
     }
     ($line, $source_info) = _new_line($self, $e_elided_rawpreformatted);
@@ -7081,9 +7182,10 @@ sub _process_ignored_raw_format_block_contents($$)
   # got the line.
   # based on whitespace_chars_except_newline in XS parser
   $line =~ s/^([ \t\cK\f]*)//;
-  push @{$current->{'contents'}}, { 'type' => 'empty_line',
+  push @{$current->{'contents'}},
+        Texinfo::TreeElement::new({ 'type' => 'empty_line',
                                     'text' => $1,
-                                    'parent' => $current };
+                                    'parent' => $current });
   return ($line, $source_info);
 }
 
@@ -7207,7 +7309,7 @@ sub _process_remaining_on_line($$$$)
         my $spaces_element;
         if ($self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
             and $remaining_line =~ s/^(\s+)//) {
-          $spaces_element = {'text' => $1};
+          $spaces_element = Texinfo::TreeElement::new({'text' => $1});
         }
         # REVALUE
         if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
@@ -7347,7 +7449,7 @@ sub _process_remaining_on_line($$$$)
         my $spaces_after_command = $1;
         $current->{'info'} = {} if (!$current->{'info'});
         $current->{'info'}->{'spaces_after_cmd_before_arg'}
-          = {'text' => $spaces_after_command};
+          = Texinfo::TreeElement::new({'text' => $spaces_after_command});
         if ($self->{'conf'}->{'DEBUG'}) {
           my $spaces_after_command_str = $spaces_after_command;
           $spaces_after_command_str =~ s/\n/\\n/g;
@@ -7383,10 +7485,13 @@ sub _process_remaining_on_line($$$$)
       my $arg_char = $1;
       print STDERR "ACCENT \@$current->{'cmdname'} following_arg: $arg_char\n"
         if ($self->{'conf'}->{'DEBUG'});
-      my $following_arg = {'type' => 'following_arg',
-                           'parent' => $current};
+      my $following_arg
+        = Texinfo::TreeElement::new({'type' => 'following_arg',
+                                     'parent' => $current});
       $current->{'contents'} = [ $following_arg ];
-      my $accent_arg = { 'text' => $arg_char, 'parent' => $following_arg };
+      my $accent_arg
+        = Texinfo::TreeElement::new({ 'text' => $arg_char,
+                                      'parent' => $following_arg });
       $following_arg->{'contents'} = [ $accent_arg ];
 
       if ($current->{'cmdname'} eq 'dotless'
@@ -7418,7 +7523,7 @@ sub _process_remaining_on_line($$$$)
       my $spaces_element;
       if ($self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
           and $line =~ s/^(\s+)//) {
-        $spaces_element = {'text' => $1};
+        $spaces_element = Texinfo::TreeElement::new({'text' => $1});
       }
       # REVALUE
       if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
@@ -7588,13 +7693,15 @@ sub _process_remaining_on_line($$$$)
       while (1) {
         if ($line =~ s/^(.*?)$char\}/\}/) {
           push @{$current->{'contents'}},
-             { 'text' => $1, 'type' => 'raw', 'parent' => $current }
+            Texinfo::TreeElement::new({ 'text' => $1, 'type' => 'raw',
+                                        'parent' => $current })
               if ($1 ne '');
           print STDERR "END VERB\n" if ($self->{'conf'}->{'DEBUG'});
           last;
         }
         push @{$current->{'contents'}},
-          { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+          Texinfo::TreeElement::new({ 'text' => $line, 'type' => 'raw',
+                                      'parent' => $current });
         print STDERR "LINE VERB: $line" if ($self->{'conf'}->{'DEBUG'});
         ($line, $source_info) = _next_text($self, $current);
         if (!defined($line)) {
@@ -7639,11 +7746,14 @@ sub _process_remaining_on_line($$$$)
         and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
       $current = _close_container($self, $current, $source_info);
-      my $line_feed = {'type' => 'empty_line', 'text' => $form_feed,
-                       'parent' => $current };
+      my $line_feed
+        = Texinfo::TreeElement::new({'type' => 'empty_line',
+                                     'text' => $form_feed,
+                                     'parent' => $current });
       push @{$current->{'contents'}}, $line_feed;
-      my $empty_line = { 'type' => 'empty_line', 'text' => '',
-                         'parent' => $current };
+      my $empty_line
+        = Texinfo::TreeElement::new({ 'type' => 'empty_line', 'text' => '',
+                                      'parent' => $current });
       push @{$current->{'contents'}}, $empty_line;
     } else {
       $current = _merge_text($self, $current, $form_feed);
@@ -7756,9 +7866,10 @@ sub _parse_texi($$$)
 
     # based on whitespace_chars_except_newline in XS parser
     $line =~ s/^([ \t\cK\f]*)//;
-    push @{$current->{'contents'}}, { 'type' => 'empty_line',
+    push @{$current->{'contents'}},
+          Texinfo::TreeElement::new({ 'type' => 'empty_line',
                                       'text' => $1,
-                                      'parent' => $current };
+                                      'parent' => $current });
     while (1) {
       ($current, $line, $source_info, $status)
          = _process_remaining_on_line($self, $current, $line, $source_info);
@@ -7816,15 +7927,18 @@ sub _parse_texi($$$)
   # Gather text after @bye
   if (defined($line) and $status == $FINISHED_TOTALLY) {
     print STDERR "GATHER AFTER BYE\n" if ($self->{'conf'}->{'DEBUG'});
-    my $element_after_bye = {'type' => 'postamble_after_end', 'contents' => [],
-                             'parent' => $current};
+    my $element_after_bye
+      = Texinfo::TreeElement::new({'type' => 'postamble_after_end',
+                                   'contents' => [],
+                                   'parent' => $current});
     while (1) {
       my $line;
       ($line, $source_info) = _next_text($self, $element_after_bye);
       last if (!defined($line));
       push @{$element_after_bye->{'contents'}},
+        Texinfo::TreeElement::new(
              {'text' => $line, 'type' => 'text_after_end',
-              'parent' => $element_after_bye};
+              'parent' => $element_after_bye});
     }
     if (scalar(@{$element_after_bye->{'contents'}})) {
       push @{$current->{'contents'}}, $element_after_bye;
@@ -8749,7 +8863,7 @@ a type associated.
 
 =item contents
 
-An array reference holding the list of children of the element. 
+An array reference holding the list of children of the element.
 
 =item parent
 

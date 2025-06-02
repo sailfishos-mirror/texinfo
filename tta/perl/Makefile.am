@@ -99,6 +99,7 @@ dist_modules_DATA = \
  Texinfo/Tests.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
+ Texinfo/TreeElement.pm \
  Texinfo/UnicodeData.pm \
  Texinfo/XSLoader.pm
 

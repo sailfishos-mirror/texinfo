@@ -89,7 +89,6 @@ ignorable as a category.  Maybe treat verb delimiter the same.  And also braces
 of types with implicit braces?
 
 Initialization:
- from a DOCUMENT, starting at the root
  from a tree
 
 Maybe, in converters, add a function called

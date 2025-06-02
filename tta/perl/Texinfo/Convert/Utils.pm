@@ -36,6 +36,9 @@ use 5.006;
 use Carp qw(cluck);
 
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
 # only needed in debugging comments.  Ok to keep it here anyway.
 use Texinfo::Convert::Texinfo;
@@ -260,7 +263,7 @@ sub definition_arguments_content($)
     shift @args;
   }
   if (scalar(@args) > 0) {
-    $args = {'contents' => \@args};
+    $args = Texinfo::TreeElement::new({'contents' => \@args});
   }
   return ($category, $class, $type, $name, $args);
 }
@@ -350,7 +353,7 @@ sub expand_today($;$$$)
   my $converter = shift;
 
   if ($test) {
-    return {'text' => 'a sunny day'};
+    return Texinfo::TreeElement::new({'text' => 'a sunny day'});
   }
 
   my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
@@ -367,7 +370,8 @@ sub expand_today($;$$$)
     $tree = $converter->cdt('{month} {day}, {year}',
           { 'month' => $converter->cdt(
                           $Texinfo::Convert::Utils::month_name[$mon]),
-            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
+            'day' => Texinfo::TreeElement::new({'text' => $mday}),
+            'year' => Texinfo::TreeElement::new({'text' => $year}) });
   } elsif (defined($lang_translations)) {
     my $month_tree
       = Texinfo::Translations::gdt($Texinfo::Convert::Utils::month_name[$mon],
@@ -375,11 +379,12 @@ sub expand_today($;$$$)
     $tree = Texinfo::Translations::gdt('{month} {day}, {year}',
           $lang_translations,
           { 'month' => $month_tree,
-            'day' => {'text' => $mday}, 'year' => {'text' => $year} },
+            'day' => Texinfo::TreeElement::new({'text' => $mday}),
+            'year' => Texinfo::TreeElement::new({'text' => $year}) },
            $debug);
   } else {
-    $tree = {'text' =>
-             "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year"};
+    $tree = Texinfo::TreeElement::new({'text' =>
+             "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year"});
   }
   return $tree;
 }
@@ -430,7 +435,8 @@ sub find_innermost_accent_contents($)
       push @$text_contents, $content;
     }
     # we go here if there was no nested accent
-    return ({'contents' => $text_contents}, \@accent_commands);
+    return (Texinfo::TreeElement::new({'contents' => $text_contents}),
+            \@accent_commands);
   }
 }
 
@@ -500,13 +506,13 @@ sub expand_verbatiminclude($$$$$;$$)
       if (defined($input_encoding)) {
         binmode(VERBINCLUDE, ":encoding($input_encoding)");
       }
-      $verbatiminclude = { 'cmdname' => 'verbatim',
-                           'parent' => $current->{'parent'},
-                           'contents' => [],
-                         };
+      $verbatiminclude
+        = Texinfo::TreeElement::new({ 'cmdname' => 'verbatim',
+                                      'parent' => $current->{'parent'},
+                                      'contents' => [],});
       while (<VERBINCLUDE>) {
         push @{$verbatiminclude->{'contents'}},
-                  {'type' => 'raw', 'text' => $_ };
+          Texinfo::TreeElement::new({'type' => 'raw', 'text' => $_ });
       }
       if (!close (VERBINCLUDE)) {
         if ($converter) {

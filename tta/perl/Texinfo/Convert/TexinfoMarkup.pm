@@ -36,7 +36,11 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Texinfo::Commands;
+
+use Texinfo::TreeElement;
+
 use Texinfo::Common;
+
 # for section_level_adjusted_command_name
 use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
@@ -1299,7 +1303,8 @@ sub _convert($$;$)
             } else {
               $normalized
                = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                 $node_arg->{'extra'}->{'node_content'});
+                  Texinfo::TreeElement::new(
+                   $node_arg->{'extra'}->{'node_content'}));
             }
             if ($normalized) {
               push @$attribute, ['label', $normalized];

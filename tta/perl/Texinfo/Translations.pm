@@ -34,10 +34,12 @@ use POSIX qw(setlocale LC_ALL LC_MESSAGES);
 use Carp qw(cluck);
 use Locale::Messages;
 
+use Storable qw(dclone);
+
+use Texinfo::TreeElement;
+
 # for __()
 use Texinfo::Common;
-
-use Storable qw(dclone);
 
 # note that there is a circular dependency with the parser module, as
 # the parser uses complete_indices() from this modules, while this module
@@ -539,7 +541,7 @@ sub complete_indices($;$)
 
         if ($name and $class) {
           my ($index_entry, $text_element);
-          my $index_entry_normalized = {};
+          my $index_entry_normalized = Texinfo::TreeElement::new({});
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
@@ -571,8 +573,8 @@ sub complete_indices($;$)
             $index_entry = gdt('{name} on {class}', $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
-            $text_element = {'text' => ' on ',
-                             'parent' => $index_entry_normalized};
+            $text_element = Texinfo::TreeElement::new({'text' => ' on ',
+                                      'parent' => $index_entry_normalized});
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
@@ -584,8 +586,8 @@ sub complete_indices($;$)
                                $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
-            $text_element = {'text' => ' of ',
-                             'parent' => $index_entry_normalized};
+            $text_element = Texinfo::TreeElement::new({'text' => ' of ',
+                                       'parent' => $index_entry_normalized});
           }
           $ref_name_copy->{'parent'} = $index_entry_normalized;
           $ref_class_copy->{'parent'} = $index_entry_normalized;
