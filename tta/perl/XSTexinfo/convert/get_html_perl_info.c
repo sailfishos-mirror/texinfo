@@ -2138,7 +2138,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
             {
               ELEMENT_REFERENCE *author = &authors->stack[author_idx];
               if (author->element)
-                return newRV_inc ((SV *)author->element->hv);
+                return SvREFCNT_inc ((SV *)author->element->sv);
               else
                 return newRV_inc ((SV *)(HV *)author->hv);
             }

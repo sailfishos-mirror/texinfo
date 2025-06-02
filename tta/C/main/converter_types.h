@@ -222,7 +222,7 @@ typedef struct {
     size_t space;
 } INTEGER_STACK;
 
-/* an element in C, and/or a reference to an external language (perl)
+/* an element in C, and/or a reference to an external language (Perl)
    for stack functions called from outside of the C converter */
 typedef struct ELEMENT_REFERENCE {
     const ELEMENT *element;
@@ -648,11 +648,11 @@ typedef struct HTML_INLINE_CONTENT_STACK {
 } HTML_INLINE_CONTENT_STACK;
 
 /* there should be either a pointer to a C tree element in element,
-   if set from C, or a reference to a perl tree element in hv, if set
-   from perl */
+   if set from C, or a reference to a Perl tree element in sv, if set
+   from Perl */
 typedef struct HTML_ASSOCIATED_INLINE_CONTENT {
     const ELEMENT *element;
-  /* perl element. This should be HV *hv,
+  /* Perl element. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
     const void *hv;
     TEXT inline_content;

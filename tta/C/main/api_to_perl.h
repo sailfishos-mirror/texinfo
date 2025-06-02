@@ -15,4 +15,7 @@ void call_switch_to_global_locale (void);
 void call_sync_locale (void);
 void croak_message (char *message);
 
+void *get_sv_hv (const void *sv);
+
+void show_sv_hv (const void *sv, const char *msg);
 #endif

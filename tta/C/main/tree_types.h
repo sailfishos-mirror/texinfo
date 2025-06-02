@@ -250,9 +250,9 @@ typedef struct ELEMENT {
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
 
-    /* Used when building Perl tree only. This should be HV *hv,
+    /* Used when building Perl tree only. This should be SV *sv,
        but we don't want to include the Perl headers everywhere; */
-    void *hv;
+    void *sv;
 
 } ELEMENT;
 

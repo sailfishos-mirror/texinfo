@@ -28,6 +28,7 @@
 
 #undef context
 
+#include <stdio.h>
 #include <string.h>
 #include <errno.h>
 
@@ -110,3 +111,17 @@ croak_message (char *message)
   croak ("%s\n", message);
 }
 
+/* could be used for debugging */
+void
+show_sv_hv (const void *sv, const char *msg)
+{
+  fprintf (stderr, "show_sv_hv: %s: %p %p\n", msg, sv, SvRV ((SV *) sv));
+}
+
+void *
+get_sv_hv (const void *sv)
+{
+  if (sv)
+    return (void *) SvRV ((SV *) sv);
+  return 0;
+}

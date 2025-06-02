@@ -31,6 +31,7 @@
 #include "builtin_commands.h"
 /* new_string_list add_string */
 #include "utils.h"
+#include "api_to_perl.h"
 #include "html_conversion_state.h"
 
 /* enum css_info_type */
@@ -390,7 +391,7 @@ count_elements_in_file_number (const CONVERTER *self,
     return file_counter->elements_in_file_count - file_counter->counter +1;
 }
 
-/* called from perl */
+/* called from Perl */
 size_t
 html_count_elements_in_filename (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
@@ -780,11 +781,11 @@ get_associated_inline_content_number (
       const HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content
         = &associated_content_list->list[i];
       if ((element && (element_associated_content->element == element
-                       || (element->hv
-                           && element_associated_content->hv == element->hv)))
+                       || (element->sv
+                && element_associated_content->hv == get_sv_hv (element->sv))))
           || (hv && (element_associated_content->hv == hv
                      || (element_associated_content->element
-                         && element_associated_content->element->hv == hv))))
+               && get_sv_hv (element_associated_content->element->sv) == hv))))
         {
           return i +1;
         }
@@ -795,7 +796,7 @@ get_associated_inline_content_number (
 /* API to associate inline content to an element, typically
    paragraph or preformatted.  Allows to associate the pending
    content to the first inline element. */
-/* hv is used when called from perl, element when called from C */
+/* hv is used when called from Perl, element is used when called from C */
 void
 html_associate_pending_formatted_inline_content (CONVERTER *self,
                                             const ELEMENT *element,
@@ -848,13 +849,13 @@ html_associate_pending_formatted_inline_content (CONVERTER *self,
   text_append (&element_associated_content->inline_content, inline_content);
    /*
   if (element)
-    fprintf (stderr, "RRR-EE %p -> %p %zu\n", element, element->hv, number);
-  if (hv)
+    fprintf (stderr, "RRR-EE %p -> %p %zu\n", element, get_sv_hv (element->sv), number);
+  if (sv)
     fprintf (stderr, "RRR-PP %p %zu\n", hv, number);
     */
 }
 
-/* hv is used when called from perl element when called from C */
+/* hv is used when called from Perl, element is used when called from C */
 char *
 html_get_associated_formatted_inline_content (CONVERTER *self,
                                               const ELEMENT *element,

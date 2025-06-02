@@ -392,7 +392,8 @@ build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 
           if (file_source_info->element)
             {
-              SV *element_sv = newRV_inc ((SV *) file_source_info->element->hv);
+              SV *element_sv
+                = SvREFCNT_inc ((SV *) file_source_info->element->sv);
               STORE("file_info_element", element_sv);
             }
         }
@@ -553,7 +554,7 @@ build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
       SV *value_sv = 0;
 
       if (named_string_elt->element)
-        value_sv = newRV_inc ((SV *) named_string_elt->element->hv);
+        value_sv = SvREFCNT_inc ((SV *) named_string_elt->element->sv);
       else if (named_string_elt->string)
         value_sv = newSVpv_utf8 (named_string_elt->string, 0);
 
@@ -581,7 +582,7 @@ build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
           av_push (av, sv);
 
           av_push (pending_footnote_av,
-                   newRV_inc ((SV *) pending_footnote->command->hv));
+                   SvREFCNT_inc ((SV *) pending_footnote->command->sv));
           av_push (pending_footnote_av,
                    newSVpv_utf8 (pending_footnote->footid, 0));
           av_push (pending_footnote_av,
@@ -606,7 +607,7 @@ build_simpletitle (const CONVERTER *converter, HV *converter_info_hv)
 
   hv_store (converter_info_hv, "simpletitle_tree",
             strlen ("simpletitle_tree"),
-            newRV_inc ((SV *) converter->simpletitle_tree->hv), 0);
+            SvREFCNT_inc ((SV *) converter->simpletitle_tree->sv), 0);
   hv_store (converter_info_hv, "simpletitle_command_name",
             strlen ("simpletitle_command_name"),
             newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
@@ -760,7 +761,7 @@ pass_sv_converter_info (const CONVERTER *converter,
     {
       if (converter->added_title_tree)
         build_texinfo_tree (converter->title_tree, 1);
-      new_sv = newRV_inc ((SV *) converter->title_tree->hv);
+      new_sv = SvREFCNT_inc ((SV *) converter->title_tree->sv);
     }
   else if (!strcmp (converter_info, "simpletitle_tree")
            || !strcmp (converter_info, "simpletitle_command_name"))

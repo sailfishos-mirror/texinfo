@@ -2153,7 +2153,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
 
   html_set_multiple_conversions (self, 0);
   push_element_reference_stack_element (&self->referred_command_stack,
-                                        command, command->hv);
+                                        command, get_sv_hv (command->sv));
   result
     = html_convert_tree_explanation (self, tree_root, explanation);
   free (explanation);
@@ -9401,7 +9401,7 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
   else
     {/* in quotation */
       push_element_reference_stack_element (authors_list, element,
-                                            element->hv);
+                                            get_sv_hv (element->sv));
     }
 }
 

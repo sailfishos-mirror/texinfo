@@ -93,12 +93,14 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
              This is not different from the Perl code and, in general,
              it is best that way.
            */
-            HV *hv = build_texinfo_tree (result, 0);
+            SV *sv = build_texinfo_tree (result, 0);
+            HV *hv = (HV *) SvRV (sv);
             copy_document->tree = result;
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
-            RETVAL = newRV_inc ((SV *) hv);
+            /* RETVAL = SvREFCNT_inc (sv); */
+            RETVAL = sv;
             if (added_root_elements_sv && SvOK (added_root_elements_sv))
               {
                 size_t i;
@@ -106,7 +108,7 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
                 for (i = 0; i < added_root_elements->number; i++)
                   {
                     ELEMENT *element = added_root_elements->list[i];
-                    SV *sv = newRV_inc ((SV *)element->hv);
+                    SV *sv = SvREFCNT_inc ((SV *)element->sv);
                     av_push (av, sv);
                   }
               }

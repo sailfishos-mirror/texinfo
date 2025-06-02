@@ -584,7 +584,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       char *context;
       ELEMENT *tree_built = 0;
       ELEMENT *translated_tree = no_arg_command_context->translated_tree;
-      if (self->external_references_number > 0 && !translated_tree->hv)
+      if (self->external_references_number > 0 && !translated_tree->sv)
         {
           add_to_element_list (&self->tree_to_build, translated_tree);
           tree_built = translated_tree;

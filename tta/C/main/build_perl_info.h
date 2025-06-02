@@ -28,7 +28,7 @@ SV *newSVpv_utf8 (const char *str, STRLEN len);
 SV *newSVpv_byte (const char *str, STRLEN len);
 
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
-HV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
+SV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);

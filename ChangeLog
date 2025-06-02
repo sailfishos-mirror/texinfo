@@ -40,6 +40,20 @@
 
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
+	Store Texinfo tree element SV in C
+
+	* tta/C/main/api_to_perl.c (get_sv_hv): add.  Useful when a SV is
+	stored in C and the HV should be compared to an HV as comparison
+	of SV is not reliable.
+
+	* tta/C/main/build_perl_info.c (build_perl_array)
+	(build_perl_const_element_array, build_perl_container)
+	(build_perl_directions, build_additional_info, element_to_perl_hash),
+	tta/C/main/tree_types.h (ELEMENT): store SV element in C and not HV.
+	Update all the codes using Perl element data.
+
+2025-06-02  Patrice Dumas  <pertusus@free.fr>
+
 	Calling initialization of interface for Tree elements in Perl
 
 	* tta/perl/Makefile.am (dist_modules_DATA),

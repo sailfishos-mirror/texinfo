@@ -64,6 +64,20 @@ call_close_perl_io (void *io)
   return strdup ("BUG: no Perl but call_close_perl_io");
 }
 
+void
+show_sv_hv (const void *sv, const char *msg)
+{
+  fprintf (stderr, "show_sv_hv: %s: NO PERL\n", msg);
+}
+
+void *
+get_sv_hv (const void *sv)
+{
+  if (sv)
+    fprintf (stderr, "get_sv_hv: %p: NO PERL\n", sv);
+  return 0;
+}
+
 /* it is up to the caller to do something useful if NULL is returned */
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text,

@@ -2076,7 +2076,7 @@ html_command_root_element_command (SV *converter_in, SV *element_sv)
           }
 
         if (root_element_command)
-          RETVAL = newRV_inc ((SV *) root_element_command->hv);
+          RETVAL = SvREFCNT_inc ((SV *) root_element_command->sv);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -2095,7 +2095,7 @@ html_command_node (SV *converter_in, SV *element_sv)
           node_element = html_command_node (self, element);
 
         if (node_element)
-          RETVAL = newRV_inc ((SV *) node_element->hv);
+          RETVAL = SvREFCNT_inc ((SV *) node_element->sv);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -2224,14 +2224,14 @@ html_internal_command_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
           }
 
         if (command_tree)
-          RETVAL = newRV_inc ((SV *) command_tree->hv);
+          RETVAL = SvREFCNT_inc ((SV *) command_tree->sv);
         else
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
 
 SV *
-html_internal_command_name_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
+html_internal_command_name_tree (SV *converter_in, SV *element_sv, SV *no_number_sv)
      PREINIT:
         CONVERTER *self;
         ELEMENT *command_tree = 0;
@@ -2255,7 +2255,7 @@ html_internal_command_name_tree (SV *converter_in, SV *element_sv, SV* no_number
           }
 
         if (command_tree)
-          RETVAL = newRV_inc ((SV *) command_tree->hv);
+          RETVAL = SvREFCNT_inc ((SV *) command_tree->sv);
         else
           RETVAL = newSV (0);
     OUTPUT:

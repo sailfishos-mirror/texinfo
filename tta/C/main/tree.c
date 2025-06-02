@@ -235,10 +235,10 @@ void
 destroy_element (ELEMENT *e)
 {
   /* remove the reference of the association with the C tree */
-  if (e->hv)
+  if (e->sv)
     {
-      unregister_perl_data (e->hv);
-      e->hv = 0;
+      unregister_perl_data (e->sv);
+      e->sv = 0;
     }
 
   if (e->source_mark_list)

@@ -114,7 +114,7 @@ build_tree (SV *tree_in, ...)
             if (!no_store)
               {
                 if (document->tree)
-                  result_sv = newRV_inc ((SV *) document->tree->hv);
+                  result_sv = SvREFCNT_inc ((SV *) document->tree->sv);
               }
             else
               { /* no more document->tree, get from Perl data */

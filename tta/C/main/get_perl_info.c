@@ -1006,7 +1006,7 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
                   for (i = 0; i < output_unit->unit_contents.number; i++)
                     {
                       ELEMENT *content = output_unit->unit_contents.list[i];
-                      if (content->hv == element_hv)
+                      if ((HV *) SvRV ((SV *) content->sv) == element_hv)
                         return content;
                     }
                 }
@@ -1019,7 +1019,7 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
   for (i = 0; i < root->e.c->contents.number; i++)
     {
       ELEMENT *content = root->e.c->contents.list[i];
-      if (content->hv == element_hv)
+      if ((HV *) SvRV ((SV *)content->sv) == element_hv)
         return content;
     }
   return 0;
@@ -1027,7 +1027,7 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
 
 /* find the subentry matching ELEMENT_HV */
 static const ELEMENT *
-find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
+find_index_entry_subentry (const ELEMENT *index_element, const HV *element_hv)
 {
   size_t l;
   CONST_ELEMENT_LIST subentries_list;
@@ -1039,7 +1039,7 @@ find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
   for (l = 0; l < subentries_list.number; l++)
     {
       const ELEMENT *subentry = subentries_list.list[l];
-      if (subentry && subentry->hv == element_hv)
+      if (subentry && (HV *) SvRV ((SV *) subentry->sv) == element_hv)
         {
           free (subentries_list.list);
           return subentry;
@@ -1109,18 +1109,22 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *subentry_hv)
    to get the index entry tree element content, for instance
    when going through the elements associated with indices to setup
    index entries sort strings.
+
+   We compare the HV and not the SV, as the SV tend to be different.
+   It is not clear whether it is normal or not that the SV are different.
  */
 static const ELEMENT *
 find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
                                 const HV *element_hv)
 {
   if (index_entry->entry_associated_element
-      && index_entry->entry_associated_element->hv == element_hv)
+      && (HV *) SvRV ((SV *)index_entry->entry_associated_element->sv)
+           == element_hv)
     return index_entry->entry_associated_element;
 
   if (index_entry->entry_element
   /* if the index entry was reassociated it is important to check */
-      && index_entry->entry_element->hv == element_hv)
+      && (HV *) SvRV ((SV *)index_entry->entry_element->sv)  == element_hv)
     return index_entry->entry_element;
 
   return 0;
@@ -1224,7 +1228,8 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
                 = find_identifier_target
                       (&document->identifiers_target, normalized);
          /* check the element found in case of multiple defined identifier */
-              if (element_found && element_hv == element_found->hv)
+              if (element_found && element_hv
+                                    == (HV *) SvRV ((SV *) element_found->sv))
                 return element_found;
             }
         }
