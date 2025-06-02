@@ -1,3 +1,16 @@
+2025-06-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use identifier_target argument to get Top node
+
+	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next):
+	Retrieve "Top" node from $identifier_target argument, rather
+	than checking normalized node name.
+
+	* tta/C/structuring_transfo/structuring.c
+	(set_top_node_next, construct_nodes_tree): Use find_identifier_target
+	instead of strcmp on normalized node name to find Top node, matching
+	the pure Perl code.
+
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
 	Calling initialization of interface for Tree elements in Perl

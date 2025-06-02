@@ -915,7 +915,7 @@ sub _set_top_node_next($$)
   my $identifier_target = shift;
 
   my $top_node_next;
-  my $top_node;
+  my $top_node = $identifier_target->{'Top'};
 
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
@@ -923,14 +923,12 @@ sub _set_top_node_next($$)
     my $automatic_directions
       = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
-    my $normalized = $node->{'extra'}->{'normalized'};
     my $menu_directions = $node_relations->{'menu_directions'};
 
     if ($automatic_directions) {
       my $node_directions = $node_relations->{'node_directions'};
 
-      if ($normalized eq 'Top') {
-        $top_node = $node;
+      if ($node eq $top_node) {
         if (not $node_directions
                  or not $node_directions->{'next'}) {
           # use first menu entry if available as next for Top
@@ -962,7 +960,7 @@ sub _set_top_node_next($$)
         } else {
           last;
         }
-      } else { # $normalized ne 'Top'
+      } else {
         # prev defined as first Top node menu entry node
         if ($top_node_next and $node eq $top_node_next) {
           $node_relations->{'node_directions'} = {}

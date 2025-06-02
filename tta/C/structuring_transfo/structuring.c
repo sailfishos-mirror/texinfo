@@ -1322,8 +1322,8 @@ static const ELEMENT *
 set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
                    const C_HASHMAP *identifiers_target)
 {
-  const ELEMENT *top_node = 0;
   const ELEMENT *top_node_next = 0;
+  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
 
   size_t i;
   for (i = 0; i < nodes_list->number; i++)
@@ -1332,14 +1332,12 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
       const ELEMENT *node = node_relations->element;
       const ELEMENT *arguments_line = node->e.c->contents.list[0];
       int automatic_directions = (arguments_line->e.c->contents.number <= 1);
-      const char *normalized = lookup_extra_string (node, AI_key_normalized);
       const ELEMENT * const *menu_directions = node_relations->menu_directions;
 
       if (automatic_directions)
         {
-          if (!strcmp (normalized, "Top"))
+          if (node == top_node)
             {
-              top_node = node;
               if (!node_relations->node_directions
                        || !node_relations->node_directions[D_next])
                 {
@@ -1482,22 +1480,15 @@ construct_nodes_tree (DOCUMENT *document)
       NODE_RELATIONS *node_relations = document->nodes_list.list[i];
       ELEMENT *node = (ELEMENT *)node_relations->element;
       ELEMENT *arguments_line;
-      const char *normalized;
-      int is_target;
       int automatic_directions;
 
       if (node->e.c->cmd != CM_node)
         continue;
 
-      normalized = lookup_extra_string (node, AI_key_normalized);
-      if (!normalized)
-        continue;
-
       document->modified_information |= F_DOCM_tree;
 
-      is_target = (node->flags & EF_is_target);
-      if (is_target && !strcmp (normalized, "Top"))
-        top_node = node;
+      top_node = find_identifier_target (identifiers_target,
+                                         "Top");
 
       arguments_line = node->e.c->contents.list[0];
       automatic_directions = (arguments_line->e.c->contents.number <= 1);
