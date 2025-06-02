@@ -171,6 +171,26 @@ perl_only_strndup (const char *s, size_t n)
 
 /* Build Texinfo tree data and Texinfo tree to Perl */
 
+static HV *
+new_element_perl_data (ELEMENT *e)
+{
+  HV *element_hv;
+  HV *hv_stash;
+  SV *element_sv;
+
+  dTHX;
+
+  element_hv = newHV ();
+  hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
+  /* retain a reference in C code */
+  element_sv = newRV_inc ((SV *) element_hv);
+  sv_bless (element_sv, hv_stash);
+
+  e->sv = element_sv;
+
+  return element_hv;
+}
+
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
 /* Return reference to Perl array built from e.  If any of
@@ -199,13 +219,7 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
         {
           if (e_l->list[i]->parent)
             {
-              HV *element_hv = newHV ();
-              HV *hv_stash;
-
-              hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-              /* retain a reference in C code */
-              e_l->list[i]->sv = newRV_inc ((SV *) element_hv);
-              sv_bless ((SV *) e_l->list[i]->sv, hv_stash);
+              new_element_perl_data (e_l->list[i]);
             }
           else
             {
@@ -249,13 +263,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
           ELEMENT *f = (ELEMENT *)e_l->list[i];
           if (f->parent)
             {
-              HV *element_hv = newHV ();
-              HV *hv_stash;
-
-              hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-              /* retain a reference in C code */
-              f->sv = newRV_inc ((SV *) element_hv);
-              sv_bless ((SV *) f->sv, hv_stash);
+              new_element_perl_data (f);
             }
           else
             {
@@ -291,13 +299,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
 
   if (!e->sv)
     {
-      element_hv = newHV ();
-      HV *hv_stash;
-
-      hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-      /* retain a reference in C code */
-      e->sv = newRV_inc ((SV *) element_hv);
-      sv_bless ((SV *) e->sv, hv_stash);
+      element_hv = new_element_perl_data (e);
     }
   else
     {
@@ -334,13 +336,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
               ELEMENT *f = (ELEMENT *)e;
               if (e->parent)
                 {
-                  HV *element_hv = newHV ();
-                  HV *hv_stash;
-
-                  hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-                  /* retain a reference in C code */
-                  f->sv = newRV_inc ((SV *) element_hv);
-                  sv_bless ((SV *) f->sv, hv_stash);
+                  new_element_perl_data (f);
                 }
               else
                 {
@@ -405,14 +401,9 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               const ELEMENT *f = k->k.const_element;
               if (!f->sv)
                 {
-                  HV *element_hv = newHV ();
-                  HV *hv_stash;
-
          /* need to cast to remove const to add the Perl object reference */
                   ELEMENT *e = (ELEMENT *)f;
-                  hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-                  e->sv = newRV_inc ((SV *) element_hv);
-                  sv_bless ((SV *) e->sv, hv_stash);
+                  new_element_perl_data (e);
                 }
               STORE(SvREFCNT_inc ((SV *)f->sv));
               break;
@@ -733,13 +724,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
      referring to e, or if the tree is rebuilt more than once. */
   if (!e->sv)
     {
-      element_hv = newHV ();
-      HV *hv_stash;
-
-      hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-      /* retain a reference in C code */
-      e->sv = newRV_inc ((SV *) element_hv);
-      sv_bless ((SV *) e->sv, hv_stash);
+      element_hv = new_element_perl_data (e);
     }
   else
     {

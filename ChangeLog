@@ -40,6 +40,16 @@
 
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (new_element_perl_data): add a function
+	to setup an empty Perl sv in a C element.
+
+	* tta/C/main/build_perl_info.c (build_perl_array)
+	(build_perl_const_element_array, build_perl_container)
+	(build_perl_directions, build_additional_info, element_to_perl_hash):
+	use new_element_perl_data.
+
+2025-06-02  Patrice Dumas  <pertusus@free.fr>
+
 	Store Texinfo tree element SV in C
 
 	* tta/C/main/api_to_perl.c (get_sv_hv): add.  Useful when a SV is
