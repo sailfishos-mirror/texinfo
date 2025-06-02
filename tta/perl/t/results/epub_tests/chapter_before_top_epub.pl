@@ -117,9 +117,13 @@ $result_errors{'chapter_before_top_epub'} = [
 
 
 $result_nodes_list{'chapter_before_top_epub'} = '1|Top
+ node_directions:
+  next->chapter
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
+ node_directions:
+  prev->Top
 ';
 
 $result_sections_list{'chapter_before_top_epub'} = '1|chapter

@@ -1,5 +1,27 @@
 2025-06-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Simplify "top node next" setting
+
+	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next),
+	* tta/C/structuring_transfo/structuring.c (set_top_node_next):
+	Handle setting top node next from sectioning as well as menu.
+
+	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus),
+	* tta/C/structuring_transfo/structuring.c (complete_node_tree_with_menus):
+	Do not call _set_top_node_next/set_top_node_next, as this function is not
+	always called, depending on the setting of FORMAT_MENU.
+
+	* tta/perl/Texinfo/Structuring.pm (construct_nodes_tree),
+	* tta/C/structuring_transfo/structuring.c (construct_nodes_tree):
+	Call _set_top_node_next/set_top_node_next.  Do not set top node next
+	from sectioning in this function, except via _set_top_node_next.
+
+	* tta/perl/t/30sectioning.t (chapter_between_nodes_with_appendix_nomenu):
+	Comment updated to clarify that FORMAT_MENU now makes no
+	difference for this test.
+
+2025-06-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next):
 	Add check for undef variable.
 

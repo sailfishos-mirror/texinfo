@@ -562,9 +562,9 @@ $chapter_between_nodes_text,
 ['chapter_between_nodes_with_appendix',
 $chapter_between_nodes_with_appendix
 ],
-# this difference is interesting, as with something else than menu,
-# the node_next direction of Top node is not determined, and it is
-# a similar setup with texi2any --html.
+# the node_next direction of Top node used not to be determined
+# with something else than menu, and it was a similar setup with
+# texi2any --html.  currently, FORMAT_MENU makes no difference.
 ['chapter_between_nodes_with_appendix_nomenu',
 $chapter_between_nodes_with_appendix,
 {'FORMAT_MENU' => 'nomenu'},

@@ -1316,8 +1316,10 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
 }
 
-/* Set node next pointer for Top node based on menus, and return
-   reference to Top node. */
+/* As mentioned in the manual, the node next pointer for the Top
+   is special, and usually points to the first chapter in the
+   document.   Set it using sectioning if possible, otherwise using
+   menus.  Return reference to Top node. */
 static const ELEMENT *
 set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
                    const C_HASHMAP *identifiers_target)
@@ -1338,6 +1340,28 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
         {
           if (node == top_node)
             {
+              const SECTION_RELATIONS *associated_relations
+                = node_relations->associated_section;
+              const SECTION_RELATIONS_LIST *section_childs = 0;
+              if (associated_relations)
+                section_childs = associated_relations->section_childs;
+
+              if (section_childs && section_childs->number > 0)
+                {
+                  const SECTION_RELATIONS *section_child_relations
+                    = section_childs->list[0];
+                  if (section_child_relations->associated_node)
+                    {
+                      if (!node_relations->node_directions)
+                        node_relations->node_directions = new_directions ();
+                      top_node_next
+                        = section_child_relations->associated_node->element;
+                      node_relations->node_directions[D_next]
+                        = top_node_next;
+                      continue;
+                    }
+                }
+
               if (!node_relations->node_directions
                        || !node_relations->node_directions[D_next])
                 {
@@ -1415,7 +1439,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   document->modified_information |= F_DOCM_tree;
 
-  const ELEMENT *top_node = set_top_node_next (nodes_list, identifiers_target);
+  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
 
   /* Go through all the nodes and complete any gaps in the directions
      using the menus. */
@@ -1471,7 +1495,8 @@ construct_nodes_tree (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   const ELEMENT *top_node = 0;
-  const ELEMENT *top_node_section_child = 0;
+
+  set_top_node_next (&document->nodes_list, identifiers_target);
 
   size_t i;
 
@@ -1494,66 +1519,36 @@ construct_nodes_tree (DOCUMENT *document)
       automatic_directions = (arguments_line->e.c->contents.number <= 1);
 
       if (automatic_directions)
-        if (!top_node || node != top_node)
-          {
-            enum directions d;
-            for (d = 0; d < directions_length; d++)
-              {
-                const SECTION_RELATIONS *direction_relation;
-                const NODE_RELATIONS *direction_associated_node;
-           /* prev defined as Top for the first Top node menu entry node */
-                if (d == D_prev && top_node_section_child
-                    && node == top_node_section_child)
-                  {
-                    if (!node_relations->node_directions)
-                      node_relations->node_directions = new_directions ();
-                    node_relations->node_directions[D_prev] = top_node;
-                    continue;
-                  }
-                direction_relation = node_relations->associated_section;
-                if (direction_relation)
-                  {
-          /* Prefer the section associated with a @part for node directions. */
-                    if (direction_relation->part_associated_section)
-                        direction_relation
-                          = direction_relation->part_associated_section;
+        {
+          if (!top_node || node != top_node)
+            {
+              enum directions d;
+              for (d = 0; d < directions_length; d++)
+                {
+                  const SECTION_RELATIONS *direction_relation;
+                  const NODE_RELATIONS *direction_associated_node;
+                  direction_relation = node_relations->associated_section;
+                  if (direction_relation)
+                    {
+            /* Prefer the section associated with a @part for node directions. */
+                      if (direction_relation->part_associated_section)
+                          direction_relation
+                            = direction_relation->part_associated_section;
 
-                    direction_associated_node
-                      = section_direction_associated_node (
-                                                      direction_relation, d);
-                    if (direction_associated_node)
-                      {
-                        if (!node_relations->node_directions)
-                          node_relations->node_directions = new_directions ();
-                        node_relations->node_directions[d]
-                           = direction_associated_node->element;
-                      }
-                  }
-              }
-          }
-        else /* Special case for Top node, use first section */
-          {
-            const SECTION_RELATIONS *associated_relations
-              = node_relations->associated_section;
-            const SECTION_RELATIONS_LIST *section_childs = 0;
-            if (associated_relations)
-              section_childs = associated_relations->section_childs;
-
-            if (section_childs && section_childs->number > 0)
-              {
-                const SECTION_RELATIONS *section_child_relations
-                  = section_childs->list[0];
-                if (section_child_relations->associated_node)
-                  {
-                    if (!node_relations->node_directions)
-                      node_relations->node_directions = new_directions ();
-                    top_node_section_child
-                      = section_child_relations->associated_node->element;
-                    node_relations->node_directions[D_next]
-                      = top_node_section_child;
-                  }
-              }
-          }
+                      direction_associated_node
+                        = section_direction_associated_node (
+                                                        direction_relation, d);
+                      if (direction_associated_node)
+                        {
+                          if (!node_relations->node_directions)
+                            node_relations->node_directions = new_directions ();
+                          node_relations->node_directions[d]
+                             = direction_associated_node->element;
+                        }
+                    }
+                }
+            }
+        }
       else /* explicit directions */
         {
           size_t i;

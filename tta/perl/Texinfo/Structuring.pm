@@ -907,8 +907,10 @@ sub check_node_tree_menu_structure($)
   }
 }
 
-# Set node next pointer for Top node based on menus, and return
-# reference to Top node.
+# As mentioned in the manual, the node next pointer for the Top
+# is special, and usually points to the first chapter in the
+# document.   Set it using sectioning if possible, otherwise using
+# menus.  Return reference to Top node.
 sub _set_top_node_next($$)
 {
   my $nodes_list = shift;
@@ -916,6 +918,10 @@ sub _set_top_node_next($$)
 
   my $top_node_next;
   my $top_node = $identifier_target->{'Top'};
+
+  # FIXME: use top_node directly rather than looping
+  # through relations list.  Can we get the relations
+  # object from $top_node->{'extra'}->{'node_number'}?
 
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
@@ -929,6 +935,24 @@ sub _set_top_node_next($$)
       my $node_directions = $node_relations->{'node_directions'};
 
       if ($top_node and $node eq $top_node) {
+        # Special case for Top node, use first section
+        if ($node_relations->{'associated_section'}) {
+          my $associated_relations = $node_relations->{'associated_section'};
+          my $section_childs = $associated_relations->{'section_childs'};
+          if ($section_childs and scalar(@$section_childs)) {
+            my $section_child_relations = $section_childs->[0];
+            if ($section_child_relations->{'associated_node'}) {
+              $top_node_next
+                = $section_child_relations->{'associated_node'}->{'element'};
+              $node_directions = {}
+                  if (! $node_directions);
+              $node_relations->{'node_directions'}->{'next'}
+               = $top_node_next;
+              next;
+            }
+          }
+        }
+
         if (not $node_directions
                  or not $node_directions->{'next'}) {
           # use first menu entry if available as next for Top
@@ -990,7 +1014,7 @@ sub complete_node_tree_with_menus($)
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
-  my $top_node = _set_top_node_next($nodes_list, $identifier_target);
+  my $top_node = $identifier_target->{'Top'};
 
   # Go through all the nodes and complete any gaps in the directions
   # using the menus.
@@ -1035,9 +1059,11 @@ sub construct_nodes_tree($)
   my $registrar = $document->registrar();
 
   my $top_node = $identifier_target->{'Top'};
-  my $top_node_section_child;
   # Go through all the nodes and set directions.
   my $nodes_list = $document->nodes_list();
+
+  _set_top_node_next($nodes_list, $identifier_target);
+
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
 
@@ -1048,14 +1074,6 @@ sub construct_nodes_tree($)
     if ($automatic_directions) {
       if (!$top_node or $node ne $top_node) {
         foreach my $direction (@node_directions_names) {
-          # prev defined as Top for the first Top node menu entry node
-          if ($direction eq 'prev' and $top_node_section_child
-              and $node eq $top_node_section_child) {
-            $node_relations->{'node_directions'} = {}
-              if (! $node_relations->{'node_directions'});
-            $node_relations->{'node_directions'}->{'prev'} = $top_node;
-            next;
-          }
           if ($node_relations->{'associated_section'}) {
             my $direction_relation = $node_relations->{'associated_section'};
 
@@ -1074,23 +1092,6 @@ sub construct_nodes_tree($)
                  if (!$node_relations->{'node_directions'});
               $node_relations->{'node_directions'}->{$direction}
                               = $direction_associated_node->{'element'};
-            }
-          }
-        }
-      } else {
-        # Special case for Top node, use first section
-        if ($node_relations->{'associated_section'}) {
-          my $associated_relations = $node_relations->{'associated_section'};
-          my $section_childs = $associated_relations->{'section_childs'};
-          if ($section_childs and scalar(@$section_childs)) {
-            my $section_child_relations = $section_childs->[0];
-            if ($section_child_relations->{'associated_node'}) {
-              $top_node_section_child
-                = $section_child_relations->{'associated_node'}->{'element'};
-              $node_relations->{'node_directions'} = {}
-                  if (! $node_relations->{'node_directions'});
-              $node_relations->{'node_directions'}->{'next'}
-               = $top_node_section_child;
             }
           }
         }

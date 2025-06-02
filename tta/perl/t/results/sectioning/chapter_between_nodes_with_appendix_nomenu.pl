@@ -145,12 +145,15 @@ $result_nodes_list{'chapter_between_nodes_with_appendix_nomenu'} = '1|Top
  associated_title_command: top section
  menus:
   Additional
+ node_directions:
+  next->Additional
 2|Additional
  associated_section: A Annex
  associated_title_command: A Annex
  menu_directions:
   up->Top
  node_directions:
+  prev->Top
   up->Top
 ';
 
@@ -192,7 +195,7 @@ $result_headings_list{'chapter_between_nodes_with_appendix_nomenu'} = '';
 $result_converted{'info'}->{'chapter_between_nodes_with_appendix_nomenu'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: Additional,  Up: (dir)
 
 top section
 ***********
@@ -213,7 +216,7 @@ Top node
 * Additional::
 
 
-File: ,  Node: Additional,  Up: Top
+File: ,  Node: Additional,  Prev: Top,  Up: Top
 
 Appendix A Annex
 ****************
@@ -221,7 +224,7 @@ Appendix A Annex
 
 Tag Table:
 Node: Top27
-Node: Additional173
+Node: Additional192
 
 End Tag Table
 
@@ -258,6 +261,10 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#Additional" accesskey="n" rel="next">Annex</a> &nbsp; </p>
+</div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Main" accesskey="1">Main</a></li>
@@ -273,7 +280,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="appendix-level-extent" id="Additional">
 <div class="nav-panel">
 <p>
-Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
 <h2 class="appendix" id="Annex"><span>Appendix A Annex<a class="copiable-link" href="#Annex"> &para;</a></span></h2>
 </div>
