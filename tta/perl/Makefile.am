@@ -93,6 +93,7 @@ dist_modules_DATA = \
  Texinfo/OutputUnits.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
+ Texinfo/Reader.pm \
  Texinfo/Report.pm \
  Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \
@@ -124,6 +125,7 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/ParagraphNonXS.pm \
  Texinfo/Convert/PlainTexinfo.pm \
  Texinfo/Convert/Plaintext.pm \
+ Texinfo/Convert/TestReader.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoMarkup.pm \
  Texinfo/Convert/TexinfoSXML.pm \

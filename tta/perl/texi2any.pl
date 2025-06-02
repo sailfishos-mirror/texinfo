@@ -880,6 +880,9 @@ my %formats_table = (
   'plaintexinfo' => {
             'module' => 'Texinfo::Convert::PlainTexinfo'
            },
+  'testreader' => {
+            'module' => 'Texinfo::Convert::TestReader'
+           },
   'parse' => {
            },
   'structure' => {

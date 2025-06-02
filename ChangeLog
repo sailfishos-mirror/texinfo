@@ -40,6 +40,18 @@
 
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
+	Preliminary Texinfo Tree Reader API for Perl
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/Reader.pm: preliminary Texinfo tree Reader API
+	similar to Pod::Simple::PullParser or XML::LibXML::Reader.
+
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/perl/Texinfo/Convert/TestReader.pm, tta/perl/texi2any.pl
+	(%formats_table): add a converter that can only test Texinfo::Reader.
+
+2025-06-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (debug_print_element),
 	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo): add
 	messages if an element is not blessed into Texinfo::TreeElement
