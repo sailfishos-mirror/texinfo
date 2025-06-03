@@ -24,7 +24,7 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l5
    |INFO
    |spaces_before_argument:
@@ -32,7 +32,7 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {before samp. }
      *@samp C1 l5
       *brace_container C1
@@ -51,7 +51,7 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

@@ -20,7 +20,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -28,7 +28,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -83,7 +83,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 l10 {@asis{nodename. a}}
@@ -98,7 +98,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l10
      *brace_container C1
       {nodename. a}
@@ -115,7 +115,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
     *@comma C1 l12
      *brace_container
@@ -133,7 +133,7 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l14
      *brace_container C1
       {bidule:}

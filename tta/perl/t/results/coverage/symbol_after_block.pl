@@ -12,7 +12,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {In html\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html. On the line.}
   {empty_line:\\n}
   *@html C3 l5
@@ -32,7 +32,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {In html\\n}
    *@end C1 l7
@@ -44,7 +44,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
      *@@
      { On the line.}
@@ -57,7 +57,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:In verbatim\\n}
    *@end C1 l13
    |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim;}
   {empty_line:\\n}
   *@verbatim C3 l15
@@ -76,7 +76,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:In verbatim\\n}
    *@end C1 l17
    |INFO
@@ -87,7 +87,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
      *@@
   {empty_line:\\n}
@@ -102,7 +102,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l21
    *table_entry C2
     *table_term C1
@@ -113,7 +113,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {a}
     *table_definition C1
      *paragraph C1
@@ -127,7 +127,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table+}
   {empty_line:\\n}
   *@table C3 l26
@@ -138,7 +138,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l26
    *table_entry C2
     *table_term C1
@@ -149,7 +149,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {a}
     *table_definition C1
      *paragraph C1
@@ -163,7 +163,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
      *@@
   {empty_line:\\n}
@@ -178,7 +178,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet l33
    *@item C2 l34
    |EXTRA
@@ -195,7 +195,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize\'\'}
   {empty_line:\\n}
   *@itemize C3 l37
@@ -206,7 +206,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet l37
    *@item C2 l38
    |EXTRA
@@ -223,7 +223,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
      *@@
   {empty_line:\\n}
@@ -247,7 +247,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {6 7}
    *multitable_head C1
     *row C2
@@ -290,7 +290,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable^}
   {empty_line:\\n}
   *@multitable C4 l48
@@ -310,7 +310,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {6 7}
    *multitable_head C1
     *row C2
@@ -353,7 +353,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
      *@{
   {empty_line:\\n}
@@ -365,7 +365,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {flushleft\\n}
    *@end C1 l57
@@ -377,7 +377,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushleft!}
   {empty_line:\\n}
   *@flushleft C3 l59
@@ -385,7 +385,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {flushleft\\n}
    *@end C1 l61
@@ -397,7 +397,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushleft}
      *@@
   {empty_line:\\n}
@@ -409,7 +409,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Copying\\n}
    *@end C1 l67
@@ -421,7 +421,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying*}
   {empty_line:\\n}
   *@copying C3 l69
@@ -429,7 +429,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Copying\\n}
    *@end C1 l71
@@ -441,7 +441,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
      *@@
 ';

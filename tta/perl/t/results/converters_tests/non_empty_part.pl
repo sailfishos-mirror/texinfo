@@ -19,7 +19,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part before}
   {empty_line:\\n}
   *paragraph C1
@@ -37,7 +37,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l6 {top}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C4 l8
@@ -58,7 +58,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -90,7 +90,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@part C4 l13 {part I}
@@ -105,7 +105,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part I}
   {empty_line:\\n}
   *paragraph C1
@@ -123,7 +123,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap in Top node}
   {empty_line:\\n}
  *@part C4 l19 {Part II}
@@ -138,7 +138,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part II}
   {empty_line:\\n}
   *paragraph C1
@@ -156,7 +156,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part chapter node}
  *@part C4 l24 {part III}
  |INFO
@@ -170,7 +170,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part III}
   {empty_line:\\n}
   *paragraph C1
@@ -188,7 +188,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter with part node}
   {empty_line:\\n}
  *@part C4 l30 {Part IV}
@@ -203,7 +203,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part IV}
   {empty_line:\\n}
   *paragraph C1
@@ -221,7 +221,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part V}
   {empty_line:\\n}
   *paragraph C1
@@ -239,7 +239,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {with part no node}
   {empty_line:\\n}
  *@part C4 l40 {Part VI}
@@ -254,7 +254,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part VI}
   {empty_line:\\n}
   *paragraph C1
@@ -272,7 +272,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node between part and chapter}
   {empty_line:\\n}
  *@chapter C2 l46 {chapter after part node}
@@ -287,7 +287,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter after part node}
   {empty_line:\\n}
 ';

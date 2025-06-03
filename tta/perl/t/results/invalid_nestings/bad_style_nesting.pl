@@ -16,7 +16,7 @@ $result_tree_text{'bad_style_nesting'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in quotation\\n}
    *@end C1 l4
@@ -28,7 +28,7 @@ $result_tree_text{'bad_style_nesting'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

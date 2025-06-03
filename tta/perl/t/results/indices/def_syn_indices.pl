@@ -17,7 +17,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cp fn}
    {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -32,7 +32,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {Chapter index}
@@ -61,7 +61,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter index}
  *@chapter C55 l7 {Index}
  |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
   *paragraph C3
@@ -89,7 +89,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {truc}
    {after\\n}
   {empty_line:\\n}
@@ -104,7 +104,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index truc}
   {empty_line:\\n}
   *@defcodeindex C1 l15
@@ -116,7 +116,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {codeidx}
   {empty_line:\\n}
   *index_entry_command@codeidxindex C1 l17
@@ -130,7 +130,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a }
     *@var C1 l17
      *brace_container C1
@@ -157,7 +157,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cindex entry}
   {empty_line:\\n}
   *@syncodeindex C1 l21
@@ -169,7 +169,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ky pg}
   {empty_line:\\n}
   *index_entry_command@kindex C1 l23
@@ -183,7 +183,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc kindex}
   *index_entry_command@pindex C1 l24
   |INFO
@@ -196,7 +196,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pindex codeidx}
   {empty_line:\\n}
   *@synindex C1 l26
@@ -208,7 +208,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc cp}
   {empty_line:\\n}
   *@defindex C1 l28
@@ -220,7 +220,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {abc}
   *@defindex C1 l29
   |INFO
@@ -231,7 +231,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {defg}
   {empty_line:\\n}
   *@synindex C1 l31
@@ -243,7 +243,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {abc defg}
   *@synindex C1 l32
   |INFO
@@ -254,7 +254,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {defg ky}
   {empty_line:\\n}
   *index_entry_command@defgindex C1 l34
@@ -268,7 +268,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {defg index entry}
   {empty_line:\\n}
   *index_entry_command@abcindex C1 l36
@@ -282,7 +282,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {abc index entry}
   {empty_line:\\n}
   *paragraph C1
@@ -297,7 +297,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pg}
   {empty_line:\\n}
   *paragraph C1
@@ -312,7 +312,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ky}
   {empty_line:\\n}
   *paragraph C1
@@ -327,7 +327,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc}
   {empty_line:\\n}
   *paragraph C1
@@ -342,7 +342,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc}
   {empty_line:\\n}
   *paragraph C1
@@ -357,7 +357,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *paragraph C1
@@ -372,7 +372,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *paragraph C1
@@ -387,7 +387,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {defg}
   {empty_line:\\n}
   *paragraph C1
@@ -402,7 +402,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {abc}
   {empty_line:\\n}
   *paragraph C1
@@ -417,7 +417,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
 ';
 

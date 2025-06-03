@@ -22,7 +22,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {US-ASCII}
    {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l5 {Top}
@@ -38,7 +38,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 char_us_ascii_latin1_in_refs.texi:l6 {accented char in latin1 in refs}
  |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {accented char in latin1 in refs}
   {empty_line:\\n}
   *@printindex C1 char_us_ascii_latin1_in_refs.texi:l8
@@ -64,7 +64,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@menu C7 char_us_ascii_latin1_in_refs.texi:l10
@@ -72,7 +72,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 char_us_ascii_latin1_in_refs.texi:l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -137,7 +137,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
@@ -152,7 +152,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  *@chapter C2 char_us_ascii_latin1_in_refs.texi:l19 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
@@ -166,7 +166,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
   {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l21 {é}
@@ -181,7 +181,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {é}
  *@chapter C2 char_us_ascii_latin1_in_refs.texi:l22 {é}
  |INFO
@@ -195,7 +195,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {é}
   {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l24 {à è ù}
@@ -210,7 +210,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {à è ù}
  *@chapter C2 char_us_ascii_latin1_in_refs.texi:l25 {à è ù}
  |INFO
@@ -224,7 +224,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {à è ù}
   {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l27 {â ê î ô û Â Ê Î Ô Û}
@@ -239,7 +239,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {â ê î ô û Â Ê Î Ô Û}
  *@chapter C2 char_us_ascii_latin1_in_refs.texi:l28 {â ê î ô û Â Ê Î Ô Û}
  |INFO
@@ -253,7 +253,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {â ê î ô û Â Ê Î Ô Û}
   {empty_line:\\n}
  *@node C1 char_us_ascii_latin1_in_refs.texi:l30 {ç}
@@ -268,7 +268,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ç}
  *@chapter C11 char_us_ascii_latin1_in_refs.texi:l31 {ç}
  |INFO
@@ -282,7 +282,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ç}
   {empty_line:\\n}
   *paragraph C10
@@ -333,7 +333,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ä ë ï ö ü ÿ}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l40
   |INFO
@@ -346,7 +346,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ä Ë Ï Ö Ü}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l41
   |INFO
@@ -359,7 +359,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {é}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l42
   |INFO
@@ -372,7 +372,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {è}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l43
   |INFO
@@ -385,7 +385,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {â ê î ô û Â Ê Î Ô Û}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l44
   |INFO
@@ -398,7 +398,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ç}
   {empty_line:\\n}
  *@bye C1

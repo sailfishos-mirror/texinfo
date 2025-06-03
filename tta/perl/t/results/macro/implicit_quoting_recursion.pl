@@ -23,7 +23,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {rmacro}
   {empty_line:\\n}
   *paragraph C1

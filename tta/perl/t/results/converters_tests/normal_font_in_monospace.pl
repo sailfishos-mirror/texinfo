@@ -12,7 +12,7 @@ $result_tree_text{'normal_font_in_monospace'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C3
     {in example }
     *@r C1 l2
@@ -31,7 +31,7 @@ $result_tree_text{'normal_font_in_monospace'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C2

@@ -19,7 +19,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C12 l2 {Element top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Element top}
   {empty_line:\\n}
   *paragraph C2
@@ -57,7 +57,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in Top}
    *index_entry_command@cindex C1 l8
    |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@@
    *index_entry_command@cindex C1 l9
    |INFO
@@ -83,7 +83,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@exclamdown C1 l9
       *brace_container
    *index_entry_command@cindex C1 l10
@@ -97,7 +97,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {"}
   {empty_line:\\n}
   *@deffn C4 l12
@@ -119,7 +119,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -153,7 +153,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {truc}
@@ -180,7 +180,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@ftable C4 l17
@@ -191,7 +191,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l17
    *table_entry C2
     *table_term C1
@@ -205,7 +205,7 @@ $result_tree_text{'test_index'} = '*document_root C13
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {a fun}
     *table_definition C2
      *paragraph C1
@@ -223,7 +223,7 @@ $result_tree_text{'test_index'} = '*document_root C13
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {second fun}
      *@itemx C1 l22
      |INFO
@@ -235,7 +235,7 @@ $result_tree_text{'test_index'} = '*document_root C13
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {itemx fun}
     *table_definition C1
      {empty_line:\\n}
@@ -248,7 +248,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ftable}
   {empty_line:\\n}
   *@menu C4 l26
@@ -256,7 +256,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l27
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -288,7 +288,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l31 {name}
@@ -303,7 +303,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {name}
  *@chapter C171 l32 {A chapter}
  |INFO
@@ -317,7 +317,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A chapter}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l34
@@ -331,7 +331,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   *index_entry_command@findex C1 l35
   |INFO
@@ -344,7 +344,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {function index entry}
   {empty_line:\\n}
   *paragraph C3
@@ -360,7 +360,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {other function}
    {end paragraph\\n}
   {empty_line:\\n}
@@ -390,7 +390,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after lines.}
   {empty_line:\\n}
   *paragraph C1
@@ -629,7 +629,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after more than 100 lines}
   {empty_line:\\n}
  *@node C1 l205 {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
@@ -645,7 +645,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
  *@appendix C13 l206 {Index}
  |INFO
@@ -659,7 +659,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l208
@@ -673,7 +673,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry in appendix before para}
   *paragraph C1
    {Para.\\n}
@@ -690,7 +690,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@findex C1 l214
@@ -704,7 +704,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry between indices}
   {empty_line:\\n}
   *paragraph C1
@@ -719,7 +719,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
  *@appendixsec C2 l219 {appendixsec}
@@ -734,7 +734,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendixsec}
   {empty_line:\\n}
  *@appendixsubsec C2 l221 {appendixsubsec}
@@ -749,7 +749,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendixsubsec}
   {empty_line:\\n}
  *@appendixsubsubsec C4 l223 {appendixsubsubsec}
@@ -764,7 +764,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendixsubsubsec}
   {empty_line:\\n}
   *@chapheading C1 l225
@@ -777,7 +777,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapheading}
   {empty_line:\\n}
  *@centerchap C2 l227 {centerchap}
@@ -791,7 +791,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {centerchap}
   {empty_line:\\n}
  *@chapter C7 l229 {chapter end}
@@ -806,7 +806,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter end}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l231
@@ -820,7 +820,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index in chapter end}
   {empty_line:\\n}
   *@anchor C1 l233

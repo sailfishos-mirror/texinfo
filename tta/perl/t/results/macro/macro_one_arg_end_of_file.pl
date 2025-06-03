@@ -23,7 +23,7 @@ $result_tree_text{'macro_one_arg_end_of_file'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C1

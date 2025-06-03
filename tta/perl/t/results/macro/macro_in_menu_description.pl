@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_menu_description'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@menu C4 l5
@@ -31,7 +31,7 @@ $result_tree_text{'macro_in_menu_description'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -62,7 +62,7 @@ $result_tree_text{'macro_in_menu_description'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

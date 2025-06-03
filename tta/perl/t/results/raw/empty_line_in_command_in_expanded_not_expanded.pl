@@ -13,7 +13,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C7
     {raw:@anchor{a\\n}
     {raw:\\n}
@@ -31,7 +31,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@html C3 l12
@@ -39,7 +39,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C5
     *@anchor C1 l15
     |EXTRA
@@ -66,7 +66,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

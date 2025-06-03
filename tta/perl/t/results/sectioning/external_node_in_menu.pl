@@ -19,7 +19,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -40,7 +40,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -87,7 +87,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {nchapter1}
@@ -102,7 +102,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {nchapter1}
  *@chapter C2 l11 {chap1}
  |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap1}
   {empty_line:\\n}
  *@node C1 l13 {nchapter2}
@@ -131,7 +131,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {nchapter2}
  *@chapter C1 l14 {chap2}
  |INFO
@@ -145,7 +145,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap2}
 ';
 

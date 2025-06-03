@@ -23,7 +23,7 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -37,7 +37,7 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     |>SOURCEMARKS
     |>macro_expansion<end;1>
 ';

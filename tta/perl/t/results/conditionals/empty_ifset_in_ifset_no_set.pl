@@ -18,7 +18,7 @@ $result_tree_text{'empty_ifset_in_ifset_no_set'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@verbatim\\n}
     >{raw:@ifset\\n}

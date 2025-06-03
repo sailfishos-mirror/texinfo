@@ -12,7 +12,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@table C2 l3
@@ -23,7 +23,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@asis l3
     *table_entry C2
      *table_term C1
@@ -34,7 +34,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {item}
      *table_definition C2
       *preformatted C3
@@ -48,7 +48,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *before_item C1
         *preformatted C1
          {empty_line:\\n}
@@ -74,7 +74,7 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

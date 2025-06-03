@@ -20,7 +20,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C1 l3 {chap nodes}
  |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -89,7 +89,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -120,7 +120,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -147,7 +147,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{chap nodes}
    |normalized:{chap-nodes}

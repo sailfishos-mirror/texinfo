@@ -12,7 +12,7 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l2
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -89,7 +89,7 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

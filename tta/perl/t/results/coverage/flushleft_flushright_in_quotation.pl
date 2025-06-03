@@ -13,13 +13,13 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@flushleft C4 l3
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {spaces_before_paragraph:   }
     *paragraph C1
      {f l\\n}
@@ -32,7 +32,7 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {flushleft}
    {empty_line:\\n}
    *@flushright C4 l7
@@ -40,7 +40,7 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {spaces_before_paragraph:  }
     *paragraph C1
      {f r\\n}
@@ -53,7 +53,7 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {flushright}
    *@end C1 l10
    |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

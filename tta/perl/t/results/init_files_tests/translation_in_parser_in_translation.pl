@@ -18,7 +18,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fr}
    {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -33,7 +33,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {chap}
@@ -61,7 +61,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C4 l7 {Chap}
  |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@deftypeop C3 l9
@@ -110,7 +110,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {da}
@@ -142,7 +142,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
 ';

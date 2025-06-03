@@ -54,7 +54,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Texinfo with a Bibliography and References}
    {empty_line:\\n}
    >SOURCEMARKS
@@ -68,7 +68,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{my-bib-macros.texi}
    *@c C1
     {rawline_arg: \\input texinfo   @c -*-texinfo-*-\\n}
@@ -378,7 +378,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@c C1
@@ -402,7 +402,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@c C1
@@ -430,7 +430,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@c C1
@@ -458,7 +458,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    {empty_line:\\n}
@@ -488,7 +488,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l209
@@ -507,7 +507,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@c C1
@@ -542,7 +542,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
    *@c C1
@@ -568,7 +568,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >*block_line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{mybibtable}
      >{raw:@clear mybibtable\\n}
      >*@end C1 bib-example.texi:l26:@mybibuselist
@@ -580,7 +580,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifset}
    >macro_expansion<start;2>
     >*macro_call C1
@@ -613,7 +613,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 bib-example.texi:l31 {Top}
  |INFO
@@ -626,7 +626,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C5 bib-example.texi:l33
@@ -634,7 +634,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 bib-example.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -681,7 +681,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 bib-example.texi:l39 {Introduction}
@@ -696,7 +696,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
  *@chapter C4 bib-example.texi:l40 {Introduction}
  |INFO
@@ -710,7 +710,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
   {empty_line:\\n}
   *paragraph C8
@@ -732,7 +732,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >*block_line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{mybibrefnode}
      >{raw:@mybibmakeref{mybibsetrefnode was not used, LaTeX2e}\\n}
      >*@end C1 bib-example.texi:l43:@mybibcite
@@ -744,7 +744,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifclear}
    *@c C1
    >SOURCEMARKS
@@ -757,7 +757,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >*block_line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{mybibrefnode}
     {rawline_arg: %**else if\\n}
    {(See item [LaTeX2e] in }
@@ -809,7 +809,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >macro_expansion<end;4><p:3>
    {, isn\'t\\n}
@@ -837,7 +837,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {References}
     >SOURCEMARKS
     >value_expansion<end;3><p:10>
@@ -854,7 +854,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {References}
   {empty_line:\\n}
   *@itemize C4 bib-example.texi:l49
@@ -865,7 +865,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@w C1 bib-example.texi:l49
       *brace_container
    *before_item C1
@@ -886,7 +886,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >*block_line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{mybiblist}
       >{raw:@ifclear mybibtable\\n}
       >{raw:@set mybiblist true\\n}
@@ -900,7 +900,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >*line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{ifclear}
     >expanded_conditional_command<start;2><p:1>
      >*@ifset C1 bib-example.texi:l51:@mybibitem
@@ -911,7 +911,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >*block_line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{mybiblist}
    *@item C4 bib-example.texi:l51:@mybibitem
    |EXTRA
@@ -936,7 +936,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >*line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{ifset}
      *@c C1
      >SOURCEMARKS
@@ -949,7 +949,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
         >*block_line_arg C1
         >|INFO
         >|spaces_after_argument:
-         >|{\\n}
+         >|{spaces_after_argument:\\n}
          >{mybibtable}
        >{raw:@item @anchor{LaTeX2e}[LaTeX2e]\\n}
        >*@end C1 bib-example.texi:l51:@mybibitem
@@ -961,7 +961,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
         >*line_arg C1
         >|INFO
         >|spaces_after_argument:
-         >|{\\n}
+         >|{spaces_after_argument:\\n}
          >{ifset}
      >macro_expansion<end;8>
       {rawline_arg: %**else if\\n}
@@ -978,7 +978,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
  *@bye C1

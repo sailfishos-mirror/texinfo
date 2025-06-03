@@ -16,7 +16,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {200mm,150mm following }
      *@@
      {pagesizes arg}
@@ -36,7 +36,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following headings}
    {oddfooting }
    *@oddfooting C1 l5
@@ -46,7 +46,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following oddfooting}
    {everyheading }
    *@everyheading C1 l6
@@ -56,7 +56,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following everyheading}
    {everyfooting }
    *@everyfooting C1 l7
@@ -66,7 +66,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following everyfooting}
    {evenheading }
    *@evenheading C1 l8
@@ -76,7 +76,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following evenheading}
    {evenfooting }
    *@evenfooting C1 l9
@@ -86,7 +86,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following evenfooting}
    {oddheading }
    *@oddheading C1 l10
@@ -96,7 +96,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following}
    {need }
   *@need C1 l11
@@ -106,7 +106,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0.1 on line following}
   *paragraph C1
    {need }
@@ -119,7 +119,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0.1}
   *paragraph C47
    {setchapternewpage }
@@ -130,7 +130,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line following setchapternewpage}
    {raisesections }
    *@raisesections C1
@@ -148,7 +148,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {code something}
    {afourpaper }
    *@afourpaper C1 l17
@@ -170,7 +170,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {asis}
    {paragraphindent 0 }
    *@paragraphindent C1 l21
@@ -183,7 +183,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {0}
    {paragraphindent none }
    *@paragraphindent C1 l22
@@ -196,7 +196,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {none}
    {paragraphindent 4 }
    *@paragraphindent C1 l23
@@ -209,7 +209,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {4}
    {firstparagraphindent insert }
    *@firstparagraphindent C1 l24
@@ -222,7 +222,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {insert}
    {firstparagraphindent 3 }
    *@firstparagraphindent C1 l25
@@ -234,7 +234,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {3}
    {exampleindent 6 }
    *@exampleindent C1 l26
@@ -246,7 +246,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {6 on line following exampleindent}
    {exampleindent 6 }
    *@exampleindent C1 l27
@@ -259,7 +259,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {6}
    {footnotestyle }
    *@footnotestyle C1 l28
@@ -271,7 +271,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {end}
    {footnotestyle }
    *@footnotestyle C1 l29
@@ -283,7 +283,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {separate}
    {documentencoding }
    *@documentencoding C1 l30
@@ -296,7 +296,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {US-ascii encoding name}
    *@documentencoding C1 l31
    |INFO
@@ -309,7 +309,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {frenchspacing }
    *@frenchspacing C1 l32
@@ -322,7 +322,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on}
    {frenchspacing }
    *@frenchspacing C1 l33
@@ -335,7 +335,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {off}
    {fonttextsize }
    *@fonttextsize C1 l34
@@ -347,7 +347,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {10}
    {everyheadingmarks }
    *@everyheadingmarks C1 l35
@@ -357,7 +357,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {bottom on line following everyheadingmarks}
    *@allowcodebreaks C1 l36
    |INFO
@@ -369,7 +369,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {false}
    *@allowcodebreaks C1 l37
    |INFO
@@ -381,7 +381,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {true}
   {empty_line:\\n}
   *paragraph C6

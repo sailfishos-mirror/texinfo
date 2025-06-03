@@ -13,7 +13,7 @@ $result_tree_text{'dash_in_menu'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C6 l3
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -45,7 +45,7 @@ $result_tree_text{'dash_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

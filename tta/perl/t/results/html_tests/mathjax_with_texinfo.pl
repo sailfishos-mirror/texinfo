@@ -12,7 +12,7 @@ $result_tree_text{'mathjax_with_texinfo'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {a}
    *@sup C1 l2
     *brace_container C3
@@ -38,7 +38,7 @@ $result_tree_text{'mathjax_with_texinfo'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {displaymath}
   {empty_line:\\n}
   *paragraph C3

@@ -19,7 +19,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {empty top node up}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {empty top node up}
   {empty_line:\\n}
   *@menu C3 l4
@@ -40,7 +40,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -61,7 +61,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l8 {chap}
@@ -76,7 +76,7 @@ $result_tree_text{'empty_top_node_up'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
 ';
 

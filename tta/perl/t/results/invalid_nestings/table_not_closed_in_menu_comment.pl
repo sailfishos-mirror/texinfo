@@ -12,7 +12,7 @@ $result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l2
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -36,7 +36,7 @@ $result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *@asis l4
      *table_entry C2
       *table_term C1
@@ -47,7 +47,7 @@ $result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {item}
       *table_definition C1
        *preformatted C2
@@ -62,7 +62,7 @@ $result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

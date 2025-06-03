@@ -12,7 +12,7 @@ $result_tree_text{'group_not_closed'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {text in group\\n}

@@ -20,7 +20,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2
  |EXTRA
@@ -30,7 +30,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chapter one}
  |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter one}
  *@chapter C15 l5 {one}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {one}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
@@ -79,7 +79,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {bb}
   *index_entry_command@cindex C1 l8
   |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cc}
   *index_entry_command@cindex C1 l9
   |INFO
@@ -119,7 +119,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {dd}
   *index_entry_command@cindex C1 l10
   |INFO
@@ -139,7 +139,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cc}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l12
@@ -167,7 +167,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {lll}
   *index_entry_command@cindex C1 l13
   |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {jjj}
   *index_entry_command@cindex C1 l14
   |INFO
@@ -200,7 +200,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {hhh jjj}
   *index_entry_command@cindex C1 l15
   |INFO
@@ -220,7 +220,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {k}
   *index_entry_command@cindex C1 l16
   |INFO
@@ -237,7 +237,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
   *index_entry_command@cindex C1 l17
   |INFO
   |command_name:{cindex}
@@ -249,7 +249,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {hhh}
   *index_entry_command@cindex C1 l18
   |INFO
@@ -283,7 +283,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           {ppp}
   {empty_line:\\n}
  *@node C1 l20 {chapter second}
@@ -299,7 +299,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter second}
  *@chapter C11 l21 {second}
  |INFO
@@ -313,7 +313,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second}
   *index_entry_command@cindex C1 l22
   |INFO
@@ -340,7 +340,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {lll}
   *index_entry_command@cindex C1 l23
   |INFO
@@ -353,7 +353,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {hhh}
   *index_entry_command@cindex C1 l24
   |INFO
@@ -375,7 +375,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {jjj}
   *index_entry_command@cindex C1 l25
   |INFO
@@ -406,7 +406,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@email C2 l25
          *brace_arg C1
           {jjj}
@@ -428,7 +428,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {aa}
   *index_entry_command@cindex C1 l27
   |INFO
@@ -457,7 +457,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C3
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {lll}
         {spaces_at_end: }
         *@sortas C1 l27
@@ -488,7 +488,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {nnn}
   *index_entry_command@cindex C1 l29
   |INFO
@@ -515,7 +515,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {third}
   {empty_line:\\n}
   *@printindex C1 l31
@@ -528,7 +528,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
 ';
 

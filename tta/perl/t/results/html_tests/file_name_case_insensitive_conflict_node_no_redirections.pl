@@ -20,7 +20,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top section}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C5 l5 {Chapter}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@anchor C1 l7
@@ -85,7 +85,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Foo}
  *@section C2 l10 {Foo}
  |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Foo}
   {empty_line:\\n}
  *@node C1 l12 {Bar}
@@ -114,7 +114,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Bar}
  *@section C2 l13 {Bar}
  |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Bar}
   {empty_line:\\n}
  *@node C1 l15 {foo}
@@ -143,7 +143,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foo}
  *@section C5 l16 {foo}
  |INFO
@@ -157,7 +157,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foo}
   {empty_line:\\n}
   *paragraph C2

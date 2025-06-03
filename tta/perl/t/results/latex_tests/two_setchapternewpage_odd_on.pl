@@ -17,7 +17,7 @@ $result_tree_text{'two_setchapternewpage_odd_on'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {odd}
    {empty_line:\\n}
    *@setchapternewpage C1 l3
@@ -29,7 +29,7 @@ $result_tree_text{'two_setchapternewpage_odd_on'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on}
 ';
 

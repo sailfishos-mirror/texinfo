@@ -20,7 +20,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {before Top}
   {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -35,7 +35,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {Chapter}
@@ -63,7 +63,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@chapter C3 l7 {Chap}
  |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C2

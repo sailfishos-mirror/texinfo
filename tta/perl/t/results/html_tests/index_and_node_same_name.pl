@@ -18,7 +18,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
  *@node C5 l2 {index node}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index node}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l4
@@ -47,7 +47,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
   *@printindex C1 l5
   |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
 ';

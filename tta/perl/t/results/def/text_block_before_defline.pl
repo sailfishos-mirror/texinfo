@@ -20,7 +20,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chapt}
@@ -48,7 +48,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapt}
  *@chapter C3 l5 {Chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@defblock C4 l7
@@ -70,7 +70,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_defline C6
     *paragraph C3
      {Some text}
@@ -87,7 +87,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C1
       {an example\\n}
      *@end C1 l12
@@ -99,7 +99,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {example}
     {empty_line:\\n}
     *@menu C3 l14
@@ -107,7 +107,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *menu_entry C4 l15
       {menu_entry_leading_text:* }
       *menu_entry_node C3
@@ -129,7 +129,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {menu}
     {empty_line:\\n}
    *@defline C1 l18
@@ -146,7 +146,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {a}
@@ -171,7 +171,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

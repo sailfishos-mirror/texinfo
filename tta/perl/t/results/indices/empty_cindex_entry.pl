@@ -20,7 +20,7 @@ $result_tree_text{'empty_cindex_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C2 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'empty_cindex_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   *index_entry_command@cindex C1 l3
   |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'empty_cindex_entry'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

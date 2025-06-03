@@ -23,7 +23,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 contents_in_middle_chapter.texi:l4 {Contents in chapter}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Contents in chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -47,7 +47,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 contents_in_middle_chapter.texi:l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -68,7 +68,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 contents_in_middle_chapter.texi:l12 {chapter}
@@ -83,7 +83,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C7 contents_in_middle_chapter.texi:l13 {Chapter 1}
  |INFO
@@ -97,7 +97,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 1}
   {empty_line:\\n}
   *paragraph C1
@@ -112,7 +112,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 contents_in_middle_chapter.texi:l19
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -133,7 +133,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 contents_in_middle_chapter.texi:l22 {section}
@@ -148,7 +148,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C4 contents_in_middle_chapter.texi:l23 {section}
  |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
   *paragraph C1

@@ -19,7 +19,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C9 l4
@@ -40,7 +40,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -113,7 +113,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l16 {chapter}
@@ -128,7 +128,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l17 {chapter}
  |INFO
@@ -142,7 +142,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@menu C3 l19
@@ -150,7 +150,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l20
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -171,7 +171,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l23 {section}
@@ -186,7 +186,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C2 l24 {section}
  |INFO
@@ -200,7 +200,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
  *@node C1 l26 {chapter 2}
@@ -215,7 +215,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
  *@chapter C4 l27 {chapter 2}
  |INFO
@@ -229,7 +229,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
   {empty_line:\\n}
   *@menu C4 l29
@@ -237,7 +237,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l30
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -269,7 +269,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l34 {section chap 2}
@@ -284,7 +284,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section chap 2}
  *@section C2 l35 {section chap 2}
  |INFO
@@ -298,7 +298,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section chap 2}
   {empty_line:\\n}
  *@node C1 l37 {unnumberedsec}
@@ -313,7 +313,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec}
  *@unnumberedsec C1 l38 {unnumberedsec}
  |INFO
@@ -326,7 +326,7 @@ $result_tree_text{'missing_detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec}
 ';
 

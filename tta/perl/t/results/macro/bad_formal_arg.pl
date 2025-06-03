@@ -25,7 +25,7 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l6
@@ -45,7 +45,7 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C6 l10
@@ -68,7 +68,7 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
 ';
 

@@ -24,7 +24,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {contents at document begin}
  |INFO
@@ -37,7 +37,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {contents at document begin}
   {empty_line:\\n}
  *@chapter C1 l6 {chap}
@@ -52,7 +52,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
 ';
 

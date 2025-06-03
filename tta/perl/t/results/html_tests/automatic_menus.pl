@@ -19,7 +19,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C3 l5 {Chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   *@nodedescription C1 l6
   |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Here we begin}
   {empty_line:\\n}
  *@node C1 l8 {sec}
@@ -85,7 +85,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
  *@section C3 l9 {A section}
  |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A section}
   *@nodedescription C1 l10
   |INFO
@@ -108,7 +108,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Here in section}
   {empty_line:\\n}
  *@node C1 l12 {sec after}
@@ -123,7 +123,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec after}
  *@section C1 l13 {Sec after}
  |INFO
@@ -137,7 +137,7 @@ $result_tree_text{'automatic_menus'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec after}
 ';
 

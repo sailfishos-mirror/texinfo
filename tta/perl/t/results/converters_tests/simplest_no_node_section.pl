@@ -21,7 +21,7 @@ $result_tree_text{'simplest_no_node_section'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {simplest_no_node_section.info}
    {empty_line:\\n}
   *paragraph C3

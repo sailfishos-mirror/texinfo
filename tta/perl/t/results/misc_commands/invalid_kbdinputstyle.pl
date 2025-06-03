@@ -18,7 +18,7 @@ $result_tree_text{'invalid_kbdinputstyle'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {wrong arg on line following kbdinputstyle}
 ';
 

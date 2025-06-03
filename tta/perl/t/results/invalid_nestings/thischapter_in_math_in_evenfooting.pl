@@ -15,7 +15,7 @@ $result_tree_text{'thischapter_in_math_in_evenfooting'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@math C1 l2
      *brace_command_context C2
       {aa }

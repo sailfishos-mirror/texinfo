@@ -22,7 +22,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding_usascii'} = '*documen
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {US-ASCII}
    {empty_line:\\n}
  *@node C1 punctuation_small_case_accents_us_ascii.texi:l5 {top}
@@ -37,7 +37,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding_usascii'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
  *@top C2 punctuation_small_case_accents_us_ascii.texi:l6 {top section}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding_usascii'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 punctuation_small_case_accents_us_ascii.texi:l8 {node chap}
@@ -65,7 +65,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding_usascii'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node chap}
  *@chapter C11 punctuation_small_case_accents_us_ascii.texi:l9 {chapter}
  |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding_usascii'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *paragraph C1

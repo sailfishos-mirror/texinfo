@@ -20,7 +20,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C8 l2 {2 footnotes in 2 nodes}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2 footnotes in 2 nodes}
   {empty_line:\\n}
   *paragraph C3
@@ -67,7 +67,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l13
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -88,7 +88,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l16 {chapter}
@@ -103,7 +103,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C6 l17 {chapter}
  |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *paragraph C3

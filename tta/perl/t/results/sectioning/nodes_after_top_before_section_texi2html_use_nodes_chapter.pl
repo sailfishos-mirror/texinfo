@@ -20,7 +20,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   *paragraph C1
    {Top node\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -61,7 +61,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 l8 {chap node}
@@ -91,7 +91,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -120,7 +120,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -137,7 +137,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection}
 ';
 

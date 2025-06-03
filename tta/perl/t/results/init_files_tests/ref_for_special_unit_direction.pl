@@ -25,7 +25,7 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
@@ -53,7 +53,7 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C1 l7 {chap}
  |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'ref_for_special_unit_direction'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
 ';
 

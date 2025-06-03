@@ -15,7 +15,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
     *table_definition C3
      *paragraph C1
@@ -37,7 +37,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       {empty_line:\\n}
       *paragraph C1
        {in quotation\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a section}
 ';
 

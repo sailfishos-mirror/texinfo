@@ -31,7 +31,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l6 {top}
  |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l8 {Chapter}
@@ -59,7 +59,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@chapter C3 l9 {chap}
  |INFO
@@ -73,7 +73,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@documentlanguage C1 l11
@@ -86,7 +86,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr}
  *@node C1 l12 {Chapter fr}
  |INFO
@@ -100,7 +100,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter fr}
  *@chapter C3 l13 {chap fr}
  |INFO
@@ -114,7 +114,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap fr}
   {empty_line:\\n}
   *paragraph C3

@@ -15,7 +15,7 @@ $result_tree_text{'shorttitlepage'} = '*document_root C5
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {the title with shorttitlepage }
      *@*
      { it can be long}
@@ -32,7 +32,7 @@ $result_tree_text{'shorttitlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {section top}
  |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'shorttitlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
@@ -60,7 +60,7 @@ $result_tree_text{'shorttitlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l7 {Chapter}
  |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'shorttitlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

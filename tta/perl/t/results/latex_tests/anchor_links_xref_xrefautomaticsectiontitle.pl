@@ -20,7 +20,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node before}
   {empty_line:\\n}
   *paragraph C3
@@ -45,7 +45,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l7 {top sectionning}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top sectionning}
   {empty_line:\\n}
   *paragraph C3
@@ -83,7 +83,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after}
   {empty_line:\\n}
   *paragraph C3
@@ -108,7 +108,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C9 l18 {chap}
  |INFO
@@ -122,7 +122,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C3
@@ -145,7 +145,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   *paragraph C8
    *@xref C1 l24
@@ -187,7 +187,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {off}
   *paragraph C8
    *@xref C1 l30

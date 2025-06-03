@@ -20,7 +20,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {one arg1}
  *@node C1 l3 {one arg2}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -65,7 +65,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -102,7 +102,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -139,7 +139,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -162,7 +162,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
     |*@comment C1
      |{rawline_arg:\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {comment}
   {empty_line:\\n}
  *@node C1 l10 {arg1 @comma{} arg2}
@@ -196,7 +196,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
     |*@c C1
      |{rawline_arg: comma , end\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

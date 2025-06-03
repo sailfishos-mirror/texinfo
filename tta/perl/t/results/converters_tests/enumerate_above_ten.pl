@@ -17,7 +17,7 @@ $result_tree_text{'enumerate_above_ten'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {14}
    *@item C2 l2
    |EXTRA
@@ -34,7 +34,7 @@ $result_tree_text{'enumerate_above_ten'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
 ';
 

@@ -77,7 +77,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {float anchor}
@@ -92,7 +92,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *paragraph C3
@@ -110,7 +110,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l25
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -131,7 +131,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
@@ -144,7 +144,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry}
   {empty_line:\\n}
  *@section C5 l30 {section}
@@ -159,7 +159,7 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
   *paragraph C3

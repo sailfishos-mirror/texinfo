@@ -15,7 +15,7 @@ $result_tree_text{'text_between_item_itemx'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l1
    *table_entry C1
     *table_term C3
@@ -26,7 +26,7 @@ $result_tree_text{'text_between_item_itemx'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in item}
      *inter_item C1
       *paragraph C1
@@ -38,7 +38,7 @@ $result_tree_text{'text_between_item_itemx'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in itemx}
    *@end C1 l5
    |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'text_between_item_itemx'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

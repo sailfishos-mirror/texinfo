@@ -22,7 +22,7 @@ $result_tree_text{'paragraphindent_asis_first'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {asis}
   {spaces_before_paragraph:     }
   *paragraph C1

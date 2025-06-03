@@ -33,7 +33,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l5
@@ -44,7 +44,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ l5
    *@item C2 l6
    |EXTRA
@@ -61,7 +61,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l9
@@ -72,7 +72,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ C1 l9
       *brace_container
    *@item C2 l10
@@ -90,7 +90,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l13
@@ -101,7 +101,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@~ l13
    *@item C2 l14
    |EXTRA
@@ -118,7 +118,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

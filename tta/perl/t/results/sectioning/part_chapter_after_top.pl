@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l4
@@ -48,7 +48,7 @@ NodeForward: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -69,7 +69,7 @@ NodeForward: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U1 unit{S:1 chapter}{n:chapter}
@@ -93,7 +93,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@node C1 l10 {chapter}
@@ -108,7 +108,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C1 l11 {chapter}
  |INFO
@@ -122,7 +122,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {chapter}
 ';
 

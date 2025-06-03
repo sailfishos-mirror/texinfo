@@ -21,7 +21,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@section C1 l3 {section}
@@ -36,7 +36,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
 ';
 

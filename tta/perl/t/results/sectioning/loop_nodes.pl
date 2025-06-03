@@ -20,7 +20,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l4
@@ -41,7 +41,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -62,7 +62,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 l8 {chap node up}
@@ -81,7 +81,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{node down}
    |normalized:{node-down}
@@ -92,7 +92,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -113,7 +113,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 l14 {node middle}
@@ -132,7 +132,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{chap node up}
    |normalized:{chap-node-up}
@@ -143,7 +143,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l17
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -164,7 +164,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l20 {node down}
@@ -179,7 +179,7 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node down}
 ';
 

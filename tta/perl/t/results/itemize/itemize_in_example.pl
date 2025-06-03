@@ -12,7 +12,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@itemize C3 l2
    |INFO
    |spaces_before_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@bullet l2
     *@item C1 l3
     |EXTRA
@@ -40,7 +40,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -52,7 +52,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@asis l8
     *@item C1 l9
     |EXTRA
@@ -69,7 +69,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -81,7 +81,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {+}
     *@item C1 l13
     |EXTRA
@@ -98,7 +98,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -110,7 +110,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {m--n}
     *@item C1 l17
     |EXTRA
@@ -127,7 +127,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -139,7 +139,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *block_line_arg C2
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@bullet C1 l20
        *brace_container
       { a--n itemize line}
@@ -158,7 +158,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *@end C1 l23
    |INFO
@@ -169,7 +169,7 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

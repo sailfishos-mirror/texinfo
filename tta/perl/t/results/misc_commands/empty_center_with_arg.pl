@@ -14,7 +14,7 @@ $result_tree_text{'empty_center_with_arg'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@w C1 l1
      *brace_container
 ';

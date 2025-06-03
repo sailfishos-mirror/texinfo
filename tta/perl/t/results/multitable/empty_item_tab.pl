@@ -24,7 +24,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {1.0}
    *multitable_body C4
     *row C1
@@ -67,7 +67,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C3 l9
@@ -87,7 +87,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.5 0.5}
    *multitable_body C8
     *row C1
@@ -189,7 +189,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

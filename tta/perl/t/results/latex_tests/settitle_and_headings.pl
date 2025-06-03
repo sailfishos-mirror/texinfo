@@ -15,7 +15,7 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Title }
      *@*
      { for a manual}
@@ -30,7 +30,7 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {double}
    {empty_line:\\n}
  *@chapter C9 l5 {chap}
@@ -45,7 +45,7 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@page C1

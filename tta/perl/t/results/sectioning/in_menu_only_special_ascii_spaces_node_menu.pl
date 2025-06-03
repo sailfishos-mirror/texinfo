@@ -20,7 +20,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C4 in_menu_only_special_ascii_spaces_node.texi:l4
@@ -41,7 +41,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 in_menu_only_special_ascii_spaces_node.texi:l5
     {menu_entry_leading_text:* '."\r".'}
     *menu_entry_node
@@ -65,7 +65,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l9
@@ -73,7 +73,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ '."\r".'\\n}
+    |{spaces_after_argument: '."\r".'\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
@@ -86,7 +86,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l12
@@ -94,7 +94,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ \\t\\f\\n}
+    |{spaces_after_argument: \\t\\f\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
  |INFO
  |spaces_before_argument:
@@ -107,7 +107,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {CHARACTER TABULATION|\\t| FORM FEED|\\f|}
   {empty_line:\\n}
 ';

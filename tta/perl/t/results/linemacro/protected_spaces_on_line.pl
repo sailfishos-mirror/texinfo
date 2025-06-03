@@ -25,7 +25,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -58,7 +58,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *block_line_arg C14
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -99,7 +99,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:5>
@@ -136,7 +136,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *block_line_arg C16
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -183,7 +183,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:5>
@@ -218,7 +218,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *block_line_arg C11
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -252,7 +252,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;3><p:5>

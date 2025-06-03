@@ -19,7 +19,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {us-ascii}
     *@asis C1 l2
      *brace_container
@@ -34,7 +34,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {latin1}
     *@asis C1 l4
      *brace_container C1
@@ -49,7 +49,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {YS-ASCII}
   *paragraph C8
    *@@
@@ -64,7 +64,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {bad encoding name}
    *@documentencoding C1 l7
    |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {1}
    *@documentencoding C1 l8
    |INFO
@@ -88,7 +88,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {%}
    *@documentencoding C1 l9
    |INFO
@@ -100,7 +100,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@@
    *@documentencoding C1 l10
    |INFO
@@ -112,7 +112,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {AAA}
      *@TeX C1 l10
       *brace_container
@@ -126,7 +126,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {BBB}
      *@\' C1 l11
       *following_arg C1

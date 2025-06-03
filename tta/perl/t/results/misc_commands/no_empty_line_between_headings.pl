@@ -18,7 +18,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   *@subheading C1 l2
   |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subheading}
  *@chapter C1 l3 {Chapter}
  |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@section C1 l4 {Section}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section}
 ';
 

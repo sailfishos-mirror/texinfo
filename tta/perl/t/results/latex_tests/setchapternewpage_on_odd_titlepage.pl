@@ -17,7 +17,7 @@ $result_tree_text{'setchapternewpage_on_odd_titlepage'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on}
    {empty_line:\\n}
    *@setchapternewpage C1 l3
@@ -29,7 +29,7 @@ $result_tree_text{'setchapternewpage_on_odd_titlepage'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {odd}
    {empty_line:\\n}
    *@titlepage C3 l5
@@ -37,7 +37,7 @@ $result_tree_text{'setchapternewpage_on_odd_titlepage'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {in titlepage\\n}
     *@end C1 l7
@@ -49,7 +49,7 @@ $result_tree_text{'setchapternewpage_on_odd_titlepage'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
 ';
 

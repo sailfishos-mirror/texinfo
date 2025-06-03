@@ -25,7 +25,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -53,7 +53,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{    \\n}
+     |{spaces_after_argument:    \\n}
      *def_category C1
       *def_line_arg C1
        *@b C1 l2
@@ -70,7 +70,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *@deffnx C1 l4
    |INFO
    |spaces_before_argument:
@@ -81,7 +81,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {aaa}
@@ -95,7 +95,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg l5
      {spaces: }
@@ -108,7 +108,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg l6
    *@deffnx C1 l7
@@ -118,7 +118,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l7
        {truc}
@@ -135,7 +135,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l8
        {truc}
@@ -146,7 +146,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg l9
      {spaces: }
@@ -161,7 +161,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

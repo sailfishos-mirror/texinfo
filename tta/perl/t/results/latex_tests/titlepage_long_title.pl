@@ -13,7 +13,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@title C1 l2
     |INFO
     |spaces_before_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {a title than is long, very long, veeeeeeeeeeeeeeeeery long, it seems to never stop and it is not so interesting only very long oh an end of line }
       *@*
       { and the title continue and keep on being unfinished until it is the end}
@@ -35,7 +35,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l6 {Top}
@@ -50,7 +50,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l7 {section top}
  |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l9 {chapter}
@@ -78,7 +78,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l10 {Chapter}
  |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

@@ -15,7 +15,7 @@ $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {lean}
    *paragraph C3
     {A}
@@ -35,7 +35,7 @@ $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

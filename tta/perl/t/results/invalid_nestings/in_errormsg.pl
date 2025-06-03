@@ -47,7 +47,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l6
    *table_entry C1
     *table_term C1
@@ -58,7 +58,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
    *@end C1 l8
    |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

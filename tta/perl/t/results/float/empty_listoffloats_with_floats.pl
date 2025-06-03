@@ -25,7 +25,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label1}
@@ -40,7 +40,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C5 l6
@@ -58,7 +58,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label2}
@@ -78,7 +78,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C3 l11
@@ -89,7 +89,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {no label no caption\\n}
    *@end C1 l13
@@ -101,7 +101,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C5 l15
@@ -112,7 +112,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {no label caption\\n}
    *@caption C1 l17
@@ -129,7 +129,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l20
@@ -139,7 +139,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

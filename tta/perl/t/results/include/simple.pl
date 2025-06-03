@@ -19,7 +19,7 @@ $result_tree_text{'simple'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{inc_file.texi}
   *paragraph C1
    {In included file.\\n}

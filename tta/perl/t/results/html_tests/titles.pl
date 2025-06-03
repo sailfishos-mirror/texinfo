@@ -15,7 +15,7 @@ $result_tree_text{'titles'} = '*document_root C3
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@@
     {title }
     *@sc C1 l2
@@ -38,7 +38,7 @@ $result_tree_text{'titles'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C5 l5 {Top of @@title @sc{html} @code{test}}
  |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'titles'} = '*document_root C3
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top of }
     *@@
     {title }

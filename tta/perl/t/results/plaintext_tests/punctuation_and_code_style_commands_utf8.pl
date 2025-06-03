@@ -18,7 +18,7 @@ $result_tree_text{'punctuation_and_code_style_commands_utf8'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   *paragraph C18
    *@command C1 l2

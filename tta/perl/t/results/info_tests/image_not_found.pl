@@ -19,7 +19,7 @@ $result_tree_text{'image_not_found'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   *@image C1 l2
   |EXTRA

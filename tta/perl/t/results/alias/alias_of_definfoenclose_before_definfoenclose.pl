@@ -16,7 +16,7 @@ $result_tree_text{'alias_of_definfoenclose_before_definfoenclose'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new = phoo}
   {empty_line:\\n}
   *@definfoenclose C1 l3
@@ -28,7 +28,7 @@ $result_tree_text{'alias_of_definfoenclose_before_definfoenclose'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {phoo,;,:}
   {empty_line:\\n}
   *paragraph C2

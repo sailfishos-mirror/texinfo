@@ -27,7 +27,7 @@ $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {bad}
     >SOURCEMARKS
     >value_expansion<end;1><p:3>

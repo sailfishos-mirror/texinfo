@@ -13,7 +13,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc\\n}
     {ldskf dsflj\\n}
@@ -30,7 +30,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushleft}
   {empty_line:\\n}
   *@flushright C5 l10
@@ -38,7 +38,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc\\n}
     {ldskf dsflj\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushright}
 ';
 

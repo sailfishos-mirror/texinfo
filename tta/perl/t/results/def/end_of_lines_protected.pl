@@ -23,7 +23,7 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
     *block_line_arg C19
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {category}
@@ -81,7 +81,7 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

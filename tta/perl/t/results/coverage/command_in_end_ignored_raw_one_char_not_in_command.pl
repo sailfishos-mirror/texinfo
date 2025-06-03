@@ -12,7 +12,7 @@ $result_tree_text{'command_in_end_ignored_raw_one_char_not_in_command'} = '*docu
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C2
     {raw:In html\\n}
     {raw:@end h@asis{tml}\\n}

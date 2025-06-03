@@ -12,7 +12,7 @@ $result_tree_text{'long_uref_after_item'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -31,7 +31,7 @@ $result_tree_text{'long_uref_after_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

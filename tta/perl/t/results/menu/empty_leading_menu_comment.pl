@@ -19,7 +19,7 @@ $result_tree_text{'empty_leading_menu_comment'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@menu C4 l3
@@ -27,7 +27,7 @@ $result_tree_text{'empty_leading_menu_comment'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {empty_line:\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'empty_leading_menu_comment'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

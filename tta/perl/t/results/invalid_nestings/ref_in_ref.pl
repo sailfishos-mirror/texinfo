@@ -19,7 +19,7 @@ $result_tree_text{'ref_in_ref'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   *paragraph C1
    *@ref C1 l2

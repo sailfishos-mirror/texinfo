@@ -19,7 +19,7 @@ $result_tree_text{'empty'} = '*document_root C1
       *line_arg
       |INFO
       |spaces_after_argument:
-       |{ \\n}
+       |{spaces_after_argument: \\n}
    *@end C1 l2
    |INFO
    |spaces_before_argument:

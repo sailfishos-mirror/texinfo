@@ -12,7 +12,7 @@ $result_tree_text{'double_titlepage_not_closed'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {This is in title page\\n}
@@ -23,7 +23,7 @@ $result_tree_text{'double_titlepage_not_closed'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {And still in title page\\n}

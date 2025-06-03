@@ -27,7 +27,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:second arg\\n}
    *@end C1 l9:@macroone
    |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;1><p:8>
@@ -85,7 +85,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:\\n}
    *@end C1 l11:@macroone
    |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;2><p:8>
@@ -113,7 +113,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:\\n}
    *@end C1 l13:@macroone
    |INFO
@@ -124,7 +124,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim my arg.}
      >SOURCEMARKS
      >macro_expansion<end;3><p:8>
@@ -148,7 +148,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@macroone{nested second arg}\\n}
    *@end C1 l15:@macroone
    |INFO
@@ -159,7 +159,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;4><p:8>
@@ -183,7 +183,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:{} \\ \\n}
    *@end C1 l17:@macroone
    |INFO
@@ -194,7 +194,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;5><p:8>
@@ -221,7 +221,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:arg3\\n}
    {raw:\\n}
    {raw:\\n}

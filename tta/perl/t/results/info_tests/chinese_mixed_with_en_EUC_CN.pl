@@ -21,7 +21,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {EUC-CN}
    *@settitle C1 chinese_mixed_with_en_EUC_CN.texi:l3
    |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {chinese mixed with english}
    {empty_line:\\n}
  *@node C1 chinese_mixed_with_en_EUC_CN.texi:l5 {Top}
@@ -45,7 +45,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 chinese_mixed_with_en_EUC_CN.texi:l6 {Mixed chinese and english}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed chinese and english}
   {empty_line:\\n}
   *paragraph C1
@@ -76,7 +76,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed english and chinese}
  *@chapter C19 chinese_mixed_with_en_EUC_CN.texi:l11 {Mixed english and chinese}
  |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed english and chinese}
   {empty_line:\\n}
   *paragraph C1

@@ -19,7 +19,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l5 {Chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
  *@node C1 {Sec}
@@ -76,7 +76,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
  *@section C5 l7 {Sec}
  |INFO
@@ -90,14 +90,14 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
   *@nodedescriptionblock C3 l8
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {D1\\n}
    *@end C1 l10
@@ -109,7 +109,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l12
@@ -117,7 +117,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {D2\\n}
    *@end C1 l14
@@ -129,7 +129,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
  *@node C1 {Subsec}
@@ -144,7 +144,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsec}
  *@subsection C2 l16 {Subsec}
  |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsec}
   {empty_line:\\n}
 ';

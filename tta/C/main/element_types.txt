@@ -80,8 +80,9 @@ normal_text                               text
 # In special spaces elements in info, as informative command arguments...
 other_text                                text
 # in info text elements of the same name
-spaces_before_argument                    text
+spaces_after_argument                     text
 spaces_after_cmd_before_arg               text
+spaces_before_argument                    text
 
 # Containers
 document_root

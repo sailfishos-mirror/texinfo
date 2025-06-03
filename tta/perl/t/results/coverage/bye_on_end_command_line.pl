@@ -12,7 +12,7 @@ $result_tree_text{'bye_on_end_command_line'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3

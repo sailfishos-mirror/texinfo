@@ -39,7 +39,7 @@ $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {0}
    *preformatted C3
     {example with }
@@ -54,7 +54,7 @@ $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

@@ -12,7 +12,7 @@ $result_tree_text{'empty_node'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3
  |INFO
@@ -39,7 +39,7 @@ $result_tree_text{'empty_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

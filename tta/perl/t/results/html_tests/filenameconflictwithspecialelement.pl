@@ -20,7 +20,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C2
@@ -57,7 +57,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C7 l7 {chap}
  |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'filenameconflictwithspecialelement'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

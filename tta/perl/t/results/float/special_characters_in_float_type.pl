@@ -20,7 +20,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C5 l5 {chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@float C5 l7
@@ -86,7 +86,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
     *block_line_arg C4
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {L < " `` ` \' \' \\aaa }
@@ -116,7 +116,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l12
@@ -129,7 +129,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A < " `` ` \' \' \\aaa }
     *@.
     { --- }

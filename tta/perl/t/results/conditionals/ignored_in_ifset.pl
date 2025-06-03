@@ -18,7 +18,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@ignore\\n}
     >*@end C1 l4
@@ -30,7 +30,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   *paragraph C1
    {text\\n}
@@ -45,7 +45,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@verbatim\\n}
     >*@end C1 l11
@@ -57,7 +57,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -70,7 +70,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@verb{%\\n}
     >*@end C1 l17
@@ -82,7 +82,7 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   *paragraph C1
    {%\\n}

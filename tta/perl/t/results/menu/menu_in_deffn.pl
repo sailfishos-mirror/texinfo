@@ -19,7 +19,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@deffn C3 l3
@@ -39,7 +39,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *def_category C1
       *def_line_arg C1
        {a}
@@ -57,7 +57,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *menu_entry C4 l5
       {menu_entry_leading_text:* }
       *menu_entry_node C3
@@ -79,7 +79,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {menu}
    *@end C1 l7
    |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

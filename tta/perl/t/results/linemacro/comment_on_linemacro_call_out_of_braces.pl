@@ -25,7 +25,7 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *paragraph C4

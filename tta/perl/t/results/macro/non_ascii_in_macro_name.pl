@@ -22,7 +22,7 @@ $result_tree_text{'non_ascii_in_macro_name'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C1

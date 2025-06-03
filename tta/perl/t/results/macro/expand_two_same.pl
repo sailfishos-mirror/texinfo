@@ -24,7 +24,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C7
    {Call macro2\\n}

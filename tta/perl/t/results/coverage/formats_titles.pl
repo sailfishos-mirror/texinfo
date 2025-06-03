@@ -12,7 +12,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C1
     *paragraph C1
      {before first itemize\\n}
@@ -31,7 +31,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@enumerate C4 l6
@@ -41,7 +41,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C1
     *paragraph C1
      {before first enumerate\\n}
@@ -60,7 +60,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@table C4 l11
@@ -71,7 +71,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l11
    *before_item C1
     *paragraph C1
@@ -85,7 +85,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {tab}
    *@end C1 l14
    |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@vtable C4 l16
@@ -107,7 +107,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l16
    *before_item C1
     *paragraph C1
@@ -123,7 +123,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {vtab}
    *@end C1 l19
    |INFO
@@ -134,7 +134,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@multitable C4 l21
@@ -154,7 +154,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.5 0.5}
    *before_item C1
     *paragraph C1
@@ -184,7 +184,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

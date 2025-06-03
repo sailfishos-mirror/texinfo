@@ -15,7 +15,7 @@ $result_tree_text{'additional_space_in_end_conditional_expanded'} = '*document_r
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C1
    {not html\\n}
    >SOURCEMARKS
@@ -29,7 +29,7 @@ $result_tree_text{'additional_space_in_end_conditional_expanded'} = '*document_r
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnothtml}
 ';
 

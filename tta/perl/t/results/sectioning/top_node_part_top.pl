@@ -22,7 +22,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@part C2 l3 {part}
@@ -37,7 +37,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@top C1 l5 {top}
@@ -51,7 +51,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

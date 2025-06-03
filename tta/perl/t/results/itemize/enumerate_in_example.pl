@@ -13,7 +13,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@enumerate C4 l3
    |EXTRA
    |enumerate_specification:{1}
@@ -21,7 +21,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@item C1 l4
     |EXTRA
     |item_number:{1}
@@ -45,7 +45,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {enumerate}
    *@end C1 l9
    |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

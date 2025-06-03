@@ -23,7 +23,7 @@ $result_tree_text{'protect_first_parenthesis_source_mark'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@anchor C1 l5

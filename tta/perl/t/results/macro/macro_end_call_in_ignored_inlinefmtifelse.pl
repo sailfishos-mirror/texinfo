@@ -23,7 +23,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse'} = '*document_root
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C3

@@ -20,7 +20,7 @@ $result_tree_text{'setfilename_on_top_and_after_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l2 {In top @setfilename very badly placed setfilename
 }
@@ -42,7 +42,7 @@ $result_tree_text{'setfilename_on_top_and_after_node'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {very badly placed setfilename}
   {empty_line:\\n}
   *@setfilename C1 l4
@@ -54,7 +54,7 @@ $result_tree_text{'setfilename_on_top_and_after_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a bit too late}
 ';
 

@@ -19,7 +19,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -48,7 +48,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ntiti}
   *@xrefname C1 l6
   |INFO
@@ -60,7 +60,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {titi}
   {empty_line:\\n}
  *@chapter C2 l8 {chap}
@@ -75,7 +75,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
  *@node C1 l10 {chip}
@@ -90,7 +90,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chip}
  *@appendix C9 l11 {app}
  |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {app}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l13
@@ -117,7 +117,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {off}
   {empty_line:\\n}
   *paragraph C2
@@ -139,7 +139,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
   *paragraph C3

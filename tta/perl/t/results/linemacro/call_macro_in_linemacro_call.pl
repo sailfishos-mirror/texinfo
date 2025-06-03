@@ -24,7 +24,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@macro C5 l6
@@ -45,7 +45,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -70,7 +70,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {aa}
    {spaces_before_paragraph:  }
    >SOURCEMARKS
@@ -93,7 +93,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
       *@emph l14:@mymacro
     *table_entry C1
      *table_term C1
@@ -104,7 +104,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {ggg}
     *@end C1 l14:@mymacro
     |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
       {table}
       >SOURCEMARKS
       >macro_expansion<end;1><p:5>
@@ -138,7 +138,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

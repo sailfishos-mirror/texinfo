@@ -12,7 +12,7 @@ $result_tree_text{'def_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defun C3 l2
    |INFO
    |spaces_before_argument:
@@ -29,7 +29,7 @@ $result_tree_text{'def_in_example'} = '*document_root C1
      *block_line_arg C5
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *def_category C1
       |INFO
       |inserted:{1}
@@ -55,7 +55,7 @@ $result_tree_text{'def_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {defun}
    *@end C1 l5
    |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'def_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

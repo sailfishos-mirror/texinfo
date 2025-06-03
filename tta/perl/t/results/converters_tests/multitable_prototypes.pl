@@ -17,7 +17,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
     *block_line_arg C8
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *bracketed_arg C1 l1
       {aa b}
      {  }
@@ -76,7 +76,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
 ';

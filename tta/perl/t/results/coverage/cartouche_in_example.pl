@@ -12,7 +12,7 @@ $result_tree_text{'cartouche_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {In example\\n}
    *@cartouche C3 l3
@@ -20,7 +20,7 @@ $result_tree_text{'cartouche_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {In cartouche in example\\n}
     *@end C1 l5
@@ -32,7 +32,7 @@ $result_tree_text{'cartouche_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cartouche}
    *preformatted C1
     {end example\\n}
@@ -45,7 +45,7 @@ $result_tree_text{'cartouche_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

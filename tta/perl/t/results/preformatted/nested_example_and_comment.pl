@@ -12,7 +12,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {First line 0 }
     *@c C1
@@ -22,7 +22,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {Nested example\\n}
     *@end C1 l5
@@ -34,7 +34,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *preformatted C1
     {In first one\\n}
@@ -47,7 +47,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@example C5 l9
@@ -55,7 +55,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {First line 1 }
     *@c C1
@@ -65,7 +65,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C2
      {Nested example }
      *@c C1
@@ -79,7 +79,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *preformatted C1
     {In first one\\n}
@@ -92,7 +92,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@example C5 l17
@@ -100,7 +100,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {First line 2 }
     *@c C1
@@ -110,7 +110,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C2
      {Nested example }
      *@c C1
@@ -124,7 +124,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *preformatted C2
     {In first one }
@@ -139,7 +139,7 @@ $result_tree_text{'nested_example_and_comment'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

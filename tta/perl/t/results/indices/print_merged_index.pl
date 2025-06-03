@@ -16,7 +16,7 @@ $result_tree_text{'print_merged_index'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn cp}
  *@node C1 l2 {Top}
  |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'print_merged_index'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C2 l3 {chap}
  |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'print_merged_index'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   *@printindex C1 l4
   |INFO

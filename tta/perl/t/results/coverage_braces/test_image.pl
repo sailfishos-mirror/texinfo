@@ -25,7 +25,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@copying C5 l7
@@ -33,7 +33,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {Text in copying.\\n}
     >SOURCEMARKS
@@ -48,7 +48,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C11
      |INFO
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {f}
       *@@
       {i--le}
@@ -93,7 +93,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C11
      |INFO
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {f}
       *@@
       {i--le}
@@ -119,7 +119,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C7
      |INFO
      |spaces_after_argument:
-      |{  }
+      |{spaces_after_argument:  }
      |spaces_before_argument:
       |{spaces_before_argument: }
       {alt }
@@ -171,7 +171,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
  *@node C1 l12 {Top}
@@ -186,7 +186,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C16 l13 {chapter}
  |INFO
@@ -200,7 +200,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -215,7 +215,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *brace_arg C11
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {f}
     *@@
     {i--le}
@@ -260,7 +260,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *brace_arg C11
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {f}
      *@@
      {i--le}
@@ -286,7 +286,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *brace_arg C7
     |INFO
     |spaces_after_argument:
-     |{  }
+     |{spaces_after_argument:  }
     |spaces_before_argument:
      |{spaces_before_argument: }
      {alt }
@@ -342,7 +342,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C7
     {}
     >SOURCEMARKS
@@ -357,7 +357,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C11
      |INFO
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {f}
       *@@
       {i--le}
@@ -401,7 +401,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C11
      |INFO
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {f}
       *@@
       {i--le}
@@ -427,7 +427,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C7
      |INFO
      |spaces_after_argument:
-      |{  }
+      |{spaces_after_argument:  }
      |spaces_before_argument:
       |{spaces_before_argument: }
       {alt }
@@ -479,7 +479,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@float C9 l24
@@ -504,7 +504,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {Image with commands}
@@ -514,7 +514,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *brace_arg C11
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {f}
      *@@
      {i--le}
@@ -559,7 +559,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C11
      |INFO
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {f}
       *@@
       {i--le}
@@ -585,7 +585,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C7
      |INFO
      |spaces_after_argument:
-      |{  }
+      |{spaces_after_argument:  }
      |spaces_before_argument:
       |{spaces_before_argument: }
       {alt }
@@ -644,7 +644,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *brace_arg C11
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
        {f}
        *@@
        {i--le}
@@ -689,7 +689,7 @@ $result_tree_text{'test_image'} = '*document_root C3
        *brace_arg C11
        |INFO
        |spaces_after_argument:
-        |{ }
+        |{spaces_after_argument: }
         {f}
         *@@
         {i--le}
@@ -715,7 +715,7 @@ $result_tree_text{'test_image'} = '*document_root C3
        *brace_arg C7
        |INFO
        |spaces_after_argument:
-        |{  }
+        |{spaces_after_argument:  }
        |spaces_before_argument:
         |{spaces_before_argument: }
         {alt }
@@ -768,7 +768,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l30
@@ -781,7 +781,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Image}
   {empty_line:\\n}
 ';

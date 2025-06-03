@@ -20,7 +20,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node before}
  *@top C4 l2 {top sectionning}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top sectionning}
   {empty_line:\\n}
   *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C1
@@ -69,7 +69,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C3 l11 {chap}
  |INFO
@@ -83,7 +83,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

@@ -18,7 +18,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
  *@chapter C1 l2 {0}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
  *@unnumbered C1 l3 {_}
  |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {_}
  *@section C6 l4 {?}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {?}
   {empty_line:\\n}
   *@contents C1 l6

@@ -20,7 +20,7 @@ $result_tree_text{'test_formatting_customizations'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 formatting_customizations_input.texi:l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'test_formatting_customizations'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 formatting_customizations_input.texi:l4 {chapt}
@@ -48,7 +48,7 @@ $result_tree_text{'test_formatting_customizations'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapt}
  *@chapter C4 formatting_customizations_input.texi:l5 {Chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'test_formatting_customizations'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C8

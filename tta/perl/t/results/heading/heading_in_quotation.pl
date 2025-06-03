@@ -12,7 +12,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *@heading C1 l3
    |INFO
@@ -24,7 +24,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
     *line_arg C4
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in quotation }
      *@@
      { }
@@ -41,7 +41,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

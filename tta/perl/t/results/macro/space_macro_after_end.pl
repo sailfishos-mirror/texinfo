@@ -23,7 +23,7 @@ $result_tree_text{'space_macro_after_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@html C3 l5
@@ -31,7 +31,7 @@ $result_tree_text{'space_macro_after_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {in html\\n}
    *@end C1 l7
@@ -43,7 +43,7 @@ $result_tree_text{'space_macro_after_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{   }
+     |{spaces_after_argument:   }
      |>SOURCEMARKS
      |>macro_expansion<start;1><p:1>
       |>*macro_call C1

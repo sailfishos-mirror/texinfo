@@ -44,7 +44,7 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foo,\\,//}
   *paragraph C2
    *definfoenclose_command@foo C1 l12

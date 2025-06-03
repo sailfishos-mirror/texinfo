@@ -35,7 +35,7 @@ NodeForward: [U1]
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -49,13 +49,13 @@ NodeForward: [U1]
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   *@menu C8 complex_sectioning_case.texi:l3
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 complex_sectioning_case.texi:l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -131,7 +131,7 @@ NodeForward: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U1 unit{N:First node}{s:1 first node chapter}
@@ -168,7 +168,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -185,7 +185,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first node chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -195,7 +195,7 @@ NodeBack: [U0]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 complex_sectioning_case.texi:l17
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -241,7 +241,7 @@ NodeBack: [U0]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U2 unit{N:unnumbered}{s:unnumbered section}
@@ -270,7 +270,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
  *@unnumberedsec C4 complex_sectioning_case.texi:l24 {unnumbered section}
  |INFO
@@ -283,7 +283,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered section}
   {empty_line:\\n}
   *@menu C6 complex_sectioning_case.texi:l26
@@ -291,7 +291,7 @@ NodeBack: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 complex_sectioning_case.texi:l27
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -345,7 +345,7 @@ NodeBack: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U3 unit{N:unnumbered sub}{s:unnumbered subsection}
@@ -374,7 +374,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub}
  *@unnumberedsubsec C2 complex_sectioning_case.texi:l34 {unnumbered subsection}
  |INFO
@@ -387,7 +387,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection}
   {empty_line:\\n}
 U4 unit{N:numbered sub}{s:numbered subsection}
@@ -418,7 +418,7 @@ NodeBack: [U3]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub}
  *@subsection C2 complex_sectioning_case.texi:l37 {numbered subsection}
  |INFO
@@ -431,7 +431,7 @@ NodeBack: [U3]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection}
   {empty_line:\\n}
 U5 unit{N:unnumbered sub2}{s:unnumbered subsection2}
@@ -462,7 +462,7 @@ NodeBack: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub2}
  *@unnumberedsubsec C2 complex_sectioning_case.texi:l40 {unnumbered subsection2}
  |INFO
@@ -475,7 +475,7 @@ NodeBack: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection2}
   {empty_line:\\n}
 U6 unit{N:numbered sub2}{s:numbered subsection2}
@@ -504,7 +504,7 @@ NodeBack: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub2}
  *@subsection C2 complex_sectioning_case.texi:l43 {numbered subsection2}
  |INFO
@@ -517,7 +517,7 @@ NodeBack: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection2}
   {empty_line:\\n}
 U7 unit{N:unnumbered2}{s:unnumbered section2}
@@ -548,7 +548,7 @@ NodeBack: [U6]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered2}
  *@unnumberedsec C4 complex_sectioning_case.texi:l46 {unnumbered section2}
  |INFO
@@ -561,7 +561,7 @@ NodeBack: [U6]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered section2}
   {empty_line:\\n}
   *@menu C3 complex_sectioning_case.texi:l48
@@ -569,7 +569,7 @@ NodeBack: [U6]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 complex_sectioning_case.texi:l49
     {menu_entry_leading_text:*  }
     *menu_entry_node C1
@@ -590,7 +590,7 @@ NodeBack: [U6]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U8 unit{N:numbered sub3}{s:numbered subsection3}
@@ -617,7 +617,7 @@ NodeBack: [U7]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub3}
  *@subsection C3 complex_sectioning_case.texi:l53 {numbered subsection3}
  |INFO
@@ -630,7 +630,7 @@ NodeBack: [U7]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection3}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -659,7 +659,7 @@ NodeBack: [U8]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered}
  *@section C2 complex_sectioning_case.texi:l57 {numbered section}
  |INFO
@@ -673,7 +673,7 @@ NodeBack: [U8]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered section}
   {empty_line:\\n}
 U10 unit{N:between node}
@@ -701,7 +701,7 @@ NodeUp: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -744,7 +744,7 @@ NodeForward: [U12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -765,7 +765,7 @@ NodeForward: [U12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second node chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -799,7 +799,7 @@ NodeBack: [U11]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Third node unnumbered}
  *@unnumbered C4 complex_sectioning_case.texi:l72 {unnumbered chapter}
  |INFO
@@ -812,7 +812,7 @@ NodeBack: [U11]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -862,7 +862,7 @@ NodeBack: [U12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -880,7 +880,7 @@ NodeBack: [U12]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered continuity}
   {empty_line:\\n}
   *paragraph C2
@@ -915,7 +915,7 @@ NodeUp: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}

@@ -20,7 +20,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C4 l3
@@ -28,7 +28,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C5
@@ -67,7 +67,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C14 l8 {One@asis{::}node@comma{} with entries.}
@@ -82,7 +82,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {One}
     *@asis C1 l8
      *brace_container C1
@@ -103,7 +103,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {:}
   *index_entry_command@cindex C1 l11
   |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {:a}
   *index_entry_command@cindex C1 l12
   |INFO
@@ -129,7 +129,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {b:c}
   {empty_line:\\n}
   *@example C3 l14
@@ -137,7 +137,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {some example just to have text\\n}
    *@end C1 l16
@@ -149,7 +149,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l18
@@ -163,7 +163,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {d::e}
   *index_entry_command@cindex C1 l19
   |INFO
@@ -176,7 +176,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {f :d}
   *index_entry_command@cindex C1 l20
   |INFO
@@ -189,7 +189,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {g: h}
   {empty_line:\\n}
   *paragraph C1
@@ -208,7 +208,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Concept Index}
   {empty_line:\\n}
   *@printindex C1 l26
@@ -221,7 +221,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
 ';

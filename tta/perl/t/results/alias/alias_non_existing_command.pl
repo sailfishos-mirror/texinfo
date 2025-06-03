@@ -16,7 +16,7 @@ $result_tree_text{'alias_non_existing_command'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {myalias = userdefined}
   {empty_line:\\n}
   *paragraph C1

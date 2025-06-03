@@ -15,7 +15,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {comment, blank after }
     *@c C1
@@ -29,7 +29,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -40,7 +40,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {comment, no blank after }
     *@c C1
@@ -54,7 +54,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   *paragraph C1
    {Para.\\n}
@@ -64,7 +64,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {no comment, blank after\\n}
    *@end C1 l16
@@ -76,7 +76,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -87,7 +87,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {no comment, no blank after\\n}
    *@end C1 l22
@@ -99,7 +99,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   *paragraph C1
    {Para.\\n}

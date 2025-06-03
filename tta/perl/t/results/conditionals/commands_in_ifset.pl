@@ -18,7 +18,7 @@ $result_tree_text{'commands_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@definfoenclose\\n}
     >{raw:@documentencoding ISO-8859-1\\n}
@@ -33,7 +33,7 @@ $result_tree_text{'commands_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -46,7 +46,7 @@ $result_tree_text{'commands_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
     >{raw:@example\\n}
     >{raw:@copying\\n}
@@ -62,7 +62,7 @@ $result_tree_text{'commands_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

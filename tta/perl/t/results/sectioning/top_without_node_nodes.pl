@@ -21,7 +21,7 @@ NodeUp: (dir)
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   *paragraph C1
    {Top section\\n}
@@ -42,7 +42,7 @@ NodeUp: (dir)
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -60,7 +60,7 @@ NodeUp: (dir)
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

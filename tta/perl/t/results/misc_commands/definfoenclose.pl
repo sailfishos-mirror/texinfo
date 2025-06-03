@@ -19,7 +19,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {phoo,//,\\}
   {empty_line:\\n}
   *paragraph C2
@@ -44,7 +44,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {phi,:,:}
   {empty_line:\\n}
   *paragraph C2
@@ -73,7 +73,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {strong,(strong:,:)}
   {empty_line:\\n}
   *paragraph C2

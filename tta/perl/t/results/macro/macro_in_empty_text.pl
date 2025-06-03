@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_empty_text'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@indentedblock C3 l5
@@ -38,7 +38,7 @@ $result_tree_text{'macro_in_empty_text'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C2
     *@@
     {.\\n}
@@ -51,7 +51,7 @@ $result_tree_text{'macro_in_empty_text'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {indentedblock}
 ';
 

@@ -19,7 +19,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C5 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l4
@@ -40,7 +40,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -61,7 +61,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *paragraph C1
@@ -81,7 +81,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l11 {chapter}
  |INFO
@@ -95,7 +95,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *paragraph C1

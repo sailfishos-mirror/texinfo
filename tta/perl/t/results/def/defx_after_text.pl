@@ -25,7 +25,7 @@ $result_tree_text{'defx_after_text'} = '*document_root C1
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -62,7 +62,7 @@ $result_tree_text{'defx_after_text'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l3
        {truc}

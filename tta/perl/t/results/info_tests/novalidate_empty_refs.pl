@@ -23,7 +23,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C4
@@ -59,7 +59,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@:
  *@node C1 l11 {@asis{ }}
  |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l11
      *brace_container C1
       { }

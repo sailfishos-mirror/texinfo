@@ -19,7 +19,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{ \\n}
+     >|{spaces_after_argument: \\n}
      >{included_file_with_setfilename.texi}
   >setfilename<1>
    >*@setfilename C1 included_file_with_setfilename.texi:l1
@@ -31,7 +31,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{included_file.info}
   {empty_line:\\n}
   *paragraph C1
@@ -47,7 +47,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {include_with_setfilename.info}
 ';
 

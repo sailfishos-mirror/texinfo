@@ -24,7 +24,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {.19 .30 .29 .22}
    *multitable_body C2
     *row C4
@@ -106,7 +106,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

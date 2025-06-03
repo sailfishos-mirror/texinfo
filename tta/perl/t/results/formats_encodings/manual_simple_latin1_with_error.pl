@@ -22,7 +22,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {iso-8859-1}
    {empty_line:\\n}
  *@node C1 manual_simple_latin1_with_error.texi:l5 {Top}
@@ -37,7 +37,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 manual_simple_latin1_with_error.texi:l6 {Testé}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Testé}
   {empty_line:\\n}
  *@node C2 manual_simple_latin1_with_error.texi:l8 {ésseulé}
@@ -65,7 +65,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ésseulé}
   {empty_line:\\n}
  *@node C1 manual_simple_latin1_with_error.texi:l10 {Chapitré}
@@ -80,7 +80,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapitré}
  *@chapter C4 manual_simple_latin1_with_error.texi:l11 {Chapitré}
  |INFO
@@ -94,7 +94,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapitré}
   {empty_line:\\n}
   *@value C1

@@ -19,7 +19,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -40,7 +40,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -62,7 +62,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_comment C1
      *preformatted C6
       { --- The Detailed Node Listing ---}
@@ -91,7 +91,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *@end C1 l8
    |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {chap}
@@ -117,7 +117,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l11 {Chapter}
  |INFO
@@ -131,7 +131,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
  *@node C1 l13 {sec}
@@ -146,7 +146,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
  *@section C1 l14 {Sec}
  |INFO
@@ -160,7 +160,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
 ';
 

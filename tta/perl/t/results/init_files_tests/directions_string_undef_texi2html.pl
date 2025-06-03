@@ -20,7 +20,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l5 {Chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
  *@node C1 l7 {chap2}
@@ -77,7 +77,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap2}
  *@chapter C2 l8 {Chap 2}
  |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap 2}
   {empty_line:\\n}
  *@node C1 l10 {sec1}
@@ -106,7 +106,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec1}
  *@section C2 l11 {Sec 1}
  |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec 1}
   {empty_line:\\n}
  *@node C1 l13 {sec2}
@@ -135,7 +135,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec2}
  *@section C2 l14 {Sec 2}
  |INFO
@@ -149,7 +149,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec 2}
   {empty_line:\\n}
  *@node C1 l16 {sec3}
@@ -164,7 +164,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec3}
  *@section C1 l17 {Sec 3}
  |INFO
@@ -178,7 +178,7 @@ $result_tree_text{'directions_string_undef_texi2html'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec 3}
 ';
 

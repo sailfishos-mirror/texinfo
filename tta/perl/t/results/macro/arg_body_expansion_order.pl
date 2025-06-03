@@ -24,7 +24,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C7 l6
@@ -47,7 +47,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -77,7 +77,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C1
    {different\\n}

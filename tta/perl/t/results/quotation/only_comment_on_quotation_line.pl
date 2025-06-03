@@ -28,7 +28,7 @@ $result_tree_text{'only_comment_on_quotation_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

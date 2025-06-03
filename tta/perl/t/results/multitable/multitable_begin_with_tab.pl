@@ -17,7 +17,7 @@ $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {a}
      { }
@@ -36,7 +36,7 @@ $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C4 l5
@@ -49,7 +49,7 @@ $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l5
       {c}
      { }
@@ -78,7 +78,7 @@ $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

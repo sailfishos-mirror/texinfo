@@ -24,7 +24,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {.1 .1 .1}
    *multitable_head C1
     *row C3
@@ -81,7 +81,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

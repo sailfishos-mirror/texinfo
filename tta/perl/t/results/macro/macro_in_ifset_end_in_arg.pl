@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_ifset_end_in_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -36,7 +36,7 @@ $result_tree_text{'macro_in_ifset_end_in_arg'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
     >{raw:@macroone{\\n}
     >*@end C1 l7
@@ -48,7 +48,7 @@ $result_tree_text{'macro_in_ifset_end_in_arg'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   *paragraph C1

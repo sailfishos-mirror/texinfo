@@ -18,7 +18,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
    {empty_line:\\n}
    *@example C6 l3
@@ -26,7 +26,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C2
      {in example \\n}
      {empty_line:\\n}
@@ -48,7 +48,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l10
    |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
 ';
 

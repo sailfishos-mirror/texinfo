@@ -12,7 +12,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C2
     {In quotation\\n}
     *@end C1 l3
@@ -22,7 +22,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@code C1 l3
        *brace_container C1
         {quotation}
@@ -32,7 +32,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C2
      {In quotation\\n}
      *@end C1 l7
@@ -44,7 +44,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
       *line_arg C2
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {q}
        *@code C1 l7
         *brace_container C1
@@ -55,7 +55,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *paragraph C2
       {In quotation\\n}
       *@end C1 l11
@@ -67,7 +67,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
        *line_arg C2
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {qu}
         *@code C1 l11
          *brace_container C1
@@ -78,7 +78,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *paragraph C2
        {In quotation\\n}
        *@end C1 l15
@@ -90,7 +90,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {quot}
          *@asis C1 l15
           *brace_container C1
@@ -102,7 +102,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l19
@@ -114,7 +114,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {q}
          *@asis C1 l19
           *brace_container
@@ -125,7 +125,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l23
@@ -137,7 +137,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {qu}
          *@asis C1 l23
           *brace_container
@@ -148,7 +148,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l27
@@ -160,7 +160,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {quot}
          *@asis C1 l27
           *brace_container
@@ -171,7 +171,7 @@ $result_tree_text{'command_in_end'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        {raw:In verbatim\\n}
        {raw:@end verb@code{a}tim\\n}
 ';

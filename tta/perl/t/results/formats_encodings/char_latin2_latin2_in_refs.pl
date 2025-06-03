@@ -22,7 +22,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-2}
    {empty_line:\\n}
  *@node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
@@ -38,7 +38,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
  |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {char latin2 latin2 in refs}
   {empty_line:\\n}
   *paragraph C2
@@ -73,7 +73,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@c C1
@@ -83,7 +83,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 char_latin2_latin2_in_refs.texi:l14
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -104,7 +104,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
@@ -119,7 +119,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
  *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
  |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
   *index_entry_command@cindex C1 char_latin2_latin2_in_refs.texi:l20
@@ -147,7 +147,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
  *@bye C1

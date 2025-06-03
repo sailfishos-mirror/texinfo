@@ -14,7 +14,7 @@ $result_tree_text{'item_tab_outside_of_table_lists'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {itemx outside.}
   {ignorable_spaces_after_command: }
   *paragraph C2

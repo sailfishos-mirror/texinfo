@@ -20,7 +20,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {Chapter 1}
@@ -48,7 +48,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 1}
  *@chapter C5 l5 {Chap 1}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap 1}
   {empty_line:\\n}
   *@anchor C1 l7
@@ -85,7 +85,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 2}
  *@chapter C1 l10 {Chap 2}
  |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap 2}
 ';
 

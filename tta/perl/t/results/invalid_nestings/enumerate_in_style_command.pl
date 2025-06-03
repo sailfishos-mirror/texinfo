@@ -21,7 +21,7 @@ $result_tree_text{'enumerate_in_style_command'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {1}
    *@item C2 l3
    |EXTRA
@@ -38,7 +38,7 @@ $result_tree_text{'enumerate_in_style_command'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
 ';
 

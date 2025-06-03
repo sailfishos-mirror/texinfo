@@ -15,7 +15,7 @@ $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *@item C2 l2
    |EXTRA
@@ -32,7 +32,7 @@ $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

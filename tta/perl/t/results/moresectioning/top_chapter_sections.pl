@@ -23,7 +23,7 @@ FastForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
 U1 unit{S:unnumbered}
@@ -47,7 +47,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
   {empty_line:\\n}
 U2 unit{S:1 First chapter}
@@ -73,7 +73,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {First chapter}
   {empty_line:\\n}
 U3 unit{S:1.1 second}
@@ -97,7 +97,7 @@ Up: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second}
   {empty_line:\\n}
 U4 unit{S:2 Chapter}
@@ -123,7 +123,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
 U5 unit{S:2.1 Section of chapter}
@@ -147,7 +147,7 @@ Up: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section of chapter}
   {empty_line:\\n}
 U6 unit{S:2.1.1 subsection 1}
@@ -172,7 +172,7 @@ Up: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 1}
   {empty_line:\\n}
 U7 unit{S:2.1.2 subsection 2}
@@ -197,7 +197,7 @@ Up: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 2}
   {empty_line:\\n}
 U8 unit{S:3 Chapter 2}
@@ -220,7 +220,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 2}
 ';
 

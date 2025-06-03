@@ -18,7 +18,7 @@ $result_tree_text{'punctuation_and_upper_case_commands_utf8'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   *paragraph C18
    *@var C1 l2

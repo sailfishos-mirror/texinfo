@@ -20,7 +20,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 simple_only_special_spaces_node.texi:l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 simple_only_special_spaces_node.texi:l4 {  }
@@ -48,7 +48,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {  }
  *@chapter C2 simple_only_special_spaces_node.texi:l5 {EN QUAD| |}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {EN QUAD| |}
   {empty_line:\\n}
  *@node C1 simple_only_special_spaces_node.texi:l7
@@ -70,7 +70,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ '."\r".'\\n}
+    |{spaces_after_argument: '."\r".'\\n}
  *@chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
@@ -83,7 +83,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
  *@node C1 simple_only_special_spaces_node.texi:l10 {  }
@@ -98,7 +98,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {  }
  *@chapter C2 simple_only_special_spaces_node.texi:l11 {THREE-PER-EM SPACE}
  |INFO
@@ -112,7 +112,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {THREE-PER-EM SPACE}
   {empty_line:\\n}
 ';

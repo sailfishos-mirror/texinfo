@@ -13,7 +13,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *rawpreformatted C1
     {in html <br> }
    *@end C1 l3
@@ -25,7 +25,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *@tex C2 l5
@@ -36,7 +36,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in tex}
    *@end C1 l6
    |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@verbatim C4 l8
@@ -55,7 +55,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in  v---erbatim`` <>\\n}
    {raw:in verbatim2\\n}
    *@end C1 l11
@@ -67,7 +67,7 @@ $result_tree_text{'misc_raw'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
 ';
 

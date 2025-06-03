@@ -15,7 +15,7 @@ $result_tree_text{'table_on_item_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *table_entry C2
     *table_term C1
@@ -33,7 +33,7 @@ $result_tree_text{'table_on_item_line'} = '*document_root C1
          *block_line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           *@asis l2
     *table_definition C1
      {spaces_before_paragraph:   }
@@ -46,7 +46,7 @@ $result_tree_text{'table_on_item_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in nested table item}
     *table_definition C2
      {spaces_before_paragraph:   }
@@ -62,7 +62,7 @@ $result_tree_text{'table_on_item_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   *paragraph C1
    {in table line\\n}

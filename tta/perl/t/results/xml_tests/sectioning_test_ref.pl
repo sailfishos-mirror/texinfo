@@ -19,7 +19,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -50,7 +50,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C4 l7 {Chap1}
  |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap1}
   {empty_line:\\n}
   *paragraph C1
@@ -82,7 +82,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
  *@section C4 l12 {sec1}
  |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec1}
   {empty_line:\\n}
   *paragraph C1
@@ -114,7 +114,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap2}
  *@chapter C3 l17 {Chap2}
  |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap2}
   {empty_line:\\n}
   *paragraph C1

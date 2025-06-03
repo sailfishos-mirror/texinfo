@@ -18,7 +18,7 @@ $result_tree_text{'ifset_nonalpha'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{A/B}
     >*@end C1 l2
     >|INFO
@@ -29,7 +29,7 @@ $result_tree_text{'ifset_nonalpha'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

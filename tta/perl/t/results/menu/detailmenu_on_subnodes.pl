@@ -19,7 +19,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C8 l4
@@ -40,7 +40,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -73,7 +73,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l9
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -94,7 +94,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *menu_comment C1
     *preformatted C1
@@ -106,7 +106,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_comment C1
      *preformatted C2
       {Chap 2\\n}
@@ -142,7 +142,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *@end C1 l18
    |INFO
@@ -153,7 +153,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l20 {chapter}
@@ -168,7 +168,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l21 {chapter}
  |INFO
@@ -182,7 +182,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@menu C3 l23
@@ -190,7 +190,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l24
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -211,7 +211,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l27 {section}
@@ -226,7 +226,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C2 l28 {section}
  |INFO
@@ -240,7 +240,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
  *@node C1 l30 {chapter 2}
@@ -255,7 +255,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
  *@chapter C4 l31 {chapter 2}
  |INFO
@@ -269,7 +269,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
   {empty_line:\\n}
   *@menu C4 l33
@@ -277,7 +277,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -309,7 +309,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l38 {section chap 2}
@@ -324,7 +324,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section chap 2}
  *@section C2 l39 {section chap 2}
  |INFO
@@ -338,7 +338,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section chap 2}
   {empty_line:\\n}
  *@node C1 l41 {unnumberedsec}
@@ -353,7 +353,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec}
  *@unnumberedsec C1 l42 {unnumberedsec}
  |INFO
@@ -366,7 +366,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec}
 ';
 

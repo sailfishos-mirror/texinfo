@@ -24,14 +24,14 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
   *@ignore C3 l5
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@end ifset\\n}
    *@end C1 l7
    |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   *paragraph C1
    {text\\n}
@@ -57,7 +57,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -70,7 +70,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
   *@verbatim C3 l12
   >SOURCEMARKS
@@ -84,13 +84,13 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifset}
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@end ifset\\n}
    *@end C1 l14
    |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -114,7 +114,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
   *paragraph C2
    *@verb C1 l18
@@ -135,7 +135,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

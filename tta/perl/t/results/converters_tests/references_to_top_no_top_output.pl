@@ -20,7 +20,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {references_to_top_no_top_output.info}
    {empty_line:\\n}
    *@copying C3 l4
@@ -28,7 +28,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C3
      {Copying\\n}
      *@anchor C1 l6
@@ -49,7 +49,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
  *@node C1 l9 {Top}
@@ -64,7 +64,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C19 l10 {top}
  |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -137,7 +137,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {My Flist}
@@ -170,7 +170,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
@@ -184,7 +184,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index in Top}
   {empty_line:\\n}
   *paragraph C1
@@ -203,7 +203,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C11 l33 {Chap}
  |INFO
@@ -217,7 +217,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C12
@@ -275,7 +275,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap index}
   {empty_line:\\n}
   *@printindex C1 l44
@@ -288,7 +288,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@float C5 l46
@@ -307,7 +307,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {Main Flist}
@@ -327,7 +327,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l51
@@ -340,7 +340,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {list}
 ';
 

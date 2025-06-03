@@ -16,7 +16,7 @@ $result_tree_text{'simple'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {myalias = code}
   {empty_line:\\n}
   *@alias C1 l3
@@ -31,7 +31,7 @@ $result_tree_text{'simple'} = '*document_root C1
     |*@c C1
      |{rawline_arg: comment\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {o-theralias=verb}
   {empty_line:\\n}
   *paragraph C3

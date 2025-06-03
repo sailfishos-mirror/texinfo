@@ -12,7 +12,7 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l2
@@ -22,7 +22,7 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
     *table_definition C1
      *paragraph C1
@@ -36,7 +36,7 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

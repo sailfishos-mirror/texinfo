@@ -12,7 +12,7 @@ $result_tree_text{'empty_line_style_command'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C3
     {example }
     *@samp C1 l2
@@ -30,7 +30,7 @@ $result_tree_text{'empty_line_style_command'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

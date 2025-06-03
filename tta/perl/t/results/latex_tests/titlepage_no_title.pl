@@ -13,7 +13,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@titlefont C1 l2
     |EXTRA
     |global_command_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Some Author}
     *@end C1 l5
     |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l7 {Top}
@@ -56,7 +56,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l8 {section top}
  |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l10 {chapter}
@@ -84,7 +84,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l11 {Chapter}
  |INFO
@@ -98,7 +98,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

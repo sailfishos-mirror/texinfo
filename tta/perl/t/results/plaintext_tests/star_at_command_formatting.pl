@@ -34,7 +34,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C8
@@ -108,7 +108,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C50
     {Example\\n}
     {Some text }
@@ -183,7 +183,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C5 l23
@@ -191,7 +191,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C9
     {Quotation\\n}
     {Some text }
@@ -267,7 +267,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
 ';

@@ -18,7 +18,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@chapter C2 l3 {Chap1}
@@ -33,7 +33,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap1}
   {empty_line:\\n}
  *@section C2 l5 {Sec 1}
@@ -48,7 +48,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec 1}
   {empty_line:\\n}
  *@chapter C4 l7 {Chap2}
@@ -63,7 +63,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap2}
   {empty_line:\\n}
   *@shortcontents C1 l9

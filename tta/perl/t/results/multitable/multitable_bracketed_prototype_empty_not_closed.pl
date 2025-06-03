@@ -29,7 +29,7 @@ $result_tree_text{'multitable_bracketed_prototype_empty_not_closed'} = '*documen
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

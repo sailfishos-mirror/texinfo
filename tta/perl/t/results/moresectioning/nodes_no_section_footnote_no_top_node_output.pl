@@ -20,7 +20,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C3 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C3

@@ -12,7 +12,7 @@ $result_tree_text{'node_in_copying'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
  *@node C2 l2 {node}
  |INFO
  |spaces_before_argument:
@@ -25,7 +25,7 @@ $result_tree_text{'node_in_copying'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
   {empty_line:\\n}
 ';

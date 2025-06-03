@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *@documentencoding C1 l4
   |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {badm}
     >SOURCEMARKS
     >macro_expansion<end;1><p:4>

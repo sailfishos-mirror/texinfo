@@ -25,7 +25,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top atext}
  |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top atext}
     >SOURCEMARKS
     >value_expansion<start;1><p:4>{atext}
@@ -61,7 +61,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@subheading C1 l8
@@ -74,7 +74,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Comment like: atext}
     >SOURCEMARKS
     >value_expansion<start;2><p:14>{atext}
@@ -108,7 +108,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *@pagesizes C1 l17
   |INFO
   |spaces_before_argument:
@@ -129,7 +129,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
   >value_expansion<start;4>{@afourpaper}
    >*@value C1
@@ -139,7 +139,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {200mm,150mm}
     >SOURCEMARKS
     >value_expansion<end;3><p:11>
@@ -154,7 +154,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on line following headings atext}
     >SOURCEMARKS
     >value_expansion<start;5><p:27>{atext}
@@ -169,7 +169,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {some text ignored atext}
     >SOURCEMARKS
     >value_expansion<start;6><p:18>{atext}
@@ -184,7 +184,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on line following everyheading atext}
     >SOURCEMARKS
     >value_expansion<start;7><p:31>{atext}
@@ -206,7 +206,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *@need C1 l27
   |INFO
   |spaces_before_argument:
@@ -229,12 +229,12 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0.1}
     >SOURCEMARKS
     >value_expansion<end;8><p:3>
@@ -274,7 +274,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
    {rawline_arg: tex error: Use of \\ doesn\'t match its definition.\\n}
   *paragraph C3
    *@@
@@ -288,7 +288,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {phoo,//,\\\\}
   {empty_line:\\n}
   *paragraph C2
@@ -312,7 +312,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnottex}
   {empty_line:\\n}
   *@set C2
@@ -334,7 +334,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {phi,:,:}
     >SOURCEMARKS
     >value_expansion<end;11><p:3>
@@ -391,7 +391,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {strong,(strong:,:)}
     >SOURCEMARKS
     >value_expansion<end;13><p:6>
@@ -447,7 +447,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {code}
     >SOURCEMARKS
     >value_expansion<end;16><p:4>
@@ -465,7 +465,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@kbd C1 l64
     |EXTRA
@@ -482,7 +482,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@set C2
@@ -526,7 +526,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {asis}
     >SOURCEMARKS
     >value_expansion<end;17><p:4>
@@ -545,7 +545,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
     >SOURCEMARKS
     >value_expansion<end;18><p:1>
@@ -564,7 +564,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {none}
     >SOURCEMARKS
     >value_expansion<end;19><p:4>
@@ -583,7 +583,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {4}
     >SOURCEMARKS
     >value_expansion<end;20><p:1>
@@ -602,7 +602,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {none}
     >SOURCEMARKS
     >value_expansion<end;21><p:4>
@@ -621,7 +621,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {6}
     >SOURCEMARKS
     >value_expansion<end;22><p:1>
@@ -650,7 +650,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {end}
     >SOURCEMARKS
     >value_expansion<end;23><p:3>
@@ -668,7 +668,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {separate}
     >SOURCEMARKS
     >value_expansion<end;24><p:8>
@@ -694,7 +694,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ISO-8859-1}
     >SOURCEMARKS
     >value_expansion<end;25><p:10>
@@ -727,7 +727,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {en}
      >SOURCEMARKS
      >value_expansion<end;26><p:2>
@@ -751,7 +751,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {en}
    {line following documentlanguage\\n}
   {empty_line:\\n}
@@ -780,7 +780,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
     >SOURCEMARKS
     >value_expansion<end;28><p:2>
@@ -799,7 +799,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {off}
     >SOURCEMARKS
     >value_expansion<end;29><p:3>
@@ -825,7 +825,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {10}
     >SOURCEMARKS
     >value_expansion<end;30><p:2>
@@ -859,7 +859,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {false}
     >SOURCEMARKS
     >value_expansion<end;31><p:5>
@@ -879,7 +879,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {true}
     >SOURCEMARKS
     >value_expansion<end;32><p:4>
@@ -1005,7 +1005,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {line after exdent}
   {empty_line:\\n}
   *@set C2
@@ -1027,7 +1027,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
     >SOURCEMARKS
     >value_expansion<end;40><p:1>

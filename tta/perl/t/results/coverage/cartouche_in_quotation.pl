@@ -12,7 +12,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation\\n}
    *@cartouche C3 l3
@@ -20,7 +20,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {In cartouche in quotation\\n}
     *@end C1 l5
@@ -32,7 +32,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cartouche}
    *paragraph C1
     {end quotation\\n}
@@ -45,7 +45,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

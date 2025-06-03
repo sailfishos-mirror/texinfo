@@ -30,7 +30,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {deffnx inside conditional}
   {empty_line:\\n}
   *@deffn C5 defxcond.texi:l10
@@ -44,7 +44,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {foo}
@@ -60,7 +60,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
        >*block_line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{bar}
    *@deffnx C1 defxcond.texi:l13
    |INFO
@@ -80,12 +80,12 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {bar}
@@ -103,7 +103,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
  *@bye C1

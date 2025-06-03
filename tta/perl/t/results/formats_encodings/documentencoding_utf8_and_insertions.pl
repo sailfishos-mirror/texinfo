@@ -18,7 +18,7 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   {empty_line:\\n}
   *paragraph C5
@@ -37,7 +37,7 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C5
     {-- --- \'\' `` ` \' }
     *@code C1 l6
@@ -57,7 +57,7 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

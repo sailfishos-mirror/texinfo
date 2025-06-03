@@ -15,7 +15,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@email l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
       *line_arg C3
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {www-discuss}
        *@@
        {gnu.org}
@@ -42,7 +42,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

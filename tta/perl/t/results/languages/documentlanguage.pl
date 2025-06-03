@@ -58,7 +58,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {pt}
    {empty_line:\\n}
  *@node C1 documentlanguage.texi:l24 {Top}
@@ -73,7 +73,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 documentlanguage.texi:l25 {top section}
  |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 documentlanguage.texi:l27 {chapter}
@@ -102,7 +102,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C8 documentlanguage.texi:l28 {Chapter}
  |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C2
@@ -160,7 +160,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -197,7 +197,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypemethod}
   {empty_line:\\n}
   *@printindex C1 documentlanguage.texi:l36
@@ -210,7 +210,7 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
  *@bye C1

@@ -28,7 +28,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 contents_at_document_begin.texi:l6 {Contents at beginning}
  |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Contents at beginning}
   {empty_line:\\n}
   *paragraph C1
@@ -52,7 +52,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 contents_at_document_begin.texi:l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -73,7 +73,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 contents_at_document_begin.texi:l14 {chapter}
@@ -88,7 +88,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 contents_at_document_begin.texi:l15 {Chapter 1}
  |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 1}
   {empty_line:\\n}
   *paragraph C1

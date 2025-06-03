@@ -12,7 +12,7 @@ $result_tree_text{'tex_not_closed'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C2
     {empty_line:\\n}
     {This is some \\LaTeX{}\\n}

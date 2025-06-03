@@ -20,7 +20,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -41,7 +41,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -84,7 +84,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@part C2 l10 {part 1: part 1}
@@ -99,7 +99,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part 1: part 1}
   {empty_line:\\n}
  *@node C1 l12 {chapter 1 node}
@@ -114,7 +114,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 1 node}
  *@chapter C2 l13 {chapter 1}
  |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 1}
   {empty_line:\\n}
  *@node C1 l15 {chapter 2 node}
@@ -143,7 +143,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2 node}
  *@chapter C2 l16 {chapter 2}
  |INFO
@@ -157,7 +157,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
   {empty_line:\\n}
  *@part C2 l18 {part2: part2}
@@ -172,7 +172,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part2: part2}
   {empty_line:\\n}
  *@node C1 l20 {chapter 3 node}
@@ -187,7 +187,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 3 node}
  *@chapter C4 l21 {chapter 3}
  |INFO
@@ -201,7 +201,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 3}
   {empty_line:\\n}
   *@contents C1 l23

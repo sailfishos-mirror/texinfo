@@ -17,7 +17,7 @@ $result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {éééé éééé éééé éééé}
      { }
@@ -72,7 +72,7 @@ $result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

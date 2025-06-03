@@ -19,7 +19,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {someone}
   *@image C1 l4
   |EXTRA
@@ -37,7 +37,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:not html\\n}
     >*@end C1 l11
     >|INFO
@@ -48,13 +48,13 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnothtml}
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {<code>in c</code>\\n}
    *@end C1 l8
@@ -66,7 +66,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   *@setchapternewpage C1 l12
   |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   *@anchor C1 l13
   |EXTRA
@@ -96,7 +96,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ei}
   *@macro C3 l15
   |EXTRA
@@ -114,7 +114,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C1
   |EXTRA

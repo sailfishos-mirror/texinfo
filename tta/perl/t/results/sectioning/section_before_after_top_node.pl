@@ -19,7 +19,7 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {before}
   {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -34,7 +34,7 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top section}
  |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@chapter C3 l6 {Chapter}
@@ -62,7 +62,7 @@ $result_tree_text{'section_before_after_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

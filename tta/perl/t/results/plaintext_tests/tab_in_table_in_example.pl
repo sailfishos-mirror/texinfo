@@ -12,7 +12,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@table C4 l2
    |INFO
    |spaces_before_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@code l2
     *before_item C1
      *preformatted C2
@@ -36,7 +36,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {table item}
      *table_definition C2
       *preformatted C1
@@ -53,7 +53,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {table}
    *@end C1 l8
    |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'tab_in_table_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

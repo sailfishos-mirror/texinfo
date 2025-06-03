@@ -24,7 +24,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{notset}
   *@verbatim C3 l5
   >SOURCEMARKS
@@ -38,13 +38,13 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifset}
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@ifset\\n}
    *@end C1 l7
    |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
 ';
 

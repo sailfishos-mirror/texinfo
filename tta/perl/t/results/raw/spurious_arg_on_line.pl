@@ -16,7 +16,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {argt}
    *rawpreformatted C1
     {in tex\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@verbatim C3 l6
@@ -40,7 +40,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {argverbatim}
    {raw:in verbatim\\n}
    *@end C1 l8
@@ -52,7 +52,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *@html C3 l10
@@ -63,7 +63,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {argh}
    *elided_rawpreformatted C1
     {raw:in html\\n}
@@ -76,7 +76,7 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

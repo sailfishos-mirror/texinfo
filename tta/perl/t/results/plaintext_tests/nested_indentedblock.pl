@@ -12,7 +12,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {in example\\n}
    *@indentedblock C3 l3
@@ -20,7 +20,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {   f  f  f``g\\n}
     *@end C1 l5
@@ -32,7 +32,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {indentedblock}
    *@end C1 l6
    |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@indentedblock C5 l8
@@ -51,7 +51,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {spaces_before_paragraph:   }
    *paragraph C1
     {v  v  v``a\\n}
@@ -60,7 +60,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {in example\\n}
     *@end C1 l12
@@ -72,7 +72,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l13
    |INFO
@@ -83,7 +83,7 @@ $result_tree_text{'nested_indentedblock'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {indentedblock}
 ';
 

@@ -19,7 +19,7 @@ $result_tree_text{'section_before_chapter'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
   {empty_line:\\n}
  *@chapter C1 l3 {chapter}
@@ -34,7 +34,7 @@ $result_tree_text{'section_before_chapter'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
 ';
 

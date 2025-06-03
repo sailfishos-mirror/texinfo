@@ -19,7 +19,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {one node}
  *@subsection C1 l2 {The subsection}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {The subsection}
 ';
 

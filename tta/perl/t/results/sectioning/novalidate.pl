@@ -25,7 +25,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -38,7 +38,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -59,7 +59,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *paragraph C2

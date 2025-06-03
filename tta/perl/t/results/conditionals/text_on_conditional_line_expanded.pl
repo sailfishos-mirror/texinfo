@@ -18,7 +18,7 @@ $result_tree_text{'text_on_conditional_line_expanded'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{text following ifnothtml,}
   *paragraph C1
    {a\\n}
@@ -33,7 +33,7 @@ $result_tree_text{'text_on_conditional_line_expanded'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnothtml}
 ';
 

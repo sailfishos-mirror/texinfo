@@ -20,7 +20,7 @@ $result_tree_text{'no_eol_in_included_file'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{include_noeol.texi}
    {AA\\n}
    >SOURCEMARKS

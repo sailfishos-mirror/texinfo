@@ -19,7 +19,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@example C3 l3
@@ -27,13 +27,13 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@menu C6 l4
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C3
@@ -51,7 +51,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *preformatted C1
         {in cartouche in description in menu in example\\n}
        *@end C1 l8
@@ -63,7 +63,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {cartouche}
     *menu_comment C3
      *preformatted C1
@@ -73,7 +73,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *preformatted C1
        {in cartouche in menu comment in menu in example\\n}
       *@end C1 l12
@@ -85,7 +85,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {cartouche}
      *preformatted C1
       {empty_line:\\n}
@@ -133,7 +133,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {menu}
    *@end C1 l17
    |INFO
@@ -144,7 +144,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

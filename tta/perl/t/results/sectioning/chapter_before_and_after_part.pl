@@ -25,7 +25,7 @@ FastForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
 U1 unit{S:2 chapter 2}
@@ -46,7 +46,7 @@ FastBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@chapter C3 l5 {chapter 2}
@@ -61,7 +61,7 @@ FastBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
   {empty_line:\\n}
   *@contents C1 l7

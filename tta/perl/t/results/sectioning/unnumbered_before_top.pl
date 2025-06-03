@@ -18,7 +18,7 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {before top}
   {empty_line:\\n}
  *@top C1 l3 {top}
@@ -32,7 +32,7 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

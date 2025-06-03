@@ -20,7 +20,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@float C7 l4
@@ -39,7 +39,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label}
@@ -81,7 +81,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l14
@@ -94,7 +94,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Text}
   {empty_line:\\n}
   *@listoffloats C1 l16
@@ -107,7 +107,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Text}
 ';
 

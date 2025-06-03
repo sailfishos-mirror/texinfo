@@ -34,7 +34,7 @@ $result_tree_text{'empty_label_with_space_comment'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
 ';
 

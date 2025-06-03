@@ -25,7 +25,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -43,7 +43,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
     >{raw:@ifclear b\\n}
     >{raw:GG}
@@ -59,7 +59,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

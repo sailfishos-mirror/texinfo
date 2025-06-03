@@ -20,7 +20,7 @@ $result_tree_text{'node_sectop_before_chapter_no_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top section}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'node_sectop_before_chapter_no_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@chapter C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'node_sectop_before_chapter_no_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
 ';
 

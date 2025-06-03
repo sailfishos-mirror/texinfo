@@ -19,7 +19,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {Element}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Element}
   {empty_line:\\n}
   *paragraph C1
@@ -43,7 +43,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -64,7 +64,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {node}
@@ -79,7 +79,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
  *@chapter C3 l11 {node}
  |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'space_in_menu'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
   {empty_line:\\n}
   *paragraph C1

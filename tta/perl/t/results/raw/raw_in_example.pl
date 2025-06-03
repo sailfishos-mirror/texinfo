@@ -12,14 +12,14 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     *@html C3 l2
      *arguments_line C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *rawpreformatted C1
       {in html\\n}
      *@end C1 l4
@@ -31,7 +31,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {html}
    *@end C1 l5
    |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@example C3 l7
@@ -50,7 +50,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C5
     {empty_line:\\n}
     *@html C3 l9
@@ -58,7 +58,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *rawpreformatted C3
       {empty_line:\\n}
       {Some html <code>some code</code>.\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {html}
     {empty_line:\\n}
     *@tex C3 l15
@@ -80,7 +80,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *rawpreformatted C7
       {empty_line:\\n}
       {$$ \\n}
@@ -98,7 +98,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {tex}
     {empty_line:\\n}
    *@end C1 l25
@@ -110,7 +110,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
 ';

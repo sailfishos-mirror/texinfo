@@ -41,7 +41,7 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {exdent}
    *@item C2 l2
    |EXTRA
@@ -58,7 +58,7 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C2 l5
@@ -69,7 +69,7 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on line }
      {ignorable_spaces_after_command: }
      {in item}
@@ -82,7 +82,7 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

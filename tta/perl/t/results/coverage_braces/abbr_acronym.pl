@@ -43,7 +43,7 @@ $result_tree_text{'abbr_acronym'} = '*document_root C1
     *brace_arg C5
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
      *@\' C1 l5

@@ -15,7 +15,7 @@ $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Box title on }
      *@emph C1 l1
       *brace_container C1
@@ -32,7 +32,7 @@ $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {something}
    *@end C1 l2
    |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l4
@@ -34,7 +34,7 @@ $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation\\n}
    *@end C1 l6
@@ -46,7 +46,7 @@ $result_tree_text{'empty_quotation_with_arg_followed_by_quotation'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

@@ -12,7 +12,7 @@ $result_tree_text{'paragraph_count_and_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {in example\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'paragraph_count_and_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1

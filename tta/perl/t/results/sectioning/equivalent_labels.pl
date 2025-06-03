@@ -19,7 +19,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@anchor C1 l3
@@ -49,7 +49,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {floa}
@@ -64,7 +64,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@menu C4 l9
@@ -72,7 +72,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -106,7 +106,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

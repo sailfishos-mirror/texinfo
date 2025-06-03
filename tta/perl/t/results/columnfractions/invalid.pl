@@ -22,7 +22,7 @@ $result_tree_text{'invalid'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {2x.2 2.23x}
    *@end C1 l2
    |INFO

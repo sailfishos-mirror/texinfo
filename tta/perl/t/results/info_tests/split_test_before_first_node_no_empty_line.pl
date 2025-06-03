@@ -17,7 +17,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {split_test_before_first_node_no_empty_line.info}
    {empty_line:\\n}
   *paragraph C1
@@ -34,7 +34,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l5 {top}
  |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -58,7 +58,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -79,7 +79,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l13 {chap1}
@@ -94,7 +94,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap1}
  *@chapter C4 l14 {chap}
  |INFO
@@ -108,7 +108,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

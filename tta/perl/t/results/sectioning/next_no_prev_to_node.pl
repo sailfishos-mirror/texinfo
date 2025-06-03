@@ -19,7 +19,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C4 l3
@@ -27,7 +27,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -59,7 +59,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 l8 {chap first node}
@@ -85,7 +85,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -109,7 +109,7 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

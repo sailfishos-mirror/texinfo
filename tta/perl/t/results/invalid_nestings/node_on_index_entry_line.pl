@@ -18,7 +18,7 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {entry}
  *@node C3 l2 {a}
  |INFO
@@ -58,7 +58,7 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

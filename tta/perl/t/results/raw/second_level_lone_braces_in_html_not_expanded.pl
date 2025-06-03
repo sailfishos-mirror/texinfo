@@ -12,7 +12,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C2
     {raw:{a@code{{\\n}
     {raw:}}\\n}
@@ -25,7 +25,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *@html C3 l6
@@ -33,7 +33,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C3
     {raw:{b@code{\\n}
     {raw:{c d}\\n}
@@ -47,7 +47,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

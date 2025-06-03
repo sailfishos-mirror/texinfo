@@ -16,7 +16,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l2
    *table_entry C2
     *table_term C2
@@ -27,7 +27,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in item}
      *@itemx C1 l4
      |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in itemx}
     *table_definition C3
      *paragraph C1
@@ -52,7 +52,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {var}
    *@end C1 l8
    |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

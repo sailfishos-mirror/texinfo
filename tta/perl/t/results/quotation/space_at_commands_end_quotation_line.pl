@@ -31,7 +31,7 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l5
@@ -42,7 +42,7 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
     *block_line_arg C4
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@@
      *@ 
      { at the end of line }
@@ -63,7 +63,7 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

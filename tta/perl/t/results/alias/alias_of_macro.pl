@@ -23,7 +23,7 @@ $result_tree_text{'alias_of_macro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@alias C1 l5
@@ -35,7 +35,7 @@ $result_tree_text{'alias_of_macro'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new = mymacro}
   {empty_line:\\n}
   *paragraph C1

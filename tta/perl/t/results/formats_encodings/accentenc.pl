@@ -19,7 +19,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {empty_line:\\n}
  *@node C1 l3 {first}
@@ -34,7 +34,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
  *@top C77 l4 {top}
  |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C5

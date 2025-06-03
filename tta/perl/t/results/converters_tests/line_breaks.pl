@@ -12,7 +12,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *paragraph C3
     {a document }
     *@*
@@ -26,7 +26,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {documentdescription}
   {empty_line:\\n}
   *@settitle C1 l5
@@ -36,7 +36,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {the manual }
     *@*
     { new version}
@@ -47,7 +47,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {AWK As A Major Systems Programming }
     *@*
     { Language---Revisited}
@@ -59,7 +59,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {in center }
     *@*
     { line break}
@@ -72,7 +72,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l10
    *table_entry C2
     *table_term C2
@@ -83,7 +83,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
       *line_arg C3
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {with break }
        *@*
        { after}
@@ -94,7 +94,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
       *line_arg C3
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {withx breakx }
        *@*
        { afterx}
@@ -110,7 +110,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@quotation C3 l16
@@ -121,7 +121,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Q}
      *@*
      { uotation}
@@ -136,7 +136,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

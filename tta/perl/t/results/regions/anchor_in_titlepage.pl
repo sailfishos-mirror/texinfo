@@ -13,7 +13,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {empty_line:\\n}
     *@anchor C1 l3
     |EXTRA
@@ -33,7 +33,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@top C1 l6 {top}
@@ -47,7 +47,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
  *@node C2 l7 {Top}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@chapter C1 l9 {Chapter}
@@ -76,7 +76,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@node C3 l10 {nchap}
  |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {nchap}
   {empty_line:\\n}
   *paragraph C2

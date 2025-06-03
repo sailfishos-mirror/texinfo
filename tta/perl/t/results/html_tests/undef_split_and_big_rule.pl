@@ -21,7 +21,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -36,7 +36,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l5 {Chapter}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
  *@node C1 l7 {sec}
@@ -65,7 +65,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
  *@section C1 l8 {Sec}
  |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
 ';
 

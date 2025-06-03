@@ -12,7 +12,7 @@ $result_tree_text{'lone_braces_in_html'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {}\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'lone_braces_in_html'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *@html C3 l5
@@ -32,7 +32,7 @@ $result_tree_text{'lone_braces_in_html'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {{\\n}
    *@end C1 l7
@@ -44,7 +44,7 @@ $result_tree_text{'lone_braces_in_html'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

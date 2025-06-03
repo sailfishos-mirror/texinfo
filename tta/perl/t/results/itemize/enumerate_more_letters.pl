@@ -17,7 +17,7 @@ $result_tree_text{'enumerate_more_letters'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {c}
    *@item C2 l2
    |EXTRA
@@ -4840,7 +4840,7 @@ $result_tree_text{'enumerate_more_letters'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
 ';
 

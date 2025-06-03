@@ -12,7 +12,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C18
     {Para\\n}
     *@sp C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {1}
     {other para\\n}
     {Now lone }
@@ -40,7 +40,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {1}
     {empty_line:\\n}
     *@sp C1 l9
@@ -52,7 +52,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {2}
     {Para after sp\\n}
     {empty_line:\\n}
@@ -66,7 +66,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {2}
     {B\\n}
     {empty_line:\\n}
@@ -80,7 +80,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {1}
    *@end C1 l18
    |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

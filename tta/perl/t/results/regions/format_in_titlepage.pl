@@ -13,14 +13,14 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {empty_line:\\n}
     *@format C3 l3
      *arguments_line C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C1
       {Published\\n}
      *@end C1 l5
@@ -32,7 +32,7 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {format}
     {empty_line:\\n}
     *@end C1 l7
@@ -44,7 +44,7 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l9 {Top}
@@ -59,7 +59,7 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C2 l10 {chap}
  |INFO
@@ -73,7 +73,7 @@ $result_tree_text{'format_in_titlepage'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
 ';

@@ -20,7 +20,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part 1}
   {empty_line:\\n}
  *@chapter C2 l4 {chapter}
@@ -35,7 +35,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
  *@appendix C1 l6 {Appendix}
@@ -50,7 +50,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Appendix}
 ';
 

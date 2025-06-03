@@ -16,7 +16,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {+}
    *@item C2 l3
    |EXTRA
@@ -33,7 +33,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l6
@@ -44,7 +44,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet l6
    *@item C3 l7
    |EXTRA
@@ -62,7 +62,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l11
@@ -70,7 +70,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@item C2 l12
    |EXTRA
    |item_number:{1}
@@ -86,7 +86,7 @@ $result_tree_text{'item_container'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

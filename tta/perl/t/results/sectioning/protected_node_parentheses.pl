@@ -20,7 +20,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
  *@top C4 l3 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l5
@@ -41,7 +41,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C2
@@ -65,7 +65,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 l9 {@asis{(}manual) name}
@@ -80,7 +80,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l9
      *brace_container C1
       {(}

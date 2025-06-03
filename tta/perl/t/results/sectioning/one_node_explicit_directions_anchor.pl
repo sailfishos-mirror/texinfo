@@ -23,7 +23,7 @@ $result_tree_text{'one_node_explicit_directions_anchor'} = '*document_root C2
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |manual_content:{dir}
     {(}

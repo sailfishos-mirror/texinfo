@@ -19,7 +19,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {The top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {The top}
   {empty_line:\\n}
   *paragraph C1
@@ -43,7 +43,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -64,7 +64,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {Chap}
@@ -79,7 +79,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
  *@chapter C3 l11 {A chapter}
  |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'top_node_up_implicit'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A chapter}
   {empty_line:\\n}
   *paragraph C1

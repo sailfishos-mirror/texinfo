@@ -23,7 +23,7 @@ $result_tree_text{'simplest_test_prefix'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C3

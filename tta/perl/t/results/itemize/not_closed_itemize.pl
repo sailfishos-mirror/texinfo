@@ -12,7 +12,7 @@ $result_tree_text{'not_closed_itemize'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
 ';
 
 

@@ -18,7 +18,7 @@ $result_tree_text{'utf8_default'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   {empty_line:\\n}
   *paragraph C3

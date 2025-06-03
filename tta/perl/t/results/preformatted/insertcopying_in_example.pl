@@ -12,7 +12,7 @@ $result_tree_text{'insertcopying_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@insertcopying C1 l2
    |EXTRA
    |global_command_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'insertcopying_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

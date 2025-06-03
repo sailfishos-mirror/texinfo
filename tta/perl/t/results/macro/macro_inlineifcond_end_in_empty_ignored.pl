@@ -23,7 +23,7 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_ignored'} = '*document_root C
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C3
    {Toto }

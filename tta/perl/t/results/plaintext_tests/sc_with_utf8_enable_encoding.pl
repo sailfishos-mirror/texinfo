@@ -18,7 +18,7 @@ $result_tree_text{'sc_with_utf8_enable_encoding'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   *paragraph C2
    *@sc C1 l2

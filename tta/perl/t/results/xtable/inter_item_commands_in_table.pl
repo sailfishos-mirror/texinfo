@@ -20,7 +20,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
@@ -48,7 +48,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C27 l5 {chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@vtable C3 l7
@@ -73,7 +73,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l7
    *table_entry C2
     *table_term C2
@@ -89,7 +89,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {acode--b}
     *table_definition C1
      *paragraph C1
@@ -103,7 +103,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@vtable C3 l13
@@ -114,7 +114,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l13
    *table_entry C2
     *table_term C3
@@ -128,7 +128,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {aasis--b}
      *inter_item C1
       *@c C1
@@ -143,7 +143,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {b}
     *table_definition C1
      *paragraph C1
@@ -157,7 +157,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@ftable C4 l20
@@ -168,7 +168,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@var l20
    *table_entry C2
     *table_term C3
@@ -182,7 +182,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {avar--b}
      *inter_item C3
       *index_entry_command@cindex C1 l22
@@ -196,7 +196,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {index entry between item and itemx}
       *@c C1
        {rawline_arg: and a comment\\n}
@@ -212,7 +212,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {b}
     *table_definition C1
      *paragraph C1
@@ -229,7 +229,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {c}
      *inter_item C3
       {empty_line:\\n}
@@ -246,7 +246,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {d}
     *table_definition C2
      {empty_line:\\n}
@@ -261,7 +261,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ftable}
   {empty_line:\\n}
   *@ftable C3 l36
@@ -272,7 +272,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l36
    *table_entry C2
     *table_term C3
@@ -286,7 +286,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {a}
      *inter_item C1
       *index_entry_command@cindex C1 l38
@@ -300,7 +300,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {index entry between item and itemx}
      *@itemx C1 l39
      |INFO
@@ -312,7 +312,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {b}
     *table_definition C1
      *paragraph C1
@@ -326,7 +326,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ftable}
   {empty_line:\\n}
   *@table C3 l43
@@ -337,7 +337,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l43
    *table_entry C2
     *table_term C3
@@ -352,7 +352,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{ \\n}
+       |{spaces_after_argument: \\n}
        {cindex in table}
      *@c C1
       {rawline_arg: comment in table\\n}
@@ -363,7 +363,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {abb}
     *table_definition C1
      *paragraph C1
@@ -377,7 +377,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l50
@@ -388,7 +388,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l50
    *before_item C2
     *index_entry_command@cindex C1 l51
@@ -402,7 +402,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
       {cindex in table}
     *paragraph C1
      {Texte before first item.\\n}
@@ -415,7 +415,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {abb}
    *@end C1 l54
    |INFO
@@ -426,7 +426,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l56
@@ -437,7 +437,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@samp l56
    *table_entry C2
     *table_term C3
@@ -452,7 +452,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{ \\n}
+       |{spaces_after_argument: \\n}
        {samp cindex in table}
      *@c C1
       {rawline_arg: samp comment in table\\n}
@@ -463,7 +463,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb}
     *table_definition C1
      *paragraph C1
@@ -477,7 +477,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l63
@@ -488,7 +488,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@samp l63
    *before_item C2
     *index_entry_command@cindex C1 l64
@@ -502,7 +502,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
       {samp cindex in table}
     *paragraph C1
      {Texte before first item samp.\\n}
@@ -515,7 +515,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb}
    *@end C1 l67
    |INFO
@@ -526,7 +526,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l69
@@ -537,7 +537,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@samp l69
    *before_item C3
     {empty_line:\\n}
@@ -552,7 +552,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cindex between lines}
     {empty_line:\\n}
    *table_entry C1
@@ -564,7 +564,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb1}
    *@end C1 l74
    |INFO
@@ -575,7 +575,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l76
@@ -586,7 +586,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@samp l76
    *before_item C2
     *index_entry_command@cindex C1 l77
@@ -600,7 +600,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cindex before line}
     {empty_line:\\n}
    *table_entry C1
@@ -612,7 +612,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb2}
    *@end C1 l80
    |INFO
@@ -623,7 +623,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l82
@@ -634,7 +634,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@samp l82
    *before_item C1
     {empty_line:\\n}
@@ -651,7 +651,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cindex after line}
      *@item C1 l85
      |INFO
@@ -660,7 +660,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb2}
    *@end C1 l86
    |INFO
@@ -671,7 +671,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l88
@@ -682,7 +682,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@samp l88
    *table_entry C1
     *table_term C5
@@ -697,7 +697,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cindex first}
      *@c C1
       {rawline_arg: commant\\n}
@@ -712,7 +712,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {second}
      *index_entry_command@cindex C1 l92
      |INFO
@@ -725,7 +725,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {third}
      *@item C1 l93
      |INFO
@@ -734,7 +734,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {asamp--bb2}
    *@end C1 l94
    |INFO
@@ -745,7 +745,7 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   {empty_line:\\n}

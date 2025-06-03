@@ -22,7 +22,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
         >*block_line_arg C1
         >|INFO
         >|spaces_after_argument:
-         >|{\\n}
+         >|{spaces_after_argument:\\n}
          >{x}
        >{raw:xset\\n}
        >*@end C1 l5
@@ -34,7 +34,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
         >*line_arg C1
         >|INFO
         >|spaces_after_argument:
-         >|{\\n}
+         >|{spaces_after_argument:\\n}
          >{ifset}
      >expanded_conditional_command<start;1><p:1>
       >*@ifclear C1 l6
@@ -45,7 +45,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
         >*block_line_arg C1
         >|INFO
         >|spaces_after_argument:
-         >|{\\n}
+         >|{spaces_after_argument:\\n}
          >{x}
      {xclear\\n}
      >SOURCEMARKS
@@ -59,7 +59,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
        >*line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{ifclear}
    {\\n}
 ';

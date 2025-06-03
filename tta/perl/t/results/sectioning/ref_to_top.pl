@@ -20,7 +20,7 @@ $result_tree_text{'ref_to_top'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ToP}
  *@top C3 l3 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'ref_to_top'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C2

@@ -17,7 +17,7 @@ $result_tree_text{'index_entries'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cindex entry}
   {empty_line:\\n}
   *@defindex C1 l3
@@ -29,7 +29,7 @@ $result_tree_text{'index_entries'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc}
   {empty_line:\\n}
   *index_entry_command@trucindex C1 l5
@@ -42,7 +42,7 @@ $result_tree_text{'index_entries'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index truc}
 ';
 

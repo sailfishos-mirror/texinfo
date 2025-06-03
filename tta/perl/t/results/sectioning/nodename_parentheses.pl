@@ -19,7 +19,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {The top node}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {The top node}
   {empty_line:\\n}
   *@menu C5 l4
@@ -40,7 +40,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -87,7 +87,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {Node (with parentheses)}
@@ -102,7 +102,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Node (with parentheses)}
  *@chapter C4 l11 {Section (nodename with parentheses)}
  |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section (nodename with parentheses)}
   {empty_line:\\n}
   *paragraph C1
@@ -134,7 +134,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other node}
  *@chapter C6 l16 {Section (nodename without parentheses)}
  |INFO
@@ -148,7 +148,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section (nodename without parentheses)}
   {empty_line:\\n}
   *paragraph C3
@@ -186,7 +186,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {(manual)node}
  *@chapter C7 l23 {(manual)node}
  |INFO
@@ -200,7 +200,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {(manual)node}
   {empty_line:\\n}
   *paragraph C1

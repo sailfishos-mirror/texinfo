@@ -19,7 +19,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@macro C3 l4
@@ -51,7 +51,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
  *@node C1 l8 {chap}
@@ -67,7 +67,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C36 l9 {Chapter}
  |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@html C3 l11
@@ -89,7 +89,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C5
     {<b>in b}
     *@footnote C1 l12
@@ -115,7 +115,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   *paragraph C3
    *@kbd C1 l15
@@ -134,7 +134,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C43
     {raw:@kbdinputstyle code\\n}
     {raw:in tex@footnote{footnote in tex}\\n}
@@ -188,7 +188,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -233,7 +233,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fentry2}
   {empty_line:\\n}
   {spaces_before_paragraph: }
@@ -250,7 +250,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   *@printindex C1 l77
   |INFO
@@ -262,7 +262,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *@listoffloats C1 l79
@@ -275,7 +275,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Figs}
   {empty_line:\\n}
   *paragraph C2

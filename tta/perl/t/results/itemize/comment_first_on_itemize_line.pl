@@ -32,7 +32,7 @@ $result_tree_text{'comment_first_on_itemize_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

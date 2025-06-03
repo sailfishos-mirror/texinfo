@@ -21,7 +21,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {utf-8}
    {empty_line:\\n}
    *@c C1
@@ -32,7 +32,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
      >{raw:@documentlanguage ja\\n}
      >*@end C1 l7
      >|INFO
@@ -43,7 +43,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{iftex}
    >expanded_conditional_command<start;1>
     >*@iflatex C1 l8
@@ -51,7 +51,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
     {rawline_arg: @node Top is ignored in TeX and LaTeX, so switch here\\n}
    *@documentlanguage C1 l9
    |INFO
@@ -71,12 +71,12 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{iflatex}
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ja}
    {empty_line:\\n}
  *@node C1 l12 {Top}
@@ -91,7 +91,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C5 l13 {Multi language file}
  |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Multi language file}
   {empty_line:\\n}
   *@menu C7 l15
@@ -112,7 +112,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -177,7 +177,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *@documentlanguage C1 l23
@@ -190,7 +190,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ja}
  *@node C1 l24 {chapter ja}
  |INFO
@@ -204,7 +204,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter ja}
  *@chapter C6 l25 {ja}
  |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ja}
   {empty_line:\\n}
   *paragraph C3
@@ -262,7 +262,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -292,7 +292,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@documentlanguage C1 l31
@@ -305,7 +305,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {en}
  *@node C1 l32 {chapter en}
  |INFO
@@ -319,7 +319,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter en}
  *@chapter C6 l33 {en}
  |INFO
@@ -333,7 +333,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {en}
   {empty_line:\\n}
   *paragraph C3
@@ -377,7 +377,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -407,7 +407,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@documentlanguage C1 l39
@@ -420,7 +420,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr_FR}
  *@node C1 l40 {chapter fr_FR}
  |INFO
@@ -434,7 +434,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter fr_FR}
  *@chapter C5 l41 {fr_FR}
  |INFO
@@ -448,7 +448,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr_FR}
   {empty_line:\\n}
   *@defivar C2 l43
@@ -483,7 +483,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -513,7 +513,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@documentlanguage C1 l46
@@ -526,7 +526,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {de}
  *@node C1 l47 {chapter de}
  |INFO
@@ -540,7 +540,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter de}
  *@chapter C3 l48 {de}
  |INFO
@@ -554,7 +554,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {de}
   {empty_line:\\n}
   *@documentlanguage C1 l50
@@ -567,7 +567,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pt_BR}
  *@node C1 l51 {chapter pt_BR}
  |INFO
@@ -581,7 +581,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter pt_BR}
  *@chapter C3 l52 {pt_bR}
  |INFO
@@ -595,7 +595,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pt_bR}
   {empty_line:\\n}
   *paragraph C3

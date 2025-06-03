@@ -1734,7 +1734,8 @@ sub new_block_command($$)
       Texinfo::TreeElement::new({'type' => 'block_line_arg',
                                   'parent' => $arguments_line,
           'info' => { 'spaces_after_argument'
-                      => Texinfo::TreeElement::new({'text' => "\n",})}})];
+                      => Texinfo::TreeElement::new({'text' => "\n",
+                                 'type' => 'spaces_after_argument'})}})];
   unshift @{$element->{'contents'}}, $arguments_line;
 
   my $end = Texinfo::TreeElement::new({'cmdname' => 'end',
@@ -1747,7 +1748,8 @@ sub new_block_command($$)
    = Texinfo::TreeElement::new({'type' => 'line_arg', 'parent' => $end,
                                 'contents' => [],
                   'info' => {'spaces_after_argument' =>
-                        Texinfo::TreeElement::new({'text' => "\n"})}});
+                        Texinfo::TreeElement::new({'text' => "\n",
+                                   'type' => 'spaces_after_argument'})}});
   $end->{'contents'} = [$end_args];
 
   my $command_name_text

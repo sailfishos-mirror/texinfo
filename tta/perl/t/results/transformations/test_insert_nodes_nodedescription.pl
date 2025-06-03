@@ -19,7 +19,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l1 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   *@nodedescription C1 l2
   |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {D1}
   {empty_line:\\n}
  *@node C1 {Chap}
@@ -56,7 +56,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
  *@chapter C2 l4 {Chap}
  |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
  *@node C1 {Sec}
@@ -85,7 +85,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
  *@section C4 l6 {Sec}
  |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
   *@nodedescription C1 l7
   |INFO
@@ -108,7 +108,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {D2}
   *@nodedescription C1 l8
   |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {D3}
   {empty_line:\\n}
  *@node C1 {Subsec}
@@ -132,7 +132,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsec}
  *@subsection C2 l10 {Subsec}
  |INFO
@@ -146,7 +146,7 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsec}
   {empty_line:\\n}
 ';

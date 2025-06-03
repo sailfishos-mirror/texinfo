@@ -17,7 +17,7 @@ $result_tree_text{'definfoenclose_with_empty_arg'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {headword, , :}
   {empty_line:\\n}
   *paragraph C3

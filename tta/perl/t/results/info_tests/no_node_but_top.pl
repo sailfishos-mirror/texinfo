@@ -18,7 +18,7 @@ $result_tree_text{'no_node_but_top'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

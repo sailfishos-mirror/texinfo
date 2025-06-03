@@ -21,7 +21,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {empty_line:\\n}
    *@copying C3 multiple_include_encodings.texi:l4
@@ -29,7 +29,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {Télé.\\n}
     *@end C1 multiple_include_encodings.texi:l6
@@ -41,7 +41,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    >SOURCEMARKS
@@ -55,7 +55,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{documentdescription_EUC_CN.texi}
    *@documentencoding C1 documentdescription_EUC_CN.texi:l1
    |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {EUC-CN}
    {empty_line:\\n}
    *@documentdescription C3 documentdescription_EUC_CN.texi:l3
@@ -78,7 +78,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {Sample 示例 \\n}
     *@end C1 documentdescription_EUC_CN.texi:l5
@@ -90,7 +90,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {documentdescription}
    {empty_line:\\n}
    *@documentencoding C1 multiple_include_encodings.texi:l10
@@ -104,7 +104,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {empty_line:\\n}
  *@node C1 multiple_include_encodings.texi:l12 {Top}
@@ -119,7 +119,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 multiple_include_encodings.texi:l13 {include files with multiple encodings}
  |INFO
@@ -132,7 +132,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {include files with multiple encodings}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -146,7 +146,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{verbatim_encoded_latin1.texi}
   *paragraph C1
    {é\\n}
@@ -165,7 +165,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  *@chapter C6 multiple_include_encodings.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
@@ -179,7 +179,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -193,7 +193,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{chapter_japanese_shift_jis.texi}
   *@documentencoding C1 chapter_japanese_shift_jis.texi:l1
   |INFO
@@ -206,7 +206,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {shift_jis}
   *@documentlanguage C1 chapter_japanese_shift_jis.texi:l2
   |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ja}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -234,7 +234,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Preface}
  *@chapter C7 chapter_japanese_shift_jis.texi:l6 {Preface}
  |INFO
@@ -248,7 +248,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Preface}
   {empty_line:\\n}
   *paragraph C1
@@ -270,7 +270,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
  *@chapter C7 chapter_japanese_shift_jis.texi:l14 {Introduction}
  |INFO
@@ -284,7 +284,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
   {empty_line:\\n}
   *paragraph C1
@@ -304,7 +304,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{chapter_char_latin2_latin2_in_refs.texi}
   *@documentencoding C1 chapter_char_latin2_latin2_in_refs.texi:l1
   |INFO
@@ -317,7 +317,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ISO-8859-2}
   {empty_line:\\n}
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l3 {char latin2 latin2}
@@ -333,7 +333,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {char latin2 latin2}
  *@chapter C9 chapter_char_latin2_latin2_in_refs.texi:l4 {char latin2 latin2 in refs}
  |INFO
@@ -347,7 +347,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {char latin2 latin2 in refs}
   {empty_line:\\n}
   *paragraph C2
@@ -369,7 +369,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@c C1
@@ -379,7 +379,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 chapter_char_latin2_latin2_in_refs.texi:l12
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -400,7 +400,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l15 {Ą ą ˛ Ę ę}
@@ -415,7 +415,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
  *@section C7 chapter_char_latin2_latin2_in_refs.texi:l16 {Ą ą ˛ Ę ę}
  |INFO
@@ -429,7 +429,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
   *index_entry_command@cindex C1 chapter_char_latin2_latin2_in_refs.texi:l18
@@ -443,7 +443,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -460,7 +460,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{chapter_chinese_mixed_with_en_EUC_CN.texi}
   *@documentencoding C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l1
   |INFO
@@ -473,7 +473,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {EUC-CN}
   {empty_line:\\n}
  *@node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
@@ -488,7 +488,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed english and chinese EUC-CN}
  *@chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
  |INFO
@@ -502,7 +502,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed english and chinese EUC-CN}
   {empty_line:\\n}
   *paragraph C2
@@ -559,7 +559,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{chapter_chinese_mixed_with_en.texi}
   *@documentencoding C1 chapter_chinese_mixed_with_en.texi:l1
   |INFO
@@ -572,7 +572,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   {empty_line:\\n}
  *@node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
@@ -587,7 +587,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed chinese and english utf-8}
  *@chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
  |INFO
@@ -601,7 +601,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Mixed chinese and english utf-8}
   {empty_line:\\n}
   *paragraph C1

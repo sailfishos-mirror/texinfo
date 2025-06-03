@@ -17,7 +17,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a b}
    *@end C1 l2
    |INFO
@@ -28,7 +28,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C2 l4
@@ -41,7 +41,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {!}
    *@end C1 l5
    |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C2 l7
@@ -65,7 +65,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code C1 l7
       *brace_container C1
        {a}
@@ -78,7 +78,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C2 l10
@@ -91,7 +91,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a}
      *@@
    *@end C1 l11
@@ -103,7 +103,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C2 l13
@@ -116,7 +116,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a0}
    *@end C1 l14
    |INFO
@@ -127,7 +127,7 @@ $result_tree_text{'bad_enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
 ';
 

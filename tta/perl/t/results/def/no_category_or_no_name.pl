@@ -15,7 +15,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {no category no name\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C3 l5
@@ -42,7 +42,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l5
        {only category}
@@ -58,7 +58,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C5 l9
@@ -77,7 +77,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *def_category C1
       *def_line_arg C1
        {a}
@@ -103,7 +103,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {deffnx_category}
@@ -114,7 +114,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *def_item C1
     *paragraph C1
      {with deffnx missing category or name\\n}
@@ -127,7 +127,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

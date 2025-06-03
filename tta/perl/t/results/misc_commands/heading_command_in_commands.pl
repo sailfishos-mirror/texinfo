@@ -19,7 +19,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in code}
    {\\n}
   {empty_line:\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     *@everyheading C1 l7
     |INFO
@@ -37,7 +37,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {in example}
    *@end C1 l8
    |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C3 l10
@@ -56,7 +56,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@everyheading C1 l11
    |INFO
    |spaces_before_argument:
@@ -64,7 +64,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in quotation}
    *@end C1 l12
    |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'heading_command_in_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

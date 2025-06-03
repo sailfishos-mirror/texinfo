@@ -15,7 +15,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@inlineraw C2 l1
      |EXTRA
      |expand_index:{1}
@@ -46,7 +46,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4
  |EXTRA
@@ -56,7 +56,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l6 {@inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}}
  |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@inlineraw C2 l6
     |EXTRA
     |expand_index:{1}
@@ -100,7 +100,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@inlineraw C2 l7
     |EXTRA
     |expand_index:{1}

@@ -39,7 +39,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >expanded_conditional_command<start;2><p:3>
     >*@ifset C1 l6
@@ -65,7 +65,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >expanded_conditional_command<start;3><p:3>
     >*@ifset C1 l9
@@ -91,7 +91,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >expanded_conditional_command<start;4><p:3>
     >*@ifset C1 l12
@@ -105,7 +105,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
        >|*@c C1
         >|{rawline_arg:\\n}
       >|spaces_after_argument:
-       >|{ }
+       >|{spaces_after_argument: }
        >{x}
    {Y4\\n}
    >SOURCEMARKS
@@ -119,7 +119,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >expanded_conditional_command<start;5><p:3>
     >*@ifset C1 l15
@@ -133,7 +133,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
        >|*@c C1
         >|{rawline_arg: comm\\n}
       >|spaces_after_argument:
-       >|{ }
+       >|{spaces_after_argument: }
        >{x}
    {Y5\\n}
    >SOURCEMARKS
@@ -147,7 +147,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
    >expanded_conditional_command<start;6><p:3>
     >*@ifset C1 l18
@@ -161,7 +161,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
        >|*@c C1
         >|{rawline_arg:@ggg\\n}
       >|spaces_after_argument:
-       >|{ }
+       >|{spaces_after_argument: }
        >{x}
    {Y6\\n}
    >SOURCEMARKS
@@ -175,7 +175,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

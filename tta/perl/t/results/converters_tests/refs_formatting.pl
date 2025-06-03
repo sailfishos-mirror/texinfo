@@ -19,7 +19,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C7 l2 {chapter}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *paragraph C56

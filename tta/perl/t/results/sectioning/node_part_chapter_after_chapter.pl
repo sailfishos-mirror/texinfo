@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C4 l4
@@ -48,7 +48,7 @@ NodeForward: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -80,7 +80,7 @@ NodeForward: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U1 unit{S:1 chapter node}{n:chapter node}
@@ -109,7 +109,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter node}
   {empty_line:\\n}
  *@chapter C2 l11 {chapter node}
@@ -124,7 +124,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter node}
   {empty_line:\\n}
 U2 unit{S:2 chapter with part node}{n:part chapter node}
@@ -148,7 +148,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part chapter node}
  *@part C2 l14 {part}
  |INFO
@@ -162,7 +162,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@chapter C3 l16 {chapter with part node}
@@ -177,7 +177,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter with part node}
   {empty_line:\\n}
   *@contents C1 l18

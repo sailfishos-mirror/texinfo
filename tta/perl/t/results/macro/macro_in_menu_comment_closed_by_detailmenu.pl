@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@menu C4 l5
@@ -31,7 +31,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment
    >SOURCEMARKS
    >macro_expansion<start;1>
@@ -47,7 +47,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l7
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -68,7 +68,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *@end C1 l9
    |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

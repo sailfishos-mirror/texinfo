@@ -18,7 +18,7 @@ $result_tree_text{'setfilename_in_paragraph'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {setfilename_in_paragraph.info}
 ';
 

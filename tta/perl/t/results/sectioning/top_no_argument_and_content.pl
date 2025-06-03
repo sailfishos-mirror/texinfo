@@ -16,7 +16,7 @@ $result_tree_text{'top_no_argument_and_content'} = '*document_root C2
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A.\\n}

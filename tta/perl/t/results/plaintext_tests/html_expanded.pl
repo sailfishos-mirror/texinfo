@@ -14,7 +14,7 @@ $result_tree_text{'html_expanded'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {html\\n}
     *@end C1 l4
@@ -26,7 +26,7 @@ $result_tree_text{'html_expanded'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {after.\\n}
 ';

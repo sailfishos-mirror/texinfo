@@ -18,7 +18,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fr}
    {empty_line:\\n}
    *@copying C3 l3
@@ -26,7 +26,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@defivar C3 l4
     |INFO
     |spaces_before_argument:
@@ -59,7 +59,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       *block_line_arg C7
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
        |INFO
        |inserted:{1}
@@ -94,7 +94,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {defivar}
     *@end C1 l7
     |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
  *@node C1 l9 {Top}
@@ -120,7 +120,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l10 {top}
  |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l12 {chap}
@@ -149,7 +149,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C15 l13 {Chap}
  |INFO
@@ -163,7 +163,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@defivar C3 l15
@@ -198,7 +198,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -233,7 +233,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@documentlanguage C1 l19
@@ -246,7 +246,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {de}
   {empty_line:\\n}
   *@insertcopying C1 l21
@@ -264,7 +264,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {hr}
   {empty_line:\\n}
   *@defivar C3 l25
@@ -299,7 +299,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -334,7 +334,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@insertcopying C1 l29
@@ -352,7 +352,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {vr}
 ';
 

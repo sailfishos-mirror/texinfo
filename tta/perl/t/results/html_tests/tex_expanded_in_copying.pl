@@ -12,13 +12,13 @@ $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@tex C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {aa\\n}
     *@end C1 l4
@@ -30,7 +30,7 @@ $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex}
    *@end C1 l5
    |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
 ';
 

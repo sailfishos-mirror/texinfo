@@ -14,7 +14,7 @@ $result_tree_text{'command_in_heading_footing'} = '*document_root C1
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {something }
     *@thispage
     { }

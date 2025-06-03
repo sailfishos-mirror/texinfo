@@ -24,7 +24,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -39,7 +39,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -62,7 +62,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C3 l9 {@samp{node}}
@@ -77,7 +77,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@samp C1 l9
      *brace_container C1
       {node}

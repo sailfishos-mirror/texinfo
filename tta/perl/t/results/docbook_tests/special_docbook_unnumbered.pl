@@ -19,7 +19,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -43,7 +43,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -97,7 +97,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l13 {Dedication}
@@ -112,7 +112,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Dedication}
  *@unnumbered C4 l14 {a dedication}
  |INFO
@@ -125,7 +125,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a dedication}
   {empty_line:\\n}
   *paragraph C1
@@ -143,7 +143,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {preface}
  *@unnumbered C4 l19 {The Preface}
  |INFO
@@ -156,7 +156,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {The Preface}
   {empty_line:\\n}
   *paragraph C1
@@ -174,7 +174,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {colophon}
  *@unnumbered C4 l24 {A colophon}
  |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A colophon}
   {empty_line:\\n}
   *paragraph C1
@@ -205,7 +205,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {acknowledgements}
  *@chapter C3 l29 {A chapter Acnkowledgements}
  |INFO
@@ -219,7 +219,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A chapter Acnkowledgements}
   {empty_line:\\n}
   *paragraph C1

@@ -28,7 +28,7 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
   {empty_line:\\n}
   *@cartouche C3 l5
@@ -42,7 +42,7 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comment\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *@emph C1 l5
       *brace_container C1
        {Title of box}
@@ -57,7 +57,7 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
 ';
 

@@ -20,7 +20,7 @@ $result_tree_text{'command_in_node_redirection_same_command'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {t @r{in r}}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'command_in_node_redirection_same_command'} = '*document_root 
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {t }
     *@r C1 l2
      *brace_container C1

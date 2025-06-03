@@ -19,7 +19,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C9 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@macro C3 l4
@@ -53,7 +53,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -83,7 +83,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\\\\q}
     >SOURCEMARKS
     >macro_expansion<end;1><p:3>
@@ -107,7 +107,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\\r}
     >SOURCEMARKS
     >macro_expansion<end;2><p:2>
@@ -129,7 +129,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\\q}
     >SOURCEMARKS
     >macro_expansion<end;3><p:2>
@@ -144,7 +144,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\\r}
     >SOURCEMARKS
     >macro_expansion<end;4><p:2>
@@ -158,7 +158,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
 ';
 

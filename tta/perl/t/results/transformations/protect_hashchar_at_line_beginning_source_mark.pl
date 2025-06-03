@@ -26,7 +26,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
   *paragraph C3
@@ -59,7 +59,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C3
@@ -92,7 +92,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C2

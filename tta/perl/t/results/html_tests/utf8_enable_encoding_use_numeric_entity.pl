@@ -18,7 +18,7 @@ $result_tree_text{'utf8_enable_encoding_use_numeric_entity'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf-8}
   {empty_line:\\n}
   *paragraph C3

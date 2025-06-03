@@ -23,7 +23,7 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l5
@@ -42,7 +42,7 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -59,7 +59,7 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:1>

@@ -38,7 +38,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label}
@@ -53,7 +53,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l5
@@ -66,7 +66,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A }
     *@tieaccent C1 l5
      *brace_container C1

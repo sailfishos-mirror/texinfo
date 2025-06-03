@@ -30,7 +30,7 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
      {a-b c-d}
@@ -43,7 +43,7 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
      {1234}

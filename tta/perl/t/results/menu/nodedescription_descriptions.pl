@@ -19,7 +19,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {test of nodedescription used in menu}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {test of nodedescription used in menu}
   {empty_line:\\n}
   *@menu C10 l4
@@ -40,7 +40,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -136,7 +136,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l15 {toto}
@@ -151,7 +151,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {toto}
  *@chapter C4 l16 {Toto}
  |INFO
@@ -165,7 +165,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Toto}
   {empty_line:\\n}
   *@nodedescription C1 l18
@@ -175,7 +175,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C8
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {toto is there:: and the }
     *@emph C1 l18
      *brace_container C1
@@ -210,7 +210,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {titi}
  *@chapter C4 l21 {Titi}
  |INFO
@@ -224,7 +224,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Titi}
   {empty_line:\\n}
   *@nodedescription C1 l23
@@ -234,7 +234,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {this describes titi}
   {empty_line:\\n}
  *@node C1 l25 {other}
@@ -249,7 +249,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {other}
  *@chapter C4 l26 {Other}
  |INFO
@@ -263,7 +263,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other}
   {empty_line:\\n}
   *@nodedescription C1 l28
@@ -273,7 +273,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {other comes here}
   {empty_line:\\n}
  *@node C1 l30 {last}
@@ -288,7 +288,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {last}
  *@chapter C4 l31 {Last}
  |INFO
@@ -302,7 +302,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Last}
   {empty_line:\\n}
   *@nodedescription C1 l33
@@ -312,7 +312,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {we are last}
   {empty_line:\\n}
  *@node C1 l35 {a somewhat long node without description nor following space}
@@ -327,7 +327,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a somewhat long node without description nor following space}
  *@chapter C4 l36 {Somewhat long}
  |INFO
@@ -341,7 +341,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Somewhat long}
   {empty_line:\\n}
   *@nodedescription C1 l38
@@ -351,7 +351,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {not as long as the node}
   {empty_line:\\n}
  *@node C1 l40 {a very long node without description with very little space left for}
@@ -366,7 +366,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a very long node without description with very little space left for}
  *@chapter C4 l41 {Very long}
  |INFO
@@ -380,7 +380,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Very long}
   {empty_line:\\n}
   *@nodedescription C1 l43
@@ -390,7 +390,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {starting the desciption with a somewhat long word}
   {empty_line:\\n}
  *@node C1 l45 {very very long node extending past the max columns and without description}
@@ -405,7 +405,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {very very long node extending past the max columns and without description}
  *@chapter C3 l46 {Past max columns}
  |INFO
@@ -419,7 +419,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Past max columns}
   {empty_line:\\n}
   *@nodedescription C1 l48
@@ -429,7 +429,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Not long}
 ';
 

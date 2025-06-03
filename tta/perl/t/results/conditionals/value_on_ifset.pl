@@ -33,7 +33,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{x}
       >>SOURCEMARKS
       >>value_expansion<end;1><p:1>
@@ -50,7 +50,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -63,7 +63,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{b}
     >{raw:@ifset @value{xval}\\n}
     >{raw:INTERNALXV\\n}
@@ -77,7 +77,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

@@ -13,7 +13,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C3
     {e--xample  some  \\n}
     {empty_line:\\n}
@@ -27,7 +27,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@format C3 l8
@@ -35,7 +35,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@vtable C3 l9
    |INFO
    |spaces_before_argument:
@@ -44,7 +44,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@code l9
     *table_entry C2
      *table_term C1
@@ -57,7 +57,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {item in table in format}
      *table_definition C1
       *preformatted C2
@@ -72,7 +72,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {vtable}
    *@end C1 l14
    |INFO
@@ -83,7 +83,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {format}
 ';
 

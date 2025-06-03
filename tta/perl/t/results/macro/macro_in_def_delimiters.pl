@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@deffn C1 l5
@@ -42,7 +42,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
     *block_line_arg C38
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Command}

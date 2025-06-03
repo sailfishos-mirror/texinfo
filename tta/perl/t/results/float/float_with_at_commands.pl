@@ -28,7 +28,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {premi}
@@ -74,7 +74,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -88,7 +88,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entr}
     *@\' C1 l9
      *following_arg C1

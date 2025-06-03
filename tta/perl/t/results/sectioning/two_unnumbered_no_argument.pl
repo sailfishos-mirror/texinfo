@@ -16,7 +16,7 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
  *@unnumbered C1 l2
  |EXTRA
  |section_level:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'two_unnumbered_no_argument'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

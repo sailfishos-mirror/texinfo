@@ -20,7 +20,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C7 l2 {top sectionning}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top sectionning}
   {empty_line:\\n}
   *@paragraphindent C1 l4
@@ -46,7 +46,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {5}
   {empty_line:\\n}
   *@evenfooting C1 l6
@@ -56,7 +56,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@thischapter
     { }
     *@thistitle
@@ -80,7 +80,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
   {empty_line:\\n}
  *@node C1 l9 {next node}
@@ -95,7 +95,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {next node}
  *@chapter C3 l10 {chap}
  |INFO
@@ -109,7 +109,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

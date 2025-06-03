@@ -12,7 +12,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@heading C1 l2
    |INFO
    |spaces_before_argument:
@@ -23,7 +23,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
     *line_arg C4
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in example }
      *@@
      { }
@@ -39,7 +39,7 @@ $result_tree_text{'heading_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

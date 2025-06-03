@@ -31,7 +31,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
      |*@comment C1
       |{rawline_arg: other comment\\n}
     |spaces_after_argument:
-     |{  }
+     |{spaces_after_argument:  }
      {tex}
   {empty_line:\\n}
   *paragraph C2
@@ -60,7 +60,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
       |*@comment C1
        |{rawline_arg: end xml comment\\n}
      |spaces_after_argument:
-      |{  }
+      |{spaces_after_argument:  }
       {xml}
 ';
 

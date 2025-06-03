@@ -19,7 +19,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
  *@top C3 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C4 l4
@@ -40,7 +40,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -58,7 +58,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *preformatted C3
        {in \\n}
        {empty_line:\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {example}
    *menu_comment C1
     *preformatted C1
@@ -86,7 +86,7 @@ $result_tree_text{'example_in_menu_description'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

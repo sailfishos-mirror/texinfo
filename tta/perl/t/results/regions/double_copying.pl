@@ -12,7 +12,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {This is a copyright notice\\n}
@@ -22,7 +22,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {And a second one (?)\\n}
     *@end C1 l7
@@ -34,7 +34,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    *@end C1 l8
    |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
 ';
 

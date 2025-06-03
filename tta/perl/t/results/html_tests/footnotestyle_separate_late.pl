@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
 U1 unit{N:chap f}{s:1 Chapter f}
@@ -70,7 +70,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap f}
  *@chapter C4 l5 {Chapter f}
  |INFO
@@ -84,7 +84,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter f}
   {empty_line:\\n}
   *paragraph C2
@@ -119,7 +119,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap s}
  *@chapter C5 l10 {Chapter s}
  |INFO
@@ -133,7 +133,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter s}
   {empty_line:\\n}
   *paragraph C2
@@ -154,7 +154,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {separate}
 ';
 

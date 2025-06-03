@@ -22,7 +22,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{  \\n}
+    |{spaces_after_argument:  \\n}
     {commands_and_spaces.info}
   {empty_line:\\n}
   *@unmacro C1
@@ -49,7 +49,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {a}
    *line_arg C3
    |EXTRA
@@ -60,7 +60,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
    |EXTRA
    |manual_content:{c}
     {(}
@@ -69,7 +69,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{   \\n}
+    |{spaces_after_argument:   \\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -85,7 +85,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{  \\n}
+    |{spaces_after_argument:  \\n}
     {centered}
   {empty_line:\\n}
   *@indent l13
@@ -115,7 +115,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
    |spaces_before_argument:
     |{spaces_before_argument: }
     {a}
@@ -124,7 +124,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {c}
    *brace_arg C1
    |INFO
@@ -134,7 +134,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {e}
   {\\n}
   {empty_line:\\n}
@@ -144,19 +144,19 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
    |spaces_before_argument:
     |{spaces_before_argument: }
     {a}
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {b}
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {c}
    *brace_arg C1
    |INFO
@@ -166,7 +166,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {e}
   {\\n}
   {empty_line:\\n}
@@ -178,7 +178,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
      {Note}
    *paragraph C1
     {Q\\n}
@@ -191,7 +191,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@float C8 l30
@@ -208,12 +208,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {ff}
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{   \\n}
+     |{spaces_after_argument:   \\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {b}
@@ -244,7 +244,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@multitable C2 l36
@@ -264,7 +264,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{  \\n}
+       |{spaces_after_argument:  \\n}
        {0.4  0.6}
    *@end C1 l37
    |INFO
@@ -275,7 +275,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C2 l39
@@ -288,7 +288,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C6
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *bracketed_arg C1 l39
       {aa b}
      {  }
@@ -311,7 +311,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@verbatim C3 l42
@@ -319,7 +319,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
    {raw:in verbatim @g \\n}
    *@end C1 l44
    |INFO
@@ -330,7 +330,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {verbatim}
   {empty_line:\\n}
   *@tex C3 l46
@@ -338,7 +338,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
    *rawpreformatted C1
     {in tex\\n}
    *@end C1 l48
@@ -350,7 +350,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
      {tex}
   {empty_line:\\n}
   *@example C3 l50
@@ -358,7 +358,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
    *preformatted C1
     {in example\\n}
    *@end C1 l52
@@ -370,7 +370,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
      {example}
   {empty_line:\\n}
   *@table C3 l54
@@ -381,7 +381,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
      *@strong l54
    *table_entry C1
     *table_term C1
@@ -392,7 +392,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{ \\n}
+       |{spaces_after_argument: \\n}
        {in item}
    *@end C1 l56
    |INFO
@@ -403,7 +403,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{   \\n}
+     |{spaces_after_argument:   \\n}
      {table}
   {empty_line:\\n}
   *paragraph C3
@@ -450,7 +450,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |*bracketed_arg C1
      ||INFO
      ||spaces_after_argument:
-      ||{ }
+      ||{spaces_after_argument: }
      ||spaces_before_argument:
       ||{spaces_before_argument: }
       |{machin}
@@ -460,12 +460,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l64
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {truc}
@@ -474,7 +474,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *bracketed_arg C1 l64
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {machin}
@@ -483,7 +483,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *bracketed_arg C1 l64
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {bidule}
@@ -492,7 +492,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *bracketed_arg C1 l64
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument:  }
        {chose}
@@ -501,7 +501,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       *bracketed_arg C1 l64
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument:  }
        {arg}
@@ -517,7 +517,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
 ';

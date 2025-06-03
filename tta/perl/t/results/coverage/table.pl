@@ -16,7 +16,7 @@ $result_tree_text{'table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l2
    *table_entry C2
     *table_term C2
@@ -27,7 +27,7 @@ $result_tree_text{'table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {table item}
      *@itemx C1 l4
      |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {table itemx}
     *table_definition C2
      {empty_line:\\n}
@@ -51,7 +51,7 @@ $result_tree_text{'table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@vtable C4 l9
@@ -78,7 +78,7 @@ $result_tree_text{'table'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {index entry}
     {empty_line:\\n}
    *table_entry C2
@@ -92,7 +92,7 @@ $result_tree_text{'table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {vtable item}
      *inter_item C1
       *@c C1
@@ -107,7 +107,7 @@ $result_tree_text{'table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {key}
      *@itemx C1 l16
      |INFO
@@ -121,7 +121,7 @@ $result_tree_text{'table'} = '*document_root C1
        |*@comment C1
         |{rawline_arg: comment in itemx line\\n}
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
        {itemx vtable}
     *table_definition C1
      {empty_line:\\n}
@@ -134,7 +134,7 @@ $result_tree_text{'table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@table C3 l20
@@ -145,7 +145,7 @@ $result_tree_text{'table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l20
    *table_entry C1
     *table_term C1
@@ -156,7 +156,7 @@ $result_tree_text{'table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {unknown command after indicating command}
    *@end C1 l22
    |INFO
@@ -167,7 +167,7 @@ $result_tree_text{'table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

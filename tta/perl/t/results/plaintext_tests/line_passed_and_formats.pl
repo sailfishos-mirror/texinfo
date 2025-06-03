@@ -19,7 +19,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@quotation C4 l3
@@ -30,7 +30,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {special}
    *paragraph C1
     {Quotation special.\\n}
@@ -39,7 +39,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
     *paragraph C2
      {Nested quotation sdflkmsfdlkmfsdqmlkfsdq mlfdsqlkmfdsqmlkfdsq klm fsqdlkmfdsq\\n}
      {fdsfsdqmlkfsqd m lqlkmf qskmlfq sklm fqds\\n}
@@ -52,7 +52,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *@end C1 l9
    |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l11
@@ -71,7 +71,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation  text\\n}
    *@example C3 l13
@@ -79,7 +79,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {example in   quotation\\n}
     *@end C1 l15
@@ -91,7 +91,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l16
    |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@example C4 l18
@@ -110,7 +110,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     { In  example.\\n}
    *@quotation C3 l20
@@ -118,7 +118,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {   In quotation   in example\\n}
     *@end C1 l22
@@ -130,7 +130,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *@end C1 l23
    |INFO
@@ -141,7 +141,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@example C3 l25
@@ -149,7 +149,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {In 1 example\\n}
    *@end C1 l27
@@ -161,14 +161,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   *@example C3 l28
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {In 2 example\\n}
    *@end C1 l30
@@ -180,7 +180,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C3 l32
@@ -188,7 +188,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In 1 quotation\\n}
    *@end C1 l34
@@ -200,14 +200,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   *@quotation C3 l35
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In 2 quotation\\n}
    *@end C1 l37
@@ -219,7 +219,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C5 l39
@@ -227,7 +227,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *paragraph C1
     {Quotation\\n}
    *@quotation C3 l41
@@ -235,7 +235,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
     *paragraph C1
      {Nested quotation\\n}
     *@end C1 l43
@@ -247,7 +247,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *paragraph C1
     {Quotation 2\\n}
@@ -260,7 +260,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@example C5 l47
@@ -268,7 +268,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {In  example.\\n}
    *@quotation C3 l49
@@ -276,7 +276,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {In quotation   in example\\n}
     *@end C1 l51
@@ -288,7 +288,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *preformatted C1
     {In  example 2.\\n}
@@ -301,7 +301,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C5 l55
@@ -309,7 +309,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation  text\\n}
    *@example C3 l57
@@ -317,7 +317,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {example in   quotation\\n}
     *@end C1 l59
@@ -329,7 +329,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *paragraph C1
     {quotation  text 2\\n}
@@ -342,7 +342,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -352,7 +352,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation  text\\n}
    *@end C1 l66
@@ -364,7 +364,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   *paragraph C1
    {after end\\n}
@@ -376,7 +376,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {In example\\n}
    *@end C1 l72
@@ -388,7 +388,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   *paragraph C1
    {After example\\n}
@@ -400,7 +400,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {In quotation\\n}
@@ -414,7 +414,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   *paragraph C1
    {After quotation\\n}
@@ -426,7 +426,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C3
     {empty_line:\\n}
     {In example\\n}
@@ -440,7 +440,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   *paragraph C1
    {After example\\n}
@@ -455,14 +455,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *@quotation C5 l96
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {In nested\\n}
@@ -476,7 +476,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    {empty_line:\\n}
    *@end C1 l102
@@ -488,7 +488,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -498,14 +498,14 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *@quotation C3 l107
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {In nested\\n}
     *@end C1 l109
@@ -517,7 +517,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    {empty_line:\\n}
    *@end C1 l111
@@ -529,7 +529,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -539,7 +539,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@example C3 l116
@@ -547,7 +547,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C3
      {empty_line:\\n}
      {In nested\\n}
@@ -561,7 +561,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *preformatted C1
     {empty_line:\\n}
@@ -574,7 +574,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -584,7 +584,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@example C3 l127
@@ -592,7 +592,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {In nested\\n}
     *@end C1 l129
@@ -604,7 +604,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *preformatted C1
     {empty_line:\\n}
@@ -617,7 +617,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -627,7 +627,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l135
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -652,7 +652,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   *paragraph C1
    {end menu\\n}

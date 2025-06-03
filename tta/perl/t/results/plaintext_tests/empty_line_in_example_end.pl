@@ -12,7 +12,7 @@ $result_tree_text{'empty_line_in_example_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {in example\\n}
     {empty_line:\\n}
@@ -25,7 +25,7 @@ $result_tree_text{'empty_line_in_example_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1

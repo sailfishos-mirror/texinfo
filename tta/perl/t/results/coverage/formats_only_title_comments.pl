@@ -12,7 +12,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C2
     *@c C1
      {rawline_arg: comment itemize\\n}
@@ -27,7 +27,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@enumerate C3 l6
@@ -56,7 +56,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@table C3 l11
@@ -67,7 +67,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l11
    *before_item C2
     *@c C1
@@ -83,7 +83,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@vtable C3 l16
@@ -97,7 +97,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comment on vtable line\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *@asis l16
    *before_item C1
     *paragraph C1
@@ -111,7 +111,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@multitable C3 l20
@@ -131,7 +131,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.5 0.5}
    *before_item C2
     *@c C1
@@ -147,7 +147,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

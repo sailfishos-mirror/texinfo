@@ -15,7 +15,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc}
    *@item C2 l2
    |EXTRA
@@ -32,7 +32,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C3
       {In example\\n}
       {empty_line:\\n}
@@ -46,7 +46,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {example}
    *@item C3 l9
    |EXTRA
@@ -65,7 +65,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C1
       {In second example\\n}
      *@end C1 l16
@@ -77,7 +77,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {example}
    *@item C3 l17
    |EXTRA
@@ -88,7 +88,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *paragraph C1
       {Quotation\\n}
      *@end C1 l20
@@ -100,7 +100,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {quotation}
     {empty_line:\\n}
    *@item C3 l22
@@ -113,7 +113,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *paragraph C1
       {quotation after a blank line\\n}
      *@end C1 l26
@@ -125,7 +125,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {quotation}
    *@end C1 l27
    |INFO
@@ -136,7 +136,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

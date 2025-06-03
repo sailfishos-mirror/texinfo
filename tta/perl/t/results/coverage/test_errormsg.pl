@@ -24,7 +24,7 @@ $result_tree_text{'test_errormsg'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{   }
+     |{spaces_after_argument:   }
     |spaces_before_argument:
      |{spaces_before_argument:  }
      {with surrounding spaces}

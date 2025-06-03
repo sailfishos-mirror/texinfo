@@ -19,7 +19,7 @@ $result_tree_text{'link'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {One}
  *@chapter C4 l2 {ONEX}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'link'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ONEX}
   {empty_line:\\n}
   *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'link'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Two}
   {empty_line:\\n}
   *paragraph C2
@@ -66,7 +66,7 @@ $result_tree_text{'link'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {off}
   {empty_line:\\n}
   *paragraph C2
@@ -104,7 +104,7 @@ $result_tree_text{'link'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {on}
   {empty_line:\\n}
   *paragraph C2

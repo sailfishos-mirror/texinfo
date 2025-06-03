@@ -12,7 +12,7 @@ $result_tree_text{'double_exdent'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {Example   Hoho.\\n}
    *@example C4 l3
@@ -20,7 +20,7 @@ $result_tree_text{'double_exdent'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {Nested Other line\\n}
     *@exdent C1 l5
@@ -35,7 +35,7 @@ $result_tree_text{'double_exdent'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {double  exdented nested other line}
     *@end C1 l6
     |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'double_exdent'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l7
    |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'double_exdent'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

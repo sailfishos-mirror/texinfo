@@ -20,7 +20,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C5 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@float C3 l4
@@ -71,7 +71,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l8

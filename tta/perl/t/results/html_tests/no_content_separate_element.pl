@@ -23,7 +23,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 no_content.texi:l4 {No ccontent}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {No ccontent}
   {empty_line:\\n}
   *paragraph C1
@@ -47,7 +47,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 no_content.texi:l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -68,7 +68,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 no_content.texi:l12 {chapter}
@@ -83,7 +83,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 no_content.texi:l13 {Chapter 1}
  |INFO
@@ -97,7 +97,7 @@ $result_tree_text{'no_content_separate_element'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 1}
   {empty_line:\\n}
   *paragraph C1

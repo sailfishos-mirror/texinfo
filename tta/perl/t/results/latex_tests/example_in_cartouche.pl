@@ -13,7 +13,7 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Normal cartouche\\n}
    {empty_line:\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
   {empty_line:\\n}
   *@cartouche C3 l7
@@ -36,13 +36,13 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@example C3 l8
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C2
      {% pwd\\n}
      {/usr/local/share/emacs\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l12
    |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'example_in_cartouche'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
 ';
 

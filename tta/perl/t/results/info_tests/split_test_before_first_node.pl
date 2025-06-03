@@ -17,7 +17,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {split_test_before_first_node.info}
    {empty_line:\\n}
   *paragraph C1
@@ -35,7 +35,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l6 {top}
  |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -59,7 +59,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -80,7 +80,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l14 {chap1}
@@ -95,7 +95,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap1}
  *@chapter C4 l15 {chap}
  |INFO
@@ -109,7 +109,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

@@ -15,7 +15,7 @@ $result_tree_text{'w_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@w C1 l1
       *brace_container
    *@item C2 l2
@@ -45,7 +45,7 @@ $result_tree_text{'w_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

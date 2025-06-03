@@ -15,7 +15,7 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {C++}
     *block_line_arg C1
     |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {embed}
@@ -73,7 +73,7 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

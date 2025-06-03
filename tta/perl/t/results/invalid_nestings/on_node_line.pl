@@ -77,7 +77,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {exdent}
 ';
 

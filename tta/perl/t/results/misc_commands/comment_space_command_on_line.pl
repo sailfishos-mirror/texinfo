@@ -34,7 +34,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@comment C1
      |{rawline_arg: @node Top\\n}
    |spaces_after_argument:
-    |{  }
+    |{spaces_after_argument:  }
     {Top}
  *@top C2 l4 {top element@ }
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@comment C1
      |{rawline_arg: @top\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {top element}
     *@ 
   {empty_line:\\n}
@@ -70,7 +70,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@comment C1
      |{rawline_arg: @node chap\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {chap}
  *@chapter C16 l7 {Chapter@ }
  |INFO
@@ -87,7 +87,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@comment C1
      |{rawline_arg: @chapter\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {Chapter}
     *@ 
   {empty_line:\\n}
@@ -104,7 +104,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@c C1
      |{rawline_arg: comment frenchspacing\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {on}
   {empty_line:\\n}
   *@microtype C1 l11
@@ -135,7 +135,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@c C1
      |{rawline_arg: index entry\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {index entry }
     *@ 
   {empty_line:\\n}
@@ -152,7 +152,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@c C1
      |{rawline_arg: heading\\n}
    |spaces_after_argument:
-    |{    }
+    |{spaces_after_argument:    }
     {Heading }
     *@ 
   {empty_line:\\n}
@@ -169,7 +169,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |*@c C1
      |{rawline_arg: printindex \\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {cp}
   {empty_line:\\n}
   *@float C3 l19
@@ -188,7 +188,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label}
@@ -206,7 +206,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
      |*@c C1
       |{rawline_arg: end\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l23

@@ -43,7 +43,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C1
@@ -59,7 +59,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@vtable C5 l27:@myvtable
    |INFO
    |spaces_before_argument:
@@ -68,7 +68,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@asis l27:@myvtable
     *table_entry C2
      *table_term C2
@@ -81,7 +81,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {first item}
       *@itemx C1 l27:@myvtable
       |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second itemx}
      *table_definition C3
       {empty_line:\\n}
@@ -110,7 +110,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second item}
      *table_definition C3
       {empty_line:\\n}
@@ -128,7 +128,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {last}
     *@end C1 l27:@myvtable
     |INFO
@@ -139,7 +139,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {vtable}
    {empty_line:\\n}
    *paragraph C1
@@ -152,7 +152,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@emph l27:@myvtable
     *table_entry C2
      *table_term C1
@@ -163,7 +163,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {in item}
      *table_definition C1
       *paragraph C1
@@ -177,7 +177,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second item}
      *table_definition C1
       *paragraph C1
@@ -191,7 +191,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {table}
    *paragraph C1
     {After table.\\n}
@@ -206,7 +206,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -216,7 +216,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted
    >SOURCEMARKS
    >macro_expansion<start;2>
@@ -232,7 +232,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@asis l32:@myvtable
     *table_entry C2
      *table_term C2
@@ -245,7 +245,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {first item}
       *@itemx C1 l32:@myvtable
       |INFO
@@ -256,7 +256,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second itemx}
      *table_definition C1
       *preformatted C3
@@ -274,7 +274,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second item}
      *table_definition C1
       *preformatted C3
@@ -292,7 +292,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {last}
     *@end C1 l32:@myvtable
     |INFO
@@ -303,7 +303,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {vtable}
    *preformatted C2
     {empty_line:\\n}
@@ -316,7 +316,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@emph l32:@myvtable
     *table_entry C2
      *table_term C1
@@ -327,7 +327,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {in item}
      *table_definition C1
       *preformatted C1
@@ -341,7 +341,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {second item}
      *table_definition C1
       *preformatted C1
@@ -355,7 +355,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {table}
    *preformatted C1
     {After table.\\n}
@@ -370,7 +370,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -380,7 +380,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@quotation C7 l37
     *arguments_line C1
     >SOURCEMARKS
@@ -392,7 +392,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@vtable C5 l38:@myvtable
     |INFO
     |spaces_before_argument:
@@ -401,7 +401,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *@asis l38:@myvtable
      *table_entry C2
       *table_term C2
@@ -414,7 +414,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {first item}
        *@itemx C1 l38:@myvtable
        |INFO
@@ -425,7 +425,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {second itemx}
       *table_definition C3
        {empty_line:\\n}
@@ -443,7 +443,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {second item}
       *table_definition C3
        {empty_line:\\n}
@@ -461,7 +461,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {last}
      *@end C1 l38:@myvtable
      |INFO
@@ -472,7 +472,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {vtable}
     {empty_line:\\n}
     *paragraph C1
@@ -485,7 +485,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *@emph l38:@myvtable
      *table_entry C2
       *table_term C1
@@ -496,7 +496,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {in item}
       *table_definition C1
        *paragraph C1
@@ -510,7 +510,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {second item}
       *table_definition C1
        *paragraph C1
@@ -524,7 +524,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {table}
     *paragraph C1
      {After table.\\n}
@@ -539,7 +539,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *@end C1 l40
    |INFO
@@ -550,7 +550,7 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

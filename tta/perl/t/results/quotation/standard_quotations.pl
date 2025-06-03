@@ -15,7 +15,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Note}
    *paragraph C1
     {A Note\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l5
@@ -39,7 +39,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {note}
    *paragraph C1
     {A note\\n}
@@ -52,7 +52,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l9
@@ -63,7 +63,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Caution}
    *paragraph C1
     {Caution\\n}
@@ -76,7 +76,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l13
@@ -87,7 +87,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Important}
    *paragraph C1
     {Important\\n}
@@ -100,7 +100,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l17
@@ -111,7 +111,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Tip}
    *paragraph C1
     {a Tip\\n}
@@ -124,7 +124,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l21
@@ -135,7 +135,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Warning}
    *paragraph C1
     {a Warning.\\n}
@@ -148,7 +148,7 @@ $result_tree_text{'standard_quotations'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

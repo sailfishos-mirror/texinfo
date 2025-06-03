@@ -19,7 +19,7 @@ $result_tree_text{'leading_space_before_menu_star'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a node}
   {empty_line:\\n}
   *@menu C3 l3
@@ -27,7 +27,7 @@ $result_tree_text{'leading_space_before_menu_star'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C1
      { * a node::\\n}
@@ -40,7 +40,7 @@ $result_tree_text{'leading_space_before_menu_star'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

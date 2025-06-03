@@ -23,7 +23,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -40,7 +40,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
   {empty_line:\\n}
  *@node C1 l4 {Top}
@@ -55,7 +55,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l5 {top}
  |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l7
@@ -76,7 +76,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -97,7 +97,7 @@ $result_tree_text{'section_before_top'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

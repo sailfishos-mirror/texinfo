@@ -19,7 +19,7 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C4 l3
@@ -27,7 +27,7 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {Horizontal space\\n}
@@ -51,7 +51,7 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l8 {chap subnode}
@@ -66,7 +66,7 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap subnode}
 ';
 

@@ -20,7 +20,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C23 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@macro C8 l4
@@ -58,7 +58,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C6 l13
@@ -80,7 +80,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C22
@@ -165,7 +165,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@code C1 l22:@testallowcodebreaksexample
      *brace_container C1
@@ -180,7 +180,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
      >SOURCEMARKS
      >macro_expansion<end;2><p:7>
@@ -195,7 +195,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {false}
   *paragraph C22
    {After false\\n}
@@ -279,7 +279,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@code C1 l27:@testallowcodebreaksexample
      *brace_container C1
@@ -294,7 +294,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
      >SOURCEMARKS
      >macro_expansion<end;4><p:7>
@@ -378,7 +378,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@w C1 l34
      *brace_container C1
@@ -395,7 +395,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@allowcodebreaks C1 l37
@@ -408,7 +408,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {true}
   *paragraph C22
    {After true\\n}
@@ -492,7 +492,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@code C1 l40:@testallowcodebreaksexample
      *brace_container C1
@@ -507,7 +507,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
      >SOURCEMARKS
      >macro_expansion<end;7><p:7>

@@ -25,7 +25,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
@@ -54,7 +54,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l7 {chap}
  |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@printindex C1 l9
@@ -81,7 +81,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C1 l11 {@code{append}ix}
@@ -96,7 +96,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 l11
      *brace_container C1
       {append}
@@ -113,7 +113,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {App}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l14
@@ -127,7 +127,7 @@ $result_tree_text{'directions_buttons'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Here}
 ';
 

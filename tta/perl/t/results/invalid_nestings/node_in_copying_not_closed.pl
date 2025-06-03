@@ -12,7 +12,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {This is an unterminatted copyright notice\\n}
@@ -30,7 +30,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l7 {Top section}
  |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top section}
   {empty_line:\\n}
   *@insertcopying C1 l9

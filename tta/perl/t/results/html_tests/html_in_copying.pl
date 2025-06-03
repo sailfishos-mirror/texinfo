@@ -13,7 +13,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Copying\\n}
    {empty_line:\\n}
@@ -22,7 +22,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in <b>html</b> in copying `` \\n}
     *@end C1 l7
@@ -34,7 +34,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    *@end C1 l8
    |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
  *@node C1 l10 {Top}
@@ -60,7 +60,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l11 {top}
  |INFO
@@ -73,7 +73,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
 ';

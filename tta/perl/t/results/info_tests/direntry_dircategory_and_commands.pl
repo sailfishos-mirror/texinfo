@@ -14,7 +14,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {``category---}
     *@var C1 l1
      *brace_container C1
@@ -25,7 +25,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C6 l3
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -54,7 +54,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {direntry}
   {empty_line:\\n}
   *@dircategory C1 l6
@@ -64,14 +64,14 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cat2}
   *@direntry C4 l7
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C2
@@ -98,7 +98,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {direntry}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -114,7 +114,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l16 {Test dircategory and direntry}
  |INFO
@@ -127,7 +127,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test dircategory and direntry}
   {empty_line:\\n}
   *paragraph C1

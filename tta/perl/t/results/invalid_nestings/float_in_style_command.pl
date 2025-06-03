@@ -27,7 +27,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {B}
@@ -47,7 +47,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
 ';
 

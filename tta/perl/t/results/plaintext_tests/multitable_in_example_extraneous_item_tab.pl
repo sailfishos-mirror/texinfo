@@ -12,7 +12,7 @@ $result_tree_text{'multitable_in_example_extraneous_item_tab'} = '*document_root
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@multitable C3 l2
    |INFO
    |spaces_before_argument:
@@ -23,7 +23,7 @@ $result_tree_text{'multitable_in_example_extraneous_item_tab'} = '*document_root
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {a}
     *before_item C4
      *preformatted C2
@@ -46,7 +46,7 @@ $result_tree_text{'multitable_in_example_extraneous_item_tab'} = '*document_root
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {multitable}
    *@end C1 l6
    |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'multitable_in_example_extraneous_item_tab'} = '*document_root
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

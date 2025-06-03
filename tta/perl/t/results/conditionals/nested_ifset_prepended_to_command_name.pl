@@ -18,7 +18,7 @@ $result_tree_text{'nested_ifset_prepended_to_command_name'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
     >{raw:@ifsettoto b\\n}
     >{raw:GG\\n}
@@ -31,7 +31,7 @@ $result_tree_text{'nested_ifset_prepended_to_command_name'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

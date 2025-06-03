@@ -25,7 +25,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@set C2
@@ -49,7 +49,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{flag}
   *paragraph C1
    {Defined\\n}
@@ -64,7 +64,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:2>

@@ -25,7 +25,7 @@ $result_tree_text{'line_after_recursive_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C3
    {ggg\\n}

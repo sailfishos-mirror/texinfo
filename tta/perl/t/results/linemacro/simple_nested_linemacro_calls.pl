@@ -19,7 +19,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@linemacro C3 l3
@@ -38,7 +38,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@linemacro C4 l7
@@ -58,7 +58,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@defblock C4 l12
@@ -85,7 +85,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defline C1 l13:@outside
    |INFO
    |spaces_before_argument:
@@ -100,7 +100,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {type}
@@ -166,7 +166,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {a function}
       >SOURCEMARKS
       >linemacro_expansion<end;1><p:10>
@@ -179,7 +179,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

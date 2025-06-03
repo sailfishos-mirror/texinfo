@@ -19,7 +19,7 @@ $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {start}
  *@top C1 l2
  |EXTRA
@@ -29,7 +29,7 @@ $result_tree_text{'top_no_argument_and_node'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

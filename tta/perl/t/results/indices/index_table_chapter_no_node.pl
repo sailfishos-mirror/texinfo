@@ -23,7 +23,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 index_table.texi:l4 {Test for indices}
  |INFO
@@ -36,14 +36,14 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test for indices}
   *@menu C5 index_table.texi:l5
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_table.texi:l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -86,7 +86,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 index_table.texi:l11 {node with ftable and vtable}
@@ -101,7 +101,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node with ftable and vtable}
  *@chapter C13 index_table.texi:l12 {first node chapter, with ftable and vtable}
  |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first node chapter, with ftable and vtable}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_table.texi:l14
@@ -129,7 +129,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry in node}
   {empty_line:\\n}
   *paragraph C2
@@ -145,7 +145,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {an second index entry in node}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -158,7 +158,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet index_table.texi:l21
    *table_entry C2
     *table_term C2
@@ -172,7 +172,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {var1}
      *@itemx C1 index_table.texi:l23
      |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {var2}
     *table_definition C1
      *paragraph C1
@@ -198,7 +198,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *paragraph C1
@@ -211,7 +211,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet index_table.texi:l28
    *table_entry C2
     *table_term C2
@@ -225,7 +225,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {fun1}
      *@itemx C1 index_table.texi:l30
      |INFO
@@ -237,7 +237,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {fun2}
     *table_definition C1
      *paragraph C1
@@ -254,7 +254,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {more fun}
     *table_definition C1
      *paragraph C1
@@ -268,7 +268,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ftable}
   {empty_line:\\n}
  *@node C1 index_table.texi:l36 {node with printindex}
@@ -284,7 +284,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node with printindex}
  *@chapter C6 index_table.texi:l37 {node with printindex}
  |INFO
@@ -298,7 +298,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node with printindex}
   {empty_line:\\n}
   *@printindex C1 index_table.texi:l39
@@ -311,7 +311,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   *@printindex C1 index_table.texi:l40
   |INFO
@@ -323,7 +323,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {vr}
   *@printindex C1 index_table.texi:l41
   |INFO
@@ -335,7 +335,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C1 index_table.texi:l43 {indices refs}
@@ -351,7 +351,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {indices refs}
  *@chapter C135 index_table.texi:l44 {Indices refs}
  |INFO
@@ -365,14 +365,14 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Indices refs}
   *@menu C3 index_table.texi:l45
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_table.texi:l46
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -393,7 +393,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   *index_entry_command@cindex C1 index_table.texi:l48
   |INFO
@@ -406,7 +406,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l49
   |INFO
@@ -419,7 +419,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {aoncept}
   *index_entry_command@cindex C1 index_table.texi:l50
   |INFO
@@ -432,7 +432,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {zoncept}
   *index_entry_command@cindex C1 index_table.texi:l51
   |INFO
@@ -445,7 +445,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {eoncept}
   *index_entry_command@cindex C1 index_table.texi:l52
   |INFO
@@ -458,7 +458,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {roncept}
   *index_entry_command@cindex C1 index_table.texi:l53
   |INFO
@@ -471,7 +471,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {toncept}
   *index_entry_command@cindex C1 index_table.texi:l54
   |INFO
@@ -484,7 +484,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {yoncept}
   *index_entry_command@cindex C1 index_table.texi:l55
   |INFO
@@ -497,7 +497,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {uoncept}
   *index_entry_command@cindex C1 index_table.texi:l56
   |INFO
@@ -510,7 +510,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ioncept}
   *index_entry_command@cindex C1 index_table.texi:l57
   |INFO
@@ -523,7 +523,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ooncept}
   *index_entry_command@cindex C1 index_table.texi:l58
   |INFO
@@ -536,7 +536,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {poncept}
   *index_entry_command@cindex C1 index_table.texi:l59
   |INFO
@@ -549,7 +549,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {qoncept}
   *index_entry_command@cindex C1 index_table.texi:l60
   |INFO
@@ -562,7 +562,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concep}
   *index_entry_command@cindex C1 index_table.texi:l61
   |INFO
@@ -575,7 +575,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {rsconcept}
   *index_entry_command@cindex C1 index_table.texi:l62
   |INFO
@@ -588,7 +588,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {soncept}
   *index_entry_command@cindex C1 index_table.texi:l63
   |INFO
@@ -601,7 +601,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {doncept}
   *index_entry_command@cindex C1 index_table.texi:l64
   |INFO
@@ -614,7 +614,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foncept}
   *index_entry_command@cindex C1 index_table.texi:l65
   |INFO
@@ -627,7 +627,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {goncept}
   *index_entry_command@cindex C1 index_table.texi:l66
   |INFO
@@ -640,7 +640,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {honcept}
   *index_entry_command@cindex C1 index_table.texi:l67
   |INFO
@@ -653,7 +653,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {joncept}
   *index_entry_command@cindex C1 index_table.texi:l68
   |INFO
@@ -666,7 +666,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {koncept}
   *index_entry_command@cindex C1 index_table.texi:l69
   |INFO
@@ -679,7 +679,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {loncept}
   *index_entry_command@cindex C1 index_table.texi:l70
   |INFO
@@ -692,7 +692,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {moncept}
   *index_entry_command@cindex C1 index_table.texi:l71
   |INFO
@@ -705,7 +705,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {roncept}
   *index_entry_command@cindex C1 index_table.texi:l72
   |INFO
@@ -718,7 +718,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {woncept}
   *index_entry_command@cindex C1 index_table.texi:l73
   |INFO
@@ -731,7 +731,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {xoncept}
   *index_entry_command@cindex C1 index_table.texi:l74
   |INFO
@@ -744,7 +744,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {voncept}
   *index_entry_command@cindex C1 index_table.texi:l75
   |INFO
@@ -757,7 +757,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {boncept}
   *index_entry_command@cindex C1 index_table.texi:l76
   |INFO
@@ -770,7 +770,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {noncept}
   *index_entry_command@cindex C1 index_table.texi:l77
   |INFO
@@ -783,7 +783,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {,oncept}
   *index_entry_command@cindex C1 index_table.texi:l78
   |INFO
@@ -796,7 +796,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {?oncept}
   *index_entry_command@cindex C1 index_table.texi:l79
   |INFO
@@ -809,7 +809,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {;oncept}
   *index_entry_command@cindex C1 index_table.texi:l80
   |INFO
@@ -822,7 +822,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {/oncept}
   *index_entry_command@cindex C1 index_table.texi:l81
   |INFO
@@ -835,7 +835,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {!oncept}
   *index_entry_command@cindex C1 index_table.texi:l82
   |INFO
@@ -848,7 +848,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cancept}
   *index_entry_command@cindex C1 index_table.texi:l83
   |INFO
@@ -861,7 +861,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {czncept}
   *index_entry_command@cindex C1 index_table.texi:l84
   |INFO
@@ -874,7 +874,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cencept}
   *index_entry_command@cindex C1 index_table.texi:l85
   |INFO
@@ -887,7 +887,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ctncept}
   *index_entry_command@cindex C1 index_table.texi:l86
   |INFO
@@ -900,7 +900,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cyncept}
   *index_entry_command@cindex C1 index_table.texi:l87
   |INFO
@@ -913,7 +913,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cuncept}
   *index_entry_command@cindex C1 index_table.texi:l88
   |INFO
@@ -926,7 +926,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cincept}
   *index_entry_command@cindex C1 index_table.texi:l89
   |INFO
@@ -939,7 +939,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l90
   |INFO
@@ -952,7 +952,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cpncept}
   *index_entry_command@cindex C1 index_table.texi:l91
   |INFO
@@ -965,7 +965,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cqncept}
   *index_entry_command@cindex C1 index_table.texi:l92
   |INFO
@@ -978,7 +978,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {csncept}
   *index_entry_command@cindex C1 index_table.texi:l93
   |INFO
@@ -991,7 +991,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cdncept}
   *index_entry_command@cindex C1 index_table.texi:l94
   |INFO
@@ -1004,7 +1004,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cfncept}
   *index_entry_command@cindex C1 index_table.texi:l95
   |INFO
@@ -1017,7 +1017,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cgncept}
   *index_entry_command@cindex C1 index_table.texi:l96
   |INFO
@@ -1030,7 +1030,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chncept}
   *index_entry_command@cindex C1 index_table.texi:l97
   |INFO
@@ -1043,7 +1043,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cjncept}
   *index_entry_command@cindex C1 index_table.texi:l98
   |INFO
@@ -1056,7 +1056,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ckncept}
   *index_entry_command@cindex C1 index_table.texi:l99
   |INFO
@@ -1069,7 +1069,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {clncept}
   *index_entry_command@cindex C1 index_table.texi:l100
   |INFO
@@ -1082,7 +1082,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cmncept}
   *index_entry_command@cindex C1 index_table.texi:l101
   |INFO
@@ -1095,7 +1095,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {csdcept}
   *index_entry_command@cindex C1 index_table.texi:l102
   |INFO
@@ -1108,7 +1108,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cxncept}
   *index_entry_command@cindex C1 index_table.texi:l103
   |INFO
@@ -1121,7 +1121,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cvncept}
   *index_entry_command@cindex C1 index_table.texi:l104
   |INFO
@@ -1134,7 +1134,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cbncept}
   *index_entry_command@cindex C1 index_table.texi:l105
   |INFO
@@ -1147,7 +1147,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cnncept}
   *index_entry_command@cindex C1 index_table.texi:l106
   |INFO
@@ -1160,7 +1160,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c,ncept}
   *index_entry_command@cindex C1 index_table.texi:l107
   |INFO
@@ -1173,7 +1173,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {crncept}
   *index_entry_command@cindex C1 index_table.texi:l108
   |INFO
@@ -1186,7 +1186,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l109
   |INFO
@@ -1199,7 +1199,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l110
   |INFO
@@ -1212,7 +1212,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l111
   |INFO
@@ -1225,7 +1225,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l112
   |INFO
@@ -1238,7 +1238,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l113
   |INFO
@@ -1251,7 +1251,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l114
   |INFO
@@ -1264,7 +1264,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l115
   |INFO
@@ -1277,7 +1277,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l116
   |INFO
@@ -1290,7 +1290,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l117
   |INFO
@@ -1303,7 +1303,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l118
   |INFO
@@ -1316,7 +1316,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l119
   |INFO
@@ -1329,7 +1329,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l120
   |INFO
@@ -1342,7 +1342,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l121
   |INFO
@@ -1355,7 +1355,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l122
   |INFO
@@ -1368,7 +1368,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l123
   |INFO
@@ -1381,7 +1381,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l124
   |INFO
@@ -1394,7 +1394,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l125
   |INFO
@@ -1407,7 +1407,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l126
   |INFO
@@ -1420,7 +1420,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l127
   |INFO
@@ -1433,7 +1433,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l128
   |INFO
@@ -1446,7 +1446,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l129
   |INFO
@@ -1459,7 +1459,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l130
   |INFO
@@ -1472,7 +1472,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l131
   |INFO
@@ -1485,7 +1485,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l132
   |INFO
@@ -1498,7 +1498,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l133
   |INFO
@@ -1511,7 +1511,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l134
   |INFO
@@ -1524,7 +1524,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l135
   |INFO
@@ -1537,7 +1537,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l136
   |INFO
@@ -1550,7 +1550,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l137
   |INFO
@@ -1563,7 +1563,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l138
   |INFO
@@ -1576,7 +1576,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l139
   |INFO
@@ -1589,7 +1589,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l140
   |INFO
@@ -1602,7 +1602,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l141
   |INFO
@@ -1615,7 +1615,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l142
   |INFO
@@ -1628,7 +1628,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l143
   |INFO
@@ -1641,7 +1641,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l144
   |INFO
@@ -1654,7 +1654,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l145
   |INFO
@@ -1667,7 +1667,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l146
   |INFO
@@ -1680,7 +1680,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l147
   |INFO
@@ -1693,7 +1693,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l148
   |INFO
@@ -1706,7 +1706,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l149
   |INFO
@@ -1719,7 +1719,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l150
   |INFO
@@ -1732,7 +1732,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l151
   |INFO
@@ -1745,7 +1745,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l152
   |INFO
@@ -1758,7 +1758,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l153
   |INFO
@@ -1771,7 +1771,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l154
   |INFO
@@ -1784,7 +1784,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l155
   |INFO
@@ -1797,7 +1797,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l156
   |INFO
@@ -1810,7 +1810,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l157
   |INFO
@@ -1823,7 +1823,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l158
   |INFO
@@ -1836,7 +1836,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l159
   |INFO
@@ -1849,7 +1849,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l160
   |INFO
@@ -1862,7 +1862,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l161
   |INFO
@@ -1875,7 +1875,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l162
   |INFO
@@ -1888,7 +1888,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l163
   |INFO
@@ -1901,7 +1901,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l164
   |INFO
@@ -1914,7 +1914,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l165
   |INFO
@@ -1927,7 +1927,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l166
   |INFO
@@ -1940,7 +1940,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l167
   |INFO
@@ -1953,7 +1953,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l168
   |INFO
@@ -1966,7 +1966,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l169
   |INFO
@@ -1979,7 +1979,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l170
   |INFO
@@ -1992,7 +1992,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l171
   |INFO
@@ -2005,7 +2005,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l172
   |INFO
@@ -2018,7 +2018,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l173
   |INFO
@@ -2031,7 +2031,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l174
   |INFO
@@ -2044,7 +2044,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l175
   |INFO
@@ -2057,7 +2057,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {concept}
   *@c C1
    {rawline_arg: @printindex fn\\n}
@@ -2074,7 +2074,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C1 index_table.texi:l181 {node}
@@ -2093,7 +2093,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
  *@section C5 index_table.texi:l182 {node}
  |INFO
  |spaces_before_argument:
@@ -2106,7 +2106,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
   {empty_line:\\n}
   *paragraph C1

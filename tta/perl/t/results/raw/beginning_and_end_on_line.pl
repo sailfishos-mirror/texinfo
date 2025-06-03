@@ -16,7 +16,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {in tex}
    *@end C1 l2
    |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@verbatim C2 l4
@@ -38,7 +38,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {in verbatim}
    *@end C1 l4
    |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *@html C2 l6
@@ -60,7 +60,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {in html}
    *@end C1 l6
    |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

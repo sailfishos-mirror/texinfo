@@ -15,7 +15,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:in ifinfo\\n}
     >*@end C1 l3
     >|INFO
@@ -26,7 +26,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifinfo}
   >ignored_conditional_block<2>
    >*@iftex C3 l4
@@ -34,7 +34,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:in iftex\\n}
     >*@end C1 l6
     >|INFO
@@ -45,7 +45,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{iftex}
   {empty_line:\\n}
   *@set C2
@@ -64,7 +64,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{b}
     >{raw:in ifclear\\n}
     >*@end C1 l12
@@ -76,7 +76,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifclear}
   >ignored_conditional_block<4><p:1>
    >*@ifset C3 l13
@@ -87,7 +87,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
     >{raw:in ifset\\n}
     >*@end C1 l15
@@ -99,7 +99,7 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'title_and_itemx_before_item'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l1
    *before_item C1
     *paragraph C1
@@ -29,7 +29,7 @@ $result_tree_text{'title_and_itemx_before_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in itemx}
    *@end C1 l4
    |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'title_and_itemx_before_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

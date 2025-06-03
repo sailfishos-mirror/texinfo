@@ -15,7 +15,7 @@ $result_tree_text{'quotation_beginning_and_end_on_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {in quotation}
    *@end C1 l1
    |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'quotation_beginning_and_end_on_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

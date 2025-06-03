@@ -14,7 +14,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Centered text with a footnote}
     *@footnote C1 l1
     |EXTRA
@@ -29,7 +29,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *@table C3 l5
        |INFO
        |spaces_before_argument:
@@ -38,7 +38,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
          *block_line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           *@asis l5
         *table_entry C2
          *table_term C1
@@ -49,7 +49,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
            *line_arg C1
            |INFO
            |spaces_after_argument:
-            |{\\n}
+            |{spaces_after_argument:\\n}
             {item}
          *table_definition C1
           *preformatted C1
@@ -63,7 +63,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{ \\n}
+          |{spaces_after_argument: \\n}
           {table}
        *@end C1 l9
        |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {example}
     { and text after the footnote.}
 ';

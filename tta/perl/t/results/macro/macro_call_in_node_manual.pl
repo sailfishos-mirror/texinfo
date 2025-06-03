@@ -23,7 +23,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l5
@@ -42,7 +42,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l9
@@ -61,7 +61,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l13
@@ -80,7 +80,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l17
@@ -99,7 +99,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l21
@@ -118,7 +118,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@menu C10 l25
@@ -126,7 +126,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l26
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -328,7 +328,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

@@ -24,7 +24,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@menu C3 l6
@@ -32,7 +32,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C4
      {* a5}
@@ -78,7 +78,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

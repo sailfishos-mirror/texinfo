@@ -19,7 +19,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C16 l5 {Chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@itemize C3 l7
@@ -72,7 +72,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@inlineraw l7
    *@item C2 l8
    |EXTRA
@@ -89,7 +89,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C4 l11
@@ -100,7 +100,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@image l11
    *@item C2 l12
    |EXTRA
@@ -123,7 +123,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C4 l16
@@ -134,7 +134,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@footnote l16
    *@item C2 l17
    |EXTRA
@@ -162,7 +162,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l25
@@ -173,7 +173,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@caption l25
    *@item C2 l26
    |EXTRA
@@ -190,7 +190,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C4 l29
@@ -201,7 +201,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@math l29
    *@item C2 l30
    |EXTRA
@@ -232,7 +232,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C4 l37
@@ -243,7 +243,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@anchor l37
    *@item C2 l38
    |EXTRA
@@ -266,7 +266,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l42
@@ -277,7 +277,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@verb l42
    *@item C2 l43
    |EXTRA
@@ -294,7 +294,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
 ';

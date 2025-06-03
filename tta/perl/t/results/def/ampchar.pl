@@ -37,7 +37,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l1
        {Constructor}
@@ -67,7 +67,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defop}
   *paragraph C11
    {& }

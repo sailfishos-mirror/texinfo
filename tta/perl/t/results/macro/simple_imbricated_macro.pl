@@ -26,7 +26,7 @@ $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C2
@@ -53,7 +53,7 @@ $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
       >SOURCEMARKS
       >macro_expansion<end;1><p:5>

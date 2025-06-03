@@ -20,7 +20,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
@@ -48,7 +48,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C7 l5 {chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@itemize C4 l7
@@ -73,7 +73,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@minus l7
    *before_item C2
     *@c C1
@@ -89,7 +89,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {also a cindex in itemize}
    *@item C2 l10
    |EXTRA
@@ -106,7 +106,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C5 l13
@@ -117,7 +117,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet l13
    *before_item C1
     *index_entry_command@cindex C1 l14
@@ -131,7 +131,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {index entry within itemize}
    *@item C2 l15
    |EXTRA
@@ -154,7 +154,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {index entry right after }
       *@@
       {item}
@@ -169,7 +169,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C4 l20
@@ -177,7 +177,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C2
     *@c C1
      {rawline_arg: comment in itemize\\n}
@@ -194,7 +194,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {also a cindex in itemize}
    *@item C2 l24
    |EXTRA
@@ -211,7 +211,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

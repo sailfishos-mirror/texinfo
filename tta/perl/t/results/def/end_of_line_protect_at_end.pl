@@ -24,7 +24,7 @@ $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *def_category C1
       *def_line_arg C1
        {category2}

@@ -19,7 +19,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C65 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   *@xrefname C1 l3
   |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@defvr C3 l5
@@ -66,7 +66,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -86,7 +86,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defvr}
   {empty_line:\\n}
   *@deffn C3 l9
@@ -106,7 +106,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -130,7 +130,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C3 l13
@@ -150,7 +150,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -170,7 +170,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deftypefn C3 l17
@@ -190,7 +190,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -218,7 +218,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypefn C3 l21
@@ -238,7 +238,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -262,7 +262,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypeop C3 l25
@@ -296,7 +296,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -328,7 +328,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypeop C3 l29
@@ -362,7 +362,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -390,7 +390,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypevr C3 l33
@@ -410,7 +410,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -434,7 +434,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypevr}
   {empty_line:\\n}
   *@defcv C3 l37
@@ -454,7 +454,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -478,7 +478,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defcv}
   {empty_line:\\n}
   *@defcv C3 l41
@@ -498,7 +498,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -526,7 +526,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defcv}
   {empty_line:\\n}
   *@deftypecv C3 l45
@@ -560,7 +560,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -588,7 +588,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@deftypecv C3 l49
@@ -622,7 +622,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -654,7 +654,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@defop C3 l53
@@ -688,7 +688,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -716,7 +716,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defop}
   {empty_line:\\n}
   *@defop C3 l57
@@ -750,7 +750,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -774,7 +774,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defop}
   {empty_line:\\n}
   *@deftp C3 l61
@@ -794,7 +794,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -818,7 +818,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftp}
   {empty_line:\\n}
   *@defun C3 l65
@@ -838,7 +838,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -864,7 +864,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defun}
   {empty_line:\\n}
   *@defmac C3 l69
@@ -884,7 +884,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -910,7 +910,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defmac}
   {empty_line:\\n}
   *@defspec C3 l73
@@ -930,7 +930,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -956,7 +956,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defspec}
   {empty_line:\\n}
   *@defvar C3 l77
@@ -976,7 +976,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -998,7 +998,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defvar}
   {empty_line:\\n}
   *@defvar C3 l81
@@ -1018,7 +1018,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1048,7 +1048,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defvar}
   {empty_line:\\n}
   *@defopt C3 l85
@@ -1068,7 +1068,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1090,7 +1090,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defopt}
   {empty_line:\\n}
   *@deftypefun C3 l89
@@ -1110,7 +1110,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1140,7 +1140,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefun}
   {empty_line:\\n}
   *@deftypevar C3 l93
@@ -1160,7 +1160,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1186,7 +1186,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypevar}
   {empty_line:\\n}
   *@defivar C3 l97
@@ -1220,7 +1220,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1246,7 +1246,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
   *@deftypeivar C3 l101
@@ -1280,7 +1280,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1310,7 +1310,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeivar}
   {empty_line:\\n}
   *@defmethod C3 l105
@@ -1344,7 +1344,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1374,7 +1374,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defmethod}
   {empty_line:\\n}
   *@deftypemethod C3 l109
@@ -1408,7 +1408,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1442,7 +1442,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypemethod}
   {empty_line:\\n}
   *@heading C1 l113
@@ -1455,7 +1455,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Functions}
   *@printindex C1 l114
   |INFO
@@ -1467,7 +1467,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *@heading C1 l116
@@ -1480,7 +1480,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Types}
   *@printindex C1 l117
   |INFO
@@ -1492,7 +1492,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {tp}
   {empty_line:\\n}
   *@heading C1 l119
@@ -1505,7 +1505,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Variables}
   *@printindex C1 l120
   |INFO
@@ -1517,7 +1517,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {vr}
 ';
 

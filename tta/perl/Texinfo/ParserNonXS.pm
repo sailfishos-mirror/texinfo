@@ -3135,13 +3135,17 @@ sub _abort_empty_line($$) {
   }
 }
 
-sub _isolate_trailing_spaces_element($)
+sub _isolate_trailing_spaces_element($;$)
 {
   my $element = shift;
+  my $type = shift;
   my $new_space_element;
 
   if ($element->{'text'} =~ s/(\s+)$//) {
     $new_space_element = Texinfo::TreeElement::new({'text' => $1});
+    if (defined($type)) {
+      $new_space_element->{'type'} = $type;
+    }
     if ($element->{'source_marks'}) {
       my $current_position = length($element->{'text'});
       Texinfo::Common::relocate_source_marks(
@@ -3222,7 +3226,7 @@ sub _isolate_last_space
         if (!$e_type or !$trailing_space_types{$e_type}) {
           my $spaces_after_argument = _pop_element_from_contents($self, $current);
           delete $spaces_after_argument->{'parent'};
-          delete $spaces_after_argument->{'type'};
+          $spaces_after_argument->{'type'} = 'spaces_after_argument';
           $current->{'info'} = {} if (!exists($current->{'info'}));
           $current->{'info'}->{'spaces_after_argument'}
                = $spaces_after_argument;
@@ -3232,7 +3236,9 @@ sub _isolate_last_space
           return;
         }
       } else {
-        my $new_space_element = _isolate_trailing_spaces_element($last_element);
+        my $new_space_element
+          = _isolate_trailing_spaces_element($last_element,
+                                             'spaces_after_argument');
         if ($new_space_element) {
           $current->{'info'} = {} if (!exists($current->{'info'}));
           $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
@@ -5936,7 +5942,8 @@ sub _handle_line_command($$$$$$)
         = Texinfo::TreeElement::new({'type' => 'line_arg',
                             'parent' => $command_e,
                             'info' => {'spaces_after_argument'
-                    => Texinfo::TreeElement::new({'text' => "\n",})}});
+                    => Texinfo::TreeElement::new({'text' => "\n",
+                                'type' => 'spaces_after_argument'})}});
       $command_e->{'contents'} = [$misc_line_args];
       $misc_line_args->{'contents'} = [
         Texinfo::TreeElement::new({ 'text' => $arg,

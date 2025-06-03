@@ -13,7 +13,7 @@ $result_tree_text{'defblock_no_defline'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_defline C1
     *paragraph C1
      {misc text inside\\n}
@@ -26,7 +26,7 @@ $result_tree_text{'defblock_no_defline'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

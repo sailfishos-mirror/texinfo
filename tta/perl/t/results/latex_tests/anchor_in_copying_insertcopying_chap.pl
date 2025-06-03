@@ -13,7 +13,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C3
      {Cop. }
      *@anchor C1 l2
@@ -34,7 +34,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
  *@node C1 l5 {Top}
@@ -49,7 +49,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l6 {top}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l8 {Chapter}
@@ -77,7 +77,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@chapter C7 l9 {Chap}
  |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C2

@@ -19,7 +19,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@float C4 l3
@@ -38,7 +38,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {text1}
@@ -56,7 +56,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C4 l7
@@ -75,7 +75,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {text2}
@@ -93,7 +93,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l11
@@ -106,7 +106,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Text}
 ';
 

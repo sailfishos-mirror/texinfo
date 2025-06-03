@@ -15,7 +15,7 @@ $result_tree_text{'titlefont_in_center'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@titlefont C1 l2
     |EXTRA
     |global_command_number:{1}

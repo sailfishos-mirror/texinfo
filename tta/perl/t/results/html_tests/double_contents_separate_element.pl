@@ -28,7 +28,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 double_contents.texi:l6 {Double contents}
  |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Double contents}
   {empty_line:\\n}
   *paragraph C1
@@ -52,7 +52,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 double_contents.texi:l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -73,7 +73,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 double_contents.texi:l14 {chapter}
@@ -88,7 +88,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C7 double_contents.texi:l15 {Chapter 1}
  |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 1}
   {empty_line:\\n}
   *@contents C1 double_contents.texi:l17
@@ -117,7 +117,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 double_contents.texi:l21
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -138,7 +138,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 double_contents.texi:l24 {section}
@@ -153,7 +153,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C3 double_contents.texi:l25 {section with contents}
  |INFO
@@ -167,7 +167,7 @@ $result_tree_text{'double_contents_separate_element'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section with contents}
   *@contents C1 double_contents.texi:l26
   |EXTRA

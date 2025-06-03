@@ -27,7 +27,7 @@ $result_tree_text{'empty_images'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {cc}
    *brace_arg C1
     {dd}

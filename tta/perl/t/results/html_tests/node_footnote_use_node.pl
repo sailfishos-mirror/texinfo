@@ -26,7 +26,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C6 node_footnote.texi:l7
@@ -34,7 +34,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 node_footnote.texi:l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -94,7 +94,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 node_footnote.texi:l14 {@\'a}
@@ -109,7 +109,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@\' C1 node_footnote.texi:l14
      *following_arg C1
       {a}
@@ -144,7 +144,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 node_footnote.texi:l19
      *following_arg C1
       {a}
@@ -179,7 +179,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 node_footnote.texi:l25 {chapter}
  |INFO
@@ -193,7 +193,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@menu C3 node_footnote.texi:l27
@@ -201,7 +201,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 node_footnote.texi:l28
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -224,7 +224,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 node_footnote.texi:l31 {@`a}
@@ -239,7 +239,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@` C1 node_footnote.texi:l31
      *following_arg C1
       {a}

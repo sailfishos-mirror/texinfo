@@ -18,7 +18,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {split_no_copying.info}
   {empty_line:\\n}
  *@node C1 l4 {Top}
@@ -33,7 +33,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l5 {Top}
  |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C1
@@ -57,7 +57,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -78,7 +78,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l13 {Ch1}
@@ -93,7 +93,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ch1}
  *@chapter C4 l14 {Ch1}
  |INFO
@@ -107,7 +107,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ch1}
   {empty_line:\\n}
   *paragraph C1

@@ -23,7 +23,7 @@ $result_tree_text{'empty_set_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
   *paragraph C1
    {a is set to:||.\\n}

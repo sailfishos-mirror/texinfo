@@ -18,7 +18,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C3 l2
       {truc AAAA }
       *@ 
@@ -44,7 +44,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
         *block_line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          *bracketed_arg C1 l4
           {AAAA}
          { }
@@ -75,7 +75,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {multitable}
       {spaces_before_paragraph: }
      *@tab C2 l7
@@ -108,7 +108,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

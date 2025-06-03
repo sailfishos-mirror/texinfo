@@ -12,7 +12,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:No space no comment\\n}
    *@end C1 l3
    |INFO
@@ -23,7 +23,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   {empty_line:\\n}
   *@ignore C3 l5
@@ -31,7 +31,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
    {raw:Spaces no comment\\n}
    *@end C1 l7
    |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   {empty_line:\\n}
   *@ignore C3 l9
@@ -62,7 +62,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   {empty_line:\\n}
   *@ignore C3 l13
@@ -85,7 +85,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   {empty_line:\\n}
   *@ignore C3 l17
@@ -108,7 +108,7 @@ $result_tree_text{'ignore_spaces_and_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
 ';
 

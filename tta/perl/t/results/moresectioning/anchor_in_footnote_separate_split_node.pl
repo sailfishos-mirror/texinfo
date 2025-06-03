@@ -17,7 +17,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {separate}
  *@node C1 l2 {Top}
  |INFO
@@ -31,7 +31,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l3 {Top}
  |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C3
@@ -69,7 +69,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -90,7 +90,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l13 {chapter}
@@ -105,7 +105,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l14 {Chap}
  |INFO
@@ -119,7 +119,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C2

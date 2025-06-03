@@ -18,7 +18,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fr}
    {empty_line:\\n}
    *@copying C3 l3
@@ -26,7 +26,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@defivar C3 l4
     |INFO
     |spaces_before_argument:
@@ -59,7 +59,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
       *block_line_arg C7
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
        |INFO
        |inserted:{1}
@@ -94,7 +94,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {defivar}
     *@end C1 l7
     |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@documentlanguage C1 l9
@@ -118,7 +118,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {hr}
    {empty_line:\\n}
   *paragraph C1
@@ -134,7 +134,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {de}
   {empty_line:\\n}
  *@node C1 l15 {Top}
@@ -149,7 +149,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l16 {top section}
  |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l18 {chapter}
@@ -177,7 +177,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C3 l19 {chap}
  |INFO
@@ -191,7 +191,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@defivar C3 l21
@@ -226,7 +226,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -261,7 +261,7 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
 ';
 

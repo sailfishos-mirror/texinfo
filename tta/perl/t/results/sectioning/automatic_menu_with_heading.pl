@@ -19,7 +19,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l4
@@ -45,7 +45,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
   *paragraph C2
@@ -69,7 +69,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {heading or chapter}
   *@heading C1 l9
   |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Heading}
   {empty_line:\\n}
  *@chapter C2 l11 {Chapter}
@@ -96,7 +96,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
 ';

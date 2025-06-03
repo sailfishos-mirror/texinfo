@@ -21,7 +21,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
@@ -36,7 +36,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C1 l5 {Chap}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
 ';
 

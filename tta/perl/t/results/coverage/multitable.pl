@@ -25,7 +25,7 @@ $result_tree_text{'multitable'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.6 0.4}
    *multitable_head C1
     *row C2
@@ -86,7 +86,7 @@ $result_tree_text{'multitable'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {index entry within multitable}
     *row C1
     |EXTRA
@@ -106,7 +106,7 @@ $result_tree_text{'multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C3 l11
@@ -119,7 +119,7 @@ $result_tree_text{'multitable'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l11
       {truc}
      { }
@@ -150,7 +150,7 @@ $result_tree_text{'multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

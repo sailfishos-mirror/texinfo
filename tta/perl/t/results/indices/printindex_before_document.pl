@@ -18,7 +18,7 @@ $result_tree_text{'printindex_before_document'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
 ';
 

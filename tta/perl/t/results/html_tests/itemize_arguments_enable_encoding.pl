@@ -18,7 +18,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {---}
    *@item C2 l3
    |EXTRA
@@ -35,7 +35,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l6
@@ -46,7 +46,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a\'\'b\'c}
    *@item C2 l7
    |EXTRA
@@ -63,7 +63,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l10
@@ -74,7 +74,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code C1 l10
       *brace_container C1
        {a\'\'b\'c}
@@ -97,7 +97,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l14
@@ -108,7 +108,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a``b`c}
    *@item C2 l15
    |EXTRA
@@ -125,7 +125,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l18
@@ -136,7 +136,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a\'"}
    *@item C2 l19
    |EXTRA
@@ -153,7 +153,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l22
@@ -164,7 +164,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {b\\<&}
    *@item C2 l23
    |EXTRA
@@ -181,7 +181,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l26
@@ -192,7 +192,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@today l26
    *@item C2 l27
    |EXTRA
@@ -212,7 +212,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l30
@@ -223,7 +223,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@aa C1 l30
       *brace_container
      { }
@@ -254,7 +254,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l34
@@ -265,7 +265,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@tie C1 l34
       *brace_container
    *@item C2 l35
@@ -286,7 +286,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l38
@@ -297,7 +297,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@tie C1 l38
       *brace_container
      { a}
@@ -319,7 +319,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l42
@@ -330,7 +330,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@atchar l42
    *@item C2 l43
    |EXTRA
@@ -347,7 +347,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l46
@@ -358,7 +358,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@atchar C1 l46
       *brace_container
      { a}
@@ -380,7 +380,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l50
@@ -391,7 +391,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@*
    *@item C2 l51
    |EXTRA
@@ -410,7 +410,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l54
@@ -421,7 +421,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@{
    *@item C2 l55
    |EXTRA
@@ -440,7 +440,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l58
@@ -451,7 +451,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@&
    *@item C2 l59
    |EXTRA
@@ -470,7 +470,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l62
@@ -481,7 +481,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ampchar l62
    *@item C2 l63
    |EXTRA
@@ -501,7 +501,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l66
@@ -512,7 +512,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@&
      { a}
    *@item C2 l67
@@ -532,7 +532,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l70
@@ -543,7 +543,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ampchar C1 l70
       *brace_container
      { a}
@@ -565,7 +565,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l74
@@ -576,7 +576,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@registeredsymbol C1 l74
       *brace_container
    *@item C2 l75
@@ -597,7 +597,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l78
@@ -608,7 +608,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@registeredsymbol C1 l78
       *brace_container
      { a}
@@ -630,7 +630,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l82
@@ -641,7 +641,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@enddots C1 l82
       *brace_container
    *@item C2 l83
@@ -662,7 +662,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l86
@@ -673,7 +673,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@enddots C1 l86
       *brace_container
      { a}
@@ -695,7 +695,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l90
@@ -706,7 +706,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@^ C1 l90
       *following_arg C1
        {e}
@@ -741,7 +741,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l94
@@ -752,7 +752,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@^ C1 l94
       *following_arg C1
        {E}
@@ -787,7 +787,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l98
@@ -798,7 +798,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ C1 l98
       *brace_container C1
        *@dotless C1 l98
@@ -857,7 +857,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l102
@@ -868,7 +868,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@udotaccent C1 l102
       *brace_container C1
        {r}
@@ -927,7 +927,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l106
@@ -938,7 +938,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@= C1 l106
       *brace_container C1
        *@, C1 l106
@@ -991,7 +991,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l110
@@ -1002,7 +1002,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l110
    *@item C2 l111
    |EXTRA
@@ -1022,7 +1022,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l114
@@ -1033,7 +1033,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@click C1 l114
       *brace_container
    *@item C2 l115
@@ -1054,7 +1054,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l118
@@ -1065,7 +1065,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@click C1 l118
       *brace_container
      { a}
@@ -1087,7 +1087,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@clickstyle C1 l122
@@ -1105,7 +1105,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@result C1 l124
      |INFO
      |alias_of:{click}
@@ -1130,7 +1130,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l128
@@ -1141,7 +1141,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@result C1 l128
      |INFO
      |alias_of:{click}
@@ -1167,7 +1167,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l132
@@ -1178,7 +1178,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@error C1 l132
       *brace_container
    *@item C2 l133
@@ -1199,7 +1199,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l136
@@ -1210,7 +1210,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@error C1 l136
       *brace_container
      { a}
@@ -1232,7 +1232,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@documentlanguage C1 l140
@@ -1245,7 +1245,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr}
   *@itemize C3 l141
   |INFO
@@ -1255,7 +1255,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@error C1 l141
       *brace_container
    *@item C2 l142
@@ -1276,7 +1276,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l145
@@ -1287,7 +1287,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@error C1 l145
       *brace_container
      { a}
@@ -1309,7 +1309,7 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
 ';

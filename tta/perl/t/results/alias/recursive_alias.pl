@@ -16,7 +16,7 @@ $result_tree_text{'recursive_alias'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new = strong}
   {empty_line:\\n}
   *@alias C1 l3
@@ -28,7 +28,7 @@ $result_tree_text{'recursive_alias'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {other = new}
   {empty_line:\\n}
   *@alias C1 l5
@@ -40,7 +40,7 @@ $result_tree_text{'recursive_alias'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {strong = other}
   {empty_line:\\n}
   *paragraph C2

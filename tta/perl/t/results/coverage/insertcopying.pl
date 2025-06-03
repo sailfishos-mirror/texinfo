@@ -12,7 +12,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {License.\\n}
    {empty_line:\\n}
@@ -21,7 +21,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
     *paragraph C1
      {You are not allowed.\\n}
     *@end C1 l6
@@ -33,7 +33,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
    *@end C1 l7
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
   *paragraph C1

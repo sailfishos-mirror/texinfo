@@ -20,7 +20,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {top sectionning}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top sectionning}
   {empty_line:\\n}
   *paragraph C1
@@ -44,7 +44,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@title C1 l7
    |INFO
    |spaces_before_argument:
@@ -52,7 +52,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {the TTitle}
    *@end C1 l8
    |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {titlepage}
   {empty_line:\\n}
  *@node C1 l10 {chap}
@@ -78,7 +78,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C3 l11 {chap}
  |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'titlepage_in_top_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

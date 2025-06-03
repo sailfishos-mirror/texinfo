@@ -22,7 +22,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Foo}
   *@heading C1 l3
   |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Bar}
  *@bye C1
   {rawline_arg:\\n}

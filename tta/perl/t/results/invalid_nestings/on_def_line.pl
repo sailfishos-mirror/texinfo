@@ -60,7 +60,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {exdent}
    *@deffnx C1 l2
    |INFO
@@ -114,7 +114,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {exdentx}
    *@end C1 l3
    |INFO
@@ -125,7 +125,7 @@ $result_tree_text{'on_def_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

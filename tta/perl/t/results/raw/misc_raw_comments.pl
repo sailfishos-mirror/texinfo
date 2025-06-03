@@ -41,7 +41,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in tex}
    *@end C1 l6
    |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comment after end tex\\n}
     |spaces_after_argument:
-     |{    }
+     |{spaces_after_argument:    }
      {tex}
   {empty_line:\\n}
   *@verbatim C4 l8
@@ -63,7 +63,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in verbatim @c in verbatim\\n}
    {raw:in verbatim2\\n}
    *@end C1 l11
@@ -75,7 +75,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
 ';
 

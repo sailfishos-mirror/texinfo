@@ -17,7 +17,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@email C2 l2
       *brace_arg C3
        {someone}
@@ -56,7 +56,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l7 {top}
  |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l9 {chapter}
@@ -84,7 +84,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C28 l10 {Chapter}
  |INFO
@@ -98,7 +98,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C11
@@ -175,13 +175,13 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@example C3 l22
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C10
      *@sansserif C1 l23
       *brace_container C1
@@ -210,7 +210,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l26
    |INFO
@@ -221,7 +221,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {indentedblock}
   {empty_line:\\n}
   *@display C3 l28
@@ -229,7 +229,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@email C1 l29
      *brace_arg C3
@@ -246,7 +246,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display}
   {empty_line:\\n}
   *@displaymath C9 l32
@@ -254,7 +254,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {\\frac}
    *balanced_braces C1 l33
     {{h}}
@@ -279,7 +279,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {displaymath}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l36
@@ -293,7 +293,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@file C1 l36
      *brace_container C1
       {e1}
@@ -308,7 +308,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {i2}
   {empty_line:\\n}
   *index_entry_command@vindex C1 l39
@@ -317,7 +317,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{    \\n}
+    |{spaces_after_argument:    \\n}
   {empty_line:\\n}
   *@documentlanguage C1 l41
   |INFO
@@ -329,7 +329,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr}
   {empty_line:\\n}
   *paragraph C2
@@ -359,7 +359,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {my node}
  *@chapter C8 l50 {New node}
  |INFO
@@ -373,7 +373,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {New node}
   {empty_line:\\n}
   *@documentlanguage C1 l52
@@ -386,7 +386,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pl}
   {empty_line:\\n}
   *paragraph C2
@@ -412,7 +412,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
  *@appendix C4 l59 {Index}
  |INFO
@@ -426,7 +426,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
   *@printindex C1 l61
@@ -439,7 +439,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C1 l63 {Second appendix}
@@ -454,7 +454,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Second appendix}
  *@appendix C2 l64 {Second appendix}
  |INFO
@@ -468,7 +468,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Second appendix}
   {empty_line:\\n}
 ';

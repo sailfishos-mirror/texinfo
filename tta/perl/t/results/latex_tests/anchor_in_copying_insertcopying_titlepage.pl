@@ -13,7 +13,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C3
      {Cop. }
      *@anchor C1 l2
@@ -34,7 +34,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@titlepage C8 l5
@@ -42,7 +42,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@title C1 l6
     |INFO
     |spaces_before_argument:
@@ -50,7 +50,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Manual}
     {empty_line:\\n}
     *@page C1
@@ -77,7 +77,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l13 {Top}
@@ -92,7 +92,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l14 {top}
  |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l16 {Chapter}
@@ -120,7 +120,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
  *@chapter C3 l17 {Chap}
  |INFO
@@ -134,7 +134,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C4

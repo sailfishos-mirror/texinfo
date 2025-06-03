@@ -21,7 +21,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -36,7 +36,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -59,7 +59,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C9 l7 {chap}
@@ -74,7 +74,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@float C3 l9
@@ -92,7 +92,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      *@samp C1 l9
@@ -109,7 +109,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l13
@@ -122,7 +122,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Figure}
   {empty_line:\\n}
   *paragraph C3

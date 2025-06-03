@@ -12,7 +12,7 @@ $result_tree_text{'command_in_end_expanded_raw_command_empty_after'} = '*documen
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {In TeX\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'command_in_end_expanded_raw_command_empty_after'} = '*documen
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
      *@asis C1 l3
       *brace_container

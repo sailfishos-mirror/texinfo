@@ -16,7 +16,7 @@ $result_tree_text{'alias_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0 = strong}
   *paragraph C2
    *@strong C1 l2

@@ -680,7 +680,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           ELEMENT *e;
           ELEMENT *spaces_before
             = new_text_element (ET_spaces_before_argument);
-          ELEMENT *spaces_after = new_text_element (ET_other_text);
+          ELEMENT *spaces_after = new_text_element (ET_spaces_after_argument);
           /* put in extra "misc_args" */
           STRING_LIST *args_list = new_string_list ();
           command_e = new_command_element (ET_line_command, equivalent_cmd);

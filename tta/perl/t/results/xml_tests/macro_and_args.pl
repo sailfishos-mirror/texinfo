@@ -22,7 +22,7 @@ $result_tree_text{'macro_and_args'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C2 l4
@@ -41,7 +41,7 @@ $result_tree_text{'macro_and_args'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
 ';
 

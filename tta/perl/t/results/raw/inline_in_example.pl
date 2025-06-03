@@ -12,7 +12,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C9
     {A }
     *@inlineraw C2 l2
@@ -72,7 +72,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

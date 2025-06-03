@@ -20,7 +20,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -49,7 +49,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C25 l5 {Chapter}
  |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@synindex C1 l7
@@ -75,7 +75,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp fn}
   {empty_line:\\n}
   *@synindex C1 l9
@@ -87,7 +87,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {vr fn}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
@@ -101,7 +101,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c``b}
   {empty_line:\\n}
   *index_entry_command@vindex C1 l13
@@ -115,7 +115,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {v``j}
   {empty_line:\\n}
   *index_entry_command@findex C1 l15
@@ -129,7 +129,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {f``g}
   {empty_line:\\n}
   *@defcodeindex C1 l17
@@ -141,7 +141,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cdi}
   {empty_line:\\n}
   *@synindex C1 l19
@@ -153,7 +153,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cdi fn}
   {empty_line:\\n}
   *index_entry_command@cdiindex C1 l21
@@ -167,7 +167,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cdi``h}
   {empty_line:\\n}
   *@defindex C1 l23
@@ -179,7 +179,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ddi}
   {empty_line:\\n}
   *@syncodeindex C1 l25
@@ -191,7 +191,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ddi cp}
   {empty_line:\\n}
   *index_entry_command@ddiindex C1 l27
@@ -205,7 +205,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ddi``g}
   {empty_line:\\n}
   *@printindex C1 l29
@@ -218,7 +218,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
 ';
 

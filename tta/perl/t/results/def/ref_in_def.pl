@@ -20,7 +20,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@deffn C4 l4
@@ -44,7 +44,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        *@ref C1 l4
@@ -109,7 +109,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
     *line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        *@ref C1 l5
@@ -166,7 +166,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@anchor C1 l9

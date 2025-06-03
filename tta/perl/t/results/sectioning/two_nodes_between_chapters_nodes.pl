@@ -20,7 +20,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -41,7 +41,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -84,7 +84,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {chapter 1}
@@ -117,7 +117,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -136,7 +136,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter c1}
   {empty_line:\\n}
  *@node C2 l13 {node between chapters}
@@ -151,7 +151,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node between chapters}
   {empty_line:\\n}
  *@node C1 l15 {chapter 2}
@@ -166,7 +166,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
  *@chapter C1 l16 {chapter c2}
  |INFO
@@ -180,7 +180,7 @@ $result_tree_text{'two_nodes_between_chapters_nodes'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter c2}
 ';
 

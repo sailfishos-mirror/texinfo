@@ -16,7 +16,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {separate}
  *@node C3 l2 {Top}
  |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C3

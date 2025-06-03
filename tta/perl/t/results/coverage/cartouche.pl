@@ -12,7 +12,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
   {empty_line:\\n}
   *@cartouche C3 l5
@@ -35,7 +35,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph C1 l5
       *brace_container C1
        {Title of box}
@@ -50,7 +50,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
 ';
 

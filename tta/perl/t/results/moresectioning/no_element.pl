@@ -14,7 +14,7 @@ $result_tree_text{'no_element'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {no_element test}
   *@documentencoding C1 l2
   |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'no_element'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ISO-8859-1}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -101,7 +101,7 @@ $result_tree_text{'no_element'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {float anchor}
@@ -116,7 +116,7 @@ $result_tree_text{'no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *paragraph C3
@@ -134,7 +134,7 @@ $result_tree_text{'no_element'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l29
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -155,7 +155,7 @@ $result_tree_text{'no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l32
@@ -168,7 +168,7 @@ $result_tree_text{'no_element'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry}
 ';
 

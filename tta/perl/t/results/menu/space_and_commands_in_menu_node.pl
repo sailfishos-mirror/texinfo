@@ -19,7 +19,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C11 l4
@@ -40,7 +40,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -172,7 +172,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l16 {chap @: b}
@@ -187,7 +187,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap }
     *@:
     { b}
@@ -203,7 +203,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
 ';
 

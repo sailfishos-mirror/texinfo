@@ -15,7 +15,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet C1 l1
       *brace_container
    *@item C2 l2
@@ -33,7 +33,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l5
@@ -44,7 +44,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@minus C1 l5
       *brace_container
    *@item C2 l6
@@ -62,7 +62,7 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'thischapter_in_footnote_in_evenfooting'} = '*document_root C1
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {aa }
     *@strong C1 l2
      *brace_container C2

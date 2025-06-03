@@ -18,7 +18,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@chapter C2 l3 {Chapter}
@@ -33,7 +33,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
  *@section C2 l5 {section}
@@ -48,7 +48,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
  *@subsubsection C2 l7 {subsubsection with no subsection above}
@@ -63,7 +63,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsubsection with no subsection above}
   {empty_line:\\n}
  *@subsection C1 l9 {the subsection}
@@ -78,7 +78,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {the subsection}
 ';
 

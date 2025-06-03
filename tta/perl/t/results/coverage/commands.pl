@@ -74,7 +74,7 @@ $result_tree_text{'commands'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry ``in text\'\' }
     *@LaTeX C1 l8
      *brace_container
@@ -89,7 +89,7 @@ $result_tree_text{'commands'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {majorheading }
     *@b C1 l10
      *brace_container C1

@@ -12,7 +12,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l2
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -44,7 +44,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l6 {bar}
@@ -59,7 +59,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {bar}
  *@chapter C4 l7 {bar}
  |INFO
@@ -73,7 +73,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {bar}
   {empty_line:\\n}
   *@menu C3 l9
@@ -81,7 +81,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -102,7 +102,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l13 {onesub1}
@@ -117,7 +117,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {onesub1}
  *@section C2 l14 {One sub 1}
  |INFO
@@ -131,7 +131,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {One sub 1}
   {empty_line:\\n}
  *@node C1 l16 {onesub2}
@@ -146,7 +146,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {onesub2}
  *@section C3 l17 {One sub 2}
  |INFO
@@ -160,7 +160,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {One sub 2}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -176,7 +176,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foo}
  *@chapter C4 l21 {foo}
  |INFO
@@ -190,7 +190,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {foo}
   {empty_line:\\n}
   *@menu C5 l23
@@ -198,7 +198,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l24
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -241,7 +241,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l29 {sub1}
@@ -256,7 +256,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sub1}
  *@section C2 l30 {Sub1}
  |INFO
@@ -270,7 +270,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sub1}
   {empty_line:\\n}
  *@node C1 l32 {sub2}
@@ -285,7 +285,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sub2}
  *@section C2 l33 {Sub2}
  |INFO
@@ -299,7 +299,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sub2}
   {empty_line:\\n}
  *@node C1 l35 {sub3}
@@ -314,7 +314,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sub3}
  *@section C1 l36 {Sub3}
  |INFO
@@ -328,7 +328,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sub3}
 ';
 

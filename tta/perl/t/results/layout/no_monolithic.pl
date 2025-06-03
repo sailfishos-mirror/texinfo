@@ -23,7 +23,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C8 no_monolithic.texi:l4 {Not monolithic}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Not monolithic}
   {empty_line:\\n}
   *paragraph C3
@@ -60,7 +60,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 no_monolithic.texi:l10
@@ -68,7 +68,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 no_monolithic.texi:l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -89,7 +89,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 no_monolithic.texi:l14 {chapter}
@@ -105,7 +105,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C8 no_monolithic.texi:l15 {Chapter}
  |INFO
@@ -119,7 +119,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -144,7 +144,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
  *@bye C1
   {rawline_arg:\\n}

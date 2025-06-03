@@ -20,7 +20,7 @@ $result_tree_text{'bad_documentlanguage'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {en}
   {empty_line:\\n}
   *@documentlanguage C1 l4
@@ -42,7 +42,7 @@ $result_tree_text{'bad_documentlanguage'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{  \\n}
+      |{spaces_after_argument:  \\n}
       {en}
   {empty_line:\\n}
   *@documentlanguage C1 l6
@@ -55,7 +55,7 @@ $result_tree_text{'bad_documentlanguage'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {en  after documentlanguage}
 ';
 

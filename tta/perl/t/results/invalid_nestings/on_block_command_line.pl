@@ -17,7 +17,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       *@anchor C1 l1
       |EXTRA
@@ -54,7 +54,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@quotation C2 l5
@@ -91,7 +91,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {exdent}
    *@end C1 l6
    |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

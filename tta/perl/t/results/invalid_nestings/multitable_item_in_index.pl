@@ -17,7 +17,7 @@ $result_tree_text{'multitable_item_in_index'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {aaa}
      { }
@@ -34,7 +34,7 @@ $result_tree_text{'multitable_item_in_index'} = '*document_root C1
      *line_arg C2
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {ignorable_spaces_after_command: }
       {on item line}
    *@end C1 l3
@@ -46,7 +46,7 @@ $result_tree_text{'multitable_item_in_index'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'center'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {in center }
     *@code C1 l2
      *brace_container C1

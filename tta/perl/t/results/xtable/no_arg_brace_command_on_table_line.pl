@@ -15,7 +15,7 @@ $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@bullet l1
    *table_entry C1
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
    *@end C1 l3
    |INFO
@@ -37,7 +37,7 @@ $result_tree_text{'no_arg_brace_command_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

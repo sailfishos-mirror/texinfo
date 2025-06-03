@@ -21,7 +21,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {UTF-8}
   *preamble_before_content C5
    *@setfilename C1 japanese_utf8.texi:l3
@@ -33,7 +33,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {japanese_utf8.info}
    *@settitle C1 japanese_utf8.texi:l4
    |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {GNU LilyPond -- Manuel d\'initiation japanese}
    {empty_line:\\n}
    *@documentlanguage C1 japanese_utf8.texi:l6
@@ -55,7 +55,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ja}
    {empty_line:\\n}
  *@node C1 japanese_utf8.texi:l8 {Top}
@@ -70,7 +70,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C9 japanese_utf8.texi:l9 {GNU LilyPond --- 学習マニュアル}
  |INFO
@@ -83,7 +83,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {GNU LilyPond --- 学習マニュアル}
   {empty_line:\\n}
   *@copying C7 japanese_utf8.texi:l11
@@ -91,7 +91,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {Copyright }
     *@copyright C1 japanese_utf8.texi:l12
@@ -121,7 +121,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -133,7 +133,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 japanese_utf8.texi:l26
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -165,7 +165,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 japanese_utf8.texi:l30 {Preface}
@@ -180,7 +180,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Preface}
  *@chapter C5 japanese_utf8.texi:l31 {Preface}
  |INFO
@@ -194,7 +194,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Preface}
   {empty_line:\\n}
   *paragraph C1
@@ -213,7 +213,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
  *@chapter C4 japanese_utf8.texi:l37 {Introduction}
  |INFO
@@ -227,7 +227,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Introduction}
   {empty_line:\\n}
   *paragraph C1

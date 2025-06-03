@@ -20,7 +20,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@node C5 l3 {chap}
@@ -36,7 +36,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@deffn C2 l5
@@ -50,7 +50,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg l5
      {spaces: }
@@ -68,7 +68,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@printindex C1 l8
@@ -81,7 +81,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
 ';
 

@@ -14,7 +14,7 @@ $result_tree_text{'noindent_after_smallexample'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain\'\\n}
     {$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain\'\\n}
@@ -27,7 +27,7 @@ $result_tree_text{'noindent_after_smallexample'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {smallexample}
   *@noindent l6
   {ignorable_spaces_after_command:\\n}

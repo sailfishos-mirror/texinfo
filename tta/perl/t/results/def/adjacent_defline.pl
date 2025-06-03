@@ -13,7 +13,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defline C1 l2
    |INFO
    |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Funoid}
@@ -56,7 +56,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
     *line_arg C10
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Funnyoid}
@@ -87,7 +87,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

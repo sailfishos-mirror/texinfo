@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {the top}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {the top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -48,7 +48,7 @@ NodeForward: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C3
      *@c C1
@@ -88,7 +88,7 @@ NodeForward: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U1 unit{S:1 umlaut}{n:umlaut}
@@ -118,7 +118,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {umlaut}
  *@chapter C4 l13 {umlaut}
  |INFO
@@ -132,7 +132,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {umlaut}
   {empty_line:\\n}
   *@menu C4 l15
@@ -140,7 +140,7 @@ NodeBack: [U0]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -178,7 +178,7 @@ NodeBack: [U0]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 l20 {@"i}
@@ -193,7 +193,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@" C1 l20
      *following_arg C1
       {i}
@@ -210,7 +210,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@~ C1 l22
      *brace_container C1
       *@dotless C1 l22
@@ -241,7 +241,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {circumflex}
  *@chapter C4 l25 {circumflex}
  |INFO
@@ -255,7 +255,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {circumflex}
   {empty_line:\\n}
   *@menu C3 l27
@@ -263,7 +263,7 @@ NodeBack: [U2]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l28
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -286,7 +286,7 @@ NodeBack: [U2]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l31 {@^i}
@@ -301,7 +301,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 l31
      *following_arg C1
       {i}

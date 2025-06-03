@@ -28,7 +28,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l5 {top section}
  |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l7 {chapter}
@@ -57,7 +57,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C22 l8 {Index}
  |INFO
@@ -71,7 +71,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l10
@@ -86,7 +86,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@" C1 l10
      *following_arg C1
       {a}
@@ -106,7 +106,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {AA}
   *index_entry_command@cindex C1 l12
   |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {aa}
   *index_entry_command@cindex C1 l13
   |INFO
@@ -134,7 +134,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {i}
   *index_entry_command@cindex C1 l14
   |INFO
@@ -148,7 +148,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Z}
   *index_entry_command@cindex C1 l15
   |INFO
@@ -162,7 +162,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 l15
      *following_arg C1
       {i}
@@ -202,7 +202,7 @@ $result_tree_text{'indices'} = '*document_root C5
      *line_arg C12
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@sortas C1 l17
        *brace_arg C3
         {a!"}
@@ -255,7 +255,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\\cmd}
   *index_entry_command@cindex C1 l19
   |INFO
@@ -270,7 +270,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {totocmd}
     {spaces_at_end: }
     *@sortas C1 l19
@@ -296,7 +296,7 @@ $result_tree_text{'indices'} = '*document_root C5
     |*@c C1
      |{rawline_arg: comment\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {\\some\\command for }
     *@file C1 l23
      *brace_container C1
@@ -313,7 +313,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {the }
     *@r C1 l25
      *brace_container C1
@@ -333,7 +333,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@printindex C1 l29
@@ -346,7 +346,7 @@ $result_tree_text{'indices'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
 ';
 

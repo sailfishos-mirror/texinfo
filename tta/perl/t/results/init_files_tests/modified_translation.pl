@@ -22,7 +22,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr}
   {empty_line:\\n}
   *paragraph C3
@@ -41,7 +41,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pt}
   {empty_line:\\n}
   *paragraph C3

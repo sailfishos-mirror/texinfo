@@ -21,7 +21,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {direntry_dircategory.info}
    {empty_line:\\n}
    *@dircategory C1 direntry_dircategory.texi:l5
@@ -31,7 +31,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {``category---}
      *@var C1 direntry_dircategory.texi:l5
       *brace_container C1
@@ -42,7 +42,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C6 direntry_dircategory.texi:l7
      {menu_entry_leading_text:* }
      *menu_entry_name C1
@@ -71,7 +71,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {direntry}
    {empty_line:\\n}
    *@dircategory C1 direntry_dircategory.texi:l10
@@ -81,14 +81,14 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cat2}
    *@direntry C4 direntry_dircategory.texi:l11
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 direntry_dircategory.texi:l12
      {menu_entry_leading_text:* }
      *menu_entry_node C2
@@ -115,7 +115,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {direntry}
    {empty_line:\\n}
    {empty_line:\\n}
@@ -131,7 +131,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C8 direntry_dircategory.texi:l20 {Test dircategory and direntry}
  |INFO
@@ -144,7 +144,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test dircategory and direntry}
   {empty_line:\\n}
   *paragraph C1
@@ -156,14 +156,14 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {in text}
   *@direntry C3 direntry_dircategory.texi:l24
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C6 direntry_dircategory.texi:l25
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -188,7 +188,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {direntry}
   {empty_line:\\n}
   *@menu C3 direntry_dircategory.texi:l28
@@ -196,7 +196,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 direntry_dircategory.texi:l29
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -217,7 +217,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 direntry_dircategory.texi:l32 {chapter}
@@ -232,7 +232,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 direntry_dircategory.texi:l33 {chapter}
  |INFO
@@ -246,7 +246,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *paragraph C1

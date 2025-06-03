@@ -29,7 +29,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec1}
   {empty_line:\\n}
   *paragraph C2
@@ -53,7 +53,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec2}
 ';
 

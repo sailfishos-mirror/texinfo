@@ -19,7 +19,7 @@ $result_tree_text{'note_in_strong_end_of_line'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C3

@@ -19,7 +19,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l5 {chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
  *@node C1 l7 {sec define}
@@ -76,7 +76,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec define}
  *@section C4 l8 {define}
  |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {define}
   {empty_line:\\n}
   *paragraph C2
@@ -116,7 +116,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec here is }
     *@acronym C1 l12
      *brace_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {here is }
     *@acronym C1 l13
      *brace_arg C1

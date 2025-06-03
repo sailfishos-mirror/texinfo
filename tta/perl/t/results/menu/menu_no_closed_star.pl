@@ -12,7 +12,7 @@ $result_tree_text{'menu_no_closed_star'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {* }

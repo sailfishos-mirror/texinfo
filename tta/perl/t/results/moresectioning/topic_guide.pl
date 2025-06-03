@@ -23,7 +23,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 topic_guide.texi:l4 {A example quide topic collection}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A example quide topic collection}
   {empty_line:\\n}
   *paragraph C2
@@ -48,7 +48,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 topic_guide.texi:l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -80,7 +80,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 topic_guide.texi:l14 {guide1}
@@ -95,7 +95,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {guide1}
  *@chapter C6 topic_guide.texi:l15 {guide 1}
  |INFO
@@ -109,7 +109,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {guide 1}
   {empty_line:\\n}
   *paragraph C1
@@ -120,7 +120,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 topic_guide.texi:l20
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -163,7 +163,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l25 {topic1}
@@ -180,7 +180,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -196,7 +196,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -221,7 +221,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l35 {topic2}
@@ -246,7 +246,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -262,7 +262,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -287,7 +287,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l45 {topic3}
@@ -312,7 +312,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -328,7 +328,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -342,7 +342,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l54 {topic4}
@@ -357,7 +357,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {topic4}
   {empty_line:\\n}
   *paragraph C1
@@ -368,7 +368,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -393,7 +393,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l64 {topic5}
@@ -414,7 +414,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -430,7 +430,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -466,7 +466,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 topic_guide.texi:l75 {guide2}
@@ -481,7 +481,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {guide2}
  *@chapter C6 topic_guide.texi:l76 {guide 2}
  |INFO
@@ -495,7 +495,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {guide 2}
   {empty_line:\\n}
   *paragraph C1
@@ -506,7 +506,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 topic_guide.texi:l81
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -538,7 +538,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@bye C1

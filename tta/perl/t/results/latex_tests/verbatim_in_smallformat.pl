@@ -13,13 +13,13 @@ $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@verbatim C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:... still verbatim, but in a smaller font ...\\n}
     *@end C1 l4
     |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {verbatim}
    *@end C1 l5
    |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {smallformat}
 ';
 

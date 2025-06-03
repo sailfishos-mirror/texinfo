@@ -44,7 +44,7 @@ $result_tree_text{'kbd'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *preformatted C3
     {in example\\n}
     *@code C1 l11
@@ -60,7 +60,7 @@ $result_tree_text{'kbd'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C3
@@ -73,7 +73,7 @@ $result_tree_text{'kbd'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *preformatted C3
     {in format\\n}
     *@code C1 l18
@@ -89,7 +89,7 @@ $result_tree_text{'kbd'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {format}
 ';
 

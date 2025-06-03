@@ -37,7 +37,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
       *bracketed_arg C1 l1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
       |spaces_before_argument:
        |{spaces_before_argument:   }
        |>SOURCEMARKS
@@ -57,7 +57,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C3 l6
@@ -76,7 +76,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {category}
@@ -112,7 +112,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {deffn}
 ';
 

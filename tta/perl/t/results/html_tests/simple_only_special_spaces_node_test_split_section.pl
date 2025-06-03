@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 simple_only_special_spaces_node.texi:l2 {top}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
 U1 unit{S:1 EN QUAD| |}{n:  }
@@ -68,7 +68,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {  }
  *@chapter C2 simple_only_special_spaces_node.texi:l5 {EN QUAD| |}
  |INFO
@@ -82,7 +82,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {EN QUAD| |}
   {empty_line:\\n}
  *@node C1 simple_only_special_spaces_node.texi:l7
@@ -90,7 +90,7 @@ NodeBack: [U0]
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ '."\r".'\\n}
+    |{spaces_after_argument: '."\r".'\\n}
 U2 unit{S:2 CARRIAGE RETURN|'."\r".'|}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
@@ -114,7 +114,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
 U3 unit{S:3 THREE-PER-EM SPACE}{n:  }
@@ -138,7 +138,7 @@ NodeUp: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {  }
  *@chapter C2 simple_only_special_spaces_node.texi:l11 {THREE-PER-EM SPACE}
  |INFO
@@ -152,7 +152,7 @@ NodeUp: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {THREE-PER-EM SPACE}
   {empty_line:\\n}
 ';

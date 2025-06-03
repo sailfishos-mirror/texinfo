@@ -27,7 +27,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
@@ -40,7 +40,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test refs}
   {empty_line:\\n}
   *@menu C4 character_and_spaces_in_refs_text.texi:l4
@@ -48,7 +48,7 @@ NodeForward: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -80,7 +80,7 @@ NodeForward: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U1 unit{N:node to avoid DocBook or LaTeX ignored}{s:1 first chapter}
@@ -110,7 +110,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node to avoid DocBook or LaTeX ignored}
  *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
@@ -124,7 +124,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first chapter}
   {empty_line:\\n}
   *@subheading C1 character_and_spaces_in_refs_text.texi:l12
@@ -137,7 +137,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Testing distant nodes}
   {empty_line:\\n}
   *paragraph C10
@@ -145,7 +145,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -173,7 +173,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -221,7 +221,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Testing local nodes}
   {empty_line:\\n}
   *paragraph C8
@@ -304,7 +304,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -323,7 +323,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter with nodes}
   {empty_line:\\n}
   *@menu C5 character_and_spaces_in_refs_text.texi:l30
@@ -331,7 +331,7 @@ NodeBack: [U1]
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l31
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -374,7 +374,7 @@ NodeBack: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 U3 unit{N:!_"#$%&\'()*+-.}
@@ -419,7 +419,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -463,7 +463,7 @@ NodeBack: [U3]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -501,7 +501,7 @@ NodeBack: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}

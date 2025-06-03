@@ -16,7 +16,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {BI}
   *@linemacro C4 l2
   |EXTRA
@@ -35,7 +35,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@defblock C8 l7
@@ -57,7 +57,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_defline C1
     *index_entry_command@BIindex C1 l8:@defbuiltin
     |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {foo}
    *@defline C1 l8:@defbuiltin
    |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      |>SOURCEMARKS
      |>linemacro_expansion<end;1><p:1>
      *def_category C1
@@ -116,7 +116,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {foo}
    *@defline C1 l10:@defbuiltin
    |INFO
@@ -132,7 +132,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      |>SOURCEMARKS
      |>linemacro_expansion<end;2><p:1>
      *def_category C1
@@ -168,7 +168,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {foo}
    *@defline C1 l12:@defbuiltin
    |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Builtin}
@@ -206,7 +206,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

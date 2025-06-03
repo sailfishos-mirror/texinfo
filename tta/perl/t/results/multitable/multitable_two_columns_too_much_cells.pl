@@ -24,7 +24,7 @@ $result_tree_text{'multitable_two_columns_too_much_cells'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.4 0.6}
    *multitable_body C3
     *row C2
@@ -87,7 +87,7 @@ $result_tree_text{'multitable_two_columns_too_much_cells'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

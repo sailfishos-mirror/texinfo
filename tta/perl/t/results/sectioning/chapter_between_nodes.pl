@@ -20,7 +20,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C5 l2 {top section}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   *paragraph C1
    {Top node\\n}
@@ -43,7 +43,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -64,7 +64,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@chapter C4 l9 {Chapter}
@@ -79,7 +79,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -101,7 +101,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -118,7 +118,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
   *paragraph C1

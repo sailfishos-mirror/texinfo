@@ -12,7 +12,7 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C13
      {* a1:\\n}
@@ -44,7 +44,7 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

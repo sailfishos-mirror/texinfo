@@ -24,7 +24,7 @@ FastForward: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
 U1 unit{S:1.1 section}
@@ -48,7 +48,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
 U2 unit{S:1.1.1 subsection}
@@ -72,7 +72,7 @@ Up: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection}
   {empty_line:\\n}
 U3 unit{S:1.1.1.1 subsubsection}
@@ -96,7 +96,7 @@ Up: [U2]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsubsection}
   {empty_line:\\n}
 U4 unit{S:2 chapter in part}
@@ -120,7 +120,7 @@ Next: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@chapter C2 l11 {chapter in part}
@@ -135,7 +135,7 @@ Next: [U5]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter in part}
   {empty_line:\\n}
 U5 unit{S:3 second chapter in part}
@@ -161,7 +161,7 @@ Up: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second chapter in part}
   {empty_line:\\n}
 U6 unit{S:unnumbered}
@@ -185,7 +185,7 @@ Up: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
   {empty_line:\\n}
 U7 unit{S:A appendix}
@@ -208,7 +208,7 @@ Prev: [U4]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendix}
   {empty_line:\\n}
 U8 unit{S:A.1 appendixsec}
@@ -230,7 +230,7 @@ Up: [U7]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendixsec}
 ';
 

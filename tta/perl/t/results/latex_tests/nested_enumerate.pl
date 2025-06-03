@@ -15,7 +15,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C1
     {spaces_before_paragraph:   }
    *@item C2 l2
@@ -38,7 +38,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *before_item C1
       {spaces_before_paragraph:     }
      *@item C2 l5
@@ -61,7 +61,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *before_item C1
         {spaces_before_paragraph:       }
        *@item C2 l8
@@ -84,7 +84,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
           *block_line_arg
           |INFO
           |spaces_after_argument:
-           |{\\n}
+           |{spaces_after_argument:\\n}
          *before_item C1
           {spaces_before_paragraph:         }
          *@item C2 l11
@@ -109,7 +109,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
           *line_arg C1
           |INFO
           |spaces_after_argument:
-           |{\\n}
+           |{spaces_after_argument:\\n}
            {enumerate}
        *@end C1 l14
        |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {enumerate}
      *@end C1 l15
      |INFO
@@ -131,7 +131,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {enumerate}
    *@end C1 l16
    |INFO
@@ -142,7 +142,7 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
 ';

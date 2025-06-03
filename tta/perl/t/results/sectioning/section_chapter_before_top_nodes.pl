@@ -20,7 +20,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section node}
  *@section C2 l2 {section}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
   {empty_line:\\n}
  *@node C1 l4 {chapter node}
@@ -49,7 +49,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter node}
  *@chapter C4 l5 {chapter}
  |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@menu C3 l7
@@ -71,7 +71,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -92,7 +92,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l11 {Top}
@@ -107,7 +107,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l12 {top}
  |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l14
@@ -128,7 +128,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l15
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -149,7 +149,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
 ';

@@ -23,7 +23,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -36,7 +36,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{aa}
   *paragraph C2
    {text\\n}
@@ -61,7 +61,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifclear}
       >>SOURCEMARKS
       >>linemacro_expansion<end;1><p:7>
@@ -76,7 +76,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{b}
     >{raw:@lm {text\\n}
     >*@end C1 l11
@@ -88,7 +88,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
 ';

@@ -13,7 +13,7 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C5
     {$$ \\n}
     {\\chi^2 = \\sum_{i=1}^N\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -38,14 +38,14 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     *@tex C3 l12
      *arguments_line C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *rawpreformatted C5
       {$$ \\n}
       {\\chi^2 = \\sum_{i=1}^N\\n}
@@ -61,7 +61,7 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {tex}
    *@end C1 l19
    |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
 ';

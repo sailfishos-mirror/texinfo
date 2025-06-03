@@ -18,7 +18,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {pt}
    {empty_line:\\n}
    *@documentlanguage C1 l3
@@ -31,7 +31,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {de}
    {empty_line:\\n}
  *@node C1 l5 {Top}
@@ -46,7 +46,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l6 {top}
  |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@part C2 l8 {Part I}
@@ -74,7 +74,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part I}
   {empty_line:\\n}
  *@node C1 l10 {chapter}
@@ -89,7 +89,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l11 {Chap}
  |INFO
@@ -103,7 +103,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@documentlanguage C1 l13
@@ -116,7 +116,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fr}
   {empty_line:\\n}
  *@part C2 l15 {Part II}
@@ -131,7 +131,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Part II}
   {empty_line:\\n}
  *@node C1 l17 {other chap}
@@ -146,7 +146,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {other chap}
  *@chapter C4 l18 {Other chap}
  |INFO
@@ -160,7 +160,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other chap}
   {empty_line:\\n}
   *@documentlanguage C1 l20
@@ -173,7 +173,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {hr}
   {empty_line:\\n}
  *@node C1 l22 {appendix}
@@ -188,7 +188,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendix}
  *@appendix C1 l23 {App}
  |INFO
@@ -202,7 +202,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {App}
 ';
 

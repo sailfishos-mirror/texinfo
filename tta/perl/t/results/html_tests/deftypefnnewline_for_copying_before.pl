@@ -18,7 +18,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
   *@copying C3 l4
@@ -26,7 +26,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@deftypefun C3 l5
    |INFO
    |spaces_before_argument:
@@ -44,7 +44,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
      *block_line_arg C7
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *def_category C1
       |INFO
       |inserted:{1}
@@ -74,7 +74,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {deftypefun}
    *@end C1 l8
    |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
  *@node C1 l10 {Top}
@@ -100,7 +100,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l11 {top}
  |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l13 {chap}
@@ -128,7 +128,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C4 l14 {Chapter}
  |INFO
@@ -142,7 +142,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@deftypefun C3 l16
@@ -162,7 +162,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -192,7 +192,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefun}
   {empty_line:\\n}
 ';

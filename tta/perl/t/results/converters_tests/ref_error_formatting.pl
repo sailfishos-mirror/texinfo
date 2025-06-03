@@ -568,7 +568,7 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {cross ref name}
    {\\n}
    *@code C1 l34

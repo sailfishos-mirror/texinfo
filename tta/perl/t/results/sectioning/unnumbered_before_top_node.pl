@@ -20,7 +20,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {before nodes}
   {empty_line:\\n}
  *@node C5 l3 {Top}
@@ -35,7 +35,7 @@ This: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   *paragraph C1
    {Top node\\n}

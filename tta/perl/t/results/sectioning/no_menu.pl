@@ -19,7 +19,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2
  |EXTRA
@@ -29,7 +29,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {c1}
  |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c1}
  *@chapter C2 l5 {c1}
  |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c1}
   {empty_line:\\n}
  *@node C1 l7 {c2}
@@ -72,7 +72,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c2}
  *@chapter C2 l8 {c2}
  |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c2}
   {empty_line:\\n}
  *@node C1 l10 {c3}
@@ -101,7 +101,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3}
  *@chapter C1 l11 {c3}
  |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3}
 ';
 

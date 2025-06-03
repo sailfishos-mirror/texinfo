@@ -14,7 +14,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C1 l1
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -28,7 +28,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {CCCC }
     *@image C1 l3
     |EXTRA
@@ -43,7 +43,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fffffffffffffffffffffffffffffffffffffff }
     *@image C1 l5
     |EXTRA
@@ -58,7 +58,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {dddd }
     *@image C1 l7
     |EXTRA
@@ -72,7 +72,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {AAA\\n}
     *@image C1 l11
@@ -114,7 +114,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushright}
   {empty_line:\\n}
   *@center C1 l19
@@ -124,7 +124,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C5 l19
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -152,7 +152,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {CCCC }
     *@image C5 l21
     |EXTRA
@@ -181,7 +181,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fffffffffffffffffffffffffffffffffffffff }
     *@image C5 l23
     |EXTRA
@@ -210,7 +210,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {dddd }
     *@image C5 l25
     |EXTRA
@@ -238,7 +238,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {AAA\\n}
     *@image C5 l29
@@ -336,7 +336,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {flushright}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ C1 l1
       *following_arg C1
        {e}
@@ -34,7 +34,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l5
@@ -45,7 +45,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ C1 l5
       *brace_container C1
        {e}
@@ -64,7 +64,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
   {empty_line:\\n}
   *@itemize C3 l9
@@ -75,7 +75,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ringaccent C1 l9
      |INFO
      |spaces_after_cmd_before_arg:
@@ -97,7 +97,7 @@ $result_tree_text{'accent_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {itemize}
 ';
 

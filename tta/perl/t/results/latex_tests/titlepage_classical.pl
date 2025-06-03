@@ -13,7 +13,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {in Copying\\n}
     *@end C1 l3
@@ -25,7 +25,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@titlepage C13 l5
@@ -33,7 +33,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@title C1 l6
     |INFO
     |spaces_before_argument:
@@ -41,7 +41,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Some manual tested}
     *@subtitle C1 l7
     |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Subtitle manual tested}
     *@subtitle C1 l8
     |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Subtitle 2 manual tested}
     *@author C1 l9
     |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {First author}
     *@author C1 l10
     |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Second author}
     {empty_line:\\n}
     *@page C1
@@ -109,7 +109,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l19 {Top}
@@ -124,7 +124,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l20 {section top}
  |INFO
@@ -137,7 +137,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l22 {chapter}
@@ -152,7 +152,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l23 {Chapter}
  |INFO
@@ -166,7 +166,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

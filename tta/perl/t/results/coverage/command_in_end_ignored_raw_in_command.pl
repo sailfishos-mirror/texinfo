@@ -12,7 +12,7 @@ $result_tree_text{'command_in_end_ignored_raw_in_command'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C2
     {raw:In html\\n}
     {raw:@end @code{html}\\n}

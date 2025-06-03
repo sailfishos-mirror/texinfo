@@ -12,7 +12,7 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {flushright\\n}
    {empty_line:\\n}
@@ -21,7 +21,7 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{ \\n}
+      |{spaces_after_argument: \\n}
     *paragraph C1
      {A quot---ation\\n}
     *@end C1 l6
@@ -33,7 +33,7 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation}
 ';
 

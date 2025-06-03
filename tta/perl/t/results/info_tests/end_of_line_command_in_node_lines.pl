@@ -20,7 +20,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C4 l4
@@ -41,7 +41,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C5
@@ -77,7 +77,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l9 {chap @* f     nl Something? @* After punct}
@@ -93,7 +93,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap }
     *@*
     { f     nl Something? }
@@ -111,7 +111,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *@anchor C1 l12
@@ -142,7 +142,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a }
     *@*
     { b}
@@ -157,7 +157,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C1 l20 {new n}
@@ -172,7 +172,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new n}
  *@chapter C9 l21 {Ochap}
  |INFO
@@ -186,7 +186,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Ochap}
   {empty_line:\\n}
   *paragraph C2
@@ -236,7 +236,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l30
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -293,7 +293,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

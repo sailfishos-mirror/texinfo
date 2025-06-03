@@ -20,7 +20,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {n1}
  *@chapter C2 l2 {@ref{n2}}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ref C1 l2
      *brace_arg C1
      |EXTRA
@@ -54,7 +54,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {n2}
  *@chapter C1 l5 {@ref{n1}}
  |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ref C1 l5
      *brace_arg C1
      |EXTRA

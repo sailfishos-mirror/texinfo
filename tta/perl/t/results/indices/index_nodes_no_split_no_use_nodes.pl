@@ -24,7 +24,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   *index_entry_command@cindex C1 index_nodes.texi:l4
   |INFO
@@ -37,7 +37,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry a}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l6
@@ -50,7 +50,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l8
@@ -63,7 +63,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *paragraph C1
@@ -79,7 +79,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@menu C3 index_nodes.texi:l14
@@ -87,7 +87,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_nodes.texi:l15
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -108,7 +108,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C7 index_nodes.texi:l18 {chap first}
@@ -132,7 +132,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -152,7 +152,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {entry in node}
    *index_entry_command@cindex C1 index_nodes.texi:l21
    |INFO
@@ -165,7 +165,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {! entry in node}
    *index_entry_command@findex C1 index_nodes.texi:l22
    |INFO
@@ -178,7 +178,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fun in node}
    *index_entry_command@cindex C1 index_nodes.texi:l23
    |INFO
@@ -191,7 +191,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {entry in node}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l25
@@ -204,7 +204,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@menu C3 index_nodes.texi:l27
@@ -212,7 +212,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_nodes.texi:l28
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -233,7 +233,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C5 index_nodes.texi:l31 {second}
@@ -253,7 +253,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{chap first}
    |normalized:{chap-first}
@@ -263,7 +263,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_nodes.texi:l33
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -295,7 +295,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l37
@@ -308,7 +308,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
  *@node C6 index_nodes.texi:l39 {another}
@@ -337,7 +337,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -356,7 +356,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {something}
   *index_entry_command@findex C1 index_nodes.texi:l42
   |INFO
@@ -369,7 +369,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {somewhere}
   *index_entry_command@cindex C1 index_nodes.texi:l43
   |INFO
@@ -382,7 +382,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {another}
   {empty_line:\\n}
  *@node C10 index_nodes.texi:l45 {a node}
@@ -412,7 +412,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{second}
    |normalized:{second}
@@ -428,7 +428,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry after printindex}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l48
@@ -441,7 +441,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@findex C1 index_nodes.texi:l50
@@ -455,7 +455,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a function}
   *index_entry_command@cindex C1 index_nodes.texi:l51
   |INFO
@@ -468,7 +468,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a concept a node}
   {empty_line:\\n}
   *@printindex C1 index_nodes.texi:l53
@@ -481,7 +481,7 @@ $result_tree_text{'index_nodes_no_split_no_use_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@bye C1

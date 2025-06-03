@@ -30,7 +30,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 transliterated_names_conflicts.texi:l4 {Same transliterated names}
  |INFO
@@ -43,7 +43,7 @@ NodeForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Same transliterated names}
   {empty_line:\\n}
 U1 unit{N:Prés}{s:1 Prés}
@@ -73,7 +73,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Prés}
  *@chapter C2 transliterated_names_conflicts.texi:l7 {Prés}
  |INFO
@@ -87,7 +87,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Prés}
   {empty_line:\\n}
 U2 unit{N:Other node}{s:2 Other chapter}
@@ -113,7 +113,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other node}
  *@chapter C7 transliterated_names_conflicts.texi:l10 {Other chapter}
  |INFO
@@ -127,7 +127,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other chapter}
   {empty_line:\\n}
   *@anchor C1 transliterated_names_conflicts.texi:l12
@@ -154,7 +154,7 @@ NodeBack: [U1]
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {Près}
@@ -169,7 +169,7 @@ NodeBack: [U1]
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
  *@bye C1

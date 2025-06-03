@@ -18,7 +18,7 @@ $result_tree_text{'ifclear_in_ifset'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{a}
     >{raw:@ifclear ok  - ok, ignored\\n}
     >{raw:@end junky   - ok, ignored\\n}
@@ -31,7 +31,7 @@ $result_tree_text{'ifclear_in_ifset'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   *@c C1
    {rawline_arg: WRONG - missing @end ifset.\\n}

@@ -25,7 +25,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -65,7 +65,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{  \\n}
+     |{spaces_after_argument:  \\n}
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -90,7 +90,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {between deffnx}
    *@deffnx C1 l6
    |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {cmde2}
@@ -142,7 +142,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {cindex in deff item}
     {empty_line:\\n}
     *paragraph C1
@@ -156,7 +156,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

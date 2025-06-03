@@ -20,7 +20,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@menu C4 l4
@@ -28,7 +28,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -63,7 +63,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C10
       {* }
       *@sc C1 l10
@@ -92,7 +92,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {example}
    *@end C1 l14
    |INFO
@@ -103,7 +103,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C4 l16 {@sc{node}}
@@ -118,7 +118,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sc C1 l16
      *brace_container C1
       {node}
@@ -128,13 +128,13 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@menu C4 l19
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C6 l20
      {menu_entry_leading_text:* }
      *menu_entry_name C1
@@ -176,7 +176,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {menu}
    *@end C1 l24
    |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
 ';

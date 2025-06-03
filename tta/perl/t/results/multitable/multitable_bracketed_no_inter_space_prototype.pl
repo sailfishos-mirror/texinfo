@@ -18,7 +18,7 @@ $result_tree_text{'multitable_bracketed_no_inter_space_prototype'} = '*document_
     *block_line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l2
       {a}
      *bracketed_arg C1 l2
@@ -32,7 +32,7 @@ $result_tree_text{'multitable_bracketed_no_inter_space_prototype'} = '*document_
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

@@ -26,7 +26,7 @@ $result_tree_text{'commands_in_abbr'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@abbr C2 l4
      *brace_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'commands_in_abbr'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

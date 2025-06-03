@@ -22,7 +22,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 reference_to_only_special_spaces_node.texi:l3 {top}
  |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 reference_to_only_special_spaces_node.texi:l5 {   }
@@ -50,7 +50,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {   }
  *@chapter C4 reference_to_only_special_spaces_node.texi:l6 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {EN QUAD| | EM QUAD| | EN SPACE| |}
   {empty_line:\\n}
   *paragraph C2
@@ -95,7 +95,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 reference_to_only_special_spaces_node.texi:l10
      *brace_container C1
       {   }
@@ -111,7 +111,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 reference_to_only_special_spaces_node.texi:l11
      *brace_container C1
       {EN QUAD| | EM QUAD| | EN SPACE| |}

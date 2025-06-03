@@ -24,7 +24,7 @@ $result_tree_text{'good'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.4 .6 5.}
    *@end C1 l2
    |INFO

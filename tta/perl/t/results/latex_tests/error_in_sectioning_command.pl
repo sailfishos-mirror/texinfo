@@ -25,7 +25,7 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top section}
  |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l6 {@code{@@error@{@}} (@error{}): Indicating an Error Message}
@@ -53,7 +53,7 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 l6
      *brace_container C4
       *@@
@@ -76,7 +76,7 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 l7
      *brace_container C4
       *@@

@@ -19,7 +19,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C3 l3
@@ -27,7 +27,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -48,7 +48,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *paragraph C2
@@ -72,7 +72,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap first level node}
   {empty_line:\\n}
  *@node C1 l11 {second level node}
@@ -87,7 +87,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second level node}
 ';
 

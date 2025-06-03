@@ -15,7 +15,7 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *before_item C2
     {spaces_before_paragraph: }
@@ -32,7 +32,7 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

@@ -18,7 +18,7 @@ $result_tree_text{'uref_accented_letter_latin1'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ISO-8859-1}
   {empty_line:\\n}
   *paragraph C2

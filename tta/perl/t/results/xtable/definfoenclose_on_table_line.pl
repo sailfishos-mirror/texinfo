@@ -16,7 +16,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {phi,:,:}
   {empty_line:\\n}
   *@table C3 l3
@@ -27,7 +27,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *definfoenclose_command@phi l3
      |INFO
      |command_name:{phi}
@@ -43,7 +43,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
      *@itemx C1 l5
      |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item x}
     *table_definition C2
      {empty_line:\\n}
@@ -67,7 +67,7 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

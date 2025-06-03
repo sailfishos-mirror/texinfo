@@ -21,7 +21,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *paragraph C1
    {A110\\n}
@@ -35,7 +35,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *paragraph C1
    {A011\\n}
@@ -49,7 +49,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *paragraph C1
    {A111\\n}
@@ -63,7 +63,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   {empty_line:\\n}
   *paragraph C1
@@ -77,7 +77,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
   *paragraph C1
    {A100\\n}
@@ -91,7 +91,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
   *paragraph C1
    {A001\\n}
@@ -105,7 +105,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
   *paragraph C1
    {A101\\n}
@@ -119,7 +119,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
   {empty_line:\\n}
   *paragraph C1
@@ -128,7 +128,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   *paragraph C1
    {A1 0\\n}
   {empty_line:\\n}
@@ -136,7 +136,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
   *paragraph C1
    {A0 1\\n}
   {empty_line:\\n}
@@ -144,7 +144,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   *paragraph C1
    {A1 1\\n}
   {empty_line:\\n}
@@ -152,7 +152,7 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
   {empty_line:\\n}
   *paragraph C1
    {B}

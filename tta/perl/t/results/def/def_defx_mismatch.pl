@@ -23,7 +23,7 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -64,7 +64,7 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
     *line_arg C11
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l2
        {type}
@@ -102,7 +102,7 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defun}
 ';
 

@@ -15,7 +15,7 @@ $result_tree_text{'empty_table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l1
    *@end C1 l2
    |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'empty_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

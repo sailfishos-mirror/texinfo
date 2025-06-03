@@ -14,7 +14,7 @@ $result_tree_text{'empty_multitable_with_cells'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_item C8
     {ignorable_spaces_after_command: }
     *paragraph C1
@@ -37,7 +37,7 @@ $result_tree_text{'empty_multitable_with_cells'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

@@ -20,7 +20,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C10 l2 {Test floats}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test floats}
   {empty_line:\\n}
   *paragraph C1
@@ -48,7 +48,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Text}
   {empty_line:\\n}
   *paragraph C1
@@ -58,7 +58,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -79,7 +79,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *@float C24 l12
@@ -98,7 +98,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {text with a lot of features}
@@ -119,7 +119,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       >*block_line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{texi2html}
      >{raw:An example.\\n}
      >{raw:@example \\n}
@@ -140,7 +140,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifset}
     {rawline_arg: makeinfo --docbook segfaults\\n}
    {empty_line:\\n}
@@ -157,7 +157,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float example}
    {empty_line:\\n}
    *paragraph C1
@@ -170,7 +170,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@emph l33
     *table_entry C2
      *table_term C1
@@ -181,7 +181,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{ \\n}
+        |{spaces_after_argument: \\n}
         {truc}
      *table_definition C1
       *paragraph C1
@@ -195,7 +195,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {table}
    {empty_line:\\n}
    *paragraph C1
@@ -208,7 +208,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *@minus l39
     *@item C2 l40
     |EXTRA
@@ -226,7 +226,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    {empty_line:\\n}
    *paragraph C6
@@ -307,7 +307,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{ \\n}
+        |{spaces_after_argument: \\n}
       *preformatted C1
        {example\\n}
       *@end C1 l55
@@ -319,7 +319,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {example}
      {empty_line:\\n}
      *@anchor C1 l57
@@ -340,7 +340,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@emph l60
       *table_entry C2
        *table_term C1
@@ -351,7 +351,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{ \\n}
+          |{spaces_after_argument: \\n}
           {truc}
        *table_definition C1
         *paragraph C1
@@ -365,7 +365,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {table}
      {empty_line:\\n}
      *paragraph C1
@@ -380,7 +380,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C3
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *bracketed_arg C1 l66
          {truc}
         { }
@@ -426,7 +426,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {multitable}
      *paragraph C2
       {An index entry\\n}
@@ -441,7 +441,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {float example in caption}
      {empty_line:\\n}
      *paragraph C1
@@ -454,7 +454,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@minus l74
       *@item C2 l75
       |EXTRA
@@ -472,7 +472,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {itemize}
      {empty_line:\\n}
      *paragraph C6
@@ -592,7 +592,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
  *@node C1 l91 {chapter}
@@ -607,7 +607,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C6 l92 {A chapter}
  |INFO
@@ -621,7 +621,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A chapter}
   {empty_line:\\n}
   *@float C8 l94
@@ -640,7 +640,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {float with a lot of features and no shortcaption}
@@ -664,7 +664,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{ \\n}
+        |{spaces_after_argument: \\n}
       *preformatted C1
        {example 2\\n}
       *@end C1 l102
@@ -676,7 +676,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {example}
      {empty_line:\\n}
      *paragraph C1
@@ -689,7 +689,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@emph l105
       *table_entry C2
        *table_term C1
@@ -700,7 +700,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{ \\n}
+          |{spaces_after_argument: \\n}
           {truc 2}
        *table_definition C1
         *paragraph C1
@@ -714,7 +714,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {table}
      {empty_line:\\n}
      *paragraph C1
@@ -729,7 +729,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C3
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *bracketed_arg C1 l111
          {truc}
         { }
@@ -775,7 +775,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {multitable}
      *paragraph C2
       {An index entry 2\\n}
@@ -790,7 +790,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {float example in caption 2}
      {empty_line:\\n}
      *paragraph C1
@@ -803,7 +803,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@minus l119
       *@item C2 l120
       |EXTRA
@@ -821,7 +821,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {itemize}
      {empty_line:\\n}
      *@anchor C1 l124
@@ -904,7 +904,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *paragraph C2

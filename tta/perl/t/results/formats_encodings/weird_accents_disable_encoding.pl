@@ -19,7 +19,7 @@ $result_tree_text{'weird_accents_disable_encoding'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -34,7 +34,7 @@ $result_tree_text{'weird_accents_disable_encoding'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'weird_accents_disable_encoding'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {chap}
@@ -62,7 +62,7 @@ $result_tree_text{'weird_accents_disable_encoding'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C11 l7 {Chapter}
  |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'weird_accents_disable_encoding'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C2

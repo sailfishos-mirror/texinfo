@@ -12,7 +12,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C15
     {in }
     *@code C1 l2
@@ -56,7 +56,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {documentdescription}
   {empty_line:\\n}
  *@top C1 l5 {top}
@@ -70,7 +70,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

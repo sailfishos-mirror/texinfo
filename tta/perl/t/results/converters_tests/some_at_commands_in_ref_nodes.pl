@@ -20,7 +20,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l3 {Top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C3 l5
@@ -41,7 +41,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C14
@@ -102,7 +102,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l9 {A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
@@ -117,7 +117,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    *line_arg C14
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A }
     *@sc C1 l9
      *brace_container C6
@@ -171,7 +171,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    *line_arg C14
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A }
     *@sc C1 l10
      *brace_container C1

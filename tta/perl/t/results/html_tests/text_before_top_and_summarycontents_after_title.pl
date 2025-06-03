@@ -23,7 +23,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l5 {top}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -54,7 +54,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {the chap}
   {empty_line:\\n}
   *@summarycontents C1 l11

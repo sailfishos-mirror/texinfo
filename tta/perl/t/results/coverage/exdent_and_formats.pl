@@ -12,7 +12,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C8
     { Example   Hoho. }
     *@TeX C1 l2
@@ -30,7 +30,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Other line}
    *preformatted C1
     {not exdented\\n}
@@ -43,7 +43,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -52,7 +52,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l10
    |INFO
    |spaces_before_argument:
@@ -60,7 +60,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented  and dash --- in example}
    *preformatted C1
     {Not exdented\\n}
@@ -71,7 +71,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented}
    *preformatted C1
     {Not exdented\\n}
@@ -84,7 +84,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *paragraph C1
@@ -95,7 +95,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C2
     {qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq \\n}
     {qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q\\n}
@@ -108,7 +108,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -125,7 +125,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C2
     {quotation1\\n}
     {quotation2\\n}
@@ -138,7 +138,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C5 l34
@@ -146,7 +146,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation para 1\\n}
    {empty_line:\\n}
@@ -161,7 +161,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@example C4 l40
@@ -169,7 +169,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {Example   Hoho.\\n}
    *@example C4 l42
@@ -177,7 +177,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C1
      {Nested Other line\\n}
     *@exdent C1 l44
@@ -187,7 +187,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {exdented nested other line}
     *@end C1 l45
     |INFO
@@ -198,7 +198,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l46
    |INFO
@@ -209,7 +209,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C3 l48
@@ -217,7 +217,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l49
    |INFO
    |spaces_before_argument:
@@ -225,7 +225,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented quotation line   and dash --- in quotation}
    *@end C1 l50
    |INFO
@@ -236,7 +236,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l52
@@ -244,7 +244,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Not exdented followed by exdented\\n}
    *@exdent C1 l54
@@ -254,7 +254,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented quotation line}
    *@end C1 l55
    |INFO
@@ -265,7 +265,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l57
@@ -273,7 +273,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l58
    |INFO
    |spaces_before_argument:
@@ -281,7 +281,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented quotation line}
    *paragraph C1
     {Followed by not exdented \\n}
@@ -294,7 +294,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l62
@@ -302,7 +302,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l63
    |INFO
    |spaces_before_argument:
@@ -310,7 +310,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az}
    *@exdent C1 l64
    |INFO
@@ -319,7 +319,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {azeaz az az az az}
    *@end C1 l65
    |INFO
@@ -330,7 +330,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l67
@@ -338,7 +338,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l68
    |INFO
    |spaces_before_argument:
@@ -346,7 +346,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line}
    *@exdent C1 l69
    |INFO
@@ -355,7 +355,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {az az az az}
    *@end C1 l70
    |INFO
@@ -366,7 +366,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l72
@@ -374,7 +374,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa\\n}
    *@exdent C1 l74
@@ -384,7 +384,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {ezkfjklezf}
    *@end C1 l75
    |INFO
@@ -395,7 +395,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C4 l77
@@ -403,7 +403,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@exdent C1 l78
    |INFO
    |spaces_before_argument:
@@ -411,7 +411,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line}
    *@exdent C1 l79
    |INFO
@@ -420,7 +420,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {az az az az}
    *@end C1 l80
    |INFO
@@ -431,7 +431,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

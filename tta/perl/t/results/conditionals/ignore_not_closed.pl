@@ -12,7 +12,7 @@ $result_tree_text{'ignore_not_closed'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:\\n}
    {raw:This is ignored\\n}
 ';

@@ -20,7 +20,7 @@ $result_tree_text{'raw_block_on_line'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
 ';
 
 

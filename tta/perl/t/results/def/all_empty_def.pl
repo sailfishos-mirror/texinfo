@@ -15,7 +15,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l2
    |INFO
    |spaces_before_argument:
@@ -25,7 +25,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@defvr C2 l4
@@ -36,7 +36,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l5
    |INFO
    |spaces_before_argument:
@@ -46,7 +46,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defvr}
   {empty_line:\\n}
   *@deftypefn C2 l7
@@ -57,7 +57,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l8
    |INFO
    |spaces_before_argument:
@@ -67,7 +67,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypeop C2 l10
@@ -78,7 +78,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l11
    |INFO
    |spaces_before_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypevr C2 l13
@@ -99,7 +99,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l14
    |INFO
    |spaces_before_argument:
@@ -109,7 +109,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypevr}
   {empty_line:\\n}
   *@defcv C2 l16
@@ -120,7 +120,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l17
    |INFO
    |spaces_before_argument:
@@ -130,7 +130,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defcv}
   {empty_line:\\n}
   *@deftypecv C2 l19
@@ -141,7 +141,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l20
    |INFO
    |spaces_before_argument:
@@ -151,7 +151,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@defop C2 l22
@@ -162,7 +162,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l23
    |INFO
    |spaces_before_argument:
@@ -172,7 +172,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defop}
   {empty_line:\\n}
   *@deftp C2 l25
@@ -183,7 +183,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l26
    |INFO
    |spaces_before_argument:
@@ -193,7 +193,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftp}
 ';
 

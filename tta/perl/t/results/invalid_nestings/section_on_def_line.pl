@@ -23,7 +23,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -43,7 +43,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {s}
   {empty_line:\\n}
   *paragraph C1

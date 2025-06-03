@@ -23,7 +23,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -39,7 +39,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A }
     *@ringaccent l5:@expand
     |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -83,7 +83,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {B }
     *@ringaccent l12:@nospace
     |INFO

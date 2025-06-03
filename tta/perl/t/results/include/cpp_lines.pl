@@ -20,7 +20,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cpp_lines.info}
    {empty_line:\\n}
    {empty_line:\\n}
@@ -42,7 +42,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C55 g_f:l71 {chap}
  |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C2
@@ -68,7 +68,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:\\n}
    {raw:  #line 5 "f"\\n}
    *@end C1 g_f:l51
@@ -80,7 +80,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *@macro C3 g_f:l53
@@ -99,7 +99,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C2
@@ -141,7 +141,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C2
@@ -179,7 +179,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{file_with_cpp_lines.texi}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -250,7 +250,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument:\\n}
      {etext2}
@@ -266,7 +266,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument:\\n}
      { no line directive text space}
@@ -282,7 +282,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument:\\n}
      { text space}
@@ -316,7 +316,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {làng}
   {empty_line:\\n}
  *@bye C1

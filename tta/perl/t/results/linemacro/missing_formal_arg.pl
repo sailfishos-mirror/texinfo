@@ -24,7 +24,7 @@ $result_tree_text{'missing_formal_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   {spaces_before_paragraph: }

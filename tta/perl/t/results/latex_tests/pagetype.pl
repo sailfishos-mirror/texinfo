@@ -26,7 +26,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l6 {section top}
  |INFO
@@ -39,7 +39,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l8 {chapter}
@@ -54,7 +54,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C11 l9 {Chapter}
  |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@smallbook C1 l11
@@ -98,7 +98,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {afourpaper reset}
   {empty_line:\\n}
   *paragraph C1

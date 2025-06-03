@@ -24,7 +24,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l6
@@ -43,7 +43,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l10
@@ -62,7 +62,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l14
@@ -81,7 +81,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l18
@@ -100,7 +100,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l22
@@ -119,7 +119,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@menu C8 l26
@@ -127,7 +127,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l27
     {menu_entry_leading_text:* }
     >SOURCEMARKS
@@ -269,7 +269,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

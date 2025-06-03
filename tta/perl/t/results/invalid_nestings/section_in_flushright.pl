@@ -12,7 +12,7 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {text flushed right\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a section}
 ';
 

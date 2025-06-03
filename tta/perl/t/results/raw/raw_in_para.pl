@@ -14,7 +14,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in verbatim\\n}
    *@end C1 l4
    |INFO
@@ -25,7 +25,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *paragraph C3
@@ -35,7 +35,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in html\\n}
     *@end C1 l9
@@ -47,7 +47,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {in para\\n}
   {empty_line:\\n}
@@ -58,7 +58,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C3
      {in tex1\\n}
      {empty_line:\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'raw_in_para'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex}
   {empty_line:\\n}
   *paragraph C1

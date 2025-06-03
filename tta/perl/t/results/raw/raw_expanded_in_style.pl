@@ -16,7 +16,7 @@ $result_tree_text{'raw_expanded_in_style'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *rawpreformatted C1
        {in html\\n}
       *@end C1 l4
@@ -28,7 +28,7 @@ $result_tree_text{'raw_expanded_in_style'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {html}
 ';
 

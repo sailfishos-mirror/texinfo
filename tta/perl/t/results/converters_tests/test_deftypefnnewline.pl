@@ -16,7 +16,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {test_deftypefnnewline.info}
   {empty_line:\\n}
   *@deftypefnnewline C1 l3
@@ -29,7 +29,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
  *@node C1 l5 {Top}
@@ -44,7 +44,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l6 {top}
  |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l8 {chapter}
@@ -72,7 +72,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C31 l9 {chap}
  |INFO
@@ -86,7 +86,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@deftypefun C3 l11
@@ -106,7 +106,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -136,7 +136,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefun}
   {empty_line:\\n}
   *@deftypefn C3 l15
@@ -156,7 +156,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -180,7 +180,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypeop C3 l19
@@ -214,7 +214,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -246,7 +246,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypeop C3 l23
@@ -280,7 +280,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -308,7 +308,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypecv C3 l27
@@ -342,7 +342,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -370,7 +370,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@deftypecv C3 l31
@@ -404,7 +404,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -436,7 +436,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@deffn C3 l35
@@ -456,7 +456,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fun}
@@ -476,7 +476,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deftypefnnewline C1 l39
@@ -489,7 +489,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {off}
   {empty_line:\\n}
   *@deftypefun C3 l41
@@ -509,7 +509,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -539,7 +539,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefun}
   {empty_line:\\n}
   *@deftypefn C3 l45
@@ -559,7 +559,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -583,7 +583,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypeop C3 l49
@@ -617,7 +617,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -649,7 +649,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypeop C3 l53
@@ -683,7 +683,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -711,7 +711,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypeop}
   {empty_line:\\n}
   *@deftypecv C3 l57
@@ -745,7 +745,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -773,7 +773,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@deftypecv C3 l61
@@ -807,7 +807,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -839,7 +839,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@deffn C3 l65
@@ -859,7 +859,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {fun2}
@@ -879,7 +879,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

@@ -18,7 +18,7 @@ $result_tree_text{'verbatiminclude_and_encoding_latin1'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {iso-8859-1}
   {empty_line:\\n}
   *@verbatiminclude C1 l3
@@ -31,7 +31,7 @@ $result_tree_text{'verbatiminclude_and_encoding_latin1'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {verbatim_encoded_latin1.texi}
 ';
 

@@ -1056,7 +1056,7 @@ isolate_last_space (ELEMENT *current)
       && last_elt->e.text->end > 0)
     {
       ELEMENT *spaces_element
-            = isolate_trailing_spaces_element (ET_other_text, last_elt);
+       = isolate_trailing_spaces_element (ET_spaces_after_argument, last_elt);
       if (spaces_element == last_elt)
       /* If text all whitespace */
         {
@@ -1065,7 +1065,7 @@ isolate_last_space (ELEMENT *current)
               /* e is last_elt */
               ELEMENT *e = pop_element_from_contents (current);
               e->parent = 0;
-              e->type = ET_other_text;
+              e->type = ET_spaces_after_argument;
               current->elt_info[eit_spaces_after_argument] = e;
             }
           else

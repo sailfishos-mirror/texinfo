@@ -15,7 +15,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {Before}
     *table_definition C1
      {empty_line:\\n}
@@ -42,7 +42,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsection}
   {empty_line:\\n}
   {ignorable_spaces_after_command: }

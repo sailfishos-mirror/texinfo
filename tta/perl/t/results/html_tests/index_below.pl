@@ -23,7 +23,7 @@ FastForward: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
 U1 unit{S:1 chap}
@@ -46,7 +46,7 @@ Up: [U0]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
 U2 unit{S:1.1 sec}
@@ -68,7 +68,7 @@ Up: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
@@ -81,7 +81,7 @@ Up: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry}
   *@printindex C1 l8
   |INFO
@@ -93,7 +93,7 @@ Up: [U1]
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
 ';
 

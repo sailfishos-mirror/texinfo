@@ -18,7 +18,7 @@ $result_tree_text{'documentencoding_utf8'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {utf8}
   {empty_line:\\n}
 ';

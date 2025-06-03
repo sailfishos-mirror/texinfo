@@ -24,7 +24,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {for example}
   {empty_line:\\n}
  *@chapter C2 l5 {@asis{}}
@@ -39,7 +39,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l5
      *brace_container
   {empty_line:\\n}

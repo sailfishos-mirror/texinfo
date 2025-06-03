@@ -28,7 +28,7 @@ $result_tree_text{'close_paragraph_command'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {4}
   *paragraph C1
    {inew p after sp}

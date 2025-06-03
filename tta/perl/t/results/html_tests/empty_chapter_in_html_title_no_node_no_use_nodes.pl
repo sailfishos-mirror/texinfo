@@ -20,7 +20,7 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@chapter C1 l4
@@ -45,7 +45,7 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

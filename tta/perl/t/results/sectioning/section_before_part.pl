@@ -20,7 +20,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
   {empty_line:\\n}
  *@part C3 l3 {part}
@@ -35,7 +35,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
   *@contents C1 l5

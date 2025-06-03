@@ -18,7 +18,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *paragraph C4
    {other para\\n}
@@ -35,7 +35,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   {empty_line:\\n}
   *@sp C1 l8
@@ -47,7 +47,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
   *paragraph C1
    {Para after sp\\n}
@@ -63,7 +63,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
   *paragraph C1
    {B\\n}
@@ -79,7 +79,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
 ';
 

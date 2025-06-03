@@ -19,7 +19,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@node C40 l3 {chapnode}
@@ -34,7 +34,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap\\fnode}
   {empty_line:\\n}
   {empty_line:\\f \\f\\n}
@@ -130,7 +130,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\f\\n}
+     |{spaces_after_argument: \\f\\n}
    *preformatted C1
     {in example\\n}
    *@end C1 l24
@@ -142,7 +142,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@center C1 l26
@@ -152,7 +152,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\f\\n}
+    |{spaces_after_argument: \\f\\n}
     {around center}
   *@center C1 l27
   |INFO
@@ -161,7 +161,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {in \\fcenter}
   {empty_line:\\n}
   *paragraph C2
@@ -182,7 +182,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |*bracketed_arg C1
      ||INFO
      ||spaces_after_argument:
-      ||{ }
+      ||{spaces_after_argument: }
      ||spaces_before_argument:
       ||{spaces_before_argument: }
       |{machin}
@@ -192,12 +192,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{ \\f\\n}
+     |{spaces_after_argument: \\f\\n}
      *def_category C1
       *bracketed_arg C1 l31
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: \\f}
        {truc}
@@ -206,7 +206,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l31
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {machin}
@@ -215,7 +215,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l31
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {bidule}
@@ -224,7 +224,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l31
       |INFO
       |spaces_after_argument:
-       |{ \\f}
+       |{spaces_after_argument: \\f}
       |spaces_before_argument:
        |{spaces_before_argument: \\f }
        {chose}
@@ -233,7 +233,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l31
       |INFO
       |spaces_after_argument:
-       |{\\f }
+       |{spaces_after_argument:\\f }
       |spaces_before_argument:
        |{spaces_before_argument:  }
        {arg}
@@ -248,7 +248,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |*bracketed_arg C1
      ||INFO
      ||spaces_after_argument:
-      ||{ }
+      ||{spaces_after_argument: }
      ||spaces_before_argument:
       ||{spaces_before_argument: }
       |{xmachin}
@@ -258,12 +258,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *line_arg C9
     |INFO
     |spaces_after_argument:
-     |{ \\f\\n}
+     |{spaces_after_argument: \\f\\n}
      *def_category C1
       *bracketed_arg C1 l32
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: \\f}
        {xtruc}
@@ -272,7 +272,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l32
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {xmachin}
@@ -281,7 +281,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l32
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
       |spaces_before_argument:
        |{spaces_before_argument: }
        {xbidule}
@@ -290,7 +290,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l32
       |INFO
       |spaces_after_argument:
-       |{ \\f}
+       |{spaces_after_argument: \\f}
       |spaces_before_argument:
        |{spaces_before_argument: \\f }
        {xchose}
@@ -299,7 +299,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
       *bracketed_arg C1 l32
       |INFO
       |spaces_after_argument:
-       |{\\f }
+       |{spaces_after_argument:\\f }
       |spaces_before_argument:
        |{spaces_before_argument:  }
        {xarg}
@@ -315,7 +315,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@float C9 l36
@@ -326,7 +326,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {a float\\n}
    *@caption C1 l38
@@ -368,7 +368,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\f\\n}
+     |{spaces_after_argument: \\f\\n}
      {float}
   {empty_line:\\n}
   *@float C3 l42
@@ -385,12 +385,12 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\f}
+     |{spaces_after_argument: \\f}
      {type}
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\f\\n}
+     |{spaces_after_argument: \\f\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {fl}
@@ -405,7 +405,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l46
@@ -418,7 +418,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\f\\n}
+    |{spaces_after_argument: \\f\\n}
     {type}
   {empty_line:\\n}
 ';

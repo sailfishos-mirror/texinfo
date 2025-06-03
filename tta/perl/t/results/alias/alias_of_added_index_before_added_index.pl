@@ -16,7 +16,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new = sliindex}
   {empty_line:\\n}
   *@defindex C1 l3
@@ -28,7 +28,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sli}
   {empty_line:\\n}
  *@node C1 l5 {Top}
@@ -43,7 +43,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l6 {top}
  |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *index_entry_command@sliindex C1 l8
@@ -71,7 +71,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry}
   {empty_line:\\n}
  *@node C1 l10 {chap}
@@ -87,7 +87,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C3 l11 {Chapter}
  |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@printindex C1 l13
@@ -114,7 +114,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sli}
 ';
 

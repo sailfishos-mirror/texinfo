@@ -15,7 +15,7 @@ $result_tree_text{'superfluous_argument_to_end'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C1
    {not html\\n}
    >SOURCEMARKS
@@ -29,7 +29,7 @@ $result_tree_text{'superfluous_argument_to_end'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnothtml superfluous}
 ';
 

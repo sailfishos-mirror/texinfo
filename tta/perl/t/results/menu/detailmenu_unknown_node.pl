@@ -19,7 +19,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C3 l3
@@ -27,7 +27,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -56,7 +56,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *@end C1 l7
    |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

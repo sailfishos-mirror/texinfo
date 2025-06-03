@@ -19,7 +19,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C8 l3
@@ -27,7 +27,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -56,7 +56,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *menu_comment C1
     *preformatted C3
@@ -84,7 +84,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l13
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -105,7 +105,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *menu_entry C4 l15
     {menu_entry_leading_text:* }
@@ -127,7 +127,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l18 {chap first}
@@ -142,7 +142,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap first}
  *@node C1 l19 {second}
  |INFO
@@ -156,7 +156,7 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second}
 ';
 

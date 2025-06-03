@@ -17,7 +17,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {nodes_before_after_top_xref.info}
    {empty_line:\\n}
  *@node C4 l3 {node before}
@@ -32,7 +32,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node before}
   {empty_line:\\n}
   *paragraph C1
@@ -50,7 +50,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l8 {top sectionning}
  |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top sectionning}
   {empty_line:\\n}
   *paragraph C1
@@ -81,7 +81,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after}
   {empty_line:\\n}
   *paragraph C1
@@ -99,7 +99,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C10 l17 {chap}
  |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1
@@ -129,7 +129,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   *paragraph C4
    *@xref C1 l22
@@ -157,7 +157,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {off}
   *paragraph C4
    *@xref C1 l26

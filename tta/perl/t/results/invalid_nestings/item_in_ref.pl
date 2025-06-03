@@ -15,7 +15,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {first item}
     *table_definition C3
      *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {second item}
    *@end C1 l7
    |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

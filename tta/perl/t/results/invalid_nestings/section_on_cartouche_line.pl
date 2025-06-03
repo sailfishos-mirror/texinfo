@@ -22,7 +22,7 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@cartouche C1 l3
@@ -43,7 +43,7 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second spaces}
 ';
 

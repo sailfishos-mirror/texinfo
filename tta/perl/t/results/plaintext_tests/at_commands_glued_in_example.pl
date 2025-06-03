@@ -12,7 +12,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C41
     {at}
     *@@
@@ -91,7 +91,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {4}
     {anchor}
     *@anchor C1 l14
@@ -112,7 +112,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {index}
    *@end C1 l16
    |INFO
@@ -123,7 +123,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

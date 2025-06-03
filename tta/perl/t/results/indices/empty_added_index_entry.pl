@@ -17,7 +17,7 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {my}
    {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -32,7 +32,7 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C3 l4 {chap}
  |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *index_entry_command@myindex C1 l6
@@ -55,7 +55,7 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

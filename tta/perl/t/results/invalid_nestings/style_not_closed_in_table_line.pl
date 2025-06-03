@@ -15,7 +15,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {first item}
     *table_definition C1
      *paragraph C3
@@ -44,7 +44,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in item}
    *@end C1 l5
    |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'style_not_closed_in_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

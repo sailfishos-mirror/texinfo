@@ -19,7 +19,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C1 l2 {top section}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
  *@chapter C5 l3 {Main}
  |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Main}
   *paragraph C1
    {Top node\\n}
@@ -56,7 +56,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -77,7 +77,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l10 {Additional}
@@ -92,7 +92,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Additional}
  *@appendix C1 l11 {Annex}
  |INFO
@@ -106,7 +106,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Annex}
 ';
 

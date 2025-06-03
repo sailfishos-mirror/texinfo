@@ -15,7 +15,7 @@ $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l1
    *table_entry C1
     *table_term C2
@@ -28,7 +28,7 @@ $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in itemx}
    *@end C1 l4
    |INFO
@@ -39,7 +39,7 @@ $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

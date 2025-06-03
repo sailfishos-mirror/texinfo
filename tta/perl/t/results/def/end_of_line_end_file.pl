@@ -23,7 +23,7 @@ $result_tree_text{'end_of_line_end_file'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      |>SOURCEMARKS
      |>defline_continuation<1><p:1>
      *def_category C1

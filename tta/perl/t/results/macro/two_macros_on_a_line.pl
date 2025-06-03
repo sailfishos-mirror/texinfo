@@ -23,7 +23,7 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C5 l5
@@ -44,7 +44,7 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   {empty_line:\\n}

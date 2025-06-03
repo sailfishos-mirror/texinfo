@@ -23,7 +23,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C3

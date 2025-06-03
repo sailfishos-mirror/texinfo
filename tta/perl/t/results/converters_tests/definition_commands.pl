@@ -20,7 +20,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top section}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
@@ -48,7 +48,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C39 l5 {chapter}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@deffn C3 l7
@@ -82,7 +82,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -118,7 +118,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C3 l11
@@ -138,7 +138,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -178,7 +178,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deffn C3 l15
@@ -198,7 +198,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -242,7 +242,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@defspec C17 l19
@@ -262,7 +262,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C19
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -314,7 +314,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -377,7 +377,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -440,7 +440,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -503,7 +503,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -566,7 +566,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -629,7 +629,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -698,7 +698,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -767,7 +767,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -836,7 +836,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -905,7 +905,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -974,7 +974,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1043,7 +1043,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1112,7 +1112,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1181,7 +1181,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C18
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1246,7 +1246,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defspec}
   {empty_line:\\n}
   *@defspec C17 l37
@@ -1266,7 +1266,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1300,7 +1300,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1336,7 +1336,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1372,7 +1372,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1408,7 +1408,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1444,7 +1444,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1480,7 +1480,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1518,7 +1518,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1556,7 +1556,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1594,7 +1594,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1632,7 +1632,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1670,7 +1670,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1708,7 +1708,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1746,7 +1746,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1784,7 +1784,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -1818,7 +1818,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defspec}
   {empty_line:\\n}
   *@deffn C7 l55
@@ -1840,7 +1840,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Request}
@@ -1885,7 +1885,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -1930,7 +1930,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -1976,7 +1976,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -2033,7 +2033,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Register}
@@ -2078,7 +2078,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@defspec C4 l65
@@ -2098,7 +2098,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C57
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -2304,7 +2304,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -2379,7 +2379,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defspec}
   {empty_line:\\n}
   *@deftypefn C3 l70
@@ -2399,7 +2399,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C16
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l70
        {Library Function}
@@ -2456,7 +2456,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypefn C3 l74
@@ -2476,7 +2476,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C16
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l74
        {Library Function}
@@ -2537,7 +2537,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@noindent l78
@@ -2563,7 +2563,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l79
        {Class Option}
@@ -2589,7 +2589,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defcv}
   {empty_line:\\n}
   *@deftypecv C3 l83
@@ -2623,7 +2623,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l83
        {Class Option}
@@ -2655,7 +2655,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypecv}
   {empty_line:\\n}
   *@quotation C3 l87
@@ -2663,7 +2663,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@deftypefn C3 l88
    |INFO
    |spaces_before_argument:
@@ -2681,7 +2681,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *block_line_arg C16
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       *def_category C1
        *bracketed_arg C1 l88
         {Library Function}
@@ -2738,7 +2738,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {deftypefn}
    *@end C1 l91
    |INFO
@@ -2749,7 +2749,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@defun C3 l93
@@ -2769,7 +2769,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -2814,7 +2814,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defun}
   {empty_line:\\n}
   *@defun C3 l97
@@ -2834,7 +2834,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -2880,7 +2880,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defun}
   {empty_line:\\n}
   *@deffn C3 l101
@@ -2900,7 +2900,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C31
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Category}
@@ -2986,7 +2986,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
   {empty_line:\\n}
   *@deftypefn C17 l106
@@ -3006,7 +3006,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l106
        {Library Function}
@@ -3063,7 +3063,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l107
        {Library Function}
@@ -3128,7 +3128,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l108
        {Library Function}
@@ -3193,7 +3193,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l109
        {Library Function}
@@ -3258,7 +3258,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l110
        {Library Function}
@@ -3323,7 +3323,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l111
        {Library Function}
@@ -3388,7 +3388,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l112
        {Library Function}
@@ -3457,7 +3457,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l113
        {Library Function}
@@ -3526,7 +3526,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l114
        {Library Function}
@@ -3595,7 +3595,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l115
        {Library Function}
@@ -3664,7 +3664,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l116
        {Library Function}
@@ -3733,7 +3733,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l117
        {Library Function}
@@ -3802,7 +3802,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l118
        {Library Function}
@@ -3871,7 +3871,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l119
        {Library Function}
@@ -3940,7 +3940,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l120
        {Library Function}
@@ -4005,7 +4005,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
   *@deftypefn C17 l124
@@ -4025,7 +4025,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *block_line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l124
        {Library Function}
@@ -4082,7 +4082,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l125
        {Library Function}
@@ -4141,7 +4141,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l126
        {Library Function}
@@ -4200,7 +4200,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l127
        {Library Function}
@@ -4259,7 +4259,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l128
        {Library Function}
@@ -4318,7 +4318,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l129
        {Library Function}
@@ -4377,7 +4377,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l130
        {Library Function}
@@ -4438,7 +4438,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l131
        {Library Function}
@@ -4499,7 +4499,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l132
        {Library Function}
@@ -4560,7 +4560,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l133
        {Library Function}
@@ -4621,7 +4621,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l134
        {Library Function}
@@ -4682,7 +4682,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l135
        {Library Function}
@@ -4743,7 +4743,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l136
        {Library Function}
@@ -4804,7 +4804,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l137
        {Library Function}
@@ -4865,7 +4865,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C20
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l138
        {Library Function}
@@ -4922,7 +4922,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deftypefn}
   {empty_line:\\n}
 ';

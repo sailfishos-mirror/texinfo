@@ -24,7 +24,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@macro C4 l6
@@ -44,7 +44,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C4

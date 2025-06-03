@@ -24,7 +24,7 @@ $result_tree_text{'no_documentencoding_and_insertions'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C5
     {-- --- \'\' `` ` \' }
     *@code C1 l5
@@ -44,7 +44,7 @@ $result_tree_text{'no_documentencoding_and_insertions'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

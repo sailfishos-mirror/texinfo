@@ -35,7 +35,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@:
  *@node C1 l6 {@asis{ }}
  |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 l6
      *brace_container C1
       { }

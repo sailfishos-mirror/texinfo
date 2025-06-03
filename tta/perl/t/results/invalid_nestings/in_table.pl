@@ -20,7 +20,7 @@ $result_tree_text{'in_table'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C11 l3 {chap}
  |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'in_table'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@table C2 l5
@@ -46,7 +46,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@xref l5
    *@end C1 l6
    |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C6 l8
@@ -68,7 +68,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l8
    *table_entry C2
     *table_term C1
@@ -105,7 +105,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {exdent}
     *table_definition C1
      *paragraph C3
@@ -150,7 +150,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {centered text in item}
    *table_entry C1
     *table_term C1
@@ -170,7 +170,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {index}
    *@end C1 l15
    |INFO
@@ -181,7 +181,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@vtable C4 l17
@@ -192,7 +192,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l17
    *table_entry C2
     *table_term C1
@@ -215,7 +215,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {index}
     *table_definition C1
      *paragraph C3
@@ -245,7 +245,7 @@ $result_tree_text{'in_table'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {2 index}
     *table_definition C1
      *paragraph C3
@@ -263,7 +263,7 @@ $result_tree_text{'in_table'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
   {empty_line:\\n}
   *@printindex C1 l26
@@ -276,7 +276,7 @@ $result_tree_text{'in_table'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *@printindex C1 l28
@@ -289,7 +289,7 @@ $result_tree_text{'in_table'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
 ';
 

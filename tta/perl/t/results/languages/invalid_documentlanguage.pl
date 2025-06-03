@@ -20,7 +20,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {%bm_AA}
    *@documentlanguage C1 l3
    |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cu*_FR}
    *@documentlanguage C1 l4
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {_JP}
    *@documentlanguage C1 l5
    |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {*_ZM}
    *@documentlanguage C1 l6
    |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tia_JJ}
    *@documentlanguage C1 l7
    |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fr_}
    *@documentlanguage C1 l8
    |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {be_}
    *@documentlanguage C1 l9
    |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {de_*}
    *@documentlanguage C1 l10
    |INFO
@@ -116,7 +116,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {it_G%}
    *@documentlanguage C1 l11
    |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {it_FR^}
    *@documentlanguage C1 l12
    |INFO
@@ -140,7 +140,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {en_US !}
    *@documentlanguage C1 l13
    |INFO
@@ -152,7 +152,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ab gh}
    *@documentlanguage C1 l14
    |INFO
@@ -177,7 +177,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {az}
    *@documentlanguage C1 l16
    |INFO
@@ -189,7 +189,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {bhÃ©}
    *@documentlanguage C1 l17
    |INFO
@@ -201,7 +201,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {AB_FR}
    *@documentlanguage C1 l18
    |INFO
@@ -213,7 +213,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ab_us}
    *@documentlanguage C1 l19
    |EXTRA
@@ -221,7 +221,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l21 {Top}
  |INFO
@@ -235,7 +235,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l22 {top}
  |INFO
@@ -248,7 +248,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@defivar C2 l24
@@ -283,7 +283,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *block_line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
      |INFO
      |inserted:{1}
@@ -313,7 +313,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defivar}
   {empty_line:\\n}
 ';

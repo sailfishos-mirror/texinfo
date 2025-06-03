@@ -12,7 +12,7 @@ $result_tree_text{'insert_copying_and_paragraph'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In copying.\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'insert_copying_and_paragraph'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {copying}
   {empty_line:\\n}
   *paragraph C1

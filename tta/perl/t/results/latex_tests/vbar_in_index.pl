@@ -18,7 +18,7 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A|B}
   *index_entry_command@cindex C1 l2
   |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {C|D}
 ';
 

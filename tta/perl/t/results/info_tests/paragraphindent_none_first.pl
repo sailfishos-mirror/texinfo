@@ -26,7 +26,7 @@ $result_tree_text{'paragraphindent_none_first'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {none}
   {empty_line:\\n}
   {spaces_before_paragraph:      }

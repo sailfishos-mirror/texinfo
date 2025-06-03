@@ -12,7 +12,7 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {In title }
      *@sc C1 l1
       *brace_container C1
@@ -30,7 +30,7 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     *@sc C1 l6
      *brace_container C1
@@ -45,7 +45,7 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
 ';

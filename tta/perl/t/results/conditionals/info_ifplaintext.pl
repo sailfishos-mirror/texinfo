@@ -15,7 +15,7 @@ $result_tree_text{'info_ifplaintext'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:this text will only appear in plain text.\\n}
     >*@end C1 l4
     >|INFO
@@ -26,7 +26,7 @@ $result_tree_text{'info_ifplaintext'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifplaintext}
 ';
 

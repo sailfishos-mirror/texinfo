@@ -19,7 +19,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
  *@top C3 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C3 l4
@@ -40,7 +40,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -58,7 +58,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *before_item C1
        *preformatted C1
         {empty_line:\\n}
@@ -78,7 +78,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {itemize}
      *@table C4 l11
      |INFO
@@ -88,7 +88,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@asis l11
       *before_item C1
        *preformatted C1
@@ -102,7 +102,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           {table item}
        *table_definition C1
         *preformatted C3
@@ -118,7 +118,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {table}
      *preformatted C1
       *@html C3 l18
@@ -126,7 +126,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *rawpreformatted C3
         {empty_line:\\n}
         {<b> in html </b>\\n}
@@ -140,14 +140,14 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {html}
      *@verbatim C3 l23
       *arguments_line C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       {raw:\\n}
       *@end C1 l25
       |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {verbatim}
    *@end C1 l26
    |INFO
@@ -169,7 +169,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

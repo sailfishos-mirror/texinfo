@@ -15,7 +15,7 @@ $result_tree_text{'bad_line'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {garbage-on-line =cmd garbage}
   {empty_line:\\n}
   *@alias C1 l4
@@ -25,7 +25,7 @@ $result_tree_text{'bad_line'} = '*document_root C1
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {garbage-on-line =cmd }
     *@code C1 l4
      *brace_container C1

@@ -70,7 +70,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C18
     *@code C1 l11
      *brace_container C1
@@ -138,7 +138,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@display C3 l22
@@ -146,7 +146,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C16
     *@kbd C1 l23
      *brace_container C1
@@ -210,7 +210,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display}
 ';
 

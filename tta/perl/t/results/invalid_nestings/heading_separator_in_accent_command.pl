@@ -20,7 +20,7 @@ $result_tree_text{'heading_separator_in_accent_command'} = '*document_root C1
    *line_arg C7
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a }
     *@|
     { }

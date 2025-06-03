@@ -23,7 +23,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@set C2
@@ -47,7 +47,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{flag}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:2>
@@ -64,7 +64,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
 ';
 

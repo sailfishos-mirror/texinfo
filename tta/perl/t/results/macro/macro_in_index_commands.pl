@@ -23,7 +23,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *@macro C3 l4
   |EXTRA
@@ -41,7 +41,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *@macro C3 l7
   |EXTRA
@@ -59,7 +59,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@syncodeindex C1 l11
@@ -83,7 +83,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp fn}
     >SOURCEMARKS
     >macro_expansion<end;1><p:2>
@@ -104,7 +104,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp fn}
   {empty_line:\\n}
   *@macro C3 l14
@@ -123,7 +123,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C3
@@ -143,7 +143,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {truc}
      >SOURCEMARKS
      >macro_expansion<end;4><p:4>
@@ -165,7 +165,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C3 l26
@@ -184,7 +184,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@defcodeindex C1 l30
@@ -202,7 +202,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {codeidx}
     >SOURCEMARKS
     >macro_expansion<end;5><p:7>
@@ -223,7 +223,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
  *@node C1 l36 {Top}
@@ -238,7 +238,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C15 l37 {chap}
  |INFO
@@ -253,7 +253,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -275,7 +275,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index truc}
   {empty_line:\\n}
   *index_entry_command@codeidxindex C1 l41
@@ -295,7 +295,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a }
     *@var C1 l41:@defcodeindexentry
      *brace_container C1
@@ -330,7 +330,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc kindex}
     >SOURCEMARKS
     >macro_expansion<end;8><p:4>
@@ -345,7 +345,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {pindex codeidx}
     >SOURCEMARKS
     >macro_expansion<start;9><p:7>
@@ -373,7 +373,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {truc}
     >SOURCEMARKS
     >macro_expansion<end;10><p:4>
@@ -396,7 +396,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
     >SOURCEMARKS
     >macro_expansion<end;11><p:2>

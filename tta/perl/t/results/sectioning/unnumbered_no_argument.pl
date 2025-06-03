@@ -15,7 +15,7 @@ $result_tree_text{'unnumbered_no_argument'} = '*document_root C2
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

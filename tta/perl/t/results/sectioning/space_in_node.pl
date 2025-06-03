@@ -20,7 +20,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -28,7 +28,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -75,7 +75,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 l10 {Chap first  here}
@@ -90,7 +90,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap first  here}
   {empty_line:\\n}
  *@node C2 l12 {Test               title}
@@ -105,7 +105,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test               title}
   {empty_line:\\n}
  *@node C1 l14 {Last with spaces}
@@ -120,7 +120,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {Last with spaces}
 ';
 

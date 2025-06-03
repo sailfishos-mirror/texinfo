@@ -23,7 +23,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@defblock C3 l5
@@ -50,7 +50,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defline C1 l6:@mymacro
    |INFO
    |spaces_before_argument:
@@ -67,7 +67,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     *line_arg C3
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      |>SOURCEMARKS
      |>linemacro_expansion<end;1><p:1>
      *def_category C1
@@ -90,7 +90,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

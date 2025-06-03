@@ -15,7 +15,7 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *before_item C1
     {empty_line:\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *@code C1 l3
         *brace_container C2
          *@@
@@ -68,7 +68,7 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

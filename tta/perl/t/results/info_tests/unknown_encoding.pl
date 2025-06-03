@@ -18,7 +18,7 @@ $result_tree_text{'unknown_encoding'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ggg}
   {empty_line:\\n}
  *@node C2 l4 {Top}
@@ -33,7 +33,7 @@ $result_tree_text{'unknown_encoding'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
 ';

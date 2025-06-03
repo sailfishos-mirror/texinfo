@@ -15,7 +15,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *@author C1 l4
    |INFO
    |spaces_before_argument:
@@ -25,7 +25,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Some One}
    *paragraph C1
     {A quot---ation\\n}
@@ -38,7 +38,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -49,7 +49,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@author C1 l11
    |INFO
    |spaces_before_argument:
@@ -59,7 +59,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {An Author Name}
    *paragraph C1
     {in small---quotation.\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {smallquotation}
   {empty_line:\\n}
   *@quotation C4 l15
@@ -83,7 +83,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Note}
    *@author C1 l16
    |INFO
@@ -94,7 +94,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Some Notifier}
    *paragraph C1
     {A Note\\n}
@@ -107,7 +107,7 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

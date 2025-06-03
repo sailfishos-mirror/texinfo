@@ -17,7 +17,7 @@ $result_tree_text{'multitable_not_closed_item_tab'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {r}
      { }

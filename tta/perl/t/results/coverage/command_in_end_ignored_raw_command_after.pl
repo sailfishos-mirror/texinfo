@@ -12,7 +12,7 @@ $result_tree_text{'command_in_end_ignored_raw_command_after'} = '*document_root 
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:In html\\n}
    *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'command_in_end_ignored_raw_command_after'} = '*document_root 
     *line_arg C2
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
      *@asis C1 l3
       *brace_container C1

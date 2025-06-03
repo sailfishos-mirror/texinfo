@@ -13,7 +13,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@float C5 l2
    |INFO
    |spaces_before_argument:
@@ -30,7 +30,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {in example}
@@ -50,7 +50,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    *@end C1 l5
    |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C3 l7
@@ -69,7 +69,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@float C4 l8
    |INFO
    |spaces_before_argument:
@@ -86,7 +86,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {in quotation}
@@ -104,7 +104,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    *@end C1 l11
    |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@cartouche C3 l13
@@ -123,7 +123,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@float C4 l14
    |INFO
    |spaces_before_argument:
@@ -140,7 +140,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {in cartouche}
@@ -158,7 +158,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    *@end C1 l17
    |INFO
@@ -169,7 +169,7 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cartouche}
   {empty_line:\\n}
 ';

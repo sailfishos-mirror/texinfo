@@ -15,7 +15,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C3
      {Copying.\\n}
@@ -38,7 +38,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
  *@node C2 l9 {Top}
@@ -53,7 +53,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@node C8 l11 {chap}
@@ -68,7 +68,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@insertcopying C1 l13

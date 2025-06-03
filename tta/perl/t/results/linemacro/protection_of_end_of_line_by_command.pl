@@ -23,7 +23,7 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   >SOURCEMARKS

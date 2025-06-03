@@ -55,11 +55,11 @@ new_block_command (ELEMENT *element)
 {
   ELEMENT *block_line_arg = new_element (ET_block_line_arg);
   ELEMENT *arguments_line = new_element (ET_arguments_line);
-  ELEMENT *arg_spaces_after = new_text_element (ET_other_text);
+  ELEMENT *arg_spaces_after = new_text_element (ET_spaces_after_argument);
   ELEMENT *end = new_command_element (ET_line_command, CM_end);
   ELEMENT *end_args = new_element (ET_line_arg);
   ELEMENT *end_spaces_before = new_text_element (ET_spaces_before_argument);
-  ELEMENT *end_spaces_after = new_text_element (ET_other_text);
+  ELEMENT *end_spaces_after = new_text_element (ET_spaces_after_argument);
   ELEMENT *command_name_text = new_text_element (ET_normal_text);
   const char *command_name = builtin_command_name (element->e.c->cmd);
 

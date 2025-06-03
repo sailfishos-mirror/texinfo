@@ -20,7 +20,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   *paragraph C1
    {Other text\\n}
@@ -37,7 +37,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   *@c C1
    {rawline_arg: comment\\n}
@@ -58,7 +58,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
   *paragraph C2
    *@uref C1 l11
@@ -75,7 +75,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {3}
  *@section C5 l14 {after sp}
  |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after sp}
   *@indent l15
   {ignorable_spaces_after_command:\\n}

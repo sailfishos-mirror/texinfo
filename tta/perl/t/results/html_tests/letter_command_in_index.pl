@@ -19,7 +19,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C9 l5 {Chapter}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
@@ -76,7 +76,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@TH C1 l7
      *brace_container
   {empty_line:\\n}
@@ -91,7 +91,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@l C1 l9
      *brace_container
   {empty_line:\\n}
@@ -106,7 +106,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 l11
      *following_arg C1
       {e}
@@ -121,7 +121,7 @@ $result_tree_text{'letter_command_in_index'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
 ';
 

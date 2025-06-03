@@ -23,7 +23,7 @@ $result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*documen
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |manual_content:{dir}
     {(}

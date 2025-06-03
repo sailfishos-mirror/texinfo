@@ -19,7 +19,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *paragraph C2
@@ -38,7 +38,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       {raw:ignore me\\n}
       *@end C1 l6
       |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {ignore}
    {.\\n}
 ';

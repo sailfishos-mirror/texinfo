@@ -23,7 +23,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *paragraph C1
@@ -45,7 +45,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {aa}
    *paragraph C2
     {in quotation\\n}
@@ -61,7 +61,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C3 l11
@@ -72,7 +72,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {hh}
    *paragraph C1
     {b \\n}
@@ -94,7 +94,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   {spaces_before_paragraph: }
@@ -122,7 +122,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a}
      >SOURCEMARKS
      >linemacro_expansion<end;3><p:1>
@@ -140,7 +140,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C2
@@ -159,7 +159,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:ignored  a}
     >SOURCEMARKS
     >linemacro_expansion<end;4><p:10>
@@ -174,7 +174,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {ignore}
   {empty_line:\\n}
   *paragraph C2
@@ -209,7 +209,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {macro}
   {empty_line:\\n}
   *@defblock C5 l37
@@ -217,7 +217,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_defline C1
     *paragraph C1
      {args arg1|arg2|\\n}
@@ -256,7 +256,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {b}
@@ -289,7 +289,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
   {empty_line:\\n}
 ';

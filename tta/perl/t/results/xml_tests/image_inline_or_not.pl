@@ -35,7 +35,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C15 l6 {top}
  |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@image C1 l8
@@ -72,7 +72,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C7
     {empty_line:\\n}
     *@image C1 l14
@@ -98,7 +98,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C4 l20
@@ -109,7 +109,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@image C1 l20
      |EXTRA
      |input_encoding_name:{utf-8}
@@ -130,7 +130,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@table C3 l24
@@ -141,7 +141,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l24
    *table_entry C2
     *table_term C1
@@ -152,7 +152,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *@image C1 l25
        |EXTRA
        |input_encoding_name:{utf-8}
@@ -191,7 +191,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@menu C5 l34
@@ -199,7 +199,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l35
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -264,7 +264,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l41 {@image{node_image}}
@@ -279,7 +279,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C1 l41
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -297,7 +297,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C1 l42
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -358,7 +358,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {g}
    {empty_line:\\n}
    *@image C1 l57
@@ -392,7 +392,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
 ';
 

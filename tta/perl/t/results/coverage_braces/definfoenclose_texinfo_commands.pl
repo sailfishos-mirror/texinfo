@@ -16,7 +16,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {verb,;;,!!}
   *@definfoenclose C1 l2
   |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {TeX,aa,bb}
   *@definfoenclose C1 l3
   |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {strong,(,)}
   *@definfoenclose C1 l4
   |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {quotation,q,e}
   {empty_line:\\n}
   *paragraph C2
@@ -82,7 +82,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {important}
    *paragraph C1
     {in quotation\\n}
@@ -95,7 +95,7 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

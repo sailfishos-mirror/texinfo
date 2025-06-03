@@ -13,7 +13,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {Surrounded by empty lines.\\n}
    *@end C1 l4
@@ -25,7 +25,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *paragraph C3
@@ -35,7 +35,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C2
      {in block\\n}
      {in block l2\\n}
@@ -48,7 +48,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -59,7 +59,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l15
@@ -71,7 +71,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -82,7 +82,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l20
@@ -94,7 +94,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html after the closing command.}
   {empty_line:\\n}
   *paragraph C3
@@ -104,7 +104,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l24
@@ -116,7 +116,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {. A symbol on a line.\\n}
   {empty_line:\\n}
@@ -127,7 +127,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l29
@@ -139,7 +139,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html. A symbol after the closing command.}
   {empty_line:\\n}
   *@tex C3 l31
@@ -147,7 +147,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {Surrounded by empty lines.\\n}
    *@end C1 l33
@@ -159,7 +159,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *paragraph C3
@@ -169,7 +169,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l38
@@ -181,7 +181,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex}
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -192,7 +192,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l43
@@ -204,7 +204,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex}
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -215,7 +215,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l48
@@ -227,7 +227,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex after the closing command.}
   {empty_line:\\n}
   *paragraph C3
@@ -237,7 +237,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l52
@@ -249,7 +249,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex}
    {. A symbol on a line.\\n}
   {empty_line:\\n}
@@ -260,7 +260,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l57
@@ -272,7 +272,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {tex. A symbol after the closing command.}
   {empty_line:\\n}
   *@verbatim C3 l59
@@ -280,7 +280,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:Surrounded by empty lines.\\n}
    *@end C1 l61
    |INFO
@@ -291,7 +291,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *paragraph C1
@@ -301,7 +301,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in block\\n}
    *@end C1 l66
    |INFO
@@ -312,7 +312,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *paragraph C1
    {end commands on a line.\\n}
@@ -324,7 +324,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in block\\n}
    *@end C1 l71
    |INFO
@@ -335,7 +335,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *paragraph C1
    {end commands on a line.\\n}
@@ -347,7 +347,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in block\\n}
    *@end C1 l76
    |INFO
@@ -358,7 +358,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim after the closing command.}
   {empty_line:\\n}
   *paragraph C1
@@ -368,7 +368,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in block\\n}
    *@end C1 l80
    |INFO
@@ -379,7 +379,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *paragraph C1
    {. A symbol on a line.\\n}
@@ -391,7 +391,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in block\\n}
    *@end C1 l85
    |INFO
@@ -402,7 +402,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim. A symbol after the closing command.}
 ';
 

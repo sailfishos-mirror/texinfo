@@ -19,7 +19,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C8 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -72,7 +72,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

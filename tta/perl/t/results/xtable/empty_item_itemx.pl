@@ -15,7 +15,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l1
    *before_item C3
     {empty_line:\\n}
@@ -33,13 +33,13 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {first item}
      *@itemx C1 l6
       *line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *@itemx C1 l7
      |INFO
      |spaces_before_argument:
@@ -49,7 +49,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {after an empty itemx, before an empty item}
    *table_entry C1
     *table_term C1
@@ -57,7 +57,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
       *line_arg
       |INFO
       |spaces_after_argument:
-       |{ \\n}
+       |{spaces_after_argument: \\n}
    *table_entry C1
     *table_term C1
      *@item C1 l9
@@ -69,7 +69,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in item before end table}
    *@end C1 l10
    |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {vtable}
 ';
 

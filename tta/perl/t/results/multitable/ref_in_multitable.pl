@@ -37,7 +37,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {.35 .65}
    *multitable_body C3
     *row C2
@@ -121,7 +121,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *paragraph C2

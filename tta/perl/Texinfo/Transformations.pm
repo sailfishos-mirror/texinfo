@@ -196,7 +196,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
           = Texinfo::TreeElement::new({'type' => 'line_arg',
                                        'parent' => $arguments_line,
             'info' => {'spaces_after_argument'
-                        => Texinfo::TreeElement::new({'text' => "\n",})}});
+                        => Texinfo::TreeElement::new({'text' => "\n",
+                                  'type' => 'spaces_after_argument'})}});
         $arguments_line->{'contents'} = [$line_arg];
 
         my $line_content;
@@ -405,7 +406,8 @@ sub _new_node($$;$)
                                    'parent' => $arguments_line});
     $arguments_line->{'contents'} = [$node_line_arg];
     $node_line_arg->{'info'} = {'spaces_after_argument' =>
-           Texinfo::TreeElement::new({'text' => $spaces_after_argument})};
+           Texinfo::TreeElement::new({'text' => $spaces_after_argument,
+                                      'type' => 'spaces_after_argument'})};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
       if (defined($comment_at_end));
     @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});

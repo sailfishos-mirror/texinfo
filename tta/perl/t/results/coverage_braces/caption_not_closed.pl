@@ -18,7 +18,7 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Text}
    {empty_line:\\n}
    *@caption C1 l3
@@ -43,7 +43,7 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
  *@bye C1

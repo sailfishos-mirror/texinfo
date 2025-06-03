@@ -18,7 +18,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@chapter C2 l3 {Chap}
@@ -33,7 +33,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
  *@section C2 l5 {Section}
@@ -48,7 +48,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section}
   {empty_line:\\n}
  *@unnumberedsubsec C2 {@asis{}}
@@ -62,7 +62,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1
      *brace_container
   {empty_line:\\n}
@@ -77,7 +77,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {There}
 ';
 

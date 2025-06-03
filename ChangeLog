@@ -1,5 +1,23 @@
 2025-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_isolate_trailing_spaces_element):
+	add a type argument.
+
+	* tta/C/main/element_types.txt, tta/C/parsetexi/handle_commands.c
+	(handle_line_command), tta/C/parsetexi/parser.c (isolate_last_space),
+	tta/C/structuring_transfo/structuring.c (new_block_command),
+	tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document, new_node),
+	tta/perl/Texinfo/ParserNonXS.pm (_isolate_trailing_spaces_element)
+	(trailing_space_types, _handle_line_command),
+	tta/perl/Texinfo/Structuring.pm (new_block_command),
+	tta/perl/Texinfo/Transformations.pm
+	(fill_gaps_in_sectioning_in_document, _new_node): add
+	spaces_after_argument type. Set the spaces_after_argument info element
+	type to spaces_after_argument.
+
+2025-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/element_types.txt, tta/C/parsetexi/handle_commands.c
 	(handle_line_command), tta/C/parsetexi/macro.c
 	(expand_macro_arguments, expand_linemacro_arguments, handle_macro),

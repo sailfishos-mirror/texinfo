@@ -19,7 +19,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {utf-8}
    {empty_line:\\n}
  *@node C1 all_spaces.texi:l3 {Top}
@@ -34,7 +34,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C56 all_spaces.texi:l4 {chap}
  |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C1

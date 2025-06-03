@@ -12,7 +12,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {quotation1\\n}
    *@exdent C1 l3
@@ -31,7 +31,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in exdented a }
      *@@
      {* }
@@ -48,7 +48,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@example C7 l9
@@ -56,7 +56,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {example\\n}
    *@exdent C1 l11
@@ -75,7 +75,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {in exdented a }
      *@@
      {* }
@@ -92,7 +92,7 @@ $result_tree_text{'exdent_and_commands'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

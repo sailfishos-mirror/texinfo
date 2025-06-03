@@ -23,7 +23,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   *@linemacro C3 l4
   |EXTRA
@@ -41,7 +41,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   *@linemacro C3 l7
   |EXTRA
@@ -59,7 +59,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@set C2
@@ -77,7 +77,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defline C1 l15
    |INFO
    |spaces_before_argument:
@@ -93,7 +93,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *line_arg C19
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -160,7 +160,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *@defline C1 l19:@param
      |INFO
      |spaces_before_argument:
@@ -178,7 +178,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C5
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -231,7 +231,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C5
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -289,7 +289,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C5
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -342,7 +342,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C5
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
         *bracketed_arg C1 l29:@returns
          {Return Value}
@@ -388,7 +388,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C3
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        *def_category C1
         *bracketed_arg C1 l32:@raises
          {Exception}
@@ -419,7 +419,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {defblock}
     {empty_line:\\n}
    *@end C1 l37
@@ -431,7 +431,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

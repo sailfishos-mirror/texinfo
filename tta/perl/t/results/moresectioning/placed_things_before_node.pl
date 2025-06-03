@@ -78,7 +78,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {float anchor}
@@ -93,7 +93,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *paragraph C3
@@ -111,7 +111,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l25
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -132,7 +132,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
@@ -145,7 +145,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {index entry}
   {empty_line:\\n}
  *@node C1 l30 {Top}
@@ -160,7 +160,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l31 {top section}
  |INFO
@@ -173,7 +173,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top section}
   {empty_line:\\n}
  *@node C1 l33 {chapter}
@@ -188,7 +188,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C5 l34 {Chapter}
  |INFO
@@ -202,7 +202,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C3

@@ -19,7 +19,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@menu C8 l3
@@ -27,7 +27,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -48,7 +48,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         *@asis l5
       *table_entry C2
        *table_term C1
@@ -59,7 +59,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           {item}
        *table_definition C1
         *preformatted C1
@@ -73,7 +73,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {table}
    *menu_comment C1
     *preformatted C1
@@ -95,7 +95,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       {raw:some @ verb{x atim\\n}
       {raw:* texinfo:: in @ verbatim\\n}
       *@end C1 l14
@@ -107,7 +107,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {verbatim}
    *menu_entry C4 l15
     {menu_entry_leading_text:* }
@@ -126,7 +126,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
         *block_line_arg
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
        *rawpreformatted C2
         {empty_line:\\n}
         {<i></i>\\n}
@@ -139,7 +139,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {html}
       {Log$\\n}
    *menu_entry C4 l21
@@ -166,7 +166,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       *block_line_arg
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
      *preformatted C2
       {* subsubsection::\\n}
       {Menu comment\\n}
@@ -179,7 +179,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {example}
     *preformatted C1
      {empty_line:\\n}
@@ -192,7 +192,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

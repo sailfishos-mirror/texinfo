@@ -25,7 +25,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@table C1 l3
@@ -36,7 +36,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *@TeX l3
  *@section C3 l3 {second}
  |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second}
   {empty_line:\\n}
   *@table C1 l5
@@ -61,7 +61,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      *@code l5
  *@section C3 l5 {third}
  |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {third}
   {empty_line:\\n}
   *@ftable C1 l7
@@ -100,7 +100,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fourth}
 ';
 

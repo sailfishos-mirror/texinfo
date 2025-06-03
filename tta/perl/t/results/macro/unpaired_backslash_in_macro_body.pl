@@ -24,7 +24,7 @@ $result_tree_text{'unpaired_backslash_in_macro_body'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *paragraph C2

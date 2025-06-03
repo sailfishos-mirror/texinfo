@@ -12,13 +12,13 @@ $result_tree_text{'nested_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@example C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C3
      {empty_line:\\n}
      {in -- format/example\\n}
@@ -32,7 +32,7 @@ $result_tree_text{'nested_formats'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {example}
    *@end C1 l7
    |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'nested_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {format}
   {empty_line:\\n}
   *@example C3 l9
@@ -51,13 +51,13 @@ $result_tree_text{'nested_formats'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@format C3 l10
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *preformatted C3
      {empty_line:\\n}
      {in -- example/format\\n}
@@ -71,7 +71,7 @@ $result_tree_text{'nested_formats'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {format}
    *@end C1 l15
    |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'nested_formats'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

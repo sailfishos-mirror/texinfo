@@ -66,7 +66,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {special}
   {empty_line:\\n}
   *paragraph C3
@@ -84,7 +84,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {line after exdent}
 ';
 

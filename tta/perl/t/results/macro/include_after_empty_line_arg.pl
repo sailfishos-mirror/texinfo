@@ -23,7 +23,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -50,7 +50,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{inc_file.texi}
    {In included file.\\n}
    >SOURCEMARKS

@@ -18,7 +18,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {unknown}
    {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -33,7 +33,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {unknkown language}
  |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unknkown language}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
@@ -61,7 +61,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C7 l7 {Chapter}
  |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C3
@@ -98,7 +98,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {another_UNKNOWN}
   {empty_line:\\n}
   *paragraph C3

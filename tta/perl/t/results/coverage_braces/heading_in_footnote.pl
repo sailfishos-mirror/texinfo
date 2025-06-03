@@ -28,7 +28,7 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {H1}
      *index_entry_command@cindex C1 l4
      |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {ind e}
      *paragraph C1
       {BBB\\n}

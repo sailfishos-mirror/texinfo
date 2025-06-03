@@ -25,7 +25,7 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
     *block_line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C2
        *bracketed_arg C1 l1
@@ -46,7 +46,7 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
       *bracketed_arg C1 l1
       |INFO
       |spaces_after_argument:
-       |{ }
+       |{spaces_after_argument: }
        {ll}
      {spaces: }
      *def_arg C1
@@ -64,7 +64,7 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {deffn}
 ';
 

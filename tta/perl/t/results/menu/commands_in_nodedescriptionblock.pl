@@ -19,7 +19,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C6 l2 {test commands in nodedescriptionblock}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {test commands in nodedescriptionblock}
   {empty_line:\\n}
   *@menu C4 l4
@@ -40,7 +40,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -72,7 +72,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *paragraph C4
@@ -103,7 +103,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node1}
  *@chapter C4 l12 {chap1}
  |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap1}
   {empty_line:\\n}
   *@nodedescriptionblock C10 l14
@@ -125,7 +125,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@anchor C1 l15
    |EXTRA
    |is_target:{1}
@@ -165,7 +165,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {in nodedescriptionblock}
    {empty_line:\\n}
    *@float C6 l21
@@ -184,7 +184,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {f1}
@@ -208,7 +208,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    {empty_line:\\n}
    {empty_line:\\n}
@@ -221,7 +221,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
  *@node C1 l29 {node2}
@@ -237,7 +237,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node2}
  *@chapter C11 l30 {chap2}
  |INFO
@@ -251,7 +251,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap2}
   {empty_line:\\n}
   *paragraph C4
@@ -277,7 +277,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l36
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -298,7 +298,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *@printindex C1 l39
@@ -311,7 +311,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@listoffloats C1 l41
@@ -324,7 +324,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {tfloat}
   {empty_line:\\n}
 ';

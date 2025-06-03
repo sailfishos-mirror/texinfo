@@ -12,13 +12,13 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@itemize C3 l2
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *before_item C1
      *preformatted C2
       {ignorable_spaces_after_command: }
@@ -32,7 +32,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -41,7 +41,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@item C2 l7
     |EXTRA
     |item_number:{1}
@@ -60,7 +60,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -69,7 +69,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *before_item C1
      *preformatted C2
       {ignorable_spaces_after_command: }
@@ -89,7 +89,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -98,7 +98,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@item C2 l17
     |EXTRA
     |item_number:{1}
@@ -123,7 +123,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {itemize}
    *preformatted C1
     {empty_line:\\n}
@@ -136,7 +136,7 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

@@ -21,7 +21,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fr}
    {empty_line:\\n}
  *@node C1 no_master_menu_fr.texi:l5 {Top}
@@ -36,7 +36,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 no_master_menu_fr.texi:l6 {max}
  |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {max}
   {empty_line:\\n}
   *@menu C5 no_master_menu_fr.texi:l8
@@ -57,7 +57,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 no_master_menu_fr.texi:l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -77,7 +77,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_comment C1
      *preformatted C6
       { --- The Detailed Node Listing ---}
@@ -106,7 +106,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {detailmenu}
    *@end C1 no_master_menu_fr.texi:l10
    |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 no_master_menu_fr.texi:l12 {chap}
@@ -132,7 +132,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C4 no_master_menu_fr.texi:l13 {chap}
  |INFO
@@ -146,7 +146,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@menu C3 no_master_menu_fr.texi:l15
@@ -154,7 +154,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 no_master_menu_fr.texi:l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -175,7 +175,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 no_master_menu_fr.texi:l19 {section}
@@ -190,7 +190,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C1 no_master_menu_fr.texi:l20 {sec}
  |INFO
@@ -204,7 +204,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
 ';
 

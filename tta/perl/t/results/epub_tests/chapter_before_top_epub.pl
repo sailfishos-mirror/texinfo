@@ -20,7 +20,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
  *@node C1 l3 {chapter}
@@ -35,7 +35,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C2 l4 {chapter}
  |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
  *@part C2 l6 {part}
@@ -64,7 +64,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@top C1 l8 {top}
@@ -78,7 +78,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

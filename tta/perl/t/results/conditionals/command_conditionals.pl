@@ -18,7 +18,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{txicommandconditionals}
   *paragraph C1
    {Good, the txicommandconditionals variable was set.\\n}
@@ -33,7 +33,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifset}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -46,7 +46,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{nodexyz}
     >{raw:Bad, @@nodexyz is defined.\\n}
     >*@end C1 l7
@@ -58,7 +58,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifcommanddefined}
   >expanded_conditional_command<start;2><p:1>
    >*@ifcommandnotdefined C1 l8
@@ -69,7 +69,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{nodexyz}
   *paragraph C3
    {Good, }
@@ -86,7 +86,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifcommandnotdefined}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -99,7 +99,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{node}
   *paragraph C3
    {Good, }
@@ -116,7 +116,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifcommanddefined}
    >ignored_conditional_block<2><p:17>
     >*@ifcommandnotdefined C3 l15
@@ -127,7 +127,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
       >*block_line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{node}
      >{raw:Bad, @@node is not defined.\\n}
      >*@end C1 l17
@@ -139,7 +139,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifcommandnotdefined}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -152,7 +152,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{mathcode}
     >{raw:Unfortunately, @@mathcode is defined.\\n}
     >*@end C1 l21
@@ -164,7 +164,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifcommanddefined}
   >expanded_conditional_command<start;4><p:1>
    >*@ifcommandnotdefined C1 l22
@@ -175,7 +175,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*block_line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{mathcode}
   *paragraph C3
    {Happily, }
@@ -192,7 +192,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifcommandnotdefined}
 ';
 

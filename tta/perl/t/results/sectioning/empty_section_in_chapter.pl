@@ -20,7 +20,7 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
  *@section C1 l3
@@ -32,7 +32,7 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
 ';
 
 

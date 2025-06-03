@@ -16,7 +16,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {lang=lisp}
   {empty_line:\\n}
   *@lisp C2 l3
@@ -26,7 +26,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {in lang\\n}
     *@end C1 l5
@@ -38,7 +38,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {lang}
 ';
 

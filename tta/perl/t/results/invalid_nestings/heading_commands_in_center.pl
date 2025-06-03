@@ -14,7 +14,7 @@ $result_tree_text{'heading_commands_in_center'} = '*document_root C1
    *line_arg C8
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@code C1 l1
      *brace_container C2
       {aaa }

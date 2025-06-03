@@ -24,7 +24,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C13 index_split.texi:l4 {split indices}
  |INFO
@@ -37,7 +37,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {split indices}
   *index_entry_command@cindex C1 index_split.texi:l5
   |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry a}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l7
@@ -63,7 +63,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l9
@@ -76,7 +76,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *paragraph C1
@@ -92,7 +92,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@menu C5 index_split.texi:l15
@@ -100,7 +100,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_split.texi:l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -143,7 +143,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C10 index_split.texi:l21 {first}
@@ -159,7 +159,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *paragraph C5
@@ -175,7 +175,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {entry in node}
    *index_entry_command@cindex C1 index_split.texi:l25
    |INFO
@@ -188,7 +188,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {! entry in node}
    *index_entry_command@findex C1 index_split.texi:l26
    |INFO
@@ -201,7 +201,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {fun in node}
    *index_entry_command@cindex C1 index_split.texi:l27
    |INFO
@@ -214,7 +214,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {entry in node}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l29
@@ -227,7 +227,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l31
@@ -240,7 +240,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fn}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l33
@@ -254,7 +254,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry after printindex}
   {empty_line:\\n}
  *@chapter C7 index_split.texi:l35 {First chapter}
@@ -269,7 +269,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {First chapter}
   *index_entry_command@findex C1 index_split.texi:l36
   |INFO
@@ -282,7 +282,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a function}
   *index_entry_command@cindex C1 index_split.texi:l37
   |INFO
@@ -295,7 +295,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a concept in first}
   *index_entry_command@findex C1 index_split.texi:l38
   |INFO
@@ -308,7 +308,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {somewhere}
   {empty_line:\\n}
   *@menu C8 index_split.texi:l40
@@ -316,7 +316,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 index_split.texi:l41
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -392,7 +392,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 index_split.texi:l49 {section 1}
@@ -408,7 +408,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 1}
  *@section C11 index_split.texi:l50 {Section 1}
  |INFO
@@ -422,7 +422,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section 1}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l52
@@ -436,7 +436,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {something}
   {empty_line:\\n}
   *@menu C4 index_split.texi:l54
@@ -444,7 +444,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 index_split.texi:l55
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -476,7 +476,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   *paragraph C1
    {The index once more\\n}
@@ -491,7 +491,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l62
@@ -505,7 +505,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {another}
   {empty_line:\\n}
  *@node C1 index_split.texi:l64 {subsection 1}
@@ -520,7 +520,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 1}
  *@subsection C4 index_split.texi:l65 {Subsection 1}
  |INFO
@@ -534,7 +534,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsection 1}
   {empty_line:\\n}
   *paragraph C1
@@ -553,7 +553,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 2}
  *@subsection C10 index_split.texi:l70 {Subsection 2}
  |INFO
@@ -567,7 +567,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Subsection 2}
   {empty_line:\\n}
   *paragraph C1
@@ -584,7 +584,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 2}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l76
@@ -597,7 +597,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l78
@@ -611,7 +611,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {printindex subsection 2}
   {empty_line:\\n}
  *@node C1 index_split.texi:l80 {section 2}
@@ -626,7 +626,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 2}
  *@section C4 index_split.texi:l81 {Section 2}
  |INFO
@@ -640,7 +640,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section 2}
   {empty_line:\\n}
   *paragraph C1
@@ -659,7 +659,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3}
  *@section C6 index_split.texi:l86 {Section 3}
  |INFO
@@ -673,7 +673,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section 3}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l88
@@ -687,7 +687,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l90
@@ -700,7 +700,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@node C5 index_split.texi:l92 {node in section 3}
@@ -723,7 +723,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -740,7 +740,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node in section 3}
   *paragraph C1
    {Text for the node in section 3\\n}
@@ -762,7 +762,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -779,7 +779,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node 2 in section 3}
   *paragraph C1
    {Text for the node 2 in section 3\\n}
@@ -794,7 +794,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l104
@@ -808,7 +808,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {between printindex node in section 3}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l106
@@ -821,7 +821,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l108
@@ -835,7 +835,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {after second printindex node in section 3}
   {empty_line:\\n}
  *@node C4 index_split.texi:l110 {node 3 in section 3}
@@ -854,7 +854,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -871,7 +871,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node 3 in section 3}
   {empty_line:\\n}
  *@node C1 index_split.texi:l114 {second chapter}
@@ -886,7 +886,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second chapter}
  *@chapter C4 index_split.texi:l115 {Second chapter}
  |INFO
@@ -900,7 +900,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Second chapter}
   {empty_line:\\n}
   *paragraph C1

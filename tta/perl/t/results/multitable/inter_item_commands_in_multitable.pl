@@ -17,7 +17,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {truc}
    *before_item C2
@@ -45,7 +45,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {index entry between empty lines}
       {empty_line:\\n}
     *row C1
@@ -68,7 +68,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C4 l12
@@ -88,7 +88,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.6 0.4}
    *multitable_head C1
     *row C2
@@ -149,7 +149,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {index entry within multitable}
     *row C1
     |EXTRA
@@ -169,7 +169,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
   *@multitable C4 l21
@@ -182,7 +182,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l21
       {thing}
    *before_item C1
@@ -198,7 +198,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cindex}
    *multitable_body C1
     *row C1
@@ -219,7 +219,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
   {empty_line:\\n}
 ';

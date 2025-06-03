@@ -18,7 +18,7 @@ $result_tree_text{'listoffloats_with_commands'} = '*document_root C1
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {th}
     *@\' C1 l1
      *following_arg C1

@@ -18,7 +18,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {a}
    *@item C2 l2
    |EXTRA
@@ -41,7 +41,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l6
@@ -54,7 +54,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {A}
    *@item C2 l7
    |EXTRA
@@ -77,7 +77,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l11
@@ -90,7 +90,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {c}
    *@item C2 l12
    |EXTRA
@@ -113,7 +113,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l16
@@ -126,7 +126,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {C}
    *@item C2 l17
    |EXTRA
@@ -149,7 +149,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l21
@@ -162,7 +162,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {1}
    *@item C2 l22
    |EXTRA
@@ -185,7 +185,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l26
@@ -198,7 +198,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {3}
    *@item C2 l27
    |EXTRA
@@ -221,7 +221,7 @@ $result_tree_text{'enumerate_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
 ';

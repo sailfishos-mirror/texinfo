@@ -12,7 +12,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C2
     {in tex\\n}
     {    }
@@ -25,7 +25,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@verbatim C4 l5
@@ -33,7 +33,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in verbatim\\n}
    {raw:    }
    *@end C1 l7
@@ -45,7 +45,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *@html C4 l9
@@ -53,7 +53,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:in html\\n}
    {   }
@@ -66,7 +66,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
 ';
 

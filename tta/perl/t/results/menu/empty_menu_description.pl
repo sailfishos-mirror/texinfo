@@ -19,7 +19,7 @@ $result_tree_text{'empty_menu_description'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *@menu C4 l3
@@ -27,7 +27,7 @@ $result_tree_text{'empty_menu_description'} = '*document_root C2
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C5 l4
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -56,7 +56,7 @@ $result_tree_text{'empty_menu_description'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
 ';
 

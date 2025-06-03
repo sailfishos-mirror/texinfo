@@ -16,7 +16,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {myalias = code}
   {empty_line:\\n}
   *@table C3 l3
@@ -27,7 +27,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l3
      |INFO
      |alias_of:{myalias}
@@ -40,7 +40,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {table item (code)}
    *@end C1 l5
    |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'alias_table_command'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

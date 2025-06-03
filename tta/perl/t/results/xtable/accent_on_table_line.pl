@@ -15,7 +15,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ l1
    *table_entry C1
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {first item}
    *table_entry C1
     *table_term C1
@@ -37,7 +37,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C2
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {no at-command }
        *@code C1 l3
         *brace_container C1
@@ -51,7 +51,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l6
@@ -62,7 +62,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@~ C1 l6
       *brace_container
    *table_entry C1
@@ -74,7 +74,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {acc brace first item}
    *table_entry C1
     *table_term C1
@@ -85,7 +85,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C2
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {no at-command }
        *@code C1 l8
         *brace_container C1
@@ -99,7 +99,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l11
@@ -122,7 +122,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {acc comment first item}
    *@end C1 l13
    |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l15
@@ -144,7 +144,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      *@~ l15
    *table_entry C1
     *table_term C1
@@ -155,7 +155,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {acc space first item}
    *@end C1 l17
    |INFO
@@ -166,7 +166,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l19
@@ -177,7 +177,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ringaccent l19
    *table_entry C1
     *table_term C1
@@ -188,7 +188,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cmdacc first item}
    *@end C1 l21
    |INFO
@@ -199,7 +199,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l23
@@ -210,7 +210,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ringaccent C1 l23
       *brace_container
    *table_entry C1
@@ -222,7 +222,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cmdacc braces first item}
    *@end C1 l25
    |INFO
@@ -233,7 +233,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C3 l27
@@ -244,7 +244,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@ringaccent C1 l27
       *brace_container C1
        {a}
@@ -257,7 +257,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {cmdacc braces arg first item}
    *@end C1 l29
    |INFO
@@ -268,7 +268,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

@@ -19,7 +19,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C3 l5 {Chapter}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *@example C3 l7
@@ -69,7 +69,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C6
     *index_entry_command@cindex C1 l8
     |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {first}
     {text\\n}
     {empty_line:\\n}
@@ -100,7 +100,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
       |*@c C1
        |{rawline_arg: comment\\n}
      |spaces_after_argument:
-      |{ }
+      |{spaces_after_argument: }
       {other}
     {text2\\n}
     *index_entry_command@cindex C1 l13
@@ -114,7 +114,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {last}
    *@end C1 l14
    |INFO
@@ -125,7 +125,7 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

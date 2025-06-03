@@ -19,7 +19,7 @@ $result_tree_text{'cond'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *elided_rawpreformatted C1
      {raw:This is html text.\\n}
     *@end C1 cond.texi:l7
@@ -31,7 +31,7 @@ $result_tree_text{'cond'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {html}
    {empty_line:\\n}
    >SOURCEMARKS
@@ -41,7 +41,7 @@ $result_tree_text{'cond'} = '*document_root C5
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
      >{raw:This is ifhtml text.\\n}
      >*@end C1 cond.texi:l11
      >|INFO
@@ -52,7 +52,7 @@ $result_tree_text{'cond'} = '*document_root C5
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifhtml}
    {empty_line:\\n}
    >SOURCEMARKS
@@ -62,7 +62,7 @@ $result_tree_text{'cond'} = '*document_root C5
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
   *paragraph C1
    {This is ifnothtml text.\\n}
    >SOURCEMARKS
@@ -76,7 +76,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnothtml}
   {empty_line:\\n}
  *@node C1 cond.texi:l17 {Top}
@@ -91,7 +91,7 @@ $result_tree_text{'cond'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 cond.texi:l18 {conditionals}
  |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'cond'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {conditionals}
   {empty_line:\\n}
  *@node C12 cond.texi:l20 {chap}
@@ -119,7 +119,7 @@ $result_tree_text{'cond'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -130,7 +130,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:This is ifinfo text.\\n}
     >*@end C1 cond.texi:l25
     >|INFO
@@ -141,7 +141,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifinfo}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -151,7 +151,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C1
    {This is ifnotinfo text.\\n}
    >SOURCEMARKS
@@ -165,7 +165,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnotinfo}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -174,7 +174,7 @@ $result_tree_text{'cond'} = '*document_root C5
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:This is tex text.\\n}
    *@end C1 cond.texi:l34
@@ -186,7 +186,7 @@ $result_tree_text{'cond'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -196,7 +196,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:This is iftex text.\\n}
     >*@end C1 cond.texi:l38
     >|INFO
@@ -207,7 +207,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{iftex}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -217,7 +217,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C1
    {This is ifnottex text.\\n}
    >SOURCEMARKS
@@ -231,7 +231,7 @@ $result_tree_text{'cond'} = '*document_root C5
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnottex}
   {empty_line:\\n}
  *@bye C1

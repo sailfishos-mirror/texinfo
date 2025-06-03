@@ -13,7 +13,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {In copying.\\n}
     {empty_line:\\n}
@@ -28,7 +28,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@paragraphindent C1 l7
@@ -41,7 +41,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {1}
    {empty_line:\\n}
   *paragraph C1
@@ -59,7 +59,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C10 l12 {test @@paragraphindent in preamble effect in preamble}
  |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {test }
     *@@
     {paragraphindent in preamble effect in preamble}
@@ -93,7 +93,7 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {3}
   {empty_line:\\n}
   *paragraph C1

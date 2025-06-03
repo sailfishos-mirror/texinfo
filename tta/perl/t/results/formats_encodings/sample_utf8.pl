@@ -22,7 +22,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {sample_utf8.info}
    *@settitle C1 sample_utf8.texi:l4
    |INFO
@@ -31,7 +31,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Sample 示例 ĄĘ ù}
    *@documentencoding C1 sample_utf8.texi:l5
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {UTF-8}
    *@c C1
     {rawline_arg: %**end of header\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {This is a short example of a complete Texinfo file.\\n}
     {empty_line:\\n}
@@ -70,7 +70,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@titlepage C6 sample_utf8.texi:l15
@@ -78,7 +78,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@title C1 sample_utf8.texi:l16
     |INFO
     |spaces_before_argument:
@@ -86,7 +86,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {标题示例 ĄĘ ae ąę Â ù}
     *@page C1
      {rawline_arg:\\n}
@@ -107,7 +107,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
    *@c C1
@@ -124,7 +124,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
  *@node C1 sample_utf8.texi:l27 {Top}
  |INFO
  |spaces_before_argument:
@@ -137,7 +137,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C7 sample_utf8.texi:l28 {Texinfo中文示例}
  |INFO
@@ -150,7 +150,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Texinfo中文示例}
   {empty_line:\\n}
   *@insertcopying C1 sample_utf8.texi:l30
@@ -167,7 +167,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    {rawline_arg:\\n}
   {empty_line:\\n}
@@ -176,7 +176,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 sample_utf8.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -220,7 +220,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -236,7 +236,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {第一章（First Chapter）}
  *@chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
  |INFO
@@ -250,7 +250,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {第一章（First Chapter）}
   {empty_line:\\n}
   *index_entry_command@cindex C1 sample_utf8.texi:l44
@@ -264,7 +264,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter, first}
   {empty_line:\\n}
   *paragraph C4
@@ -280,7 +280,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {另一个，index entry}
    *index_entry_command@cindex C1 sample_utf8.texi:l48
    |INFO
@@ -293,7 +293,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ĄĘ ae ąę}
    *index_entry_command@cindex C1 sample_utf8.texi:l49
    |INFO
@@ -306,7 +306,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {é Â}
   {empty_line:\\n}
   *paragraph C1
@@ -319,7 +319,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@item C3 sample_utf8.texi:l54
    |EXTRA
    |item_number:{1}
@@ -344,7 +344,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {enumerate}
   {empty_line:\\n}
  *@node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
@@ -359,7 +359,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Second Chapter AE ĄĘ ae ąę}
  *@chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
  |INFO
@@ -373,7 +373,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter 2 AE ĄĘ ae ąę}
   {empty_line:\\n}
   *paragraph C1
@@ -392,7 +392,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index node}
  *@unnumbered C4 sample_utf8.texi:l67 {Index}
  |INFO
@@ -405,7 +405,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
   *@printindex C1 sample_utf8.texi:l69
@@ -418,7 +418,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
  *@bye C1

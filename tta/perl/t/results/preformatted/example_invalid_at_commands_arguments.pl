@@ -48,7 +48,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {in center}
    *@end C1 l2
    |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

@@ -19,7 +19,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
     |*@c C1
      |{rawline_arg: setfilename (text)\\n}
    |spaces_after_argument:
-    |{  }
+    |{spaces_after_argument:  }
     {comments_on_misc_command_line.info}
   *@definfoenclose C1 l2
   |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
     |*@c C1
      |{rawline_arg: definfoenclose (number)\\n}
    |spaces_after_argument:
-    |{  }
+    |{spaces_after_argument:  }
     {phoo,;,:}
   *@firstparagraphindent C1 l3
   |INFO
@@ -48,7 +48,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
     |*@c C1
      |{rawline_arg: c (number)\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {none}
   *@raisesections C1
    {rawline_arg: @c raisesections (skipline)\\n}
@@ -66,7 +66,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
     |*@c C1
      |{rawline_arg: pagesizes  (line)\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {200mm}
   *@everyheading C1 l7
   |INFO
@@ -78,7 +78,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
     |*@c C1
      |{rawline_arg: everyheading (lineraw)\\n}
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     *@thispage
     { }
     *@|

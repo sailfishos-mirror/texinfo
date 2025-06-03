@@ -15,7 +15,7 @@ $result_tree_text{'example_class'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {perl}
    *preformatted C21
     {foreach my $unclosed_file (keys(%unclosed_files)) }
@@ -48,7 +48,7 @@ $result_tree_text{'example_class'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

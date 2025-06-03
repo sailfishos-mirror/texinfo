@@ -17,7 +17,7 @@ $result_tree_text{'multitable_one_column_too_much_cells'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {a}
    *multitable_body C4
@@ -87,7 +87,7 @@ $result_tree_text{'multitable_one_column_too_much_cells'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

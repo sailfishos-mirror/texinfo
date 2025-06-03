@@ -15,7 +15,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l1
    *table_entry C2
     *table_term C1
@@ -26,7 +26,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
     *table_definition C6
      {empty_line:\\n}
@@ -37,7 +37,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *before_item C1
        *@itemx C1 l6
        |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {in nested itemize itemx}
       *@end C1 l7
       |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {itemize}
      {empty_line:\\n}
      *@enumerate C3 l9
@@ -67,7 +67,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *before_item C1
        *@itemx C1 l10
        |INFO
@@ -76,7 +76,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {in nested enumerate itemx}
       *@end C1 l11
       |INFO
@@ -87,7 +87,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {enumerate}
      {empty_line:\\n}
    *@end C1 l13
@@ -99,7 +99,7 @@ $result_tree_text{'itemx_in_itemize_enumerate_in_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

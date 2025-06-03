@@ -12,7 +12,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb\\n}
    *@end C1 l3
    |INFO
@@ -23,7 +23,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   {empty_line:\\n}
   *paragraph C1
@@ -33,7 +33,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in verbatime\\n}
    *@end C1 l8
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *paragraph C1
    {Text after\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation\\n}
    *@verbatim C4 l13
@@ -62,7 +62,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:In verbatim in quotation\\n}
     {raw:In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb\\n}
     *@end C1 l16
@@ -74,7 +74,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {verbatim}
    *@end C1 l17
    |INFO
@@ -85,7 +85,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -95,7 +95,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:In verbatim test text\\n}
    *@end C1 l22
    |INFO
@@ -106,7 +106,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *paragraph C1
    {After\\n}
@@ -121,7 +121,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {verb.txt}
   {empty_line:\\n}
   *@quotation C4 l27
@@ -129,7 +129,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation include \\n}
    *@verbatiminclude C1 l29
@@ -142,7 +142,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verb.txt}
    *@end C1 l30
    |INFO
@@ -153,7 +153,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *paragraph C1
@@ -168,7 +168,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {verb.txt}
   *paragraph C1
    {After\\n}
@@ -178,7 +178,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C2
     {In example\\n}
     {empty_line:\\n}
@@ -187,7 +187,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:In verbatim in example\\n}
     {raw:In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb\\n}
     *@end C1 l42
@@ -199,7 +199,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {verbatim}
    *preformatted C1
     {empty_line:\\n}
@@ -212,7 +212,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
   *@quotation C6 l46
@@ -220,7 +220,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation with spaces\\n}
    {empty_line:\\n}
@@ -229,7 +229,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:In verbatim in quotation with spaces\\n}
     {raw:In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb\\n}
     *@end C1 l52
@@ -241,7 +241,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {verbatim}
    {empty_line:\\n}
    *@end C1 l54
@@ -253,7 +253,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C6 l56
@@ -261,7 +261,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {In quotation \\n}
    {empty_line:\\n}
@@ -270,7 +270,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     {raw:In verbatim in quotation\\n}
     *@end C1 l61
     |INFO
@@ -281,7 +281,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {verbatim}
    *paragraph C1
     {in quotation after end verbaatim\\n}
@@ -294,7 +294,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

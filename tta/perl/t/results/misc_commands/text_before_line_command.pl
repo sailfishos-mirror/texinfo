@@ -16,7 +16,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {the title}
   {empty_line:\\n}
   *paragraph C1
@@ -33,7 +33,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {LD Version Scripts}
   *paragraph C1
    {--- }
@@ -49,7 +49,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {LD Version Scripts}
   {empty_line:\\n}
   *paragraph C1
@@ -64,7 +64,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C3
     {aaa }
     *@author C1 l9
@@ -76,7 +76,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {quotation author}
     {quotation\\n}
    *@end C1 l11
@@ -88,7 +88,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

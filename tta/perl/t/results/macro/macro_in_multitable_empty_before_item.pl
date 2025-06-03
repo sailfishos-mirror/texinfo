@@ -22,7 +22,7 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@multitable C4 l4
@@ -42,7 +42,7 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.4 .6 5.}
    *before_item C1
     {}
@@ -78,7 +78,7 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

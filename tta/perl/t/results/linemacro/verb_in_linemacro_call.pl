@@ -26,7 +26,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@defblock C4 l8
@@ -34,7 +34,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *before_defline C1
     *paragraph C7
      {first Name\\n}
@@ -90,7 +90,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
     *line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {Name}
@@ -113,7 +113,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

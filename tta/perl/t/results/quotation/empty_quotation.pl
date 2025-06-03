@@ -12,7 +12,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l2
    |INFO
    |spaces_before_argument:
@@ -22,7 +22,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C2 l4
@@ -33,7 +33,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Empty}
    *@end C1 l5
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C2 l7
@@ -55,7 +55,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis C1 l7
       *brace_container
    *@end C1 l8
@@ -67,7 +67,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@quotation C2 l10
@@ -78,7 +78,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@*
    *@end C1 l11
    |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'empty_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

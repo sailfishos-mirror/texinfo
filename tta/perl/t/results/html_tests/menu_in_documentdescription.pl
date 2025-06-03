@@ -19,7 +19,7 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@documentdescription C3 l4
@@ -40,13 +40,13 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@menu C3 l5
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 l6
      {menu_entry_leading_text:* }
      *menu_entry_node C4
@@ -71,7 +71,7 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {menu}
    *@end C1 l8
    |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'menu_in_documentdescription'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {documentdescription}
 ';
 

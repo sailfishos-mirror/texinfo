@@ -12,7 +12,7 @@ $result_tree_text{'indent_in_quotation'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@indent l2
    {ignorable_spaces_after_command:\\n}
    *paragraph C1
@@ -28,7 +28,7 @@ $result_tree_text{'indent_in_quotation'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
 ';
 

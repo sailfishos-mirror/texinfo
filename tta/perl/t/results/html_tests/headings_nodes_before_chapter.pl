@@ -15,7 +15,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {headings nodes before chapter}
    {empty_line:\\n}
  *@node C3 l3 {Node 1}
@@ -30,7 +30,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Node 1}
   *@heading C1 l4
   |INFO
@@ -42,7 +42,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Topic One}
   {empty_line:\\n}
  *@node C3 l6 {Node 2}
@@ -57,7 +57,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Node 2}
   *@heading C1 l7
   |INFO
@@ -69,7 +69,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Topic Two}
   {empty_line:\\n}
  *@node C1 l9 {Cap 1}
@@ -84,7 +84,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Cap 1}
  *@chapter C4 l10 {Chapter One}
  |INFO
@@ -98,7 +98,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter One}
   {empty_line:\\n}
   *@menu C4 l12
@@ -106,7 +106,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l13
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -138,7 +138,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l17 {Cap 2}
@@ -153,7 +153,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Cap 2}
  *@chapter C1 l18 {Chapter Two}
  |INFO
@@ -167,7 +167,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter Two}
 ';
 

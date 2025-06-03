@@ -17,7 +17,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {one nonlettered character}
      { }
@@ -49,7 +49,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
         *line_arg C3
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {in index entry }
          {ignorable_spaces_after_command: }
          {in tab}
@@ -62,7 +62,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

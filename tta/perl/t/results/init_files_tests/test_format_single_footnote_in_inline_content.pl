@@ -20,7 +20,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -48,7 +48,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C9 l5 {Chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C3
@@ -89,7 +89,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *preformatted C1
        {in    example\\n}
       *@end C1 l13
@@ -101,7 +101,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {example}
    {\\n}
   {empty_line:\\n}
@@ -135,7 +135,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        *block_line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {qtitle}
       *@author C1 l22
       |INFO
@@ -146,7 +146,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {Me}
       *paragraph C1
        {In quotation\\n}
@@ -159,7 +159,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {quotation}
    {\\n}
 ';

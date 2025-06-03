@@ -12,7 +12,7 @@ $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root 
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C2
     {In quotation\\n}
     *@end C1 l3
@@ -24,7 +24,7 @@ $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root 
      *line_arg C2
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {: }
       *@code C1 l3
        *brace_container C1

@@ -22,7 +22,7 @@ $result_tree_text{'not_fraction'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {aaa}
    *@end C1 l2
    |INFO

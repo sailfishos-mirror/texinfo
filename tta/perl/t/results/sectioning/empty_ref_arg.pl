@@ -19,7 +19,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
   {empty_line:\\n}
   *paragraph C8

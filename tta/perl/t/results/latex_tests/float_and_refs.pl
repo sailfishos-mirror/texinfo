@@ -20,7 +20,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
@@ -48,7 +48,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C8 l5 {chapter}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@float C7 l7
@@ -80,7 +80,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {no type}
@@ -105,7 +105,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C7 l13
@@ -124,7 +124,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {with type}
@@ -149,7 +149,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@float C7 l19
@@ -168,7 +168,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {my figure}
@@ -193,7 +193,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
  *@chapter C8 l25 {refs}
@@ -208,7 +208,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {refs}
   {empty_line:\\n}
   *paragraph C10
@@ -478,7 +478,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {lists}
   {empty_line:\\n}
   *@listoffloats C1 l47
@@ -488,7 +488,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
   *@listoffloats C1 l48
   |INFO
   |spaces_before_argument:
@@ -499,7 +499,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Figure}
   *@listoffloats C1 l49
   |INFO
@@ -511,7 +511,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Thing}
   {empty_line:\\n}
 ';

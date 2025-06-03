@@ -23,7 +23,7 @@ $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@definfoenclose C1 l5
@@ -35,7 +35,7 @@ $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {phoo,;,:}
   {empty_line:\\n}
   *paragraph C2

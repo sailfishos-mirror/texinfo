@@ -15,14 +15,14 @@ $result_tree_text{'plaintext_ifinfo_ifnotplaintext'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   >ignored_conditional_block<1>
    >*@ifnotplaintext C3 l2
     >*arguments_line C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:This will be in Info, but not plain text.\\n}
     >*@end C1 l4
     >|INFO
@@ -33,7 +33,7 @@ $result_tree_text{'plaintext_ifinfo_ifnotplaintext'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnotplaintext}
   >expanded_conditional_command<end;1>
    >*@end C1 l5
@@ -45,7 +45,7 @@ $result_tree_text{'plaintext_ifinfo_ifnotplaintext'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifinfo}
 ';
 

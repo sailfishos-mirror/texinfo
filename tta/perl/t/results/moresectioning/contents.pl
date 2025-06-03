@@ -19,7 +19,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@chapter C2 l3 {chapter}
@@ -34,7 +34,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
  *@section C2 l5 {section}
@@ -49,7 +49,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
   {empty_line:\\n}
  *@subsection C2 l7 {subsection}
@@ -64,7 +64,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection}
   {empty_line:\\n}
  *@subsubsection C2 l9 {subsubsection}
@@ -79,7 +79,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsubsection}
   {empty_line:\\n}
  *@part C2 l11 {part}
@@ -94,7 +94,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {part}
   {empty_line:\\n}
  *@chapter C2 l13 {chapter in part}
@@ -109,7 +109,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter in part}
   {empty_line:\\n}
  *@chapter C2 l15 {second chapter in part}
@@ -124,7 +124,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second chapter in part}
   {empty_line:\\n}
  *@unnumbered C2 l17 {unnumbered}
@@ -138,7 +138,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
   {empty_line:\\n}
  *@appendix C2 l19 {appendix}
@@ -153,7 +153,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendix}
   {empty_line:\\n}
  *@appendixsec C3 l21 {appendixsec}
@@ -168,7 +168,7 @@ $result_tree_text{'contents'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendixsec}
   {empty_line:\\n}
   *@contents C1 l23

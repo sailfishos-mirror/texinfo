@@ -22,7 +22,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ISO-8859-1}
    {empty_line:\\n}
  *@node C1 cpp_line_latin1.texi:l5 {Top}
@@ -37,7 +37,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 cpp_line_latin1.texi:l6
  |EXTRA
@@ -47,7 +47,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C7 cpp_line_latin1.texi:l8 {chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   {empty_line:\\n}

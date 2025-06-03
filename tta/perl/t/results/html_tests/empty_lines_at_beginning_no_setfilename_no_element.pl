@@ -19,7 +19,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename_no_element'} = '*docu
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {centered}
   {empty_line:\\n}
   *paragraph C1

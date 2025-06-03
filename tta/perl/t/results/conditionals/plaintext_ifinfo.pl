@@ -15,7 +15,7 @@ $result_tree_text{'plaintext_ifinfo'} = '*document_root C1
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C1
    {this text will appear only in Info and plain text.\\n}
    >SOURCEMARKS
@@ -29,7 +29,7 @@ $result_tree_text{'plaintext_ifinfo'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifinfo}
 ';
 

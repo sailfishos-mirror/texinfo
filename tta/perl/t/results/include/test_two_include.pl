@@ -20,7 +20,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{version.texi}
    *@set C2
    |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{inc_file.texi}
    {In included file.\\n}
    >SOURCEMARKS

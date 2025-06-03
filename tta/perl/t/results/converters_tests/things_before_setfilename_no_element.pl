@@ -81,7 +81,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {float anchor}
@@ -96,7 +96,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    {empty_line:\\n}
    *paragraph C3
@@ -125,7 +125,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *block_line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
      |spaces_before_argument:
       |{spaces_before_argument: }
       {ta}
@@ -146,7 +146,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {float}
    {empty_line:\\n}
    *@contents C1 things_before_setfilename_no_element.texi:l32
@@ -159,7 +159,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *menu_entry C4 things_before_setfilename_no_element.texi:l35
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -180,7 +180,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {menu}
    {empty_line:\\n}
    *index_entry_command@cindex C1 things_before_setfilename_no_element.texi:l38
@@ -193,7 +193,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {index entry}
    {empty_line:\\n}
    *@printindex C1 things_before_setfilename_no_element.texi:l40
@@ -206,7 +206,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {cp}
    {empty_line:\\n}
    *@listoffloats C1 things_before_setfilename_no_element.texi:l42
@@ -219,7 +219,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {Text}
    {empty_line:\\n}
   *preamble_before_content C2
@@ -232,7 +232,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
      {things_before_setfilename_no_element.info}
    {empty_line:\\n}
   *paragraph C3

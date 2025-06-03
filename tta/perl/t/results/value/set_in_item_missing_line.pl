@@ -15,7 +15,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l1
    *table_entry C1
     *table_term C1
@@ -39,7 +39,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {jj}
    *@end C1 l4
    |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
   {empty_line:\\n}
   *@table C4 l6
@@ -61,7 +61,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l6
    *table_entry C1
     *table_term C1
@@ -85,7 +85,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {jj}
    *@end C1 l9
    |INFO
@@ -96,7 +96,7 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

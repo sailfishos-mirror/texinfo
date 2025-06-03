@@ -13,7 +13,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *paragraph C1
      {in Copying\\n}
     *@end C1 l3
@@ -25,7 +25,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {copying}
    {empty_line:\\n}
    *@titlepage C12 l5
@@ -33,7 +33,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@title C1 l6
     |INFO
     |spaces_before_argument:
@@ -41,7 +41,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Some manual }
       *@*
       { tested}
@@ -54,7 +54,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Subtitle manual }
       *@*
       { tested}
@@ -67,7 +67,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Subtitle 2 manual }
       *@*
       { tested}
@@ -80,7 +80,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C3
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {First }
       *@*
       { author}
@@ -93,7 +93,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C4
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {Second }
       *@*
       { author}
@@ -112,7 +112,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
           *block_line_arg
           |INFO
           |spaces_after_argument:
-           |{\\n}
+           |{spaces_after_argument:\\n}
          {\\frac}
          *balanced_braces C1 l15
           {{a}}
@@ -128,7 +128,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
           *line_arg C1
           |INFO
           |spaces_after_argument:
-           |{\\n}
+           |{spaces_after_argument:\\n}
            {displaymath}
     *@page C1
      {rawline_arg:\\n}
@@ -151,7 +151,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {titlepage}
    {empty_line:\\n}
  *@node C1 l25 {Top}
@@ -166,7 +166,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l26 {section top}
  |INFO
@@ -179,7 +179,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section top}
   {empty_line:\\n}
  *@node C1 l28 {chapter}
@@ -194,7 +194,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l29 {Chapter}
  |INFO
@@ -208,7 +208,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter}
   {empty_line:\\n}
   *paragraph C1

@@ -15,7 +15,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@code l1
    *table_entry C1
     *table_term C3
@@ -31,7 +31,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
        >*line_arg C1
        >|INFO
        >|spaces_after_argument:
-        >|{\\n}
+        >|{spaces_after_argument:\\n}
         >{only_comment.texi}
       {rawline_arg: source mark holder comment\\n}
      *@c C1
@@ -45,7 +45,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {FOO}
    *@end C1 l5
    |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 

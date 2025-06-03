@@ -23,7 +23,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 navigation.texi:l4 {File used for navigation testing}
  |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {File used for navigation testing}
   {empty_line:\\n}
   *@menu C3 navigation.texi:l6
@@ -44,7 +44,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 navigation.texi:l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -65,7 +65,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 navigation.texi:l10 {chapter}
@@ -80,7 +80,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 navigation.texi:l11 {First chapter}
  |INFO
@@ -94,7 +94,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {First chapter}
   {empty_line:\\n}
   *@menu C3 navigation.texi:l13
@@ -102,7 +102,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 navigation.texi:l14
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -123,7 +123,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 navigation.texi:l17 {section}
@@ -138,7 +138,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section}
  *@section C30 navigation.texi:l18 {Section in chapter}
  |INFO
@@ -152,7 +152,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Section in chapter}
   {empty_line:\\n}
   *paragraph C1
@@ -200,7 +200,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 navigation.texi:l48
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -221,7 +221,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 navigation.texi:l51 {subsection}
@@ -236,7 +236,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection}
  *@subsection C4 navigation.texi:l52 {Sub section in section}
  |INFO
@@ -250,7 +250,7 @@ $result_tree_text{'navigation_test_undef_top_buttons'} = '*document_root C10
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sub section in section}
   {empty_line:\\n}
   *@contents C1 navigation.texi:l54

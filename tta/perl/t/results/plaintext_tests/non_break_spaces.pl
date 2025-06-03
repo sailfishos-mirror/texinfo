@@ -19,7 +19,7 @@ $result_tree_text{'non_break_spaces'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {utf-8}
    {empty_line:\\n}
  *@node C3 non_break_spaces.texi:l3 {Top}
@@ -34,7 +34,7 @@ $result_tree_text{'non_break_spaces'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C2

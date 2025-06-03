@@ -20,7 +20,7 @@ $result_tree_text{'empty_caption'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@float C5 l4
@@ -39,7 +39,7 @@ $result_tree_text{'empty_caption'} = '*document_root C2
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {b}
    *paragraph C1
     {aa\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'empty_caption'} = '*document_root C2
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l9
@@ -68,7 +68,7 @@ $result_tree_text{'empty_caption'} = '*document_root C2
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a}
 ';
 

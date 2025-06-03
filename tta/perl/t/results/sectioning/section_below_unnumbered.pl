@@ -27,7 +27,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C7 l5 {Top}
  |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *paragraph C1
@@ -51,7 +51,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -72,7 +72,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -88,7 +88,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Unn}
  *@unnumbered C4 l15 {Unn}
  |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Unn}
   {empty_line:\\n}
   *@menu C3 l17
@@ -109,7 +109,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l18
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -130,7 +130,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l21 {Sec}
@@ -145,7 +145,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
  *@section C4 l22 {Sec}
  |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
   {empty_line:\\n}
   *paragraph C1

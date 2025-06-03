@@ -20,7 +20,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C30 nodequote.texi:l2
  |EXTRA
@@ -30,7 +30,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@xref C2 nodequote.texi:l4
@@ -287,7 +287,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 nodequote.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -376,7 +376,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l42 {blah:blah}
@@ -391,7 +391,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {blah:blah}
  *@chapter C4 nodequote.texi:l43 {blah:blah}
  |INFO
@@ -405,7 +405,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {blah:blah}
   {empty_line:\\n}
   *paragraph C1
@@ -423,7 +423,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {blumpty.fump}
  *@chapter C2 nodequote.texi:l48 {blumpty.fump}
  |INFO
@@ -437,7 +437,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {blumpty.fump}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l50 {normal node}
@@ -484,7 +484,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -507,7 +507,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {normal node}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l53 {@asis{secret,node}}
@@ -522,7 +522,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 nodequote.texi:l53
      *brace_container C1
       {secret,node}
@@ -538,7 +538,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@asis C1 nodequote.texi:l54
      *brace_container C1
       {secret,node}
@@ -555,7 +555,7 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top secret node}
   {empty_line:\\n}
   *paragraph C1

@@ -23,7 +23,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {B}
@@ -39,7 +39,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *rawpreformatted C1
        {aa\\n}
       *@end C1 l6
@@ -51,7 +51,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {tex}
    {spaces_after_close_brace:\\n}
    *@end C1 l8
@@ -63,7 +63,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
   {empty_line:\\n}
   *@listoffloats C1 l10
@@ -76,7 +76,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A}
 ';
 

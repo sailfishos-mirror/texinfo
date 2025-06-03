@@ -20,7 +20,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *@menu C5 l4
@@ -41,7 +41,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -84,7 +84,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@chapter C2 l10 {c1}
@@ -99,7 +99,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c1}
   {empty_line:\\n}
  *@node C1 l12 {n c2}
@@ -114,7 +114,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {n c2}
  *@chapter C2 l13 {c2}
  |INFO
@@ -128,7 +128,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c2}
   {empty_line:\\n}
  *@section C2 l15 {s1}
@@ -143,7 +143,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {s1}
   {empty_line:\\n}
  *@node C1 l17 {n c3}
@@ -176,7 +176,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -195,7 +195,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3}
   {empty_line:\\n}
   *@menu C3 l20
@@ -203,7 +203,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{ \\n}
+     |{spaces_after_argument: \\n}
    *menu_entry C4 l21
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -224,7 +224,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@section C2 l24 {C3 s1}
@@ -239,7 +239,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {C3 s1}
   {empty_line:\\n}
  *@node C1 l26 {n c3 s 2}
@@ -254,7 +254,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {n c3 s 2}
  *@section C2 l27 {c3 s2}
  |INFO
@@ -268,7 +268,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3 s2}
   {empty_line:\\n}
  *@section C2 l29 {c3 s3}
@@ -283,7 +283,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3 s3}
   {empty_line:\\n}
  *@chapter C2 l31 {c4}
@@ -298,7 +298,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c4}
   {empty_line:\\n}
  *@section C2 l33 {c3 s1}
@@ -313,7 +313,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3 s1}
   {empty_line:\\n}
  *@subsection C2 l35 {c3 s1 s1}
@@ -328,7 +328,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3 s1 s1}
   {empty_line:\\n}
  *@node C1 l37 {n c3 s1 s2}
@@ -351,7 +351,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -368,7 +368,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c3 s1 s2}
   {empty_line:\\n}
  *@appendix C1 l40 {appendix}
@@ -383,7 +383,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {appendix}
 ';
 

@@ -23,7 +23,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@setfilename C1 l5
@@ -41,7 +41,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {macro_i--n_pass}
     *@@
     >SOURCEMARKS
@@ -64,7 +64,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@documentencoding C1 l11
@@ -84,7 +84,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {ISO-8859-1}
     *@@
     >SOURCEMARKS
@@ -107,7 +107,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
  *@node C1 l18 {Top}
@@ -122,7 +122,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l19 {top}
  |INFO
@@ -135,7 +135,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C8 l21 {chap}
@@ -150,7 +150,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -169,7 +169,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{macro_included.texi}
   *@macro C3 macro_included.texi:l1
   |EXTRA
@@ -187,7 +187,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >*line_arg C3
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{inc_}
      >*@@
      >{f--ile.texi}
@@ -205,7 +205,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C1
    {In included file.\\n}
@@ -232,7 +232,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {inc_}
     *@@
     {f--ile.texi}

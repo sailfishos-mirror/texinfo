@@ -34,7 +34,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -46,7 +46,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -67,7 +67,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 l7 {node in menu before top}
@@ -86,7 +86,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -107,7 +107,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -123,7 +123,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {top section}
   {empty_line:\\n}
   *@menu C3 l12
@@ -131,7 +131,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l13
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -152,7 +152,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l16 {second node}
@@ -167,7 +167,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {second node}
  *@chapter C1 l17 {a chapter}
  |INFO
@@ -181,7 +181,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a chapter}
 ';
 

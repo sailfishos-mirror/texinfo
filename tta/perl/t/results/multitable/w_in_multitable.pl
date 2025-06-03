@@ -17,7 +17,7 @@ $result_tree_text{'w_in_multitable'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *bracketed_arg C1 l1
       {aaaaaaaaa}
      { }
@@ -52,7 +52,7 @@ $result_tree_text{'w_in_multitable'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

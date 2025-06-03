@@ -20,7 +20,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 l2 {Top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
   {empty_line:\\n}
   *@menu C29 l4
@@ -41,7 +41,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C5
@@ -784,7 +784,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 l34 {@- @{ @}}
@@ -799,7 +799,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@-
     { }
     *@{
@@ -817,7 +817,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@-
     { }
     *@{
@@ -836,7 +836,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C17
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ 
     { }
     *@\\t
@@ -866,7 +866,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C17
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ 
     { }
     *@\\t
@@ -897,7 +897,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C9
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@atchar C1 l40
      *brace_container
     { }
@@ -924,7 +924,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C9
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@atchar C1 l41
      *brace_container
     { }
@@ -952,7 +952,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@LaTeX C1 l43
      *brace_container
     { }
@@ -985,7 +985,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@LaTeX C1 l44
      *brace_container
     { }
@@ -1019,7 +1019,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@equiv C1 l46
      *brace_container
     { }
@@ -1049,7 +1049,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@equiv C1 l47
      *brace_container
     { }
@@ -1080,7 +1080,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@geq C1 l49
      *brace_container
     { }
@@ -1101,7 +1101,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@geq C1 l50
      *brace_container
     { }
@@ -1123,7 +1123,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ordf C1 l52
      *brace_container
     { }
@@ -1156,7 +1156,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ordf C1 l53
      *brace_container
     { }
@@ -1190,7 +1190,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C9
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@result C1 l55
      *brace_container
     { }
@@ -1217,7 +1217,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C9
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@result C1 l56
      *brace_container
     { }
@@ -1245,7 +1245,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C27
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     *@AA C1 l58
      *brace_container
     { }
@@ -1299,7 +1299,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C27
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     *@AA C1 l59
      *brace_container
     { }
@@ -1354,7 +1354,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C21
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@" C1 l61
      *brace_container C1
       {a}
@@ -1412,7 +1412,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C21
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@" C1 l62
      *brace_container C1
       {a}
@@ -1471,7 +1471,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@dotaccent C1 l64
      *brace_container C1
       {e}
@@ -1511,7 +1511,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@dotaccent C1 l65
      *brace_container C1
       {e}
@@ -1552,7 +1552,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@dotless C1 l67
      *brace_container C1
       {i}
@@ -1580,7 +1580,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@dotless C1 l68
      *brace_container C1
       {i}
@@ -1609,7 +1609,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@quotedblleft C1 l70
      *brace_container
     { }
@@ -1639,7 +1639,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@quotedblleft C1 l71
      *brace_container
     { }
@@ -1670,7 +1670,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@guillemetleft C1 l73
      *brace_container
     { }
@@ -1700,7 +1700,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C11
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@guillemetleft C1 l74
      *brace_container
     { }
@@ -1731,7 +1731,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {`` \'\' --- -- ` \'}
  *@chapter C2 l77 {`` \'\' --- -- ` \'}
  |INFO
@@ -1745,7 +1745,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {`` \'\' --- -- ` \'}
   {empty_line:\\n}
  *@node C1 l79 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
@@ -1760,7 +1760,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@acronym C2 l79
      *brace_arg C1
       {AAA}
@@ -1789,7 +1789,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@acronym C2 l80
      *brace_arg C1
       {AAA}
@@ -1823,11 +1823,11 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@abbr C2 l82
      *brace_arg C1
       {CCC}
@@ -1864,12 +1864,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@abbr C2 l84
      *brace_arg C1
       {CCC}
@@ -1899,7 +1899,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@email C2 l87
      *brace_arg C3
       {someone}
@@ -1928,7 +1928,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@email C2 l88
      *brace_arg C3
       {someone}
@@ -1962,11 +1962,11 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C1 l90
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -2006,12 +2006,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@image C1 l92
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -2048,11 +2048,11 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@verb C1 l95
     |INFO
     |delimiter:{.}
@@ -2078,12 +2078,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@verb C1 l97
     |INFO
     |delimiter:{.}
@@ -2102,7 +2102,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C17
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@cite C1 l100
      *brace_container C2
       {cite }
@@ -2158,7 +2158,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C17
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@cite C1 l101
      *brace_container C2
       {cite }
@@ -2215,7 +2215,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@env C1 l103
      *brace_container C1
       {env}
@@ -2258,7 +2258,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@env C1 l104
      *brace_container C1
       {env}
@@ -2302,7 +2302,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {8.27}
     *@dmn C1 l106
      *brace_container C1
@@ -2319,7 +2319,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C2
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {8.27}
     *@dmn C1 l107
      *brace_container C1
@@ -2337,7 +2337,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sansserif C1 l109
      *brace_container C1
       {sansserif}
@@ -2357,7 +2357,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sansserif C1 l110
      *brace_container C1
       {sansserif}
@@ -2378,7 +2378,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@indicateurl C1 l112
      *brace_container C1
       {indicateurl}
@@ -2394,7 +2394,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@indicateurl C1 l113
      *brace_container C1
       {indicateurl}
@@ -2411,7 +2411,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sub C1 l115
      *brace_container C1
       {g}
@@ -2431,7 +2431,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sub C1 l116
      *brace_container C1
       {g}
@@ -2452,7 +2452,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@url C1 l118
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2484,7 +2484,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@url C1 l119
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2934,7 +2934,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C2
    *@ref C1 l154
     *brace_arg C5
@@ -2969,7 +2969,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnottex}
   {empty_line:\\n}
   *paragraph C2
@@ -3003,7 +3003,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
   *paragraph C2
    *@ref C1 l160
     *brace_arg C3
@@ -3054,7 +3054,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{ifnottex}
   {empty_line:\\n}
   *paragraph C2

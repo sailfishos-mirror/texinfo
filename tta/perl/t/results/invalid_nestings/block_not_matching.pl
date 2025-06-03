@@ -12,7 +12,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {A quotation\\n}
   {empty_line:\\n}
@@ -32,7 +32,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg C5
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *bracketed_arg C1 l5
        {Function Reference}
@@ -56,7 +56,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l9
    *table_entry C2
     *table_term C1
@@ -67,7 +67,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
     *table_definition C1
      *paragraph C1
@@ -81,7 +81,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@emph l14
    *table_entry C2
     *table_term C1
@@ -92,7 +92,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {ref}
     *table_definition C1
      *@example C2 l16
@@ -100,7 +100,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
        *block_line_arg
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
       *preformatted C1
        {example\\n}
   {empty_line:\\n}
@@ -109,7 +109,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in group\\n}
   {empty_line:\\n}
@@ -118,7 +118,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in group 2\\n}
   {empty_line:\\n}
@@ -127,7 +127,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {cartouche\\n}
   {empty_line:\\n}
@@ -136,7 +136,7 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {carouche\\n}
 ';

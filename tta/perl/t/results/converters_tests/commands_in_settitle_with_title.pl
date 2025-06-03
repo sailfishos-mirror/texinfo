@@ -14,7 +14,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    *line_arg C13
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@sc C1 l1
      *brace_container C6
       {sc }
@@ -68,7 +68,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l4 {top}
  |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
@@ -96,7 +96,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 l7 {Chap}
  |INFO
@@ -110,7 +110,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
   *paragraph C1

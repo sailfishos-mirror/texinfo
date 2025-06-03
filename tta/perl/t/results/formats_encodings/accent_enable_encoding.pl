@@ -20,7 +20,7 @@ $result_tree_text{'accent_enable_encoding'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first}
  *@top C77 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'accent_enable_encoding'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
   *paragraph C5

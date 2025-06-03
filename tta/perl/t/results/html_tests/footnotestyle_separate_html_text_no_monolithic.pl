@@ -16,7 +16,7 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {separate}
   {empty_line:\\n}
  *@node C1 l3 {Top}
@@ -31,7 +31,7 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l4 {top}
  |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   *paragraph C3
    {In top}
@@ -68,7 +68,7 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l8 {Chap}
  |INFO
@@ -82,7 +82,7 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
 ';

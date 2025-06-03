@@ -20,7 +20,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {Chap}
@@ -48,7 +48,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
  *@chapter C2 l5 {chap}
  |INFO
@@ -62,7 +62,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
  *@node C1 l7 {s@`{e}c}
@@ -77,7 +77,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C3
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {s}
     *@` C1 l7
      *brace_container C1
@@ -95,7 +95,7 @@ $result_tree_text{'set_add_transliterated_redirection_files'} = '*document_root 
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {g}
   {empty_line:\\n}
   *@anchor C1 l10

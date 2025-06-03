@@ -19,7 +19,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{ \\n}
+    |{spaces_after_argument: \\n}
     {section}
   {empty_line:\\n}
  *@chapter C2 l3 {chapter}
@@ -34,7 +34,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
  *@top C1 l5 {top}
@@ -48,7 +48,7 @@ $result_tree_text{'section_chapter_before_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
 ';
 

@@ -20,7 +20,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test refs}
   {empty_line:\\n}
   *@menu C4 character_and_spaces_in_refs_text.texi:l4
@@ -41,7 +41,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -73,7 +73,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
@@ -88,7 +88,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node to avoid DocBook or LaTeX ignored}
  *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
@@ -102,7 +102,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {first chapter}
   {empty_line:\\n}
   *@subheading C1 character_and_spaces_in_refs_text.texi:l12
@@ -115,7 +115,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Testing distant nodes}
   {empty_line:\\n}
   *paragraph C10
@@ -123,7 +123,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -151,7 +151,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -199,7 +199,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Testing local nodes}
   {empty_line:\\n}
   *paragraph C8
@@ -268,7 +268,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -287,7 +287,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chapter with nodes}
   {empty_line:\\n}
   *@menu C5 character_and_spaces_in_refs_text.texi:l30
@@ -295,7 +295,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l31
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -338,7 +338,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
@@ -371,7 +371,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -403,7 +403,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -431,7 +431,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}

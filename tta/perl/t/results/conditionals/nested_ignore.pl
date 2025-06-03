@@ -12,7 +12,7 @@ $result_tree_text{'nested_ignore'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@ignore\\n}
    {raw:\\n}
    {raw:@end ignore\\n}

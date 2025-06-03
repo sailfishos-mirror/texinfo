@@ -15,7 +15,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {text on line}
    *@end C1 l2
    |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display}
   {empty_line:\\n}
   *@display C3 l4
@@ -37,7 +37,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {text on line followed by text}
    *preformatted C1
     {normal text\\n}
@@ -50,7 +50,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display}
   {empty_line:\\n}
   *@display C3 l8
@@ -58,7 +58,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {in display\\n}
    *@end C1 l10
@@ -70,7 +70,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display text after end}
   {empty_line:\\n}
   *@display C3 l12
@@ -78,13 +78,13 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@display C2 l13
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
     *@end C1 l14
     |INFO
     |spaces_before_argument:
@@ -94,7 +94,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {display text after end display nested in display}
    *@end C1 l15
    |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'text_on_display_command_line'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {display}
 ';
 

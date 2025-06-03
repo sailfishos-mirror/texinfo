@@ -12,7 +12,7 @@ $result_tree_text{'page_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@page C1
     {rawline_arg:\\n}
    *preformatted C1
@@ -26,7 +26,7 @@ $result_tree_text{'page_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

@@ -23,7 +23,7 @@ $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@alias C1 l5
@@ -35,7 +35,7 @@ $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {new = strong}
   {empty_line:\\n}
   *@alias C1 l7
@@ -47,7 +47,7 @@ $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {strong = mystrong}
   {empty_line:\\n}
   *paragraph C2

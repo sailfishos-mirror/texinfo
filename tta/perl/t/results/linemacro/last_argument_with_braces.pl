@@ -24,7 +24,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {linemacro}
   {empty_line:\\n}
   *@defblock C10 l6
@@ -46,7 +46,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@defline C1 l7:@defbuiltin
    |INFO
    |spaces_before_argument:
@@ -61,7 +61,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {my}
@@ -91,7 +91,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C14
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -153,7 +153,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {my}
@@ -183,7 +183,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C9
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -233,7 +233,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C7
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {my}
@@ -263,7 +263,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C13
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -302,7 +302,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {defblock}
 ';
 

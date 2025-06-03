@@ -19,7 +19,7 @@ $result_tree_text{'sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *@sp C1 l3
   |INFO
@@ -30,7 +30,7 @@ $result_tree_text{'sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
   *paragraph C1
    {Text line after the sp followed by a sp }
@@ -43,7 +43,7 @@ $result_tree_text{'sp'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {1}
   *paragraph C1
    {Text line after the text line followed by the sp.\\n}
@@ -54,7 +54,7 @@ $result_tree_text{'sp'} = '*document_root C1
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
   *@sp C1 l7
   |INFO
   |spaces_before_argument:
@@ -70,12 +70,12 @@ $result_tree_text{'sp'} = '*document_root C1
     >*line_arg C1
     >|INFO
     >|spaces_after_argument:
-     >|{\\n}
+     >|{spaces_after_argument:\\n}
      >{ifnottex}
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2 a number after sp}
 ';
 

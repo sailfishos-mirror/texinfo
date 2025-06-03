@@ -19,7 +19,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {for example}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {for example}
   {empty_line:\\n}
  *@node C1 l4 {node}
@@ -47,7 +47,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {node}
  *@chapter C3 l5 {chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
@@ -75,7 +75,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry1}
  *@node C1 l8 {sec}
  |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
  *@section C3 l9 {Sec}
  |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Sec}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
@@ -118,7 +118,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {entry2}
  *@appendix C4 l12 {App}
  |INFO
@@ -132,7 +132,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {App}
   {empty_line:\\n}
   *@printindex C1 l14
@@ -145,7 +145,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
 ';

@@ -13,7 +13,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {<blink>html</blink> ``}\\n}
    *@end C1 l4
@@ -25,7 +25,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *@xml C3 l6
@@ -33,7 +33,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {<para>xml</para> ``}\\n}
    *@end C1 l8
@@ -45,7 +45,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {xml}
   {empty_line:\\n}
   *@docbook C3 l10
@@ -53,7 +53,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {<emphasis>docbook</emphasis> ``}\\n}
    *@end C1 l12
@@ -65,7 +65,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {docbook}
   {empty_line:\\n}
   *@tex C3 l14
@@ -73,7 +73,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C3
     {$\\underline{a < b }
     *@code C1 l15
@@ -91,7 +91,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@latex C3 l18
@@ -99,7 +99,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C3
     {$\\frac{a < b }
     *@code C1 l19
@@ -117,7 +117,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {latex}
 ';
 

@@ -17,7 +17,7 @@ $result_tree_text{'punctuation_and_footnotes_frenchspacing'} = '*document_root C
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
   *paragraph C8

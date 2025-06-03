@@ -17,7 +17,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {asis}
   {empty_line:\\n}
   {spaces_before_paragraph:  }
@@ -30,7 +30,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {spaces_before_paragraph:  }
    *paragraph C1
     {in quotation\\n}
@@ -43,7 +43,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
 ';

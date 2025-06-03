@@ -12,7 +12,7 @@ $result_tree_text{'false_format_not_closed'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:blah blah\\n}
 ';

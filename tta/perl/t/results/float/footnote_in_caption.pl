@@ -20,7 +20,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C5 l2 {chap}
  |INFO
@@ -34,7 +34,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *@listoffloats C1 l4
@@ -47,7 +47,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {fl}
   {empty_line:\\n}
   *@float C5 l6
@@ -66,7 +66,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label}
@@ -92,7 +92,7 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {float}
 ';
 

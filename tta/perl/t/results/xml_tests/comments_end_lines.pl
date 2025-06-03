@@ -12,7 +12,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -31,7 +31,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comment itemize\\n}
     |spaces_after_argument:
-     |{  }
+     |{spaces_after_argument:  }
      {itemize}
   {empty_line:\\n}
   *@enumerate C2 l5
@@ -41,7 +41,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@end C1 l6
    |INFO
    |spaces_before_argument:
@@ -54,7 +54,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {enumerate}
   {empty_line:\\n}
   *@table C3 l8
@@ -65,7 +65,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@asis l8
    *table_entry C1
     *table_term C1
@@ -76,7 +76,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {it}
    *@end C1 l10
    |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: table\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {table}
   {empty_line:\\n}
   *@quotation C3 l12
@@ -98,7 +98,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {Quot no arg\\n}
    *@end C1 l14
@@ -113,7 +113,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: quot no arg\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {quotation}
   {empty_line:\\n}
   *@group C3 l16
@@ -121,7 +121,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in gr\\n}
    *@end C1 l18
@@ -136,7 +136,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {group}
   {empty_line:\\n}
   *@example C3 l20
@@ -144,7 +144,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {in ex\\n}
    *@end C1 l22
@@ -159,7 +159,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {example}
   {empty_line:\\n}
   *@multitable C3 l24
@@ -179,7 +179,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.4 0.6}
    *multitable_body C1
     *row C2
@@ -209,7 +209,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {multitable}
   {empty_line:\\n}
   *@float C3 l28
@@ -228,7 +228,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {g}
    *paragraph C1
     {In f\\n}
@@ -244,7 +244,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{  }
+     |{spaces_after_argument:  }
      {float}
   {empty_line:\\n}
   *@flushright C3 l32
@@ -252,7 +252,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {flushright\\n}
    *@end C1 l34
@@ -267,7 +267,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {flushright}
   {empty_line:\\n}
   *@raggedright C3 l36
@@ -275,7 +275,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {raggedright\\n}
    *@end C1 l38
@@ -290,7 +290,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |*@c C1
       |{rawline_arg: comm\\n}
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
      {raggedright}
 ';
 

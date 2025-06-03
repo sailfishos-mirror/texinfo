@@ -19,7 +19,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C7 l2 {Element}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Element}
   *@anchor C1 l3
   |EXTRA

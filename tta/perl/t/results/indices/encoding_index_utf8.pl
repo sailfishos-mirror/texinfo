@@ -21,7 +21,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {utf-8}
    {empty_line:\\n}
  *@node C1 encoding_index_utf8.texi:l4 {Top}
@@ -36,7 +36,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 encoding_index_utf8.texi:l5 {encoding index utf8}
  |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {encoding index utf8}
   {empty_line:\\n}
  *@node C59 encoding_index_utf8.texi:l7 {chap}
@@ -65,7 +65,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l9
@@ -79,7 +79,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {é é}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l10
   |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C5
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@" C1 encoding_index_utf8.texi:l10
      *brace_container C1
       {i}
@@ -117,7 +117,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C6
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 encoding_index_utf8.texi:l11
      *following_arg C1
       {i}
@@ -145,7 +145,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {a}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l13
   |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {b}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l14
   |INFO
@@ -171,7 +171,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {c}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l15
   |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {d}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l16
   |INFO
@@ -197,7 +197,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {e}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l17
   |INFO
@@ -210,7 +210,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {f}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l18
   |INFO
@@ -223,7 +223,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {g}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l19
   |INFO
@@ -236,7 +236,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {h}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l20
   |INFO
@@ -249,7 +249,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {i}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l21
   |INFO
@@ -262,7 +262,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {j}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l22
   |INFO
@@ -275,7 +275,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {k}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l23
   |INFO
@@ -288,7 +288,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {l}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l24
   |INFO
@@ -301,7 +301,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {m}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l25
   |INFO
@@ -314,7 +314,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {n}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l26
   |INFO
@@ -327,7 +327,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {o}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l27
   |INFO
@@ -340,7 +340,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {p}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l28
   |INFO
@@ -353,7 +353,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {q}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l29
   |INFO
@@ -366,7 +366,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {r}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l30
   |INFO
@@ -379,7 +379,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {s}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l31
   |INFO
@@ -392,7 +392,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {t}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l32
   |INFO
@@ -405,7 +405,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {u}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l33
   |INFO
@@ -418,7 +418,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {v}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l34
   |INFO
@@ -431,7 +431,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {w}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l35
   |INFO
@@ -444,7 +444,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {x}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l36
   |INFO
@@ -457,7 +457,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {y}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l37
   |INFO
@@ -470,7 +470,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {z}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l38
   |INFO
@@ -483,7 +483,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {A}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l39
   |INFO
@@ -496,7 +496,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {B}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l40
   |INFO
@@ -509,7 +509,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@l C1 encoding_index_utf8.texi:l40
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l41
@@ -523,7 +523,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@L C1 encoding_index_utf8.texi:l41
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l42
@@ -537,7 +537,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@dotless C1 encoding_index_utf8.texi:l42
      *brace_container C1
       {i}
@@ -557,7 +557,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C4
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@^ C1 encoding_index_utf8.texi:l43
      *brace_container C1
       *@dotless C1 encoding_index_utf8.texi:l43
@@ -581,7 +581,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@ss C1 encoding_index_utf8.texi:l44
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l45
@@ -595,7 +595,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@euro C1 encoding_index_utf8.texi:l45
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l46
@@ -609,7 +609,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@AE C1 encoding_index_utf8.texi:l46
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l47
@@ -623,7 +623,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@exclamdown C1 encoding_index_utf8.texi:l47
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l48
@@ -637,7 +637,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@TH C1 encoding_index_utf8.texi:l48
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l49
@@ -651,7 +651,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@DH C1 encoding_index_utf8.texi:l49
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l50
@@ -665,7 +665,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@textdegree C1 encoding_index_utf8.texi:l50
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l51
@@ -679,7 +679,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {0}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l52
   |INFO
@@ -692,7 +692,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {9}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l53
   |INFO
@@ -705,7 +705,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@quotedblleft C1 encoding_index_utf8.texi:l53
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l54
@@ -719,7 +719,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@geq C1 encoding_index_utf8.texi:l54
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l55
@@ -733,7 +733,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@comma C1 encoding_index_utf8.texi:l55
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l56
@@ -747,7 +747,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {``}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l57
   |INFO
@@ -760,7 +760,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {`}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l58
   |INFO
@@ -773,7 +773,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\'}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l59
   |INFO
@@ -786,7 +786,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {\'\'}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l60
   |INFO
@@ -799,7 +799,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {"}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l61
   |INFO
@@ -812,7 +812,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     *@@
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l62
   |INFO
@@ -825,7 +825,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {--}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l63
   |INFO
@@ -838,7 +838,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {---}
   {empty_line:\\n}
   *@printindex C1 encoding_index_utf8.texi:l65
@@ -851,7 +851,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {cp}
  *@bye C1
   {rawline_arg:\\n}

@@ -24,7 +24,7 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {0.3 0.7}
    *multitable_body C3
     *row C2
@@ -75,7 +75,7 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {multitable}
 ';
 

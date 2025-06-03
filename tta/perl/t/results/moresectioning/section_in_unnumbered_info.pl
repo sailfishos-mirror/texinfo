@@ -22,7 +22,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C8 section_in_unnumbered_text.texi:l3 {Test section in unnumbered}
  |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Test section in unnumbered}
   {empty_line:\\n}
   *@contents C1 section_in_unnumbered_text.texi:l5
@@ -51,7 +51,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -116,7 +116,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l17 {chapter}
@@ -131,7 +131,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
  *@chapter C4 section_in_unnumbered_text.texi:l18 {chapter}
  |INFO
@@ -145,7 +145,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l20
@@ -153,7 +153,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l21
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -174,7 +174,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l24 {section in chapter}
@@ -189,7 +189,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section in chapter}
  *@section C2 section_in_unnumbered_text.texi:l25 {section in chapter}
  |INFO
@@ -203,7 +203,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section in chapter}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l27 {unnumbered}
@@ -218,7 +218,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
  *@unnumbered C4 section_in_unnumbered_text.texi:l28 {unnumbered}
  |INFO
@@ -231,7 +231,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l30
@@ -239,7 +239,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l31
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -260,7 +260,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l34 {section in unnumbered}
@@ -275,7 +275,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section in unnumbered}
  *@section C2 section_in_unnumbered_text.texi:l35 {section in unnumbered}
  |INFO
@@ -288,7 +288,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section in unnumbered}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l37 {chapter 2}
@@ -303,7 +303,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
  *@chapter C4 section_in_unnumbered_text.texi:l38 {chapter 2}
  |INFO
@@ -317,7 +317,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 2}
   {empty_line:\\n}
   *@menu C4 section_in_unnumbered_text.texi:l40
@@ -325,7 +325,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l41
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -357,7 +357,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l45 {unnumberedsec 2}
@@ -372,7 +372,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 2}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l46 {unnumbered section 2}
  |INFO
@@ -385,7 +385,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered section 2}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l48
@@ -393,7 +393,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l49
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -447,7 +447,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l55 {unnumbered sub 2}
@@ -462,7 +462,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub 2}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l56 {unnumbered subsection 2}
  |INFO
@@ -475,7 +475,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection 2}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l58 {numbered sub 2}
@@ -490,7 +490,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 2}
  *@subsection C2 section_in_unnumbered_text.texi:l59 {numbered subsection 2}
  |INFO
@@ -503,7 +503,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 2}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l61 {unnumbered sub2 2}
@@ -518,7 +518,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub2 2}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l62 {unnumbered subsection2 2}
  |INFO
@@ -531,7 +531,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection2 2}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l64 {numbered sub2 2}
@@ -546,7 +546,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub2 2}
  *@subsection C2 section_in_unnumbered_text.texi:l65 {numbered subsection2 2}
  |INFO
@@ -559,7 +559,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection2 2}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l67 {unnumberedsec 2-1}
@@ -574,7 +574,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 2-1}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l68 {unnumberedsec 2-1}
  |INFO
@@ -587,7 +587,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 2-1}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l70
@@ -595,7 +595,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l71
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -616,7 +616,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l74 {numbered sub 2-1}
@@ -631,7 +631,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 2-1}
  *@subsection C3 section_in_unnumbered_text.texi:l75 {numbered subsection 2-1}
  |INFO
@@ -644,7 +644,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 2-1}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -660,7 +660,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 3}
  *@chapter C4 section_in_unnumbered_text.texi:l79 {chapter 3}
  |INFO
@@ -674,7 +674,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chapter 3}
   {empty_line:\\n}
   *@menu C7 section_in_unnumbered_text.texi:l81
@@ -682,7 +682,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l82
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -747,7 +747,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l89 {unnumberedsec 3}
@@ -762,7 +762,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 3}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l90 {unnumbered section 3}
  |INFO
@@ -775,7 +775,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered section 3}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l92
@@ -783,7 +783,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l93
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -837,7 +837,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l99 {unnumbered sub 3}
@@ -852,7 +852,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub 3}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l100 {unnumbered subsection 3}
  |INFO
@@ -865,7 +865,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection 3}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l102 {numbered sub 3}
@@ -880,7 +880,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 3}
  *@subsection C2 section_in_unnumbered_text.texi:l103 {numbered subsection 3}
  |INFO
@@ -893,7 +893,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 3}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l105 {unnumbered sub2 3}
@@ -908,7 +908,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub2 3}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l106 {unnumbered subsection2 3}
  |INFO
@@ -921,7 +921,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection2 3}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l108 {numbered sub2 3}
@@ -936,7 +936,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub2 3}
  *@subsection C2 section_in_unnumbered_text.texi:l109 {numbered subsection2 3}
  |INFO
@@ -949,7 +949,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection2 3}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l111 {section 3-1}
@@ -964,7 +964,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3-1}
  *@section C2 section_in_unnumbered_text.texi:l112 {section 3-1}
  |INFO
@@ -978,7 +978,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3-1}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l114 {unnumberedsec 3-2}
@@ -993,7 +993,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 3-2}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l115 {unnumberedsec 3-2}
  |INFO
@@ -1006,7 +1006,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 3-2}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l117
@@ -1014,7 +1014,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l118
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1035,7 +1035,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l121 {numbered sub 3-2}
@@ -1050,7 +1050,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 3-2}
  *@subsection C2 section_in_unnumbered_text.texi:l122 {numbered subsection 3-2}
  |INFO
@@ -1063,7 +1063,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 3-2}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l124 {section 3-3}
@@ -1078,7 +1078,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3-3}
  *@section C4 section_in_unnumbered_text.texi:l125 {section 3-3}
  |INFO
@@ -1092,7 +1092,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {section 3-3}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l127
@@ -1100,7 +1100,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l128
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1121,7 +1121,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l131 {subsection 3-3}
@@ -1136,7 +1136,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 3-3}
  *@subsection C2 section_in_unnumbered_text.texi:l132 {subsection 3-3}
  |INFO
@@ -1150,7 +1150,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subsection 3-3}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l134 {unnumberedsec 3-4}
@@ -1165,7 +1165,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 3-4}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l135 {unnumberedsec 3-4}
  |INFO
@@ -1178,7 +1178,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 3-4}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l137
@@ -1186,7 +1186,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l138
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1207,7 +1207,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l141 {numbered sub 3-4}
@@ -1222,7 +1222,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 3-4}
  *@subsection C2 section_in_unnumbered_text.texi:l142 {numbered subsection 3-4}
  |INFO
@@ -1235,7 +1235,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 3-4}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l144 {unnumbered 4}
@@ -1250,7 +1250,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered 4}
  *@unnumbered C4 section_in_unnumbered_text.texi:l145 {unnumbered  4}
  |INFO
@@ -1263,7 +1263,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered  4}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l147
@@ -1271,7 +1271,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l148
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1292,7 +1292,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l151 {unnumberedsec 4}
@@ -1307,7 +1307,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumberedsec 4}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l152 {unnumbered section 4}
  |INFO
@@ -1320,7 +1320,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered section 4}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l154
@@ -1328,7 +1328,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l155
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1382,7 +1382,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l161 {unnumbered sub 4}
@@ -1397,7 +1397,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub 4}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l162 {unnumbered subsection 4}
  |INFO
@@ -1410,7 +1410,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection 4}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l164 {numbered sub 4}
@@ -1425,7 +1425,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub 4}
  *@subsection C2 section_in_unnumbered_text.texi:l165 {numbered subsection 4}
  |INFO
@@ -1438,7 +1438,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection 4}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l167 {unnumbered sub2 4}
@@ -1453,7 +1453,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered sub2 4}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l168 {unnumbered subsection2 4}
  |INFO
@@ -1466,7 +1466,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {unnumbered subsection2 4}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l170 {numbered sub2 4}
@@ -1481,7 +1481,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered sub2 4}
  *@subsection C1 section_in_unnumbered_text.texi:l171 {numbered subsection2 4}
  |INFO
@@ -1494,7 +1494,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {numbered subsection2 4}
 ';
 

@@ -42,7 +42,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@node C18 l11 {chap}
  |INFO
@@ -56,7 +56,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
   *paragraph C4
@@ -77,7 +77,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<end;1><p:13>
@@ -106,7 +106,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<end;2><p:13>
@@ -130,7 +130,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<end;3><p:12>
@@ -159,7 +159,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<end;4><p:12>
@@ -178,7 +178,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<start;5><p:1>{ncl-incl.tx}
@@ -206,7 +206,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<start;6><p:1>{ncl-incl.tx}

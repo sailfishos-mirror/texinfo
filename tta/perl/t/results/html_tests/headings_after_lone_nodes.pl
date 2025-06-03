@@ -19,7 +19,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l2 {top}
  |INFO
@@ -32,7 +32,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
  *@node C1 l4 {chap}
@@ -47,7 +47,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
  *@chapter C2 l5 {Chap}
  |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Chap}
   {empty_line:\\n}
  *@node C5 l7 {Qt}
@@ -76,7 +76,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Qt}
   *@subheading C1 l8
   |INFO
@@ -88,7 +88,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {heading Qt}
   {empty_line:\\n}
   *paragraph C1
@@ -106,7 +106,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Other}
   {empty_line:\\n}
   *@anchor C1 l14
@@ -124,7 +124,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Describe Other}
   {empty_line:\\n}
   *@c C1
@@ -145,7 +145,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {on}
   {empty_line:\\n}
   *@tex C3 l24
@@ -153,7 +153,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:tex format raw\\n}
    *@end C1 l26
@@ -165,7 +165,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {tex}
   {empty_line:\\n}
   *@ignore C3 l28
@@ -173,7 +173,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:in ignore\\n}
    *@end C1 l30
    |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -194,7 +194,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
      >*block_line_arg
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
     >{raw:in iftex\\n}
     >*@end C1 l34
     >|INFO
@@ -205,7 +205,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
      >*line_arg C1
      >|INFO
      >|spaces_after_argument:
-      >|{\\n}
+      >|{spaces_after_argument:\\n}
       >{iftex}
   {empty_line:\\n}
   *@subsubheading C1 l36
@@ -218,7 +218,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Finally!}
   {empty_line:\\n}
  *@node C6 l38 {Not associated}
@@ -233,7 +233,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {Not associated}
   {empty_line:\\n}
   *paragraph C1
@@ -249,7 +249,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {should not be associated}
   {empty_line:\\n}
  *@node C6 l44 {2 not}
@@ -264,7 +264,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2 not}
   {empty_line:\\n}
   *@quotation C3 l46
@@ -272,7 +272,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *paragraph C1
     {in quotation\\n}
    *@end C1 l48
@@ -284,7 +284,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {quotation}
   {empty_line:\\n}
   *@heading C1 l50
@@ -297,7 +297,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {should not be associated}
   {empty_line:\\n}
  *@node C6 l52 {3 not}
@@ -312,7 +312,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {3 not}
   {empty_line:\\n}
   *@html C3 l54
@@ -320,7 +320,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *rawpreformatted C1
     {in html\\n}
    *@end C1 l56
@@ -332,7 +332,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {html}
   {empty_line:\\n}
   *@heading C1 l58
@@ -345,7 +345,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {should not be associated}
   {empty_line:\\n}
  *@node C6 l60 {4 not}
@@ -360,7 +360,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {4 not}
   {empty_line:\\n}
   *@sp C1 l62
@@ -372,7 +372,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {2}
   {empty_line:\\n}
   *@heading C1 l64
@@ -385,7 +385,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {should not be associated}
   {empty_line:\\n}
  *@node C6 l66 {5 not}
@@ -400,7 +400,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {5 not}
   {empty_line:\\n}
   *@menu C3 l68
@@ -408,7 +408,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *menu_entry C4 l69
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -429,7 +429,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
   *@heading C1 l72
@@ -442,7 +442,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {should not be associated}
   {empty_line:\\n}
  *@node C2 l74 {subnode}
@@ -457,7 +457,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {subnode}
   {empty_line:\\n}
 ';

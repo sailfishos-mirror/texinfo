@@ -23,7 +23,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C6 l5
@@ -45,7 +45,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   *@macro C4 l12
@@ -65,7 +65,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
   >SOURCEMARKS
@@ -91,7 +91,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {4 1}
      >SOURCEMARKS
      >macro_expansion<start;2><p:2>
@@ -113,7 +113,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {doubleafter 1}
      >SOURCEMARKS
      >macro_expansion<start;3><p:12>
@@ -131,7 +131,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@macrotwo\\n}
    *@end C1 l38:@macrothree
    |INFO
@@ -142,14 +142,14 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {verbatim}
   *@ignore C3 l38:@macrothree
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    {raw:@macrofour\\n}
    *@end C1 l38:@macrothree
    |INFO
@@ -160,7 +160,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {ignore}
   *@macro C3 l38:@macrothree
   |EXTRA
@@ -178,7 +178,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {macro}
   *paragraph C5
    {macroseven defined\\n}
@@ -189,7 +189,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
      >{raw:@macrofour\\n}
      >*@end C1 l38:@macrothree
      >|INFO
@@ -200,7 +200,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{ifinfo}
    >ignored_conditional_block<2><p:19>
     >*@iftex C3 l38:@macrothree
@@ -208,7 +208,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
       >*block_line_arg
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
      >{raw:@macrotwo{aa,bb}\\n}
      >*@end C1 l38:@macrothree
      >|INFO
@@ -219,7 +219,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
       >*line_arg C1
       >|INFO
       >|spaces_after_argument:
-       >|{\\n}
+       >|{spaces_after_argument:\\n}
        >{iftex}
    {1\\n}
    >SOURCEMARKS

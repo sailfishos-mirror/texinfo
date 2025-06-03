@@ -19,7 +19,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
  *@chapter C2 l3 {chap2}
@@ -34,7 +34,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {chap2}
   {empty_line:\\n}
  *@section C3 l5 {sec}
@@ -49,7 +49,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
    *line_arg C1
    |INFO
    |spaces_after_argument:
-    |{\\n}
+    |{spaces_after_argument:\\n}
     {sec}
   {empty_line:\\n}
   *@shortcontents C1 l7

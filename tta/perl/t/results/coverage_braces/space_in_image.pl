@@ -13,7 +13,7 @@ $result_tree_text{'space_in_image'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
    |spaces_before_argument:
     |{spaces_before_argument: }
     {a}
@@ -27,12 +27,12 @@ $result_tree_text{'space_in_image'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {dd}
    *brace_arg C1
    |INFO
    |spaces_after_argument:
-    |{ }
+    |{spaces_after_argument: }
     {.e}
   *paragraph C3
    {. }
@@ -42,7 +42,7 @@ $result_tree_text{'space_in_image'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_after_argument:
-     |{ }
+     |{spaces_after_argument: }
     |spaces_before_argument:
      |{spaces_before_argument: }
      {f}

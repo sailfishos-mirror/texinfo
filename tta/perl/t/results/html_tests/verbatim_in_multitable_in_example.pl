@@ -12,7 +12,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
    *@multitable C3 l2
    |INFO
    |spaces_before_argument:
@@ -30,7 +30,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
        *line_arg C1
        |INFO
        |spaces_after_argument:
-        |{\\n}
+        |{spaces_after_argument:\\n}
         {0.5 0.5}
     *multitable_body C2
      *row C2
@@ -61,7 +61,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
          *block_line_arg
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
         {raw:in first column, verbatim\\n}
         *@end C1 l8
         |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
          *line_arg C1
          |INFO
          |spaces_after_argument:
-          |{\\n}
+          |{spaces_after_argument:\\n}
           {verbatim}
       *@tab C2 l9
       |EXTRA
@@ -89,7 +89,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
         *line_arg C1
         |INFO
         |spaces_after_argument:
-         |{\\n}
+         |{spaces_after_argument:\\n}
          {inc_file.texi}
     *@end C1 l11
     |INFO
@@ -100,7 +100,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
      *line_arg C1
      |INFO
      |spaces_after_argument:
-      |{\\n}
+      |{spaces_after_argument:\\n}
       {multitable}
    *@end C1 l12
    |INFO
@@ -111,7 +111,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {example}
 ';
 

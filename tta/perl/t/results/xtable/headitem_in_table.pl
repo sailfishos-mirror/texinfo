@@ -15,7 +15,7 @@ $result_tree_text{'headitem_in_table'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      *@strong l1
    *before_item C5
     {ignorable_spaces_after_command: }
@@ -34,7 +34,7 @@ $result_tree_text{'headitem_in_table'} = '*document_root C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
-       |{\\n}
+       |{spaces_after_argument:\\n}
        {item}
    *@end C1 l7
    |INFO
@@ -45,7 +45,7 @@ $result_tree_text{'headitem_in_table'} = '*document_root C1
     *line_arg C1
     |INFO
     |spaces_after_argument:
-     |{\\n}
+     |{spaces_after_argument:\\n}
      {table}
 ';
 
