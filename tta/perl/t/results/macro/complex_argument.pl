@@ -74,7 +74,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    >|INFO
    >|command_name:{macrothree}
     >*brace_arg C1
-     >{@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
+     >{macro_call_arg_text:@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
   *paragraph C11
    *@verb C1 l38:@macrothree
    |INFO
@@ -247,7 +247,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
     >|INFO
     >|command_name:{macroseven}
      >*brace_arg C1
-      >{aaa}
+      >{macro_call_arg_text:aaa}
    *@emph C1 l41:@macroseven
    >SOURCEMARKS
    >macro_expansion<end;5>

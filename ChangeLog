@@ -1,5 +1,16 @@
 2025-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/C/parsetexi/macro.c
+	(expand_macro_arguments, expand_linemacro_arguments),
+	tta/perl/Texinfo/ParserNonXS.pm (_expand_macro_arguments)
+	(_expand_linemacro_arguments): add macro_call_arg_text for macro
+	call argument text and for linemacro call argument text, if not
+	bracketed.
+
+	Update Texinfo tree Pod documentation of text elements.
+
+2025-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_isolate_trailing_spaces_element):
 	add a type argument.
 

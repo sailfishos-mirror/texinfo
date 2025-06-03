@@ -553,7 +553,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|INFO
     >|command_name:{mybibuselist}
      >*brace_arg C1
-      >{References}
+      >{macro_call_arg_text:References}
     {rawline_arg: %% my-bib-macros.texi ends here\\n}
    *@set C2
    |INFO
@@ -587,7 +587,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|INFO
     >|command_name:{mybibsetrefnode}
      >*brace_arg C1
-      >{References}
+      >{macro_call_arg_text:References}
    >macro_expansion<end;2>
    >macro_expansion<end;1>
     {rawline_arg:mybiblist}
@@ -722,7 +722,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|INFO
     >|command_name:{mybibcite}
      >*brace_arg C1
-      >{LaTeX2e}
+      >{macro_call_arg_text:LaTeX2e}
    >ignored_conditional_block<2><p:33>
     >*@ifclear C3 bib-example.texi:l43:@mybibcite
     >|INFO
@@ -767,12 +767,12 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|INFO
     >|command_name:{mybibmakeref}
      >*brace_arg C1
-      >{@mybibnode{}}
+      >{macro_call_arg_text:@mybibnode{}}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{LaTeX2e}
+      >{macro_call_arg_text:LaTeX2e}
    *@ref C2 bib-example.texi:l43:@mybibmakeref
     *brace_arg C1
     |EXTRA
@@ -876,7 +876,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >|INFO
      >|command_name:{mybibitem}
       >*brace_arg C1
-       >{LaTeX2e}
+       >{macro_call_arg_text:LaTeX2e}
     >ignored_conditional_block<3><p:1>
      >*@ifclear C5 bib-example.texi:l51:@mybibitem
      >|INFO

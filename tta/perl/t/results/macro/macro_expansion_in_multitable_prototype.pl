@@ -100,7 +100,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
        >|INFO
        >|command_name:{endbrace}
         >*brace_arg C1
-         >{@code{l}}
+         >{macro_call_arg_text:@code{l}}
       *@code C1 l9:@endbrace
        *brace_container C1
         {l}
@@ -116,7 +116,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
        >|INFO
        >|command_name:{endbrace}
         >*brace_arg C1
-         >{T}
+         >{macro_call_arg_text:T}
    *multitable_body C1
     *row C5
     |EXTRA

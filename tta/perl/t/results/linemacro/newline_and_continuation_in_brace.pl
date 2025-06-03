@@ -37,7 +37,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*line_arg C1
-      >{a@code{b c}d}
+      >{macro_call_arg_text:a@code{b c}d}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
@@ -47,7 +47,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{{next @\\n   last} line}
+      >{macro_call_arg_text:{next @\\n   last} line}
     *block_line_arg
     |INFO
     |spaces_after_argument:

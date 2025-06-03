@@ -40,12 +40,12 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
-      >{first arg}
+      >{macro_call_arg_text:first arg}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{second arg}
+      >{macro_call_arg_text:second arg}
   *@verbatim C3 l9:@macroone
    *arguments_line C1
     *block_line_arg
@@ -75,7 +75,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|INFO
     >|command_name:{macroone}
      >*brace_arg C1
-      >{aaa @samp{a macro , } bbb}
+      >{macro_call_arg_text:aaa @samp{a macro , } bbb}
    *@samp C1 l11:@macroone
     *brace_container C1
      {a macro , }
@@ -137,12 +137,12 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|INFO
     >|command_name:{macroone}
      >*brace_arg C1
-      >{first arg}
+      >{macro_call_arg_text:first arg}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{@macroone{nested second arg}}
+      >{macro_call_arg_text:@macroone{nested second arg}}
   *@verbatim C3 l15:@macroone
    *arguments_line C1
     *block_line_arg
@@ -172,12 +172,12 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|INFO
     >|command_name:{macroone}
      >*brace_arg C1
-      >{first , arg}
+      >{macro_call_arg_text:first , arg}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{{} \\ }
+      >{macro_call_arg_text:{} \\ }
   *@verbatim C3 l17:@macroone
    *arguments_line C1
     *block_line_arg
@@ -207,12 +207,12 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|INFO
     >|command_name:{macroone}
      >*brace_arg C1
-      >{arg 1\\n\\nnow}
+      >{macro_call_arg_text:arg 1\\n\\nnow}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{arg3\\n\\n}
+      >{macro_call_arg_text:arg3\\n\\n}
   {empty_line:\\n}
   *paragraph C1
    {now and \\n}

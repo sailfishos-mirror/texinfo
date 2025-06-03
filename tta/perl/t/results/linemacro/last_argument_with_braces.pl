@@ -42,7 +42,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{a last {} arg{ument}}
+      >{macro_call_arg_text:a last {} arg{ument}}
     *block_line_arg
     |INFO
     |spaces_after_argument:
@@ -138,7 +138,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }
-       >{{} {}}
+       >{macro_call_arg_text:{} {}}
    *@defline C1 l9:@defbuiltin
    |INFO
    |spaces_before_argument:
@@ -218,7 +218,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }
-       >{{second arg} remaining on {line}}
+       >{macro_call_arg_text:{second arg} remaining on {line}}
    *@defline C1 l11:@defbuiltin
    |INFO
    |spaces_before_argument:

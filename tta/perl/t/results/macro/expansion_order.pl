@@ -54,7 +54,7 @@ $result_tree_text{'expansion_order'} = '*document_root C1
     >|INFO
     >|command_name:{bidule}
      >*brace_arg C1
-      >{ab}
+      >{macro_call_arg_text:ab}
    >macro_expansion<start;2>
     >*macro_call C1
     >|INFO

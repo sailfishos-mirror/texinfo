@@ -68,7 +68,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
      >|INFO
      >|command_name:{end-file-name}
       >*brace_arg C1
-       >{info}
+       >{macro_call_arg_text:info}
     >macro_expansion<end;2><p:31>
   {empty_line:\\n}
   *@macro C3 l10
@@ -280,7 +280,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >|INFO
     >|command_name:{end-file-name}
      >*brace_arg C1
-      >{info}
+      >{macro_call_arg_text:info}
    >macro_expansion<end;7><p:18>
 ';
 

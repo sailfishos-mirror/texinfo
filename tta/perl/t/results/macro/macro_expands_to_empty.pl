@@ -42,7 +42,7 @@ $result_tree_text{'macro_expands_to_empty'} = '*document_root C1
     >|INFO
     >|command_name:{foo}
      >*brace_arg C1
-      >{aa}
+      >{macro_call_arg_text:aa}
    >macro_expansion<end;2><p:2>
 ';
 

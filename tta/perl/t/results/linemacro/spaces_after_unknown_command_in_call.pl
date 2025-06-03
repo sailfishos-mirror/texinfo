@@ -36,7 +36,7 @@ $result_tree_text{'spaces_after_unknown_command_in_call'} = '*document_root C1
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
-     >{@abc}
+     >{macro_call_arg_text:@abc}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
@@ -46,7 +46,7 @@ $result_tree_text{'spaces_after_unknown_command_in_call'} = '*document_root C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{@ringaccent b rest}
+     >{macro_call_arg_text:@ringaccent b rest}
   *@defblock C3 l7:@mylinecommand
    *arguments_line C1
     *block_line_arg

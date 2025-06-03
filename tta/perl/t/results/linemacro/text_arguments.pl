@@ -36,17 +36,17 @@ $result_tree_text{'text_arguments'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*line_arg C1
-      >{X}
+      >{macro_call_arg_text:X}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{Y}
+      >{macro_call_arg_text:Y}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{Z}
+      >{macro_call_arg_text:Z}
    *@bullet C1 l5:@nospace
     *brace_container
    {Y}

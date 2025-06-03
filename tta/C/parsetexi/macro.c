@@ -309,7 +309,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   size_t args_total;
   int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_arg);
-  ELEMENT *argument_content = new_text_element (ET_other_text);
+  ELEMENT *argument_content = new_text_element (ET_macro_call_arg_text);
   const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
                                                        AI_key_misc_args);
 
@@ -399,7 +399,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
 
                   /* new argument */
                   argument = new_element (ET_brace_arg);
-                  argument_content = new_text_element (ET_other_text);
+                  argument_content
+                    = new_text_element (ET_macro_call_arg_text);
                   add_to_element_contents (current, argument);
                   add_to_element_contents (argument, argument_content);
                   arg = argument_content->e.text;
@@ -455,7 +456,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   int spaces_nr;
   size_t i;
   ELEMENT *argument = new_element (ET_line_arg);
-  ELEMENT *argument_content = new_text_element (ET_other_text);
+  ELEMENT *argument_content = new_text_element (ET_macro_call_arg_text);
   const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
                                                        AI_key_misc_args);
 
@@ -593,7 +594,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                 = new_text_element (ET_spaces_before_argument);
 
               argument = new_element (ET_line_arg);
-              argument_content = new_text_element (ET_other_text);
+              argument_content
+                = new_text_element (ET_macro_call_arg_text);
               counter_push (&argument_brace_groups, argument_content, 0);
 
               add_to_element_contents (current, argument);

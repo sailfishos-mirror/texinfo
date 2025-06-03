@@ -38,7 +38,7 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{@{ , @} }
+      >{macro_call_arg_text:@{ , @} }
    *@{
    { , }
    *@}
@@ -58,7 +58,7 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{@}
+      >{macro_call_arg_text:@}
    *@|
    {\\n}
    {second: | , }

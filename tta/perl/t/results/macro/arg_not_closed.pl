@@ -37,7 +37,7 @@ $result_tree_text{'arg_not_closed'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{something\\n}
+      >{macro_call_arg_text:something\\n}
    >macro_expansion<end;1><p:8>
 ';
 

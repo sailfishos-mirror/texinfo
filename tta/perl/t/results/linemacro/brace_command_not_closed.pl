@@ -34,7 +34,7 @@ $result_tree_text{'brace_command_not_closed'} = '*document_root C1
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
-     >{@code{in code\\n\\n}
+     >{macro_call_arg_text:@code{in code\\n\\n}
   *paragraph C1
    *@code C1 l6:@mycommand
     *brace_container C2

@@ -34,7 +34,7 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
-     >{@\\n}
+     >{macro_call_arg_text:@\\n}
   *paragraph C2
    *@\\n
    {bullet\\n}

@@ -34,7 +34,7 @@ $result_tree_text{'verb_not_closed'} = '*document_root C1
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
-     >{@verb{: in verb\\n\\n}
+     >{macro_call_arg_text:@verb{: in verb\\n\\n}
   *paragraph C1
    *@verb C1 l6:@mycommand
    |INFO

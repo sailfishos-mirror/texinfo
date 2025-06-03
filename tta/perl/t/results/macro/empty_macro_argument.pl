@@ -61,7 +61,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument:  }
-      >{x}
+      >{macro_call_arg_text:x}
    >macro_expansion<end;4><p:19>
   {empty_line:\\n}
   *@macro C3 l7
@@ -118,7 +118,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument:  }
-      >{x}
+      >{macro_call_arg_text:x}
    >macro_expansion<end;8><p:12>
 ';
 

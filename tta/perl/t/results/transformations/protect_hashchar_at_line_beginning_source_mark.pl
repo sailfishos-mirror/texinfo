@@ -105,7 +105,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     >|INFO
     >|command_name:{numberfileflag}
      >*brace_arg C1
-      >{900}
+      >{macro_call_arg_text:900}
    >macro_expansion<end;3><p:16>
   {empty_line:\\n}
   *@set C2

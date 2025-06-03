@@ -40,7 +40,7 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
     >|INFO
     >|command_name:{testvaluebody}
      >*brace_arg C1
-      >{macro_arg1}
+      >{macro_call_arg_text:macro_arg1}
    *@emph C1 l7:@testvaluebody
    >SOURCEMARKS
    >macro_expansion<end;1>

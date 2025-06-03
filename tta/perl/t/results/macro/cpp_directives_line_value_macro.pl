@@ -95,7 +95,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
     >|INFO
     >|command_name:{numberfileflag}
      >*brace_arg C1
-      >{900}
+      >{macro_call_arg_text:900}
    >macro_expansion<end;3><p:17>
   {empty_line:\\n}
   *@set C2

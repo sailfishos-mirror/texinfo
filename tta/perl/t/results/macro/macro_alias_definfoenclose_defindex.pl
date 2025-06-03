@@ -91,7 +91,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     >|INFO
     >|command_name:{phooindex}
      >*brace_arg C1
-      >{maa}
+      >{macro_call_arg_text:maa}
    >macro_expansion<end;1><p:7>
   {empty_line:\\n}
   *@definfoenclose C1 l12
@@ -380,7 +380,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     >|INFO
     >|command_name:{phooindex}
      >*brace_arg C1
-      >{mmm}
+      >{macro_call_arg_text:mmm}
    >macro_expansion<end;4><p:7>
   {empty_line:\\n}
   *@printindex C1 l54

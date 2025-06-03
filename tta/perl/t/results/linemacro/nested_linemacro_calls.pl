@@ -66,7 +66,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{( remaining, type typed )}
+      >{macro_call_arg_text:( remaining, type typed )}
     *block_line_arg
     |INFO
     |spaces_after_argument:
@@ -106,7 +106,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
          >|INFO
          >|spaces_before_argument:
           >|{spaces_before_argument: }
-          >{{Y}} ( remaining, type typed )}
+          >{macro_call_arg_text:{Y}} ( remaining, type typed )}
      {spaces: }
      {delimiter:(}
      {spaces: }

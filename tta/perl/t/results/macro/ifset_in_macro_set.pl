@@ -37,7 +37,7 @@ $result_tree_text{'ifset_in_macro_set'} = '*document_root C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument:\\n}
-     >{arg\\n}
+     >{macro_call_arg_text:arg\\n}
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l9:@note
    >|INFO

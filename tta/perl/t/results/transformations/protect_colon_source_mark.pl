@@ -34,7 +34,7 @@ $result_tree_text{'protect_colon_source_mark'} = '*document_root C1
     >|INFO
     >|command_name:{klm}
      >*brace_arg C1
-      >{nop}
+      >{macro_call_arg_text:nop}
    *@asis C1
     *brace_container C1
      {:}

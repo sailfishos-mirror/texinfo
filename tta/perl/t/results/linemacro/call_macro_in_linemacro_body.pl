@@ -68,12 +68,12 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    >|INFO
    >|command_name:{mymacro}
     >*brace_arg C1
-     >{@code{}\\n@var{something}\\nnow second arg: gg }
+     >{macro_call_arg_text:@code{}\\n@var{something}\\nnow second arg: gg }
     >*brace_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{yy \\n  zz}
+     >{macro_call_arg_text:yy \\n  zz}
      >>SOURCEMARKS
      >>linemacro_expansion<end;1><p:4>
   *@table C4 l14:@mymacro

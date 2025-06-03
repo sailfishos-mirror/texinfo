@@ -35,12 +35,12 @@ $result_tree_text{'too_much_args'} = '*document_root C1
     >|INFO
     >|command_name:{twoargs}
      >*brace_arg C1
-      >{one}
+      >{macro_call_arg_text:one}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{two, three}
+      >{macro_call_arg_text:two, three}
    {second arg: two, three.\\n}
    >SOURCEMARKS
    >macro_expansion<end;1><p:22>

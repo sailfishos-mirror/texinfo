@@ -47,7 +47,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{something }
+        >{macro_call_arg_text:something }
      {something }
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:10>

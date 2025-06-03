@@ -164,17 +164,17 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|INFO
     >|command_name:{gentry}
      >*brace_arg C1
-      >{id1}
+      >{macro_call_arg_text:id1}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{name1}
+      >{macro_call_arg_text:name1}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{text1, arg1 }
+      >{macro_call_arg_text:text1, arg1 }
    >expanded_conditional_command<start;1><p:4>
     >*@ifhtml C1 glossary.texi:l42:@gentry
      >*arguments_line C1
@@ -239,7 +239,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
-      >{@glossarytext{}}
+      >{macro_call_arg_text:@glossarytext{}}
     *arguments_line C1
      {macro_line: expandglossary{glossary}\\n}
     {raw:@unmacro glossarytext\\n}
@@ -294,17 +294,17 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|INFO
     >|command_name:{gentry}
      >*brace_arg C1
-      >{id2}
+      >{macro_call_arg_text:id2}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{name2}
+      >{macro_call_arg_text:name2}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{text2}
+      >{macro_call_arg_text:text2}
    >expanded_conditional_command<start;2><p:29>
     >*@ifhtml C1 glossary.texi:l43:@gentry
      >*arguments_line C1
@@ -369,7 +369,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
-      >{@glossarytext{}}
+      >{macro_call_arg_text:@glossarytext{}}
     *arguments_line C1
      {macro_line: expandglossary{glossary}\\n}
     {raw:@unmacro glossarytext\\n}

@@ -34,7 +34,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
     >|INFO
     >|command_name:{noarg}
      >*line_arg C1
-      >{}
+      >{macro_call_arg_text:}
    >linemacro_expansion<end;1><p:5>
   {empty_line:\\n}
   *paragraph C1
@@ -47,7 +47,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*line_arg C1
-      >{A B}
+      >{macro_call_arg_text:A B}
    >linemacro_expansion<end;2><p:5>
   {empty_line:\\n}
   *paragraph C1

@@ -151,12 +151,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >*line_arg C1
-        >{a}
+        >{macro_call_arg_text:a}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{array_like}
+        >{macro_call_arg_text:array_like}
       *block_line_arg
       |INFO
       |spaces_after_argument:
@@ -208,12 +208,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >*line_arg C1
-         >{n}
+         >{macro_call_arg_text:n}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
-         >{int, optional}
+         >{macro_call_arg_text:int, optional}
      *@defline C1 l22:@param
      |INFO
      |spaces_before_argument:
@@ -266,12 +266,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >*line_arg C1
-         >{axis}
+         >{macro_call_arg_text:axis}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
-         >{int, optional}
+         >{macro_call_arg_text:int, optional}
      *@defline C1 l26:@param
      |INFO
      |spaces_before_argument:
@@ -319,12 +319,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >*line_arg C1
-         >{out}
+         >{macro_call_arg_text:out}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
-         >{complex ndarray}
+         >{macro_call_arg_text:complex ndarray}
      *@defline C1 l29:@returns
      |INFO
      |spaces_before_argument:
@@ -372,7 +372,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >*line_arg C1
-         >{IndexError}
+         >{macro_call_arg_text:IndexError}
      *@defline C1 l32:@raises
      |INFO
      |spaces_before_argument:

@@ -227,12 +227,12 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
       >|INFO
       >|command_name:{mymac}
        >*brace_arg C1
-        >{arg1}
+        >{macro_call_arg_text:arg1}
        >*brace_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{arg2}
+        >{macro_call_arg_text:arg2}
    *@defline C1 l38:@mymac
    |INFO
    |spaces_before_argument:
@@ -245,7 +245,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      |>|spaces_before_argument:
       |>|{spaces_before_argument: }
       |>*line_arg C1
-       |>{{arg1} {arg2}}
+       |>{macro_call_arg_text:{arg1} {arg2}}
    |EXTRA
    |def_command:{defline}
    |def_index_element:

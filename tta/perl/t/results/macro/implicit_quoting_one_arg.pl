@@ -33,7 +33,7 @@ $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
    >|INFO
    >|command_name:{FIXAME}
     >*brace_arg C1
-     >{Many arguments, separated by commas, are processed here}
+     >{macro_call_arg_text:Many arguments, separated by commas, are processed here}
   *paragraph C2
    *@strong C1 l6:@FIXAME
    >SOURCEMARKS

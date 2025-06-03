@@ -36,17 +36,17 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
     >|INFO
     >|command_name:{threea}
      >*brace_arg C1
-      >{j}
+      >{macro_call_arg_text:j}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{k}
+      >{macro_call_arg_text:k}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{l}
+      >{macro_call_arg_text:l}
    {second k,\\n}
    {third l,\\n}
    >SOURCEMARKS
@@ -60,7 +60,7 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
     >|INFO
     >|command_name:{threea}
      >*brace_arg C1
-      >{m}
+      >{macro_call_arg_text:m}
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
@@ -69,7 +69,7 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{n}
+      >{macro_call_arg_text:n}
    {second ,\\n}
    {third n,\\n}
    >SOURCEMARKS
@@ -83,10 +83,10 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
     >|INFO
     >|command_name:{threea}
      >*brace_arg C1
-      >{o}
+      >{macro_call_arg_text:o}
      >*brace_arg
      >*brace_arg C1
-      >{p}
+      >{macro_call_arg_text:p}
    {second ,\\n}
    {third p,\\n}
    >SOURCEMARKS

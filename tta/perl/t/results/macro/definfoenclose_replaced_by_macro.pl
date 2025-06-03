@@ -46,7 +46,7 @@ $result_tree_text{'definfoenclose_replaced_by_macro'} = '*document_root C1
     >|INFO
     >|command_name:{phoo}
      >*brace_arg C1
-      >{aa}
+      >{macro_call_arg_text:aa}
    >macro_expansion<end;1><p:6>
 ';
 

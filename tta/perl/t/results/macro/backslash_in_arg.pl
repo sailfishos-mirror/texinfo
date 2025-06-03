@@ -79,7 +79,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    >|INFO
    >|command_name:{funindex}
     >*brace_arg C1
-     >{\\r}
+     >{macro_call_arg_text:\\r}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -125,7 +125,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    >|INFO
    >|command_name:{funindex}
     >*brace_arg C1
-     >{\\r}
+     >{macro_call_arg_text:\\r}
    *line_arg C1
    |INFO
    |spaces_after_argument:

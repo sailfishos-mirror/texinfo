@@ -36,17 +36,17 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
-     >{@anchor{aa}}
+     >{macro_call_arg_text:@anchor{aa}}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{definite}
+     >{macro_call_arg_text:definite}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{and @code{more}}
+     >{macro_call_arg_text:and @code{more}}
   *@anchor C1 l5:@mycommand
   |EXTRA
   |is_target:{1}
@@ -77,12 +77,12 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{in}
+      >{macro_call_arg_text:in}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{@var{the\\n call}}
+      >{macro_call_arg_text:@var{the\\n call}}
    {  protected, in }
    *@var C1 l9:@mycommand
    >SOURCEMARKS

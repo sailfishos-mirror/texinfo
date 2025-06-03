@@ -47,7 +47,7 @@ $result_tree_text{'alias_macro_target_removed'} = '*document_root C1
     >|alias_of:{new}
     >|command_name:{mystrong}
      >*brace_arg C1
-      >{aa}
+      >{macro_call_arg_text:aa}
    >macro_expansion<end;1><p:6>
   {empty_line:\\n}
   *@unmacro C1

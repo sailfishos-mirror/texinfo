@@ -61,7 +61,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{jj @var{T}}
+     >{macro_call_arg_text:jj @var{T}}
   *@quotation C7 l14:@lm
   |INFO
   |spaces_before_argument:
@@ -79,12 +79,12 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg C1
-      >{@emph }
+      >{macro_call_arg_text:@emph }
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument:\\n}
-      >{   ggg}
+      >{macro_call_arg_text:   ggg}
    *@table C3 l14:@mymacro
    |INFO
    |spaces_before_argument:

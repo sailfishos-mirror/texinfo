@@ -32,7 +32,7 @@ $result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
    >|INFO
    >|command_name:{code}
     >*brace_arg C1
-     >{code}
+     >{macro_call_arg_text:code}
   *paragraph C2
    *@emph C1 l5:@code
    >SOURCEMARKS

@@ -59,7 +59,7 @@ $result_tree_text{'texinfo_command_alias_indirect'} = '*document_root C1
     >|alias_of:{new}
     >|command_name:{mystrong}
      >*brace_arg C1
-      >{aa}
+      >{macro_call_arg_text:aa}
    >macro_expansion<end;1><p:6>
 ';
 

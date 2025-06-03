@@ -40,7 +40,7 @@ $result_tree_text{'recursive_linemacro_in_call'} = '*document_root C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >{c}
+     >{macro_call_arg_text:c}
 ';
 
 

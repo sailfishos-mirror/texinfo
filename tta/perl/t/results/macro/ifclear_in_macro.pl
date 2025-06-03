@@ -37,7 +37,7 @@ $result_tree_text{'ifclear_in_macro'} = '*document_root C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument:\\n}
-     >{arg\\n}
+     >{macro_call_arg_text:arg\\n}
   >expanded_conditional_command<start;1><p:1>
    >*@ifclear C1 l9:@note
    >|INFO

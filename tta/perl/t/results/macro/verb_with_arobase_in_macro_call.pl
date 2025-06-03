@@ -35,12 +35,12 @@ $result_tree_text{'verb_with_arobase_in_macro_call'} = '*document_root C1
     >|INFO
     >|command_name:{showarg}
      >*brace_arg C1
-      >{@verb{, commas ,}}
+      >{macro_call_arg_text:@verb{, commas ,}}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{@verb{@ arobase @}}
+      >{macro_call_arg_text:@verb{@ arobase @}}
    *@verb C1 l6:@showarg
    |INFO
    |delimiter:{,}

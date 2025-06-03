@@ -36,12 +36,12 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*line_arg C1
-      >{text{in paren}}
+      >{macro_call_arg_text:text{in paren}}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >{rest{in paren}}
+      >{macro_call_arg_text:rest{in paren}}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:

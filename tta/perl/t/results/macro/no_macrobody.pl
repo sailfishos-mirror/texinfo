@@ -45,7 +45,7 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
     >|INFO
     >|command_name:{nomacrobody}
      >*brace_arg C1
-      >{arg brace}
+      >{macro_call_arg_text:arg brace}
    >macro_expansion<end;2>
 ';
 

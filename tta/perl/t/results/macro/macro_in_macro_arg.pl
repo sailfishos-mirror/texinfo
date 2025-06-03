@@ -74,7 +74,7 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
     >|INFO
     >|command_name:{macrothree}
      >*brace_arg C1
-      >{@macroone{}text for macro2}
+      >{macro_call_arg_text:@macroone{}text for macro2}
    >macro_expansion<start;2>
     >*macro_call C1
     >|INFO

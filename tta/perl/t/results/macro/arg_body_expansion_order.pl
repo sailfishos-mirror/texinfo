@@ -56,7 +56,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    >|INFO
    >|command_name:{redefineothermacro}
     >*brace_arg C1
-     >{@othermacro{}}
+     >{macro_call_arg_text:@othermacro{}}
   *@unmacro C1
   |INFO
   |arg_line:{ othermacro\\n}

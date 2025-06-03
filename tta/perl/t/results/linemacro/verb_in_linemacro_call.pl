@@ -51,7 +51,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{@verb{: in verb :}}
+        >{macro_call_arg_text:@verb{: in verb :}}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
@@ -61,7 +61,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{other {j}}
+        >{macro_call_arg_text:other {j}}
      {second }
      *@verb C1 l9:@mycommand
      |INFO

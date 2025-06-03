@@ -92,7 +92,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
-      >{0}
+      >{macro_call_arg_text:0}
    *@code C1 l21:@testallowcodebreakspara
     *brace_container C1
      {1aaa}
@@ -206,7 +206,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
-      >{1}
+      >{macro_call_arg_text:1}
    *@code C1 l26:@testallowcodebreakspara
     *brace_container C1
      {1aaa}
@@ -310,7 +310,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
       >|INFO
       >|command_name:{testallowcodebreakspara}
        >*brace_arg C1
-        >{w}
+        >{macro_call_arg_text:w}
      *@code C1 l30:@testallowcodebreakspara
       *brace_container C1
        {1aaa}
@@ -419,7 +419,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
-      >{2}
+      >{macro_call_arg_text:2}
    *@code C1 l39:@testallowcodebreakspara
     *brace_container C1
      {1aaa}

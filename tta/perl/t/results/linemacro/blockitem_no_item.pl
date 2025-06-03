@@ -44,17 +44,17 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >*line_arg C1
-        >{d}
+        >{macro_call_arg_text:d}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{e}
+        >{macro_call_arg_text:e}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >{f @\\n@end itemize}
+        >{macro_call_arg_text:f @\\n@end itemize}
      *@\\n
    *@end C1 l8:@mycommand
    |INFO

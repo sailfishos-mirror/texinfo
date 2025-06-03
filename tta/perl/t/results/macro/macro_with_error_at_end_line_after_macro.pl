@@ -32,7 +32,7 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
    >|INFO
    >|command_name:{witherror}
     >*brace_arg C1
-     >{aaa}
+     >{macro_call_arg_text:aaa}
   *@center C1 l5:@witherror
    *line_arg
    |INFO

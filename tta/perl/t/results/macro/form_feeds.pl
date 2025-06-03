@@ -58,12 +58,12 @@ $result_tree_text{'form_feeds'} = '*document_root C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: \\f }
-      >{arg1\\f}
+      >{macro_call_arg_text:arg1\\f}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument:\\f }
-      >{arg2}
+      >{macro_call_arg_text:arg2}
   {empty_line:\\f}
   {spaces_before_paragraph: }
   *paragraph C1

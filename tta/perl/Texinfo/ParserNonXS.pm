@@ -2702,6 +2702,7 @@ sub _expand_macro_arguments($$$$$)
   push @{$current->{'contents'}}, $argument;
   my $argument_content
     = Texinfo::TreeElement::new({'text' => '',
+                                 'type' => 'macro_call_arg_text',
                                  'parent' => $argument});
   push @{$argument->{'contents'}}, $argument_content;
 
@@ -2751,6 +2752,7 @@ sub _expand_macro_arguments($$$$$)
             push @{$current->{'contents'}}, $argument;
             $argument_content
               = Texinfo::TreeElement::new({'text' => '',
+                                           'type' => 'macro_call_arg_text',
                                            'parent' => $argument});
             push @{$argument->{'contents'}}, $argument_content;
             $line =~ s/^(\s*)//;
@@ -2818,6 +2820,7 @@ sub _expand_linemacro_arguments($$$$$)
   push @{$current->{'contents'}}, $argument;
   my $argument_content
     = Texinfo::TreeElement::new({'text' => '',
+                                 'type' => 'macro_call_arg_text',
                                  'parent' => $argument});
   push @{$argument->{'contents'}}, $argument_content;
   # based on whitespace_chars_except_newline in XS parser
@@ -2881,6 +2884,7 @@ sub _expand_linemacro_arguments($$$$$)
           push @{$current->{'contents'}}, $argument;
           $argument_content
             = Texinfo::TreeElement::new({'text' => '',
+                                         'type' => 'macro_call_arg_text',
                                          'parent' => $argument});
           push @{$argument->{'contents'}}, $argument_content;
           $argument->{'info'}
@@ -8993,9 +8997,27 @@ An empty line (possibly containing whitespace characters only).
 
 =item ignorable_spaces_after_command
 
-spaces appearing after an @-command without braces that does not
+Spaces appearing after an @-command without braces that does not
 take argument on the line, but which is followed by ignorable
 spaces, such as C<@item> in C<@itemize> or C<@multitable>, or C<@noindent>.
+
+=item ignorable_spaces_before_command
+
+Spaces appearing before an @-command that are ignorable.  For example
+spaces appearing before a C<@subentry> on an index command line.
+
+=item bracketed_linemacro_arg
+
+Text of the argument of a user defined linemacro call in bracket.  It does not
+contain the braces.  It should not appear directly in the tree as the user
+defined linemacro call is replaced by the linemacro body.
+
+=item macro_call_arg_text
+
+Macro call arguments texts.  Linemacro call arguments when the
+arguments are not bracketed.  These elements should not
+appear directly in the tree, as the macro calls are replaced by the
+expansion of the macro bodies.
 
 =item macro_line
 
@@ -9007,6 +9029,23 @@ I<arguments_line> container @-command.
 
 Spaces appearing after a closing brace, for some rare commands for which
 this space should be ignorable (like C<@caption> or C<@sortas>).
+
+=item spaces_after_argument text
+
+Spaces after @-command arguments before a comma, a closing brace or at end of
+line.  Not directly in the tree.
+
+=item spaces_after_cmd_before_arg text
+
+Spaces following an @-command before that argument (for accent commands)
+or before the opening brace.  Not directly in the tree.
+
+=item spaces_before_argument text
+
+Spaces following the opening brace of some @-commands with braces and
+bracketed content type, spaces following @-commands for line commands and block
+command taking Texinfo as argument, and spaces following comma delimited
+arguments.  Not directly in the tree.
 
 =item spaces_before_paragraph
 
@@ -9027,7 +9066,8 @@ the I<text> key.
 =item spaces_at_end
 
 Space within an index @-command before an @-command interrupting the
-index command.
+index command, when there are only spaces after the interrupting
+@-command.
 
 =item text_after_end
 
@@ -9167,13 +9207,6 @@ leads to
 =item bracketed_arg
 
 Bracketed argument.  On definition command and on C<@multitable> line.
-
-=item bracketed_linemacro_arg
-
-Argument of a user defined linemacro call in bracket.  It holds directly the
-argument text (which does not contain the braces) and does not contain other
-elements.  It should not appear directly in the tree as the user defined
-linemacro call is replaced by the linemacro body.
 
 =item def_category
 
