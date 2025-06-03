@@ -1,3 +1,12 @@
+2025-06-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/parsetexi/macro.c (handle_macro), tta/C/parsetexi/parser.c
+	(process_remaining_on_line), tta/C/parsetexi/source_marks.c
+	(place_source_mark), tta/perl/Texinfo/ParserNonXS.pm
+	(_place_source_mark, _handle_macro, _process_remaining_on_line): set
+	the spaces_after_cmd_before_arg info element type to
+	spaces_after_cmd_before_arg.
+
 2025-06-02  Patrice Dumas  <pertusus@free.fr>
 
 	Preliminary Texinfo Tree Reader API for Perl

@@ -529,7 +529,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    *@strong C1 l76:@strongmacro
    |INFO
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>macro_expansion<end;15>
     *brace_container C1
@@ -573,7 +573,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |command_name:{strong}
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>macro_expansion<end;18>
    |EXTRA

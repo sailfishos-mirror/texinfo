@@ -77,7 +77,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       if (!e->elt_info[eit_spaces_after_cmd_before_arg])
         {
           e->elt_info[eit_spaces_after_cmd_before_arg]
-            = new_text_element (ET_other_text);
+            = new_text_element (ET_spaces_after_cmd_before_arg);
           add_element_string = "add";
         }
       else

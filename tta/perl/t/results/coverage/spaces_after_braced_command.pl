@@ -11,7 +11,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    *@code C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *brace_container C1
      {b}
    {\\n}
@@ -20,7 +20,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    *@samp C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
     *brace_container C1
      {v}
    {\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    *@AA C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n }
+    |{spaces_after_cmd_before_arg:\\n }
     *brace_container
    {\\n}
   {empty_line:\\n}
@@ -37,7 +37,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    *@email C2 l9
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
     *brace_arg C1
      {a}
     *brace_arg C1
@@ -53,7 +53,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
    *@TeX l13
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
    {\\n}
   {empty_line:\\n}
 ';

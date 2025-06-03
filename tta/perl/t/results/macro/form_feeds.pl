@@ -53,7 +53,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
     >|INFO
     >|command_name:{mymacro}
     >|spaces_after_cmd_before_arg:
-     >|{  \\f}
+     >|{spaces_after_cmd_before_arg:  \\f}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:

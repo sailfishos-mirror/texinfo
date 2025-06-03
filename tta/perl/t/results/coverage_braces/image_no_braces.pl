@@ -10,7 +10,7 @@ $result_tree_text{'image_no_braces'} = '*document_root C1
   *@image l1
   |INFO
   |spaces_after_cmd_before_arg:
-   |{ }
+   |{spaces_after_cmd_before_arg: }
 ';
 
 

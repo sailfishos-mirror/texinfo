@@ -38,7 +38,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >|INFO
     >|command_name:{macroone}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
       >{first arg}
      >*brace_arg C1

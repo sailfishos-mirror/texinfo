@@ -20,7 +20,7 @@ $result_tree_text{'spaces_before_value'} = '*document_root C1
     >*@value C1
     >|INFO
     >|spaces_after_cmd_before_arg:
-     >|{  }
+     >|{spaces_after_cmd_before_arg:  }
      >*brace_container C1
       >{var}
    >value_expansion<end;1><p:3>

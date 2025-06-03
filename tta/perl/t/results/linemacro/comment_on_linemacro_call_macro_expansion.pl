@@ -55,7 +55,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     >|INFO
     >|command_name:{mymacro}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:

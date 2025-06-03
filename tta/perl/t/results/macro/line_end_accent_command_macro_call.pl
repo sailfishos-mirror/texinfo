@@ -44,7 +44,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     *@ringaccent l5:@expand
     |INFO
     |spaces_after_cmd_before_arg:
-     |{ }
+     |{spaces_after_cmd_before_arg: }
      |>SOURCEMARKS
      |>macro_expansion<end;1><p:1>
   {spaces_before_paragraph: }
@@ -88,7 +88,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     *@ringaccent l12:@nospace
     |INFO
     |spaces_after_cmd_before_arg:
-     |{}
+     |{spaces_after_cmd_before_arg:}
      |>SOURCEMARKS
      |>macro_expansion<end;2>
   {spaces_before_paragraph: }

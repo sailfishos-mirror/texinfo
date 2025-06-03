@@ -1240,7 +1240,8 @@ sub _place_source_mark
     $element->{'info'} = {} if (!$element->{'info'});
     if (!$element->{'info'}->{'spaces_after_cmd_before_arg'}) {
       $element->{'info'}->{'spaces_after_cmd_before_arg'}
-        = Texinfo::TreeElement::new({'text' => ''});
+        = Texinfo::TreeElement::new({'text' => '',
+                                     'type' => 'spaces_after_cmd_before_arg'});
       $add_element_string = 'add';
     } else {
       $source_mark->{'position'}
@@ -5361,7 +5362,8 @@ sub _handle_macro($$$$$)
     my $args_number = scalar(@{$expanded_macro->{'extra'}->{'misc_args'}});
     if ($line =~ /^\s*{/) { # } macro with args
       if ($line =~ s/^(\s+)//) {
-        my $spaces_element = Texinfo::TreeElement::new({'text' => $1});
+        my $spaces_element = Texinfo::TreeElement::new({'text' => $1,
+                                     'type' => 'spaces_after_cmd_before_arg'});
         $macro_call_element->{'info'} = {} if (!$macro_call_element->{'info'});
         $macro_call_element->{'info'}->{'spaces_after_cmd_before_arg'}
           = $spaces_element;
@@ -7309,7 +7311,8 @@ sub _process_remaining_on_line($$$$)
         my $spaces_element;
         if ($self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
             and $remaining_line =~ s/^(\s+)//) {
-          $spaces_element = Texinfo::TreeElement::new({'text' => $1});
+          $spaces_element = Texinfo::TreeElement::new({'text' => $1,
+                                'type' => 'spaces_after_cmd_before_arg'});
         }
         # REVALUE
         if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
@@ -7449,7 +7452,8 @@ sub _process_remaining_on_line($$$$)
         my $spaces_after_command = $1;
         $current->{'info'} = {} if (!$current->{'info'});
         $current->{'info'}->{'spaces_after_cmd_before_arg'}
-          = Texinfo::TreeElement::new({'text' => $spaces_after_command});
+          = Texinfo::TreeElement::new({'text' => $spaces_after_command,
+                                  'type' => 'spaces_after_cmd_before_arg'});
         if ($self->{'conf'}->{'DEBUG'}) {
           my $spaces_after_command_str = $spaces_after_command;
           $spaces_after_command_str =~ s/\n/\\n/g;
@@ -7523,7 +7527,8 @@ sub _process_remaining_on_line($$$$)
       my $spaces_element;
       if ($self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
           and $line =~ s/^(\s+)//) {
-        $spaces_element = Texinfo::TreeElement::new({'text' => $1});
+        $spaces_element = Texinfo::TreeElement::new({'text' => $1,
+                                  'type' => 'spaces_after_cmd_before_arg'});
       }
       # REVALUE
       if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {

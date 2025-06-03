@@ -87,7 +87,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
      *@ringaccent l7
      |INFO
      |spaces_after_cmd_before_arg:
-      |{ }
+      |{spaces_after_cmd_before_arg: }
  *@section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:

@@ -193,7 +193,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     *@ringaccent C1 l18
     |INFO
     |spaces_after_cmd_before_arg:
-     |{ }
+     |{spaces_after_cmd_before_arg: }
      *following_arg C1
       {a}
     {nexpected}

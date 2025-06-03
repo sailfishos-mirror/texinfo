@@ -33,7 +33,7 @@ $result_tree_text{'verb_with_brace_in_macro_call'} = '*document_root C1
    >|INFO
    >|command_name:{mycommand}
    >|spaces_after_cmd_before_arg:
-    >|{ }
+    >|{spaces_after_cmd_before_arg: }
     >*brace_arg C1
      >{@verb{: in }}
     >*brace_arg C1

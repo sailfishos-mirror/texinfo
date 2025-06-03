@@ -836,7 +836,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
             macro_call_element = new_element (ET_rmacro_call);
           if (p - line > 0)
             {
-              ELEMENT *spaces_element = new_text_element (ET_other_text);
+              ELEMENT *spaces_element
+                = new_text_element (ET_spaces_after_cmd_before_arg);
               text_append_n (spaces_element->e.text, line, p - line);
               macro_call_element->elt_info[eit_spaces_after_cmd_before_arg]
                = spaces_element;

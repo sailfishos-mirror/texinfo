@@ -1975,7 +1975,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (whitespaces_len > 0)
             {
               /* special text in "spaces_after_cmd_before_arg" */
-              spaces_element = new_text_element (ET_other_text);
+              spaces_element
+                = new_text_element (ET_spaces_after_cmd_before_arg);
               text_append_n (spaces_element->e.text,
                              remaining_line, whitespaces_len);
               remaining_line += whitespaces_len;
@@ -2176,7 +2177,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
            if (!current->elt_info[eit_spaces_after_cmd_before_arg])
              {
                ELEMENT *e_spaces_after_cmd_before_arg
-                 = new_text_element (ET_other_text);
+                 = new_text_element (ET_spaces_after_cmd_before_arg);
                text_append_n (e_spaces_after_cmd_before_arg->e.text,
                               line, whitespaces_len);
                current->elt_info[eit_spaces_after_cmd_before_arg]
@@ -2283,7 +2284,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               if (whitespaces_len > 0)
                 {
                   /* special text in "spaces_after_cmd_before_arg" */
-                  spaces_element = new_text_element (ET_other_text);
+                  spaces_element
+                    = new_text_element (ET_spaces_after_cmd_before_arg);
                   text_append_n (spaces_element->e.text,
                                  line, whitespaces_len);
                   line += whitespaces_len;

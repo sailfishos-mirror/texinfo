@@ -237,7 +237,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|INFO
     >|command_name:{expandglossary}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
       >{@glossarytext{}}
     *arguments_line C1
@@ -367,7 +367,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     >|INFO
     >|command_name:{expandglossary}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
       >{@glossarytext{}}
     *arguments_line C1

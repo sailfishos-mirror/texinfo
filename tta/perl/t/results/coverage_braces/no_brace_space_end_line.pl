@@ -11,7 +11,7 @@ $result_tree_text{'no_brace_space_end_line'} = '*document_root C1
    *@code C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *brace_container C1
      {c}
    {.\\n}
@@ -20,12 +20,12 @@ $result_tree_text{'no_brace_space_end_line'} = '*document_root C1
    *@TeX l3
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
    {text\\n}
    *@code l5
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
    {Arg.}
 ';
 

@@ -89,7 +89,7 @@ $result_tree_text{'spaces_after_unknown_command_in_call'} = '*document_root C1
        *@ringaccent C1 l7:@mylinecommand
        |INFO
        |spaces_after_cmd_before_arg:
-        |{ }
+        |{spaces_after_cmd_before_arg: }
         *following_arg C1
          {b}
      {spaces: }

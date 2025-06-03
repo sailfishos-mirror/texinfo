@@ -127,7 +127,7 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
     >|INFO
     >|command_name:{mymacrowithargs}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
       >{an\\narg\\n\\nin macro}
    {now the arg an\\n}

@@ -12,7 +12,7 @@ $result_tree_text{'inlinefmtspaces'} = '*document_root C1
    *@inlinefmt C2 l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}

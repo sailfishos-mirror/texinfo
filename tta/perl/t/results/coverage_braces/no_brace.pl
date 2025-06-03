@@ -11,17 +11,17 @@ $result_tree_text{'no_brace'} = '*document_root C1
    *@TeX l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    {and }
    *@code l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    {code and }
    *@footnote l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    {footnote }
 ';
 

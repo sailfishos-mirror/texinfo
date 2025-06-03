@@ -16,7 +16,7 @@ $result_tree_text{'value_after_accent'} = '*document_root C1
    *@ringaccent C1 l2
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     |>SOURCEMARKS
     |>value_expansion<start;1><p:1>{a}
      |>*@value C1
@@ -30,7 +30,7 @@ $result_tree_text{'value_after_accent'} = '*document_root C1
    *@~ C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>value_expansion<start;2>{a}
      |>*@value C1

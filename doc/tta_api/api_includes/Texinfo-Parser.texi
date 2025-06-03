@@ -452,7 +452,7 @@ a type associated.
 @item contents
 @anchor{Texinfo@asis{::}Parser contents}
 
-An array reference holding the list of children of the element. 
+An array reference holding the list of children of the element.
 
 @item parent
 @anchor{Texinfo@asis{::}Parser parent}

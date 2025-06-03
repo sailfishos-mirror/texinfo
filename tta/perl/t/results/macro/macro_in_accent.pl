@@ -49,7 +49,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
    *@ringaccent C1 l9
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     |>SOURCEMARKS
     |>macro_expansion<start;1><p:1>
      |>*macro_call C1
@@ -64,7 +64,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
    *@ringaccent C1 l10
    |INFO
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>macro_expansion<start;2>
      |>*macro_call C1
@@ -79,7 +79,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
    *@~ C1 l11
    |INFO
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>macro_expansion<start;3>
      |>*macro_call C1
@@ -107,7 +107,7 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
    *@ringaccent C1 l14
    |INFO
    |spaces_after_cmd_before_arg:
-    |{  }
+    |{spaces_after_cmd_before_arg:  }
     |>SOURCEMARKS
     |>macro_expansion<start;5>
      |>*macro_call C1

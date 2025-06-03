@@ -31,7 +31,7 @@ $result_tree_text{'commands'} = '*document_root C1
    *@ringaccent C1 l2
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {a}
    {\\n}

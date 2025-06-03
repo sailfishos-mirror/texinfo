@@ -32,7 +32,7 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
    *@inlineraw C2 l2
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    |EXTRA
    |expand_index:{1}
    |format:{html}

@@ -11,7 +11,7 @@ $result_tree_text{'not_i_j_in_dotless'} = '*document_root C1
    *@dotless C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {a}
    { bc, }

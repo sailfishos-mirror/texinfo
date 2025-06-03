@@ -370,7 +370,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *@strong C1 l50
    |INFO
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>value_expansion<end;12>
     *brace_container C1
@@ -411,7 +411,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    |INFO
    |command_name:{strong}
    |spaces_after_cmd_before_arg:
-    |{}
+    |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS
     |>value_expansion<end;15>
    |EXTRA

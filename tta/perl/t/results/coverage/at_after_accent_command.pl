@@ -11,7 +11,7 @@ $result_tree_text{'at_after_accent_command'} = '*document_root C1
    *@ringaccent l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    *@@
    {. }
    *@^ l1

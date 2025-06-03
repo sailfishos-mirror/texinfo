@@ -40,7 +40,7 @@ $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
     >|INFO
     >|command_name:{macro1}
     >|spaces_after_cmd_before_arg:
-     >|{ }
+     >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:

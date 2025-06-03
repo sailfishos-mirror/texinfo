@@ -11,7 +11,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@ringaccent C1 l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{    }
+    |{spaces_after_cmd_before_arg:    }
     *following_arg C1
      {a}
    {\\n}
@@ -20,7 +20,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@ringaccent C1 l3
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
     *brace_container C1
      {a}
    {\\n}
@@ -29,7 +29,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@ringaccent C1 l6
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
     *following_arg C1
      {a}
    {\\n}
@@ -38,7 +38,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@ringaccent C1 l9
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n  }
+    |{spaces_after_cmd_before_arg:\\n  }
     *following_arg C1
      {a}
    {\\n}
@@ -47,7 +47,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@^ C1 l12
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {a}
    {\\n}
@@ -56,7 +56,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@^ C1 l14
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n}
+    |{spaces_after_cmd_before_arg:\\n}
     *following_arg C1
      {a}
    {\\n}
@@ -65,7 +65,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@^ C1 l17
    |INFO
    |spaces_after_cmd_before_arg:
-    |{\\n }
+    |{spaces_after_cmd_before_arg:\\n }
     *following_arg C1
      {a}
    {\\n}
@@ -74,7 +74,7 @@ $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
    *@^ C1 l20
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *brace_container C1
      {a\\n}
    {\\n}

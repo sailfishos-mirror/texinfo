@@ -72,7 +72,7 @@ $result_tree_text{'dotless_argument_non_ascii'} = '*document_root C5
    *@dotless C1 l7
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {ê}
    {\\n}

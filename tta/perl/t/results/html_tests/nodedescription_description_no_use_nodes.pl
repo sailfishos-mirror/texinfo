@@ -90,7 +90,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
     *@ringaccent C1 l7
     |INFO
     |spaces_after_cmd_before_arg:
-     |{ }
+     |{spaces_after_cmd_before_arg: }
      *following_arg C1
       {a}
     {nexpected}

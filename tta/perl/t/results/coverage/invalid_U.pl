@@ -11,7 +11,7 @@ $result_tree_text{'invalid_U'} = '*document_root C1
    *@U l1
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
    *@U C1 l1
     *brace_arg
    { }

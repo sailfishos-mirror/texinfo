@@ -170,7 +170,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@H C1 l26
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -184,7 +184,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@dotaccent C1 l28
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -198,7 +198,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@ringaccent C1 l30
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -219,7 +219,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@u C1 l34
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -233,7 +233,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@ubaraccent C1 l36
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -247,7 +247,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@udotaccent C1 l38
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -261,7 +261,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@v C1 l40
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
@@ -275,7 +275,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@ogonek C1 l42
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {a}
    {\\n}
@@ -289,7 +289,7 @@ $result_tree_text{'accent'} = '*document_root C3
    *@ogonek C1 l44
    |INFO
    |spaces_after_cmd_before_arg:
-    |{ }
+    |{spaces_after_cmd_before_arg: }
     *following_arg C1
      {e}
    {\\n}
