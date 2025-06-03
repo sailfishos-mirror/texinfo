@@ -9025,6 +9025,12 @@ Text appearing on a C<@macro>, C<@linemacro> or C<@rmacro> line after
 the @-command, including the leading space and the newline.  In the
 I<arguments_line> container @-command.
 
+=item other_text
+
+Text elements that are not in the Texinfo tree elements.  It could be part
+of informative out of tree elements, added for separators or used for
+other specific purposes.
+
 =item spaces_after_close_brace
 
 Spaces appearing after a closing brace, for some rare commands for which

@@ -77,7 +77,7 @@ text_after_end                            text
 text_before_beginning                     text
 normal_text                               text
 # text not in the regular converted tree elements.
-# As informative command arguments, for added separators...
+# Could be part of informative command arguments, for added separators...
 other_text                                text
 # in info text elements of the same name
 spaces_after_argument                     text

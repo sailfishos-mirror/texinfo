@@ -613,6 +613,13 @@ Text appearing on a @code{@@macro}, @code{@@linemacro} or @code{@@rmacro} line a
 the @@-command, including the leading space and the newline.  In the
 @emph{arguments_line} container @@-command.
 
+@item other_text
+@anchor{Texinfo@asis{::}Parser other_text}
+
+Text elements that are not in the Texinfo tree elements.  It could be part
+of informative out of tree elements, added for separators or used for
+other specific purposes.
+
 @item spaces_after_close_brace
 @anchor{Texinfo@asis{::}Parser spaces_after_close_brace}
 

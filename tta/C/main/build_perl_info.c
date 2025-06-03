@@ -774,7 +774,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (type_data[e->type].flags & TF_text)
     {
-      if (e->type != ET_normal_text && e->type != ET_other_text)
+      if (e->type != ET_normal_text)
         {
           sv = newSVpv (type_data[e->type].name, 0);
           hv_store (element_hv, "type", strlen ("type"), sv, HSH_type);

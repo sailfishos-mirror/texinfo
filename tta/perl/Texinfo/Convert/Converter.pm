@@ -1713,7 +1713,8 @@ sub _comma_index_subentries_tree($$$$)
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
-      push @$results, Texinfo::TreeElement::new({'text' => $separator});
+      push @$results, Texinfo::TreeElement::new({'text' => $separator,
+                                               'type' => 'other_text'});
       _comma_index_subentries_tree($self, $content, $separator, $results);
     } else {
       push @$results, $content;
@@ -1735,7 +1736,8 @@ sub comma_index_subentries_tree($$;$)
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
-      push @contents, Texinfo::TreeElement::new({'text' => $separator});
+      push @contents, Texinfo::TreeElement::new({'text' => $separator,
+                                                 'type' => 'other_text'});
       _comma_index_subentries_tree($self, $content, $separator, \@contents);
     }
   }
