@@ -41,7 +41,7 @@ $result_tree_text{'invalid_U'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {0023}
    { }
    *@U C1 l2
@@ -54,7 +54,7 @@ $result_tree_text{'invalid_U'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {wxyz}
    {\\n}
 ';

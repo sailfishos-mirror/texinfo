@@ -11,7 +11,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   *@float C5 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{a}
@@ -26,7 +26,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b}
    *paragraph C1
     {In float A, B\\n}
@@ -36,7 +36,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   *@float C5 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -62,7 +62,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {c}
    *paragraph C1
     {In float , C\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -101,7 +101,7 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

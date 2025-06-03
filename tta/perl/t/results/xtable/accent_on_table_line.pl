@@ -10,7 +10,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -33,7 +33,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l3
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
       |INFO
       |spaces_after_argument:
@@ -45,7 +45,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C4 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -70,7 +70,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l7
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -81,7 +81,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
       |INFO
       |spaces_after_argument:
@@ -93,7 +93,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -105,7 +105,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C3 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -118,7 +118,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -127,7 +127,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -139,7 +139,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C3 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -151,7 +151,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l16
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -160,7 +160,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -172,7 +172,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C3 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -184,7 +184,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l20
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -193,7 +193,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -205,7 +205,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C3 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l24
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -227,7 +227,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -239,7 +239,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
   *@table C3 l27
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -253,7 +253,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      *@item C1 l28
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -262,7 +262,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
    *@end C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

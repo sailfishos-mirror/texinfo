@@ -15,7 +15,7 @@ NodeBack: [U0]
  *@node C1 l1 {part node before top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -43,7 +43,7 @@ NodeBack: [U0]
  *@part C2 l2 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -58,7 +58,7 @@ NodeBack: [U0]
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -72,7 +72,7 @@ NodeBack: [U0]
  *@top C3 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{2}
@@ -103,7 +103,7 @@ NodeBack: [U0]
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

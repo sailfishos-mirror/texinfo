@@ -10,7 +10,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -34,7 +34,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@node C1 l4 {c1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -48,7 +48,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@chapter C2 l5 {c1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -63,7 +63,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@node C1 l7 {c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -77,7 +77,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@chapter C2 l8 {c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -92,7 +92,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@node C1 l10 {c3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -106,7 +106,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
  *@chapter C1 l11 {c3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

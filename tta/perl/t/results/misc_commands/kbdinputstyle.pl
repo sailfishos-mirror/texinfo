@@ -28,7 +28,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
   *@kbdinputstyle C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{code}
@@ -143,7 +143,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    *@end C1 l20:@codekbdmacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -161,7 +161,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
   *@kbdinputstyle C1 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{example}
@@ -254,7 +254,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    *@end C1 l26:@codekbdmacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -272,7 +272,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
   *@kbdinputstyle C1 l30
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{distinct}
@@ -359,7 +359,7 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    *@end C1 l32:@codekbdmacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

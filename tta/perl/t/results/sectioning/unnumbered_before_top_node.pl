@@ -12,7 +12,7 @@ This: [U0]
  *@unnumbered C2 l1 {before nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -26,7 +26,7 @@ This: [U0]
  *@node C5 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

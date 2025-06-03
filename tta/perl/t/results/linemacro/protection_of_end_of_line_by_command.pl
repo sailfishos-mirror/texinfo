@@ -17,7 +17,7 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
    >|INFO
    >|command_name:{lm}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@\\n}
   *paragraph C2

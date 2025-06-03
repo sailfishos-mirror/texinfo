@@ -10,7 +10,7 @@ $result_tree_text{'macro_defined_txiinternalvalue_in_translation'} = '*document_
   *@sp C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'macro_defined_txiinternalvalue_in_translation'} = '*document_
   *@sp C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
    *line_arg C1

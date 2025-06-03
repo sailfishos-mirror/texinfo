@@ -10,7 +10,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
   *@table C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -33,7 +33,7 @@ $result_tree_text{'section_in_table'} = '*document_root C2
  *@section C5 l4 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

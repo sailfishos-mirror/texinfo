@@ -10,7 +10,7 @@ $result_tree_text{'defx_after_paragraph_end'} = '*document_root C1
   *@deffn C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -50,7 +50,7 @@ $result_tree_text{'defx_after_paragraph_end'} = '*document_root C1
    *@deffnx C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -78,7 +78,7 @@ $result_tree_text{'defx_after_paragraph_end'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

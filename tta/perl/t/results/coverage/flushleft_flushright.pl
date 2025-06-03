@@ -24,7 +24,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft}
     *line_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'flushleft_flushright'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1

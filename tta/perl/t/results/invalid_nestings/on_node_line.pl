@@ -10,7 +10,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
  *@node C1 l1 {@ref{a, b, c, filename}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,22 +25,22 @@ $result_tree_text{'on_node_line'} = '*document_root C2
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {b}
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {c}
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {filename}
    *line_arg C8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{@pxref{(somemanual)Top}}
    |node_content:{@anchor{in anchor}@footnote{footnote} @exdent exdent\\n}
@@ -73,7 +73,7 @@ $result_tree_text{'on_node_line'} = '*document_root C2
     *@exdent C1 l1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:

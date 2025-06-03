@@ -12,7 +12,7 @@ $result_tree_text{'command_line_in_paragraph'} = '*document_root C1
    *@documentlanguage C1 l2
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{en}

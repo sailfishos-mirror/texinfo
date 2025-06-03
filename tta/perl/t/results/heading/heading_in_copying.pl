@@ -17,7 +17,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    *@heading C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |heading_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_region:{copying}
    |index_entry:I{cp,1}
@@ -48,7 +48,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    *@subheading C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |heading_number:{2}
@@ -65,7 +65,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1
@@ -77,7 +77,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
  *@node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -91,7 +91,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
  *@node C3 l10 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

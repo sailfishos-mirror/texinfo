@@ -17,7 +17,7 @@ $result_tree_text{'recursive_linemacro_in_call'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -33,13 +33,13 @@ $result_tree_text{'recursive_linemacro_in_call'} = '*document_root C1
    >|INFO
    >|command_name:{anorecurse}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{bracketed_linemacro_arg:@anorecurse a b}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{c}
 ';
 

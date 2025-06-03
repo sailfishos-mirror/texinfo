@@ -10,7 +10,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  *@part C2 l1 {Part1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -25,7 +25,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  *@section C2 l3 {section 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
  *@part C1 l5 {Part 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}

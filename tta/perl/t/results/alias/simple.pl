@@ -10,7 +10,7 @@ $result_tree_text{'simple'} = '*document_root C1
   *@alias C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{myalias|code}
    *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'simple'} = '*document_root C1
   *@alias C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{o-theralias|verb}
    *line_arg C1

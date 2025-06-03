@@ -17,7 +17,7 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

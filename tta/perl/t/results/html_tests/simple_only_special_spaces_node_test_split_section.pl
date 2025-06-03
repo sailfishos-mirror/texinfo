@@ -18,7 +18,7 @@ NodeForward: [U1]
  *@node C1 simple_only_special_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ NodeForward: [U1]
  *@top C2 simple_only_special_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ NodeBack: [U0]
  *@node C1 simple_only_special_spaces_node.texi:l4 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -73,7 +73,7 @@ NodeBack: [U0]
  *@chapter C2 simple_only_special_spaces_node.texi:l5 {EN QUAD| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -105,7 +105,7 @@ Up: [U0]
  *@chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -129,7 +129,7 @@ NodeUp: [U0]
  *@node C1 simple_only_special_spaces_node.texi:l10 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -143,7 +143,7 @@ NodeUp: [U0]
  *@chapter C2 simple_only_special_spaces_node.texi:l11 {THREE-PER-EM SPACE}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

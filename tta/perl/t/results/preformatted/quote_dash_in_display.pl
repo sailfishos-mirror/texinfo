@@ -20,7 +20,7 @@ $result_tree_text{'quote_dash_in_display'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
     *line_arg C1

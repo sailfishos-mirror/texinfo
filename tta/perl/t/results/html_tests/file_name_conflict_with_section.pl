@@ -11,7 +11,7 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -46,7 +46,7 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
  *@chapter C1 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

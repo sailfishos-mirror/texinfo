@@ -13,7 +13,7 @@ $result_tree_text{'empty_ifset_in_ifset_no_set'} = '*document_root C1
    >*@ifset C5 l2
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO

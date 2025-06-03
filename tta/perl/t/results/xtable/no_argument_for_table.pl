@@ -18,7 +18,7 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -30,7 +30,7 @@ $result_tree_text{'no_argument_for_table'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

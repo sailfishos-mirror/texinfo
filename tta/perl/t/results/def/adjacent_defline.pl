@@ -17,7 +17,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
    *@defline C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -45,7 +45,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
    *@defline C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -81,7 +81,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

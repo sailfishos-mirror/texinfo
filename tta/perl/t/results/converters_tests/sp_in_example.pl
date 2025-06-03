@@ -18,7 +18,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *@sp C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
      *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *@sp C1 l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
      *line_arg C1
@@ -46,7 +46,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *@sp C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{2}
      *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *@sp C1 l13
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{2}
      *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
     *@sp C1 l17
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
      *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

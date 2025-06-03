@@ -10,7 +10,7 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
   *@example C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C4
     *block_line_arg C1
     |INFO
@@ -20,19 +20,19 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {gothic}
     *block_line_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {purple}
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {embed}
    *preformatted C29
     {void StateManager::deallocate() }
@@ -67,7 +67,7 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

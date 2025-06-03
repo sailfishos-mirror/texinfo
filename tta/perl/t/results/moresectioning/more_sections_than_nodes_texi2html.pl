@@ -11,7 +11,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@chapter C2 l10 {c1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -105,7 +105,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@node C1 l12 {n c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -119,7 +119,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@chapter C2 l13 {c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -134,7 +134,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@section C2 l15 {s1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -149,7 +149,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@node C1 l17 {n c3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -160,7 +160,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{n c3 s1 s2}
    |normalized:{n-c3-s1-s2}
@@ -168,7 +168,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{n c2}
    |normalized:{n-c2}
@@ -178,7 +178,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -186,7 +186,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@chapter C4 l18 {c3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -218,7 +218,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
    *@end C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -230,7 +230,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@section C2 l24 {C3 s1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1}
  |section_level:{2}
@@ -245,7 +245,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@node C1 l26 {n c3 s 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -259,7 +259,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@section C2 l27 {c3 s2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.2}
  |section_level:{2}
@@ -274,7 +274,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@section C2 l29 {c3 s3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.3}
  |section_level:{2}
@@ -289,7 +289,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@chapter C2 l31 {c4}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -304,7 +304,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@section C2 l33 {c3 s1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1}
  |section_level:{2}
@@ -319,7 +319,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@subsection C2 l35 {c3 s1 s1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1.1}
  |section_level:{3}
@@ -334,7 +334,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@node C1 l37 {n c3 s1 s2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -359,7 +359,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@subsection C2 l38 {c3 s1 s2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1.2}
  |section_level:{3}
@@ -374,7 +374,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  *@appendix C1 l40 {appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}

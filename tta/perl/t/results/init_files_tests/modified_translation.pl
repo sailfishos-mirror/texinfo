@@ -15,7 +15,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
   *@documentlanguage C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
@@ -34,7 +34,7 @@ $result_tree_text{'modified_translation'} = '*document_root C1
   *@documentlanguage C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{pt}

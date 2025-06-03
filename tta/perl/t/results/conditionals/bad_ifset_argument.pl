@@ -13,7 +13,7 @@ $result_tree_text{'bad_ifset_argument'} = '*document_root C1
    >*@ifset C3 l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -24,7 +24,7 @@ $result_tree_text{'bad_ifset_argument'} = '*document_root C1
     >*@end C1 l3
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

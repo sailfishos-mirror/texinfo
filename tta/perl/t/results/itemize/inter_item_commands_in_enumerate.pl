@@ -11,7 +11,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
  *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
  *@chapter C14 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -86,7 +86,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -109,7 +109,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,1}
@@ -128,7 +128,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -151,7 +151,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,2}
@@ -169,7 +169,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -191,7 +191,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,3}
@@ -210,7 +210,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -234,7 +234,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,4}
@@ -252,7 +252,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l36
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -274,7 +274,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,5}
@@ -289,7 +289,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,6}
@@ -302,7 +302,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,7}
@@ -320,7 +320,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *@end C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1

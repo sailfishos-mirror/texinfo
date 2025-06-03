@@ -11,7 +11,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@node C1 l1 {section node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@section C2 l2 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@node C1 l4 {chapter node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -54,7 +54,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@chapter C4 l5 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
@@ -86,7 +86,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -98,7 +98,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -112,7 +112,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *@top C4 l12 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{3}
@@ -143,7 +143,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

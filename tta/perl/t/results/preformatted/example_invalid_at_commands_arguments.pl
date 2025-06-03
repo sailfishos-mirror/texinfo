@@ -10,7 +10,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
   *@example C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C3
     *block_line_arg C2
      *@ref C4 l1
@@ -28,7 +28,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
     *block_line_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@anchor C1 l1
      |EXTRA
      |is_target:{1}
@@ -40,11 +40,11 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
     *block_line_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@center C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -53,7 +53,7 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

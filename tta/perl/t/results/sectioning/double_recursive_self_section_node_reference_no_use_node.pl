@@ -11,7 +11,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  *@node C1 l4 {node1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  *@chapter C2 l5 {@ref{to node1}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  *@node C1 l7 {to @ref{node1}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}

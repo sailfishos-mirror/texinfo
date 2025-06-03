@@ -24,7 +24,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
      *brace_arg C5
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {plaintext \\n}
       {empty_line:\\n}
       {`` }
@@ -41,7 +41,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {`` }
     {.\\n}
     {empty_line:\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
      *brace_arg C4
      |INFO
      |spaces_before_argument:
-      |{ \\n}
+      |{spaces_before_argument: \\n}
       {empty_line:\\n}
       {in <i>}
       *@acronym C1 l10
@@ -66,7 +66,7 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

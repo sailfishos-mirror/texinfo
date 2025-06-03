@@ -10,7 +10,7 @@ $result_tree_text{'w_in_multitable'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -46,7 +46,7 @@ $result_tree_text{'w_in_multitable'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

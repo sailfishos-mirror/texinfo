@@ -11,7 +11,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@node C1 simple_only_special_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@top C2 simple_only_special_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@node C1 simple_only_special_spaces_node.texi:l4 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@chapter C2 simple_only_special_spaces_node.texi:l5 {EN QUAD| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -74,7 +74,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -89,7 +89,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@node C1 simple_only_special_spaces_node.texi:l10 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -103,7 +103,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *@chapter C2 simple_only_special_spaces_node.texi:l11 {THREE-PER-EM SPACE}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

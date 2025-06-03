@@ -10,7 +10,7 @@ $result_tree_text{'unknown_printindex'} = '*document_root C1
   *@printindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
    *line_arg C1

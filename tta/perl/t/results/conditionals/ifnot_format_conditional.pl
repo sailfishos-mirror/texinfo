@@ -23,7 +23,7 @@ $result_tree_text{'ifnot_format_conditional'} = '*document_root C1
     >*@end C1 l3
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1

@@ -19,7 +19,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,18 +34,18 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{foo}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{(bar, baz)@\\n continuation line}
   *@deffn C3 l8:@test
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l8:@test
    |EXTRA
    |def_command:{deffn}
@@ -93,7 +93,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    *@end C1 l8:@test
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -110,18 +110,18 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{foo@ b}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{(bar, baz) rest@ and more}
   *@deffn C3 l10:@test
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l10:@test
    |EXTRA
    |def_command:{deffn}
@@ -177,7 +177,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    *@end C1 l10:@test
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -194,18 +194,18 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{foo}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{(bar, baz)@@}
   *@deffn C3 l12:@test
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l12:@test
    |EXTRA
    |def_command:{deffn}
@@ -246,7 +246,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    *@end C1 l12:@test
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

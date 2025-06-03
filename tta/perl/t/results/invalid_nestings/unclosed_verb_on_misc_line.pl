@@ -10,7 +10,7 @@ $result_tree_text{'unclosed_verb_on_misc_line'} = '*document_root C1
   *@setfilename C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{name }
    *line_arg C2

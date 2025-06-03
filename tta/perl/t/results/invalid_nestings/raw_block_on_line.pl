@@ -11,7 +11,7 @@ $result_tree_text{'raw_block_on_line'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1

@@ -14,7 +14,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@node C1 test_refs.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@top C37 test_refs.texi:l4 {Test refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
   *@subheading C1 test_refs.texi:l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -94,7 +94,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{a  node}
      {a  node}
@@ -103,7 +103,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    *@*
    {\\n}
@@ -119,7 +119,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -157,7 +157,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -179,7 +179,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{top}
      {top}
@@ -188,7 +188,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    *@*
    { \\n}
@@ -204,7 +204,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -242,7 +242,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -254,7 +254,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
   *@subheading C1 test_refs.texi:l36
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -281,7 +281,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {../manual/doc}
    *@*
    {\\n}
@@ -297,7 +297,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l42
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -309,7 +309,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
   *@subheading C1 test_refs.texi:l44
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |heading_number:{3}
@@ -344,7 +344,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -379,7 +379,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l54
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -399,7 +399,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
@@ -416,7 +416,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l59
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -436,7 +436,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{  }
+     |{spaces_before_argument:  }
     |EXTRA
     |node_content:{local   node}
     |normalized:{local-node}
@@ -453,7 +453,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l64
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -465,7 +465,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@node C1 test_refs.texi:l66 {other nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -476,7 +476,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{!_"#$%&\'()*+-.}
    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
@@ -484,7 +484,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -494,7 +494,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -502,7 +502,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@chapter C9 test_refs.texi:l67 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -525,7 +525,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l71
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -545,7 +545,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
@@ -562,7 +562,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l76
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -613,7 +613,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l82
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -625,7 +625,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@node C3 test_refs.texi:l84 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -636,7 +636,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{/;<=>?[\\]^_`|~}
    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
@@ -644,7 +644,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -654,7 +654,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -670,7 +670,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l87
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -682,7 +682,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@node C3 test_refs.texi:l89 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -705,7 +705,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -721,7 +721,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l92
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -733,7 +733,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
  *@node C3 test_refs.texi:l94 {local   node}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -766,7 +766,7 @@ $result_tree_text{'htmlxref_nodes'} = '*document_root C9
    *@end C1 test_refs.texi:l97
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

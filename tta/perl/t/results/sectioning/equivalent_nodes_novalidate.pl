@@ -13,7 +13,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
  *@node C4 l3 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{@emph{node}}
    |normalized:{node}
@@ -56,7 +56,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -68,7 +68,7 @@ $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
  *@node C3 l9 {@samp{node}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

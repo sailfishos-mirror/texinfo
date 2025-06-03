@@ -11,7 +11,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{at_commands_in_refs_latin1.info}
     *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    *@documentencoding C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-15}
@@ -36,7 +36,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@top C4 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -507,7 +507,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l23
@@ -533,7 +533,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l24
@@ -561,7 +561,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l25
@@ -787,7 +787,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {text}
      { }
      *@uref C3 l34
@@ -803,7 +803,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -815,7 +815,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l37 {@- @{ @}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -833,7 +833,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l38 {@- @{ @}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -852,7 +852,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l40 {@  @	 @! @* @. @: .@: @? @@}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -882,7 +882,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l41 {@  @	 @! @* @. @: .@: @? @@}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -913,7 +913,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l43 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -940,7 +940,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l44 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -968,7 +968,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l46 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -1001,7 +1001,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l47 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -1035,7 +1035,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l49 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -1065,7 +1065,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l50 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -1096,7 +1096,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l52 {@geq{} @leq{} @arrow{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -1117,7 +1117,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l53 {@geq{} @leq{} @arrow{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
@@ -1139,7 +1139,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l55 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{8}
@@ -1172,7 +1172,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l56 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}
@@ -1206,7 +1206,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l58 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{9}
@@ -1233,7 +1233,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l59 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{8}
  |section_level:{1}
@@ -1261,7 +1261,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l61 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{10}
@@ -1315,7 +1315,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l62 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{9}
  |section_level:{1}
@@ -1370,7 +1370,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l64 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{11}
@@ -1428,7 +1428,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l65 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |section_heading_number:{10}
  |section_level:{1}
@@ -1487,7 +1487,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l67 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{12}
@@ -1527,7 +1527,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l68 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{11}
  |section_level:{1}
@@ -1568,7 +1568,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l70 {@dotless{i} @`{@=E} @,{@\'C}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{13}
@@ -1596,7 +1596,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l71 {@dotless{i} @`{@=E} @,{@\'C}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{12}
  |section_level:{1}
@@ -1625,7 +1625,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l73 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{14}
@@ -1655,7 +1655,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l74 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{13}
  |section_level:{1}
@@ -1686,7 +1686,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l76 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{15}
@@ -1716,7 +1716,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l77 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{14}
  |section_level:{1}
@@ -1747,7 +1747,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l79 {`` \'\' --- -- ` \'}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{16}
@@ -1761,7 +1761,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l80 {`` \'\' --- -- ` \'}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{15}
  |section_level:{1}
@@ -1776,7 +1776,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l82 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{17}
@@ -1792,7 +1792,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l82
@@ -1805,7 +1805,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l83 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{16}
  |section_level:{1}
@@ -1821,7 +1821,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l83
@@ -1835,7 +1835,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l85 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{18}
@@ -1859,7 +1859,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l85
@@ -1872,7 +1872,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l87 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{17}
  |section_level:{1}
@@ -1883,7 +1883,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    >*@end C1 l88
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -1901,7 +1901,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l87
@@ -1915,7 +1915,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l90 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{19}
@@ -1933,7 +1933,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l90
@@ -1944,7 +1944,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l91 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{18}
  |section_level:{1}
@@ -1962,7 +1962,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l91
@@ -1974,7 +1974,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l93 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{20}
@@ -2014,7 +2014,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l95 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{19}
  |section_level:{1}
@@ -2025,7 +2025,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    >*@end C1 l96
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -2060,7 +2060,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l98 {@verb{. @ {} . .}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{21}
@@ -2086,7 +2086,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l100 {@verb{. @ {} . .}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{20}
  |section_level:{1}
@@ -2097,7 +2097,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    >*@end C1 l101
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -2118,7 +2118,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l103 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{22}
@@ -2174,7 +2174,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l104 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{21}
  |section_level:{1}
@@ -2231,7 +2231,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l106 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{23}
@@ -2274,7 +2274,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l107 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{22}
  |section_level:{1}
@@ -2318,7 +2318,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l109 {8.27@dmn{in}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{24}
@@ -2335,7 +2335,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l110 {8.27@dmn{in}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{23}
  |section_level:{1}
@@ -2353,7 +2353,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l112 {@sansserif{sansserif} @slanted{slanted}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{25}
@@ -2373,7 +2373,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l113 {@sansserif{sansserif} @slanted{slanted}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{24}
  |section_level:{1}
@@ -2394,7 +2394,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l115 {@indicateurl{indicateurl}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{26}
@@ -2410,7 +2410,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l116 {@indicateurl{indicateurl}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{25}
  |section_level:{1}
@@ -2427,7 +2427,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l118 {@sub{g}H 3@sup{rd}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{27}
@@ -2447,7 +2447,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C2 l119 {@sub{g}H 3@sup{rd}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{26}
  |section_level:{1}
@@ -2468,7 +2468,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@node C1 l121 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{28}
@@ -2488,7 +2488,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {text}
     { }
     *@uref C3 l121
@@ -2500,7 +2500,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *@chapter C56 l122 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{27}
  |section_level:{1}
@@ -2520,7 +2520,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {text}
     { }
     *@uref C3 l122
@@ -2940,7 +2940,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l154
@@ -2972,7 +2972,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l157
@@ -2988,7 +2988,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     >*@end C1 l158
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1
@@ -3011,7 +3011,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l160
@@ -3073,7 +3073,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     >*@end C1 l166
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1
@@ -3240,7 +3240,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {text}
      { }
      *@uref C3 l180

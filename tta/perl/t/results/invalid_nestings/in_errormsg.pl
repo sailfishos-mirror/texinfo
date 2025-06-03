@@ -38,11 +38,11 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
    *brace_arg
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
   *@table C3 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -54,7 +54,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
      *@item C1 l7
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -63,7 +63,7 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

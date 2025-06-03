@@ -10,7 +10,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
  *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@ 
    {\\n}
    *@ref C3 l4
@@ -44,11 +44,11 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@ 
    {\\n}
    *@ref C3 l5
@@ -60,12 +60,12 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@ 
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@:
    {\\n}
    *@ref C3 l6
@@ -77,7 +77,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg C5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@c C1
       {rawline_arg: aaa\\n}
      { }
@@ -88,7 +88,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@c C1
       {rawline_arg: fff\\n}
      *@c C1

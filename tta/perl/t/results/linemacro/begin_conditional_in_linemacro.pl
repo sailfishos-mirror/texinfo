@@ -17,7 +17,7 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,14 +34,14 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@ifset}
    >ignored_conditional_block<1><p:3>
     >*@ifset C3 l6:@lm
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -54,7 +54,7 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
      >*@end C1 l8
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifset}
       >*line_arg C1
@@ -71,14 +71,14 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@ifclear}
    >expanded_conditional_command<start;1><p:3>
     >*@ifclear C1 l11:@lm
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -93,7 +93,7 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
     >*@end C1 l13
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1

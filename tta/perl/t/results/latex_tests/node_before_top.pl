@@ -11,7 +11,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  *@node C2 l1 {before Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -54,7 +54,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  *@node C1 l6 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -68,7 +68,7 @@ $result_tree_text{'node_before_top'} = '*document_root C6
  *@chapter C3 l7 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

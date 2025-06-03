@@ -13,7 +13,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
    >*@include C1 l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{included_file_with_setfilename.texi}
     >*line_arg C1
@@ -25,7 +25,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
    >*@setfilename C1 included_file_with_setfilename.texi:l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{included_file.info}
     >*line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'include_with_setfilename'} = '*document_root C1
   *@setfilename C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{include_with_setfilename.info}
    *line_arg C1

@@ -15,7 +15,7 @@ Forward: [U1]
  *@chapter C2 l1 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -35,7 +35,7 @@ Back: [U0]
  *@part C1 l3 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}

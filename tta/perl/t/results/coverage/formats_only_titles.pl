@@ -19,7 +19,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -54,7 +54,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
   *@table C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -67,7 +67,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
   *@vtable C3 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -92,7 +92,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -104,7 +104,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
   *@multitable C3 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -112,7 +112,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
      *@columnfractions C1 l17
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.5|0.5}
       *line_arg C1
@@ -126,7 +126,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

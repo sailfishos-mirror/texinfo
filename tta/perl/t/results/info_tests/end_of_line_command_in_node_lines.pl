@@ -11,7 +11,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -71,7 +71,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -83,7 +83,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@node C1 l9 {chap @* f     nl Something? @* After punct}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -102,7 +102,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@chapter C11 l10 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -135,7 +135,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap-f-nl-Something_003f-After-punct}
   |index_entry:I{cp,1}
@@ -150,7 +150,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   *@printindex C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -163,7 +163,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@node C1 l20 {new n}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -177,7 +177,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  *@chapter C9 l21 {Ochap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -225,7 +225,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {addll}
      *@*
      {gg}
@@ -287,7 +287,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *@end C1 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

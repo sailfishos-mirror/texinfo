@@ -10,7 +10,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -69,7 +69,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *@node C2 l9 {@ @ }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *@node C2 l11 {@verb{:  :}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,7 +108,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *@node C7 l13 {@w{  }}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO

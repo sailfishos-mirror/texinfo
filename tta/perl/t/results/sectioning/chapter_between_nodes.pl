@@ -11,7 +11,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *@top C5 l2 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -58,7 +58,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *@chapter C4 l9 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -88,7 +88,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *@node C1 l13 {section node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -109,7 +109,7 @@ $result_tree_text{'chapter_between_nodes'} = '*document_root C6
  *@section C5 l14 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}

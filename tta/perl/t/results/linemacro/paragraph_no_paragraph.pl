@@ -17,7 +17,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,18 +34,18 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    >|INFO
    >|command_name:{mycommand}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@anchor{aa}}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{definite}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{and @code{more}}
   *@anchor C1 l5:@mycommand
   |EXTRA
@@ -70,18 +70,18 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
     >|INFO
     >|command_name:{mycommand}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:a\\n  protected}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{in}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{@var{the\\n call}}
    {  protected, in }
    *@var C1 l9:@mycommand

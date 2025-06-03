@@ -16,7 +16,7 @@ Next: [U1]
  *@unnumbered C2 l1 {unnumbered}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -40,7 +40,7 @@ Prev: [U0]
  *@chapter C2 l3 {First chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -64,7 +64,7 @@ Up: [U1]
  *@section C2 l5 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -89,7 +89,7 @@ Prev: [U1]
  *@chapter C2 l7 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -113,7 +113,7 @@ Up: [U3]
  *@section C2 l9 {Section of chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -138,7 +138,7 @@ Up: [U4]
  *@subsection C2 l11 {subsection 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.1}
  |section_level:{3}
@@ -163,7 +163,7 @@ Up: [U4]
  *@subsection C2 l13 {subsection 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.2}
  |section_level:{3}
@@ -185,7 +185,7 @@ Prev: [U3]
  *@chapter C1 l15 {Chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

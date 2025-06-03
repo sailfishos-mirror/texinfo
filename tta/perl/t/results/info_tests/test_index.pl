@@ -10,7 +10,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@top C12 l2 {Element top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{Top}
    |index_entry:I{cp,1}
@@ -63,7 +63,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{Top}
    |index_entry:I{cp,2}
@@ -76,7 +76,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{Top}
    |index_entry:I{cp,3}
@@ -90,7 +90,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{Top}
    |index_entry:I{cp,4}
@@ -103,7 +103,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   *@deffn C4 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l12
    |EXTRA
    |def_command:{deffn}
@@ -140,7 +140,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *@deffnx C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -174,7 +174,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -186,7 +186,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   *@ftable C4 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -198,7 +198,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      *@item C1 l18
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{Top}
      |index_entry:I{fn,3}
@@ -216,7 +216,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      *@item C1 l21
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{Top}
      |index_entry:I{fn,4}
@@ -228,7 +228,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      *@itemx C1 l22
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{Top}
      |index_entry:I{fn,5}
@@ -242,7 +242,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
     *line_arg C1
@@ -282,7 +282,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    *@end C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -294,7 +294,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@node C1 l31 {name}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -308,7 +308,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@chapter C171 l32 {A chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -324,7 +324,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name}
   |index_entry:I{cp,5}
@@ -337,7 +337,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name}
   |index_entry:I{fn,6}
@@ -353,7 +353,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{name}
    |index_entry:I{fn,7}
@@ -383,7 +383,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name}
   |index_entry:I{fn,8}
@@ -622,7 +622,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name}
   |index_entry:I{fn,9}
@@ -635,7 +635,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@node C1 l205 {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -650,7 +650,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@appendix C13 l206 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -666,7 +666,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{cp,6}
@@ -683,7 +683,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   *@printindex C1 l212
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -697,7 +697,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{fn,10}
@@ -712,7 +712,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   *@printindex C1 l217
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
@@ -725,7 +725,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@appendixsec C2 l219 {appendixsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A.1}
  |section_level:{2}
@@ -740,7 +740,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@appendixsubsec C2 l221 {appendixsubsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A.1.1}
  |section_level:{3}
@@ -755,7 +755,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@appendixsubsubsec C4 l223 {appendixsubsubsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A.1.1.1}
  |section_level:{4}
@@ -770,7 +770,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   *@chapheading C1 l225
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -783,7 +783,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@centerchap C2 l227 {centerchap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{7}
@@ -797,7 +797,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  *@chapter C7 l229 {chapter end}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{B}
  |section_level:{1}
@@ -813,7 +813,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   |index_entry:I{cp,7}

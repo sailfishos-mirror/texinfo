@@ -11,7 +11,7 @@ $result_tree_text{'recursive_self_section_reference'} = '*document_root C3
  *@node C1 l1 {sharp}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'recursive_self_section_reference'} = '*document_root C3
  *@chapter C1 l2 {@ref{sharp} tuple}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

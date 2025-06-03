@@ -10,7 +10,7 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -18,7 +18,7 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
      *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.3|0.7}
       *line_arg C1
@@ -69,7 +69,7 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

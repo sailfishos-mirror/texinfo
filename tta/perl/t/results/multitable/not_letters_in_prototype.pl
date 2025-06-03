@@ -10,7 +10,7 @@ $result_tree_text{'not_letters_in_prototype'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
@@ -29,7 +29,7 @@ $result_tree_text{'not_letters_in_prototype'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

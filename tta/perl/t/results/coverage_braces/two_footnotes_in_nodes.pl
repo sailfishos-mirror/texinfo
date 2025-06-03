@@ -11,7 +11,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  *@top C8 l2 {2 footnotes in 2 nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -82,7 +82,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -94,7 +94,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  *@node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -108,7 +108,7 @@ $result_tree_text{'two_footnotes_in_nodes'} = '*document_root C5
  *@chapter C6 l17 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

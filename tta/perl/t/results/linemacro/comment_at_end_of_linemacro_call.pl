@@ -18,7 +18,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -31,7 +31,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
    *@math C1 l6
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
     *brace_command_context C3
      {c something protected d\\n}
      >SOURCEMARKS
@@ -40,13 +40,13 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
       >|INFO
       >|command_name:{lm}
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*line_arg C1
         >{bracketed_linemacro_arg:something protected}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{something }
      {something }
      >SOURCEMARKS

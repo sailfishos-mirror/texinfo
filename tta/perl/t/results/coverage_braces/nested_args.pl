@@ -20,7 +20,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {descr }
      *@b C1 l1
       *brace_container C1
@@ -28,7 +28,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {S}
      *@~ C1 l1
       *brace_container C1
@@ -37,7 +37,7 @@ $result_tree_text{'nested_args'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ \\n}
+     |{spaces_before_argument: \\n}
      *@cite C1 l2
       *brace_container C1
        {manual}

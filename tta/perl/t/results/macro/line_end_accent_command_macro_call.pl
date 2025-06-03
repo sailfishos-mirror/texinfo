@@ -17,7 +17,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   *@center C1 l5:@expand
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -61,7 +61,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   *@center C1 l12:@nospace
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:

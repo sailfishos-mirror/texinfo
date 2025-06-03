@@ -12,7 +12,7 @@ $result_tree_text{'footnote_ending_on_empty_line'} = '*document_root C1
    *@footnote C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C2

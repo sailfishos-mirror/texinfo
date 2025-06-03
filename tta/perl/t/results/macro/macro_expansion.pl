@@ -21,7 +21,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{second arg}
   *@verbatim C3 l9:@macroone
    *arguments_line C1
@@ -56,7 +56,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l9:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
     *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l11:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
     *line_arg C1
@@ -118,7 +118,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l13:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim my arg.}
     *line_arg C1
@@ -141,7 +141,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{@macroone{nested second arg}}
   *@verbatim C3 l15:@macroone
    *arguments_line C1
@@ -153,7 +153,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l15:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
     *line_arg C1
@@ -176,7 +176,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{{} \\ }
   *@verbatim C3 l17:@macroone
    *arguments_line C1
@@ -188,7 +188,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l17:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
     *line_arg C1
@@ -211,7 +211,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{arg3\\n\\n}
   {empty_line:\\n}
   *paragraph C1
@@ -228,7 +228,7 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    *@end C1 l23:@macroone
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
     *line_arg C1

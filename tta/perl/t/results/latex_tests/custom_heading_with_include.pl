@@ -11,7 +11,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    *@setchapternewpage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{odd}
     *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    *@everyheading C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C9
     |INFO
     |spaces_after_argument:
@@ -40,7 +40,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -54,7 +54,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@top C4 l5 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 l9 {in main}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -87,7 +87,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C6 l10 {chap in main}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -107,7 +107,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@include C1 l13
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{section_file.texi}
     >*line_arg C1
@@ -127,7 +127,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifclear C8 section_file.texi:l3
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -143,7 +143,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file.texi:l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1
@@ -155,7 +155,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 section_file.texi:l12 {Chapter in included file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -169,7 +169,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C4 section_file.texi:l13 {Chapter in included file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -201,7 +201,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    *@end C1 section_file.texi:l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -213,7 +213,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 section_file.texi:l19 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -227,7 +227,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@section C4 section_file.texi:l20 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -259,7 +259,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    *@end C1 section_file.texi:l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -271,7 +271,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 section_file.texi:l26 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -285,7 +285,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@subsection C5 section_file.texi:l27 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.1}
  |section_level:{3}
@@ -302,7 +302,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifset C8 section_file.texi:l29
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -318,7 +318,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file.texi:l36
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -332,7 +332,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifclear C4 section_file.texi:l38
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -344,7 +344,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file.texi:l41
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1
@@ -359,7 +359,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@include C1 l15
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{section_file_no_node.texi}
     >*line_arg C1
@@ -371,7 +371,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -386,7 +386,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@section C2 section_file_no_node.texi:l4 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1}
  |section_level:{2}
@@ -401,7 +401,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@subsection C5 section_file_no_node.texi:l6 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1.1}
  |section_level:{3}
@@ -418,7 +418,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifset C3 section_file_no_node.texi:l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -429,7 +429,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file_no_node.texi:l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -446,7 +446,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@include C1 l17
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{section_file_no_node_include.texi}
     >*line_arg C1
@@ -458,7 +458,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C2 section_file_no_node_include.texi:l2 {Chapter in included file Include}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -473,7 +473,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@section C2 section_file_no_node_include.texi:l4 {Section Include}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1}
  |section_level:{2}
@@ -488,7 +488,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@subsection C6 section_file_no_node_include.texi:l6 {Subsection Include}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1.1}
  |section_level:{3}
@@ -505,7 +505,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifset C3 section_file_no_node_include.texi:l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -516,7 +516,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file_no_node_include.texi:l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -533,7 +533,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@include C1 section_file_no_node_include.texi:l14
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{section_file_no_node.texi}
     >*line_arg C1
@@ -545,7 +545,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -560,7 +560,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@section C2 section_file_no_node.texi:l4 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5.1}
  |section_level:{2}
@@ -575,7 +575,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@subsection C6 section_file_no_node.texi:l6 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5.1.1}
  |section_level:{3}
@@ -592,7 +592,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifset C3 section_file_no_node.texi:l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -603,7 +603,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file_no_node.texi:l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -623,7 +623,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@include C1 l19
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{section_file_no_node.texi}
     >*line_arg C1
@@ -635,7 +635,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
@@ -650,7 +650,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@section C2 section_file_no_node.texi:l4 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6.1}
  |section_level:{2}
@@ -665,7 +665,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@subsection C4 section_file_no_node.texi:l6 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6.1.1}
  |section_level:{3}
@@ -682,7 +682,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    >*@ifset C3 section_file_no_node.texi:l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -693,7 +693,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     >*@end C1 section_file_no_node.texi:l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -708,7 +708,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@node C1 l21 {last chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -722,7 +722,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  *@chapter C2 l22 {A last}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}

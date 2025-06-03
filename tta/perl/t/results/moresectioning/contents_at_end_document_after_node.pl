@@ -10,7 +10,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  *@top C4 l2 {contents at end document after node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -55,7 +55,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  *@chapter C2 l8 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -82,7 +82,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  *@node C3 l10 {a node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

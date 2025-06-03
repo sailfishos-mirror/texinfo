@@ -18,7 +18,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1
@@ -30,7 +30,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
   *@cartouche C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'cartouche'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

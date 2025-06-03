@@ -13,7 +13,7 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
    >*@include C1 l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{macro_included.texi}
     >*line_arg C1
@@ -33,7 +33,7 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
    *@end C1 macro_included.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

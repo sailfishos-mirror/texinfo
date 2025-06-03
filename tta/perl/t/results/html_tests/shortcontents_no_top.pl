@@ -10,7 +10,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  *@chapter C2 l1 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  *@chapter C2 l3 {chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  *@section C3 l5 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}

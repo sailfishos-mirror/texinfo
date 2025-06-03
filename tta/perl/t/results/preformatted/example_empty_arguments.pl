@@ -10,7 +10,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
   *@example C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C7
     *block_line_arg
     *block_line_arg
@@ -27,7 +27,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -39,18 +39,18 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
   *@example C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C7
     *block_line_arg
     *block_line_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     *block_line_arg
     *block_line_arg
     |INFO
     |spaces_before_argument:
-     |{  }
+     |{spaces_before_argument:  }
     *block_line_arg
     *block_line_arg
     *block_line_arg
@@ -62,7 +62,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
   *@example C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C7
     *block_line_arg
     *block_line_arg
@@ -92,7 +92,7 @@ $result_tree_text{'example_empty_arguments'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

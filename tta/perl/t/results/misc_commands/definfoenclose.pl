@@ -13,7 +13,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
    *@definfoenclose C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{phoo|//|\\}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
    *@definfoenclose C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{phi|:|:}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
   *@definfoenclose C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{strong|(strong:|:)}
    *line_arg C1

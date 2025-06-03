@@ -11,7 +11,7 @@ $result_tree_text{'section_node_before_part'} = '*document_root C4
  *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'section_node_before_part'} = '*document_root C4
  *@section C2 l3 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'section_node_before_part'} = '*document_root C4
  *@part C1 l5 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}

@@ -10,7 +10,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@node C3 l5 {ntiti}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
   *@xrefname C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@chapter C2 l8 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -81,7 +81,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@node C1 l10 {chip}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -95,7 +95,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
  *@appendix C9 l11 {app}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -110,7 +110,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
   *@xrefautomaticsectiontitle C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
@@ -132,7 +132,7 @@ $result_tree_text{'xrefname'} = '*document_root C7
   *@xrefautomaticsectiontitle C1 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{on}

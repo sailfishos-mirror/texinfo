@@ -18,7 +18,7 @@ NodeForward: [U1]
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ NodeForward: [U1]
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +74,7 @@ NodeForward: [U1]
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -96,7 +96,7 @@ NodeBack: [U0]
  *@part C2 l9 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -111,7 +111,7 @@ NodeBack: [U0]
  *@node C3 l11 {a node after part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -122,7 +122,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{chapter}
    |normalized:{chapter}
@@ -130,7 +130,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -140,7 +140,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -151,7 +151,7 @@ NodeBack: [U0]
  *@node C1 l14 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -162,7 +162,7 @@ NodeBack: [U0]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{a node after part}
    |normalized:{a-node-after-part}
@@ -173,7 +173,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -181,7 +181,7 @@ NodeBack: [U0]
  *@chapter C1 l15 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

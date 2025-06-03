@@ -11,7 +11,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
  *@chapter C9 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -95,7 +95,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
       *@end C1 l13
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
        *line_arg C1
@@ -110,7 +110,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *@footnote C1 l16
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{3}
     *brace_command_context C2
@@ -123,14 +123,14 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    *@footnote C1 l20
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{4}
     *brace_command_context C1
      *@quotation C4 l21
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -140,7 +140,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
       *@author C1 l22
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |global_command_number:{1}
        *line_arg C1
@@ -153,7 +153,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
       *@end C1 l24
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
        *line_arg C1

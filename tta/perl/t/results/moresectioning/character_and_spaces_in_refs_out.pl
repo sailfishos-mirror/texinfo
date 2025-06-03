@@ -18,7 +18,7 @@ NodeForward: [U1]
  *@node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ NodeForward: [U1]
  *@top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +74,7 @@ NodeForward: [U1]
    *@end C1 character_and_spaces_in_refs_text.texi:l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -101,7 +101,7 @@ NodeBack: [U0]
  *@node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -115,7 +115,7 @@ NodeBack: [U0]
  *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -130,7 +130,7 @@ NodeBack: [U0]
   *@subheading C1 character_and_spaces_in_refs_text.texi:l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -147,7 +147,7 @@ NodeBack: [U0]
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{a  node}
      {a  node}
@@ -156,7 +156,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@ref C4 character_and_spaces_in_refs_text.texi:l15
@@ -175,7 +175,7 @@ NodeBack: [U0]
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{top}
      {top}
@@ -184,7 +184,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l17
@@ -207,14 +207,14 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {../manual/doc}
    {\\n}
   {empty_line:\\n}
   *@subheading C1 character_and_spaces_in_refs_text.texi:l20
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -243,7 +243,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
@@ -253,7 +253,7 @@ NodeBack: [U0]
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{  }
+     |{spaces_before_argument:  }
     |EXTRA
     |node_content:{local   node}
     |normalized:{local-node}
@@ -277,7 +277,7 @@ NodeBack: [U1]
  *@node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -288,7 +288,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{!_"#$%&\'()*+-.}
    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
@@ -296,7 +296,7 @@ NodeBack: [U1]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{node to avoid DocBook or LaTeX ignored}
    |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
@@ -306,7 +306,7 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -314,7 +314,7 @@ NodeBack: [U1]
  *@chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -368,7 +368,7 @@ NodeBack: [U1]
    *@end C1 character_and_spaces_in_refs_text.texi:l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -392,7 +392,7 @@ NodeBack: [U2]
  *@node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -403,7 +403,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{/;<=>?[\\]^_`|~}
    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
@@ -411,7 +411,7 @@ NodeBack: [U2]
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -421,7 +421,7 @@ NodeBack: [U2]
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -442,7 +442,7 @@ NodeBack: [U3]
  *@node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -465,7 +465,7 @@ NodeBack: [U3]
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
@@ -484,7 +484,7 @@ NodeBack: [U4]
  *@node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |is_target:{1}
  |node_number:{6}

@@ -16,7 +16,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
    *@deffn C7 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *def_line C1 l2
     |EXTRA
     |def_command:{deffn}
@@ -57,7 +57,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *@deffnx C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |def_command:{deffn}
     |def_index_element:
@@ -65,7 +65,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
       |*bracketed_arg C1
       ||INFO
       ||spaces_before_argument:
-       ||{ }
+       ||{spaces_before_argument: }
        |{log trap1}
     |index_entry:I{fn,2}
     |original_def_cmdname:{deffnx}
@@ -81,7 +81,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
        *bracketed_arg C1 l5
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
         {log trap1}
       {spaces: }
       *def_arg C1
@@ -92,7 +92,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{cp,1}
        *line_arg C1
@@ -103,7 +103,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *@deffnx C1 l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |def_command:{deffn}
     |def_index_element:
@@ -145,7 +145,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{cp,2}
        *line_arg C1
@@ -158,7 +158,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *@end C1 l11
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{deffn}
      *line_arg C1
@@ -169,7 +169,7 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

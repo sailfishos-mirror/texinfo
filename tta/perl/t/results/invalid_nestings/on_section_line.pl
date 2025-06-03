@@ -11,7 +11,7 @@ $result_tree_text{'on_section_line'} = '*document_root C2
 }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -43,7 +43,7 @@ $result_tree_text{'on_section_line'} = '*document_root C2
     *@exdent C1 l1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:

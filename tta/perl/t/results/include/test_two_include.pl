@@ -14,7 +14,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     >*@include C1 l2
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{version.texi}
      >*line_arg C1
@@ -68,7 +68,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     >*@include C1 l5
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{inc_file.texi}
      >*line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@node C1 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@chapter C2 l3 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@node C1 l5 {sec1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -54,7 +54,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@section C2 l6 {sec1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -69,7 +69,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@node C3 l8 {sec2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -90,7 +90,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
  *@section C1 l10 {sec2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}

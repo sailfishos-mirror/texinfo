@@ -10,7 +10,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
  *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
   *@deffn C3 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l3
    |EXTRA
    |def_command:{deffn}
@@ -73,7 +73,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
      *@end C1 l6
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
       *line_arg C1
@@ -84,7 +84,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

@@ -16,7 +16,7 @@ Next: [U5]
  *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ Up: [U0]
  *@chapter C2 l3 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -63,7 +63,7 @@ Up: [U1]
  *@section C2 l5 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -87,7 +87,7 @@ Up: [U2]
  *@subsection C2 l7 {subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -111,7 +111,7 @@ Up: [U3]
  *@subsubsection C2 l9 {subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
@@ -135,7 +135,7 @@ Next: [U6]
  *@part C2 l11 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -150,7 +150,7 @@ Next: [U6]
  *@chapter C2 l13 {chapter in part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -176,7 +176,7 @@ Up: [U5]
  *@chapter C2 l15 {second chapter in part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -201,7 +201,7 @@ Up: [U5]
  *@unnumbered C2 l17 {unnumbered}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{9}
@@ -223,7 +223,7 @@ Prev: [U5]
  *@appendix C2 l19 {appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -245,7 +245,7 @@ Up: [U8]
  *@appendixsec C1 l21 {appendixsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A.1}
  |section_level:{2}

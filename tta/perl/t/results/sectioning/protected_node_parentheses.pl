@@ -11,7 +11,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  *@node C1 l2 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  *@top C4 l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  *@node C6 l9 {@asis{(}manual) name}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

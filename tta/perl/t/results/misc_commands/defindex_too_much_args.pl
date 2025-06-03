@@ -10,7 +10,7 @@ $result_tree_text{'defindex_too_much_args'} = '*document_root C1
   *@defindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     {chose    machin}
 ';

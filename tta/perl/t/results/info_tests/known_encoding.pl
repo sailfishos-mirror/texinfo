@@ -11,7 +11,7 @@ $result_tree_text{'known_encoding'} = '*document_root C2
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{iso-8859-1}
@@ -25,7 +25,7 @@ $result_tree_text{'known_encoding'} = '*document_root C2
  *@node C2 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

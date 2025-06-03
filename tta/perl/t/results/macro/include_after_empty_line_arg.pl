@@ -17,7 +17,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
     >*@include C1 l6
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{inc_file.texi}
      >*line_arg C1

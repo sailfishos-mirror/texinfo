@@ -13,7 +13,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   *@author C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     >*@end C1 l11
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml}
      >*line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   *@setchapternewpage C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{on}
    *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   |INFO
   |command_name:{cpindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
@@ -108,7 +108,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

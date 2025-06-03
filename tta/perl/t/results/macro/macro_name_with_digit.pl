@@ -17,7 +17,7 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -53,7 +53,7 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
     >|INFO
     >|command_name:{macro11}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{some thing @macro1{}}
    >macro_expansion<start;2><p:18>

@@ -50,7 +50,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {$\\underlinea < b }
      *@code C1 l6
       *brace_container C1
@@ -108,7 +108,7 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw $\\underline}
      *balanced_braces C3 l14
       {{a < b }

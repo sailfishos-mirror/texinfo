@@ -13,7 +13,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@node C1 in_menu_only_special_spaces_node.texi:l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@top C5 in_menu_only_special_spaces_node.texi:l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -107,7 +107,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    *@end C1 in_menu_only_special_spaces_node.texi:l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -120,7 +120,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@node C1 in_menu_only_special_spaces_node.texi:l16 {   }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -134,7 +134,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C2 in_menu_only_special_spaces_node.texi:l17 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -155,7 +155,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C2 in_menu_only_special_spaces_node.texi:l20 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -176,7 +176,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C2 in_menu_only_special_spaces_node.texi:l23 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -191,7 +191,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@node C1 in_menu_only_special_spaces_node.texi:l25 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -205,7 +205,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C2 in_menu_only_special_spaces_node.texi:l26 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -220,7 +220,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@node C1 in_menu_only_special_spaces_node.texi:l28 {᠎ }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -234,7 +234,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C2 in_menu_only_special_spaces_node.texi:l29 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -249,7 +249,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@node C1 in_menu_only_special_spaces_node.texi:l31 {         　}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -263,7 +263,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  *@chapter C6 in_menu_only_special_spaces_node.texi:l32 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}

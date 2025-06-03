@@ -22,7 +22,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -36,7 +36,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
   *@deffn C3 defxcond.texi:l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 defxcond.texi:l10
    |EXTRA
    |def_command:{deffn}
@@ -55,7 +55,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
      >*@ifset C3 defxcond.texi:l12
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*arguments_line C1
        >*block_line_arg C1
        >|INFO
@@ -66,7 +66,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
       >*@end C1 defxcond.texi:l14
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
       >|EXTRA
       >|text_arg:{ifset}
        >*line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
    *@end C1 defxcond.texi:l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

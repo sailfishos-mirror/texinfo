@@ -17,7 +17,7 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -42,24 +42,24 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
       >|INFO
       >|command_name:{mycommand}
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*line_arg C1
         >{d}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{e}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{f @\\n@end itemize}
      *@\\n
    *@end C1 l8:@mycommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'quotation_in_ref'} = '*document_root C2
  *@node C5 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -29,7 +29,7 @@ $result_tree_text{'quotation_in_ref'} = '*document_root C2
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
   *@quotation C3 l4
    *arguments_line C1
     *block_line_arg
@@ -41,7 +41,7 @@ $result_tree_text{'quotation_in_ref'} = '*document_root C2
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{setfilename_no_extension}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
  *@node C3 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

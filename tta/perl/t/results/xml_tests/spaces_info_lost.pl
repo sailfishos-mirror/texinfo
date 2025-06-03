@@ -10,7 +10,7 @@ $result_tree_text{'spaces_info_lost'} = '*document_root C1
   *@display C3 l1
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'spaces_info_lost'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{display}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'spaces_info_lost'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1

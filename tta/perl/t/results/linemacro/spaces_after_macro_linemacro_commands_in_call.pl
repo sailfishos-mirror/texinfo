@@ -19,7 +19,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -72,18 +72,18 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    >|INFO
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@mymac}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{bracketed_linemacro_arg:aa}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{@mymac {bb}}
   *@defblock C3 l15:@mylinecommand
    *arguments_line C1
@@ -94,7 +94,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@defline C1 l15:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -134,7 +134,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@end C1 l15:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1
@@ -151,18 +151,18 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    >|INFO
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@mylinemac}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{bracketed_linemacro_arg:Fun}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{{other} and remaining}
   *@defblock C3 l17:@mylinecommand
    *arguments_line C1
@@ -173,7 +173,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@defline C1 l17:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |original_def_cmdname:{defline}
@@ -198,7 +198,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
          >*line_arg C1
          >|INFO
          >|spaces_before_argument:
-          >|{ }
+          >|{spaces_before_argument: }
           >{A Fun B {other} and remaining}
      {spaces: }
      *def_arg C1
@@ -229,7 +229,7 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@end C1 l17:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

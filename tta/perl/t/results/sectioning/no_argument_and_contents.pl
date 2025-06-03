@@ -16,7 +16,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
  *@top C2 l3 {for example}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
  *@chapter C2 l5 {@asis{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

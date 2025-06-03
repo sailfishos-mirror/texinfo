@@ -25,7 +25,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
     *@end C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@top C2 l6 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -65,7 +65,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@node C1 l8 {Intro}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -79,7 +79,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@chapter C6 l9 {Introduction}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -116,7 +116,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@node C1 l17 {GFDL}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -142,7 +142,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
  *@section C2 l18 {GFDL}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}

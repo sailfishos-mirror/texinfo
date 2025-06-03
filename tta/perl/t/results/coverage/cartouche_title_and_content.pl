@@ -10,7 +10,7 @@ $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
   *@cartouche C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

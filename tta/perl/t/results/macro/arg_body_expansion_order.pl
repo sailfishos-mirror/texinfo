@@ -18,7 +18,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    *@end C1 l14:@redefineothermacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

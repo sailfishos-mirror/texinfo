@@ -45,7 +45,7 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b \\n}
    {\\n}
   {empty_line:\\n}

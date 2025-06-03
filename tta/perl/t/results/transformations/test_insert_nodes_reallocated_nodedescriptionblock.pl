@@ -10,7 +10,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@chapter C2 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@node C1 {Sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -81,7 +81,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@section C5 l7 {Sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -103,7 +103,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
     *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
     *line_arg C1
@@ -135,7 +135,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@node C1 {Subsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -149,7 +149,7 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
  *@subsection C2 l16 {Subsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}

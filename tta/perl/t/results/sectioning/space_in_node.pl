@@ -11,7 +11,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  *@node C4 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -69,7 +69,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  *@node C2 l10 {Chap first  here}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -96,7 +96,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  *@node C2 l12 {Test               title}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -111,7 +111,7 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  *@node C1 l14 {Last with spaces}
  |INFO
  |spaces_before_argument:
-  |{   }
+  |{spaces_before_argument:   }
  |EXTRA
  |is_target:{1}
  |node_number:{4}

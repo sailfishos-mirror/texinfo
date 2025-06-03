@@ -11,7 +11,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@node C1 l10 {chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -101,7 +101,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -109,7 +109,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{node between chapters}
    |normalized:{node-between-chapters}
@@ -119,7 +119,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -127,7 +127,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@chapter C2 l11 {chapter c1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -142,7 +142,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@node C2 l13 {node between chapters}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -157,7 +157,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@node C1 l15 {chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -171,7 +171,7 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
  *@chapter C1 l16 {chapter c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

@@ -11,7 +11,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
  *@top C2 l2 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
  *@chapter C7 l4 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -54,7 +54,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
   *@table C5 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
      *@item C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -94,7 +94,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
      *@item C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -118,7 +118,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

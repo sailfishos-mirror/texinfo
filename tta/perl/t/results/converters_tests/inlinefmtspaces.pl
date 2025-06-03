@@ -21,12 +21,12 @@ $result_tree_text{'inlinefmtspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {plaintext}
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {plaintext `` }
      *@lbracechar C1 l1
       *brace_container
@@ -41,12 +41,12 @@ $result_tree_text{'inlinefmtspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {html}
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {in <i>}
      *@acronym C1 l2
       *brace_arg C1

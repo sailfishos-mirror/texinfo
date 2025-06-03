@@ -10,7 +10,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -166,7 +166,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -178,7 +178,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  *@node C1 l16 {chap @: b}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -194,7 +194,7 @@ $result_tree_text{'space_and_commands_in_menu_node'} = '*document_root C5
  *@chapter C1 l17 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

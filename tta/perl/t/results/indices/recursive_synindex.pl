@@ -10,7 +10,7 @@ $result_tree_text{'recursive_synindex'} = '*document_root C1
   *@defindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{aaa}
    *line_arg C1
@@ -21,7 +21,7 @@ $result_tree_text{'recursive_synindex'} = '*document_root C1
   *@defindex C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{bbb}
    *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'recursive_synindex'} = '*document_root C1
   *@synindex C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{aaa|bbb}
    *line_arg C1
@@ -43,7 +43,7 @@ $result_tree_text{'recursive_synindex'} = '*document_root C1
   *@synindex C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     {bbb aaa}
 ';

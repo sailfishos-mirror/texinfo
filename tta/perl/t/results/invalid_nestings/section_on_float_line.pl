@@ -10,7 +10,7 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
   *@float C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{t}
@@ -25,12 +25,12 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {l}
  *@section C1 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

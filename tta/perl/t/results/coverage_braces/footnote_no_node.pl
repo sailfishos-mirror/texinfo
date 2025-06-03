@@ -10,7 +10,7 @@ $result_tree_text{'footnote_no_node'} = '*document_root C2
  *@top C3 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

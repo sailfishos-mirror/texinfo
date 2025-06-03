@@ -11,7 +11,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *@top C4 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -96,7 +96,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -108,7 +108,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *@node C1 l9 {A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -162,7 +162,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *@chapter C5 l10 {A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

@@ -10,7 +10,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
   *@defcodeindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{BI}
    *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -46,13 +46,13 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     >|INFO
     >|command_name:{defbuiltin}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{foo}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{bracketed_linemacro_arg:}
     *block_line_arg
     |INFO
@@ -63,7 +63,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     |INFO
     |command_name:{BIindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,1}
      *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l8:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -103,14 +103,14 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*line_arg C1
        >{foo}
     *index_entry_command@BIindex C1 l10:@defbuiltin
     |INFO
     |command_name:{BIindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,2}
      *line_arg C1
@@ -121,7 +121,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l10:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -150,19 +150,19 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*line_arg C1
        >{foo}
       >*line_arg C1
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >{bracketed_linemacro_arg:{}}
     *index_entry_command@BIindex C1 l12:@defbuiltin
     |INFO
     |command_name:{BIindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,3}
      *line_arg C1
@@ -173,7 +173,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l12:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -200,7 +200,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

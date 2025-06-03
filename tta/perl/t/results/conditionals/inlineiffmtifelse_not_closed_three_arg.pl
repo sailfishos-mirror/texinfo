@@ -19,7 +19,7 @@ $result_tree_text{'inlineiffmtifelse_not_closed_three_arg'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {ggggg\\n}
 ';
 

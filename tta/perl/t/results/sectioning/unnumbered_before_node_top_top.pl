@@ -16,7 +16,7 @@ Next: [U1]
  *@unnumbered C4 l1 {before nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -40,7 +40,7 @@ Prev: [U0]
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -54,7 +54,7 @@ Prev: [U0]
  *@top C2 l6 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{2}

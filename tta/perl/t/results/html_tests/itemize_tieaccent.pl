@@ -11,7 +11,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -33,7 +33,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -45,7 +45,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -75,7 +75,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -87,7 +87,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -113,7 +113,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -125,7 +125,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -153,7 +153,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -165,7 +165,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -199,7 +199,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
   *@itemize C3 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -225,7 +225,7 @@ $result_tree_text{'itemize_tieaccent'} = '*document_root C1
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@chapter C2 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@node C1 l7 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -81,7 +81,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@appendixsec C2 l8 {Sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -96,7 +96,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@part C2 l10 {P1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -111,7 +111,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@node C1 l12 {chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -125,7 +125,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@chapter C2 l13 {Chap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -140,7 +140,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@part C2 l15 {Final}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}
@@ -155,7 +155,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@node C1 l17 {app}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -169,7 +169,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  *@appendix C1 l18 {GGG}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}

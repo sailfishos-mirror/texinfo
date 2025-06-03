@@ -19,7 +19,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1

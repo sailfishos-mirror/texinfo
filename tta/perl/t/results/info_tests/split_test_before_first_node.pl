@@ -11,7 +11,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{split_test_before_first_node.info}
     *line_arg C1
@@ -26,7 +26,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
  *@top C6 l6 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +74,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -86,7 +86,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
  *@node C1 l14 {chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -100,7 +100,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
  *@chapter C4 l15 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

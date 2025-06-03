@@ -51,7 +51,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
    *@documentlanguage C1 documentlanguage.texi:l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{pt}
@@ -64,7 +64,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
  *@node C1 documentlanguage.texi:l24 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
  *@top C2 documentlanguage.texi:l25 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -92,7 +92,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
  *@node C1 documentlanguage.texi:l27 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -107,7 +107,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
  *@chapter C8 documentlanguage.texi:l28 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -131,7 +131,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
   *@deftypemethod C3 documentlanguage.texi:l32
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 documentlanguage.texi:l32
    |EXTRA
    |def_command:{deftypemethod}
@@ -191,7 +191,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
    *@end C1 documentlanguage.texi:l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypemethod}
     *line_arg C1
@@ -203,7 +203,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
   *@printindex C1 documentlanguage.texi:l36
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}

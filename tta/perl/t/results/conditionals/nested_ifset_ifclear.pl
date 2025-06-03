@@ -25,7 +25,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -52,7 +52,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C1 l15:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -63,7 +63,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C1 l15:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -79,7 +79,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l15:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -91,7 +91,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@ifclear C3 l15:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -102,7 +102,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
      >*@end C1 l15:@conditionals
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifclear}
       >*line_arg C1
@@ -114,7 +114,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l15:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -143,7 +143,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C1 l19:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -154,7 +154,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C3 l19:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -165,7 +165,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l19:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -177,7 +177,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifclear C1 l19:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -192,7 +192,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l19:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1
@@ -204,7 +204,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l19:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -232,7 +232,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C8 l23:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -248,7 +248,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l23:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -278,7 +278,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    >*@ifset C8 l27:@conditionals
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -294,7 +294,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
     >*@end C1 l27:@conditionals
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

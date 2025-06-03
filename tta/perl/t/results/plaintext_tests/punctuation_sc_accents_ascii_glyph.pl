@@ -14,7 +14,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph'} = '*document_root C5
  *@node C1 punctuation_small_case_accents_utf8.texi:l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph'} = '*document_root C5
  *@top C2 punctuation_small_case_accents_utf8.texi:l4 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph'} = '*document_root C5
  *@node C1 punctuation_small_case_accents_utf8.texi:l6 {node chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -56,7 +56,7 @@ $result_tree_text{'punctuation_sc_accents_ascii_glyph'} = '*document_root C5
  *@chapter C11 punctuation_small_case_accents_utf8.texi:l7 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

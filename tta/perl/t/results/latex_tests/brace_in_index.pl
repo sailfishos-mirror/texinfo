@@ -29,7 +29,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
@@ -55,7 +55,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,2}
    *line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,3}
    *line_arg C1
@@ -84,7 +84,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   *@defun C3 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l15
    |EXTRA
    |def_command:{defun}
@@ -123,7 +123,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
     *line_arg C1

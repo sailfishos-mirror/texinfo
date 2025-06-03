@@ -10,7 +10,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
   |EXTRA
   |max_columns:{3}
    *arguments_line C1
@@ -24,7 +24,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
      *bracketed_arg C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {r }
      { }
      *bracketed_arg C3 l1
@@ -70,7 +70,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

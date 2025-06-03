@@ -12,7 +12,7 @@ $result_tree_text{'empty_line_in_email'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ \\n}
+     |{spaces_before_argument: \\n}
      {empty_line:\\n}
   *paragraph C1
    {mail,\\n}

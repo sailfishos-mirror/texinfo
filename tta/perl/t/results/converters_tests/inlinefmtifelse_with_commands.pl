@@ -51,7 +51,7 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xml }
      *@env C1 l5
       *brace_container C1
@@ -68,14 +68,14 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {docbook}
     *elided_brace_command_arg C1
      {raw: if docbook @string{spaces} }
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {else }
      *@strong C1 l7
       *brace_container C1

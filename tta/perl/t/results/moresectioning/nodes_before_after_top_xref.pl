@@ -11,7 +11,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodes_before_after_top_xref.info}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@node C4 l3 {node before}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -55,7 +55,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@top C4 l8 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@node C4 l12 {after}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -90,7 +90,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@node C1 l16 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -104,7 +104,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *@chapter C10 l17 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -122,7 +122,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   *@xrefautomaticsectiontitle C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
@@ -150,7 +150,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   *@xrefautomaticsectiontitle C1 l25
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}

@@ -10,7 +10,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
  *@node C1 l1 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
  *@chapter C3 l2 {chapter @anchor{ggg} after}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -64,7 +64,7 @@ $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

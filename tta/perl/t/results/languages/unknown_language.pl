@@ -11,7 +11,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{unknown}
@@ -24,7 +24,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
  *@top C2 l4 {unknkown language}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +52,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -66,7 +66,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
  *@chapter C7 l7 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -91,7 +91,7 @@ $result_tree_text{'unknown_language'} = '*document_root C5
   *@documentlanguage C1 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{another_UNKNOWN}

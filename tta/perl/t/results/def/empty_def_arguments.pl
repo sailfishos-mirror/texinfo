@@ -10,7 +10,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
   *@deffn C10 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -46,7 +46,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
    *@deffnx C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
@@ -74,7 +74,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
    *@deffnx C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
@@ -88,7 +88,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
    *@deffnx C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
@@ -127,7 +127,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
       *bracketed_arg l7
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
    *@deffnx C1 l8
    |EXTRA
    |def_command:{deffn}
@@ -155,7 +155,7 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

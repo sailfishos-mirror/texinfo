@@ -11,7 +11,7 @@ $result_tree_text{'float_without_type'} = '*document_root C2
  *@node C5 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'float_without_type'} = '*document_root C2
   *@float C3 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{a}
   |global_command_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'float_without_type'} = '*document_root C2
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -54,7 +54,7 @@ $result_tree_text{'float_without_type'} = '*document_root C2
   *@listoffloats C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{a}
   |global_command_number:{1}

@@ -24,7 +24,7 @@ $result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
       *@end C1 l3
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
        *line_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
       *@end C1 l8
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
        *line_arg C1

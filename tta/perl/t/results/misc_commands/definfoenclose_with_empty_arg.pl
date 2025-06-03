@@ -11,7 +11,7 @@ $result_tree_text{'definfoenclose_with_empty_arg'} = '*document_root C1
   *@definfoenclose C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{headword||:}
    *line_arg C1

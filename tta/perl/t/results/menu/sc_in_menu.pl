@@ -11,7 +11,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
  *@node C4 l2 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -86,7 +86,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
      *@end C1 l13
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -97,7 +97,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -109,7 +109,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
  *@node C4 l16 {@sc{node}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -170,7 +170,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
     *@end C1 l23
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
      *line_arg C1
@@ -181,7 +181,7 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

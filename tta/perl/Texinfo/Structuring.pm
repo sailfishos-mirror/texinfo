@@ -1741,7 +1741,8 @@ sub new_block_command($$)
                                        'parent' => $element,
                                'extra' => {'text_arg' => $command_name}});
   $end->{'info'} = {'spaces_before_argument' =>
-                    Texinfo::TreeElement::new({'text' => ' '})};
+                    Texinfo::TreeElement::new({'text' => ' ',
+                                 'type' => 'spaces_before_argument'})};
   my $end_args
    = Texinfo::TreeElement::new({'type' => 'line_arg', 'parent' => $end,
                                 'contents' => [],

@@ -38,7 +38,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
      *@end C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -69,7 +69,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
      *@end C1 l16
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -92,7 +92,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
      *@end C1 l20
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -117,7 +117,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
      *@end C1 l26
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -154,7 +154,7 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
    *@end C1 l31
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1

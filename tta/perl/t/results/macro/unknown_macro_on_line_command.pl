@@ -10,7 +10,7 @@ $result_tree_text{'unknown_macro_on_line_command'} = '*document_root C1
   *@setfilename C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{file}
    *line_arg C1

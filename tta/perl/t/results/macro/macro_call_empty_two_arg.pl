@@ -18,7 +18,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;2><p:8>
@@ -65,7 +65,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;3><p:8>
@@ -80,7 +80,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >*brace_arg
    {second ,\\n}
    >SOURCEMARKS
@@ -96,11 +96,11 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;5><p:8>
@@ -117,7 +117,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;6><p:8>
@@ -147,7 +147,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{i}
    {second i,\\n}
    >SOURCEMARKS
@@ -163,11 +163,11 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{j}
    {second j,\\n}
    >SOURCEMARKS
@@ -197,7 +197,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >*brace_arg C1
       >{l}
    {second l,\\n}

@@ -25,7 +25,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
      *@end C1 l4
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{html}
       *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -66,7 +66,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
      *@end C1 l13
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{html}
       *line_arg C1
@@ -92,7 +92,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
      *@end C1 l23
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{tex}
       *line_arg C1
@@ -104,7 +104,7 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

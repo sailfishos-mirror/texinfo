@@ -12,7 +12,7 @@ $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     *elided_brace_command_arg C1
      {raw: aaa}
    {. }

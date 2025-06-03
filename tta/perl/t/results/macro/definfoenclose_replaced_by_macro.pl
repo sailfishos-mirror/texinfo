@@ -10,7 +10,7 @@ $result_tree_text{'definfoenclose_replaced_by_macro'} = '*document_root C1
   *@definfoenclose C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
    *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'definfoenclose_replaced_by_macro'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

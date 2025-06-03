@@ -10,7 +10,7 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  *@node C4 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -58,7 +58,7 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  *@node C1 l8 {aaa}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

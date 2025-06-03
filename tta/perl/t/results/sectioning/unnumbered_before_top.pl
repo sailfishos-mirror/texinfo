@@ -10,7 +10,7 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  *@unnumbered C2 l1 {before top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  *@top C1 l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{2}

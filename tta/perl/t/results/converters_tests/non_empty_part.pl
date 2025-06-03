@@ -10,7 +10,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l1 {part before}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -28,7 +28,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@top C4 l6 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{2}
@@ -84,7 +84,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -96,7 +96,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l13 {part I}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}
@@ -114,7 +114,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@chapter C2 l17 {chap in Top node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -129,7 +129,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l19 {Part II}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{3}
  |section_level:{0}
@@ -147,7 +147,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@node C1 l23 {part chapter node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -161,7 +161,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l24 {part III}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{4}
  |section_level:{0}
@@ -179,7 +179,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@chapter C2 l28 {chapter with part node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -194,7 +194,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l30 {Part IV}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{5}
  |section_level:{0}
@@ -212,7 +212,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l34 {Part V}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{6}
  |section_level:{0}
@@ -230,7 +230,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@chapter C2 l38 {with part no node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -245,7 +245,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@part C4 l40 {Part VI}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{7}
  |section_level:{0}
@@ -263,7 +263,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@node C2 l44 {node between part and chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -278,7 +278,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  *@chapter C2 l46 {chapter after part node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}

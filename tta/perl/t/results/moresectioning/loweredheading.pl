@@ -12,7 +12,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
  *@section C2 l2 {Foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |level_modifier:{-1}
  |section_heading_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
   *@heading C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}

@@ -276,12 +276,12 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l18
@@ -342,12 +342,12 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l21
@@ -471,12 +471,12 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l28
@@ -528,12 +528,12 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l31
@@ -600,7 +600,7 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
    {\\n}
    *@code C1 l36
@@ -631,12 +631,12 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
    {\\n}
    *@code C1 l39
@@ -671,7 +671,7 @@ $result_tree_text{'ref_error_formatting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
    {\\n}
    *@code C1 l41

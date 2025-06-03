@@ -10,7 +10,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -88,7 +88,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *@end C1 l10
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -136,7 +136,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     *@end C1 l17
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -147,7 +147,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -159,7 +159,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l20 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -173,7 +173,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@chapter C4 l21 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -205,7 +205,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -217,7 +217,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l27 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -231,7 +231,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@section C2 l28 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -246,7 +246,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l30 {chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -260,7 +260,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@chapter C4 l31 {chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -303,7 +303,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    *@end C1 l36
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -315,7 +315,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l38 {section chap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -329,7 +329,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@section C2 l39 {section chap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -344,7 +344,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@node C1 l41 {unnumberedsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -358,7 +358,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *@unnumberedsec C1 l42 {unnumberedsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{6}

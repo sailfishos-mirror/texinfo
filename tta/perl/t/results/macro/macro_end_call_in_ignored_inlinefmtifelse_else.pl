@@ -17,7 +17,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '*document
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '*document
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {before shown}
      >SOURCEMARKS
      >macro_expansion<start;1><p:9>

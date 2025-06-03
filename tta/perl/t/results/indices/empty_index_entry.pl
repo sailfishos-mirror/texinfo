@@ -11,7 +11,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
  *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
  *@node C5 l3 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
   *@deffn C2 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
@@ -58,11 +58,11 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
       *bracketed_arg l5
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
   *@printindex C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}

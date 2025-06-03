@@ -16,7 +16,7 @@ $result_tree_text{'node_in_copying'} = '*document_root C2
  *@node C2 l2 {node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

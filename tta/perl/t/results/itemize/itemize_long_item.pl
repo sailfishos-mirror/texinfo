@@ -10,7 +10,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
   *@itemize C8 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
      *@end C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
      *@end C1 l16
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -94,7 +94,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
      *@end C1 l20
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -119,7 +119,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
      *@end C1 l26
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -130,7 +130,7 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

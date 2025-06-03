@@ -10,7 +10,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@node C1 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@chapter C8 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   *@cartouche C7 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -90,7 +90,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@node C1 l19 {chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -116,7 +116,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
  *@chapter C6 l20 {c2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -131,7 +131,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
   *@cartouche C7 l22
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -148,7 +148,7 @@ $result_tree_text{'cartouche_and_paragraph_indentation'} = '*document_root C7
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

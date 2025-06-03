@@ -19,7 +19,7 @@ $result_tree_text{'titlepage_and_headings'} = '*document_root C1
     *@end C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
      *line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr}
@@ -24,7 +24,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +52,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
  *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -66,7 +66,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
  *@chapter C4 l7 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -81,7 +81,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
   *@deftypeop C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l9
    |EXTRA
    |def_command:{deftypeop}
@@ -136,7 +136,7 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
     *line_arg C1

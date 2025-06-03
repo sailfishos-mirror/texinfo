@@ -10,7 +10,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
   *@vtable C6 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -27,7 +27,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
      *@item C1 l5
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,1}
       *line_arg C1
@@ -43,7 +43,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
      *@itemx C1 l7
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,2}
       *line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
      *@item C1 l9
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,3}
       *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1

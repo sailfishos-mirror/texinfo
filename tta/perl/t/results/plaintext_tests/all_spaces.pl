@@ -11,7 +11,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
    *@documentencoding C1 all_spaces.texi:l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
@@ -25,7 +25,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
  *@node C1 all_spaces.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
  *@node C56 all_spaces.texi:l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

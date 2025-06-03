@@ -11,7 +11,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  *@node C23 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -174,7 +174,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l22:@testallowcodebreaksexample
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -188,7 +188,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   *@allowcodebreaks C1 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{false}
@@ -288,7 +288,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l27:@testallowcodebreaksexample
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -389,7 +389,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -401,7 +401,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   *@allowcodebreaks C1 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{true}
@@ -501,7 +501,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    *@end C1 l40:@testallowcodebreaksexample
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

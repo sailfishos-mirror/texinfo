@@ -10,7 +10,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  *@top C6 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
   *@xrefautomaticsectiontitle C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
@@ -60,7 +60,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  *@node C3 l8 {heading or chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -74,7 +74,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
   *@heading C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -87,7 +87,7 @@ $result_tree_text{'automatic_menu_with_heading'} = '*document_root C5
  *@chapter C2 l11 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

@@ -17,7 +17,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
    *@heading C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |heading_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'heading_in_quotation'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

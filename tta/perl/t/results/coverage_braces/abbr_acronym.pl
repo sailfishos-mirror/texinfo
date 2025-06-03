@@ -45,7 +45,7 @@ $result_tree_text{'abbr_acronym'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@\' C1 l5
       *following_arg C1
        {E}

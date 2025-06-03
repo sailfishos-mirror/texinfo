@@ -17,7 +17,7 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_ignored'} = '*document_root C
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

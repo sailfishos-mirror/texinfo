@@ -10,7 +10,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@top C4 l2 {The top node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -81,7 +81,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -93,7 +93,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@node C1 l10 {Node (with parentheses)}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -107,7 +107,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@chapter C4 l11 {Section (nodename with parentheses)}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -125,7 +125,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@node C1 l15 {Other node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -139,7 +139,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@chapter C6 l16 {Section (nodename without parentheses)}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -177,7 +177,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@node C1 l22 {(manual)node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -191,7 +191,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  *@chapter C7 l23 {(manual)node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

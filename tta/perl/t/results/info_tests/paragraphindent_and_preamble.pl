@@ -22,7 +22,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
    *@paragraphindent C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |misc_args:A{1}
@@ -50,7 +50,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
  *@node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -64,7 +64,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
  *@top C6 l12 {test @@paragraphindent in preamble effect in preamble}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

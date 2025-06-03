@@ -14,7 +14,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@setfilename C1 cpp_lines.texi:l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cpp_lines.info}
     *line_arg C1
@@ -33,7 +33,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
  *@node C1 g_f:l70 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -47,7 +47,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
  *@node C55 g_f:l71 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -74,7 +74,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@end C1 g_f:l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -93,7 +93,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@end C1 g_f:l55
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -135,7 +135,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@end C1 g_f:l66
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -173,7 +173,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    >*@include C1 g_f:l74
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{file_with_cpp_lines.texi}
     >*line_arg C1
@@ -217,7 +217,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@footnote C1 g_f:l83
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
@@ -230,7 +230,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    *@footnote C1 footnote:l28
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C2
@@ -245,14 +245,14 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ \\n}
+     |{spaces_before_argument: \\n}
      {etext1}
     *brace_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      {etext2}
    {\\n}
   {empty_line:\\n}
@@ -261,14 +261,14 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      { no line directive mail space}
     *brace_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      { no line directive text space}
    {\\n}
   {empty_line:\\n}
@@ -277,14 +277,14 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ \\n}
+     |{spaces_before_argument: \\n}
      { mail space}
     *brace_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      { text space}
    {\\n}
   {empty_line:\\n}
@@ -293,7 +293,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ \\n}
+     |{spaces_before_argument: \\n}
      {empty_line:\\n}
   *paragraph C1
    {etext3,\\n}
@@ -309,7 +309,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   *@documentlanguage C1 accentêd:l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{làng}

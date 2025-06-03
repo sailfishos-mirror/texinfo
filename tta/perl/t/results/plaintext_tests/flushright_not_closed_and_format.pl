@@ -27,7 +27,7 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
     *@end C1 l6
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1

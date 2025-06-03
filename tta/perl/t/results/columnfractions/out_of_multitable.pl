@@ -10,7 +10,7 @@ $result_tree_text{'out_of_multitable'} = '*document_root C1
   *@columnfractions C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0.6|0.4}
    *line_arg C1

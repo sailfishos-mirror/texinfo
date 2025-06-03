@@ -10,7 +10,7 @@ $result_tree_text{'definfoenclose_bad_argument'} = '*document_root C1
   *@definfoenclose C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     {#phoo,;,:}
 ';

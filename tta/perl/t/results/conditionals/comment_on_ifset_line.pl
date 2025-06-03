@@ -18,7 +18,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
    >*@ifset C1 l3
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -33,7 +33,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l5
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -45,7 +45,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@ifset C1 l6
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -59,7 +59,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l8
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@ifset C1 l9
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -85,7 +85,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l11
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -97,7 +97,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@ifset C1 l12
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -113,7 +113,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l14
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -125,7 +125,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@ifset C1 l15
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -141,7 +141,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l17
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -153,7 +153,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@ifset C1 l18
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -169,7 +169,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
     >*@end C1 l20
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

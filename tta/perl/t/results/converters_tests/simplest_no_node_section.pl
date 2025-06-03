@@ -15,7 +15,7 @@ $result_tree_text{'simplest_no_node_section'} = '*document_root C2
    *@setfilename C1 simplest_no_node_section.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{simplest_no_node_section.info}
     *line_arg C1

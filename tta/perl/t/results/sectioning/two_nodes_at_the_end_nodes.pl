@@ -11,7 +11,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@node C1 l10 {chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -101,7 +101,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{node after chapter 1}
    |normalized:{node-after-chapter-1}
@@ -109,7 +109,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -119,7 +119,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -127,7 +127,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@chapter C2 l11 {chapter c1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -142,7 +142,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@node C4 l13 {node after chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -160,7 +160,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *@node C1 l17 {last node in chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}

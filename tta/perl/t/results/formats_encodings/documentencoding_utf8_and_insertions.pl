@@ -10,7 +10,7 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
   *@documentencoding C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{utf-8}
@@ -51,7 +51,7 @@ $result_tree_text{'documentencoding_utf8_and_insertions'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

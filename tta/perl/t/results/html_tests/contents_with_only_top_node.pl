@@ -13,7 +13,7 @@ $result_tree_text{'contents_with_only_top_node'} = '*document_root C2
  *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

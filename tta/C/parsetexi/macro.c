@@ -324,7 +324,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   whitespaces_len = strspn (pline, whitespace_chars);
   if (whitespaces_len > 0)
     {
-      ELEMENT *spaces_element = new_text_element (ET_other_text);
+      ELEMENT *spaces_element = new_text_element (ET_spaces_before_argument);
       text_append_n (spaces_element->e.text, pline, whitespaces_len);
       argument->elt_info[eit_spaces_before_argument] = spaces_element;
       pline += whitespaces_len;
@@ -406,7 +406,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   pline += strspn (pline, whitespace_chars);
                   if (pline - p)
                     {
-                      ELEMENT *spaces_element = new_text_element (ET_other_text);
+                      ELEMENT *spaces_element
+                        = new_text_element (ET_spaces_before_argument);
                       text_append_n (spaces_element->e.text, p, pline - p);
                       argument->elt_info[eit_spaces_before_argument]
                               = spaces_element;
@@ -469,7 +470,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   spaces_nr = strspn (pline, whitespace_chars_except_newline);
   if (spaces_nr)
     {
-      ELEMENT *spaces_element = new_text_element (ET_other_text);
+      ELEMENT *spaces_element = new_text_element (ET_spaces_before_argument);
       text_append_n (spaces_element->e.text, line, spaces_nr);
       current->elt_info[eit_spaces_before_argument] = spaces_element;
 
@@ -588,7 +589,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
             }
           else
             {
-              ELEMENT *spaces_element = new_text_element (ET_other_text);
+              ELEMENT *spaces_element
+                = new_text_element (ET_spaces_before_argument);
 
               argument = new_element (ET_line_arg);
               argument_content = new_text_element (ET_other_text);
@@ -892,7 +894,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                       if (leading_spaces_nr)
                         {
                           ELEMENT *internal_space
-                            = new_text_element (ET_other_text);
+                            = new_text_element (ET_spaces_before_argument);
                           text_append_n (internal_space->e.text, line,
                                          leading_spaces_nr);
 

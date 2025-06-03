@@ -10,7 +10,7 @@ $result_tree_text{'command_not_closed_on_center_line'} = '*document_root C1
   *@center C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     {c }
     *@strong C1 l1

@@ -11,7 +11,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
  *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
  *@node C1 l3 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
  *@chapter C3 l4 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

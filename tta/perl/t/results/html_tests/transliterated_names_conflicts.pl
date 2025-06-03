@@ -21,7 +21,7 @@ NodeForward: [U1]
  *@node C1 transliterated_names_conflicts.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -35,7 +35,7 @@ NodeForward: [U1]
  *@top C2 transliterated_names_conflicts.texi:l4 {Same transliterated names}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -64,7 +64,7 @@ NodeBack: [U0]
  *@node C1 transliterated_names_conflicts.texi:l6 {Prés}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -78,7 +78,7 @@ NodeBack: [U0]
  *@chapter C2 transliterated_names_conflicts.texi:l7 {Prés}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -104,7 +104,7 @@ NodeBack: [U1]
  *@node C1 transliterated_names_conflicts.texi:l9 {Other node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -118,7 +118,7 @@ NodeBack: [U1]
  *@chapter C7 transliterated_names_conflicts.texi:l10 {Other chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -141,7 +141,7 @@ NodeBack: [U1]
   *@float C3 transliterated_names_conflicts.texi:l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2.1}
   |float_type:{Figure}
@@ -156,14 +156,14 @@ NodeBack: [U1]
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {Près}
    *paragraph C1
     {In figure\\n}
    *@end C1 transliterated_names_conflicts.texi:l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

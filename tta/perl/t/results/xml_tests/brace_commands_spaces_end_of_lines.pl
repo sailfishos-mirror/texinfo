@@ -13,7 +13,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
     {a}
   {\\n}
   {empty_line:\\n}
@@ -23,7 +23,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ \\n}
+    |{spaces_before_argument: \\n}
     {a}
   {\\n}
   {empty_line:\\n}
@@ -35,7 +35,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
     {b}
   {\\n}
   {empty_line:\\n}
@@ -47,7 +47,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ \\n}
+    |{spaces_before_argument: \\n}
     {b}
   {\\n}
   {empty_line:\\n}
@@ -59,7 +59,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
     { b}
   {\\n}
   {empty_line:\\n}
@@ -71,7 +71,7 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ \\n}
+    |{spaces_before_argument: \\n}
     { b}
   {\\n}
 ';

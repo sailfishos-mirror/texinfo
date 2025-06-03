@@ -10,7 +10,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   *@settitle C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -19,7 +19,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{iso-8859-1}
@@ -89,7 +89,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   *@float C3 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -103,14 +103,14 @@ $result_tree_text{'no_element'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {float anchor}
    *paragraph C1
     {In float\\n}
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -149,7 +149,7 @@ $result_tree_text{'no_element'} = '*document_root C1
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -162,7 +162,7 @@ $result_tree_text{'no_element'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -55,7 +55,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@chapter C4 l7 {Chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@node C1 l11 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -87,7 +87,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@section C4 l12 {sec1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -105,7 +105,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@node C1 l16 {chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -119,7 +119,7 @@ $result_tree_text{'sectioning_test_ref'} = '*document_root C9
  *@chapter C3 l17 {Chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

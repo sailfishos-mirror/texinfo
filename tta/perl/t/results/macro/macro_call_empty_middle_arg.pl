@@ -19,7 +19,7 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -40,12 +40,12 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{k}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{l}
    {second k,\\n}
    {third l,\\n}
@@ -64,11 +64,11 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{n}
    {second ,\\n}
    {third n,\\n}

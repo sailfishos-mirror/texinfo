@@ -24,7 +24,7 @@ $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
     *@end C1 l4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{verbatim}
      *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'verbatim_in_smallformat'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{smallformat}
     *line_arg C1

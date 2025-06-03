@@ -13,7 +13,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
    *@evenheading C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C15
     |INFO
     |spaces_after_argument:
@@ -36,7 +36,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
    *@evenfooting C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C11
     |INFO
     |spaces_after_argument:
@@ -58,7 +58,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@top C2 l6 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -86,7 +86,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -100,7 +100,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@chapter C10 l9 {ch--ap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -127,7 +127,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@section C2 l19 {sec1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -142,7 +142,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@chapter C12 l21 {chap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -157,7 +157,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   *@everyheading C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -181,7 +181,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
  *@chapter C6 l33 {chap 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -199,7 +199,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   *@everyfooting C1 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C7
    |INFO
    |spaces_after_argument:

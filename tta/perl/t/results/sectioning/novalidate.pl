@@ -14,7 +14,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
  *@node C5 l4 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{unknown node}
    |normalized:{unknown-node}
@@ -53,7 +53,7 @@ $result_tree_text{'novalidate'} = '*document_root C2
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

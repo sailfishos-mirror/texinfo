@@ -17,7 +17,7 @@ $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
   *@verbatiminclude C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{file_with_xml_chars.texi}

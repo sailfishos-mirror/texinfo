@@ -19,7 +19,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@node C1 double_contents.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -33,7 +33,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@top C6 double_contents.texi:l6 {Double contents}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    *@end C1 double_contents.texi:l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@node C1 double_contents.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -93,7 +93,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@chapter C7 double_contents.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -132,7 +132,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    *@end C1 double_contents.texi:l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -144,7 +144,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@node C1 double_contents.texi:l24 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -158,7 +158,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
  *@section C3 double_contents.texi:l25 {section with contents}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}

@@ -18,7 +18,7 @@ $result_tree_text{'bye_on_end_command_line'} = '*document_root C2
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

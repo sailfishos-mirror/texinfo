@@ -11,7 +11,7 @@ $result_tree_text{'simple'} = '*document_root C1
   *@float C6 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Type}
@@ -26,7 +26,7 @@ $result_tree_text{'simple'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {Label}
    {empty_line:\\n}
    *paragraph C1
@@ -39,7 +39,7 @@ $result_tree_text{'simple'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

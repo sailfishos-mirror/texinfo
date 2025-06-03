@@ -32,7 +32,7 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {a-b c-d}
    {spaces_after_close_brace:\\n}
    *@indicateurl C1 l3
@@ -45,7 +45,7 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {1234}
    { }
    *@w C1 l3

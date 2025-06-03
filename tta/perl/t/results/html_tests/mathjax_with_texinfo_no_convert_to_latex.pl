@@ -32,7 +32,7 @@ $result_tree_text{'mathjax_with_texinfo_no_convert_to_latex'} = '*document_root 
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1

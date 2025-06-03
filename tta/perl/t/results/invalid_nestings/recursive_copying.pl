@@ -20,7 +20,7 @@ $result_tree_text{'recursive_copying'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1

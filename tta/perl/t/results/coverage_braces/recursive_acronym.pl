@@ -14,7 +14,7 @@ $result_tree_text{'recursive_acronym'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@acronym C1 l1
       *brace_arg C1
        {GNU}

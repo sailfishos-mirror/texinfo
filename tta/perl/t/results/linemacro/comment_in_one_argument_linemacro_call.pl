@@ -17,7 +17,7 @@ $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{@code{something @comment in} out}
    *@code C1 l5:@lm

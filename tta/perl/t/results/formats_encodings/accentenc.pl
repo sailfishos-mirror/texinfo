@@ -11,7 +11,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
    *@documentencoding C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
@@ -25,7 +25,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
  *@node C1 l3 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'accentenc'} = '*document_root C3
  *@top C77 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

@@ -17,7 +17,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -55,7 +55,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -93,7 +93,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -112,7 +112,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -322,7 +322,7 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

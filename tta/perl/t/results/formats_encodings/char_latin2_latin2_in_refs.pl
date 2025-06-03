@@ -14,7 +14,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *@documentencoding C1 char_latin2_latin2_in_refs.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-2}
@@ -28,7 +28,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  *@node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -43,7 +43,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  *@top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   *@printindex C1 char_latin2_latin2_in_refs.texi:l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -98,7 +98,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *@end C1 char_latin2_latin2_in_refs.texi:l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -110,7 +110,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -124,7 +124,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -140,7 +140,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}

@@ -10,7 +10,7 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
   *@deffn C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -75,7 +75,7 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

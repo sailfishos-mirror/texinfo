@@ -23,7 +23,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -50,7 +50,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1

@@ -25,7 +25,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -59,7 +59,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -99,7 +99,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -122,7 +122,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1

@@ -730,7 +730,7 @@ move_last_space_to_element (ELEMENT *current)
      the 'info' hash as 'spaces_before_argument'. */
   const ELEMENT *owning_element = internal_space_holder;
   ELEMENT *e = pop_element_from_contents (current);
-  e->type = ET_other_text;
+  e->type = ET_spaces_before_argument;
   e->parent = 0;
   owning_element->elt_info[eit_spaces_before_argument] = e;
   internal_space_holder = 0;

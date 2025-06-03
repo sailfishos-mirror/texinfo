@@ -11,7 +11,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *@node C1 l1 {my node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *@chapter C2 l2 {chap my node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *@node C1 l4 {other node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -54,7 +54,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *@chapter C2 l5 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -69,7 +69,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *@top C2 l7 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{3}

@@ -23,7 +23,7 @@ $result_tree_text{'superfluous_argument_to_end'} = '*document_root C1
     >*@end C1 l3
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml superfluous}
      >*line_arg C1

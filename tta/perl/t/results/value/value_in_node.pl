@@ -16,7 +16,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *line_arg C3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -36,7 +36,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *line_arg C3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -47,7 +47,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -56,7 +56,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  *@top C4 l4 {Expansion in Node Names}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -94,7 +94,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -106,7 +106,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  *@node C1 l10 {Node 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   |>SOURCEMARKS
   |>value_expansion<start;2><p:1>{Node 1}
    |>*@value C1
@@ -125,7 +125,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -135,7 +135,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -143,7 +143,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  *@chapter C6 l11 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -187,7 +187,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -199,7 +199,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  *@node C3 l19 {Section 1.1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -210,11 +210,11 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Node 1}
    |normalized:{Node-1}
@@ -224,7 +224,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Node 1}
    |normalized:{Node-1}

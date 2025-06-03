@@ -10,7 +10,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -53,7 +53,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
  *@chapter C8 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -94,7 +94,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{chap}
    |index_entry:I{cp,1}
@@ -127,7 +127,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {cross in w}
      { text}
    {.\\n}
@@ -144,7 +144,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {cross in hyphenation}
      { text}
    {spaces_after_close_brace:\\n}
@@ -159,7 +159,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {cross in key}
      { text}
    {\\n}
@@ -167,7 +167,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{chap}
    |index_entry:I{cp,2}
@@ -189,14 +189,14 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
         *brace_arg C1
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          {cross in sortas}
        { text}
   {empty_line:\\n}
   *@printindex C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

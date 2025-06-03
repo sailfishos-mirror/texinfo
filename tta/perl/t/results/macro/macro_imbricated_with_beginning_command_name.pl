@@ -19,7 +19,7 @@ $result_tree_text{'macro_imbricated_with_beginning_command_name'} = '*document_r
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

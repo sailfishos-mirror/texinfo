@@ -132,7 +132,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -204,7 +204,7 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
    *@end C1 l31
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
     *line_arg C1

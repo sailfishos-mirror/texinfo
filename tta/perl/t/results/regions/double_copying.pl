@@ -28,7 +28,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
     *@end C1 l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'double_copying'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1

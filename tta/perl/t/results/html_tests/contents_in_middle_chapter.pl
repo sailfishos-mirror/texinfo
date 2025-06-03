@@ -14,7 +14,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@node C1 contents_in_middle_chapter.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@top C6 contents_in_middle_chapter.texi:l4 {Contents in chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -62,7 +62,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
    *@end C1 contents_in_middle_chapter.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@node C1 contents_in_middle_chapter.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -88,7 +88,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@chapter C7 contents_in_middle_chapter.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -127,7 +127,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
    *@end C1 contents_in_middle_chapter.texi:l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -139,7 +139,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@node C1 contents_in_middle_chapter.texi:l22 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -153,7 +153,7 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
  *@section C4 contents_in_middle_chapter.texi:l23 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}

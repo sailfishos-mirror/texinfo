@@ -17,7 +17,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
    *@table C4 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
       *@item C1 l3
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -41,7 +41,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
         |INFO
         |command_name:{cindex}
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
         |EXTRA
         |index_entry:I{cp,1}
          *line_arg C1
@@ -56,7 +56,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
       *@itemx C1 l7
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -68,7 +68,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
       *@itemx C1 l9
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -82,7 +82,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
       *@item C1 l11
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -91,7 +91,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
     *@end C1 l12
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
      *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

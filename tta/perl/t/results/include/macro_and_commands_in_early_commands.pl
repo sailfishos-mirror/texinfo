@@ -17,7 +17,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   *@setfilename C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
     |>*macro_call C1
@@ -58,7 +58,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   *@documentencoding C1 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;2><p:1>
     |>*macro_call C1
@@ -101,7 +101,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -113,7 +113,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
  *@node C1 l18 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -127,7 +127,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
  *@top C2 l19 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -141,7 +141,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
  *@node C8 l21 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -158,7 +158,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    >*@include C1 l23
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >|>SOURCEMARKS
     >|>macro_expansion<start;3><p:1>
      >|>*macro_call
@@ -181,7 +181,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    >*@include C1 l23:@multiinclude
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_@f--ile.texi}
     >*line_arg C3
@@ -199,7 +199,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    *@end C1 macro_included.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -225,7 +225,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   *@verbatiminclude C1 l27
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{iso-8859-1}
   |text_arg:{inc_@f--ile.texi}

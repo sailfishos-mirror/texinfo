@@ -10,7 +10,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -84,7 +84,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  *@node C2 l9 {chap@ @ }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -101,7 +101,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  *@node C2 l11 {b@verb{:  :}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -121,7 +121,7 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  *@node C7 l13 {c@w{  }}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}

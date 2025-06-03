@@ -10,7 +10,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
  *@node C3 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
     *@end C1 l6
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -61,7 +61,7 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

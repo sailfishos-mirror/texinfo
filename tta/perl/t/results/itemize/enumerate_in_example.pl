@@ -39,7 +39,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{enumerate}
      *line_arg C1
@@ -50,7 +50,7 @@ $result_tree_text{'enumerate_in_example'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

@@ -19,7 +19,7 @@ $result_tree_text{'inlinefmtifelse_nesting'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@emph C1 l1
       *brace_container C1
        {text}

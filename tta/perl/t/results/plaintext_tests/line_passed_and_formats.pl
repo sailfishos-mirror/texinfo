@@ -10,7 +10,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
  *@node C53 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
   *@quotation C4 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -96,7 +96,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -124,7 +124,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l22
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -135,7 +135,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -155,7 +155,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -174,7 +174,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -194,7 +194,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -213,7 +213,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -241,7 +241,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l43
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -254,7 +254,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l45
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -282,7 +282,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l51
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -295,7 +295,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l53
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -323,7 +323,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l59
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -336,7 +336,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l61
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -358,7 +358,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l66
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -382,7 +382,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l72
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -408,7 +408,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l80
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -434,7 +434,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l88
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -470,7 +470,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l100
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -482,7 +482,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l102
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -511,7 +511,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l109
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -523,7 +523,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l111
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -555,7 +555,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l120
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -568,7 +568,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l122
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -598,7 +598,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
     *@end C1 l129
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -611,7 +611,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l131
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -646,7 +646,7 @@ $result_tree_text{'line_passed_and_formats'} = '*document_root C2
    *@end C1 l136
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

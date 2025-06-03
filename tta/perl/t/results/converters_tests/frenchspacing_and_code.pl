@@ -11,7 +11,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@frenchspacing C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
@@ -24,7 +24,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@top C2 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -52,7 +52,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@node C1 l7 {chapter frenchspacing}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -66,7 +66,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@chapter C13 l8 {Chap frenchspacing}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -98,7 +98,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -110,7 +110,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@deftypeop C3 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l18
    |EXTRA
    |def_command:{deftypeop}
@@ -184,7 +184,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
     *line_arg C1
@@ -196,7 +196,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@defop C3 l22
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l22
    |EXTRA
    |def_command:{defop}
@@ -266,7 +266,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
     *line_arg C1
@@ -278,7 +278,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@frenchspacing C1 l26
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}
@@ -290,7 +290,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@node C1 l27 {chap no}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -304,7 +304,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *@chapter C11 l28 {Chap no}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -336,7 +336,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l36
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -348,7 +348,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@deftypeop C3 l38
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l38
    |EXTRA
    |def_command:{deftypeop}
@@ -422,7 +422,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l40
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
     *line_arg C1
@@ -434,7 +434,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   *@defop C3 l42
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l42
    |EXTRA
    |def_command:{defop}
@@ -504,7 +504,7 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *@end C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
     *line_arg C1

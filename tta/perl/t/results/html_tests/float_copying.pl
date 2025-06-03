@@ -15,7 +15,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
    *@setfilename C1 float_copying.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float_copying.info}
     *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
     *@float C7 float_copying.texi:l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |float_number:{1}
     |float_type:{Copyright notice}
@@ -49,7 +49,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
       |spaces_after_argument:
        |{\\n}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {public domain}
      {empty_line:\\n}
      *paragraph C2
@@ -63,7 +63,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
         *@footnote C1 float_copying.texi:l12
         |INFO
         |spaces_before_argument:
-         |{\\n}
+         |{spaces_before_argument:\\n}
         |EXTRA
         |global_command_number:{1}
          *brace_command_context C7
@@ -83,7 +83,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
           |INFO
           |command_name:{cindex}
           |spaces_before_argument:
-           |{ }
+           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{cp,1}
@@ -96,7 +96,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
           |INFO
           |command_name:{findex}
           |spaces_before_argument:
-           |{ }
+           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{fn,1}
@@ -131,7 +131,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
@@ -144,7 +144,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
        |INFO
        |command_name:{findex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,2}
@@ -157,7 +157,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
      *@end C1 float_copying.texi:l27
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{float}
       *line_arg C1
@@ -168,7 +168,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
     *@end C1 float_copying.texi:l28
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -180,7 +180,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
  *@node C1 float_copying.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -194,7 +194,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
  *@top C12 float_copying.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -209,7 +209,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,3}
@@ -264,7 +264,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
    *@end C1 float_copying.texi:l43
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -276,7 +276,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
  *@node C1 float_copying.texi:l45 {Copying and floats}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -291,7 +291,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
  *@appendix C20 float_copying.texi:l46 {Copying and floats}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -331,7 +331,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-floats}
   |index_entry:I{cp,4}
@@ -353,7 +353,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@subheading C1 float_copying.texi:l60
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -365,7 +365,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@listoffloats C1 float_copying.texi:l61
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Copyright notice}
   |global_command_number:{1}
@@ -378,7 +378,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@subheading C1 float_copying.texi:l63
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -390,7 +390,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@printindex C1 float_copying.texi:l64
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -402,7 +402,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@printindex C1 float_copying.texi:l65
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}

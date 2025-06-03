@@ -10,7 +10,7 @@ $result_tree_text{'something_before_columnfractions'} = '*document_root C1
   *@multitable C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
@@ -19,7 +19,7 @@ $result_tree_text{'something_before_columnfractions'} = '*document_root C1
      *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.3|0.7}
       *line_arg C1
@@ -30,7 +30,7 @@ $result_tree_text{'something_before_columnfractions'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

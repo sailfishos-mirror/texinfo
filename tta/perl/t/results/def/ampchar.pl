@@ -10,7 +10,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
   *@defop C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{defop}
@@ -61,7 +61,7 @@ $result_tree_text{'ampchar'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
     *line_arg C1

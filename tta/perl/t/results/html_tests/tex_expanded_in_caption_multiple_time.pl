@@ -10,7 +10,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
   *@float C5 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A}
@@ -25,14 +25,14 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {B}
    *paragraph C1
     {My float.\\n}
    *@caption C1 l3
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
     *brace_command_context C1
      *@tex C3 l4
       *arguments_line C1
@@ -45,7 +45,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
       *@end C1 l6
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{tex}
        *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -69,7 +69,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
   *@listoffloats C1 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{A}
   |global_command_number:{1}

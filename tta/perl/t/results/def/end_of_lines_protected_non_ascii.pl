@@ -13,7 +13,7 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
   *@deffn C3 end_of_lines_protected_non_ascii.texi:l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 end_of_lines_protected_non_ascii.texi:l2
    |EXTRA
    |def_command:{deffn}
@@ -78,7 +78,7 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
    *@end C1 end_of_lines_protected_non_ascii.texi:l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

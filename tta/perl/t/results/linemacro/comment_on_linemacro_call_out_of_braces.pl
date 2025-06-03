@@ -19,7 +19,7 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -36,13 +36,13 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:something protected}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{}
    {second ||\\n}
    {third ||}
@@ -75,18 +75,18 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:aaa\\n  }
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{rest}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{}
    {  |\\n}
    {second |rest|\\n}

@@ -11,7 +11,7 @@ $result_tree_text{'printindex_before_document'} = '*document_root C1
   *@printindex C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

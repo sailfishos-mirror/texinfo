@@ -10,7 +10,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -55,7 +55,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -81,7 +81,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@chapter C4 l9 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -124,7 +124,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -136,7 +136,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@node C1 l16 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -150,7 +150,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@section C4 l17 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -182,7 +182,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -194,7 +194,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@node C1 l23 {subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -208,7 +208,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *@subsection C1 l24 {subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}

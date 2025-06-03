@@ -13,7 +13,7 @@ $result_tree_text{'sp'} = '*document_root C1
   *@sp C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1
@@ -24,7 +24,7 @@ $result_tree_text{'sp'} = '*document_root C1
   *@sp C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
    *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'sp'} = '*document_root C1
   *@sp C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1
@@ -58,13 +58,13 @@ $result_tree_text{'sp'} = '*document_root C1
   *@sp C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
    >*@end C1 l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'author_outside_titlepage_quotation'} = '*document_root C1
   *@author C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
    *line_arg C1

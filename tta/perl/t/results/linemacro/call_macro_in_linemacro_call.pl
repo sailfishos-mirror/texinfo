@@ -18,7 +18,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -54,18 +54,18 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    >|INFO
    >|command_name:{lm}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{bracketed_linemacro_arg:aa\\n  @mymacro{@emph ,\\n   ggg} }
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{jj @var{T}}
   *@quotation C7 l14:@lm
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -83,12 +83,12 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{\\n}
+      >|{spaces_before_argument:\\n}
       >{   ggg}
    *@table C3 l14:@mymacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -100,7 +100,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
       *@item C1 l14:@mymacro
       |INFO
       |spaces_before_argument:
-       |{    }
+       |{spaces_before_argument:    }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -109,7 +109,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     *@end C1 l14:@mymacro
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
      *line_arg C1
@@ -132,7 +132,7 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

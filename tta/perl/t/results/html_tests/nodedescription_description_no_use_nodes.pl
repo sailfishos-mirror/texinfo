@@ -11,7 +11,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@top C2 l2 {test of descriptions with nodedescription*}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@node C1 l4 {toto}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@chapter C6 l5 {Toto}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -68,7 +68,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   *@nodedescription C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C8
    |INFO
    |spaces_after_argument:
@@ -106,7 +106,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
     *line_arg C1
@@ -118,7 +118,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@node C1 l13 {titi}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -132,7 +132,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@chapter C4 l14 {Titi}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -155,7 +155,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
     *line_arg C1
@@ -167,7 +167,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@node C1 l20 {other}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -181,7 +181,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
  *@chapter C3 l21 {Other}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -196,7 +196,7 @@ $result_tree_text{'nodedescription_description_no_use_nodes'} = '*document_root 
   *@nodedescription C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

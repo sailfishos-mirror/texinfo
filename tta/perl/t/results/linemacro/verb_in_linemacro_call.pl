@@ -20,7 +20,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -44,23 +44,23 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
       >|INFO
       >|command_name:{mycommand}
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*line_arg C1
         >{bracketed_linemacro_arg:Name}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{@verb{: in verb :}}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{bracketed_linemacro_arg:A @verb{| in bracketed |} }
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{other {j}}
      {second }
      *@verb C1 l9:@mycommand
@@ -79,7 +79,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
    *@defline C1 l9:@mycommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -107,7 +107,7 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

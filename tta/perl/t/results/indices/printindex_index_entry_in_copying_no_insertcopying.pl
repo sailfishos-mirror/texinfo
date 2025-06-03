@@ -19,7 +19,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     |INFO
     |command_name:{findex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_region:{copying}
     |index_entry:I{fn,1}
@@ -32,7 +32,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     *@defun C4 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *def_line C1 l5
      |EXTRA
      |def_command:{defun}
@@ -63,7 +63,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *@defunx C1 l6
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defun}
      |def_index_element:
@@ -96,7 +96,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *@end C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{defun}
       *line_arg C1
@@ -108,7 +108,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     *@ftable C3 l10
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -120,7 +120,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        *@item C1 l11
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,4}
@@ -132,7 +132,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        *@itemx C1 l12
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,5}
@@ -144,7 +144,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *@end C1 l13
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{ftable}
       *line_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     *@printindex C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
     |misc_args:A{fn}
@@ -169,7 +169,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     *@end C1 l17
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -181,7 +181,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  *@node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -195,7 +195,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  *@top C6 l20 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -229,7 +229,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -241,7 +241,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  *@node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -255,7 +255,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  *@chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

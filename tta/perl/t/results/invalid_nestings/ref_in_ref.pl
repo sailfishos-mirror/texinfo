@@ -10,7 +10,7 @@ $result_tree_text{'ref_in_ref'} = '*document_root C2
  *@node C2 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

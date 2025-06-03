@@ -20,12 +20,12 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aaa}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {iclear first }
    {.\\n}
   {empty_line:\\n}
@@ -41,7 +41,7 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aaa}
     *elided_brace_command_arg C1
      {raw: ifset first }
@@ -65,7 +65,7 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aaa}
     *elided_brace_command_arg C1
      {raw: ifclear second }
@@ -84,12 +84,12 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aaa}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {ifset second }
    {.\\n}
 ';

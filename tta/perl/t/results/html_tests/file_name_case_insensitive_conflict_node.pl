@@ -11,7 +11,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@top C2 l2 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@chapter C5 l5 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -76,7 +76,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@node C1 l9 {Foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -90,7 +90,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@section C2 l10 {Foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -105,7 +105,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@node C1 l12 {Bar}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -119,7 +119,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@section C2 l13 {Bar}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -134,7 +134,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@node C1 l15 {foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -148,7 +148,7 @@ $result_tree_text{'file_name_case_insensitive_conflict_node'} = '*document_root 
  *@section C5 l16 {foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}

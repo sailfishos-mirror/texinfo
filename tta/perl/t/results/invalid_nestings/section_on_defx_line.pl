@@ -10,7 +10,7 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
   *@deffn C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -42,7 +42,7 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
    *@deffnx C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -65,7 +65,7 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
  *@section C4 l2 {s}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

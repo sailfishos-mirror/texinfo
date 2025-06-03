@@ -11,7 +11,7 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -45,7 +45,7 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
  *@chapter C1 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

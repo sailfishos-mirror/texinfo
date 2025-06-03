@@ -11,7 +11,7 @@ $result_tree_text{'bad_line'} = '*document_root C1
   *@alias C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'bad_line'} = '*document_root C1
   *@alias C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:

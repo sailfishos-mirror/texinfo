@@ -10,7 +10,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  *@node C6 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  *@node C2 l9 {chap first level node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -78,7 +78,7 @@ $result_tree_text{'node_referenced_in_ref'} = '*document_root C4
  *@node C1 l11 {second level node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}

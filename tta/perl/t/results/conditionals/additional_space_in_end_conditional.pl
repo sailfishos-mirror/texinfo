@@ -20,7 +20,7 @@ $result_tree_text{'additional_space_in_end_conditional'} = '*document_root C1
     >*@end C1 l3
     >|INFO
     >|spaces_before_argument:
-     >|{  }
+     >|{spaces_before_argument:  }
     >|EXTRA
     >|text_arg:{ifnothtml}
      >*line_arg C1

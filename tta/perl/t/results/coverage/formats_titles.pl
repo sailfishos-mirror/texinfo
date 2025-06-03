@@ -25,7 +25,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -54,7 +54,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -66,7 +66,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
   *@table C4 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      *@item C1 l13
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -90,7 +90,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
   *@vtable C4 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      *@item C1 l18
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,1}
       *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -140,7 +140,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
   *@multitable C4 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -148,7 +148,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
      *@columnfractions C1 l21
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.5|0.5}
       *line_arg C1
@@ -178,7 +178,7 @@ $result_tree_text{'formats_titles'} = '*document_root C1
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

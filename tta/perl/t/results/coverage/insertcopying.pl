@@ -27,7 +27,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
     *@end C1 l6
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'insertcopying'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1

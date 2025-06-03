@@ -19,7 +19,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{xml}
     *line_arg C1
@@ -59,7 +59,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{docbook}
     *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -111,7 +111,7 @@ $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{latex}
     *line_arg C1

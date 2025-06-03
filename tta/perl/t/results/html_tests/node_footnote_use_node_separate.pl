@@ -17,7 +17,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@node C4 node_footnote.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -88,7 +88,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
    *@end C1 node_footnote.texi:l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -100,7 +100,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@node C4 node_footnote.texi:l14 {@\'a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -135,7 +135,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@node C4 node_footnote.texi:l19 {@^a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -170,7 +170,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@node C1 node_footnote.texi:l24 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -184,7 +184,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@chapter C4 node_footnote.texi:l25 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -218,7 +218,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
    *@end C1 node_footnote.texi:l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -230,7 +230,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  *@node C4 node_footnote.texi:l31 {@`a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}

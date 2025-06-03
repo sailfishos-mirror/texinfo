@@ -22,7 +22,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -45,7 +45,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   *@table C3 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      *@item C1 l9
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -81,7 +81,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -104,7 +104,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -127,7 +127,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -150,7 +150,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -165,7 +165,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   *@multitable C3 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -173,7 +173,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      *@columnfractions C1 l24
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.4|0.6}
       *line_arg C1
@@ -200,7 +200,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -215,7 +215,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   *@float C3 l28
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{f}
@@ -235,7 +235,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -258,7 +258,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1
@@ -281,7 +281,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
    *@end C1 l38
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{raggedright}
     *line_arg C1

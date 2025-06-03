@@ -18,7 +18,7 @@ $result_tree_text{'too_much_args'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'too_much_args'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{two, three}
    {second arg: two, three.\\n}
    >SOURCEMARKS

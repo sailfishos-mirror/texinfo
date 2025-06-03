@@ -10,7 +10,7 @@ $result_tree_text{'punctuation_frenchspacing'} = '*document_root C1
   *@frenchspacing C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}

@@ -10,7 +10,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
   *@float C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{float}
   |global_command_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
     *@end C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -53,7 +53,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

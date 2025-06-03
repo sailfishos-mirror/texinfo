@@ -10,7 +10,7 @@ $result_tree_text{'on_subheading_line'} = '*document_root C1
   *@subheading C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'on_subheading_line'} = '*document_root C1
     *@exdent C1 l1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:

@@ -17,7 +17,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      {truc }
      >SOURCEMARKS
      >macro_expansion<start;1><p:5>

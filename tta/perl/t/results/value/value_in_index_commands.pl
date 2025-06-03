@@ -26,7 +26,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *@syncodeindex C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;1><p:1>{cp}
     |>*@value C1
@@ -54,7 +54,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *@syncodeindex C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<end;3>
   |EXTRA
@@ -76,7 +76,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    *@defindex C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     |>SOURCEMARKS
     |>value_expansion<start;4><p:1>{truc}
      |>*@value C1
@@ -108,7 +108,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *@defcodeindex C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;5><p:1>{codeidx}
     |>*@value C1
@@ -133,7 +133,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
  *@node C1 l22 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -147,7 +147,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
  *@node C14 l23 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -169,7 +169,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   |INFO
   |command_name:{trucindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<end;6>
   |EXTRA
@@ -185,7 +185,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   |INFO
   |command_name:{codeidxindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;7><p:1>{a @var{index entry} t@\'e @^{@dotless{i}}}
     |>*@value C1
@@ -219,7 +219,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   |INFO
   |command_name:{kindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;8><p:1>{truc}
     |>*@value C1
@@ -239,7 +239,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   |INFO
   |command_name:{pindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{pg,1}
@@ -260,7 +260,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *@printindex C1 l33
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;10><p:1>{truc}
     |>*@value C1
@@ -282,7 +282,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *@printindex C1 l36
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;11><p:1>{cp}
     |>*@value C1

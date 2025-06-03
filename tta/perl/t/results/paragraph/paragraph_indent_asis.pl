@@ -10,7 +10,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
   *@paragraphindent C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}
@@ -37,7 +37,7 @@ $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

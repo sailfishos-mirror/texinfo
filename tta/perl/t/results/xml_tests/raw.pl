@@ -18,7 +18,7 @@ $result_tree_text{'raw'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -40,7 +40,7 @@ $result_tree_text{'raw'} = '*document_root C1
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{xml}
      *line_arg C1

@@ -25,7 +25,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{group}
      *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@quotation C3 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -49,7 +49,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{enumerate}
      *line_arg C1
@@ -94,7 +94,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@table C3 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -106,7 +106,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       *@item C1 l18
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -115,7 +115,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       *@itemx C1 l19
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -130,7 +130,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l23
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
      *line_arg C1
@@ -142,7 +142,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@multitable C3 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
@@ -150,7 +150,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       *@columnfractions C1 l25
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |misc_args:A{0.5|0.5}
        *line_arg C1
@@ -196,7 +196,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l33
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
      *line_arg C1
@@ -208,7 +208,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@float C7 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1}
    |float_type:{label}
@@ -223,7 +223,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      |spaces_after_argument:
       |{\\n}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {type}
     {empty_line:\\n}
     *paragraph C1
@@ -237,7 +237,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l40
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
      *line_arg C1
@@ -251,7 +251,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@sp C1 l43
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{2}
     *line_arg C1
@@ -271,7 +271,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l47
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{smallexample}
      *line_arg C1
@@ -291,7 +291,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l51
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{format}
      *line_arg C1
@@ -311,7 +311,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *@end C1 l55
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{flushleft}
      *line_arg C1
@@ -323,7 +323,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@center C1 l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -333,7 +333,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    *@end C1 l59
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1

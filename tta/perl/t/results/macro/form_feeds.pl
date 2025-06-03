@@ -17,7 +17,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -57,12 +57,12 @@ $result_tree_text{'form_feeds'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ \\f }
+      >|{spaces_before_argument: \\f }
       >{arg1\\f}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{\\f }
+      >|{spaces_before_argument:\\f }
       >{arg2}
   {empty_line:\\f}
   {spaces_before_paragraph: }
@@ -79,7 +79,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
     >|INFO
     >|command_name:{oneargmacro}
     >|spaces_before_argument:
-     >|{ \\f \\f }
+     >|{spaces_before_argument: \\f \\f }
      >*line_arg C1
       >{a@{rgline}
    *@{

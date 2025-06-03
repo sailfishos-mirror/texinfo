@@ -14,7 +14,7 @@ $result_tree_text{'commands_in_abbr'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@b C1 l1
       *brace_container C1
        {abbr}
@@ -34,7 +34,7 @@ $result_tree_text{'commands_in_abbr'} = '*document_root C1
      *brace_arg C2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *@b C1 l4
        *brace_container C1
         {abbr}
@@ -43,7 +43,7 @@ $result_tree_text{'commands_in_abbr'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

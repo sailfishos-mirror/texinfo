@@ -28,7 +28,7 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
    *@exdent C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C5
     |INFO
     |spaces_after_argument:
@@ -45,7 +45,7 @@ $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

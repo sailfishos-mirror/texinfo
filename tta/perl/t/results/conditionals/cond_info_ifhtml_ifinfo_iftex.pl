@@ -25,7 +25,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     *@end C1 cond.texi:l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
      *line_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l11
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifhtml}
      >*line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l15
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml}
      >*line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
  *@node C1 cond.texi:l17 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -96,7 +96,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
  *@top C2 cond.texi:l18 {conditionals}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -110,7 +110,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
  *@node C12 cond.texi:l20 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -138,7 +138,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l25
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifinfo}
      >*line_arg C1
@@ -159,7 +159,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l29
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnotinfo}
      >*line_arg C1
@@ -180,7 +180,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
    *@end C1 cond.texi:l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -204,7 +204,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l38
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{iftex}
      >*line_arg C1
@@ -225,7 +225,7 @@ $result_tree_text{'cond_info_ifhtml_ifinfo_iftex'} = '*document_root C5
     >*@end C1 cond.texi:l42
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1

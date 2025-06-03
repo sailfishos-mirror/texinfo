@@ -14,7 +14,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
  *@node C4 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -47,14 +47,14 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
 }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
     *@\\n
  *@node C1 l10 {@:}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -64,7 +64,7 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
  *@node C1 l11 {@asis{ }}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO

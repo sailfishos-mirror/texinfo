@@ -17,7 +17,7 @@ $result_tree_text{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

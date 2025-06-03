@@ -20,7 +20,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
     *@end C1 cpp_directives_after_macros.texi:l4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
     *@end C1 cpp_directives_after_macros.texi:l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1

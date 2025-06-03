@@ -10,7 +10,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@top C2 l2 {for example}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@node C1 l4 {node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@chapter C3 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -68,7 +68,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node}
   |index_entry:I{cp,1}
@@ -80,7 +80,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@node C1 l8 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -95,7 +95,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@section C3 l9 {Sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -111,7 +111,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{sec}
   |index_entry:I{cp,2}
@@ -123,7 +123,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *@appendix C4 l12 {App}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -138,7 +138,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   *@printindex C1 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

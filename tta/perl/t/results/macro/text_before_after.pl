@@ -19,7 +19,7 @@ $result_tree_text{'text_before_after'} = '*document_root C1
     *@end C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro after}
      *line_arg C1

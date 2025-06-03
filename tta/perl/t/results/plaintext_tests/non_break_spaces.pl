@@ -11,7 +11,7 @@ $result_tree_text{'non_break_spaces'} = '*document_root C2
    *@documentencoding C1 non_break_spaces.texi:l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
@@ -25,7 +25,7 @@ $result_tree_text{'non_break_spaces'} = '*document_root C2
  *@node C3 non_break_spaces.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

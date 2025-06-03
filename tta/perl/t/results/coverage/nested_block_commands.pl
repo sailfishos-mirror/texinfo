@@ -26,7 +26,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l11
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l18
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -115,7 +115,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -144,7 +144,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l27
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -155,7 +155,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -185,7 +185,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l36
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -196,7 +196,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -225,7 +225,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l44
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -236,7 +236,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l45
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -263,7 +263,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l51
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -274,7 +274,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l52
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -302,7 +302,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l59
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -313,7 +313,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l60
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -340,7 +340,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l66
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -351,7 +351,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l67
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -377,7 +377,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l72
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -391,7 +391,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l75
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -417,7 +417,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l80
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -431,7 +431,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l83
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -457,7 +457,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
     *@end C1 l88
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -472,7 +472,7 @@ $result_tree_text{'nested_block_commands'} = '*document_root C1
    *@end C1 l92
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1

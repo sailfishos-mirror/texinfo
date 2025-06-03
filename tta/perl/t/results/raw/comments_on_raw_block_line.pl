@@ -19,7 +19,7 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1

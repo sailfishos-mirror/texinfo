@@ -15,7 +15,7 @@ FastForward: [U1]
  *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ Up: [U0]
  *@unnumbered C2 l3 {unnumbered}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{2}
@@ -64,7 +64,7 @@ Up: [U0]
  *@chapter C2 l5 {First chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -88,7 +88,7 @@ Up: [U2]
  *@section C2 l7 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -114,7 +114,7 @@ Up: [U0]
  *@chapter C2 l9 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -138,7 +138,7 @@ Up: [U4]
  *@section C2 l11 {Section of chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -163,7 +163,7 @@ Up: [U5]
  *@subsection C2 l13 {subsection 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.1}
  |section_level:{3}
@@ -188,7 +188,7 @@ Up: [U5]
  *@subsection C2 l15 {subsection 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.2}
  |section_level:{3}
@@ -211,7 +211,7 @@ Up: [U0]
  *@chapter C1 l17 {Chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

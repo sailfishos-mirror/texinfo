@@ -11,7 +11,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  *@unnumbered C2 l1 {before}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  *@top C2 l4 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  *@chapter C4 l6 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -71,7 +71,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  *@node C1 l10 {node after}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

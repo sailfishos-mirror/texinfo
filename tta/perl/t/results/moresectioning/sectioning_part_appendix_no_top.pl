@@ -15,7 +15,7 @@ FastForward: [U4]
  *@chapter C2 l1 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -39,7 +39,7 @@ Up: [U0]
  *@section C2 l3 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -63,7 +63,7 @@ Up: [U1]
  *@subsection C2 l5 {subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -87,7 +87,7 @@ Up: [U2]
  *@subsubsection C2 l7 {subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
@@ -111,7 +111,7 @@ Next: [U5]
  *@part C2 l9 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -126,7 +126,7 @@ Next: [U5]
  *@chapter C2 l11 {chapter in part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -152,7 +152,7 @@ Up: [U4]
  *@chapter C2 l13 {second chapter in part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -177,7 +177,7 @@ Up: [U4]
  *@unnumbered C2 l15 {unnumbered}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{8}
@@ -199,7 +199,7 @@ Prev: [U4]
  *@appendix C2 l17 {appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -221,7 +221,7 @@ Up: [U7]
  *@appendixsec C1 l19 {appendixsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A.1}
  |section_level:{2}

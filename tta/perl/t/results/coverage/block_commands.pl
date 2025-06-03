@@ -19,7 +19,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
     *line_arg C1
@@ -31,7 +31,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
   *@quotation C3 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -43,7 +43,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -55,7 +55,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
   *@float C7 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{a float}
@@ -70,7 +70,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b float}
    *paragraph C1
     {In float\\n}
@@ -87,7 +87,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

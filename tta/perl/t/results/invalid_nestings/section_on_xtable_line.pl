@@ -10,13 +10,13 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   *@vtable C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg
  *@section C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -31,7 +31,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   *@table C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  *@section C3 l3 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
@@ -56,7 +56,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   *@table C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -66,7 +66,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  *@section C3 l5 {third}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{2}
@@ -81,7 +81,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
   *@ftable C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
      *@ringaccent l7
@@ -91,7 +91,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  *@section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{2}

@@ -11,7 +11,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr}
@@ -24,7 +24,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  *@top C4 l4 {top @error{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  *@node C1 l8 {chapter @error{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -75,7 +75,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  *@chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

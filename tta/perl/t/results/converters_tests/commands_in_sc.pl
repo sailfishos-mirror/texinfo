@@ -10,7 +10,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
  *@top C2 l2 {commands in sc}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
  *@chapter C3 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -169,7 +169,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
       *brace_arg
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       *brace_arg C1
        {lb}
      {\\n}
@@ -187,7 +187,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {e}
      { }
      *@abbr C2 l10
@@ -196,7 +196,7 @@ $result_tree_text{'commands_in_sc'} = '*document_root C5
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {d}
 ';
 

@@ -16,7 +16,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@setfilename C1 sample_utf8.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{sample_utf8.info}
     *line_arg C1
@@ -27,7 +27,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@settitle C1 sample_utf8.texi:l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -36,7 +36,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@documentencoding C1 sample_utf8.texi:l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
@@ -64,7 +64,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *@end C1 sample_utf8.texi:l13
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *@title C1 sample_utf8.texi:l16
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -101,7 +101,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     *@end C1 sample_utf8.texi:l21
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
      *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@node C1 sample_utf8.texi:l27 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -142,7 +142,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@top C7 sample_utf8.texi:l28 {Texinfo中文示例}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -161,7 +161,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    >*@end C1 sample_utf8.texi:l31
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -214,7 +214,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@end C1 sample_utf8.texi:l38
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -227,7 +227,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -241,7 +241,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -257,7 +257,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   |index_entry:I{cp,1}
@@ -273,7 +273,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,2}
@@ -286,7 +286,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,3}
@@ -299,7 +299,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,4}
@@ -338,7 +338,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *@end C1 sample_utf8.texi:l59
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -350,7 +350,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -364,7 +364,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -382,7 +382,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@node C1 sample_utf8.texi:l66 {Index node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -397,7 +397,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  *@unnumbered C4 sample_utf8.texi:l67 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{4}
@@ -411,7 +411,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   *@printindex C1 sample_utf8.texi:l69
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

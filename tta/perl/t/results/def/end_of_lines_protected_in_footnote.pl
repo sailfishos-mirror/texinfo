@@ -11,14 +11,14 @@ $result_tree_text{'end_of_lines_protected_in_footnote'} = '*document_root C1
    *@footnote C1 l1
    |INFO
    |spaces_before_argument:
-    |{\\n}
+    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C1
      *@deffn C3 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *def_line C1 l2
       |EXTRA
       |def_command:{deffn}
@@ -87,7 +87,7 @@ $result_tree_text{'end_of_lines_protected_in_footnote'} = '*document_root C1
       *@end C1 l7
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{deffn}
        *line_arg C1

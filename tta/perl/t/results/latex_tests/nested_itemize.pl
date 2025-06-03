@@ -95,7 +95,7 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
          *@end C1 l13
          |INFO
          |spaces_before_argument:
-          |{ }
+          |{spaces_before_argument: }
          |EXTRA
          |text_arg:{itemize}
           *line_arg C1
@@ -106,7 +106,7 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
        *@end C1 l14
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{itemize}
         *line_arg C1
@@ -117,7 +117,7 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
      *@end C1 l15
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{itemize}
       *line_arg C1
@@ -128,7 +128,7 @@ $result_tree_text{'nested_itemize'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

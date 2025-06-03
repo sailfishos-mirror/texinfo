@@ -38,6 +38,7 @@ foreach my $text_type (
             #'text_after_end',
             #'text_before_beginning',
             'spaces_after_cmd_before_arg',
+            'spaces_before_argument',
   ) {
   $ignorable_text_types{$text_type} = 1;
 }

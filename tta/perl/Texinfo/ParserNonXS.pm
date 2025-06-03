@@ -2714,7 +2714,8 @@ sub _expand_macro_arguments($$$$$)
   if ($1 ne '') {
     $argument->{'info'} = {} if (!$argument->{'info'});
     $argument->{'info'}->{'spaces_before_argument'}
-      = Texinfo::TreeElement::new({'text' => $1});
+      = Texinfo::TreeElement::new({'text' => $1,
+                      'type' => 'spaces_before_argument'});
   }
 
   while (1) {
@@ -2756,7 +2757,8 @@ sub _expand_macro_arguments($$$$$)
             if ($1 ne '') {
               $argument->{'info'}
                 = {'spaces_before_argument'
-                    => Texinfo::TreeElement::new({'text' => $1})};
+                    => Texinfo::TreeElement::new({'text' => $1,
+                                 'type' => 'spaces_before_argument'})};
             }
             print STDERR "MACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
           } else {
@@ -2822,7 +2824,8 @@ sub _expand_linemacro_arguments($$$$$)
   if ($line =~ s/^([ \t\cK\f]+)//) {
     $current->{'info'} = {} if (!$current->{'info'});
     $current->{'info'}->{'spaces_before_argument'}
-      = Texinfo::TreeElement::new({'text' => $1});
+      = Texinfo::TreeElement::new({'text' => $1,
+                           'type' => 'spaces_before_argument'});
   }
   my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
@@ -2882,7 +2885,8 @@ sub _expand_linemacro_arguments($$$$$)
           push @{$argument->{'contents'}}, $argument_content;
           $argument->{'info'}
             = {'spaces_before_argument' =>
-                Texinfo::TreeElement::new({'text' => $separator})};
+                Texinfo::TreeElement::new({'text' => $separator,
+                                 'type' => 'spaces_before_argument'})};
           print STDERR "LINEMACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
         }
       }
@@ -3067,7 +3071,7 @@ sub _move_last_space_to_element($$) {
   # Remove element from main tree. It will still be referenced in
   # the 'info' hash as 'spaces_before_argument'.
   my $spaces_before_argument = _pop_element_from_contents($self, $current);
-  delete $spaces_before_argument->{'type'};
+  $spaces_before_argument->{'type'} = 'spaces_before_argument';
   delete $spaces_before_argument->{'parent'};
   my $owning_element = $self->{'internal_space_holder'};
   $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
@@ -5393,7 +5397,8 @@ sub _handle_macro($$$$$)
         } else {
           # based on whitespace_chars_except_newline in XS parser
           if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
-            my $internal_space = Texinfo::TreeElement::new({'text' => $1});
+            my $internal_space = Texinfo::TreeElement::new({'text' => $1,
+                                      'type' => 'spaces_before_argument'});
             $macro_call_element->{'info'} = {}
                 if (!$macro_call_element->{'info'});
             $macro_call_element->{'info'}->{'spaces_before_argument'}
@@ -5925,7 +5930,8 @@ sub _handle_line_command($$$$$$)
                     'source_info' => $source_info,
                     'extra' => {'misc_args' => [$arg],},
                     'info' => {'spaces_before_argument'
-                        => Texinfo::TreeElement::new({'text' => ' '})}});
+                        => Texinfo::TreeElement::new({'text' => ' ',
+                                'type' => 'spaces_before_argument'})}});
       my $misc_line_args
         = Texinfo::TreeElement::new({'type' => 'line_arg',
                             'parent' => $command_e,

@@ -15,7 +15,7 @@ $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;1><p:1>{bad}
     |>*@value C1

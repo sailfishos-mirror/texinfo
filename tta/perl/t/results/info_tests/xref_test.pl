@@ -11,7 +11,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
  *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -68,7 +68,7 @@ $result_tree_text{'xref_test'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {name}
    { ! after xref and dot inside.\\n}
    *@xref C1 l7

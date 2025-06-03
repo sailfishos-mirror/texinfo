@@ -10,7 +10,7 @@ $result_tree_text{'settitle_and_empty_top'} = '*document_root C2
   *@settitle C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

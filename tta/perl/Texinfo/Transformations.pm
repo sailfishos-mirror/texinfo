@@ -186,7 +186,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
         });
         $new_section->{'info'}
           = Texinfo::TreeElement::new({'spaces_before_argument' =>
-                                              {'text' => ' ',}});
+                                              {'text' => ' ',
+                                       'type' => 'spaces_before_argument'}});
         my $arguments_line
           = Texinfo::TreeElement::new({'type' => 'arguments_line',
                                        'parent' => $new_section});
@@ -391,7 +392,8 @@ sub _new_node($$;$)
 
     $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
     $node->{'info'} = {'spaces_before_argument'
-                         => Texinfo::TreeElement::new({'text' => ' '})};
+                         => Texinfo::TreeElement::new({'text' => ' ',
+                                       'type' => 'spaces_before_argument'})};
 
     my $arguments_line
       = Texinfo::TreeElement::new({'type' => 'arguments_line',

@@ -14,7 +14,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@node C1 contents_in_middle_section.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@top C6 contents_in_middle_section.texi:l4 {Contents in section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -62,7 +62,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
    *@end C1 contents_in_middle_section.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@node C1 contents_in_middle_section.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -88,7 +88,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@chapter C5 contents_in_middle_section.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -132,7 +132,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
    *@end C1 contents_in_middle_section.texi:l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -144,7 +144,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@node C1 contents_in_middle_section.texi:l21 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -158,7 +158,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@section C5 contents_in_middle_section.texi:l22 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -180,7 +180,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@node C1 contents_in_middle_section.texi:l27 {section1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -194,7 +194,7 @@ $result_tree_text{'contents_in_middle_section_inline'} = '*document_root C10
  *@section C4 contents_in_middle_section.texi:l28 {section 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}

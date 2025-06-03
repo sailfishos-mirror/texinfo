@@ -10,7 +10,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *@top C1 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -23,7 +23,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *@chapter C1 l2 {0}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *@unnumbered C1 l3 {_}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{3}
@@ -50,7 +50,7 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *@section C6 l4 {?}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{4}

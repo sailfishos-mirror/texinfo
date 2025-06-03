@@ -17,7 +17,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {<sc>xml inlineraw</sc>}
    {\\n}
    *@inlineraw C2 l2
@@ -39,7 +39,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@env C1 l4
       *brace_container C1
        {inlinefmt}
@@ -64,7 +64,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xml }
      *@code C1 l7
       *brace_container C1
@@ -83,7 +83,7 @@ $result_tree_text{'inline_commands'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {else html}
    {\\n}
 ';

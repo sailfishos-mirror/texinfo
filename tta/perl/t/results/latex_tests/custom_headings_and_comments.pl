@@ -11,7 +11,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
    *@evenheading C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C15
     |INFO
     |spaces_after_argument:
@@ -34,7 +34,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
    *@evenfooting C1 l2
    |INFO
    |spaces_before_argument:
-    |{   }
+    |{spaces_before_argument:   }
     *line_arg C11
     |INFO
     |comment_at_end:
@@ -59,7 +59,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@top C2 l5 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -87,7 +87,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@node C1 l7 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -101,7 +101,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@chapter C10 l8 {ch--ap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -128,7 +128,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@section C2 l18 {sec1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -143,7 +143,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *@chapter C2 l20 {chap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

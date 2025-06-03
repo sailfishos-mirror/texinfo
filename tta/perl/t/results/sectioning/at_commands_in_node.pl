@@ -10,7 +10,7 @@ $result_tree_text{'at_commands_in_node'} = '*document_root C2
  *@node C1 l1 {A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

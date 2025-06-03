@@ -11,7 +11,7 @@ $result_tree_text{'empty_label_no_space_comment'} = '*document_root C1
   *@float C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Type}
   |global_command_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'empty_label_no_space_comment'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

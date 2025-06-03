@@ -10,7 +10,7 @@ $result_tree_text{'menu_node_unterminated'} = '*document_root C2
  *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'menu_node_unterminated'} = '*document_root C2
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

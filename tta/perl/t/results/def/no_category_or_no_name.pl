@@ -22,7 +22,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
   *@deffn C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
@@ -52,7 +52,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -64,7 +64,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
   *@deffn C5 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
@@ -96,7 +96,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    *@deffnx C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
@@ -121,7 +121,7 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

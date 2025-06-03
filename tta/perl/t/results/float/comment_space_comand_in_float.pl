@@ -11,7 +11,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
  *@node C5 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
   *@float C3 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text  }
@@ -57,7 +57,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
      |*@c C1
       |{rawline_arg: float\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label }
      *@ 
    *paragraph C1
@@ -65,7 +65,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -77,7 +77,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
   *@listoffloats C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text  }
   |global_command_number:{1}

@@ -18,7 +18,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {<blink>html</blink> ``}
    {, \\n}
    *@inlinefmt C2 l3
@@ -30,7 +30,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {plaintext ``}
    {, \\n}
    *@inlinefmt C2 l4
@@ -42,7 +42,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {<para>xml</para> ``}
    {,\\n}
    *@inlinefmt C2 l5
@@ -54,7 +54,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {<emphasis>docbook</emphasis> ``}
    {, \\n}
    *@inlinefmt C2 l6
@@ -74,7 +74,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@math C1 l7
       *brace_command_context C3
        {\\frac}
@@ -102,7 +102,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw <blink>html</blink> ``}
    {, \\n}
    *@inlineraw C2 l11
@@ -114,7 +114,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw plaintext ``}
    {, \\n}
    *@inlineraw C2 l12
@@ -126,7 +126,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw <para>xml</para> ``}
    {,\\n}
    *@inlineraw C2 l13
@@ -138,7 +138,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw <emphasis>docbook</emphasis> ``}
    {, \\n}
    *@inlineraw C2 l14
@@ -158,7 +158,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {raw $\\frac}
      *balanced_braces C3 l15
       {{a < b }

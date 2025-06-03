@@ -22,7 +22,7 @@ $result_tree_text{'raw_in_style'} = '*document_root C1
       *@end C1 l4
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{html}
        *line_arg C1

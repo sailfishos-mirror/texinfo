@@ -11,7 +11,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l2
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
    *line_arg C2
    |INFO
    |spaces_after_argument:

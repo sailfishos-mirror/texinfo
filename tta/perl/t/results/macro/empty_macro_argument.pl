@@ -17,7 +17,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    >macro_expansion<end;2><p:9>
    >macro_expansion<start;3><p:10>
     >*macro_call C1
@@ -51,7 +51,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{  }
+      >|{spaces_before_argument:  }
    >macro_expansion<end;3><p:14>
    >macro_expansion<start;4><p:15>
     >*macro_call C1
@@ -60,7 +60,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{  }
+      >|{spaces_before_argument:  }
       >{x}
    >macro_expansion<end;4><p:19>
   {empty_line:\\n}
@@ -74,7 +74,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -99,7 +99,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
    >macro_expansion<end;6><p:5>
    >macro_expansion<start;7><p:6>
     >*macro_call C1
@@ -108,7 +108,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg
      >|INFO
      >|spaces_before_argument:
-      >|{  }
+      >|{spaces_before_argument:  }
    >macro_expansion<end;7><p:8>
    >macro_expansion<start;8><p:9>
     >*macro_call C1
@@ -117,7 +117,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{  }
+      >|{spaces_before_argument:  }
       >{x}
    >macro_expansion<end;8><p:12>
 ';

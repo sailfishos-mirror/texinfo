@@ -11,7 +11,7 @@ $result_tree_text{'listoffloats_with_commands'} = '*document_root C1
   *@listoffloats C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{théorème}
   |global_command_number:{1}

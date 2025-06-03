@@ -14,7 +14,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
  *@node C1 no_content.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
  *@top C6 no_content.texi:l4 {No ccontent}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -62,7 +62,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
    *@end C1 no_content.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
  *@node C1 no_content.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -88,7 +88,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
  *@chapter C4 no_content.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

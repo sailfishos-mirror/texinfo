@@ -10,7 +10,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@chapter C4 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
   *@vtable C6 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -81,7 +81,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      *@item C1 l9
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
@@ -105,7 +105,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      *@item C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
@@ -130,7 +130,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
      *@item C1 l15
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,3}
@@ -144,7 +144,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@node C1 l19 {Idx}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -171,7 +171,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *@chapter C5 l20 {Idx}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -186,7 +186,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
   *@printindex C1 l22
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{vr}

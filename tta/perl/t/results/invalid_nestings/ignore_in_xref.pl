@@ -10,7 +10,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
  *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{\\n}
+     |{spaces_before_argument:\\n}
      *@ignore C3 l4
       *arguments_line C1
        *block_line_arg
@@ -43,7 +43,7 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
       *@end C1 l6
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{ignore}
        *line_arg C1

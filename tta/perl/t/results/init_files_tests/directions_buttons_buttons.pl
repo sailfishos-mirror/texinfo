@@ -16,7 +16,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -44,7 +44,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@chapter C4 l7 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -74,7 +74,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
   *@printindex C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -87,7 +87,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@node C1 l11 {@code{append}ix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -104,7 +104,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
  *@appendix C3 l12 {App}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -120,7 +120,7 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{appendix}
   |index_entry:I{cp,1}

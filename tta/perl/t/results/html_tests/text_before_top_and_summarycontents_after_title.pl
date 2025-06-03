@@ -14,7 +14,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
  *@top C4 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -45,7 +45,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
  *@chapter C4 l9 {the chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

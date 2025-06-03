@@ -11,7 +11,7 @@ $result_tree_text{'on_index_entry_line'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C8
@@ -39,7 +39,7 @@ $result_tree_text{'on_index_entry_line'} = '*document_root C1
     *@exdent C1 l1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:

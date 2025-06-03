@@ -10,7 +10,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  *@node C5 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -55,7 +55,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  *@node C4 l9 {chap node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -121,7 +121,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  *@node C4 l16 {other node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -172,7 +172,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -184,7 +184,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  *@node C5 l22 {node up node following second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -222,7 +222,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -237,7 +237,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
  *@node C4 l29 {node following second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -278,7 +278,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

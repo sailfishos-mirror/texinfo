@@ -18,7 +18,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l7
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifhtml}
      >*line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l11
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml}
      >*line_arg C1
@@ -88,7 +88,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l16
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifinfo}
      >*line_arg C1
@@ -109,7 +109,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l20
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnotinfo}
      >*line_arg C1
@@ -130,7 +130,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -151,7 +151,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l29
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{iftex}
      >*line_arg C1
@@ -175,7 +175,7 @@ $result_tree_text{'many_conditionals'} = '*document_root C1
     >*@end C1 l33
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1

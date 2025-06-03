@@ -11,7 +11,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
  *@node C2 l2
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg
    |INFO
@@ -23,14 +23,14 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
 }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
     *@\\n
  *@node C1 l5 {@:}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
  *@node C1 l6 {@asis{ }}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -18,7 +18,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{a simple @code{\\narg}\\n}
    *@code C1 l8:@macrotwo
     *brace_container C2
@@ -69,7 +69,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{arg with comma , here }
    >macro_expansion<end;2><p:72>
   {empty_line:\\n}

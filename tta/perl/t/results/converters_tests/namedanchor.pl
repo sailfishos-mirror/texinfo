@@ -10,7 +10,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@top C5 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -44,7 +44,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *@emph C1 l4
      *brace_container C1
       {n in Top}
@@ -53,7 +53,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -67,7 +67,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@chapter C12 l7 {chapter @namedanchor{Not here!, There} after}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -87,7 +87,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {There}
     {spaces_after_close_brace: }
     {after}
@@ -108,7 +108,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    *brace_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
   *paragraph C3
@@ -117,7 +117,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
    {.\\n}
   {empty_line:\\n}
   *@namedanchor C2 l15
@@ -129,14 +129,14 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     {here we are}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
  *@node C1 l17 {secc1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -150,7 +150,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@section C16 l18 {secc1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -165,7 +165,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   *@xrefautomaticsectiontitle C1 l20
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
@@ -192,7 +192,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {t}
    {\\n}
    *@xref C3 l24
@@ -204,12 +204,12 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {t}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {o}
    {\\n}
   {empty_line:\\n}
@@ -230,7 +230,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {nt}
    {\\n}
    *@xref C3 l28
@@ -242,19 +242,19 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {nt}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {no}
    {\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l30
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{on}
@@ -281,7 +281,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on t}
    {\\n}
    *@xref C3 l34
@@ -293,12 +293,12 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on t}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on o}
    {\\n}
   {empty_line:\\n}
@@ -319,7 +319,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on nt}
    {\\n}
    *@xref C3 l38
@@ -331,12 +331,12 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on nt}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {xat on no}
    {\\n}
   {empty_line:\\n}
@@ -359,7 +359,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@node C1 l43 {chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -373,7 +373,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@chapter C4 l44 {chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -460,7 +460,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    *@end C1 l53
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -472,7 +472,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@node C1 l55 {secc2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -486,7 +486,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
  *@section C1 l56 {Secc2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}

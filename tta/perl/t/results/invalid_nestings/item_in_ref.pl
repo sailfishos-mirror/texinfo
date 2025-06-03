@@ -10,7 +10,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
   *@table C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -40,14 +40,14 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
        *brace_arg C1
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
         {title in first item\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l6
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -56,7 +56,7 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l8 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -77,7 +77,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@chapter C4 l9 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -109,7 +109,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -121,7 +121,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l15 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -135,7 +135,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@section C4 l16 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -167,7 +167,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -179,7 +179,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l22 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -193,7 +193,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@subsection C4 l23 {Subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -236,7 +236,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -248,7 +248,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l30 {Subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -262,7 +262,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@subsubsection C3 l31 {Subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
@@ -279,7 +279,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l34 {Lowered subsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -293,7 +293,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@subsection C4 l35 {Lowered subsec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |level_modifier:{-1}
  |section_heading_number:{1.1.1.2}
@@ -326,7 +326,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
    *@end C1 l39
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -338,7 +338,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@node C1 l41 {Lowered subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -352,7 +352,7 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
  *@subsubsection C4 l42 {Lowered subsubsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |level_modifier:{-1}
  |section_heading_number:{1.1.1.3}

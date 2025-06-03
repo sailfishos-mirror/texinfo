@@ -10,7 +10,7 @@ $result_tree_text{'enumerate_more_letters'} = '*document_root C1
   *@enumerate C804 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |enumerate_specification:{c}
    *arguments_line C1
@@ -4834,7 +4834,7 @@ $result_tree_text{'enumerate_more_letters'} = '*document_root C1
    *@end C1 l804
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1

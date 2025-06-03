@@ -13,7 +13,7 @@ $result_tree_text{'bad_ifclear_argument'} = '*document_root C1
    >*@ifclear C3 l2
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -24,7 +24,7 @@ $result_tree_text{'bad_ifclear_argument'} = '*document_root C1
     >*@end C1 l4
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1

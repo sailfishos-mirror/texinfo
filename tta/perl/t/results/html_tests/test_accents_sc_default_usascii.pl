@@ -14,7 +14,7 @@ $result_tree_text{'test_accents_sc_default_usascii'} = '*document_root C5
    *@documentencoding C1 punctuation_small_case_accents_us_ascii.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{us-ascii}
@@ -28,7 +28,7 @@ $result_tree_text{'test_accents_sc_default_usascii'} = '*document_root C5
  *@node C1 punctuation_small_case_accents_us_ascii.texi:l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'test_accents_sc_default_usascii'} = '*document_root C5
  *@top C2 punctuation_small_case_accents_us_ascii.texi:l6 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -56,7 +56,7 @@ $result_tree_text{'test_accents_sc_default_usascii'} = '*document_root C5
  *@node C1 punctuation_small_case_accents_us_ascii.texi:l8 {node chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -70,7 +70,7 @@ $result_tree_text{'test_accents_sc_default_usascii'} = '*document_root C5
  *@chapter C11 punctuation_small_case_accents_us_ascii.texi:l9 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

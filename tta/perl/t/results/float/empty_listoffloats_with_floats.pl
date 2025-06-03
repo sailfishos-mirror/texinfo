@@ -13,7 +13,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   *@float C3 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -27,14 +27,14 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label1}
    *paragraph C1
     {Label no caption.\\n}
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -46,7 +46,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   *@float C5 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{}
@@ -60,7 +60,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label2}
    *paragraph C1
     {Label and caption.\\n}
@@ -72,7 +72,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -95,7 +95,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

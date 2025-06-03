@@ -20,7 +20,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{documentdescription}
     *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
   *@settitle C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -43,7 +43,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
   *@title C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -55,7 +55,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
   *@center C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -67,7 +67,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
   *@table C3 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
      *@item C1 l11
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C3
       |INFO
       |spaces_after_argument:
@@ -90,7 +90,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
      *@itemx C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C3
       |INFO
       |spaces_after_argument:
@@ -104,7 +104,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -116,7 +116,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
   *@quotation C3 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C3
     |INFO
@@ -130,7 +130,7 @@ $result_tree_text{'line_breaks'} = '*document_root C1
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

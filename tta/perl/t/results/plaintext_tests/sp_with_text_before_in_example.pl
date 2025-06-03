@@ -19,7 +19,7 @@ $result_tree_text{'sp_with_text_before_in_example'} = '*document_root C1
     *@sp C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{4}
      *line_arg C1
@@ -31,7 +31,7 @@ $result_tree_text{'sp_with_text_before_in_example'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

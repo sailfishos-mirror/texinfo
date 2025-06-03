@@ -11,7 +11,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -61,7 +61,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -73,7 +73,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
  *@node C14 l8 {One@asis{::}node@comma{} with entries.}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -96,7 +96,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,1}
@@ -109,7 +109,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,2}
@@ -122,7 +122,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,3}
@@ -143,7 +143,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,4}
@@ -169,7 +169,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,5}
@@ -182,7 +182,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{One_003a_003anode_002c-with-entries_002e}
   |index_entry:I{cp,6}
@@ -198,7 +198,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
  *@node C4 l24 {Concept Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -214,7 +214,7 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   *@printindex C1 l26
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

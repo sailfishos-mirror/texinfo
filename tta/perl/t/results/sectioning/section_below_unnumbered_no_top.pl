@@ -11,7 +11,7 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  *@unnumbered C1 l1 {U}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  *@section C1 l2 {S}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{2}

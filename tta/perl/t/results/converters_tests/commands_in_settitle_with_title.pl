@@ -10,7 +10,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
   *@settitle C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C13
    |INFO
    |spaces_after_argument:
@@ -59,7 +59,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -87,7 +87,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -101,7 +101,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  *@chapter C4 l7 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

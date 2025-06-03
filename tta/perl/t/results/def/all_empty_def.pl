@@ -19,7 +19,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -40,7 +40,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defvr}
     *line_arg C1
@@ -61,7 +61,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
     *line_arg C1
@@ -103,7 +103,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypevr}
     *line_arg C1
@@ -124,7 +124,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defcv}
     *line_arg C1
@@ -145,7 +145,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
     *line_arg C1
@@ -166,7 +166,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
     *line_arg C1
@@ -187,7 +187,7 @@ $result_tree_text{'all_empty_def'} = '*document_root C1
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftp}
     *line_arg C1

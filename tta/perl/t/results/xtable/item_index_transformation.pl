@@ -10,7 +10,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
  *@node C1 l1 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
  *@chapter C9 l2 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
   *@table C4 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -52,7 +52,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,2}
@@ -65,7 +65,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,3}
@@ -78,7 +78,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,1}
@@ -90,7 +90,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l6
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,2}
       *line_arg C1
@@ -101,7 +101,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l7
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -110,7 +110,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -124,7 +124,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -136,7 +136,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -148,7 +148,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
   *@table C4 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -161,7 +161,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,4}
@@ -174,7 +174,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,5}
@@ -186,7 +186,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l17
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,4}
       *line_arg C1
@@ -197,7 +197,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l18
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -206,7 +206,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l19
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -220,7 +220,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l23
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -232,7 +232,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -244,7 +244,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
   *@table C4 l27
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -257,7 +257,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,6}
@@ -270,7 +270,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,7}
@@ -282,7 +282,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l30
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,6}
       *line_arg C1
@@ -293,7 +293,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l31
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -307,7 +307,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l33
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -319,7 +319,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -331,7 +331,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
   *@table C4 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -343,7 +343,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l38
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -358,7 +358,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,8}
@@ -371,7 +371,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,9}
@@ -383,7 +383,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@item C1 l40
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,8}
       *line_arg C1
@@ -394,7 +394,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
      *@itemx C1 l41
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -406,7 +406,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
    *@end C1 l45
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

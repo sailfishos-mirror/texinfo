@@ -18,7 +18,7 @@ $result_tree_text{'command_in_end_expanded_raw_in_command'} = '*document_root C1
     *@end C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:

@@ -10,7 +10,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  *@node C1 l1 {one node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  *@subsection C1 l2 {The subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{3}

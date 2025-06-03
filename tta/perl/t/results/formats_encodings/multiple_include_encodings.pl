@@ -13,7 +13,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *@documentencoding C1 multiple_include_encodings.texi:l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
@@ -35,7 +35,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *@end C1 multiple_include_encodings.texi:l6
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     >*@include C1 multiple_include_encodings.texi:l8
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{documentdescription_EUC_CN.texi}
      >*line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *@documentencoding C1 documentdescription_EUC_CN.texi:l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |input_encoding_name:{euc-cn}
@@ -84,7 +84,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     *@end C1 documentdescription_EUC_CN.texi:l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{documentdescription}
      *line_arg C1
@@ -96,7 +96,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *@documentencoding C1 multiple_include_encodings.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{3}
    |input_encoding_name:{iso-8859-1}
@@ -110,7 +110,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 multiple_include_encodings.texi:l12 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -124,7 +124,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@top C4 multiple_include_encodings.texi:l13 {include files with multiple encodings}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -140,7 +140,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >*@include C1 multiple_include_encodings.texi:l15
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{verbatim_encoded_latin1.texi}
     >*line_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 multiple_include_encodings.texi:l17 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -170,7 +170,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C6 multiple_include_encodings.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -187,7 +187,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >*@include C1 multiple_include_encodings.texi:l20
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_japanese_shift_jis.texi}
     >*line_arg C1
@@ -198,7 +198,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@documentencoding C1 chapter_japanese_shift_jis.texi:l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |input_encoding_name:{shift_jis}
@@ -211,7 +211,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@documentlanguage C1 chapter_japanese_shift_jis.texi:l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{ja}
@@ -225,7 +225,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_japanese_shift_jis.texi:l5 {Preface}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -239,7 +239,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C7 chapter_japanese_shift_jis.texi:l6 {Preface}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -261,7 +261,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_japanese_shift_jis.texi:l13 {Introduction}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -275,7 +275,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C7 chapter_japanese_shift_jis.texi:l14 {Introduction}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -298,7 +298,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >*@include C1 multiple_include_encodings.texi:l22
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_char_latin2_latin2_in_refs.texi}
     >*line_arg C1
@@ -309,7 +309,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@documentencoding C1 chapter_char_latin2_latin2_in_refs.texi:l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |input_encoding_name:{iso-8859-2}
@@ -323,7 +323,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l3 {char latin2 latin2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -338,7 +338,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C9 chapter_char_latin2_latin2_in_refs.texi:l4 {char latin2 latin2 in refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -362,7 +362,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@printindex C1 chapter_char_latin2_latin2_in_refs.texi:l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -394,7 +394,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    *@end C1 chapter_char_latin2_latin2_in_refs.texi:l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -406,7 +406,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l15 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -420,7 +420,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@section C7 chapter_char_latin2_latin2_in_refs.texi:l16 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1}
  |section_level:{2}
@@ -436,7 +436,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}
@@ -454,7 +454,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >*@include C1 multiple_include_encodings.texi:l24
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_chinese_mixed_with_en_EUC_CN.texi}
     >*line_arg C1
@@ -465,7 +465,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@documentencoding C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |input_encoding_name:{euc-cn}
@@ -479,7 +479,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -493,7 +493,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -553,7 +553,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    >*@include C1 multiple_include_encodings.texi:l29
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_chinese_mixed_with_en.texi}
     >*line_arg C1
@@ -564,7 +564,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   *@documentencoding C1 chapter_chinese_mixed_with_en.texi:l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |input_encoding_name:{utf-8}
@@ -578,7 +578,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{8}
@@ -592,7 +592,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  *@chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}

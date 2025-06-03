@@ -10,7 +10,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
  *@node C1 l1 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
  *@chapter C7 l2 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -229,12 +229,12 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l14
@@ -295,12 +295,12 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l17
@@ -554,12 +554,12 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l29
@@ -632,12 +632,12 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l32
@@ -682,12 +682,12 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
    {\\n}
    *@code C1 l35
@@ -722,7 +722,7 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
    {\\n}
    *@code C1 l37

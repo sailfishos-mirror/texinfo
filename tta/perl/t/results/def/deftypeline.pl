@@ -17,7 +17,7 @@ $result_tree_text{'deftypeline'} = '*document_root C1
    *@deftypeline C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypeline}
    |def_index_element:
@@ -71,7 +71,7 @@ $result_tree_text{'deftypeline'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

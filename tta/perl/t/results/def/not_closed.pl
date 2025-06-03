@@ -10,7 +10,7 @@ $result_tree_text{'not_closed'} = '*document_root C1
   *@deffn C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -38,7 +38,7 @@ $result_tree_text{'not_closed'} = '*document_root C1
    *@deffnx C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -66,7 +66,7 @@ $result_tree_text{'not_closed'} = '*document_root C1
     *@defvar C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *def_line C1 l3
      |EXTRA
      |def_command:{defvar}

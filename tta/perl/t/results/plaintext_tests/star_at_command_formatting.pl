@@ -28,7 +28,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -177,7 +177,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -261,7 +261,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'top_node_no_section'} = '*document_root C2
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

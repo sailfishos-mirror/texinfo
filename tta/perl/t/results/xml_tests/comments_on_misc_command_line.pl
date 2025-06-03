@@ -10,7 +10,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@setfilename C1 l1
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
   |EXTRA
   |text_arg:{comments_on_misc_command_line.info}
    *line_arg C1
@@ -24,7 +24,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@definfoenclose C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
    *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@firstparagraphindent C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{none}
@@ -59,7 +59,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@pagesizes C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |comment_at_end:
@@ -71,7 +71,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@everyheading C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C4
    |INFO
    |comment_at_end:

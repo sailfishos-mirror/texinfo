@@ -10,7 +10,7 @@ $result_tree_text{'prototype_brace_no_brace_comment'} = '*document_root C1
   *@multitable C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -25,7 +25,7 @@ $result_tree_text{'prototype_brace_no_brace_comment'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

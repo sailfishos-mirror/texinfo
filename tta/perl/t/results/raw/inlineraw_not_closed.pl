@@ -17,12 +17,12 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aa\\n}
  *@section C1 l2 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

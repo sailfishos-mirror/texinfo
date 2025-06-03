@@ -16,7 +16,7 @@ $result_tree_text{'multitable_in_example'} = '*document_root C1
    *@multitable C3 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
@@ -68,7 +68,7 @@ $result_tree_text{'multitable_in_example'} = '*document_root C1
     *@end C1 l11
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
      *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'multitable_in_example'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

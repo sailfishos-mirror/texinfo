@@ -11,7 +11,7 @@ $result_tree_text{'math_leading_trailing_spaces'} = '*document_root C1
    *@math C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *brace_command_context C1
      {a = b }
 ';

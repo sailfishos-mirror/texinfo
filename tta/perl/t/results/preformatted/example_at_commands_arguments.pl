@@ -10,7 +10,7 @@ $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
   *@example C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C3
     *block_line_arg C13
      {some  thing }
@@ -48,7 +48,7 @@ $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

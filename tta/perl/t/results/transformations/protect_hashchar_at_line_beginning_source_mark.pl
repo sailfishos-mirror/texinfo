@@ -20,7 +20,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
     *@end C1 cpp_directives_line_value_macro.texi:l4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -53,7 +53,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    *@end C1 cpp_directives_line_value_macro.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -86,7 +86,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    *@end C1 cpp_directives_line_value_macro.texi:l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

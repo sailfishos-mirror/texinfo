@@ -26,7 +26,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -37,7 +37,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -56,7 +56,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -67,7 +67,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -78,7 +78,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -132,7 +132,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l32
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -155,7 +155,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l38
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -183,7 +183,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *@exdent C1 l44
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -192,7 +192,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     *@end C1 l45
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -203,7 +203,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l46
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -221,7 +221,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -230,7 +230,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l50
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -250,7 +250,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l54
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -259,7 +259,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l55
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -277,7 +277,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l58
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -288,7 +288,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l60
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -306,7 +306,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l63
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -315,7 +315,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l64
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -324,7 +324,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l65
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -342,7 +342,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l68
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -351,7 +351,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l69
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -360,7 +360,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l70
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -380,7 +380,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l74
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -389,7 +389,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l75
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -407,7 +407,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l78
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -416,7 +416,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@exdent C1 l79
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -425,7 +425,7 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
    *@end C1 l80
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

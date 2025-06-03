@@ -18,7 +18,7 @@ $result_tree_text{'inlinefmt_with_empty_line'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {plaintext `` \\n}
      {empty_line:\\n}
   *paragraph C3
@@ -34,7 +34,7 @@ $result_tree_text{'inlinefmt_with_empty_line'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {in \\n}
      {empty_line:\\n}
   *paragraph C3

@@ -17,7 +17,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{rmacro}
     *line_arg C1
@@ -46,7 +46,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{oto}
    >macro_expansion<start;3>
     >*rmacro_call C2
@@ -57,7 +57,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{tu}
    >macro_expansion<start;4>
     >*rmacro_call C2
@@ -68,7 +68,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{co}
    >macro_expansion<start;5>
     >*rmacro_call C2
@@ -79,7 +79,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{po}
    >macro_expansion<start;6>
     >*rmacro_call C2
@@ -90,7 +90,7 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{to}
    >macro_expansion<end;6><p:4>
    >macro_expansion<end;5><p:6>

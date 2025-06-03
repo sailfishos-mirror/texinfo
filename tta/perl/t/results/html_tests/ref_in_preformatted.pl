@@ -10,7 +10,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
  *@node C6 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -70,7 +70,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
  *@node C1 l12 {chap nnn the node name}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

@@ -10,7 +10,7 @@ $result_tree_text{'symbol_after_command'} = '*document_root C1
   *@table C9 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -80,7 +80,7 @@ $result_tree_text{'symbol_after_command'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

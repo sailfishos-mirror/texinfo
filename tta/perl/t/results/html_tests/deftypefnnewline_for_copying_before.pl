@@ -11,7 +11,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
   *@deftypefnnewline C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
@@ -30,7 +30,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *@deftypefun C3 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *def_line C1 l5
     |EXTRA
     |def_command:{deftypefun}
@@ -68,7 +68,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     *@end C1 l7
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{deftypefun}
      *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1
@@ -91,7 +91,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  *@node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -105,7 +105,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  *@top C2 l11 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -119,7 +119,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  *@node C1 l13 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -133,7 +133,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  *@chapter C4 l14 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -148,7 +148,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
   *@deftypefun C3 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l16
    |EXTRA
    |def_command:{deftypefun}
@@ -186,7 +186,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefun}
     *line_arg C1

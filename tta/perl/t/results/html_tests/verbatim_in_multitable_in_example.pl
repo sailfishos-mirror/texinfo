@@ -16,7 +16,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
    *@multitable C3 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
@@ -24,7 +24,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
       *@columnfractions C1 l2
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |misc_args:A{0.5|0.5}
        *line_arg C1
@@ -66,7 +66,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
         *@end C1 l8
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
         |EXTRA
         |text_arg:{verbatim}
          *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
        *@verbatiminclude C1 l10
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |input_encoding_name:{utf-8}
        |text_arg:{inc_file.texi}
@@ -94,7 +94,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
     *@end C1 l11
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
      *line_arg C1
@@ -105,7 +105,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

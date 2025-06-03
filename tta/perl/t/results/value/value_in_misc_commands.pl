@@ -16,7 +16,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  *@top C2 l4 {top atext}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  *@node C136 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -67,7 +67,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@subheading C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -112,7 +112,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@pagesizes C1 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;3><p:1>{200mm,150mm}
     |>*@value C1
@@ -123,7 +123,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    >*@end C1 l18
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -148,7 +148,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@headings C1 l20
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
@@ -165,7 +165,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@oddfooting C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -180,7 +180,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@everyheading C1 l22
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -210,7 +210,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@need C1 l27
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;8><p:1>{0.1}
     |>*@value C1
@@ -223,7 +223,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    >*@end C1 l28
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
     >*line_arg C1
@@ -282,7 +282,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *@definfoenclose C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{phoo|//|\\\\}
     *line_arg C1
@@ -306,7 +306,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*@end C1 l40
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C1
@@ -323,7 +323,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@definfoenclose C1 l43
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;11><p:1>{phi}
     |>*@value C1
@@ -380,7 +380,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@definfoenclose C1 l52
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;13><p:1>{strong}
     |>*@value C1
@@ -435,7 +435,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@kbdinputstyle C1 l59
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;16><p:1>{code}
     |>*@value C1
@@ -476,7 +476,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *@end C1 l65
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -514,7 +514,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@paragraphindent C1 l73
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;17><p:1>{asis}
     |>*@value C1
@@ -533,7 +533,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@paragraphindent C1 l74
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;18><p:1>{0}
     |>*@value C1
@@ -552,7 +552,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@paragraphindent C1 l75
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;19><p:1>{none}
     |>*@value C1
@@ -571,7 +571,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@paragraphindent C1 l76
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;20><p:1>{4}
     |>*@value C1
@@ -590,7 +590,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@firstparagraphindent C1 l77
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;21><p:1>{none}
     |>*@value C1
@@ -609,7 +609,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@exampleindent C1 l78
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;22><p:1>{6}
     |>*@value C1
@@ -639,7 +639,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@footnotestyle C1 l82
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;23><p:1>{end}
     |>*@value C1
@@ -657,7 +657,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@footnotestyle C1 l83
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;24><p:1>{separate}
     |>*@value C1
@@ -681,7 +681,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@documentencoding C1 l86
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;25><p:1>{ISO-8859-1}
     |>*@value C1
@@ -715,7 +715,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *@documentlanguage C1 l91
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
     |>SOURCEMARKS
     |>value_expansion<start;26><p:2>{en}
      |>*@value C1
@@ -742,7 +742,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    *@documentlanguage C1 l94
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
     |>SOURCEMARKS
     |>value_expansion<end;27>
    |EXTRA
@@ -768,7 +768,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@frenchspacing C1 l99
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;28><p:1>{on}
     |>*@value C1
@@ -787,7 +787,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@frenchspacing C1 l100
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;29><p:1>{off}
     |>*@value C1
@@ -814,7 +814,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@fonttextsize C1 l104
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;30><p:1>{10}
     |>*@value C1
@@ -847,7 +847,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@allowcodebreaks C1 l110
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;31><p:1>{false}
     |>*@value C1
@@ -867,7 +867,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@allowcodebreaks C1 l112
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;32><p:1>{true}
     |>*@value C1
@@ -999,7 +999,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@exdent C1 l136
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<end;39>
    *line_arg C1
@@ -1016,7 +1016,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *@sp C1 l139
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;40><p:1>{2}
     |>*@value C1

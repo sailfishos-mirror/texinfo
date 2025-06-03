@@ -17,7 +17,7 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -45,7 +45,7 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {after}
      >SOURCEMARKS
      >macro_expansion<end;1><p:5>

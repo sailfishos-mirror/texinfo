@@ -10,7 +10,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
  *@top C2 l2 {Element}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
  *@chapter C10 l5 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   *@table C7 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@itemx C1 l9
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -104,7 +104,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l13
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -124,7 +124,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
       *@end C1 l18
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
        *line_arg C1
@@ -137,7 +137,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l19
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -152,7 +152,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l22
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -170,7 +170,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
       *@end C1 l25
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
        *line_arg C1
@@ -184,7 +184,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l27
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -203,7 +203,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
       *@end C1 l31
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
        *line_arg C1
@@ -214,7 +214,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *@end C1 l32
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -226,7 +226,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   *@vtable C3 l34
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -238,7 +238,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l35
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
@@ -254,7 +254,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      |INFO
      |command_name:{vindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
@@ -266,7 +266,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@itemx C1 l38
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,3}
@@ -282,7 +282,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *@end C1 l41
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -293,7 +293,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   *@vtable C3 l42
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -305,7 +305,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l43
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,4}
@@ -319,7 +319,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@itemx C1 l45
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,5}
@@ -336,7 +336,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *@end C1 l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -350,7 +350,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   *@table C4 l52
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -362,7 +362,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l53
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -376,7 +376,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *@item C1 l55
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -388,7 +388,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *@end C1 l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

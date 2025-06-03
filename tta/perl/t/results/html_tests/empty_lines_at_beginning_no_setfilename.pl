@@ -18,7 +18,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
  *@node C1 empty_lines_at_beginning_no_setfilename.texi:l6 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
  *@top C2 empty_lines_at_beginning_no_setfilename.texi:l7 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

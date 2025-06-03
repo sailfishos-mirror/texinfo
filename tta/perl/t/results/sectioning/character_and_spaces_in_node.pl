@@ -11,7 +11,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *@node C1 l3 {chap nodes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -36,7 +36,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{!_"#$%&\'()*+-.}
    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
@@ -44,7 +44,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -54,7 +54,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -62,7 +62,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *@node C1 l4 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -73,7 +73,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{/;<=>?[\\]^_`|~}
    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
@@ -81,7 +81,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{chap nodes}
    |normalized:{chap-nodes}
@@ -91,7 +91,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{chap nodes}
    |normalized:{chap-nodes}
@@ -99,7 +99,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *@node C1 l5 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -122,7 +122,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{chap nodes}
    |normalized:{chap-nodes}
@@ -130,7 +130,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *@node C1 l6 {local   node}
  |INFO
  |spaces_before_argument:
-  |{  }
+  |{spaces_before_argument:  }
  |EXTRA
  |is_target:{1}
  |node_number:{5}

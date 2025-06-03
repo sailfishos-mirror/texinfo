@@ -24,7 +24,7 @@ $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
     *@end C1 l4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
      *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1

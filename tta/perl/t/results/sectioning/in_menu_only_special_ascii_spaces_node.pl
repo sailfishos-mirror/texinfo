@@ -11,7 +11,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *@top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
    *@end C1 in_menu_only_special_ascii_spaces_node.texi:l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -77,7 +77,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -98,7 +98,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

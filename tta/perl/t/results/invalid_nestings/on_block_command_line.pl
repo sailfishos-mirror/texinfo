@@ -10,7 +10,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -48,7 +48,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
   *@quotation C2 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C8
      *@indent l5
@@ -87,7 +87,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
      *@exdent C1 l5
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -96,7 +96,7 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

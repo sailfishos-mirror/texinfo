@@ -11,7 +11,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *@settitle C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@node C3 l3 {Node 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   *@heading C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -48,7 +48,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@node C3 l6 {Node 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -62,7 +62,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
   *@heading C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
@@ -75,7 +75,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@node C1 l9 {Cap 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -89,7 +89,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@chapter C4 l10 {Chapter One}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -132,7 +132,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -144,7 +144,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@node C1 l17 {Cap 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -158,7 +158,7 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  *@chapter C1 l18 {Chapter Two}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

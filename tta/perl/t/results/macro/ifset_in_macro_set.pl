@@ -19,7 +19,7 @@ $result_tree_text{'ifset_in_macro_set'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -36,13 +36,13 @@ $result_tree_text{'ifset_in_macro_set'} = '*document_root C1
     >*brace_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{\\n}
+     >|{spaces_before_argument:\\n}
      >{arg\\n}
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l9:@note
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -57,7 +57,7 @@ $result_tree_text{'ifset_in_macro_set'} = '*document_root C1
    >*@end C1 l9:@note
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifset}
     >*line_arg C1

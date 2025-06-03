@@ -13,7 +13,7 @@ $result_tree_text{'simple_no_eol'} = '*document_root C1
    >*@include C1 l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_file.texi}
     >*line_arg C1

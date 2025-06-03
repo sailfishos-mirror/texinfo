@@ -20,7 +20,7 @@ $result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
     *@end C1 cpp_directives_in_macro.texi:l4
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{\\n}
+      >|{spaces_before_argument:\\n}
       >{#line 100 "in_arg_file"\\n\\n@unknownin\\n}
   {empty_line:\\n}
   {empty_line:\\n}

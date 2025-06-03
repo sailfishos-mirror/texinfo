@@ -10,7 +10,7 @@ $result_tree_text{'sc_with_utf8_enable_encoding'} = '*document_root C1
   *@documentencoding C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{utf-8}

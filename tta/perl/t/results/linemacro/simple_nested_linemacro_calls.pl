@@ -10,7 +10,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
  *@node C7 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -52,7 +52,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -69,18 +69,18 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     >|INFO
     >|command_name:{outside}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:type}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{bracketed_linemacro_arg:a function}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{@inside {X} {Y} ( remaining, type typed )}
     *block_line_arg
     |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *@defline C1 l13:@outside
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -115,18 +115,18 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
       >|INFO
       >|command_name:{inside}
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*line_arg C1
         >{bracketed_linemacro_arg:X}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{bracketed_linemacro_arg:Y}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{( remaining, type typed )}
      *def_arg C1
       *def_line_arg C1
@@ -159,7 +159,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{Top}
     |index_entry:I{cp,1}
@@ -173,7 +173,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

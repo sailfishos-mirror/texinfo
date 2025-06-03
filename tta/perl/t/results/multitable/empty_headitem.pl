@@ -10,7 +10,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
   *@multitable C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{3}
    *arguments_line C1
@@ -18,7 +18,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
      *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{.1|.1|.1}
       *line_arg C1
@@ -75,7 +75,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

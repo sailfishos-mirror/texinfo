@@ -10,7 +10,7 @@ $result_tree_text{'verbatiminclude_and_encoding'} = '*document_root C1
   *@documentencoding C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{utf-8}
@@ -24,7 +24,7 @@ $result_tree_text{'verbatiminclude_and_encoding'} = '*document_root C1
   *@verbatiminclude C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{verbatim_encoded.texi}

@@ -11,7 +11,7 @@ $result_tree_text{'east_asian_in_w'} = '*document_root C1
    *@documentencoding C1 east_asian_in_w.texi:l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}

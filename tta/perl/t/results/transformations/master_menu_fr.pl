@@ -14,7 +14,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *@documentlanguage C1 no_master_menu_fr.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr}
@@ -27,7 +27,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@node C1 no_master_menu_fr.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@top C4 no_master_menu_fr.texi:l6 {max}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -100,7 +100,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
     *@end C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -111,7 +111,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *@end C1 no_master_menu_fr.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@node C1 no_master_menu_fr.texi:l12 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -137,7 +137,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@chapter C4 no_master_menu_fr.texi:l13 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -169,7 +169,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    *@end C1 no_master_menu_fr.texi:l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -181,7 +181,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@node C1 no_master_menu_fr.texi:l19 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -195,7 +195,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  *@section C1 no_master_menu_fr.texi:l20 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}

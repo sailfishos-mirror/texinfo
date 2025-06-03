@@ -11,7 +11,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_comment}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
    *@setfilename C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_and_spaces}
     *line_arg C1
@@ -34,7 +34,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
    *@setfilename C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_space_comment}
     *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
    *@setfilename C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C3
     |INFO
     |spaces_after_argument:

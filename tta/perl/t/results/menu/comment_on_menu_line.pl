@@ -10,7 +10,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   *@menu C3 l3
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -46,7 +46,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -58,7 +58,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  *@chapter C1 l7 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  *@node C1 l8 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

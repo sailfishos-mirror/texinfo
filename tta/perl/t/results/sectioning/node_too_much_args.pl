@@ -10,7 +10,7 @@ $result_tree_text{'node_too_much_args'} = '*document_root C2
  *@node C1 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -21,15 +21,15 @@ $result_tree_text{'node_too_much_args'} = '*document_root C2
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |manual_content:{dir}
     {(}

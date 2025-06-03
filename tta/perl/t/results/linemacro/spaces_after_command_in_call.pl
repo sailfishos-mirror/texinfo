@@ -19,7 +19,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,18 +34,18 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    >|INFO
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@code {d}}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{@ringaccent b}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{rest}
   *@defblock C3 l7:@mylinecommand
    *arguments_line C1
@@ -56,7 +56,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    *@defline C1 l7:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -109,7 +109,7 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    *@end C1 l7:@mylinecommand
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

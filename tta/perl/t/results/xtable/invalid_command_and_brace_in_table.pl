@@ -10,7 +10,7 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
   *@table C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -26,7 +26,7 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

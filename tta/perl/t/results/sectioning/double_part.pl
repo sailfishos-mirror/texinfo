@@ -19,7 +19,7 @@ NodeForward: [U2]
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -33,7 +33,7 @@ NodeForward: [U2]
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -64,7 +64,7 @@ NodeForward: [U2]
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -85,7 +85,7 @@ Prev: [U0]
  *@part C3 l8 {part first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -111,7 +111,7 @@ NodeBack: [U0]
  *@part C3 l11 {part second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}
@@ -128,7 +128,7 @@ NodeBack: [U0]
  *@node C1 l14 {node chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -142,7 +142,7 @@ NodeBack: [U0]
  *@chapter C2 l15 {chapter after 2 parts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

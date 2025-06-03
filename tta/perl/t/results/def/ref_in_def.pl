@@ -11,7 +11,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
  *@node C6 l2 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
   *@deffn C4 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l4
    |EXTRA
    |def_command:{deffn}
@@ -92,7 +92,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
    *@deffnx C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -160,7 +160,7 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

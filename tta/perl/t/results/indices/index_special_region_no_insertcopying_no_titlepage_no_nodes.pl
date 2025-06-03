@@ -22,7 +22,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_region:{copying}
     |index_entry:I{cp,1}
@@ -65,7 +65,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
@@ -79,7 +79,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     *@printindex C1 index_special_region_no_insertcopying.texi:l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
     |misc_args:A{cp}
@@ -92,7 +92,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     *@printindex C1 index_special_region_no_insertcopying.texi:l17
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{cp}
@@ -104,7 +104,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     *@printindex C1 index_special_region_no_insertcopying.texi:l18
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{3}
     |misc_args:A{fn}
@@ -117,7 +117,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     *@end C1 index_special_region_no_insertcopying.texi:l20
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -137,7 +137,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_region:{titlepage}
     |index_entry:I{cp,3}
@@ -178,7 +178,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{titlepage}
        |index_entry:I{cp,4}
@@ -196,7 +196,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     *@end C1 index_special_region_no_insertcopying.texi:l34
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
      *line_arg C1
@@ -208,7 +208,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
  *@node C1 index_special_region_no_insertcopying.texi:l36 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -222,7 +222,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
  *@top C1 index_special_region_no_insertcopying.texi:l37 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -235,7 +235,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
  *@chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -265,7 +265,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{fn,1}
@@ -299,7 +299,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
       *bracketed_arg index_special_region_no_insertcopying.texi:l48
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
    *@deffnx C1 index_special_region_no_insertcopying.texi:l49
    |EXTRA
    |def_command:{deffn}
@@ -327,7 +327,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
    *@end C1 index_special_region_no_insertcopying.texi:l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -354,7 +354,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
      *@item C1 index_special_region_no_insertcopying.texi:l55
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{Top}
      |index_entry:I{fn,2}
@@ -366,7 +366,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
    *@end C1 index_special_region_no_insertcopying.texi:l56
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
     *line_arg C1
@@ -395,7 +395,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
    *@end C1 index_special_region_no_insertcopying.texi:l60
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -407,7 +407,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
  *@node C1 index_special_region_no_insertcopying.texi:l62 {Copying and indices}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -421,7 +421,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
  *@appendix C15 index_special_region_no_insertcopying.texi:l63 {Copying and indices}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -440,7 +440,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-indices}
   |index_entry:I{fn,3}
@@ -454,7 +454,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-indices}
   |index_entry:I{cp,5}

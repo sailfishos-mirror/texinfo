@@ -13,7 +13,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{%bm_AA}
@@ -25,7 +25,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |text_arg:{cu*_FR}
@@ -37,7 +37,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{3}
    |text_arg:{_JP}
@@ -49,7 +49,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{4}
    |text_arg:{*_ZM}
@@ -61,7 +61,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{5}
    |text_arg:{tia_JJ}
@@ -73,7 +73,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{6}
    |text_arg:{fr_}
@@ -85,7 +85,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{7}
    |text_arg:{be_}
@@ -97,7 +97,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{8}
    |text_arg:{de_*}
@@ -109,7 +109,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{9}
    |text_arg:{it_G%}
@@ -121,7 +121,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{10}
    |text_arg:{it_FR^}
@@ -133,7 +133,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{11}
    |text_arg:{en_US !}
@@ -145,7 +145,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{12}
    |text_arg:{ab gh}
@@ -157,7 +157,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l14
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |global_command_number:{13}
    |text_arg:{es}
@@ -170,7 +170,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{14}
    |text_arg:{az}
@@ -182,7 +182,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{15}
    |text_arg:{bhÃ©}
@@ -194,7 +194,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{16}
    |text_arg:{AB_FR}
@@ -206,7 +206,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{17}
    |text_arg:{ab_us}
@@ -226,7 +226,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
  *@node C1 l21 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -240,7 +240,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
  *@top C4 l22 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -254,7 +254,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
   *@defivar C2 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l24
    |EXTRA
    |def_command:{defivar}
@@ -307,7 +307,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
     *line_arg C1

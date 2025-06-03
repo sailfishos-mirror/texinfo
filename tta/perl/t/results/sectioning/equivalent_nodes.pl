@@ -10,7 +10,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
  *@node C4 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -23,7 +23,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{@emph{node}}
    |normalized:{node}
@@ -53,7 +53,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -65,7 +65,7 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
  *@node C3 l7 {@samp{node}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

@@ -10,7 +10,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
  *@node C1 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
  *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
       *@end C1 l10
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -83,7 +83,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
      *@table C4 l11
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -98,7 +98,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
         *@item C1 l13
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -112,7 +112,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
       *@end C1 l17
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
        *line_arg C1
@@ -134,7 +134,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
        *@end C1 l22
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
         *line_arg C1
@@ -152,7 +152,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
       *@end C1 l25
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{verbatim}
        *line_arg C1
@@ -163,7 +163,7 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

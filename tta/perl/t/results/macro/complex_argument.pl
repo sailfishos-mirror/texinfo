@@ -17,7 +17,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -59,7 +59,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -87,7 +87,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@pagesizes C1 l38:@macrothree
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -107,7 +107,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@headings C1 l38:@macrothree
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
@@ -136,7 +136,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l38:@macrothree
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -154,7 +154,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l38:@macrothree
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ignore}
     *line_arg C1
@@ -172,7 +172,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    *@end C1 l38:@macrothree
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -194,7 +194,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      >*@end C1 l38:@macrothree
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifinfo}
       >*line_arg C1
@@ -213,7 +213,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      >*@end C1 l38:@macrothree
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{iftex}
       >*line_arg C1

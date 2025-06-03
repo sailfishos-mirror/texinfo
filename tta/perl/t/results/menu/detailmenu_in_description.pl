@@ -47,7 +47,7 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
     *@end C1 l6
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -58,7 +58,7 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

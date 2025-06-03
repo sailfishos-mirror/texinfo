@@ -10,7 +10,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@top C4 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -78,7 +78,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@node C1 l9 {Chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -92,7 +92,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@chapter C4 l10 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -124,7 +124,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -136,7 +136,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@node C1 l16 {Sec in chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -150,7 +150,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@section C2 l17 {Sec in chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -165,7 +165,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@node C1 l19 {Section non auto}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -177,7 +177,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Chap1}
    |normalized:{Chap1}
@@ -187,7 +187,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -195,7 +195,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  *@section C1 l20 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}

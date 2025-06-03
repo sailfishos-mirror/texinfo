@@ -11,7 +11,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'nodes_no_section_footnote_no_top_node_output'} = '*document_r
  *@node C3 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

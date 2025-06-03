@@ -13,7 +13,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *@documentencoding C1 chinese_mixed_with_en_EUC_CN.texi:l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{euc-cn}
@@ -26,7 +26,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    *@settitle C1 chinese_mixed_with_en_EUC_CN.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -36,7 +36,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  *@node C1 chinese_mixed_with_en_EUC_CN.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  *@top C4 chinese_mixed_with_en_EUC_CN.texi:l6 {Mixed chinese and english}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  *@node C1 chinese_mixed_with_en_EUC_CN.texi:l10 {Mixed english and chinese}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -81,7 +81,7 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
  *@chapter C19 chinese_mixed_with_en_EUC_CN.texi:l11 {Mixed english and chinese}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

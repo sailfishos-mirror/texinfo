@@ -17,7 +17,7 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_set'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_set'} = '*document_root C1
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      |>SOURCEMARKS
      |>macro_expansion<end;2>
    {. After.\\n}

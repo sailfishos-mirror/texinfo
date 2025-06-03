@@ -11,7 +11,7 @@ $result_tree_text{'subentries'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'subentries'} = '*document_root C5
  *@node C1 l4 {chapter index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -50,7 +50,7 @@ $result_tree_text{'subentries'} = '*document_root C5
  *@chapter C14 l5 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{cp,1}
@@ -79,7 +79,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{cp,2}
@@ -89,7 +89,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -99,7 +99,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{cp,3}
@@ -109,14 +109,14 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C3
       {e---ee}
       {ignorable_spaces_before_command: }
       *@subentry C1 l9
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -126,7 +126,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{cp,4}
@@ -136,21 +136,21 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l10
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C3
       {h---hh jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l10
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C3
         {k---kk}
         {ignorable_spaces_before_command: }
         *@subentry C1 l10
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -161,7 +161,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{fn,1}
@@ -174,7 +174,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{fn,2}
@@ -184,7 +184,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l13
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -194,7 +194,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{fn,3}
@@ -204,14 +204,14 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l14
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C3
       {f---eee}
       {ignorable_spaces_before_command: }
       *@subentry C1 l14
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -221,7 +221,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-index}
   |index_entry:I{fn,4}
@@ -231,21 +231,21 @@ $result_tree_text{'subentries'} = '*document_root C5
     *@subentry C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C3
       {f---hhh fjjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l15
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C3
         {f---kkk}
         {ignorable_spaces_before_command: }
         *@subentry C1 l15
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -255,7 +255,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   *@printindex C1 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -267,7 +267,7 @@ $result_tree_text{'subentries'} = '*document_root C5
   *@printindex C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}

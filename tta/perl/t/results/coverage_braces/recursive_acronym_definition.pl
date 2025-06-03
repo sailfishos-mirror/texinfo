@@ -14,21 +14,21 @@ $result_tree_text{'recursive_acronym_definition'} = '*document_root C1
     *brace_arg C2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@acronym C2 l1
       *brace_arg C1
        {GNU}
       *brace_arg C2
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *@acronym C2 l1
         *brace_arg C1
          {GNU}
         *brace_arg C1
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          {is something}
        {\'s Not Unix}
      {\'s Not Unix}

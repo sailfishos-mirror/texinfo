@@ -14,7 +14,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
   *@float C5 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A}
@@ -29,7 +29,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {B}
    *paragraph C1
     {in float\\n}
@@ -41,7 +41,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

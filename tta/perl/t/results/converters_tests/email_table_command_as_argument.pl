@@ -10,7 +10,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
   *@table C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C3
       |INFO
       |spaces_after_argument:
@@ -36,7 +36,7 @@ $result_tree_text{'email_table_command_as_argument'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

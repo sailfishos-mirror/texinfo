@@ -10,7 +10,7 @@ $result_tree_text{'unknown_synindex'} = '*document_root C1
   *@synindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     {c truc}
 ';

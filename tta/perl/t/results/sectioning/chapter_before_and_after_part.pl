@@ -16,7 +16,7 @@ FastForward: [U1]
  *@chapter C2 l1 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -37,7 +37,7 @@ FastBack: [U0]
  *@part C2 l3 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -52,7 +52,7 @@ FastBack: [U0]
  *@chapter C3 l5 {chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

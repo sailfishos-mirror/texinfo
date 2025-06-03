@@ -11,7 +11,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *@node C1 l1 {node before}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *@top C4 l2 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *@node C4 l6 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -60,7 +60,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *@node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -74,7 +74,7 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  *@chapter C3 l11 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

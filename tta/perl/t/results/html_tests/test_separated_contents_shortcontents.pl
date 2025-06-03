@@ -16,7 +16,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -44,7 +44,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -58,7 +58,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@chapter C2 l7 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@node C1 l9 {app}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -87,7 +87,7 @@ $result_tree_text{'test_separated_contents_shortcontents'} = '*document_root C7
  *@appendix C3 l10 {appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}

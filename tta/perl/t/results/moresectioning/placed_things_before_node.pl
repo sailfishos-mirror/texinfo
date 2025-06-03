@@ -66,7 +66,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   *@float C3 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -80,14 +80,14 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {float anchor}
    *paragraph C1
     {In float\\n}
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -126,7 +126,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -139,7 +139,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
@@ -151,7 +151,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  *@node C1 l30 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -165,7 +165,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  *@top C2 l31 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -179,7 +179,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  *@node C1 l33 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -193,7 +193,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  *@chapter C5 l34 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

@@ -13,7 +13,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifset C1 l1
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -27,7 +27,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l3
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifcommanddefined C3 l5
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -52,7 +52,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l7
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
      >*line_arg C1
@@ -64,7 +64,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifcommandnotdefined C1 l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -80,7 +80,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommandnotdefined}
      >*line_arg C1
@@ -94,7 +94,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifcommanddefined C1 l12
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -110,7 +110,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l14
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
      >*line_arg C1
@@ -122,7 +122,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@ifcommandnotdefined C3 l15
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -133,7 +133,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
      >*@end C1 l17
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifcommandnotdefined}
       >*line_arg C1
@@ -147,7 +147,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifcommanddefined C3 l19
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -158,7 +158,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l21
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
      >*line_arg C1
@@ -170,7 +170,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >*@ifcommandnotdefined C1 l22
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -186,7 +186,7 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
     >*@end C1 l24
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommandnotdefined}
      >*line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
   *@float C7 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{entrée}
@@ -30,7 +30,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {premi}
      *@` C1 l1
       *following_arg C1
@@ -68,7 +68,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
   *@listoffloats C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{entrée}
   |global_command_number:{1}

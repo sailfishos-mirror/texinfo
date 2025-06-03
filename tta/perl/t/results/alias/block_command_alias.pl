@@ -10,7 +10,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
   *@alias C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{lang|lisp}
    *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'block_command_alias'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{lang}
      *line_arg C1

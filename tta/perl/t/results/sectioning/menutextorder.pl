@@ -38,7 +38,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -50,7 +50,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l6 {bar}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -64,7 +64,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@chapter C4 l7 {bar}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -96,7 +96,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -108,7 +108,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l13 {onesub1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -122,7 +122,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@section C2 l14 {One sub 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -137,7 +137,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l16 {onesub2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -151,7 +151,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@section C3 l17 {One sub 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -167,7 +167,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l20 {foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -181,7 +181,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@chapter C4 l21 {foo}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -235,7 +235,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -247,7 +247,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l29 {sub1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -261,7 +261,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@section C2 l30 {Sub1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -276,7 +276,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l32 {sub2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -290,7 +290,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@section C2 l33 {Sub2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.2}
  |section_level:{2}
@@ -305,7 +305,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@node C1 l35 {sub3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -319,7 +319,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  *@section C1 l36 {Sub3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.3}
  |section_level:{2}

@@ -11,7 +11,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *@syncodeindex C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{cp|fn}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  *@node C1 l6 {Chapter index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  *@chapter C55 l7 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -83,7 +83,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    *@defindex C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{truc}
     *line_arg C1
@@ -97,7 +97,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{trucindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{truc,1}
@@ -110,7 +110,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@defcodeindex C1 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{codeidx}
    *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{codeidxindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{codeidx,1}
@@ -150,7 +150,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{cp,1}
@@ -163,7 +163,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@syncodeindex C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{ky|pg}
    *line_arg C1
@@ -176,7 +176,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{kindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{ky,1}
@@ -189,7 +189,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{pindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{pg,1}
@@ -202,7 +202,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@synindex C1 l26
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{truc|cp}
    *line_arg C1
@@ -214,7 +214,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@defindex C1 l28
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{abc}
    *line_arg C1
@@ -225,7 +225,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@defindex C1 l29
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{defg}
    *line_arg C1
@@ -237,7 +237,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@synindex C1 l31
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{abc|defg}
    *line_arg C1
@@ -248,7 +248,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@synindex C1 l32
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{defg|ky}
    *line_arg C1
@@ -261,7 +261,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{defgindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{defg,1}
@@ -275,7 +275,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   |INFO
   |command_name:{abcindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{abc,1}
@@ -290,7 +290,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l39
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{pg}
@@ -305,7 +305,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l42
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{ky}
@@ -320,7 +320,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l45
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{truc}
@@ -335,7 +335,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l48
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{truc}
@@ -350,7 +350,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l51
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{cp}
@@ -365,7 +365,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l54
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
@@ -380,7 +380,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l57
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{defg}
@@ -395,7 +395,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l60
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{abc}
@@ -410,7 +410,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   *@printindex C1 l63
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{fn}

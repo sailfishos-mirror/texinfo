@@ -10,7 +10,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
   *@table C5 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -22,7 +22,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
        *@set C2
        |INFO
@@ -38,7 +38,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l5
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
        {cjj }
        *@set C2
@@ -54,7 +54,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l7
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
        {cvvv }
        *@set C2
@@ -65,7 +65,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -77,7 +77,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
   *@table C5 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -89,7 +89,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l11
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
        *@set C2
        |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l14
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
        {jj }
        *@set C2
@@ -121,7 +121,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      *@item C1 l16
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C2
        {vvv }
        *@set C2
@@ -132,7 +132,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

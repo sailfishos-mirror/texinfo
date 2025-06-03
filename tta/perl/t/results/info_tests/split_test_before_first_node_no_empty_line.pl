@@ -11,7 +11,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{split_test_before_first_node_no_empty_line.info}
     *line_arg C1
@@ -25,7 +25,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  *@top C6 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  *@node C1 l13 {chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -99,7 +99,7 @@ $result_tree_text{'split_test_before_first_node_no_empty_line'} = '*document_roo
  *@chapter C4 l14 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

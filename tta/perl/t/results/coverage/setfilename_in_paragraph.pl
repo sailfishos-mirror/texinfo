@@ -12,7 +12,7 @@ $result_tree_text{'setfilename_in_paragraph'} = '*document_root C1
   *@setfilename C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{setfilename_in_paragraph.info}
    *line_arg C1

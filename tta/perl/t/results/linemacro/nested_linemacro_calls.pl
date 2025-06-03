@@ -17,7 +17,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -54,18 +54,18 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
     >|INFO
     >|command_name:{outside}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:type}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{bracketed_linemacro_arg:@inside {X} {Y}}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{( remaining, type typed )}
     *block_line_arg
     |INFO
@@ -74,7 +74,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
    *@defline C1 l11:@outside
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -99,13 +99,13 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
         >|INFO
         >|command_name:{inside}
         >|spaces_before_argument:
-         >|{ }
+         >|{spaces_before_argument: }
          >*line_arg C1
           >{bracketed_linemacro_arg:X}
          >*line_arg C1
          >|INFO
          >|spaces_before_argument:
-          >|{ }
+          >|{spaces_before_argument: }
           >{{Y}} ( remaining, type typed )}
      {spaces: }
      {delimiter:(}
@@ -131,20 +131,20 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      |>SOURCEMARKS
      |>linemacro_expansion<start;3><p:1>
       |>*linemacro_call C2
       |>|INFO
       |>|command_name:{inside}
       |>|spaces_before_argument:
-       |>|{ }
+       |>|{spaces_before_argument: }
        |>*line_arg C1
         |>{bracketed_linemacro_arg:X}
        |>*line_arg C1
        |>|INFO
        |>|spaces_before_argument:
-        |>|{ }
+        |>|{spaces_before_argument: }
         |>{bracketed_linemacro_arg:Y}
         |>>SOURCEMARKS
         |>>linemacro_expansion<end;1><p:3>
@@ -160,7 +160,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

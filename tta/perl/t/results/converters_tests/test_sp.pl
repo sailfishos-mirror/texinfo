@@ -12,7 +12,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *@sp C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *@sp C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *@sp C1 l8
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
    *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *@sp C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
    *line_arg C1
@@ -73,7 +73,7 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *@sp C1 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
    *line_arg C1

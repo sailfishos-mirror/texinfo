@@ -25,7 +25,7 @@ $result_tree_text{'flushright_example_nested'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{flushright}
      *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'flushright_example_nested'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -64,7 +64,7 @@ $result_tree_text{'flushright_example_nested'} = '*document_root C1
     *@end C1 l13
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -75,7 +75,7 @@ $result_tree_text{'flushright_example_nested'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1

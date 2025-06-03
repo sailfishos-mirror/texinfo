@@ -17,7 +17,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {iclear first }
    {.\\n}
   {empty_line:\\n}
@@ -57,7 +57,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {ifset second }
    {.\\n}
 ';

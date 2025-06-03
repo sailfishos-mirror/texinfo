@@ -10,7 +10,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -45,7 +45,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -57,7 +57,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *@node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -72,7 +72,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *@chapter C36 l9 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -109,7 +109,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -182,7 +182,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    *@end C1 l61
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -226,7 +226,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{chap}
    |index_entry:I{fn,1}
@@ -243,7 +243,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   *@printindex C1 l76
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -255,7 +255,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   *@printindex C1 l77
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
@@ -268,7 +268,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   *@listoffloats C1 l79
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Figs}
   |global_command_number:{1}

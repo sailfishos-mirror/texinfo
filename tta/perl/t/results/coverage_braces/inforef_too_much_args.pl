@@ -10,7 +10,7 @@ $result_tree_text{'inforef_too_much_args'} = '*document_root C2
  *@node C3 l1 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -31,12 +31,12 @@ $result_tree_text{'inforef_too_much_args'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name, spurious arg}
    {\\n}
 ';

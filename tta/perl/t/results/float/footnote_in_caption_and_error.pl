@@ -11,7 +11,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
  *@node C5 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -40,7 +40,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
   *@listoffloats C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{fl}
   |global_command_number:{1}
@@ -53,7 +53,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
   *@float C5 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{fl}
@@ -68,7 +68,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label}
    *paragraph C1
     {In float.\\n}
@@ -87,7 +87,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

@@ -17,7 +17,7 @@ $result_tree_text{'paragraphindent'} = '*document_root C1
   *@paragraphindent C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}
@@ -34,7 +34,7 @@ $result_tree_text{'paragraphindent'} = '*document_root C1
   *@paragraphindent C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{0}
@@ -51,7 +51,7 @@ $result_tree_text{'paragraphindent'} = '*document_root C1
   *@paragraphindent C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{7}

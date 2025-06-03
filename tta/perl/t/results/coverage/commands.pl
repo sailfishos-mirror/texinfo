@@ -51,7 +51,7 @@ $result_tree_text{'commands'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b}
    { }
    *@code C1 l5
@@ -68,7 +68,7 @@ $result_tree_text{'commands'} = '*document_root C1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C2
@@ -82,7 +82,7 @@ $result_tree_text{'commands'} = '*document_root C1
   *@majorheading C1 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}

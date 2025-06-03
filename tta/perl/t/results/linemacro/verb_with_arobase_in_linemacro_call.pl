@@ -17,7 +17,7 @@ $result_tree_text{'verb_with_arobase_in_linemacro_call'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'verb_with_arobase_in_linemacro_call'} = '*document_root C1
    >|INFO
    >|command_name:{mycommand}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{@verb{@ in verb @} and next\\n}
   *paragraph C3

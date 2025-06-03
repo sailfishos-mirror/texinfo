@@ -11,7 +11,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr_NOWHERE}
@@ -24,7 +24,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
  *@node C3 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
   *@defivar C2 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l6
    |EXTRA
    |def_command:{defivar}
@@ -106,7 +106,7 @@ $result_tree_text{'unknown_region'} = '*document_root C3
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
     *line_arg C1

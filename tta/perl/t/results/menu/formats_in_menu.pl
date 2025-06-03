@@ -10,7 +10,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
  *@node C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -43,7 +43,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
      *@table C3 l5
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
         *@item C1 l6
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -67,7 +67,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       *@end C1 l8
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
        *line_arg C1
@@ -101,7 +101,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       *@end C1 l14
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{verbatim}
        *line_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
        *@end C1 l19
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
         *line_arg C1
@@ -173,7 +173,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
      *@end C1 l27
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -186,7 +186,7 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
    *@end C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

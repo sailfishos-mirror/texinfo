@@ -33,7 +33,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
  *@node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -47,7 +47,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
  *@node C18 l11 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -66,7 +66,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
     >*@include C1 l13
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >|>SOURCEMARKS
      >|>value_expansion<start;1><p:1>{incl-incl.txi}
       >|>*@value C1
@@ -94,7 +94,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *@verbatiminclude C1 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;2><p:1>{incl-incl.txi}
     |>*@value C1
@@ -119,7 +119,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
     >*@include C1 l18
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >|>SOURCEMARKS
      >|>value_expansion<start;3><p:1>{incl-incl.tx}
       >|>*@value C1
@@ -147,7 +147,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *@verbatiminclude C1 l20
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>value_expansion<start;4><p:1>{incl-incl.tx}
     |>*@value C1
@@ -172,7 +172,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
     >*@include C1 l23
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{incl-incl.txi}
      >*line_arg C1
@@ -199,7 +199,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *@verbatiminclude C1 l25
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}

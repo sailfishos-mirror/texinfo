@@ -10,7 +10,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
   *@center C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -24,7 +24,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
   *@center C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -39,7 +39,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
   *@center C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -54,7 +54,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
   *@center C1 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -108,7 +108,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1
@@ -120,7 +120,7 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
   *@center C1 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -133,22 +133,22 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:\\n}
   *@center C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -162,22 +162,22 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:  \\n}
   *@center C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
    |INFO
    |spaces_after_argument:
@@ -191,22 +191,22 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:\\n}
   *@center C1 l25
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -220,15 +220,15 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
     { iiiii}
@@ -249,15 +249,15 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
     {\\n}
@@ -272,15 +272,15 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
     { gggg }
@@ -292,15 +292,15 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
     {\\n}
@@ -315,22 +315,22 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
       {txt}
     { JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ\\n}
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1

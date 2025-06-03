@@ -15,7 +15,7 @@ $result_tree_text{'paragraphindent_asis_first'} = '*document_root C1
   *@paragraphindent C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}

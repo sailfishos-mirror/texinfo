@@ -14,7 +14,7 @@ $result_tree_text{'simplest_test_prefix'} = '*document_root C3
  *@node C4 simplest.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

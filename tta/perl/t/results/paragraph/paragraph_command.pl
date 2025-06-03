@@ -38,7 +38,7 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
   *@definfoenclose C1 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{foo|\\|//}
    *line_arg C1

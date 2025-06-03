@@ -14,7 +14,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    *@setfilename C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{encoding_index_ascii.info}
     *line_arg C1
@@ -25,7 +25,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    *@documentencoding C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{us-ascii}
@@ -39,7 +39,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -53,7 +53,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
  *@top C1 l6 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
  *@node C61 l7 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -83,7 +83,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,1}
@@ -102,7 +102,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,2}
@@ -127,7 +127,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,3}
@@ -155,7 +155,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,4}
@@ -168,7 +168,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,5}
@@ -181,7 +181,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,6}
@@ -194,7 +194,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,7}
@@ -207,7 +207,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,8}
@@ -220,7 +220,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,9}
@@ -233,7 +233,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,10}
@@ -246,7 +246,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,11}
@@ -259,7 +259,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,12}
@@ -272,7 +272,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,13}
@@ -285,7 +285,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,14}
@@ -298,7 +298,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,15}
@@ -311,7 +311,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,16}
@@ -324,7 +324,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,17}
@@ -337,7 +337,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,18}
@@ -350,7 +350,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,19}
@@ -363,7 +363,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,20}
@@ -376,7 +376,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,21}
@@ -389,7 +389,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,22}
@@ -402,7 +402,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,23}
@@ -415,7 +415,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,24}
@@ -428,7 +428,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,25}
@@ -441,7 +441,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,26}
@@ -454,7 +454,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,27}
@@ -467,7 +467,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,28}
@@ -480,7 +480,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,29}
@@ -493,7 +493,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,30}
@@ -506,7 +506,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,31}
@@ -519,7 +519,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,32}
@@ -533,7 +533,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,33}
@@ -547,7 +547,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,34}
@@ -567,7 +567,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,35}
@@ -591,7 +591,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,36}
@@ -605,7 +605,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,37}
@@ -619,7 +619,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,38}
@@ -633,7 +633,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,39}
@@ -647,7 +647,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,40}
@@ -661,7 +661,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,41}
@@ -675,7 +675,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,42}
@@ -689,7 +689,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,43}
@@ -703,7 +703,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,44}
@@ -717,7 +717,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,45}
@@ -730,7 +730,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,46}
@@ -743,7 +743,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,47}
@@ -757,7 +757,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,48}
@@ -771,7 +771,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,49}
@@ -785,7 +785,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,50}
@@ -798,7 +798,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,51}
@@ -811,7 +811,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,52}
@@ -824,7 +824,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,53}
@@ -837,7 +837,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,54}
@@ -850,7 +850,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,55}
@@ -863,7 +863,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,56}
@@ -876,7 +876,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,57}
@@ -889,7 +889,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
   *@printindex C1 l67
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

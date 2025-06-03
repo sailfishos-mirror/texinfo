@@ -19,7 +19,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{  }
+    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'space_before_end'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1

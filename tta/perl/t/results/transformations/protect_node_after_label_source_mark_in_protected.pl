@@ -17,7 +17,7 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

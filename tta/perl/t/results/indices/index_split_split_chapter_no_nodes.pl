@@ -14,7 +14,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -29,7 +29,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@top C13 index_split.texi:l4 {split indices}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -43,7 +43,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,1}
@@ -56,7 +56,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -69,7 +69,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
@@ -85,7 +85,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
@@ -137,7 +137,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *@end C1 index_split.texi:l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -149,7 +149,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C10 index_split.texi:l21 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -168,7 +168,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,2}
@@ -181,7 +181,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,3}
@@ -194,7 +194,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{fn,1}
@@ -207,7 +207,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,4}
@@ -220,7 +220,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l29
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
@@ -233,7 +233,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l31
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{fn}
@@ -247,7 +247,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{cp,5}
@@ -260,7 +260,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@chapter C7 index_split.texi:l35 {First chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -275,7 +275,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{fn,2}
@@ -288,7 +288,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{cp,6}
@@ -301,7 +301,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{fn,3}
@@ -386,7 +386,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *@end C1 index_split.texi:l47
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -398,7 +398,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l49 {section 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -413,7 +413,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@section C11 index_split.texi:l50 {Section 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -429,7 +429,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-1}
   |index_entry:I{cp,7}
@@ -470,7 +470,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    *@end C1 index_split.texi:l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -484,7 +484,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l60
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
@@ -498,7 +498,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-1}
   |index_entry:I{cp,8}
@@ -511,7 +511,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l64 {subsection 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -525,7 +525,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@subsection C4 index_split.texi:l65 {Subsection 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -543,7 +543,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l69 {subsection 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -558,7 +558,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@subsection C10 index_split.texi:l70 {Subsection 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.2}
  |section_level:{3}
@@ -577,7 +577,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{subsection-2}
   |index_entry:I{cp,9}
@@ -590,7 +590,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l76
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{cp}
@@ -604,7 +604,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{subsection-2}
   |index_entry:I{cp,10}
@@ -617,7 +617,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l80 {section 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -631,7 +631,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@section C4 index_split.texi:l81 {Section 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -649,7 +649,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l85 {section 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -664,7 +664,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@section C6 index_split.texi:l86 {Section 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}
@@ -680,7 +680,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-3}
   |index_entry:I{cp,11}
@@ -693,7 +693,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l90
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{cp}
@@ -706,7 +706,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C5 index_split.texi:l92 {node in section 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{8}
@@ -733,7 +733,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-section-3}
   |index_entry:I{cp,12}
@@ -748,7 +748,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C13 index_split.texi:l97 {node 2 in section 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -772,7 +772,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,13}
@@ -787,7 +787,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l102
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{cp}
@@ -801,7 +801,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,14}
@@ -814,7 +814,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   *@printindex C1 index_split.texi:l106
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{10}
   |misc_args:A{cp}
@@ -828,7 +828,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,15}
@@ -841,7 +841,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C4 index_split.texi:l110 {node 3 in section 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{10}
@@ -864,7 +864,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-3-in-section-3}
   |index_entry:I{cp,16}
@@ -877,7 +877,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@node C1 index_split.texi:l114 {second chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{11}
@@ -891,7 +891,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  *@chapter C4 index_split.texi:l115 {Second chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

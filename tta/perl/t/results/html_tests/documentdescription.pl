@@ -50,7 +50,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{documentdescription}
     *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'documentdescription'} = '*document_root C2
  *@top C1 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

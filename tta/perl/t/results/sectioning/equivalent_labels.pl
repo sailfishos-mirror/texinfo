@@ -10,7 +10,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
  *@node C8 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -36,7 +36,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
   *@float C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{truc}
@@ -51,14 +51,14 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {floa}
    *paragraph C1
     {In float\\n}
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -100,7 +100,7 @@ $result_tree_text{'equivalent_labels'} = '*document_root C2
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

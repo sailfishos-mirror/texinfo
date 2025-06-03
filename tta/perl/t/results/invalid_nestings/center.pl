@@ -10,7 +10,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C6
    |INFO
    |spaces_after_argument:
@@ -39,14 +39,14 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     {center }
     *index_entry_command@cindex C1 l3
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
      *line_arg C1
@@ -58,7 +58,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     *@quotation C1 l5
      *arguments_line C1
@@ -72,13 +72,13 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     {center }
     *@center C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     *@code C1 l11
      *brace_container C1
@@ -99,7 +99,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     *@code C1 l15
      *brace_container C1
@@ -107,7 +107,7 @@ $result_tree_text{'center'} = '*document_root C1
     *@center C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -122,7 +122,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -132,7 +132,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@table C3 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -143,7 +143,7 @@ $result_tree_text{'center'} = '*document_root C1
     *@center C1 l22
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C3
      |INFO
      |spaces_after_argument:
@@ -154,7 +154,7 @@ $result_tree_text{'center'} = '*document_root C1
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -166,7 +166,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@table C3 l25
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -178,7 +178,7 @@ $result_tree_text{'center'} = '*document_root C1
      *@item C1 l26
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -188,7 +188,7 @@ $result_tree_text{'center'} = '*document_root C1
      *@center C1 l27
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C3
       |INFO
       |spaces_after_argument:
@@ -199,7 +199,7 @@ $result_tree_text{'center'} = '*document_root C1
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -213,7 +213,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l31
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
     *@center C1 l31
      *line_arg
@@ -224,7 +224,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l33
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     *@samp C1 l33
      *brace_container C1
@@ -232,7 +232,7 @@ $result_tree_text{'center'} = '*document_root C1
     *@center C1 l33
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -242,7 +242,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l35
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
     {after first center }
     *@samp C1 l35
@@ -250,7 +250,7 @@ $result_tree_text{'center'} = '*document_root C1
     *@center C1 l35
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -263,7 +263,7 @@ $result_tree_text{'center'} = '*document_root C1
   *@multitable C3 l39
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -295,7 +295,7 @@ $result_tree_text{'center'} = '*document_root C1
       *@center C1 l41
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C4
        |INFO
        |spaces_after_argument:
@@ -307,7 +307,7 @@ $result_tree_text{'center'} = '*document_root C1
       *@center C1 l42
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C2
        |INFO
        |spaces_after_argument:
@@ -317,7 +317,7 @@ $result_tree_text{'center'} = '*document_root C1
    *@end C1 l43
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -329,13 +329,13 @@ $result_tree_text{'center'} = '*document_root C1
   *@center C1 l45
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C2
     {before the table }
     *@table C1 l45
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *arguments_line C1
       *block_line_arg C1
       |INFO

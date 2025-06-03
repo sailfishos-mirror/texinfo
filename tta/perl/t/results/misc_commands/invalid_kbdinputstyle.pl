@@ -12,7 +12,7 @@ $result_tree_text{'invalid_kbdinputstyle'} = '*document_root C1
    *@kbdinputstyle C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
     *line_arg C1

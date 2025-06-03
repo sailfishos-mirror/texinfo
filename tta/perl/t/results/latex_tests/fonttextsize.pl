@@ -11,7 +11,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
    *@fonttextsize C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{10}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@top C2 l4 {section top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -65,7 +65,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@chapter C2 l7 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -80,7 +80,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@section C2 l9 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -95,7 +95,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@subsection C4 l11 {Subsection 10pts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -112,7 +112,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   *@fonttextsize C1 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{11}
    *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@subsection C5 l15 {Subsection 11pts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.2}
  |section_level:{3}
@@ -141,7 +141,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   *@fonttextsize C1 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -150,7 +150,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@subsection C5 l20 {Subsection 8pts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.3}
  |section_level:{3}
@@ -168,7 +168,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   *@fonttextsize C1 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -177,7 +177,7 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
  *@subsection C3 l25 {Subsection 15pts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.4}
  |section_level:{3}

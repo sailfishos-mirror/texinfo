@@ -10,7 +10,7 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
  *@node C3 l1 {aa}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -23,7 +23,7 @@ $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{toto}
    |node_content:{bb}

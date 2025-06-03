@@ -38,7 +38,7 @@ $result_tree_text{'no_documentencoding_and_insertions'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'include_setfilename_on_setfilename_line'} = '*document_root C
   *@setfilename C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{file }
    *line_arg C2
@@ -18,7 +18,7 @@ $result_tree_text{'include_setfilename_on_setfilename_line'} = '*document_root C
     *@setfilename C1 l1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{other file }
      *line_arg C2
@@ -26,7 +26,7 @@ $result_tree_text{'include_setfilename_on_setfilename_line'} = '*document_root C
       *@include C1 l1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{are you joking!}
        *line_arg C1

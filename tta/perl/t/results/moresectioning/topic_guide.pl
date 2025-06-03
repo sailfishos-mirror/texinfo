@@ -14,7 +14,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C1 topic_guide.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@top C6 topic_guide.texi:l4 {A example quide topic collection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -74,7 +74,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -86,7 +86,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C1 topic_guide.texi:l14 {guide1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -100,7 +100,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@chapter C6 topic_guide.texi:l15 {guide 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -157,7 +157,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -169,7 +169,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C6 topic_guide.texi:l25 {topic1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -182,7 +182,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic2}
    |normalized:{topic2}
@@ -215,7 +215,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -227,7 +227,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C6 topic_guide.texi:l35 {topic2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -238,7 +238,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic3}
    |normalized:{topic3}
@@ -248,7 +248,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic1}
    |normalized:{topic1}
@@ -281,7 +281,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l43
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -293,7 +293,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C6 topic_guide.texi:l45 {topic3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -304,7 +304,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic5}
    |normalized:{topic5}
@@ -314,7 +314,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic2}
    |normalized:{topic2}
@@ -336,7 +336,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l52
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -348,7 +348,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C6 topic_guide.texi:l54 {topic4}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -387,7 +387,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l62
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -399,7 +399,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C6 topic_guide.texi:l64 {topic5}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -410,13 +410,13 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{topic3}
    |normalized:{topic3}
@@ -460,7 +460,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l73
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -472,7 +472,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@node C1 topic_guide.texi:l75 {guide2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{8}
@@ -486,7 +486,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  *@chapter C6 topic_guide.texi:l76 {guide 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -532,7 +532,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    *@end C1 topic_guide.texi:l83
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

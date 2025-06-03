@@ -11,7 +11,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  *@section C2 l1 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -26,7 +26,7 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  *@part C3 l3 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}

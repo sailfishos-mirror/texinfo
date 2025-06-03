@@ -18,7 +18,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -32,7 +32,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@top C2 l5 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -46,7 +46,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l7 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -60,7 +60,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@chapter C5 l8 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -80,7 +80,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   *@documentlanguage C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
@@ -92,7 +92,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l13 {Chapter fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -106,7 +106,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@chapter C4 l14 {chap fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -126,7 +126,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l18 {section fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -140,7 +140,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@section C3 l19 {sec fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -155,7 +155,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
   *@documentlanguage C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{de}
@@ -167,7 +167,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l22 {Chapter de}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -181,7 +181,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@chapter C4 l23 {chap de}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -201,7 +201,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@node C1 l27 {Last chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -215,7 +215,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  *@chapter C2 l28 {Last Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}

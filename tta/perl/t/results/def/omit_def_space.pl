@@ -10,7 +10,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
  *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
  *@node C5 l3 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -46,7 +46,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
   *@defun C4 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l7
    |EXTRA
    |def_command:{defun}
@@ -85,7 +85,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    *@defunx C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defun}
    |def_index_element:
@@ -121,7 +121,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
     *line_arg C1

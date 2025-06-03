@@ -59,7 +59,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
   *@subheading C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
@@ -80,7 +80,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
   *@exdent C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

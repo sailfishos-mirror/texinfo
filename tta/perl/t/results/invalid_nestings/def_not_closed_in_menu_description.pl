@@ -28,7 +28,7 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
      *@deffn C2 l2
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *def_line C1 l2
       |EXTRA
       |def_command:{deffn}
@@ -60,7 +60,7 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

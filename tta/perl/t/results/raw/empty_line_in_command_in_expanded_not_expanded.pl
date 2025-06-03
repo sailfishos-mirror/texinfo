@@ -25,7 +25,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -55,7 +55,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
  *@node C4 l8 {second node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -78,7 +78,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{third node}
    |normalized:{third-node}
@@ -103,7 +103,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
  *@node C1 l12 {third node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -128,7 +128,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
  *@chapter C1 l13 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

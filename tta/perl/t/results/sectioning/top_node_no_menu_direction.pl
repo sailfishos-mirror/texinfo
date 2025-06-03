@@ -10,7 +10,7 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -53,7 +53,7 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -65,7 +65,7 @@ $result_tree_text{'top_node_no_menu_direction'} = '*document_root C3
  *@node C1 l8 {chap node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

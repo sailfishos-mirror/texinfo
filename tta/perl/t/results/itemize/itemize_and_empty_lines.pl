@@ -10,7 +10,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   *@itemize C7 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -40,7 +40,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l8
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l16
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l19
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -115,7 +115,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l25
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -126,7 +126,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -164,7 +164,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l35
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -195,7 +195,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l43
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -218,7 +218,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l47
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -243,7 +243,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l53
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
       *line_arg C1
@@ -254,7 +254,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
    *@end C1 l54
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -268,7 +268,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   *@itemize C3 l57
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -285,7 +285,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
    *@end C1 l60
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -302,7 +302,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   *@itemize C3 l65
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -319,7 +319,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
     *@itemize C3 l68
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *arguments_line C1
       *block_line_arg C1
       |INFO
@@ -335,7 +335,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
      *@end C1 l70
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{itemize}
       *line_arg C1
@@ -348,7 +348,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
    *@end C1 l72
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -362,7 +362,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
   *@itemize C5 l75
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -391,7 +391,7 @@ $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
    *@end C1 l80
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

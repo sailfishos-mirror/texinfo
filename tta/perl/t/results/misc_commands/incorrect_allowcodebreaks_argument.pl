@@ -10,7 +10,7 @@ $result_tree_text{'incorrect_allowcodebreaks_argument'} = '*document_root C1
   *@allowcodebreaks C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
    *line_arg C1

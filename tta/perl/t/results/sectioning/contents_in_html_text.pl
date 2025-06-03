@@ -10,7 +10,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *@chapter C2 l3 {Chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *@section C2 l5 {Sec 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -54,7 +54,7 @@ $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *@chapter C4 l7 {Chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

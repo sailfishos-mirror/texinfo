@@ -19,7 +19,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
     *line_arg C1
@@ -42,7 +42,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l10
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
      *line_arg C1
@@ -65,7 +65,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l15
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
      *line_arg C1
@@ -88,7 +88,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l20
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html after the closing command.}
      *line_arg C1
@@ -110,7 +110,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l24
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
      *line_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l29
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html. A symbol after the closing command.}
      *line_arg C1
@@ -153,7 +153,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
     *line_arg C1
@@ -175,7 +175,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l38
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
      *line_arg C1
@@ -198,7 +198,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l43
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
      *line_arg C1
@@ -221,7 +221,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l48
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex after the closing command.}
      *line_arg C1
@@ -243,7 +243,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l52
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
      *line_arg C1
@@ -266,7 +266,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
     *@end C1 l57
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex. A symbol after the closing command.}
      *line_arg C1
@@ -285,7 +285,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l61
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -306,7 +306,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l66
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -329,7 +329,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l71
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -352,7 +352,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l76
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim after the closing command.}
     *line_arg C1
@@ -373,7 +373,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l80
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -396,7 +396,7 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    *@end C1 l85
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim. A symbol after the closing command.}
     *line_arg C1

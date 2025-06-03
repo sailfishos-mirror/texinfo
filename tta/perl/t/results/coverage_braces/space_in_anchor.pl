@@ -16,7 +16,7 @@ $result_tree_text{'space_in_anchor'} = '*document_root C1
    |spaces_after_argument:
     |{   }
    |spaces_before_argument:
-    |{   }
+    |{spaces_before_argument:   }
     {anchor  name}
   *paragraph C1
    {.\\n}

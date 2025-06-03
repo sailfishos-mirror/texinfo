@@ -10,7 +10,7 @@ $result_tree_text{'heading_commands_in_center'} = '*document_root C1
   *@center C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C8
    |INFO
    |spaces_after_argument:

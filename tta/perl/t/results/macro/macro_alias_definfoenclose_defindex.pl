@@ -10,7 +10,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -53,7 +53,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
  *@chapter C42 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -75,7 +75,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -97,7 +97,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@definfoenclose C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phooindex|;|:}
    *line_arg C1
@@ -119,7 +119,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@alias C1 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phooindex|strong}
    *line_arg C1
@@ -138,7 +138,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@defindex C1 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo}
    *line_arg C1
@@ -150,7 +150,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |INFO
   |command_name:{phooindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{phoo,1}
@@ -163,7 +163,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@definfoenclose C1 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phooindex|;|:}
    *line_arg C1
@@ -192,7 +192,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -208,7 +208,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     >|INFO
     >|command_name:{phooindex}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{mff}
    >macro_expansion<end;2><p:7>
@@ -216,7 +216,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@defindex C1 l29
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo}
    *line_arg C1
@@ -228,7 +228,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |INFO
   |command_name:{phooindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{phoo,2}
@@ -248,7 +248,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -264,7 +264,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
     >|INFO
     >|command_name:{phooindex}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{mhh}
    >macro_expansion<end;3><p:7>
@@ -272,7 +272,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@alias C1 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phooindex|strong}
    *line_arg C1
@@ -291,7 +291,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@definfoenclose C1 l40
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
    *line_arg C1
@@ -313,7 +313,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@defindex C1 l43
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo}
    *line_arg C1
@@ -325,7 +325,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   |INFO
   |command_name:{phooindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{phoo,3}
@@ -338,7 +338,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@alias C1 l46
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phooindex|strong}
    *line_arg C1
@@ -364,7 +364,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    *@end C1 l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -386,7 +386,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   *@printindex C1 l54
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{phoo}

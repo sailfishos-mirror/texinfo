@@ -10,7 +10,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@node C1 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@node C1 l4 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@chapter C2 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@node C1 l7 {sec define}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -81,7 +81,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@section C4 l8 {define}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -100,14 +100,14 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {Good Hypo Jolly}
    {\\n}
   {empty_line:\\n}
  *@node C1 l12 {sec here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -124,7 +124,7 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  *@section C3 l13 {here is @acronym{GHJ}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}

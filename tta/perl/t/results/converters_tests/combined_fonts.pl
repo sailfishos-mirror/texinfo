@@ -11,7 +11,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
    *@setfilename C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{combined_fonts.info}
     *line_arg C1
@@ -23,7 +23,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
  *@top C2 l4 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -65,7 +65,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
  *@chapter C15 l7 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -247,7 +247,7 @@ $result_tree_text{'combined_fonts'} = '*document_root C5
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

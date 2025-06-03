@@ -14,7 +14,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
    *@documentencoding C1 cpp_line_latin1.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
@@ -28,7 +28,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
  *@node C1 cpp_line_latin1.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -52,7 +52,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
  *@node C7 cpp_line_latin1.texi:l8 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

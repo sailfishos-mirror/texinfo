@@ -11,7 +11,7 @@ $result_tree_text{'menu'} = '*document_root C3
  *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -65,7 +65,7 @@ $result_tree_text{'menu'} = '*document_root C3
       *@end C1 l9
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'menu'} = '*document_root C3
        *@end C1 l12
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
         *line_arg C1
@@ -114,7 +114,7 @@ $result_tree_text{'menu'} = '*document_root C3
      *@end C1 l19
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{itemize}
       *line_arg C1
@@ -135,7 +135,7 @@ $result_tree_text{'menu'} = '*document_root C3
       *@end C1 l23
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{html}
        *line_arg C1
@@ -161,7 +161,7 @@ $result_tree_text{'menu'} = '*document_root C3
      *@end C1 l29
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{itemize}
       *line_arg C1
@@ -249,7 +249,7 @@ $result_tree_text{'menu'} = '*document_root C3
        *@end C1 l42
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{itemize}
         *line_arg C1
@@ -269,7 +269,7 @@ $result_tree_text{'menu'} = '*document_root C3
         *@end C1 l45
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
         |EXTRA
         |text_arg:{html}
          *line_arg C1
@@ -298,7 +298,7 @@ $result_tree_text{'menu'} = '*document_root C3
       *@end C1 l52
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -319,7 +319,7 @@ $result_tree_text{'menu'} = '*document_root C3
        *@end C1 l56
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
         *line_arg C1
@@ -345,7 +345,7 @@ $result_tree_text{'menu'} = '*document_root C3
       *@end C1 l62
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -401,7 +401,7 @@ $result_tree_text{'menu'} = '*document_root C3
     *@end C1 l71
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -412,7 +412,7 @@ $result_tree_text{'menu'} = '*document_root C3
    *@end C1 l72
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

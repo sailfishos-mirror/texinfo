@@ -10,7 +10,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *@top C1 l2 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *@chapter C5 l3 {Main}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -71,7 +71,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -83,7 +83,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *@node C1 l10 {Additional}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -97,7 +97,7 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
  *@appendix C1 l11 {Annex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}

@@ -10,7 +10,7 @@ $result_tree_text{'item_tab_outside_of_table_lists'} = '*document_root C1
   *@itemx C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

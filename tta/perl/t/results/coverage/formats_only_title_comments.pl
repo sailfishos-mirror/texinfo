@@ -21,7 +21,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -33,7 +33,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   *@enumerate C3 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -50,7 +50,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   *@table C3 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1
@@ -89,7 +89,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   *@vtable C3 l16
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -105,7 +105,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -117,7 +117,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   *@multitable C3 l20
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -125,7 +125,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
      *@columnfractions C1 l20
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.5|0.5}
       *line_arg C1
@@ -141,7 +141,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
    *@end C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

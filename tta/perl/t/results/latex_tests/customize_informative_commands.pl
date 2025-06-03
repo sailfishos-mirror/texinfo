@@ -11,7 +11,7 @@ $result_tree_text{'customize_informative_commands'} = '*document_root C2
  *@chapter C1 l1 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

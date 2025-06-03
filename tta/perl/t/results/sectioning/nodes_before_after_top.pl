@@ -11,7 +11,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@node C4 l1 {node before}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -29,7 +29,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -43,7 +43,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@top C4 l6 {top sectionning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -60,7 +60,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@node C4 l10 {after}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -78,7 +78,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@node C1 l14 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -92,7 +92,7 @@ $result_tree_text{'nodes_before_after_top'} = '*document_root C7
  *@chapter C3 l15 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

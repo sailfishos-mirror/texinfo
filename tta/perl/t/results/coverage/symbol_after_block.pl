@@ -18,7 +18,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html. On the line.}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html@ On the line.}
     *line_arg C3
@@ -62,7 +62,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim;}
     *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim@}
     *line_arg C2
@@ -97,7 +97,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@table C3 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -109,7 +109,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      *@item C1 l22
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -121,7 +121,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table+}
     *line_arg C1
@@ -133,7 +133,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@table C3 l26
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -145,7 +145,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      *@item C1 l27
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -157,7 +157,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table@}
     *line_arg C2
@@ -173,7 +173,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@itemize C3 l33
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -189,7 +189,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize\'\'}
     *line_arg C1
@@ -201,7 +201,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@itemize C3 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -217,7 +217,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l39
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize@}
     *line_arg C2
@@ -233,7 +233,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@multitable C4 l43
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -241,7 +241,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      *@columnfractions C1 l43
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{6|7}
       *line_arg C1
@@ -284,7 +284,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l46
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable^}
     *line_arg C1
@@ -296,7 +296,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *@multitable C4 l48
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -304,7 +304,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      *@columnfractions C1 l48
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{6|7}
       *line_arg C1
@@ -347,7 +347,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable{}
     *line_arg C2
@@ -371,7 +371,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft!}
     *line_arg C1
@@ -391,7 +391,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l61
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft@}
     *line_arg C2
@@ -415,7 +415,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l67
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying*}
     *line_arg C1
@@ -435,7 +435,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
    *@end C1 l71
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying@}
     *line_arg C2

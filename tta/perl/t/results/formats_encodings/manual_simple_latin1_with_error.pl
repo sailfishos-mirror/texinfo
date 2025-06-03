@@ -14,7 +14,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    *@documentencoding C1 manual_simple_latin1_with_error.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
@@ -28,7 +28,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  *@node C1 manual_simple_latin1_with_error.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  *@top C2 manual_simple_latin1_with_error.texi:l6 {Testé}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -56,7 +56,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  *@node C2 manual_simple_latin1_with_error.texi:l8 {ésseulé}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -71,7 +71,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  *@node C1 manual_simple_latin1_with_error.texi:l10 {Chapitré}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -85,7 +85,7 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
  *@chapter C4 manual_simple_latin1_with_error.texi:l11 {Chapitré}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

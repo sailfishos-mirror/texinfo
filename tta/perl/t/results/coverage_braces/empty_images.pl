@@ -19,7 +19,7 @@ $result_tree_text{'empty_images'} = '*document_root C1
    *brace_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *brace_arg C1
     {aa}
    *brace_arg C1

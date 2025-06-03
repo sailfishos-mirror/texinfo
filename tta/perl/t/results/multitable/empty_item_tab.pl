@@ -10,7 +10,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -18,7 +18,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
      *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{1.0}
       *line_arg C1
@@ -61,7 +61,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -73,7 +73,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
   *@multitable C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -81,7 +81,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
      *@columnfractions C1 l9
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.5|0.5}
       *line_arg C1
@@ -183,7 +183,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

@@ -17,7 +17,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
       >*@ifset C3 l3
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*arguments_line C1
         >*block_line_arg C1
         >|INFO
@@ -28,7 +28,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
        >*@end C1 l5
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
        >|EXTRA
        >|text_arg:{ifset}
         >*line_arg C1
@@ -40,7 +40,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
       >*@ifclear C1 l6
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*arguments_line C1
         >*block_line_arg C1
         >|INFO
@@ -53,7 +53,7 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
       >*@end C1 l8
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
       >|EXTRA
       >|text_arg:{ifclear}
        >*line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C1 l2 {one arg1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C1 l3 {one arg2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -38,7 +38,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
@@ -46,7 +46,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C1 l4 {one arg3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -57,7 +57,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
@@ -67,7 +67,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
@@ -75,7 +75,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C1 l5 {one arg4}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -86,7 +86,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
@@ -94,7 +94,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
@@ -104,7 +104,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{four arg}
    |normalized:{four-arg}
@@ -112,7 +112,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C2 l6 {one arg5}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -123,7 +123,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
@@ -131,7 +131,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
@@ -141,7 +141,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{four arg five arg}
    |normalized:{four-arg-five-arg}
@@ -150,7 +150,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C2 l8 {comment}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -168,7 +168,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *@node C1 l10 {arg1 @comma{} arg2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -182,7 +182,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    *line_arg C2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{@,cedilla}
    |normalized:{_00e7edilla}
@@ -198,7 +198,7 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |spaces_after_argument:
     |{ }
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{@strong{comma in strong,}}
    |normalized:{comma-in-strong_002c}

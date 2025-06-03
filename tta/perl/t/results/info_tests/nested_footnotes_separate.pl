@@ -10,7 +10,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
   *@footnotestyle C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{separate}
    *line_arg C1
@@ -21,7 +21,7 @@ $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
  *@node C3 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

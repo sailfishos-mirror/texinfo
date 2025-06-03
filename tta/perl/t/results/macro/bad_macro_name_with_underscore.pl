@@ -17,7 +17,7 @@ $result_tree_text{'bad_macro_name_with_underscore'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1

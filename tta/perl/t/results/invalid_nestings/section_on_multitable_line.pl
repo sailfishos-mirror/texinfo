@@ -10,7 +10,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   *@multitable C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
@@ -18,7 +18,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  *@section C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -33,7 +33,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   *@multitable C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
@@ -47,7 +47,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  *@section C3 l3 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
@@ -62,7 +62,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   *@multitable C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -78,7 +78,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
  *@section C1 l5 {third}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{2}

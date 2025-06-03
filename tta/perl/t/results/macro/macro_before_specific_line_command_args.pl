@@ -17,7 +17,7 @@ $result_tree_text{'macro_before_specific_line_command_args'} = '*document_root C
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'macro_before_specific_line_command_args'} = '*document_root C
   *@syncodeindex C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1>
     |>*macro_call C1

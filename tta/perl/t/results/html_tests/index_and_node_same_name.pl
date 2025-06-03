@@ -10,7 +10,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  *@top C1 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -23,7 +23,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  *@node C5 l2 {index node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{index-node}
   |index_entry:I{cp,1}
@@ -52,7 +52,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
   *@printindex C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}

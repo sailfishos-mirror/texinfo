@@ -25,7 +25,7 @@ $result_tree_text{'verb_in_xref'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@verb C1 l3
      |INFO
      |delimiter:{*}

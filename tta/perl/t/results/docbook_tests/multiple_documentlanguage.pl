@@ -10,7 +10,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   *@documentlanguage C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{ja}
@@ -23,7 +23,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@top C2 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -65,7 +65,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@chapter C3 l7 {Chap no new language}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -80,7 +80,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   *@documentlanguage C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{fr}
@@ -92,7 +92,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@node C1 l10 {chapter fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -106,7 +106,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@chapter C3 l11 {chapter fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -121,7 +121,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   *@documentlanguage C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{pt}
@@ -133,7 +133,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@node C1 l14 {subnode pt}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -147,7 +147,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@section C3 l15 {section pt}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
@@ -162,7 +162,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
   *@documentlanguage C1 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |text_arg:{fr}
@@ -174,7 +174,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@node C1 l18 {subnode fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -188,7 +188,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C11
  *@section C2 l19 {section fr}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.2}
  |section_level:{2}

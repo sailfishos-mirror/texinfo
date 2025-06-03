@@ -16,7 +16,7 @@ $result_tree_text{'multitable_in_example_extraneous_tab'} = '*document_root C1
    *@multitable C3 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{1}
     *arguments_line C1
@@ -53,7 +53,7 @@ $result_tree_text{'multitable_in_example_extraneous_tab'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
      *line_arg C1
@@ -64,7 +64,7 @@ $result_tree_text{'multitable_in_example_extraneous_tab'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

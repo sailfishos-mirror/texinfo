@@ -10,7 +10,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
   *@deffn C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -34,7 +34,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
  *@section C4 l1 {s}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

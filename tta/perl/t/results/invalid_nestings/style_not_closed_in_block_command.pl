@@ -21,7 +21,7 @@ $result_tree_text{'style_not_closed_in_block_command'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

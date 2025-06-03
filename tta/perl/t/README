@@ -60,7 +60,7 @@ When making changes that you expect will change the parse tree but not
 change any of the output or structure, one way to check this would be to run
 "make check" and then "grep -a FAIL test-suite.log | grep -a -v 'tree$'".
 To check only output, but not the structure, you could use
-"grep -a FAIL test-suite.log | grep -a -v '\(tree\|nodes\|sectioning\|menus\|elements\)$'"
+"grep -a FAIL test-suite.log | grep -a -v '\(floats\|tree\|nodes list\|sections list\|sectioning root\|headings list\)$'"
 
 The tests output on STDERR are not checked, it is possible to look
 for spurious output on STDERR in addition to the header and

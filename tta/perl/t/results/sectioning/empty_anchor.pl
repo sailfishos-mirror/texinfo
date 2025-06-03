@@ -15,7 +15,7 @@ $result_tree_text{'empty_anchor'} = '*document_root C1
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{   }
+     |{spaces_before_argument:   }
    {.\\n}
 ';
 

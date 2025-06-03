@@ -10,7 +10,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@top C2 l1 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@part C2 l3 {part}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -53,7 +53,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {chap@comma{} @code{a chap}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -73,7 +73,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@chapter C2 l5 {chap, @code{a chap}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -91,7 +91,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 l7 {a node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -105,7 +105,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@section C2 l8 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -120,7 +120,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {truc}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -134,7 +134,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@section C1 l10 {truc}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
@@ -148,7 +148,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {sub1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -162,7 +162,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@subsection C4 l11 {sub1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2.1}
  |section_level:{3}
@@ -180,7 +180,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {sub2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -194,7 +194,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@subsection C2 l15 {sub2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2.2}
  |section_level:{3}
@@ -212,7 +212,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{7}
@@ -226,7 +226,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@section C2 l17 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}
@@ -241,7 +241,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {section 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{8}
@@ -256,7 +256,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@section C2 l19 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.4}
  |section_level:{2}
@@ -271,7 +271,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 { 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{9}
@@ -296,7 +296,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@node C1 {@asis{} 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{10}
@@ -312,7 +312,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  *@section C2 l23 {@asis{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{11}

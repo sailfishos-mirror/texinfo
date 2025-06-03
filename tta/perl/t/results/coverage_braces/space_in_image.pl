@@ -15,14 +15,14 @@ $result_tree_text{'space_in_image'} = '*document_root C1
    |spaces_after_argument:
     |{ }
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     {a}
    *brace_arg C1
     {bb}
    *brace_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     {cc}
    *brace_arg C1
    |INFO
@@ -44,7 +44,7 @@ $result_tree_text{'space_in_image'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {f}
    {.}
 ';

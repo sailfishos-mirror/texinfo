@@ -256,7 +256,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               ELEMENT *line_content;
               ELEMENT *new_section;
               ELEMENT *spaces_before_argument
-                 = new_text_element (ET_other_text);
+                 = new_text_element (ET_spaces_before_argument);
               ELEMENT *line_arg = new_element (ET_line_arg);
               ELEMENT *arguments_line = new_element (ET_arguments_line);
               ELEMENT *spaces_after_argument = new_text_element (ET_other_text);
@@ -675,7 +675,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       ELEMENT *appended_text = 0;
       ELEMENT *arguments_line = new_element (ET_arguments_line);
       ELEMENT *node_line_arg = new_element (ET_line_arg);
-      ELEMENT *spaces_before = new_text_element (ET_other_text);
+      ELEMENT *spaces_before = new_text_element (ET_spaces_before_argument);
       ELEMENT *spaces_after = new_text_element (ET_other_text);
 
       node = new_command_element (ET_line_command, CM_node);

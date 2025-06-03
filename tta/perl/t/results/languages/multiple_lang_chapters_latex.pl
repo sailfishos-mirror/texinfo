@@ -13,7 +13,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@documentencoding C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
@@ -37,7 +37,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
      >*@end C1 l7
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{iftex}
       >*line_arg C1
@@ -56,7 +56,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@documentlanguage C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{ja}
@@ -65,7 +65,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
     >*@end C1 l10
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{iflatex}
      >*line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -96,7 +96,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@top C5 l13 {Multi language file}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -171,7 +171,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -183,7 +183,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@documentlanguage C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{ja}
@@ -195,7 +195,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l24 {chapter ja}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -209,7 +209,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@chapter C6 l25 {ja}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -233,7 +233,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@defivar C2 l28
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l28
    |EXTRA
    |def_command:{defivar}
@@ -286,7 +286,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@end C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
     *line_arg C1
@@ -298,7 +298,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@documentlanguage C1 l31
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{en}
@@ -310,7 +310,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l32 {chapter en}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -324,7 +324,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@chapter C6 l33 {en}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -348,7 +348,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@defivar C2 l36
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l36
    |EXTRA
    |def_command:{defivar}
@@ -401,7 +401,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
     *line_arg C1
@@ -413,7 +413,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@documentlanguage C1 l39
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |text_arg:{fr_FR}
@@ -425,7 +425,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l40 {chapter fr_FR}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -439,7 +439,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@chapter C5 l41 {fr_FR}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -454,7 +454,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@defivar C2 l43
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l43
    |EXTRA
    |def_command:{defivar}
@@ -507,7 +507,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    *@end C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
     *line_arg C1
@@ -519,7 +519,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@documentlanguage C1 l46
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |text_arg:{de}
@@ -531,7 +531,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l47 {chapter de}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -545,7 +545,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@chapter C3 l48 {de}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -560,7 +560,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
   *@documentlanguage C1 l50
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |text_arg:{pt_BR}
@@ -572,7 +572,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@node C1 l51 {chapter pt_BR}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -586,7 +586,7 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  *@chapter C3 l52 {pt_bR}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}

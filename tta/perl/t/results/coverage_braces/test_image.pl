@@ -19,7 +19,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -114,14 +114,14 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {1cm}
      *brace_arg C7
      |INFO
      |spaces_after_argument:
       |{  }
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {alt }
       *@b C1 l9:@files-char
        *brace_container C5
@@ -165,7 +165,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1
@@ -177,7 +177,7 @@ $result_tree_text{'test_image'} = '*document_root C3
  *@node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -191,7 +191,7 @@ $result_tree_text{'test_image'} = '*document_root C3
  *@node C16 l13 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -281,14 +281,14 @@ $result_tree_text{'test_image'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {1cm}
     *brace_arg C7
     |INFO
     |spaces_after_argument:
      |{  }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {alt }
      *@b C1 l15:@files-char
       *brace_container C5
@@ -422,14 +422,14 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {1cm}
      *brace_arg C7
      |INFO
      |spaces_after_argument:
       |{  }
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {alt }
       *@b C1 l21:@files-char
        *brace_container C5
@@ -473,7 +473,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@end C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -485,7 +485,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   *@float C9 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Image}
@@ -506,7 +506,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {Image with commands}
    *@image C5 l25:@files-char
    |EXTRA
@@ -580,14 +580,14 @@ $result_tree_text{'test_image'} = '*document_root C3
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {1cm}
      *brace_arg C7
      |INFO
      |spaces_after_argument:
       |{  }
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {alt }
       *@b C1 l25:@files-char
        *brace_container C5
@@ -710,14 +710,14 @@ $result_tree_text{'test_image'} = '*document_root C3
        *brace_arg C1
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
         {1cm}
        *brace_arg C7
        |INFO
        |spaces_after_argument:
         |{  }
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
         {alt }
         *@b C1 l27:@files-char
          *brace_container C5
@@ -762,7 +762,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -774,7 +774,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   *@listoffloats C1 l30
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Image}
   |global_command_number:{1}

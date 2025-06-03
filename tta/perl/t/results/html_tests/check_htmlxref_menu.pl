@@ -13,7 +13,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  *@node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    *line_arg C3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{../there/no_existing_no_manual_direction}
     {(}
@@ -33,7 +33,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{first}
    |normalized:{first}
@@ -43,7 +43,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{dir}
     {(}
@@ -52,7 +52,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  *@top C6 l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -72,17 +72,17 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {c}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {no_existing_no_manual.info}
    {\\n}
    *@ref C4 l6
@@ -93,17 +93,17 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {b}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {c}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {no_existing_no_manual.info}
    {\\n}
   {empty_line:\\n}
@@ -150,7 +150,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -162,7 +162,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  *@node C2 l14 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -175,7 +175,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{no_existing_no_manual.info}
     {(}
@@ -185,7 +185,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  *@node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -196,7 +196,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    *line_arg C3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{chap_not_existing}
     {(}
@@ -207,7 +207,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |manual_content:{dir}
    |node_content:{node in dir}
@@ -219,7 +219,7 @@ $result_tree_text{'check_htmlxref_menu'} = '*document_root C6
  *@chapter C3 l17 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

@@ -12,7 +12,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{us-ascii}
@@ -27,7 +27,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
   *@documentencoding C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{latin1}
@@ -42,7 +42,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
   *@documentencoding C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{YS-ASCII}
@@ -57,7 +57,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{4}
    |text_arg:{bad encoding name}
@@ -69,7 +69,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{5}
    |text_arg:{1}
@@ -81,7 +81,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{6}
    |text_arg:{%}
@@ -93,7 +93,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{7}
    |text_arg:{@}
@@ -105,7 +105,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{8}
    |text_arg:{AAA}
@@ -119,7 +119,7 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
    *@documentencoding C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{9}
    |text_arg:{BBB}

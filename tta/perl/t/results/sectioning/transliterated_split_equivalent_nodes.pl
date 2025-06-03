@@ -17,7 +17,7 @@ NodeForward: [U1]
  *@node C4 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -75,7 +75,7 @@ NodeForward: [U1]
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -98,7 +98,7 @@ NodeBack: [U0]
  *@node C1 l9 {@~a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -114,7 +114,7 @@ NodeBack: [U0]
  *@unnumbered C2 l10 {@~a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
@@ -142,7 +142,7 @@ NodeBack: [U1]
  *@node C2 l12 {n}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -166,7 +166,7 @@ NodeBack: [U2]
  *@node C1 l14 {@^a}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}

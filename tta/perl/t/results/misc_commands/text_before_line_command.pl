@@ -12,7 +12,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
    *@title C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -24,7 +24,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
  *@node C2 l3 {LD Version Scripts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -40,7 +40,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
  *@chapter C6 l4 {LD Version Scripts}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -70,7 +70,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
     *@author C1 l9
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
@@ -82,7 +82,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

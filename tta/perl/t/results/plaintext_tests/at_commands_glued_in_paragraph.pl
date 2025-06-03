@@ -27,7 +27,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {aaa bb cc}
    {acronym.\\n}
    {acronym2}
@@ -42,7 +42,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {mali}
    {email.\\n}
    {ref}
@@ -79,7 +79,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
   *@sp C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{4}
    *line_arg C1
@@ -101,7 +101,7 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,1}
     *line_arg C1

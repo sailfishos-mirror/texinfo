@@ -11,7 +11,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@top C4 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@part C2 l10 {part 1: part 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -105,7 +105,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@node C1 l12 {chapter 1 node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -119,7 +119,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@chapter C2 l13 {chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -134,7 +134,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@node C1 l15 {chapter 2 node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -148,7 +148,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@chapter C2 l16 {chapter 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -163,7 +163,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@part C2 l18 {part2: part2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}
@@ -178,7 +178,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@node C1 l20 {chapter 3 node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -192,7 +192,7 @@ $result_tree_text{'contents_and_parts'} = '*document_root C11
  *@chapter C4 l21 {chapter 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}

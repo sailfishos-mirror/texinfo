@@ -16,7 +16,7 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -32,7 +32,7 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
    >|INFO
    >|command_name:{nomacrobody}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{line arg}
   >macro_expansion<end;1>

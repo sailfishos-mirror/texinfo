@@ -11,7 +11,7 @@ $result_tree_text{'verbatiminclude'} = '*document_root C1
   *@verbatiminclude C1 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}

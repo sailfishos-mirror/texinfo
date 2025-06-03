@@ -75,14 +75,14 @@ $result_tree_text{'inlinefmtifelse'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {docbook}
     *elided_brace_command_arg C1
      {raw: if docbook spaces }
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {else docbook spaces }
    {.\\n}
   {empty_line:\\n}
@@ -96,14 +96,14 @@ $result_tree_text{'inlinefmtifelse'} = '*document_root C1
     |spaces_after_argument:
      |{ }
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {tex}
     *elided_brace_command_arg C1
      {raw: if tex spaces }
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {else tex spaces }
    {.\\n}
   {empty_line:\\n}

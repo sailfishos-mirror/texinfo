@@ -13,7 +13,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@documentencoding C1 japanese_utf8.texi:l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
@@ -27,7 +27,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@setfilename C1 japanese_utf8.texi:l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{japanese_utf8.info}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@settitle C1 japanese_utf8.texi:l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -48,7 +48,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@documentlanguage C1 japanese_utf8.texi:l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{ja}
@@ -61,7 +61,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@node C1 japanese_utf8.texi:l8 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -75,7 +75,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@top C9 japanese_utf8.texi:l9 {GNU LilyPond --- 学習マニュアル}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -115,7 +115,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@end C1 japanese_utf8.texi:l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying}
     *line_arg C1
@@ -159,7 +159,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    *@end C1 japanese_utf8.texi:l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -171,7 +171,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@node C1 japanese_utf8.texi:l30 {Preface}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -185,7 +185,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@chapter C5 japanese_utf8.texi:l31 {Preface}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -204,7 +204,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@node C1 japanese_utf8.texi:l36 {Introduction}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -218,7 +218,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  *@chapter C4 japanese_utf8.texi:l37 {Introduction}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}

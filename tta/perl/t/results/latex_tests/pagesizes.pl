@@ -11,7 +11,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
    *@pagesizes C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -21,7 +21,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -35,7 +35,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  *@top C2 l4 {section top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -49,7 +49,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  *@node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -63,7 +63,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  *@chapter C4 l7 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -78,7 +78,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
   *@pagesizes C1 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
  *@chapter C5 l11 {other pagesizes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -103,7 +103,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
   *@pagesizes C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -113,7 +113,7 @@ $result_tree_text{'pagesizes'} = '*document_root C6
   *@pagesizes C1 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

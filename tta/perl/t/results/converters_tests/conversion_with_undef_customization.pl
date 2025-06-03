@@ -11,7 +11,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@top C5 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -48,7 +48,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@node C1 l7 {chap@^e}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -65,7 +65,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@chapter C6 l8 {Chap@^e}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -97,7 +97,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap_00ea}
   |index_entry:I{cp,1}
@@ -110,7 +110,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@node C1 l14 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -125,7 +125,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *@section C5 l15 {Section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -140,7 +140,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   *@printindex C1 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -153,7 +153,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   *@deftypefn C3 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l19
    |EXTRA
    |def_command:{deftypefn}
@@ -197,7 +197,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1

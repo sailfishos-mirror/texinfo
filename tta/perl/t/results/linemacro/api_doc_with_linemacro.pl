@@ -17,7 +17,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -53,7 +53,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -81,7 +81,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@defline C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -149,13 +149,13 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >|INFO
       >|command_name:{param}
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >*line_arg C1
         >{a}
        >*line_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{array_like}
       *block_line_arg
       |INFO
@@ -164,7 +164,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l19:@param
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -206,18 +206,18 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|INFO
        >|command_name:{param}
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >*line_arg C1
          >{n}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
-         >|{ }
+         >|{spaces_before_argument: }
          >{int, optional}
      *@defline C1 l22:@param
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -264,18 +264,18 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|INFO
        >|command_name:{param}
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >*line_arg C1
          >{axis}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
-         >|{ }
+         >|{spaces_before_argument: }
          >{int, optional}
      *@defline C1 l26:@param
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -317,18 +317,18 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|INFO
        >|command_name:{returns}
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >*line_arg C1
          >{out}
         >*line_arg C1
         >|INFO
         >|spaces_before_argument:
-         >|{ }
+         >|{spaces_before_argument: }
          >{complex ndarray}
      *@defline C1 l29:@returns
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -370,13 +370,13 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|INFO
        >|command_name:{raises}
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >*line_arg C1
          >{IndexError}
      *@defline C1 l32:@raises
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -413,7 +413,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@end C1 l35
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{defblock}
       *line_arg C1
@@ -425,7 +425,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

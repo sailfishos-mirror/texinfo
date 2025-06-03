@@ -10,7 +10,7 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
   *@setfilename C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -26,7 +26,7 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

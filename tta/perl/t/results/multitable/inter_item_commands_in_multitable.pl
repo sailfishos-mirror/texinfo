@@ -10,7 +10,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
   *@multitable C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -39,7 +39,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{cp,1}
        *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -74,7 +74,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
   *@multitable C4 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -82,7 +82,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      *@columnfractions C1 l12
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.6|0.4}
       *line_arg C1
@@ -143,7 +143,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{cp,2}
         *line_arg C1
@@ -163,7 +163,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
    *@end C1 l19
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -175,7 +175,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
   *@multitable C4 l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -192,7 +192,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{cp,3}
       *line_arg C1
@@ -213,7 +213,7 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
    *@end C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'note_in_strong'} = '*document_root C2
  *@node C15 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

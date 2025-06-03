@@ -17,7 +17,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -34,13 +34,13 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@quotation aa\\nin quotation\\n}
   *@quotation C3 l8:@lm
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -67,7 +67,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
   *@quotation C3 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -82,13 +82,13 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >|INFO
      >|command_name:{lm}
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*line_arg C1
        >{bracketed_linemacro_arg:\\n@end quotation\\n\\n}
    *@end C1 l15:@lm
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -111,13 +111,13 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@quotation}
   *@quotation C5 l18:@lm
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -134,7 +134,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    *@end C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -151,7 +151,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@ignore\\nignored }
    *@ignore C5 l26:@lm
@@ -168,7 +168,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *@end C1 l28
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{ignore}
      *line_arg C1
@@ -185,7 +185,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:\\n@macro mymac {e, f}\\nargs \\e\\|\\f\\|\\n@defline @lm {\\e\\} {\\f\\}\\n}
    *@macro C6 l34:@lm
@@ -203,7 +203,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     *@end C1 l35
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -231,19 +231,19 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
        >*brace_arg C1
        >|INFO
        >|spaces_before_argument:
-        >|{ }
+        >|{spaces_before_argument: }
         >{arg2}
    *@defline C1 l38:@mymac
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     |>SOURCEMARKS
     |>linemacro_expansion<start;6><p:1>
      |>*linemacro_call C1
      |>|INFO
      |>|command_name:{lm}
      |>|spaces_before_argument:
-      |>|{ }
+      |>|{spaces_before_argument: }
       |>*line_arg C1
        |>{{arg1} {arg2}}
    |EXTRA
@@ -283,7 +283,7 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    *@end C1 l39
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

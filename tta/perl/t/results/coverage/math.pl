@@ -43,7 +43,7 @@ $result_tree_text{'math'} = '*document_root C1
    *@math C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *brace_command_context C7
      {\\underline}
      *balanced_braces C3 l8

@@ -19,7 +19,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    >*@ifset C1 l4
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -36,7 +36,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ignore}
     *line_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
     >*@end C1 l9
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1
@@ -65,7 +65,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    >*@ifset C1 l11
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -78,7 +78,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    >*@end C1 l15
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifset}
     >*line_arg C1
@@ -95,7 +95,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -109,7 +109,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
    >*@ifset C1 l17
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -129,7 +129,7 @@ $result_tree_text{'end_ifset_in_format'} = '*document_root C1
     >*@end C1 l21
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

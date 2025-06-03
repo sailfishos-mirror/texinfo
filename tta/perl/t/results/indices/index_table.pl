@@ -14,7 +14,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@node C1 index_table.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@top C3 index_table.texi:l4 {Test for indices}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -80,7 +80,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    *@end C1 index_table.texi:l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -92,7 +92,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@node C1 index_table.texi:l11 {node with ftable and vtable}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -106,7 +106,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@chapter C13 index_table.texi:l12 {first node chapter, with ftable and vtable}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -122,7 +122,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-with-ftable-and-vtable}
   |index_entry:I{cp,1}
@@ -138,7 +138,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{node-with-ftable-and-vtable}
    |index_entry:I{cp,2}
@@ -153,7 +153,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@vtable C3 index_table.texi:l21
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -165,7 +165,7 @@ $result_tree_text{'index_table'} = '*document_root C12
      *@item C1 index_table.texi:l22
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,1}
@@ -177,7 +177,7 @@ $result_tree_text{'index_table'} = '*document_root C12
      *@itemx C1 index_table.texi:l23
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,2}
@@ -192,7 +192,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    *@end C1 index_table.texi:l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
     *line_arg C1
@@ -206,7 +206,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@ftable C4 index_table.texi:l28
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'index_table'} = '*document_root C12
      *@item C1 index_table.texi:l29
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,1}
@@ -230,7 +230,7 @@ $result_tree_text{'index_table'} = '*document_root C12
      *@itemx C1 index_table.texi:l30
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,2}
@@ -247,7 +247,7 @@ $result_tree_text{'index_table'} = '*document_root C12
      *@item C1 index_table.texi:l32
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,3}
@@ -262,7 +262,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    *@end C1 index_table.texi:l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
     *line_arg C1
@@ -274,7 +274,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@node C1 index_table.texi:l36 {node with printindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -289,7 +289,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@chapter C6 index_table.texi:l37 {node with printindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -304,7 +304,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@printindex C1 index_table.texi:l39
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
@@ -316,7 +316,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@printindex C1 index_table.texi:l40
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{vr}
@@ -328,7 +328,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@printindex C1 index_table.texi:l41
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
@@ -341,7 +341,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@node C1 index_table.texi:l43 {indices refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -356,7 +356,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@chapter C135 index_table.texi:l44 {Indices refs}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -387,7 +387,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    *@end C1 index_table.texi:l47
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -399,7 +399,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,3}
@@ -412,7 +412,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,4}
@@ -425,7 +425,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,5}
@@ -438,7 +438,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,6}
@@ -451,7 +451,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,7}
@@ -464,7 +464,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,8}
@@ -477,7 +477,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,9}
@@ -490,7 +490,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,10}
@@ -503,7 +503,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,11}
@@ -516,7 +516,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,12}
@@ -529,7 +529,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,13}
@@ -542,7 +542,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,14}
@@ -555,7 +555,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,15}
@@ -568,7 +568,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,16}
@@ -581,7 +581,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,17}
@@ -594,7 +594,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,18}
@@ -607,7 +607,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,19}
@@ -620,7 +620,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,20}
@@ -633,7 +633,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,21}
@@ -646,7 +646,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,22}
@@ -659,7 +659,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,23}
@@ -672,7 +672,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,24}
@@ -685,7 +685,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,25}
@@ -698,7 +698,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,26}
@@ -711,7 +711,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,27}
@@ -724,7 +724,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,28}
@@ -737,7 +737,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,29}
@@ -750,7 +750,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,30}
@@ -763,7 +763,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,31}
@@ -776,7 +776,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,32}
@@ -789,7 +789,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,33}
@@ -802,7 +802,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,34}
@@ -815,7 +815,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,35}
@@ -828,7 +828,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,36}
@@ -841,7 +841,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,37}
@@ -854,7 +854,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,38}
@@ -867,7 +867,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,39}
@@ -880,7 +880,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,40}
@@ -893,7 +893,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,41}
@@ -906,7 +906,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,42}
@@ -919,7 +919,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,43}
@@ -932,7 +932,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,44}
@@ -945,7 +945,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,45}
@@ -958,7 +958,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,46}
@@ -971,7 +971,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,47}
@@ -984,7 +984,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,48}
@@ -997,7 +997,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,49}
@@ -1010,7 +1010,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,50}
@@ -1023,7 +1023,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,51}
@@ -1036,7 +1036,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,52}
@@ -1049,7 +1049,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,53}
@@ -1062,7 +1062,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,54}
@@ -1075,7 +1075,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,55}
@@ -1088,7 +1088,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,56}
@@ -1101,7 +1101,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,57}
@@ -1114,7 +1114,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,58}
@@ -1127,7 +1127,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,59}
@@ -1140,7 +1140,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,60}
@@ -1153,7 +1153,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,61}
@@ -1166,7 +1166,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,62}
@@ -1179,7 +1179,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,63}
@@ -1192,7 +1192,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,64}
@@ -1205,7 +1205,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,65}
@@ -1218,7 +1218,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,66}
@@ -1231,7 +1231,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,67}
@@ -1244,7 +1244,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,68}
@@ -1257,7 +1257,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,69}
@@ -1270,7 +1270,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,70}
@@ -1283,7 +1283,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,71}
@@ -1296,7 +1296,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,72}
@@ -1309,7 +1309,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,73}
@@ -1322,7 +1322,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,74}
@@ -1335,7 +1335,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,75}
@@ -1348,7 +1348,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,76}
@@ -1361,7 +1361,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,77}
@@ -1374,7 +1374,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,78}
@@ -1387,7 +1387,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,79}
@@ -1400,7 +1400,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,80}
@@ -1413,7 +1413,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,81}
@@ -1426,7 +1426,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,82}
@@ -1439,7 +1439,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,83}
@@ -1452,7 +1452,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,84}
@@ -1465,7 +1465,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,85}
@@ -1478,7 +1478,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,86}
@@ -1491,7 +1491,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,87}
@@ -1504,7 +1504,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,88}
@@ -1517,7 +1517,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,89}
@@ -1530,7 +1530,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,90}
@@ -1543,7 +1543,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,91}
@@ -1556,7 +1556,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,92}
@@ -1569,7 +1569,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,93}
@@ -1582,7 +1582,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,94}
@@ -1595,7 +1595,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,95}
@@ -1608,7 +1608,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,96}
@@ -1621,7 +1621,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,97}
@@ -1634,7 +1634,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,98}
@@ -1647,7 +1647,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,99}
@@ -1660,7 +1660,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,100}
@@ -1673,7 +1673,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,101}
@@ -1686,7 +1686,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,102}
@@ -1699,7 +1699,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,103}
@@ -1712,7 +1712,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,104}
@@ -1725,7 +1725,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,105}
@@ -1738,7 +1738,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,106}
@@ -1751,7 +1751,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,107}
@@ -1764,7 +1764,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,108}
@@ -1777,7 +1777,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,109}
@@ -1790,7 +1790,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,110}
@@ -1803,7 +1803,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,111}
@@ -1816,7 +1816,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,112}
@@ -1829,7 +1829,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,113}
@@ -1842,7 +1842,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,114}
@@ -1855,7 +1855,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,115}
@@ -1868,7 +1868,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,116}
@@ -1881,7 +1881,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,117}
@@ -1894,7 +1894,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,118}
@@ -1907,7 +1907,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,119}
@@ -1920,7 +1920,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,120}
@@ -1933,7 +1933,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,121}
@@ -1946,7 +1946,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,122}
@@ -1959,7 +1959,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,123}
@@ -1972,7 +1972,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,124}
@@ -1985,7 +1985,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,125}
@@ -1998,7 +1998,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,126}
@@ -2011,7 +2011,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,127}
@@ -2024,7 +2024,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,128}
@@ -2037,7 +2037,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,129}
@@ -2050,7 +2050,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,130}
@@ -2067,7 +2067,7 @@ $result_tree_text{'index_table'} = '*document_root C12
   *@printindex C1 index_table.texi:l179
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
@@ -2080,7 +2080,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@node C1 index_table.texi:l181 {node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -2097,7 +2097,7 @@ $result_tree_text{'index_table'} = '*document_root C12
  *@section C5 index_table.texi:l182 {node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1}
  |section_level:{2}

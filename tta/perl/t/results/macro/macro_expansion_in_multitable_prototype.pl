@@ -17,7 +17,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -36,7 +36,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
   *@multitable C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{5}
    *arguments_line C1
@@ -154,7 +154,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

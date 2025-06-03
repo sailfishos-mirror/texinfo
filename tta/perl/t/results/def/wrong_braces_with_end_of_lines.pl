@@ -10,7 +10,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
   *@deffn C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -39,7 +39,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
       |spaces_after_argument:
        |{\\n}
       |spaces_before_argument:
-       |{   }
+       |{spaces_before_argument:   }
        |>SOURCEMARKS
        |>defline_continuation<1><p:1>
        {more args}
@@ -51,7 +51,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -63,7 +63,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
   *@deffn C3 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l6
    |EXTRA
    |def_command:{deffn}
@@ -106,7 +106,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

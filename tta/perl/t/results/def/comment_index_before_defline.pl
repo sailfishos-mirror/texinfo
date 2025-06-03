@@ -21,7 +21,7 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
      *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
    *@defline C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -65,7 +65,7 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

@@ -13,7 +13,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -57,7 +57,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -69,7 +69,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l10
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -103,7 +103,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -119,7 +119,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -131,7 +131,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l18
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -147,7 +147,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -159,7 +159,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l22
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -175,7 +175,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -187,7 +187,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l26
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -206,7 +206,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -218,7 +218,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l30
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C3
     |INFO
@@ -248,7 +248,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l32
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -260,7 +260,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l34
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -280,7 +280,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l36
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -292,7 +292,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l38
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -313,7 +313,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l40
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -325,7 +325,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l42
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -341,7 +341,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -353,7 +353,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l46
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -374,7 +374,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l48
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -386,7 +386,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l50
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -404,7 +404,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l52
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -416,7 +416,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l54
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -434,7 +434,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l56
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -446,7 +446,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l58
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -464,7 +464,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l60
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -476,7 +476,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l62
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -495,7 +495,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l64
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -507,7 +507,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l66
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -526,7 +526,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l68
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -538,7 +538,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l70
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -559,7 +559,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l72
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -571,7 +571,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l74
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -591,7 +591,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l76
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -603,7 +603,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l78
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -624,7 +624,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l80
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -636,7 +636,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l82
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -656,7 +656,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l84
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -668,7 +668,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l86
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -689,7 +689,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l88
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -701,7 +701,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l90
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C3
     |INFO
@@ -735,7 +735,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l92
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -747,7 +747,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l94
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C3
     |INFO
@@ -781,7 +781,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l96
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -793,7 +793,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l98
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C5
     |INFO
@@ -851,7 +851,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l100
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -863,7 +863,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l102
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C5
     |INFO
@@ -921,7 +921,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l104
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -933,7 +933,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l106
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C3
     |INFO
@@ -985,7 +985,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l108
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -997,7 +997,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l110
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1016,7 +1016,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l112
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1028,7 +1028,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l114
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1048,7 +1048,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l116
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1060,7 +1060,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l118
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -1081,7 +1081,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l120
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1100,7 +1100,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l124
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1124,7 +1124,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l126
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1136,7 +1136,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l128
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -1161,7 +1161,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l130
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1173,7 +1173,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l132
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1193,7 +1193,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l134
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1205,7 +1205,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l136
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -1226,7 +1226,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l138
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1238,7 +1238,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@documentlanguage C1 l140
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
@@ -1250,7 +1250,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l141
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -1270,7 +1270,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l143
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1
@@ -1282,7 +1282,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
   *@itemize C3 l145
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C2
     |INFO
@@ -1303,7 +1303,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    *@end C1 l147
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
     *line_arg C1

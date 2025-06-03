@@ -10,7 +10,7 @@ $result_tree_text{'node_empty_direction'} = '*document_root C2
  *@node C1 l1 {name}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -21,7 +21,7 @@ $result_tree_text{'node_empty_direction'} = '*document_root C2
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
 ';
 
 

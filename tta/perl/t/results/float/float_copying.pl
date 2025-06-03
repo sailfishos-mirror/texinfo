@@ -18,7 +18,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
     *@float C7 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |float_number:{1}
     |float_type:{Copyright notice}
@@ -33,7 +33,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
       |spaces_after_argument:
        |{\\n}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {public domain}
      {empty_line:\\n}
      *paragraph C2
@@ -47,7 +47,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
         *@footnote C1 l8
         |INFO
         |spaces_before_argument:
-         |{\\n}
+         |{spaces_before_argument:\\n}
         |EXTRA
         |global_command_number:{1}
          *brace_command_context C7
@@ -67,7 +67,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
           |INFO
           |command_name:{cindex}
           |spaces_before_argument:
-           |{ }
+           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{cp,1}
@@ -80,7 +80,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
           |INFO
           |command_name:{findex}
           |spaces_before_argument:
-           |{ }
+           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{fn,1}
@@ -115,7 +115,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
@@ -128,7 +128,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
        |INFO
        |command_name:{findex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,2}
@@ -141,7 +141,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
      *@end C1 l23
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{float}
       *line_arg C1
@@ -152,7 +152,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
     *@end C1 l24
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -164,7 +164,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  *@node C1 l26 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -178,7 +178,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  *@top C6 l27 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -214,7 +214,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
    *@end C1 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -226,7 +226,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  *@node C1 l35 {Copying and floats}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -241,7 +241,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  *@appendix C9 l36 {Copying and floats}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -265,7 +265,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   *@listoffloats C1 l41
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Copyright notice}
   |global_command_number:{1}
@@ -278,7 +278,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   *@printindex C1 l43
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -290,7 +290,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   *@printindex C1 l44
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}

@@ -11,7 +11,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
  *@node C7 l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -71,7 +71,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {name}
    {,\\n}
    *@ref C2 l10
@@ -86,7 +86,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {name}
    { after ref.\\n}
    *@code C1 l11
@@ -103,7 +103,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {name}
    {.\\n}
    *@ref C2 l12
@@ -118,7 +118,7 @@ $result_tree_text{'ref_tests'} = '*document_root C2
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {name}
    { after ref.\\n}
   {empty_line:\\n}

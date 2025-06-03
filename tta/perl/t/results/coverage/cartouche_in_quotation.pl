@@ -26,7 +26,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{cartouche}
      *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'link'} = '*document_root C4
  *@node C1 l1 {One}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'link'} = '*document_root C4
  *@chapter C4 l2 {ONEX}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -42,7 +42,7 @@ $result_tree_text{'link'} = '*document_root C4
  *@node C19 l6 {Two}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -59,7 +59,7 @@ $result_tree_text{'link'} = '*document_root C4
    *@xrefautomaticsectiontitle C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |misc_args:A{off}
@@ -88,7 +88,7 @@ $result_tree_text{'link'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label}
    {\\n}
   {empty_line:\\n}
@@ -97,7 +97,7 @@ $result_tree_text{'link'} = '*document_root C4
    *@xrefautomaticsectiontitle C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |misc_args:A{on}
@@ -126,7 +126,7 @@ $result_tree_text{'link'} = '*document_root C4
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label}
    {\\n}
   {empty_line:\\n}

@@ -10,7 +10,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
   *@dircategory C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -48,7 +48,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{direntry}
     *line_arg C1
@@ -60,7 +60,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
   *@dircategory C1 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -92,7 +92,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{direntry}
     *line_arg C1
@@ -105,7 +105,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
  *@node C1 l15 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -119,7 +119,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
  *@top C3 l16 {Test dircategory and direntry}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

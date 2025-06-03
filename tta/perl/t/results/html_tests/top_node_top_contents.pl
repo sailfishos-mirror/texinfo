@@ -16,7 +16,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -30,7 +30,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
  *@top C1 l4 {Texinfo modules documentation}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

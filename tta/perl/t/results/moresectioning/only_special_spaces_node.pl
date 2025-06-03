@@ -13,7 +13,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@node C1 only_special_spaces_node.texi:l2 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@top C2 only_special_spaces_node.texi:l3 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@node C1 only_special_spaces_node.texi:l5 {   }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -55,7 +55,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C2 only_special_spaces_node.texi:l6 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -76,7 +76,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C2 only_special_spaces_node.texi:l9 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -97,7 +97,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C2 only_special_spaces_node.texi:l12 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -112,7 +112,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@node C1 only_special_spaces_node.texi:l14 {  }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -126,7 +126,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C2 only_special_spaces_node.texi:l15 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -141,7 +141,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@node C1 only_special_spaces_node.texi:l17 {᠎ }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -155,7 +155,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C2 only_special_spaces_node.texi:l18 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -170,7 +170,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@node C1 only_special_spaces_node.texi:l20 {         　}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -184,7 +184,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *@chapter C6 only_special_spaces_node.texi:l21 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}

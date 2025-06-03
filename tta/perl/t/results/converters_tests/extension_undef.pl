@@ -13,7 +13,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -27,7 +27,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
  *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
  *@chapter C1 l5 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

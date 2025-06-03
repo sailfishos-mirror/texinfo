@@ -11,7 +11,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
   *@float C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A 1͡a 第͡H ê͡一 and text}
@@ -40,14 +40,14 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {label}
    *paragraph C1
     {inside\\n}
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -59,7 +59,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
   *@listoffloats C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{A 1͡a 第͡H ê͡一 and text}
   |global_command_number:{1}

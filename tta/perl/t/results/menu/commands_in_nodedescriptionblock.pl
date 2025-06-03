@@ -10,7 +10,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@top C6 l2 {test commands in nodedescriptionblock}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -66,7 +66,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -94,7 +94,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@node C1 l11 {node1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -108,7 +108,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@chapter C4 l12 {chap1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -158,7 +158,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{node1}
     |index_entry:I{cp,1}
@@ -171,7 +171,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *@float C6 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1.1}
    |float_type:{tfloat}
@@ -186,7 +186,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      |spaces_after_argument:
       |{\\n}
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {f1}
     *@image C1 l22
     |EXTRA
@@ -202,7 +202,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     *@end C1 l24
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
      *line_arg C1
@@ -215,7 +215,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
     *line_arg C1
@@ -227,7 +227,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@node C1 l29 {node2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -242,7 +242,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *@chapter C11 l30 {chap2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -292,7 +292,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    *@end C1 l37
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -304,7 +304,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   *@printindex C1 l39
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -317,7 +317,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   *@listoffloats C1 l41
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{tfloat}
   |global_command_number:{1}

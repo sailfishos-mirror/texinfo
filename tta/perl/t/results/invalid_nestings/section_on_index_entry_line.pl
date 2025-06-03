@@ -11,7 +11,7 @@ $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
  *@section C3 l1 {b}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}

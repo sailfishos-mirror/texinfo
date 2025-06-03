@@ -19,7 +19,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -40,7 +40,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -55,13 +55,13 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    >|INFO
    >|command_name:{lm}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{bracketed_linemacro_arg:something}
     >*line_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{bracketed_linemacro_arg:gg , yy \\n  zz}
   >macro_expansion<start;1><p:1>
    >*macro_call C2
@@ -72,14 +72,14 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
     >*brace_arg C1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >{yy \\n  zz}
      >>SOURCEMARKS
      >>linemacro_expansion<end;1><p:4>
   *@table C4 l14:@mymacro
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -99,7 +99,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      *@item C1 l14:@mymacro
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -112,7 +112,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    *@end C1 l14:@mymacro
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
     *line_arg C1

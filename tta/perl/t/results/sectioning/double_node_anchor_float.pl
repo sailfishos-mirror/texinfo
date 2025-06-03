@@ -10,7 +10,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *@node C2 l1 {node1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *@node C8 l3 {node1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |node_number:{2}
  |normalized:{node1}
@@ -54,7 +54,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *@node C8 l9 {anchor1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |node_number:{3}
  |normalized:{anchor1}
@@ -68,7 +68,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   *@float C2 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
@@ -82,12 +82,12 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {node1}
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -99,7 +99,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   *@float C2 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{Text}
@@ -113,12 +113,12 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {anchor1}
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -130,7 +130,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   *@float C2 l17
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{3}
   |float_type:{Text}
@@ -145,12 +145,12 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {float1}
    *@end C1 l18
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -162,7 +162,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *@node C1 l20 {float1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |node_number:{4}
  |normalized:{float1}

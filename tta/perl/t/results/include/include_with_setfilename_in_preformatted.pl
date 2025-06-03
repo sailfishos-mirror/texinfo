@@ -19,7 +19,7 @@ $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root 
     >*@include C1 l2
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{included_file_with_setfilename.texi}
      >*line_arg C1
@@ -31,7 +31,7 @@ $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root 
     >*@setfilename C1 included_file_with_setfilename.texi:l1
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{included_file.info}
      >*line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root 
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

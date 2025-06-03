@@ -22,7 +22,7 @@ $result_tree_text{'close_paragraph_command'} = '*document_root C1
   *@sp C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{4}
    *line_arg C1

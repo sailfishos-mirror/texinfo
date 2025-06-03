@@ -24,7 +24,7 @@ $result_tree_text{'headitem_itemx_in_enumerate'} = '*document_root C1
     *@itemx C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -36,7 +36,7 @@ $result_tree_text{'headitem_itemx_in_enumerate'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
     *line_arg C1

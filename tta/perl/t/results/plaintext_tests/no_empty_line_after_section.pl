@@ -12,7 +12,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  *@chapter C4 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -49,7 +49,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  *@section C4 l10 {sec}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -69,7 +69,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
   *@sp C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{3}
    *line_arg C1
@@ -80,7 +80,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  *@section C5 l14 {after sp}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}

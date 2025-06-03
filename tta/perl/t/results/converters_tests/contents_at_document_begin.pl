@@ -19,7 +19,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  *@node C1 contents_at_document_begin.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -33,7 +33,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  *@top C6 contents_at_document_begin.texi:l6 {Contents at beginning}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    *@end C1 contents_at_document_begin.texi:l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  *@node C1 contents_at_document_begin.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -93,7 +93,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  *@chapter C4 contents_at_document_begin.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

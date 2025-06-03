@@ -12,14 +12,14 @@ $result_tree_text{'empty_second_email_argument'} = '*document_root C1
     *brace_arg C3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {a}
      *@@
      {b.c}
     *brace_arg
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
 ';
 
 

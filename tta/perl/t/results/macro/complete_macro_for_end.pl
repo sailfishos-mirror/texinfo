@@ -17,7 +17,7 @@ $result_tree_text{'complete_macro_for_end'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'complete_macro_for_end'} = '*document_root C1
    *@end C1 l6:@theend
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
     *line_arg C1

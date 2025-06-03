@@ -11,7 +11,7 @@ $result_tree_text{'setfilename_on_top_and_after_node_epub'} = '*document_root C3
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'setfilename_on_top_and_after_node_epub'} = '*document_root C3
 }
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -36,7 +36,7 @@ $result_tree_text{'setfilename_on_top_and_after_node_epub'} = '*document_root C3
     *@setfilename C1 l2
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{very badly placed setfilename}
      *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'setfilename_on_top_and_after_node_epub'} = '*document_root C3
   *@setfilename C1 l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{a bit too late}
    *line_arg C1

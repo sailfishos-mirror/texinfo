@@ -11,7 +11,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{en}
@@ -24,7 +24,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
  *@node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
  *@top C3 l4 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

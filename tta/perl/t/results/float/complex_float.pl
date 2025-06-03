@@ -11,7 +11,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  *@top C10 l2 {Test floats}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -41,7 +41,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
   *@listoffloats C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{1}
@@ -73,7 +73,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -85,7 +85,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
   *@float C24 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
@@ -100,7 +100,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {text with a lot of features}
    *paragraph C3
     {An example of float }
@@ -114,7 +114,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     >*@ifset C12 l16
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*arguments_line C1
       >*block_line_arg C1
       >|INFO
@@ -134,7 +134,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      >*@end C1 l27
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifset}
       >*line_arg C1
@@ -150,7 +150,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |element_node:{Top}
     |index_entry:I{cp,1}
@@ -165,7 +165,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@table C3 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -177,7 +177,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@item C1 l34
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -189,7 +189,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *@end C1 l36
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
      *line_arg C1
@@ -203,7 +203,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@itemize C3 l39
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -220,7 +220,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     *@end C1 l42
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
      *line_arg C1
@@ -294,7 +294,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@caption C1 l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}
@@ -313,7 +313,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l55
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
        *line_arg C1
@@ -335,7 +335,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@table C3 l60
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -347,7 +347,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         *@item C1 l61
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -359,7 +359,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l63
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
        *line_arg C1
@@ -373,7 +373,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@multitable C3 l66
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |max_columns:{2}
       *arguments_line C1
@@ -420,7 +420,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l69
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{multitable}
        *line_arg C1
@@ -434,7 +434,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |element_node:{Top}
       |index_entry:I{cp,2}
@@ -449,7 +449,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@itemize C3 l74
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -466,7 +466,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l77
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -586,7 +586,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@end C1 l89
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -598,7 +598,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  *@node C1 l91 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -612,7 +612,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  *@chapter C6 l92 {A chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -627,7 +627,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
   *@float C8 l94
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{Text}
@@ -642,7 +642,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {float with a lot of features and no shortcaption}
    {empty_line:\\n}
    *paragraph C1
@@ -651,7 +651,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@caption C1 l98
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}
@@ -670,7 +670,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l102
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
        *line_arg C1
@@ -684,7 +684,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@table C3 l105
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -696,7 +696,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         *@item C1 l106
         |INFO
         |spaces_before_argument:
-         |{ }
+         |{spaces_before_argument: }
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -708,7 +708,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l108
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
        *line_arg C1
@@ -722,7 +722,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@multitable C3 l111
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |max_columns:{2}
       *arguments_line C1
@@ -769,7 +769,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l114
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{multitable}
        *line_arg C1
@@ -783,7 +783,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |element_node:{chapter}
       |index_entry:I{cp,3}
@@ -798,7 +798,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *@itemize C3 l119
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -815,7 +815,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       *@end C1 l122
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
        *line_arg C1
@@ -898,7 +898,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *@end C1 l134
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

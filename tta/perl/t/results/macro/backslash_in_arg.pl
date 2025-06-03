@@ -10,7 +10,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
  *@node C9 l2 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -47,7 +47,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -62,14 +62,14 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    >|INFO
    >|command_name:{funindex}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{\\\\q}
   *index_entry_command@findex C1 l8:@funindex
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{fn,1}
@@ -91,7 +91,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{fn,2}
@@ -101,7 +101,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    >|INFO
    >|command_name:{funindex}
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*line_arg C1
      >{\\q}
    *line_arg C1
@@ -115,7 +115,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{fn,3}
@@ -137,7 +137,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{fn,4}
@@ -151,7 +151,7 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   *@printindex C1 l12
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}

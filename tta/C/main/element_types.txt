@@ -75,11 +75,13 @@ text_after_end                            text
 text_before_beginning                     text
 space_at_end_menu_node                    text
 after_menu_description_line               text
-spaces_after_cmd_before_arg               text
 normal_text                               text
 # text not in the regular converted tree elements.
 # In special spaces elements in info, as informative command arguments...
 other_text                                text
+# in info text elements of the same name
+spaces_before_argument                    text
+spaces_after_cmd_before_arg               text
 
 # Containers
 document_root

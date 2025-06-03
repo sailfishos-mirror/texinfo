@@ -10,7 +10,7 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
   *@float C4 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{1}
@@ -37,7 +37,7 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1

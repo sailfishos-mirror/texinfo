@@ -23,7 +23,7 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
      *@author C1 l3
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |global_command_number:{1}
       *line_arg C1
@@ -35,7 +35,7 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
     *@end C1 l5
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
      *line_arg C1
@@ -46,7 +46,7 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

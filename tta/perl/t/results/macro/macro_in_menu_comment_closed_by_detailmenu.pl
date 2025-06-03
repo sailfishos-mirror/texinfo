@@ -17,7 +17,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -62,7 +62,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
      *line_arg C1
@@ -73,7 +73,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

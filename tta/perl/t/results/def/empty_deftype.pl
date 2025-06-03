@@ -10,7 +10,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
   *@deftypefun C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deftypefun}
@@ -56,7 +56,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefun}
     *line_arg C1
@@ -68,7 +68,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
   *@defun C3 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{defun}
@@ -111,7 +111,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
     *line_arg C1
@@ -123,7 +123,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
   *@deftypemethod C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l9
    |EXTRA
    |def_command:{deftypemethod}
@@ -187,7 +187,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypemethod}
     *line_arg C1
@@ -199,7 +199,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
   *@defmethod C3 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l13
    |EXTRA
    |def_command:{defmethod}
@@ -260,7 +260,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    *@end C1 l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defmethod}
     *line_arg C1

@@ -11,7 +11,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@node C1 l4 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@chapter C6 l5 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -69,7 +69,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter}
   |index_entry:I{cp,1}
@@ -82,7 +82,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |INFO
   |command_name:{vindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter}
   |index_entry:I{vr,1}
@@ -95,7 +95,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter}
   |index_entry:I{fn,1}
@@ -108,7 +108,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@node C1 l11 {Vindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -123,7 +123,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@appendix C4 l12 {Vindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -138,7 +138,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   *@printindex C1 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{vr}
@@ -151,7 +151,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@node C1 l16 {Cindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -166,7 +166,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@appendix C4 l17 {Cindex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{B}
  |section_level:{1}
@@ -181,7 +181,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   *@printindex C1 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{cp}
@@ -194,7 +194,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@node C1 l21 {Findex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -209,7 +209,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
  *@appendix C3 l22 {Findex}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{C}
  |section_level:{1}
@@ -224,7 +224,7 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   *@printindex C1 l24
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{fn}

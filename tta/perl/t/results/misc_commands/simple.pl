@@ -10,7 +10,7 @@ $result_tree_text{'simple'} = '*document_root C1
   *@defindex C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{idx}
    *line_arg C1

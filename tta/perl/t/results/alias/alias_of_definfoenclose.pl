@@ -10,7 +10,7 @@ $result_tree_text{'alias_of_definfoenclose'} = '*document_root C1
   *@definfoenclose C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
    *line_arg C1
@@ -22,7 +22,7 @@ $result_tree_text{'alias_of_definfoenclose'} = '*document_root C1
   *@alias C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{new|phoo}
    *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *@top C2 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *@chapter C2 l3 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *@section C2 l5 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -54,7 +54,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *@subsubsection C2 l7 {subsubsection with no subsection above}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
@@ -69,7 +69,7 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *@subsection C1 l9 {the subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.2}
  |section_level:{3}

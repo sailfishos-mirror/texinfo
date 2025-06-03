@@ -10,7 +10,7 @@ $result_tree_text{'multitable_not_closed_item_tab'} = '*document_root C1
   *@multitable C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1

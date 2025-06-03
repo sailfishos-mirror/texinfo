@@ -10,7 +10,7 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
   *@deffn C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -19,7 +19,7 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
      |*bracketed_arg C1
      ||INFO
      ||spaces_before_argument:
-      ||{ }
+      ||{spaces_before_argument: }
       |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -35,7 +35,7 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
       *bracketed_arg C1 l1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {name}
      {spaces: }
      *def_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1

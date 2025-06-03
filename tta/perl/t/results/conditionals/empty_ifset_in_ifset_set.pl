@@ -19,7 +19,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
    >*@ifset C1 l4
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -32,7 +32,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
    >*@end C1 l8
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifset}
     >*line_arg C1
@@ -49,7 +49,7 @@ $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
    *@end C1 l7
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1

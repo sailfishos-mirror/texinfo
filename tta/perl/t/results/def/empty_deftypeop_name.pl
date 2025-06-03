@@ -10,7 +10,7 @@ $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
   *@deftypeop C2 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deftypeop}
@@ -42,7 +42,7 @@ $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
    *@end C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
     *line_arg C1

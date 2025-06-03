@@ -15,7 +15,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename_no_element'} = '*docu
   *@center C1 empty_lines_at_beginning_no_setfilename_no_element.texi:l4
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:

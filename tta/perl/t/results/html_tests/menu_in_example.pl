@@ -10,7 +10,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
  *@node C3 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -57,7 +57,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
        *@end C1 l8
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{cartouche}
         *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
       *@end C1 l12
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{cartouche}
        *line_arg C1
@@ -127,7 +127,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
     *@end C1 l16
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
      *line_arg C1
@@ -138,7 +138,7 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

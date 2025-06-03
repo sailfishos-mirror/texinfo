@@ -10,7 +10,7 @@ $result_tree_text{'definfoenclose_no_braces'} = '*document_root C1
   *@definfoenclose C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
    *line_arg C1

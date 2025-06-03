@@ -23,7 +23,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -58,7 +58,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l28
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
      *line_arg C1
@@ -153,7 +153,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      *@end C1 l31:@allquotes
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -250,7 +250,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      *@end C1 l31:@allquotes
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
       *line_arg C1
@@ -261,7 +261,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@codequoteundirected C1 l31:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{off}
@@ -273,7 +273,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@codequotebacktick C1 l31:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{off}
@@ -346,7 +346,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l32
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -369,7 +369,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l36
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
      *line_arg C1
@@ -382,7 +382,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  *@node C1 l39 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -396,7 +396,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  *@top C2 l40 {test quotes}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -410,7 +410,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  *@node C1 l42 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -424,7 +424,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  *@chapter C16 l43 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -516,7 +516,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    *@end C1 l45:@allquotes
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -613,7 +613,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    *@end C1 l45:@allquotes
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -624,7 +624,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   *@codequoteundirected C1 l45:@allquotes
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{off}
@@ -636,7 +636,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   *@codequotebacktick C1 l45:@allquotes
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{off}
@@ -793,7 +793,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l48:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -890,7 +890,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@end C1 l48:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -902,7 +902,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@codequoteundirected C1 l48:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{6}
     |misc_args:A{off}
@@ -914,7 +914,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@codequotebacktick C1 l48:@allquotes
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{6}
     |misc_args:A{off}
@@ -986,7 +986,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    *@end C1 l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1

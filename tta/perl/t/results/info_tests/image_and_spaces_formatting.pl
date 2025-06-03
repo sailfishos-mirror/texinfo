@@ -10,7 +10,7 @@ $result_tree_text{'image_and_spaces_formatting'} = '*document_root C2
  *@node C27 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

@@ -14,7 +14,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C10 nodes_before_top_and_sections.texi:l3 {first before top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -34,7 +34,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -48,7 +48,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first-before-top}
   |index_entry:I{cp,1}
@@ -63,7 +63,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -77,7 +77,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{cp}
@@ -108,7 +108,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *@end C1 nodes_before_top_and_sections.texi:l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -120,7 +120,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -144,7 +144,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-menu-before-top}
   |index_entry:I{cp,2}
@@ -158,7 +158,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
@@ -174,7 +174,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-menu-before-top}
   |index_entry:I{cp,3}
@@ -188,7 +188,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C11 nodes_before_top_and_sections.texi:l25 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -200,7 +200,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -213,7 +213,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,4}
@@ -227,7 +227,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l28
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
@@ -240,7 +240,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l30
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{fn}
@@ -256,7 +256,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l34
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
@@ -269,7 +269,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@top C7 nodes_before_top_and_sections.texi:l36 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -283,7 +283,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,5}
@@ -338,7 +338,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *@end C1 nodes_before_top_and_sections.texi:l45
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -350,7 +350,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C7 nodes_before_top_and_sections.texi:l47 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -370,7 +370,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -381,7 +381,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,6}
@@ -394,7 +394,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{fn,1}
@@ -407,7 +407,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,7}
@@ -420,7 +420,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l53
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{cp}
@@ -450,7 +450,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *@end C1 nodes_before_top_and_sections.texi:l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -462,7 +462,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C5 nodes_before_top_and_sections.texi:l59 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -512,7 +512,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *@end C1 nodes_before_top_and_sections.texi:l63
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -524,7 +524,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l65
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{fn}
@@ -537,7 +537,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C6 nodes_before_top_and_sections.texi:l67 {another}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{6}
@@ -548,11 +548,11 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{a node}
    |normalized:{a-node}
@@ -562,7 +562,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{second}
    |normalized:{second}
@@ -572,7 +572,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{cp,8}
@@ -585,7 +585,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{fn,2}
@@ -598,7 +598,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{cp,9}
@@ -611,7 +611,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C10 nodes_before_top_and_sections.texi:l73 {a node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -623,7 +623,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{another}
    |normalized:{another}
@@ -631,7 +631,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -644,7 +644,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{cp,10}
@@ -657,7 +657,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l76
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{cp}
@@ -671,7 +671,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{fn,3}
@@ -684,7 +684,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{cp,11}
@@ -697,7 +697,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l81
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{10}
   |misc_args:A{cp}
@@ -710,7 +710,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C1 nodes_before_top_and_sections.texi:l83 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -736,7 +736,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -751,7 +751,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   *@printindex C1 nodes_before_top_and_sections.texi:l86
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{11}
   |misc_args:A{cp}
@@ -764,7 +764,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
  *@node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{9}
@@ -776,7 +776,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{chapter}
    |normalized:{chapter}
@@ -794,7 +794,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-chapter}
   |index_entry:I{cp,12}

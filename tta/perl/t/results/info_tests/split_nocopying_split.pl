@@ -14,7 +14,7 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
  *@node C1 split_nocopying.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
  *@top C6 split_nocopying.texi:l4 {Test file used to test split Info without @@copying}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -64,7 +64,7 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
    *@end C1 split_nocopying.texi:l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -76,7 +76,7 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
  *@node C1 split_nocopying.texi:l12 {Ch1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -90,7 +90,7 @@ $result_tree_text{'split_nocopying_split'} = '*document_root C6
  *@chapter C4 split_nocopying.texi:l13 {Ch1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

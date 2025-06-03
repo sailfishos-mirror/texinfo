@@ -21,7 +21,7 @@ $result_tree_text{'noindent_after_smallexample'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{smallexample}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
   *@codequoteundirected C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
@@ -32,7 +32,7 @@ $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
   *@codequoteundirected C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}

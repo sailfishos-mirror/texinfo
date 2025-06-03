@@ -10,7 +10,7 @@ $result_tree_text{'command_in_heading_footing'} = '*document_root C1
   *@everyheading C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C4
    |INFO
    |spaces_after_argument:

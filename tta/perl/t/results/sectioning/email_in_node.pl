@@ -10,7 +10,7 @@ $result_tree_text{'email_in_node'} = '*document_root C2
  *@node C1 l1 {@email{ a } @email{c , d} @email{ , e}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -26,7 +26,7 @@ $result_tree_text{'email_in_node'} = '*document_root C2
      |spaces_after_argument:
       |{ }
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {a}
     { }
     *@email C2 l1
@@ -38,18 +38,18 @@ $result_tree_text{'email_in_node'} = '*document_root C2
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {d}
     { }
     *@email C2 l1
      *brace_arg
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
      *brace_arg C1
      |INFO
      |spaces_before_argument:
-      |{ }
+      |{spaces_before_argument: }
       {e}
 ';
 

@@ -17,7 +17,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -38,7 +38,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -68,7 +68,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *@end C1 l16
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{verbatim}
      *line_arg C1
@@ -79,7 +79,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -100,7 +100,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C1
@@ -114,7 +114,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   *@verbatiminclude C1 l25
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{verb.txt}
@@ -135,7 +135,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@verbatiminclude C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |input_encoding_name:{utf-8}
    |text_arg:{verb.txt}
@@ -147,7 +147,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -161,7 +161,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
   *@verbatiminclude C1 l33
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{verb.txt}
@@ -193,7 +193,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *@end C1 l42
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{verbatim}
      *line_arg C1
@@ -206,7 +206,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -235,7 +235,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *@end C1 l52
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{verbatim}
      *line_arg C1
@@ -247,7 +247,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l54
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -275,7 +275,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
     *@end C1 l61
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{verbatim}
      *line_arg C1
@@ -288,7 +288,7 @@ $result_tree_text{'verbatim_and_verbatiminclude'} = '*document_root C1
    *@end C1 l63
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1

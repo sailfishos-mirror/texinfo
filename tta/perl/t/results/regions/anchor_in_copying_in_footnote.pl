@@ -20,7 +20,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
      *@footnote C1 l3
      |INFO
      |spaces_before_argument:
-      |{\\n}
+      |{spaces_before_argument:\\n}
      |EXTRA
      |global_command_number:{1}
       *brace_command_context C1
@@ -40,7 +40,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
     *@end C1 l8
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
      *line_arg C1
@@ -52,7 +52,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  *@node C2 l10 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  *@node C8 l12 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}

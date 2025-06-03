@@ -13,7 +13,7 @@ $result_tree_text{'unknown_then_known_index_entry'} = '*document_root C1
    *@defindex C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{some}
     *line_arg C1
@@ -25,7 +25,7 @@ $result_tree_text{'unknown_then_known_index_entry'} = '*document_root C1
    |INFO
    |command_name:{someindex}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{some,1}
     *line_arg C1

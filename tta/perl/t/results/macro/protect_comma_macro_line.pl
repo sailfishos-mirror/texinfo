@@ -20,7 +20,7 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
     >|INFO
     >|command_name:{macrotwo}
     >|spaces_before_argument:
-     >|{  }
+     >|{spaces_before_argument:  }
      >*line_arg C1
       >{arg,  comma \\,}
    {and another one on another line arg,  comma \\,\\n}

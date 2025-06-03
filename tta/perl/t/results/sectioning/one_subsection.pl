@@ -11,7 +11,7 @@ $result_tree_text{'one_subsection'} = '*document_root C2
  *@subsection C1 l1 {The subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{3}

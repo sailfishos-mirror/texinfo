@@ -14,7 +14,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@node C1 navigation.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -28,7 +28,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@top C4 navigation.texi:l4 {File used for navigation testing}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -59,7 +59,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
    *@end C1 navigation.texi:l8
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -71,7 +71,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@node C1 navigation.texi:l10 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -85,7 +85,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@chapter C4 navigation.texi:l11 {First chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -117,7 +117,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
    *@end C1 navigation.texi:l15
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -129,7 +129,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@node C1 navigation.texi:l17 {section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -143,7 +143,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@section C30 navigation.texi:l18 {Section in chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
@@ -215,7 +215,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
    *@end C1 navigation.texi:l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -227,7 +227,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@node C1 navigation.texi:l51 {subsection}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -241,7 +241,7 @@ $result_tree_text{'navigation_no_header'} = '*document_root C10
  *@subsection C4 navigation.texi:l52 {Sub section in section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}

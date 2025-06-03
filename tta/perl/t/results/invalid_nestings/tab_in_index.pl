@@ -10,7 +10,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -43,7 +43,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
        |INFO
        |command_name:{vindex}
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,1}
         *line_arg C3
@@ -56,7 +56,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

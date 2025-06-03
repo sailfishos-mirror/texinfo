@@ -18,7 +18,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_ifset_content'} = '*document_r
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -37,7 +37,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_ifset_content'} = '*document_r
    >*@ifset C4 l6:@beginifsetcontent
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -51,7 +51,7 @@ $result_tree_text{'macro_expansion_end_in_ignored_ifset_content'} = '*document_r
     >*@end C1 l7
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

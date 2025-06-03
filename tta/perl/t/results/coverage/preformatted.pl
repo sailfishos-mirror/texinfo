@@ -21,7 +21,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
    *@end C1 l6
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
     *line_arg C1
@@ -39,7 +39,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
    *@vtable C3 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *arguments_line C1
      *block_line_arg C1
      |INFO
@@ -51,7 +51,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
       *@item C1 l10
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,1}
        *line_arg C1
@@ -66,7 +66,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
     *@end C1 l13
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{vtable}
      *line_arg C1
@@ -77,7 +77,7 @@ $result_tree_text{'preformatted'} = '*document_root C1
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{format}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
   *@center C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -48,7 +48,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
    *@end C1 l16
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft}
     *line_arg C1
@@ -97,7 +97,7 @@ $result_tree_text{'center_flush'} = '*document_root C1
    *@end C1 l32
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
     *line_arg C1

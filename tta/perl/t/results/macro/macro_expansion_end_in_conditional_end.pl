@@ -19,7 +19,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
    >*@ifset C1 l9:@beginendcond
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -58,7 +58,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
     >*@end C1 l9:@beginendcond
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
      >*line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
   *@enumerate C1 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -22,7 +22,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
  *@section C3 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
@@ -37,7 +37,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
   *@enumerate C1 l3
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |enumerate_specification:{4}
    *arguments_line C1
@@ -49,7 +49,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
  *@section C1 l3 {second}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}

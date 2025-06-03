@@ -10,7 +10,7 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
  *@node C1 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
  *@top C3 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -62,7 +62,7 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
        *brace_arg C3
        |INFO
        |spaces_before_argument:
-        |{ }
+        |{spaces_before_argument: }
         {in inline raw\\n}
         {empty_line:\\n}
         {end inlineraw}
@@ -73,7 +73,7 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
    *@end C1 l10
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1

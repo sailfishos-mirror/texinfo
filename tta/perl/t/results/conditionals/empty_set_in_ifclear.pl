@@ -18,7 +18,7 @@ $result_tree_text{'empty_set_in_ifclear'} = '*document_root C1
    >*@ifclear C3 l3
    >|INFO
    >|spaces_before_argument:
-    >|{ }
+    >|{spaces_before_argument: }
     >*arguments_line C1
      >*block_line_arg C1
      >|INFO
@@ -29,7 +29,7 @@ $result_tree_text{'empty_set_in_ifclear'} = '*document_root C1
     >*@end C1 l5
     >|INFO
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
      >*line_arg C1

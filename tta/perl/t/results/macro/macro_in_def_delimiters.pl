@@ -17,7 +17,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
     *line_arg C1
@@ -29,7 +29,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
   *@deffn C1 l5
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}

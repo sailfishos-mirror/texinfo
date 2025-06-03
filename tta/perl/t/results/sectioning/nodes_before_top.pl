@@ -11,7 +11,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@node C4 l1 {first}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -22,7 +22,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg C1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
@@ -30,7 +30,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *line_arg
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    *line_arg C3
    |INFO
    |spaces_after_argument:
@@ -61,7 +61,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -73,7 +73,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@node C2 l7 {node in menu before top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -95,7 +95,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -115,7 +115,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@top C4 l10 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -146,7 +146,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    *@end C1 l14
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -158,7 +158,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@node C1 l16 {second node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -172,7 +172,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
  *@chapter C1 l17 {a chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}

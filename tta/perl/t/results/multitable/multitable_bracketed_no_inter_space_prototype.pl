@@ -11,7 +11,7 @@ $result_tree_text{'multitable_bracketed_no_inter_space_prototype'} = '*document_
   *@multitable C2 l2
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -26,7 +26,7 @@ $result_tree_text{'multitable_bracketed_no_inter_space_prototype'} = '*document_
    *@end C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

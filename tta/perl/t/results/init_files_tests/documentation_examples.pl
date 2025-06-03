@@ -13,7 +13,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *@settitle C1 l2
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *line_arg C7
     |INFO
     |spaces_after_argument:
@@ -26,7 +26,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
       *brace_arg C1
       |INFO
       |spaces_before_argument:
-       |{ }
+       |{spaces_before_argument: }
        {me}
      { }
      *@sansserif C1 l2
@@ -47,7 +47,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -61,7 +61,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@top C2 l7 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -75,7 +75,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -89,7 +89,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@chapter C28 l10 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -142,7 +142,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {someone}
    {\\n}
    *@sc C1 l16
@@ -204,7 +204,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     *@end C1 l25
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
      *line_arg C1
@@ -215,7 +215,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *@end C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{indentedblock}
     *line_arg C1
@@ -240,7 +240,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *@end C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
     *line_arg C1
@@ -273,7 +273,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    *@end C1 l34
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
     *line_arg C1
@@ -286,7 +286,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,1}
@@ -301,7 +301,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,2}
@@ -322,7 +322,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   *@documentlanguage C1 l41
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
@@ -350,7 +350,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@node C1 l49 {my node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -364,7 +364,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@chapter C8 l50 {New node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -379,7 +379,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   *@documentlanguage C1 l52
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{pl}
@@ -402,7 +402,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@node C1 l58 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
@@ -417,7 +417,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@appendix C4 l59 {Index}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
@@ -432,7 +432,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   *@printindex C1 l61
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
@@ -445,7 +445,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@node C1 l63 {Second appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -459,7 +459,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  *@appendix C2 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{B}
  |section_level:{1}

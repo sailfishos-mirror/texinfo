@@ -11,7 +11,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
  *@top C2 l2 {top section}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -39,7 +39,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
  *@node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -53,7 +53,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
  *@chapter C39 l5 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -68,7 +68,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deffn C3 l7
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l7
    |EXTRA
    |def_command:{deffn}
@@ -112,7 +112,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -124,7 +124,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deffn C3 l11
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l11
    |EXTRA
    |def_command:{deffn}
@@ -172,7 +172,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l13
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -184,7 +184,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deffn C3 l15
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l15
    |EXTRA
    |def_command:{deffn}
@@ -236,7 +236,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l17
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -248,7 +248,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defspec C17 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l19
    |EXTRA
    |def_command:{defspec}
@@ -301,7 +301,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l20
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -364,7 +364,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -427,7 +427,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l22
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -490,7 +490,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l23
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -553,7 +553,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l24
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -616,7 +616,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l25
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -685,7 +685,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l26
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -754,7 +754,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -823,7 +823,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l28
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -892,7 +892,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l29
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -961,7 +961,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l30
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1030,7 +1030,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l31
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1099,7 +1099,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l32
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1168,7 +1168,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1240,7 +1240,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l35
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
     *line_arg C1
@@ -1252,7 +1252,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defspec C17 l37
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l37
    |EXTRA
    |def_command:{defspec}
@@ -1287,7 +1287,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l38
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1323,7 +1323,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l39
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1359,7 +1359,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l40
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1395,7 +1395,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l41
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1431,7 +1431,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l42
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1467,7 +1467,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l43
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1505,7 +1505,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l44
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1543,7 +1543,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l45
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1581,7 +1581,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l46
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1619,7 +1619,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l47
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1657,7 +1657,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l48
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1695,7 +1695,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l49
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1733,7 +1733,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l50
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1771,7 +1771,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l51
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1812,7 +1812,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l53
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
     *line_arg C1
@@ -1824,7 +1824,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deffn C7 l55
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l55
    |EXTRA
    |def_command:{deffn}
@@ -1863,7 +1863,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deffnx C1 l56
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -1908,7 +1908,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deffnx C1 l57
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -1953,7 +1953,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deffnx C1 l58
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -2018,7 +2018,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deffnx C1 l59
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -2072,7 +2072,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l63
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -2084,7 +2084,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defspec C4 l65
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l65
    |EXTRA
    |def_command:{defspec}
@@ -2291,7 +2291,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@defspecx C1 l66
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -2373,7 +2373,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l68
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
     *line_arg C1
@@ -2385,7 +2385,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deftypefn C3 l70
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l70
    |EXTRA
    |def_command:{deftypefn}
@@ -2450,7 +2450,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l72
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1
@@ -2462,7 +2462,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deftypefn C3 l74
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l74
    |EXTRA
    |def_command:{deftypefn}
@@ -2531,7 +2531,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l76
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1
@@ -2549,7 +2549,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defcv C3 l79
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l79
    |EXTRA
    |def_command:{defcv}
@@ -2583,7 +2583,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l81
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defcv}
     *line_arg C1
@@ -2595,7 +2595,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deftypecv C3 l83
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l83
    |EXTRA
    |def_command:{deftypecv}
@@ -2649,7 +2649,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l85
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
     *line_arg C1
@@ -2667,7 +2667,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefn C3 l88
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
     *def_line C1 l88
     |EXTRA
     |def_command:{deftypefn}
@@ -2732,7 +2732,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     *@end C1 l90
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{deftypefn}
      *line_arg C1
@@ -2743,7 +2743,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l91
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
     *line_arg C1
@@ -2755,7 +2755,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defun C3 l93
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l93
    |EXTRA
    |def_command:{defun}
@@ -2808,7 +2808,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l95
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
     *line_arg C1
@@ -2820,7 +2820,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@defun C3 l97
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l97
    |EXTRA
    |def_command:{defun}
@@ -2874,7 +2874,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l99
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
     *line_arg C1
@@ -2886,7 +2886,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deffn C3 l101
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l101
    |EXTRA
    |def_command:{deffn}
@@ -2980,7 +2980,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l104
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
     *line_arg C1
@@ -2992,7 +2992,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deftypefn C17 l106
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l106
    |EXTRA
    |def_command:{deftypefn}
@@ -3050,7 +3050,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l107
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3115,7 +3115,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l108
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3180,7 +3180,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l109
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3245,7 +3245,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l110
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3310,7 +3310,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l111
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3375,7 +3375,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l112
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3444,7 +3444,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l113
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3513,7 +3513,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l114
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3582,7 +3582,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l115
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3651,7 +3651,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l116
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3720,7 +3720,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l117
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3789,7 +3789,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l118
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3858,7 +3858,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l119
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3927,7 +3927,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l120
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3999,7 +3999,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l122
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1
@@ -4011,7 +4011,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   *@deftypefn C17 l124
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
    *def_line C1 l124
    |EXTRA
    |def_command:{deftypefn}
@@ -4069,7 +4069,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l125
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4128,7 +4128,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l126
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4187,7 +4187,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l127
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4246,7 +4246,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l128
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4305,7 +4305,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l129
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4364,7 +4364,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l130
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4425,7 +4425,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l131
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4486,7 +4486,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l132
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4547,7 +4547,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l133
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4608,7 +4608,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l134
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4669,7 +4669,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l135
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4730,7 +4730,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l136
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4791,7 +4791,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l137
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4852,7 +4852,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@deftypefnx C1 l138
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4916,7 +4916,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    *@end C1 l140
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
     *line_arg C1

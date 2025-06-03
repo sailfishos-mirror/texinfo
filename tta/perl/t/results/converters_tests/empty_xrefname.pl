@@ -10,7 +10,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@top C2 l2 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@node C1 l4 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@chapter C4 l5 {Chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -84,7 +84,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
    *@end C1 l9
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -96,7 +96,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@node C5 l11 {entiti}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -119,7 +119,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   *@heading C1 l14
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{2}
@@ -132,7 +132,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@node C1 l16 {chip}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -146,7 +146,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  *@chapter C9 l17 {Chip}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -161,7 +161,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   *@xrefautomaticsectiontitle C1 l19
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
@@ -183,7 +183,7 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
   *@xrefautomaticsectiontitle C1 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{on}

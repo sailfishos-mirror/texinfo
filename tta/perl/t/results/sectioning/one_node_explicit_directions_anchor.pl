@@ -10,7 +10,7 @@ $result_tree_text{'one_node_explicit_directions_anchor'} = '*document_root C2
  *@node C6 l1 {one node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}

@@ -10,7 +10,7 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
  *@node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
  *@node C7 l3 {chap refs node}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -230,12 +230,12 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l15
@@ -296,12 +296,12 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l18
@@ -555,12 +555,12 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l30
@@ -633,12 +633,12 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l33
@@ -683,12 +683,12 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {file name}
    {\\n}
    *@code C1 l36
@@ -723,7 +723,7 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {cross ref name}
    {\\n}
    *@code C1 l38

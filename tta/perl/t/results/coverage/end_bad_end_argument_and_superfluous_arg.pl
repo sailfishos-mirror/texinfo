@@ -18,7 +18,7 @@ $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root 
     *@end C1 l3
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{: }
      *line_arg C2

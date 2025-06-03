@@ -10,7 +10,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
  *@node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -23,7 +23,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |node_content:{@asis{chap}}
    |normalized:{chap}
@@ -53,7 +53,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    *@end C1 l5
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
     *line_arg C1
@@ -65,7 +65,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
  *@node C9 l7 {chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -80,7 +80,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   *@float C3 l9
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Figure}
@@ -94,7 +94,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
     |spaces_after_argument:
      |{\\n}
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      *@samp C1 l9
       *brace_container C1
        {chap}
@@ -103,7 +103,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
    *@end C1 l11
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
     *line_arg C1
@@ -115,7 +115,7 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
   *@listoffloats C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Figure}
   |global_command_number:{1}

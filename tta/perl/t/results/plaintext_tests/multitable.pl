@@ -10,7 +10,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   *@multitable C3 l1
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -57,7 +57,7 @@ $result_tree_text{'multitable'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -69,7 +69,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   *@multitable C4 l6
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -297,7 +297,7 @@ $result_tree_text{'multitable'} = '*document_root C1
    *@end C1 l21
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -309,7 +309,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   *@multitable C3 l23
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -371,7 +371,7 @@ $result_tree_text{'multitable'} = '*document_root C1
    *@end C1 l27
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -383,7 +383,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   *@multitable C3 l29
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
@@ -416,7 +416,7 @@ $result_tree_text{'multitable'} = '*document_root C1
    *@end C1 l33
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1
@@ -428,7 +428,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   *@multitable C3 l35
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
@@ -477,7 +477,7 @@ $result_tree_text{'multitable'} = '*document_root C1
    *@end C1 l42
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
     *line_arg C1

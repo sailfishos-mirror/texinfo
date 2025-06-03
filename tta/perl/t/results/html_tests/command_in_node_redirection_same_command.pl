@@ -11,7 +11,7 @@ $result_tree_text{'command_in_node_redirection_same_command'} = '*document_root 
  *@node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -25,7 +25,7 @@ $result_tree_text{'command_in_node_redirection_same_command'} = '*document_root 
  *@top C4 l2 {t @r{in r}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}

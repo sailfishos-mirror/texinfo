@@ -11,7 +11,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *@documentlanguage C1 l1
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{pt}
@@ -24,7 +24,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
    *@documentlanguage C1 l3
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |text_arg:{de}
@@ -37,7 +37,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -51,7 +51,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@top C2 l6 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -65,7 +65,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@part C2 l8 {Part I}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
@@ -80,7 +80,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -94,7 +94,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@chapter C4 l11 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -109,7 +109,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   *@documentlanguage C1 l13
   |INFO
   |spaces_before_argument:
-   |{ }
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{fr}
@@ -122,7 +122,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@part C2 l15 {Part II}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{2}
  |section_level:{0}
@@ -137,7 +137,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@node C1 l17 {other chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -151,7 +151,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@chapter C4 l18 {Other chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -166,7 +166,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   *@documentlanguage C1 l20
   |INFO
   |spaces_before_argument:
-   |{  }
+   |{spaces_before_argument:  }
   |EXTRA
   |global_command_number:{4}
   |text_arg:{hr}
@@ -179,7 +179,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@node C1 l22 {appendix}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -193,7 +193,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  *@appendix C1 l23 {App}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}

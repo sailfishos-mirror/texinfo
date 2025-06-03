@@ -30,7 +30,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {expL}
    {. }
    *@acronym C2 l2
@@ -39,7 +39,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {explA}
    {. }
    *@abbr C2 l2
@@ -48,7 +48,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {expl}
    {. \\n}
    *@acronym C2 l3
@@ -57,7 +57,7 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
     *brace_arg C1
     |INFO
     |spaces_before_argument:
-     |{ }
+     |{spaces_before_argument: }
      {expla}
    {. Last.\\n}
 ';

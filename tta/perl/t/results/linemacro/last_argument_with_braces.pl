@@ -18,7 +18,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@end C1 l4
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
     *line_arg C1
@@ -35,13 +35,13 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >|INFO
     >|command_name:{defbuiltin}
     >|spaces_before_argument:
-     >|{ }
+     >|{spaces_before_argument: }
      >*line_arg C1
       >{bracketed_linemacro_arg:my foo}
      >*line_arg C1
      >|INFO
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >{a last {} arg{ument}}
     *block_line_arg
     |INFO
@@ -50,7 +50,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l7:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -80,7 +80,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l7:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -131,18 +131,18 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*line_arg C1
        >{bracketed_linemacro_arg:my foo}
       >*line_arg C1
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >{{} {}}
    *@defline C1 l9:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -172,7 +172,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l9:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -211,18 +211,18 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
-      >|{ }
+      >|{spaces_before_argument: }
       >*line_arg C1
        >{bracketed_linemacro_arg:my foo}
       >*line_arg C1
       >|INFO
       >|spaces_before_argument:
-       >|{ }
+       >|{spaces_before_argument: }
        >{{second arg} remaining on {line}}
    *@defline C1 l11:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -252,7 +252,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l11:@defbuiltin
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -296,7 +296,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@end C1 l12
    |INFO
    |spaces_before_argument:
-    |{ }
+    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
     *line_arg C1

@@ -10,7 +10,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 {Top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{1}
@@ -24,7 +24,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@top C2 l1 {top}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -38,7 +38,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{2}
@@ -52,7 +52,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@chapter C2 l3 {Chap}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -67,7 +67,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 { 1}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{3}
@@ -93,7 +93,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 { 2}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{4}
@@ -119,7 +119,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 l9 {@strong{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -130,7 +130,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@node C1 {@strong{} 3}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |is_target:{1}
  |node_number:{5}
@@ -146,7 +146,7 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *@section C1 l10 {@strong{}}
  |INFO
  |spaces_before_argument:
-  |{ }
+  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}
