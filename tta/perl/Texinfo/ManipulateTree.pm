@@ -493,12 +493,11 @@ sub _print_source_marks($$$$;$$)
   return ($current_nr, $result);
 }
 
-sub _print_text_element($$$$;$$)
+sub _print_text_element($$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
-  my $current_nr = shift;
   my $fname_encoding = shift;
   my $use_filename = shift;
 
@@ -516,13 +515,7 @@ sub _print_text_element($$$$;$$)
   }
   $result .= "\n";
 
-  my $source_marks_result;
-  ($current_nr, $source_marks_result)
-    = _print_source_marks($element, $level, $prepended, $current_nr,
-                          $fname_encoding, $use_filename);
-
-  $result .= $source_marks_result;
-  return ($current_nr, $result);
+  return $result;
 }
 
 my $ADDITIONAL_INFO_PREPEND = '|';
@@ -760,12 +753,11 @@ sub _print_element_source_info($;$$)
   return $result;
 }
 
-sub print_element_base($$$$;$$)
+sub print_element_base($$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
-  my $current_nr = shift;
   my $fname_encoding = shift;
   my $use_filename = shift;
 
@@ -776,12 +768,11 @@ sub print_element_base($$$$;$$)
   }
 
   if (defined($element->{'text'})) {
-    my $text_result;
-    ($current_nr, $text_result)
-      = _print_text_element($element, $level, $prepended, $current_nr,
+    my $text_result
+      = _print_text_element($element, $level, $prepended,
                             $fname_encoding, $use_filename);
     $result .= $text_result;
-    return ($current_nr, $result);
+    return $result;
   }
 
   $result .= '*';
@@ -824,7 +815,7 @@ sub print_element_base($$$$;$$)
 
   $result .= "\n";
 
-  return ($current_nr, $result);
+  return $result;
 }
 
 sub print_element_details($$$$;$$)
@@ -836,9 +827,19 @@ sub print_element_details($$$$;$$)
   my $fname_encoding = shift;
   my $use_filename = shift;
 
-  my ($current_nr, $result)
+  my $result
       = print_element_base($element, $level, $prepended,
                            $fname_encoding, $use_filename);
+
+  if (defined($element->{'text'})) {
+    my $source_marks_result;
+    ($current_nr, $source_marks_result)
+      = _print_source_marks($element, $level, $prepended, $current_nr,
+                            $fname_encoding, $use_filename);
+
+    $result .= $source_marks_result;
+    return ($current_nr, $result);
+  }
 
   my $info = $element->{'info'};
   if ($info) {

@@ -27,6 +27,13 @@
 
 2025-06-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (_print_text_element)
+	(print_element_base, print_element_details): call _print_source_marks
+	in print_element_details only, remove $current_nr input and output
+	from _print_text_element and print_element_base.
+
+2025-06-04  Patrice Dumas  <pertusus@free.fr>
+
 	Very preliminary DocBook converter based on Texinfo::Reader
 
 	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin)
