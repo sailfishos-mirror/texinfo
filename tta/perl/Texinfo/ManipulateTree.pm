@@ -760,7 +760,7 @@ sub _print_element_source_info($;$$)
   return $result;
 }
 
-sub print_element_details($$$$;$$)
+sub print_element_base($$$$;$$)
 {
   my $element = shift;
   my $level = shift;
@@ -823,6 +823,22 @@ sub print_element_details($$$$;$$)
   }
 
   $result .= "\n";
+
+  return ($current_nr, $result);
+}
+
+sub print_element_details($$$$;$$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $fname_encoding = shift;
+  my $use_filename = shift;
+
+  my ($current_nr, $result)
+      = print_element_base($element, $level, $prepended,
+                           $fname_encoding, $use_filename);
 
   my $info = $element->{'info'};
   if ($info) {

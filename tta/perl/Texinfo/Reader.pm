@@ -37,6 +37,7 @@ foreach my $text_type (
             'spaces_at_end',
             #'text_after_end',
             #'text_before_beginning',
+            'spaces_after_argument',
             'spaces_after_cmd_before_arg',
             'spaces_before_argument',
   ) {
@@ -124,8 +125,29 @@ sub read($)
       @$token = ($element, TXI_ELEMENT_TEXT);
     }
   } else {
+    my $array = [];
+    if ($element->{'info'}) {
+      foreach my $info ('spaces_after_cmd_before_arg',
+                        'spaces_before_argument') {
+        my $info_element = $element->{'info'}->{$info};
+        if ($info_element) {
+          push @$array, $info_element;
+        }
+      }
+    }
     if ($element->{'contents'}) {
-      push @{$reader->{'stack'}}, [-1, $element->{'contents'}];
+      push @$array, @{$element->{'contents'}};
+    }
+    if ($element->{'info'}) {
+      foreach my $info ('spaces_after_argument', 'comment_at_end') {
+        my $info_element = $element->{'info'}->{$info};
+        if ($info_element) {
+          push @$array, $info_element;
+        }
+      }
+    }
+    if (scalar(@$array)) {
+      push @{$reader->{'stack'}}, [-1, $array];
       @$token = ($element, TXI_ELEMENT_START);
     } else {
       @$token = ($element, TXI_ELEMENT_EMPTY);
@@ -135,7 +157,7 @@ sub read($)
   return $token;
 }
 
-# 'internal', supposed to be called using object oriented synax only on
+# 'internal', supposed to be called using object oriented syntax only on
 # tokens returned by the reader.
 package Texinfo::ReaderToken;
 

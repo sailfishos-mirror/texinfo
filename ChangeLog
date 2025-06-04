@@ -1,3 +1,16 @@
+2025-06-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/ManipulateTree.pm (print_element_base): split
+	print_element_base out of print_element_details to print element
+	information except for extra and info additional information.
+
+	* tta/perl/Texinfo/Convert/TestReader.pm (_convert): use
+	print_element_base for END.
+
+	* tta/perl/Texinfo/Reader.pm (read): go through
+	spaces_after_cmd_before_arg, spaces_before_argument,
+	spaces_after_argument and comment_at_end in addition to contents.
+
 2025-06-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (element_to_perl_hash),

@@ -43,11 +43,19 @@ sub _convert($$;$$)
       print STDERR "DONE\n";
       return;
     } else {
+      my ($current_nr, $result);
       my $element = $token->element();
-      my ($current_nr, $result)
+      my $category = $token->category();
+      if ($category == Texinfo::Reader::TXI_ELEMENT_END) {
+        ($current_nr, $result)
+          = Texinfo::ManipulateTree::print_element_base($element,
+                          0, undef, $fname_encoding, $use_filename);
+      } else {
+        ($current_nr, $result)
           = Texinfo::ManipulateTree::print_element_details($element,
                           0, undef, 0, $fname_encoding, $use_filename);
-      print STDERR "".$Texinfo::Reader::token_category_name{$token->category()}
+      }
+      print STDERR "".$Texinfo::Reader::token_category_name{$category}
                     .": $result";
     }
   }
