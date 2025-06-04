@@ -794,7 +794,7 @@ sub check_node_tree_menu_structure($)
       my $automatic_directions
         = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
-      if ($automatic_directions and $section_relations) {
+      if ($automatic_directions and $direction_relation) {
         foreach my $direction (@node_directions_names) {
           # Check consistency with section and menu structure
           my $direction_associated_node
@@ -817,16 +817,31 @@ sub check_node_tree_menu_structure($)
               }
             }
 
-            if ($menus
-                and (!$menu_directions
-                     or !$menu_directions->{$direction})) {
-              $registrar->line_warn(
-         sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
-                        $direction,
-                        target_element_to_texi_label($node),
-       target_element_to_texi_label($direction_associated_node->{'element'})),
-                                    $node->{'source_info'}, 0,
-                             $customization_information->get_conf('DEBUG'));
+            if ($menus) {
+              if (!$menu_directions
+                     or !$menu_directions->{$direction}) {
+                $registrar->line_warn(
+           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
+                          $direction,
+                          target_element_to_texi_label($node),
+         target_element_to_texi_label($direction_associated_node->{'element'})),
+                                      $node->{'source_info'}, 0,
+                               $customization_information->get_conf('DEBUG'));
+              } elsif (!$menu_directions->{$direction}
+                                          ->{'extra'}->{'manual_content'}
+                and $menu_directions->{$direction}
+                  ne $direction_associated_node->{'element'}) {
+                $registrar->line_warn(
+               sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                      $direction,
+                      target_element_to_texi_label($node),
+         target_element_to_texi_label($direction_associated_node->{'element'}),
+                      $direction,
+                      target_element_to_texi_label(
+                          $menu_directions->{$direction})),
+                                      $node->{'source_info'}, 0,
+                               $customization_information->get_conf('DEBUG'));
+              }
             }
           } elsif ($menu_directions
                      and $menu_directions->{$direction}
@@ -843,28 +858,31 @@ sub check_node_tree_menu_structure($)
         }
       }
 
-      # check consistency between node pointer and node entries menu order
-      if ($node_directions and $menu_directions) {
-        foreach my $direction (@node_directions_names) {
-          if ($node_directions->{$direction}
-              and not $node_directions->{$direction}
-                    ->{'extra'}->{'manual_content'}
-              and $menu_directions->{$direction}
-              and $menu_directions->{$direction}
-                ne $node_directions->{$direction}
-              and not $menu_directions->{$direction}
-                            ->{'extra'}->{'manual_content'}) {
-            $registrar->line_warn(
-           sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
-                  $direction,
-                  target_element_to_texi_label($node),
-                  target_element_to_texi_label(
-                      $node_directions->{$direction}),
-                  $direction,
-                  target_element_to_texi_label(
-                      $menu_directions->{$direction})),
-                                  $node->{'source_info'}, 0,
-                           $customization_information->get_conf('DEBUG'));
+      # check consistency between explicit node pointer and
+      # node entries menu order
+      if (!$automatic_directions) {
+        if ($node_directions and $menu_directions) {
+          foreach my $direction (@node_directions_names) {
+            if ($node_directions->{$direction}
+                and not $node_directions->{$direction}
+                      ->{'extra'}->{'manual_content'}
+                and $menu_directions->{$direction}
+                and $menu_directions->{$direction}
+                  ne $node_directions->{$direction}
+                and not $menu_directions->{$direction}
+                              ->{'extra'}->{'manual_content'}) {
+              $registrar->line_warn(
+             sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                    $direction,
+                    target_element_to_texi_label($node),
+                    target_element_to_texi_label(
+                        $node_directions->{$direction}),
+                    $direction,
+                    target_element_to_texi_label(
+                        $menu_directions->{$direction})),
+                                    $node->{'source_info'}, 0,
+                             $customization_information->get_conf('DEBUG'));
+            }
           }
         }
       }
