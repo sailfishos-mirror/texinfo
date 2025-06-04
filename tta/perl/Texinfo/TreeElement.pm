@@ -45,6 +45,18 @@ sub type($)
   return $element->{'type'};
 }
 
+sub cmdname($)
+{
+  my $element = shift;
+  return $element->{'cmdname'};
+}
+
+sub text($)
+{
+  my $element = shift;
+  return $element->{'text'};
+}
+
 sub children_number($)
 {
   my $element = shift;
@@ -55,7 +67,7 @@ sub children_number($)
   return 0;
 }
 
-sub get_children($$)
+sub get_child($$)
 {
   my $element = shift;
   my $index = shift;
@@ -73,6 +85,8 @@ sub get_attribute($$)
 
   if ($element->{'extra'} and exists($element->{'extra'}->{$attribute})) {
     return $element->{'extra'}->{$attribute};
+  } elsif ($element->{'info'} and exists($element->{'info'}->{$attribute})) {
+    return $element->{'info'}->{$attribute};
   }
   return undef;
 }

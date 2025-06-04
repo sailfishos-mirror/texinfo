@@ -84,34 +84,58 @@ sectioning command.
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
 
-Treat spaces and comments in info as tree elements, not as attributes.  With
-ignorable as a category.  Maybe treat verb delimiter the same.  And also braces
-of types with implicit braces?
+Treat spaces and comments in info as tree elements, not as attributes. <- DONE
+
+Maybe treat verb delimiter the same. And also braces of types with implicit
+braces?
+
+Probably elements without handle could be found using find_element_from_sv
+in main/get_perl_info.c.  Probably need to add code to find global
+unique commands, they are used in DocBook conversion for example.
+
+Need to find a way to keep using the API for a construct like
+(with $copying_element C element being findable):
+    my $copying_result
+     = $self->convert_tree(Texinfo::TreeElement::new(
+           {'contents' => $copying_element->{'contents'}}));
+Maybe add an overriden function like 
+  new_element_from_contents($) {
+   return {'contents' => $element->{'contents'}}
+  }
+
+my $index_entry_info = $element->get_attribute('index_entry');
+Need an interface for
+my ($index_entry, $index_info)
+     = Texinfo::Common::lookup_index_entry($index_entry_info,
+                                           $indices_information);
+$index_entry->{'entry_element'}
+
+
+TODO:
+ Texinfo::Common::index_content_element
+ Texinfo::Common::collect_subentries
+ Texinfo::Common::section_level
+ Texinfo::Structuring::section_level_adjusted_command_name
+ Texinfo::Common::index_entry_referred_entry
+ Texinfo::Common::itemize_item_prepended_element
+ Texinfo::Common::set_informative_command_value
+ Texinfo::Convert::Utils::switch_lang_translations
+ Texinfo::Convert::Utils::find_element_authors
+ translated_command_tree
+ expand_today
 
 Initialization:
  from a tree
 
-Maybe, in converters, add a function called
- convert_element_tree
-which calls _convert/convert_tree and relinquish handlers.
-
-Categories:
-ignorable text
-text
-element begin
-element end
-
-accessors for all:
+accessors for TreeElements:
  * parent
      elementParent
  * source marks
     SourceMarksCount
     SourceMark[n]
- * type? (elementType)
-
-accessors for elements:
+ * type (elementType)
  * command_name/and or enum (elementCommand)
- * attributes (extra/some string info)
+ * attributes (extra/info)
      attributeCount ()
      getAttribute (name)
      getAttributeNo (no)

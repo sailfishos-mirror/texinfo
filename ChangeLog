@@ -27,6 +27,28 @@
 
 2025-06-04  Patrice Dumas  <pertusus@free.fr>
 
+	Very preliminary DocBook converter based on Texinfo::Reader
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(_convert): call Texinfo::TreeElement::new on new elements.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(element_format_comment_or_end_line), tta/perl/Texinfo/Reader.pm
+	(_end_element, skip_children, reader_collect_commands_list),
+	tta/perl/Texinfo/TreeElement.pm (cmdname, text): add.
+
+	* tta/perl/Texinfo/TreeElement.pm (get_child): rename get_children as
+	get_child.
+
+	* tta/perl/Texinfo/TreeElement.pm (get_attribute): also get info
+	additional information.
+
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm, tta/perl/texi2any.pl: new
+	DocBook converter based on Texinfo::Reader work in progress.
+
+2025-06-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (print_element_base): split
 	print_element_base out of print_element_details to print element
 	information except for extra and info additional information.

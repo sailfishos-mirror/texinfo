@@ -412,7 +412,8 @@ sub conversion_output_begin($;$$)
   if ($global_commands and $global_commands->{'copying'}) {
     my $copying_element = $global_commands->{'copying'};
     my $copying_result
-     = $self->convert_tree({'contents' => $copying_element->{'contents'}});
+     = $self->convert_tree(Texinfo::TreeElement::new(
+           {'contents' => $copying_element->{'contents'}}));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
@@ -1160,8 +1161,8 @@ sub _convert($$;$)
           my $global_commands
             = $self->{'document'}->global_commands_information();
           if ($global_commands and $global_commands->{'copying'}) {
-            return _convert($self, {'contents'
-              => $global_commands->{'copying'}->{'contents'}});
+            return _convert($self, Texinfo::TreeElement::new(
+             {'contents' => $global_commands->{'copying'}->{'contents'}}));
           }
         }
 

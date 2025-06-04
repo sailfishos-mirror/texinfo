@@ -1140,8 +1140,9 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
    the CONVERTER document is used.
    OUTPUT_UNIT_DESCRIPTOR is optional, it should allow to find sectioning
    commands faster.
-   Only for global commands, commands with indices, and sectioning root
-   commands.  More could be added if needed, for example nodedescription.
+   Only for global multi commands, commands with indices, and sectioning root
+   commands.  More could be added if needed, for example global unique
+   command, node associated nodedescription.
  */
 const ELEMENT *
 find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,

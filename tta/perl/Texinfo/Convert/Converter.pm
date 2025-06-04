@@ -1450,6 +1450,42 @@ sub format_comment_or_return_end_line($$)
   return $end_line;
 }
 
+sub element_format_comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $end_line;
+
+  my $line_arg;
+  my $first_child = $element->get_child(0);
+  if ($first_child) {
+    my $first_child_type = $first_child->type();
+    if ($first_child_type and $first_child_type eq 'arguments_line') {
+      $line_arg = $first_child->get_child(-1);
+    } else {
+      $line_arg = $element->get_child(-1);
+    }
+  }
+
+  my $comment = $line_arg->get_attribute('comment_at_end')
+    if ($line_arg);
+
+  if ($comment) {
+    $end_line = $self->convert_tree($comment);
+  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
+    my $text = $line_arg->get_attribute('spaces_after_argument')->text();
+    if (chomp($text)) {
+      $end_line = "\n";
+    } else {
+      $end_line = '';
+    }
+  } else {
+    $end_line = '';
+  }
+  return $end_line;
+}
+
 
 
 # Specific elements formatting helper functions

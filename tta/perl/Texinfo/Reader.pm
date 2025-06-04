@@ -23,6 +23,8 @@ package Texinfo::Reader;
 use strict;
 use warnings;
 
+use Carp qw(confess);
+
 #use Texinfo::Common;
 use Texinfo::TreeElement;
 
@@ -92,6 +94,23 @@ sub new($)
   return $reader;
 }
 
+sub _end_element($)
+{
+  my $reader = shift;
+  pop @{$reader->{'stack'}};
+  if (!scalar(@{$reader->{'stack'}})) {
+    return undef;
+  }
+
+  my $token = Texinfo::ReaderToken::new();
+
+  my $context = $reader->{'stack'}->[-1];
+  my ($index, $array) = @{$context};
+  @$token = ($array->[$index], TXI_ELEMENT_END);
+
+  return $token;
+}
+
 sub read($)
 {
   my $reader = shift;
@@ -103,19 +122,11 @@ sub read($)
 
   $context->[0]++;
 
-  my $token = Texinfo::ReaderToken::new();
-
   if ($context->[0] +1 > scalar(@$array)) {
-    pop @{$reader->{'stack'}};
-    if (!scalar(@{$reader->{'stack'}})) {
-      return undef;
-    }
-    $context = $reader->{'stack'}->[-1];
-    ($index, $array) = @{$context};
-    @$token = ($array->[$index], TXI_ELEMENT_END);
-
-    return $token;
+    return _end_element($reader);
   }
+
+  my $token = Texinfo::ReaderToken::new();
 
   my $element = $array->[$context->[0]];
   if (exists($element->{'text'})) {
@@ -157,6 +168,54 @@ sub read($)
   return $token;
 }
 
+# The $ELEMENT argument is solely used to check that the end element
+# matches.
+sub skip_children($;$)
+{
+  my $reader = shift;
+  my $element = shift;
+
+  my $token = _end_element($reader);
+
+  if ($element) {
+    my $end_element = $token->element();
+    if ($end_element ne $element) {
+      confess("skip_children $end_element ne $element; "
+        .Texinfo::Common::debug_print_element($end_element)."; "
+        .Texinfo::Common::debug_print_element($element));
+    }
+  }
+
+  return $token;
+}
+
+sub reader_collect_commands_list($$)
+{
+  my $root = shift;
+  my $commands_list = shift;
+
+  my $collected_commands_list = [];
+  my $commands_hash = {};
+  foreach my $command_name (@$commands_list) {
+    $commands_hash->{$command_name} = 1;
+  }
+  my $reader = Texinfo::Reader::new($root);
+  my $next;
+
+  while ($next = $reader->read()) {
+    my $category = $next->category();
+    if ($category == Texinfo::Reader::TXI_ELEMENT_START
+        or $category == Texinfo::Reader::TXI_ELEMENT_EMPTY) {
+      my $element = $next->element();
+      my $cmdname = $element->cmdname();
+      if (defined($cmdname) and defined($commands_hash->{$cmdname})) {
+        push @{$collected_commands_list}, $element;
+      }
+    }
+  }
+  return $collected_commands_list;
+}
+
 # 'internal', supposed to be called using object oriented syntax only on
 # tokens returned by the reader.
 package Texinfo::ReaderToken;
@@ -169,12 +228,6 @@ sub new()
   return $token;
 }
 
-sub type($)
-{
-  my $token = shift;
-  return $token->[0]->{'type'};
-}
-
 sub element($)
 {
   my $token = shift;
@@ -185,12 +238,6 @@ sub category($)
 {
   my $token = shift;
   return $token->[1];
-}
-
-sub parent($)
-{
-  my $token = shift;
-  return $token->[0]->{'parent'};
 }
 
 1;

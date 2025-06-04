@@ -851,6 +851,11 @@ my %formats_table = (
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
            },
+  'docbookreader' => {
+             'move_index_entries_after_items' => 1,
+             'no_warn_non_empty_parts' => 1,
+             'module' => 'Texinfo::Convert::ReadDocBook'
+           },
   'epub3' => {
             'converted_format' => 'html',
             'init_file' => 'epub3.pm',

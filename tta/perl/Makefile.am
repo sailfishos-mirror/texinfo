@@ -125,6 +125,7 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/ParagraphNonXS.pm \
  Texinfo/Convert/PlainTexinfo.pm \
  Texinfo/Convert/Plaintext.pm \
+ Texinfo/Convert/ReadDocBook.pm \
  Texinfo/Convert/TestReader.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoMarkup.pm \
