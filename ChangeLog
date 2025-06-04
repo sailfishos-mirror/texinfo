@@ -1,30 +1,3 @@
-2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
-
-	Reword error message about node directions
-
-	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
-	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
-	Reword error message about node directions for consistency with
-	similar messages, not using the word "pointer" when this was not
-	given explicitly as an argument to @node.
-
-2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
-
-	Separate explicit node pointer checking
-
-	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
-	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
-	Check for mismatch between sectioning and menu directions
-	where both are defined in the same block of code handling menu
-	directions defined but no sectioning directions.  Do not refer to
-	'node_directions' that was set in 'construct_nodes_tree' based
-	both on explicit menu directions and sectioning.  Only look at
-	'node_directions' if pointers were not automatically determined
-	for a node.
-
-	This will allow for reworking of these error messages without
-	affecting errors about explicit node pointers.
-
 2025-06-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/ManipulateTree.pm (_print_text_element)
@@ -53,6 +26,33 @@
 	* tta/perl/Makefile.am (dist_convertmodules_DATA),
 	tta/perl/Texinfo/Convert/ReadDocBook.pm, tta/perl/texi2any.pl: new
 	DocBook converter based on Texinfo::Reader work in progress.
+
+2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Reword error message about node directions
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Reword error message about node directions for consistency with
+	similar messages, not using the word "pointer" when this was not
+	given explicitly as an argument to @node.
+
+2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Separate explicit node pointer checking
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Check for mismatch between sectioning and menu directions
+	where both are defined in the same block of code handling menu
+	directions defined but no sectioning directions.  Do not refer to
+	'node_directions' that was set in 'construct_nodes_tree' based
+	both on explicit menu directions and sectioning.  Only look at
+	'node_directions' if pointers were not automatically determined
+	for a node.
+
+	This will allow for reworking of these error messages without
+	affecting errors about explicit node pointers.
 
 2025-06-04  Patrice Dumas  <pertusus@free.fr>
 
