@@ -832,11 +832,10 @@ sub check_node_tree_menu_structure($)
                 and $menu_directions->{$direction}
                   ne $direction_associated_node->{'element'}) {
                 $registrar->line_warn(
-               sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+               sprintf(__("node %s for `%s' is `%s' in sectioning but `%s' in menu"),
                       $direction,
                       target_element_to_texi_label($node),
          target_element_to_texi_label($direction_associated_node->{'element'}),
-                      $direction,
                       target_element_to_texi_label(
                           $menu_directions->{$direction})),
                                       $node->{'source_info'}, 0,

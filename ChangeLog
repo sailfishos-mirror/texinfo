@@ -1,5 +1,15 @@
 2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reword error message about node directions
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Reword error message about node directions for consistency with
+	similar messages, not using the word "pointer" when this was not
+	given explicitly as an argument to @node.
+
+2025-06-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate explicit node pointer checking
 
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),

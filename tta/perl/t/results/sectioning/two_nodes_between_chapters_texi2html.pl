@@ -228,10 +228,10 @@ $result_errors{'two_nodes_between_chapters_texi2html'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu
+    'error_line' => 'warning: node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu
 ',
     'line_nr' => 15,
-    'text' => 'node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu',
+    'text' => 'node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu',
     'type' => 'warning'
   }
 ];

@@ -1199,10 +1199,9 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                       message_list_command_warn (error_messages,
                                          (options && options->DEBUG.o.integer > 0),
                                                        node, 0,
-                                "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                                "node %s for `%s' is `%s' in sectioning but `%s' in menu",
                                                        direction_names[d], node_texi,
-                                                       dir_texi, direction_names[d],
-                                                       menu_dir_texi);
+                                                       dir_texi, menu_dir_texi);
                                       free (node_texi);
                                       free (dir_texi);
                                       free (menu_dir_texi);
