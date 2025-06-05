@@ -237,6 +237,8 @@ destroy_element (ELEMENT *e)
   /* remove the reference of the association with the C tree */
   if (e->sv)
     {
+      void *hv = get_sv_hv (e->sv);
+      unregister_perl_data (hv);
       unregister_perl_data (e->sv);
       e->sv = 0;
     }
