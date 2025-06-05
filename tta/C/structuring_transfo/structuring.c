@@ -1209,11 +1209,19 @@ check_node_tree_menu_structure (DOCUMENT *document)
               for (d = 0; d < directions_length; d++)
                 {
                   /* Check consistency with section and menu structure. */
+                  const ELEMENT *section_target = 0;
                   const NODE_RELATIONS *direction_associated_node;
                   direction_associated_node
                     = section_direction_associated_node (
                                                    direction_relation, d);
                   if (direction_associated_node)
+                    section_target = direction_associated_node->element;
+
+                  const ELEMENT *menu_target = 0;
+                  if (menu_directions)
+                    menu_target = menu_directions[d];
+
+                  if (section_target)
                     {
                       const SECTION_RELATIONS * const *section_directions
                         = direction_relation->section_directions;
@@ -1235,14 +1243,12 @@ check_node_tree_menu_structure (DOCUMENT *document)
                       if (menus
                           && menus->number > 0)
                         {
-                          if (!menu_directions
-                                  || !menu_directions[d])
+                          if (!menu_target)
                             {
                               char *node_texi
                                 = target_element_to_texi_label (node);
                               char *direction_texi
-                               = target_element_to_texi_label
-                                 (direction_associated_node->element);
+                               = target_element_to_texi_label (section_target);
                               message_list_command_warn (error_messages,
                              (options && options->DEBUG.o.integer > 0),
                                        node, 0,
@@ -1254,24 +1260,23 @@ check_node_tree_menu_structure (DOCUMENT *document)
                             }
                           else
                             {
-                              const ELEMENT *menu_direction
-                               = menu_directions[d];
                               const ELEMENT *menu_dir_manual_content
-                               = lookup_extra_container (menu_direction,
+                               = lookup_extra_container (menu_target,
                                                          AI_key_manual_content);
                               if (!menu_dir_manual_content
-                                  && menu_directions[d] != direction_associated_node->element)
+                                  && menu_target != section_target)
                                 {
                                   const ELEMENT *node_dir_manual_content
                                    = lookup_extra_container (node_directions[d],
                                                              AI_key_manual_content);
                                   if (!menu_dir_manual_content && !node_dir_manual_content)
                                     {
-                                      char *node_texi = target_element_to_texi_label (node);
-                                      char *dir_texi = target_element_to_texi_label
-                                                        (direction_associated_node->element);
+                                      char *node_texi
+                                        = target_element_to_texi_label (node);
+                                      char *dir_texi
+                                        = target_element_to_texi_label (section_target);
                                       char *menu_dir_texi
-                                         = target_element_to_texi_label (menu_direction);
+                                         = target_element_to_texi_label (menu_target);
 
                                       message_list_command_warn (error_messages,
                                          (options && options->DEBUG.o.integer > 0),
@@ -1287,20 +1292,17 @@ check_node_tree_menu_structure (DOCUMENT *document)
                             }
                         }
                     }
-                  else if (menu_directions && menu_directions[d])
+                  else if (menu_target)
                     {
-                      const ELEMENT *elt_menu_direction
-                       = menu_directions[d];
                       const ELEMENT *menu_direction_manual_content
-                        = lookup_extra_container (elt_menu_direction,
+                        = lookup_extra_container (menu_target,
                                                 AI_key_manual_content);
                       if (!menu_direction_manual_content)
                         {
                           char *node_texi
                             = target_element_to_texi_label (node);
                           char *entry_texi
-                            = target_element_to_texi_label
-                                             (elt_menu_direction);
+                            = target_element_to_texi_label (menu_target);
                           message_list_command_warn (error_messages,
                          (options && options->DEBUG.o.integer > 0),
                                    node, 0,

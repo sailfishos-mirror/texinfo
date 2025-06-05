@@ -837,10 +837,22 @@ sub check_node_tree_menu_structure($)
       if ($automatic_directions and $direction_relation) {
         foreach my $direction (@node_directions_names) {
           # Check consistency with section and menu structure
+          my $section_target;
           my $direction_associated_node
             = _section_direction_associated_node($direction_relation,
                                                  $direction);
-          if ($direction_associated_node) {
+          if ($direction_associated_node
+              and $direction_associated_node->{'element'}) {
+            $section_target = $direction_associated_node->{'element'};
+          }
+
+          my $menu_target;
+          if ($menu_directions
+                 and $menu_directions->{$direction}) {
+            $menu_target = $menu_directions->{$direction};
+          }
+
+          if ($section_target) {
             my $section_directions
               = $direction_relation->{'section_directions'};
 
@@ -858,39 +870,33 @@ sub check_node_tree_menu_structure($)
             }
 
             if ($menus) {
-              if (!$menu_directions
-                     or !$menu_directions->{$direction}) {
+              if (!$menu_target) {
                 $registrar->line_warn(
            sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
                           $direction,
                           target_element_to_texi_label($node),
-         target_element_to_texi_label($direction_associated_node->{'element'})),
+                          target_element_to_texi_label($section_target)),
                                       $node->{'source_info'}, 0,
                                $customization_information->get_conf('DEBUG'));
-              } elsif (!$menu_directions->{$direction}
-                                          ->{'extra'}->{'manual_content'}
-                and $menu_directions->{$direction}
-                  ne $direction_associated_node->{'element'}) {
+              } elsif (!$menu_target->{'extra'}->{'manual_content'}
+                       and $menu_target ne $section_target) {
                 $registrar->line_warn(
                sprintf(__("node %s for `%s' is `%s' in sectioning but `%s' in menu"),
                       $direction,
                       target_element_to_texi_label($node),
-         target_element_to_texi_label($direction_associated_node->{'element'}),
-                      target_element_to_texi_label(
-                          $menu_directions->{$direction})),
+                      target_element_to_texi_label($section_target),
+                      target_element_to_texi_label($menu_target)),
                                       $node->{'source_info'}, 0,
                                $customization_information->get_conf('DEBUG'));
               }
             }
-          } elsif ($menu_directions
-                     and $menu_directions->{$direction}
-                     and !$menu_directions->{$direction}
-                                          ->{'extra'}->{'manual_content'}) {
+          } elsif ($menu_target
+                     and !$menu_target->{'extra'}->{'manual_content'}) {
             $registrar->line_warn(
         sprintf(__("node %s for `%s' is `%s' in menu but not in sectioning"),
                        $direction,
                        target_element_to_texi_label($node),
-       target_element_to_texi_label($menu_directions->{$direction})),
+                       target_element_to_texi_label($menu_target)),
                                     $node->{'source_info'}, 0,
                           $customization_information->get_conf('DEBUG'));
           }

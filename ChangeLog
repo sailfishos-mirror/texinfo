@@ -1,5 +1,12 @@
 2025-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	Shorten code by using variables to store references to target nodes. No
+	functional changes intended.
+
+2025-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Check for missing menu entries before structure check
 
 	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
