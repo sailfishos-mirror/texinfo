@@ -1101,16 +1101,93 @@ check_node_tree_menu_structure (DOCUMENT *document)
   if (nodes_list->number < 1)
     return;
 
+  /* check for node up / menu up mismatch */
+  if ((!options)
+      || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
+    for (i = 0; i < nodes_list->number; i++)
+      {
+        NODE_RELATIONS *node_relations = nodes_list->list[i];
+        ELEMENT *node = (ELEMENT *)node_relations->element;
+        const ELEMENT * const *node_directions
+                         = node_relations->node_directions;
+
+        const ELEMENT *up_node = 0;
+        if (node_directions && node_directions[D_up])
+          up_node = node_directions[D_up];
+        if (up_node)
+          {
+            const ELEMENT *manual_content = lookup_extra_container (up_node,
+                                                     AI_key_manual_content);
+            int is_target = (node->flags & EF_is_target);
+
+            /* No check if node up is an external manual */
+            if (!manual_content
+          /* no check for a redundant node, the node registered in the menu
+             was the main equivalent node */
+                && is_target)
+              {
+                int status;
+                size_t up_node_number
+                  = lookup_extra_integer (up_node,
+                                          AI_key_node_number, &status);
+                const NODE_RELATIONS *up_node_relations
+                  = nodes_list->list[up_node_number -1];
+                const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
+                int found = 0;
+                /* check only if there are menus */
+                if (menus)
+                  {
+                    size_t j;
+                    for (j = 0; j < menus->number; j++)
+                      {
+                        const ELEMENT *menu = menus->list[j];
+                        size_t k;
+                        for (k = 0; k < menu->e.c->contents.number; k++)
+                          {
+                            const ELEMENT *menu_content = menu->e.c->contents.list[k];
+                            if (menu_content->type == ET_menu_entry)
+                              {
+                                const ELEMENT *menu_node
+                                  = normalized_entry_associated_internal_node (
+                                                           menu_content,
+                                                            identifiers_target);
+                                if (menu_node == node)
+                                  {
+                                    found = 1;
+                                    break;
+                                  }
+                              }
+                          }
+                        if (found)
+                          break;
+                      }
+                    if (!found)
+                      {
+                        char *up_texi = target_element_to_texi_label (up_node);
+                        char *node_texi = target_element_to_texi_label (node);
+                        message_list_command_warn (error_messages,
+                           (options && options->DEBUG.o.integer > 0),
+                                up_node, 0,
+         "node `%s' lacks menu item for `%s' despite being its Up target",
+                                up_texi, node_texi);
+                        free (up_texi);
+                        free (node_texi);
+                      }
+                  }
+              }
+          }
+      }
+
   /* Node-by-node structure checking. */
-  for (i = 0; i < nodes_list->number; i++)
+  if (!options
+      || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
     {
-      NODE_RELATIONS *node_relations = nodes_list->list[i];
-      ELEMENT *node = (ELEMENT *)node_relations->element;
-      const ELEMENT * const *node_directions
-                       = node_relations->node_directions;
-      if (!options
-          || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
+      for (i = 0; i < nodes_list->number; i++)
         {
+          NODE_RELATIONS *node_relations = nodes_list->list[i];
+          ELEMENT *node = (ELEMENT *)node_relations->element;
+          const ELEMENT * const *node_directions
+                           = node_relations->node_directions;
           const char *normalized = lookup_extra_string (node, AI_key_normalized);
           if (!strcmp (normalized, "Top"))
             continue;
@@ -1278,78 +1355,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                   }
               }
         }
-      /* check for node up / menu up mismatch */
-      if ((!options)
-          || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
-        {
-          const ELEMENT *up_node = 0;
-          if (node_directions && node_directions[D_up])
-            up_node = node_directions[D_up];
-          if (up_node)
-            {
-              const ELEMENT *manual_content = lookup_extra_container (up_node,
-                                                       AI_key_manual_content);
-              int is_target = (node->flags & EF_is_target);
-
-              /* No check if node up is an external manual */
-              if (!manual_content
-            /* no check for a redundant node, the node registered in the menu
-               was the main equivalent node */
-                  && is_target)
-                {
-                  int status;
-                  size_t up_node_number
-                    = lookup_extra_integer (up_node,
-                                            AI_key_node_number, &status);
-                  const NODE_RELATIONS *up_node_relations
-                    = nodes_list->list[up_node_number -1];
-                  const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
-                  int found = 0;
-                  /* check only if there are menus */
-                  if (menus)
-                    {
-                      size_t j;
-                      for (j = 0; j < menus->number; j++)
-                        {
-                          const ELEMENT *menu = menus->list[j];
-                          size_t k;
-                          for (k = 0; k < menu->e.c->contents.number; k++)
-                            {
-                              const ELEMENT *menu_content = menu->e.c->contents.list[k];
-                              if (menu_content->type == ET_menu_entry)
-                                {
-                                  const ELEMENT *menu_node
-                                    = normalized_entry_associated_internal_node (
-                                                             menu_content,
-                                                              identifiers_target);
-                                  if (menu_node == node)
-                                    {
-                                      found = 1;
-                                      break;
-                                    }
-                                }
-                            }
-                          if (found)
-                            break;
-                        }
-                      if (!found)
-                        {
-                          char *up_texi = target_element_to_texi_label (up_node);
-                          char *node_texi = target_element_to_texi_label (node);
-                          message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                  up_node, 0,
-           "node `%s' lacks menu item for `%s' despite being its Up target",
-                                  up_texi, node_texi);
-                          free (up_texi);
-                          free (node_texi);
-                        }
-                    }
-                }
-            }
-        }
     }
-
 }
 
 /* As mentioned in the manual, the node next pointer for the Top

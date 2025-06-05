@@ -459,6 +459,13 @@ $result_texts{'lowered_subsubsection'} = '
 
 $result_errors{'lowered_subsubsection'} = [
   {
+    'error_line' => 'warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target
+',
+    'line_nr' => 22,
+    'text' => 'node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node next for `Lowered subsec\' is `Lowered subsubsection\' in sectioning but not in menu
 ',
     'line_nr' => 34,
@@ -477,13 +484,6 @@ $result_errors{'lowered_subsubsection'} = [
 ',
     'line_nr' => 41,
     'text' => 'node up for `Lowered subsubsection\' is `Subsection\' in sectioning but `Lowered subsec\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target
-',
-    'line_nr' => 22,
-    'text' => 'node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target',
     'type' => 'warning'
   }
 ];

@@ -771,12 +771,52 @@ sub check_node_tree_menu_structure($)
 
   my %cached_menu_nodes;
 
-  # Node-by-node structure checking
-  foreach my $node_relations (@{$nodes_list}) {
-    my $node = $node_relations->{'element'};
-    my $node_directions = $node_relations->{'node_directions'};
+  # check for node up / menu up mismatch
+  if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
+    foreach my $node_relations (@{$nodes_list}) {
+      my $node = $node_relations->{'element'};
+      my $node_directions = $node_relations->{'node_directions'};
 
-    if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+      my $up_node;
+      if ($node_directions
+          and $node_directions->{'up'}) {
+        $up_node = $node_directions->{'up'};
+      }
+      if ($up_node
+          # No check if node up is an external manual
+          and not $up_node->{'extra'}->{'manual_content'}
+          # no check for a redundant node, the node registered in the menu
+          # was the main equivalent node
+          and $node->{'extra'}->{'is_target'}) {
+        my $up_node_relations
+          = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
+
+        # check only if there are menus
+        if ($up_node_relations->{'menus'}) {
+          if (!$cached_menu_nodes{$up_node}) {
+            $cached_menu_nodes{$up_node} = {};
+            _register_menu_node_targets($identifier_target, $up_node_relations,
+                                        $cached_menu_nodes{$up_node});
+          }
+          if (!$cached_menu_nodes{$up_node}->{$node}) {
+            $registrar->line_warn(sprintf(
+               __("node `%s' lacks menu item for `%s' despite being its Up target"),
+               target_element_to_texi_label($up_node),
+               target_element_to_texi_label($node)),
+                                $up_node->{'source_info'}, 0,
+                                $customization_information->get_conf('DEBUG'));
+          }
+        }
+      }
+    }
+  }
+
+  # Node-by-node structure checking
+  if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+    foreach my $node_relations (@{$nodes_list}) {
+      my $node = $node_relations->{'element'};
+      my $node_directions = $node_relations->{'node_directions'};
+
       next if $node->{'extra'}->{'normalized'} eq 'Top';
 
       my $menu_directions = $node_relations->{'menu_directions'};
@@ -882,41 +922,6 @@ sub check_node_tree_menu_structure($)
                                     $node->{'source_info'}, 0,
                              $customization_information->get_conf('DEBUG'));
             }
-          }
-        }
-      }
-    }
-
-    # check for node up / menu up mismatch
-    if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
-      my $up_node;
-      if ($node_directions
-          and $node_directions->{'up'}) {
-        $up_node = $node_directions->{'up'};
-      }
-      if ($up_node
-          # No check if node up is an external manual
-          and not $up_node->{'extra'}->{'manual_content'}
-          # no check for a redundant node, the node registered in the menu
-          # was the main equivalent node
-          and $node->{'extra'}->{'is_target'}) {
-        my $up_node_relations
-          = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
-
-        # check only if there are menus
-        if ($up_node_relations->{'menus'}) {
-          if (!$cached_menu_nodes{$up_node}) {
-            $cached_menu_nodes{$up_node} = {};
-            _register_menu_node_targets($identifier_target, $up_node_relations,
-                                        $cached_menu_nodes{$up_node});
-          }
-          if (!$cached_menu_nodes{$up_node}->{$node}) {
-            $registrar->line_warn(sprintf(
-               __("node `%s' lacks menu item for `%s' despite being its Up target"),
-               target_element_to_texi_label($up_node),
-               target_element_to_texi_label($node)),
-                                $up_node->{'source_info'}, 0,
-                                $customization_information->get_conf('DEBUG'));
           }
         }
       }

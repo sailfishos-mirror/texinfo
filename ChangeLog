@@ -1,3 +1,12 @@
+2025-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Check for missing menu entries before structure check
+
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	Move check for missing menu entries (controlled by CHECK_MISSING_MENU_ENTRY)
+	before structure check (controlled by CHECK_NORMAL_MENU_STRUCTURE).
+
 2025-06-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/ManipulateTree.pm (_print_text_element)

@@ -406,6 +406,13 @@ $result_texts{'menutextorder'} = '* foo::
 
 $result_errors{'menutextorder'} = [
   {
+    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
+',
+    'line_nr' => 6,
+    'text' => 'node `bar\' lacks menu item for `onesub1\' despite being its Up target',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node next for `onesub1\' is `onesub2\' in sectioning but not in menu
 ',
     'line_nr' => 13,
@@ -417,13 +424,6 @@ $result_errors{'menutextorder'} = [
 ',
     'line_nr' => 13,
     'text' => 'node up for `onesub1\' is `bar\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
-',
-    'line_nr' => 6,
-    'text' => 'node `bar\' lacks menu item for `onesub1\' despite being its Up target',
     'type' => 'warning'
   },
   {
