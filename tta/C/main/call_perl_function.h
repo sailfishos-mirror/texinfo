@@ -13,7 +13,7 @@ char *call_translations_translate_string (const char *string,
                                           const char *in_lang,
                                           const char *translation_context);
 
-const void *call_setup_collator (int use_unicode_collation,
+void *call_setup_collator (int use_unicode_collation,
                                  const char *locale_lang);
 
 BYTES_STRING *call_collator_getSortKey (const void *collator_sv,

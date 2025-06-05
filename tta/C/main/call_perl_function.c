@@ -160,11 +160,11 @@ call_translations_translate_string (const char *string, const char *in_lang,
   return result;
 }
 
-const void *
+void *
 call_setup_collator (int use_unicode_collation, const char *locale_lang)
 {
   int count;
-  const void *result = 0;
+  void *result = 0;
   SV *collator_sv = 0;
 
   dTHX;
@@ -199,7 +199,7 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
   if (SvOK (collator_sv))
     {
       SvREFCNT_inc (collator_sv);
-      result = (const void *) collator_sv;
+      result = (void *) collator_sv;
     }
 
   PUTBACK;
