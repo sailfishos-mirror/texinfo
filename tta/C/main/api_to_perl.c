@@ -56,7 +56,7 @@ unregister_perl_data (void *sv)
 {
   dTHX;
 
-  SvREFCNT_dec (sv);
+  SvREFCNT_dec ((SV *) sv);
 }
 
 void
@@ -64,7 +64,7 @@ register_perl_data (void *sv)
 {
   dTHX;
 
-  SvREFCNT_inc (sv);
+  SvREFCNT_inc ((SV *) sv);
 }
 
 char *

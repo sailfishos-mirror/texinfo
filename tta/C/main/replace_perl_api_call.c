@@ -48,6 +48,12 @@ call_sync_locale (void)
 {
 }
 
+int
+get_refcount (void *sv)
+{
+  return -100;
+}
+
 void
 unregister_perl_data (void *sv)
 { 

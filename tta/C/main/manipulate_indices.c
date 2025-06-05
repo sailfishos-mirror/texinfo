@@ -43,6 +43,7 @@
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
 #include "call_perl_function.h"
+#include "api_to_perl.h"
 #include "manipulate_indices.h"
 
 /* corresponding perl code in Texinfo::Indices */
@@ -291,7 +292,8 @@ typedef struct INDEX_COLLATOR {
     union {
       /* perl element. This should be SV *sv,
          but we don't want to include the Perl headers everywhere; */
-      const void *sv;
+      /* not const because of refcount increase/decrease */
+      void *sv;
   #ifdef HAVE_NEWLOCALE
       locale_t locale;
   #endif
@@ -920,6 +922,8 @@ destroy_collator (INDEX_COLLATOR *collator)
   if (collator->type == ctn_locale_collation)
     freelocale (collator->coll.locale);
   #endif
+  if (collator->coll.sv)
+    unregister_perl_data (collator->coll.sv);
   free (collator);
 }
 

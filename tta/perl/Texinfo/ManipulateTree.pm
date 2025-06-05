@@ -42,6 +42,10 @@ use strict;
 # debugging
 use Carp qw(cluck confess);
 
+#use Devel::Refcount qw( refcount );
+#use Devel::Peek qw( SvREFCNT );
+#use Devel::FindRef;
+
 # for fileparse
 use File::Basename;
 
@@ -771,11 +775,13 @@ sub print_element_base($$$;$$)
     my $text_result
       = _print_text_element($element, $level, $prepended,
                             $fname_encoding, $use_filename);
+    #$result .= "$element:".refcount($element).": ";
     $result .= $text_result;
     return $result;
   }
 
   $result .= '*';
+  #$result .= "$element:".refcount($element).": ";
 
   if (defined($element->{'_number'})) {
     $result .= "$element->{'_number'} ";
@@ -974,6 +980,7 @@ sub modify_tree($$;$)
 
   if (!defined($tree)
       or (ref($tree) ne 'HASH' and ref($tree) ne 'Texinfo::TreeElement')) {
+      #or (ref($tree) ne 'Texinfo::TreeElement')) {
     cluck "tree ".(!defined($tree) ? 'UNDEF' : "not a hash: $tree");
     return undef;
   }
@@ -1275,6 +1282,8 @@ sub move_index_entries_after_items($)
         }
 
         for (my $i = $last_entry_idx; $i < $contents_nr; $i++) {
+          # FIXME replaces $previous_ending_container in $current
+          # contents by $item_container???
           $previous_ending_container->{'contents'}->[$i]->{'parent'}
                = $item_container;
         }
@@ -1298,7 +1307,7 @@ sub move_index_entries_after_items($)
                     splice (@{$previous_ending_container->{'contents'}},
                             $last_entry_idx, $contents_nr - $last_entry_idx));
         delete $previous_ending_container->{'contents'}
-          if (!scalar(@{$previous_ending_container->{'contents'}}))
+          if (!scalar(@{$previous_ending_container->{'contents'}}));
       }
     }
     $previous = $item;
