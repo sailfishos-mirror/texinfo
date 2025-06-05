@@ -21,6 +21,8 @@ void *perl_only_malloc (size_t size);
 char *perl_only_strdup (const char *s);
 char *perl_only_strndup (const char *s, size_t n);
 
+SV *SvREFHVCNT_inc (SV *sv);
+
 /* in call_perl_function.c, but declared here to avoid pulling in Perl
    headers in call_perl_function.h */
 /* does not exist as perl macro */

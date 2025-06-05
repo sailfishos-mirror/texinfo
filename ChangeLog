@@ -1,5 +1,21 @@
 2025-06-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (SvREFHVCNT_inc): add to increase both
+	SV and the HV SV refers too.  Similar to newRV_inc, but for the SV,
+	not the HV.
+
+	* tta/C/convert/build_html_perl_info.c (build_html_files_source_info)
+	(build_replaced_substrings, build_pending_footnotes)
+	(build_simpletitle, pass_sv_converter_info),
+	tta/C/convert/build_html_perl_state.c (build_html_translated_names)
+	(build_html_formatting_state),
+	tta/C/convert/call_html_perl_function.c, tta/C/main/build_perl_info.c:
+	use SvREFHVCNT_inc instead of SvREFCNT_inc.
+	Also an unsuccesful attempt to fix test failing with XS structure
+	unset after the change to use SV instead of HV for elements.
+
+2025-06-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/api_to_perl.c (unregister_perl_data, register_perl_data):
 	add casts.
 

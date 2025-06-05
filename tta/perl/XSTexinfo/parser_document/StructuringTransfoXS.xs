@@ -99,8 +99,9 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
-            /* RETVAL = SvREFCNT_inc (sv); */
-            RETVAL = sv;
+            /* not sure that increasing refcount is needed */
+            RETVAL = SvREFHVCNT_inc (sv);
+            /* RETVAL = sv; */
             if (added_root_elements_sv && SvOK (added_root_elements_sv))
               {
                 size_t i;
@@ -108,7 +109,7 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
                 for (i = 0; i < added_root_elements->number; i++)
                   {
                     ELEMENT *element = added_root_elements->list[i];
-                    SV *sv = SvREFCNT_inc ((SV *)element->sv);
+                    SV *sv = SvREFHVCNT_inc ((SV *)element->sv);
                     av_push (av, sv);
                   }
               }
