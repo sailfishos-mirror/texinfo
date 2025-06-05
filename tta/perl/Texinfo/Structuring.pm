@@ -769,6 +769,11 @@ sub check_node_tree_menu_structure($)
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
+  # Used to suppress later errors about a node if an error was
+  # already reported to avoid deluging the user with error
+  # messages.  Indexed by 'node_number' extra value.
+  my %node_errors;
+
   my %cached_menu_nodes;
 
   # check for node up / menu up mismatch
@@ -805,6 +810,7 @@ sub check_node_tree_menu_structure($)
                target_element_to_texi_label($node)),
                                 $up_node->{'source_info'}, 0,
                                 $customization_information->get_conf('DEBUG'));
+               $node_errors{$node->{'extra'}->{'node_number'}} = 1;
           }
         }
       }
@@ -818,6 +824,8 @@ sub check_node_tree_menu_structure($)
       my $node_directions = $node_relations->{'node_directions'};
 
       next if $node->{'extra'}->{'normalized'} eq 'Top';
+
+      next if $node_errors{$node->{'extra'}->{'node_number'}};
 
       my $menu_directions = $node_relations->{'menu_directions'};
       my $section_relations = $node_relations->{'associated_section'};
@@ -844,12 +852,16 @@ sub check_node_tree_menu_structure($)
           if ($direction_associated_node
               and $direction_associated_node->{'element'}) {
             $section_target = $direction_associated_node->{'element'};
+            next if $section_target
+              and $node_errors{$section_target->{'extra'}->{'node_number'}};
           }
 
           my $menu_target;
           if ($menu_directions
                  and $menu_directions->{$direction}) {
             $menu_target = $menu_directions->{$direction};
+            next if $menu_target
+              and $node_errors{$menu_target->{'extra'}->{'node_number'}};
           }
 
           if ($section_target) {

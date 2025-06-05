@@ -298,20 +298,6 @@ $result_errors{'nodename_parentheses'} = [
     'line_nr' => 1,
     'text' => 'node `Top\' lacks menu item for `(manual)node\' despite being its Up target',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `(manual)node\' is `Other node\' in sectioning but not in menu
-',
-    'line_nr' => 22,
-    'text' => 'node prev for `(manual)node\' is `Other node\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node up for `(manual)node\' is `Top\' in sectioning but not in menu
-',
-    'line_nr' => 22,
-    'text' => 'node up for `(manual)node\' is `Top\' in sectioning but not in menu',
-    'type' => 'warning'
   }
 ];
 

@@ -413,27 +413,6 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node next for `onesub1\' is `onesub2\' in sectioning but not in menu
-',
-    'line_nr' => 13,
-    'text' => 'node next for `onesub1\' is `onesub2\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node up for `onesub1\' is `bar\' in sectioning but not in menu
-',
-    'line_nr' => 13,
-    'text' => 'node up for `onesub1\' is `bar\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `onesub2\' is `onesub1\' in sectioning but not in menu
-',
-    'line_nr' => 16,
-    'text' => 'node prev for `onesub2\' is `onesub1\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: node next for `sub1\' is `sub2\' in sectioning but `sub3\' in menu
 ',
     'line_nr' => 29,

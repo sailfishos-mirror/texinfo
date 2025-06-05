@@ -1101,6 +1101,12 @@ check_node_tree_menu_structure (DOCUMENT *document)
   if (nodes_list->number < 1)
     return;
 
+  /* Used to suppress later errors about a node if an error was
+     already reported to avoid deluging the user with error
+     messages.  Indexed by 'node_number' extra value. */
+  /* FIXME: where is 'node_number' actually set?  Is it 0- or 1-based? */
+  char *node_errors = calloc (nodes_list->number + 1, 1);
+
   /* check for node up / menu up mismatch */
   if ((!options)
       || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
@@ -1172,6 +1178,10 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                 up_texi, node_texi);
                         free (up_texi);
                         free (node_texi);
+                        int status;
+                        const int node_number = lookup_extra_integer (node,
+                                                 AI_key_node_number, &status);
+                        node_errors[node_number] = 1;
                       }
                   }
               }
@@ -1184,6 +1194,8 @@ check_node_tree_menu_structure (DOCUMENT *document)
     {
       for (i = 0; i < nodes_list->number; i++)
         {
+          if (node_errors[i+1])
+            continue;
           NODE_RELATIONS *node_relations = nodes_list->list[i];
           ELEMENT *node = (ELEMENT *)node_relations->element;
           const ELEMENT * const *node_directions
@@ -1216,10 +1228,28 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                                    direction_relation, d);
                   if (direction_associated_node)
                     section_target = direction_associated_node->element;
+                  if (section_target)
+                    {
+                      int status;
+                      const int node_number
+                        = lookup_extra_integer (section_target,
+                                                AI_key_node_number, &status);
+                      if (node_errors[node_number])
+                        continue;
+                    }
 
                   const ELEMENT *menu_target = 0;
                   if (menu_directions)
                     menu_target = menu_directions[d];
+                  if (menu_target)
+                    {
+                      int status;
+                      const int node_number
+                        = lookup_extra_integer (menu_target,
+                                                AI_key_node_number, &status);
+                      if (node_errors[node_number])
+                        continue;
+                    }
 
                   if (section_target)
                     {
@@ -1358,6 +1388,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
               }
         }
     }
+  free (node_errors);
 }
 
 /* As mentioned in the manual, the node next pointer for the Top

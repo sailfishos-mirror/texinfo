@@ -1,5 +1,18 @@
 2025-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Suppress further menu structure warnings if CHECK_MISSING_MENU_ENTRY warning
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	In block of code checking for menus missing entries for child
+	nodes (controlled by CHECK_MISSING_MENU_ENTRY), record any nodes
+	that have warnings issued.  Then, when checking if sectioning
+	directions match menu directions (CHECK_NORMAL_MENU_STRUCTURE),
+	suppress any warning where such a node occurs as any of: source
+	node, menu target node, or sectioning target node.
+
+2025-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
 	Shorten code by using variables to store references to target nodes. No
