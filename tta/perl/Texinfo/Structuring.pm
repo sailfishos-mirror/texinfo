@@ -986,6 +986,8 @@ sub _set_top_node_next($$)
                 = $section_child_relations->{'associated_node'}->{'element'};
               $node_directions = {}
                   if (! $node_directions);
+              $node_relations->{'node_directions'} = {}
+                  if (!$node_relations->{'node_directions'});
               $node_relations->{'node_directions'}->{'next'}
                = $top_node_next;
               next;
