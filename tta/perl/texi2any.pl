@@ -790,6 +790,8 @@ my $format_from_command_line = 0;
 
 my %converter_format_expanded_region_name = (
   'texinfoxml' => 'xml',
+  'docbookreader' => 'docbook',
+  'docbooknoreader' => 'docbook',
 );
 
 my %format_command_line_names = (
@@ -846,10 +848,15 @@ my %formats_table = (
              'module' => 'Texinfo::Convert::IXINSXML',
              'floats' => 1,
            },
-  'docbook' => {
+  'docbooknoreader' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
+           },
+  'docbook' => {
+             'move_index_entries_after_items' => 1,
+             'no_warn_non_empty_parts' => 1,
+             'module' => 'Texinfo::Convert::ReadDocBook'
            },
   'docbookreader' => {
              'move_index_entries_after_items' => 1,

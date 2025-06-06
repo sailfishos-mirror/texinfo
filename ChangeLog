@@ -1,5 +1,19 @@
 2025-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	DocBook converter based on Texinfo::Reader
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm: finalize conversion based
+	on Texinfo::Reader based on the reader tokens categories.
+
+	* tta/perl/t/test_utils.pl (convert_to_docbook), tta/perl/texi2any.pl
+	(%converter_format_expanded_region_name, %formats_table): default to
+	using the Texinfo::Convert::ReadDocBook converter.
+
+	* tta/perl/Texinfo/Convert/TestReader.pm (_convert): update
+	print_element_base call.
+
+2025-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next): avoid
 	autovivification.
 
