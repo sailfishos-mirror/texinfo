@@ -226,7 +226,8 @@ sub tex4ht_prepare($$)
           # first content is arguments_line, the block command is considered
           # empty if it contains the arguments_line element only.
           next if ($contents_nr <= 1);
-          $tree = {'contents' => [@{$element->{'contents'}}]};
+          $tree = Texinfo::TreeElement::new(
+                       {'contents' => [@{$element->{'contents'}}]});
           while (scalar(@{$tree->{'contents'}})
               and $tree->{'contents'}->[0]->{'type'}
               and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
