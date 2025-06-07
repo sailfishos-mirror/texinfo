@@ -81,7 +81,7 @@ our $module_loaded = 0;
 
 my %XS_tree_element_overrides = (
   "Texinfo::Convert::Converter::new_tree_element"
-    => "Texinfo::TreeElementXS::new_tree_element",
+    => "Texinfo::TreeElement::new_tree_element",
 );
 
 my %XS_overrides = (

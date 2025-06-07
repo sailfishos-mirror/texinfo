@@ -25,9 +25,11 @@
 
 #undef context
 
+#include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "builtin_commands.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
 /* get_sv_converter */
@@ -37,12 +39,12 @@
     memory allocation */
 
 
-MODULE = Texinfo::TreeElementXS		PACKAGE = Texinfo::TreeElementXS
+MODULE = Texinfo::TreeElement		PACKAGE = Texinfo::TreeElement
 
 PROTOTYPES: ENABLE
 
 # not in Texinfo::TreeElement but in Texinfo::Convert::Converter in order
-# to be able to find the document. 
+# to be able to find the document.
 SV *
 new_tree_element (SV *converter_in, SV *element_hash)
     PREINIT:
@@ -83,6 +85,140 @@ parent (SV *element_sv)
           }
         else
           RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+type (SV *element_sv)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+        if (element->type && element->type != ET_normal_text
+            && !(type_data[element->type].flags & TF_c_only))
+          RETVAL = newSVpv (type_data[element->type].name, 0);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+cmdname (SV *element_sv)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        if (!(type_data[element->type].flags & TF_text)
+            && element->e.c->cmd)
+          RETVAL = newSVpv (element_command_name (element), 0);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+text (SV *element_sv)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        if (type_data[element->type].flags & TF_text)
+          RETVAL = newSVpv_utf8 (element->e.text->text, element->e.text->end);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+source_info (SV *element_sv)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        if (!(type_data[element->type].flags & TF_text))
+          {
+            const SOURCE_INFO *source_info = &element->e.c->source_info;
+            HV *hv = newHV ();
+            build_source_info_hash (source_info, hv);
+            RETVAL = newRV_noinc ((SV *)hv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+children_number (SV *element_sv)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+        int contents_nr = 0;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        if (!(type_data[element->type].flags & TF_text))
+          contents_nr = element->e.c->contents.number;
+
+        RETVAL = newSViv (contents_nr);
+    OUTPUT:
+        RETVAL
+
+SV *
+get_child (SV *element_sv, int e_index)
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+        SV *result_sv = 0;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        if (!(type_data[element->type].flags & TF_text))
+          {
+            size_t contents_nr = element->e.c->contents.number;
+            size_t list_index;
+            if (e_index < 0)
+              list_index = contents_nr - e_index;
+            else
+              list_index = e_index;
+            if (list_index < contents_nr)
+              {
+                ELEMENT *child = element->e.c->contents.list[list_index];
+                register_element_handle_in_sv (child, document);
+                result_sv = newSVsv ((SV *)child->sv);
+              }
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+get_attribute (SV *element_sv, attribute)
+        const char *attribute = (char *)SvPV_nolen($arg);
+      PREINIT:
+        const ELEMENT *element;
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv);
+        element = get_sv_element_element (element_sv, document);
+
+        fprintf (stderr, "BBB %s\n", attribute);
+        RETVAL = newSV (0);
     OUTPUT:
         RETVAL
 

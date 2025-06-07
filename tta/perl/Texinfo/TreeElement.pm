@@ -17,132 +17,26 @@
 
 package Texinfo::TreeElement;
 
+use 5.006;
 use strict;
 use warnings;
 
-# Texinfo::Common depends on this module in code outside of functions,
-# so it will be good not to depend on Texinfo::Common here.
+our $VERSION = '7.2dev';
 
-# check that autovivification do not happen incorrectly.
-#no autovivification qw(fetch delete exists store strict);
+use Texinfo::XSLoader;
 
-sub new($)
-{
-  my $element = shift;
-  bless $element;
-  return $element;
+BEGIN {
+  my $shared_library_name = "TreeElementXS";
+  #if (!Texinfo::XSLoader::XS_structuring_enabled()) {
+    undef $shared_library_name;
+  #}
+
+  my $package = Texinfo::XSLoader::init (
+      "Texinfo::TreeElement",
+      "Texinfo::TreeElementNonXS",
+      $shared_library_name,
+      undef,
+      ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
+  );
 }
 
-sub parent($)
-{
-  my $element = shift;
-  return $element->{'parent'};
-}
-
-sub type($)
-{
-  my $element = shift;
-  return $element->{'type'};
-}
-
-sub cmdname($)
-{
-  my $element = shift;
-  return $element->{'cmdname'};
-}
-
-sub text($)
-{
-  my $element = shift;
-  return $element->{'text'};
-}
-
-sub source_info($)
-{
-  my $element = shift;
-  return $element->{'source_info'};
-}
-
-sub children_number($)
-{
-  my $element = shift;
-
-  if ($element->{'contents'}) {
-    return scalar(@{$element->{'contents'}});
-  }
-  return 0;
-}
-
-sub get_child($$)
-{
-  my $element = shift;
-  my $index = shift;
-
-  if ($element->{'contents'}) {
-    return $element->{'contents'}->[$index];
-  }
-  return undef;
-}
-
-sub get_attribute($$)
-{
-  my $element = shift;
-  my $attribute = shift;
-
-  if ($element->{'extra'} and exists($element->{'extra'}->{$attribute})) {
-    return $element->{'extra'}->{$attribute};
-  } elsif ($element->{'info'} and exists($element->{'info'}->{$attribute})) {
-    return $element->{'info'}->{$attribute};
-  }
-  return undef;
-}
-
-sub source_marks_number($)
-{
-  my $element = shift;
-
-  if ($element->{'source_marks'}) {
-    return scalar(@{$element->{'source_marks'}});
-  }
-  return 0;
-}
-
-1;
-__END__
-=head1 NAME
-
-Texinfo::TreeElement - Texinfo tree element interface
-
-=head1 SYNOPSIS
-
-=head1 NOTES
-
-The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
-Texinfo to other formats.  There is no promise of API stability.
-
-=head1 DESCRIPTION
-
-C<Texinfo::TreeElement> offers an interface to a Texinfo tree element obtained
-from parsing Texinfo code.
-
-=head1 METHODS
-
-
-
-=head1 SEE ALSO
-
-=head1 AUTHOR
-
-Patrice Dumas.
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2025- Free Software Foundation, Inc.  See the source file for
-all copyright years.
-
-This library is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or (at
-your option) any later version.
-
-=cut

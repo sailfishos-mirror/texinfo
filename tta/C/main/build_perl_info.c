@@ -722,6 +722,30 @@ store_extra_flag (ELEMENT *e, const char *key, HV **extra_hv)
   hv_store (*extra_hv, key, strlen (key), newSViv (1), 0);
 }
 
+void
+build_source_info_hash (const SOURCE_INFO *source_info, HV *hv)
+{
+#define STORE(key, sv, hsh) hv_store (hv, key, strlen (key), sv, hsh)
+  dTHX;
+
+  if (source_info->file_name)
+    {
+      STORE("file_name", newSVpv (source_info->file_name, 0),
+            HSH_file_name);
+    }
+
+  if (source_info->line_nr)
+    {
+      STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
+    }
+
+  if (source_info->macro)
+    {
+      STORE("macro", newSVpv_utf8 (source_info->macro, 0), HSH_macro);
+    }
+#undef STORE
+}
+
 
 /* Set E->sv and 'hv' on E's descendants.  e->parent->sv is assumed
    to already exist. */
@@ -942,28 +966,11 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->e.c->source_info.line_nr)
     {
-#define STORE(key, sv, hsh) hv_store (hv, key, strlen (key), sv, hsh)
       const SOURCE_INFO *source_info = &e->e.c->source_info;
       HV *hv = newHV ();
+      build_source_info_hash (source_info, hv);
       hv_store (element_hv, "source_info", strlen ("source_info"),
                 newRV_noinc ((SV *)hv), HSH_source_info);
-
-      if (source_info->file_name)
-        {
-          STORE("file_name", newSVpv (source_info->file_name, 0),
-                HSH_file_name);
-        }
-
-      if (source_info->line_nr)
-        {
-          STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
-        }
-
-      if (source_info->macro)
-        {
-          STORE("macro", newSVpv_utf8 (source_info->macro, 0), HSH_macro);
-        }
-#undef STORE
     }
 }
 
@@ -1324,30 +1331,6 @@ build_integer_stack (const INTEGER_STACK *integer_stack)
 
 /* build error messages data to Perl, for Parser, Document and Converters */
 
-static void
-build_source_info_hash (const SOURCE_INFO source_info, HV *hv)
-{
-  dTHX;
-
-  if (source_info.file_name)
-    {
-      hv_store (hv, "file_name", strlen ("file_name"),
-                newSVpv (source_info.file_name, 0), 0);
-    }
-
-  if (source_info.line_nr)
-    {
-      hv_store (hv, "line_nr", strlen ("line_nr"),
-                newSViv (source_info.line_nr), 0);
-    }
-
-  if (source_info.macro)
-    {
-      hv_store (hv, "macro", strlen ("macro"),
-                newSVpv_utf8 (source_info.macro, 0), 0);
-    }
-}
-
 /* build perl already 'formatted' message, same as the output of
    Texinfo::Report::format*message */
 static SV *
@@ -1377,7 +1360,7 @@ convert_error (const ERROR_MESSAGE e)
               newSViv (e.continuation), 0);
 
   if (e.type != MSG_document_error && e.type != MSG_document_warning)
-    build_source_info_hash (e.source_info, hv);
+    build_source_info_hash (&e.source_info, hv);
 
   return newRV_noinc ((SV *) hv);
 }

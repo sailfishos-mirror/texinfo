@@ -37,6 +37,8 @@ void register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document);
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
 
+void build_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
+
 AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
 void pass_document_parser_errors_to_registrar (DOCUMENT *document,
                                                SV *parser_sv);
