@@ -150,7 +150,10 @@ sub read($)
       push @$array, @{$element->{'contents'}};
     }
     if ($element->{'info'}) {
-      foreach my $info ('spaces_after_argument', 'comment_at_end') {
+      # TODO handle comment_at_end.  This should be part of a reflexion on
+      # comment_at_end in the tree to avoid all the code that handle
+      # comment_at_end right now
+      foreach my $info ('spaces_after_argument',) {# 'comment_at_end') {
         my $info_element = $element->{'info'}->{$info};
         if ($info_element) {
           push @$array, $info_element;

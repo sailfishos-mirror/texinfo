@@ -677,12 +677,10 @@ sub _index_entry($$)
     _new_document_context($self);
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_info->{'in_code'});
-    $self->{'document_context'}->[-1]->{'ignore_comments'}++;
     $result .= "<primary>";
     $result .= $self->convert_tree(
                    Texinfo::Common::index_content_element($element));
     $result .= "</primary>";
-    $self->{'document_context'}->[-1]->{'ignore_comments'}--;
 
     my $entry_element = $index_entry->{'entry_element'};
 
@@ -760,9 +758,7 @@ sub _convert_argument_and_end_line($$)
   } else {
     $line_arg = $element->get_child(-1);
   }
-  $self->{'document_context'}->[-1]->{'ignore_comments'}++;
   my $converted = $self->convert_tree($line_arg);
-  $self->{'document_context'}->[-1]->{'ignore_comments'}--;
   my $end_line = $self->element_format_comment_or_end_line($element);
   return ($converted, $end_line);
 }
@@ -1012,9 +1008,7 @@ sub _convert($$)
               $table_item_tree = $element->get_child(0)
                 if (!defined($table_item_tree));
 
-              $self->{'document_context'}->[-1]->{'ignore_comments'}++;
               $result_text .= $self->convert_tree($table_item_tree);
-              $self->{'document_context'}->[-1]->{'ignore_comments'}--;
             }
             chomp ($result_text);
             $result_text .= "\n";
@@ -1206,9 +1200,7 @@ sub _convert($$)
               }
             }
           } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-            if (!$self->{'document_context'}->[-1]->{'ignore_comments'}) {
-              $$output_ref .= $self->xml_comment($element->get_child(0)->text())
-            }
+            $$output_ref .= $self->xml_comment($element->get_child(0)->text());
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
               my ($arg, $end_line)
@@ -1838,11 +1830,9 @@ sub _convert($$)
               if ($docbook_special_quotations{lc($quotation_arg_text)}) {
                 $format_element = lc($quotation_arg_text);
               } else {
-                $self->{'document_context'}->[-1]->{'ignore_comments'}++;
                 $self->{'pending_prepend'}
                   = $self->convert_tree($self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg}));
-                $self->{'document_context'}->[-1]->{'ignore_comments'}--;
               }
             }
             $format_element = 'blockquote' if (!defined($format_element));
@@ -1853,9 +1843,7 @@ sub _convert($$)
             my $arguments_line = $element->get_child(0);
             my $block_line_arg = $arguments_line->get_child(0);
             if ($block_line_arg->children_number()) {
-              $self->{'document_context'}->[-1]->{'ignore_comments'}++;
               my $title = $self->convert_tree($block_line_arg);
-              $self->{'document_context'}->[-1]->{'ignore_comments'}--;
               if ($title ne '') {
                 $appended .= '<title>'.$title.'</title>'."\n";
               }
