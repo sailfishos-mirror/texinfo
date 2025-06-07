@@ -109,7 +109,7 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
                 for (i = 0; i < added_root_elements->number; i++)
                   {
                     ELEMENT *element = added_root_elements->list[i];
-                    SV *sv = SvREFHVCNT_inc ((SV *)element->sv);
+                    SV *sv = newSVsv ((SV *)element->sv);
                     av_push (av, sv);
                   }
               }

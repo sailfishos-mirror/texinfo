@@ -1,5 +1,27 @@
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	Copy references in C/XS code to avoid modifying other references
+
+	* tta/C/convert/build_html_perl_info.c (build_*),
+	tta/C/main/build_perl_info.c (build_perl_*, build_additional_info)
+	(store_source_mark_list, element_to_perl_hash, build_elements_list)
+	(build_*_relations*, build_target_elements_list)
+	(build_identifiers_target, build_internal_xref_list)
+	(build_listoffloats_list, build_single_index_data)
+	(build_global_commands, output_unit_to_perl_hash),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs,
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_get_shared_conversion_state),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs: use
+	newSVsv instead of SvREFHVCNT_inc to copy references instead of
+	reusing them.  Otherwise, assigning to one, in Perl, also modifies the
+	other. See also
+	https://lists.gnu.org/archive/html/bug-texinfo/2025-06/msg00018.html.
+	Based on Gavin analysis.
+	The contents and tree root references are the only one reused.
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Reader.pm (read): do not return comment_at_end.
 
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm: no more need for

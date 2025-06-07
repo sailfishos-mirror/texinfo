@@ -168,8 +168,14 @@ perl_only_strndup (const char *s, size_t n)
   return ret;
 }
 
-/* Increase both SV and the HV SV refers too.  Similar to newRV_inc, but
-   for the SV, not the HV.
+/* Increase both SV and the HV SV refers too.  Similar to newRV_inc regarding
+   reference counting, but for the SV, not the HV.  Note that when this
+   function is used, the returned SV is the same as the input SV, which means
+   that assigning to the one, in Perl, also modifies the other.  In many cases
+   we do not want that, and, newSVsv should be used instead to create a new
+   reference, similar to newRV_*inc.  In general, there is one place where
+   keeping the same reference is ok, but other references should be
+   copied and not reused.
  */
 SV *
 SvREFHVCNT_inc (SV *sv)
@@ -254,7 +260,7 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
               element_to_perl_hash (e_l->list[i], avoid_recursion);
             }
         }
-      av_store (av, (SSize_t) i, SvREFHVCNT_inc ((SV *) e_l->list[i]->sv));
+      av_store (av, (SSize_t) i, newSVsv ((SV *) e_l->list[i]->sv));
     }
   return sv;
 }
@@ -298,7 +304,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
               element_to_perl_hash (f, avoid_recursion);
             }
         }
-      av_store (av, (SSize_t) i, SvREFHVCNT_inc ((SV *) e_l->list[i]->sv));
+      av_store (av, (SSize_t) i, newSVsv ((SV *) e_l->list[i]->sv));
     }
   return sv;
 }
@@ -370,8 +376,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
                   element_to_perl_hash (f, avoid_recursion);
                 }
             }
-          hv_store (hv, key, strlen (key),
-                    SvREFHVCNT_inc ((SV *) e->sv), 0);
+          hv_store (hv, key, strlen (key), newSVsv ((SV *) e->sv), 0);
         }
     }
   return sv;
@@ -420,7 +425,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                   ELEMENT *e = (ELEMENT *)f;
                   new_element_perl_data (e);
                 }
-              STORE(SvREFHVCNT_inc ((SV *)f->sv));
+              STORE(newSVsv ((SV *)f->sv));
               break;
               }
             case extra_element_oot:
@@ -448,14 +453,14 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               ELEMENT *f = k->k.element;
               if (!f->sv || !avoid_recursion)
                 element_to_perl_hash (f, avoid_recursion);
-              STORE(SvREFHVCNT_inc ((SV *)f->sv));
+              STORE(newSVsv ((SV *)f->sv));
               break;
               }
             case extra_container:
               {
               ELEMENT *f = k->k.element;
               build_perl_container (f, avoid_recursion);
-              STORE(SvREFHVCNT_inc ((SV *)f->sv));
+              STORE(newSVsv ((SV *)f->sv));
               break;
               }
             case extra_contents:
@@ -603,7 +608,7 @@ store_source_mark_list (const ELEMENT *e)
                 fatal ("element_to_perl_hash source mark elt twice");
                */
               element_to_perl_hash (s_m_e, 0);
-              STORE("element", SvREFHVCNT_inc ((SV *)s_m_e->sv));
+              STORE("element", newSVsv ((SV *)s_m_e->sv));
             }
           if (s_mark->line)
             {
@@ -778,7 +783,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           fatal (message.text);
           non_perl_free (debug_str);
         }
-      sv = SvREFHVCNT_inc ((SV *) e->parent->sv);
+      /* copy the SV instead of simply reusing it, otherwise the changes
+         to the corresponding reference in Perl will affect all the
+         references.  See:
+       https://lists.gnu.org/archive/html/bug-texinfo/2025-06/msg00018.html
+       */
+      sv = newSVsv ((SV *) e->parent->sv);
       hv_store (element_hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
 
@@ -884,7 +894,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
               hv_store (info_hv, elt_info_names[i],
                         strlen (elt_info_names[i]),
-                        SvREFHVCNT_inc ((SV *)info_element->sv), 0);
+                        newSVsv ((SV *)info_element->sv), 0);
            }
        }
     }
@@ -1012,6 +1022,7 @@ build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
   return av;
 }
 
+/* currently unused */
 AV *
 build_elements_list (const CONST_ELEMENT_LIST *list)
 {
@@ -1027,6 +1038,8 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
+      /* newSVsv could also be used here, depending on why
+         this function is called */
       sv = SvREFHVCNT_inc (list->list[i]->sv);
       av_store (list_av, i, sv);
     }
@@ -1037,7 +1050,7 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 #define STORE_RELS_INFO_ELEMENT(keyname) \
        if (relations->keyname) \
         { \
-          sv = SvREFHVCNT_inc ((SV *) relations->keyname->sv); \
+          sv = newSVsv ((SV *) relations->keyname->sv); \
           hv_store (relations_hv, #keyname, \
                     strlen (#keyname), sv, 0); \
         }
@@ -1085,7 +1098,7 @@ build_node_relations (NODE_RELATIONS *relations)
 
   relations_hv = relations->hv;
 
-  sv = SvREFHVCNT_inc ((SV *) relations->element->sv);
+  sv = newSVsv ((SV *) relations->element->sv);
   hv_store (relations_hv, "element", strlen ("element"), sv, 0);
   STORE_RELS_INFO_SECTION_RELATIONS(associated_section)
   STORE_RELS_INFO_ELEMENT(associated_title_command)
@@ -1204,7 +1217,7 @@ build_section_relations (SECTION_RELATIONS *relations)
 
   relations_hv = relations->hv;
 
-  sv = SvREFHVCNT_inc ((SV *) relations->element->sv);
+  sv = newSVsv ((SV *) relations->element->sv);
   hv_store (relations_hv, "element", strlen ("element"), sv, 0);
   STORE_RELS_INFO_NODE_RELATIONS(associated_node)
   STORE_RELS_INFO_NODE_RELATIONS(associated_anchor_command)
@@ -1277,7 +1290,7 @@ build_heading_relations_list (const HEADING_RELATIONS_LIST *list)
         relations->hv = newHV ();
       relations_hv = relations->hv;
 
-      sv = SvREFHVCNT_inc ((SV *) relations->element->sv);
+      sv = newSVsv ((SV *) relations->element->sv);
       hv_store (relations_hv, "element", strlen ("element"), sv, 0);
       STORE_RELS_INFO_NODE_RELATIONS(associated_anchor_command)
       av_store (list_av, i, newRV_inc ((SV *) relations_hv));
@@ -1599,7 +1612,7 @@ build_target_elements_list (const LABEL_LIST *labels_list)
 
   for (i = 0; i < labels_list->number; i++)
     {
-      sv = SvREFHVCNT_inc (labels_list->list[i].element->sv);
+      sv = newSVsv (labels_list->list[i].element->sv);
       av_store (target_array, i, sv);
     }
 
@@ -1627,7 +1640,7 @@ build_identifiers_target (const struct C_HASHMAP *identifiers_target)
                                                    &hash_iterator, &key);
           if (!key)
             break;
-          SV *sv = SvREFHVCNT_inc (element->sv);
+          SV *sv = newSVsv (element->sv);
           hv_store (hv, key, strlen (key), sv, 0);
         }
     }
@@ -1648,7 +1661,7 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
 
   for (i = 0; i < internal_xref_list->number; i++)
     {
-      sv = SvREFHVCNT_inc (internal_xref_list->list[i]->sv);
+      sv = newSVsv (internal_xref_list->list[i]->sv);
       av_store (list_av, i, sv);
     }
 
@@ -1682,7 +1695,7 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
           const ELEMENT *float_elt = float_info->float_element;
           const SECTION_RELATIONS *float_section = float_info->float_section;
           AV *float_section_av = newAV ();
-          sv = SvREFHVCNT_inc ((SV *)float_elt->sv);
+          sv = newSVsv ((SV *)float_elt->sv);
           av_push (float_section_av, sv);
           if (float_section)
             {
@@ -1742,10 +1755,10 @@ build_single_index_data (const INDEX *index)
 
           STORE2("index_name", newSVpv_utf8 (index->name, 0));
           STORE2("entry_element",
-                 SvREFHVCNT_inc ((SV *)e->entry_element->sv));
+                 newSVsv ((SV *)e->entry_element->sv));
           if (e->entry_associated_element)
             STORE2("entry_associated_element",
-                   SvREFHVCNT_inc ((SV *)e->entry_associated_element->sv));
+                   newSVsv ((SV *)e->entry_associated_element->sv));
           /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
           STORE2("entry_number", newSViv ((IV) entry_number));
 
@@ -1882,7 +1895,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
   if (global_commands.cmd && global_commands.cmd->sv) \
     { \
       hv_store (hv, #cmd, strlen (#cmd), \
-                SvREFHVCNT_inc ((SV *) global_commands.cmd->sv), 0); \
+                newSVsv ((SV *) global_commands.cmd->sv), 0); \
     }
 
   GLOBAL_UNIQUE_CASE(setfilename);
@@ -1901,7 +1914,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
         {
           const ELEMENT *e = global_commands.dircategory_direntry.list[i];
           if (e->sv)
-            av_push (av, SvREFHVCNT_inc ((SV *) e->sv));
+            av_push (av, newSVsv ((SV *) e->sv));
         }
     }
 
@@ -1916,7 +1929,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
         {
           const ELEMENT *e = global_commands.footnotes.list[i];
           if (e->sv)
-            av_push (av, SvREFHVCNT_inc ((SV *) e->sv));
+            av_push (av, newSVsv ((SV *) e->sv));
         }
     }
 
@@ -1930,7 +1943,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
         {
           const ELEMENT *e = global_commands.floats.list[i];
           if (e->sv)
-            av_push (av, SvREFHVCNT_inc ((SV *) e->sv));
+            av_push (av, newSVsv ((SV *) e->sv));
         }
     }
 
@@ -1944,7 +1957,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
         {                                                               \
           const ELEMENT *e = global_commands.cmd.list[i];            \
           if (e->sv)                                                    \
-            av_push (av, SvREFHVCNT_inc ((SV *) e->sv));                     \
+            av_push (av, newSVsv ((SV *) e->sv));                     \
         }                                                               \
     }
 
@@ -2314,7 +2327,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           hv_store (element_hv, "associated_unit",
                     strlen ("associated_unit"), unit_sv, 0);
         }
-      sv = SvREFHVCNT_inc ((SV *) command->sv);
+      sv = newSVsv ((SV *) command->sv);
       STORE("unit_command");
     }
   else
@@ -2334,7 +2347,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
               free (msg);
             }
 
-          sv = SvREFHVCNT_inc ((SV *) command->sv);
+          sv = newSVsv ((SV *) command->sv);
           STORE("unit_command");
         }
       if (output_unit->unit_section)
@@ -2425,13 +2438,13 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
       for (i = 0; i < output_unit->unit_contents.number; i++)
         {
           const ELEMENT *element = output_unit->unit_contents.list[i];
-          SV *element_sv = element->sv;
+          SV *element_sv;
           SV *unit_sv;
 
-          if (!element_sv)
+          if (!element->sv)
             fatal ("Missing output unit unit_contents element sv");
 
-          SvREFHVCNT_inc ((SV *) element_sv);
+          element_sv = newSVsv ((SV *) element->sv);
 
           av_push (av, element_sv);
 
@@ -2732,14 +2745,6 @@ BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
 BUILD_PERL_DOCUMENT_ITEM(document_sectioning_root,sectioning_root,"sectioning_root",F_DOCM_sectioning_root,build_sectioning_root,HV)
 
 
-/*
-BUILD_PERL_DOCUMENT_ITEM(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_elements_list,AV)
- */
-
-/*
-BUILD_PERL_DOCUMENT_ITEM(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_elements_list,AV)
-
- */
 #undef BUILD_PERL_DOCUMENT_ITEM
 
 #define BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV) \

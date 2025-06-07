@@ -1282,8 +1282,6 @@ sub move_index_entries_after_items($)
         }
 
         for (my $i = $last_entry_idx; $i < $contents_nr; $i++) {
-          # FIXME replaces $previous_ending_container in $current
-          # contents by $item_container???
           $previous_ending_container->{'contents'}->[$i]->{'parent'}
                = $item_container;
         }
