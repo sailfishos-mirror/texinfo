@@ -72,7 +72,17 @@ our $VERSION = '7.2dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
+# Through the TreeElement interface, the converter codes can directly access
+# the C elements even though the converter is in Perl only, and XS is only
+# used for structuring.
+my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
+
 our $module_loaded = 0;
+
+my %XS_tree_element_overrides = (
+  "Texinfo::Convert::Converter::new_tree_element"
+    => "Texinfo::TreeElementXS::new_tree_element",
+);
 
 my %XS_overrides = (
   # fully overriden for all the converters
@@ -122,6 +132,11 @@ sub _XS_setup_converter_generic()
 
 sub import {
   if (!$module_loaded) {
+    if ($XS_structuring) {
+      foreach my $sub (keys %XS_tree_element_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_tree_element_overrides{$sub});
+      }
+    }
     if ($XS_convert) {
       foreach my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
@@ -468,6 +483,17 @@ sub output_files_information($)
   return $self->{'output_files'};
 }
 
+
+
+
+# wrapper useful for overriding, to be able to find the document in C
+sub new_tree_element($$)
+{
+  my $self = shift;
+  my $element_hash = shift;
+
+  return Texinfo::TreeElement::new($element_hash);
+}
 
 
 

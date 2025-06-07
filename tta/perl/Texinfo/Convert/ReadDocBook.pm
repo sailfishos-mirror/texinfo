@@ -25,6 +25,9 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+# for XS_structuring_enabled
+use Texinfo::XSLoader;
+
 use Texinfo::Commands;
 
 use Texinfo::TreeElement;
@@ -362,6 +365,7 @@ sub convert($$)
 
   $self->conversion_initialization($document);
 
+  #my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
   my $root = $document->tree();
 
   push @{$self->{'lang_stack'}}, '';

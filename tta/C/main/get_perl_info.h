@@ -22,8 +22,12 @@ extern const char *html_button_function_type_string[];
 int get_sv_option (OPTION *option, SV *value, int force,
                    OPTIONS *options, const CONVERTER *converter);
 
+ELEMENT *new_element_from_sv (SV *element_hash);
+
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
+DOCUMENT *get_sv_element_document (SV *element_in);
+ELEMENT *get_sv_element_element (SV *element_sv, DOCUMENT *document);
 
 size_t get_sv_output_units_descriptor (SV *output_units_in, char *warn_string,
                                        const DOCUMENT **document_out);

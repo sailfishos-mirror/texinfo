@@ -35,6 +35,7 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
+#include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
@@ -143,6 +144,7 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
   return document;
 }
 
+/* for the tree root */
 DOCUMENT *
 get_sv_tree_document (SV *tree_in, char *warn_string)
 {
@@ -152,6 +154,16 @@ get_sv_tree_document (SV *tree_in, char *warn_string)
                                warn_string);
 }
 
+/* for any element */
+DOCUMENT *
+get_sv_element_document (SV *element_in)
+{
+  dTHX;
+
+  return get_document_or_warn (element_in, "element_document_descriptor",
+                               "get_sv_element_document");
+}
+
 DOCUMENT *
 get_sv_document_document (SV *document_in, char *warn_string)
 {
@@ -159,6 +171,35 @@ get_sv_document_document (SV *document_in, char *warn_string)
 
   return get_document_or_warn (document_in, "document_descriptor",
                                warn_string);
+}
+
+ELEMENT *
+get_sv_element_element (SV *element_sv, DOCUMENT *document)
+{
+  HV *element_hv;
+  SV **handle_sv;
+  const char *key = "_handle";
+
+  dTHX;
+
+  if (!document)
+    return 0;
+
+  element_hv = (HV *) SvRV (element_sv);
+
+  handle_sv = hv_fetch (element_hv, key, strlen(key), 0);
+  if (handle_sv)
+    {
+      ELEMENT *e = 0;
+      size_t element_number = (size_t) SvIV (*handle_sv);
+      /* could also be a function like retrieve_document_element */
+      if (element_number <= document->element_handles.number)
+        {
+          e = document->element_handles.list[element_number -1];
+        }
+      return e;
+    }
+  return 0;
 }
 
 /* caller should ensure that OUTPUT_UNIT_IN is defined.
@@ -387,6 +428,50 @@ get_source_info (SV *source_info_sv)
     source_info->line_nr = SvIV (*line_nr_sv);
 
   return source_info;
+}
+
+ELEMENT *
+new_element_from_sv (SV *element_hash)
+{
+  HV *hv_in;
+  ELEMENT *e;
+  SV **text_sv;
+  SV **type_sv;
+  SV **cmdname_sv;
+  enum element_type e_type;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (element_hash);
+
+  FETCH(type);
+
+  if (type_sv)
+    {
+      const char *type_name = (const char *) SvPVutf8_nolen (*type_sv);
+      e_type = find_element_type ((char *)type_name);
+    }
+  else
+    e_type = ET_NONE;
+
+  FETCH(text);
+  if (text_sv && SvOK (*text_sv))
+    {
+      const char *text = (const char *) SvPVutf8_nolen (*text_sv);
+      if (e_type == ET_NONE)
+        e_type = ET_normal_text;
+      e = new_text_element (e_type);
+      text_append (e->e.text, text);
+      return e;
+    }
+
+  FETCH(cmdname)
+  if (cmdname_sv)
+    {
+    }
+
+  e = new_element (e_type);
+  return e;
 }
 #undef FETCH
 

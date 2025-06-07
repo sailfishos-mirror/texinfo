@@ -2636,6 +2636,40 @@ store_document_tree_output_units (DOCUMENT *document)
   return result_sv;
 }
 
+void
+register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
+{
+  HV *element_hv;
+  SV **element_document_descriptor_sv;
+  SV **handle_sv;
+  const char *document_key = "element_document_descriptor";
+  const char *handle_key = "_handle";
+
+  dTHX;
+
+  if (!element->sv)
+    element_hv = new_element_perl_data (element);
+  else
+    element_hv = (HV *) SvRV ((SV *)element->sv);
+
+  element_document_descriptor_sv
+    = hv_fetch (element_hv, document_key, strlen (document_key), 0);
+
+  if (!element_document_descriptor_sv)
+    {
+      hv_store (element_hv, document_key, strlen (document_key),
+                newSViv (document->descriptor), 0);
+    }
+
+  handle_sv = hv_fetch (element_hv, handle_key, strlen(handle_key), 0);
+  if (!handle_sv)
+    {
+      add_to_element_list (&document->element_handles, element);
+      hv_store (element_hv, handle_key, strlen(handle_key),
+                newSViv (document->element_handles.number), 0);
+    }
+}
+
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -2669,7 +2703,11 @@ document_tree (SV *document_in, int handler_only)
         }
 
       if (sv_reference && SvOK (*sv_reference))
-        result_sv = *sv_reference;
+        {
+          result_sv = *sv_reference;
+          if (document)
+            register_element_handle_in_sv (document->tree, document);
+        }
     }
 
   if (result_sv)

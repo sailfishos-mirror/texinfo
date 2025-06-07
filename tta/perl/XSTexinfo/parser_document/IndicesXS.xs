@@ -25,6 +25,7 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+#include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
 /* register_document_convert_index_text_options */

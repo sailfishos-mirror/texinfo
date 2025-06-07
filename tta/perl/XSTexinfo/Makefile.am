@@ -163,6 +163,23 @@ StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+########################## TreeElement XS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += TreeElementXS.la
+endif
+
+nodist_TreeElementXS_la_SOURCES = parser_document/TreeElementXS.c
+CLEANFILES += parser_document/TreeElementXS.c
+
+EXTRA_DIST += parser_document/TreeElementXS.xs
+
+# locate include files under out-of-source builds.
+TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+TreeElementXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+TreeElementXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+
 ########################## IndicesXS
 
 if HAVE_ICONV

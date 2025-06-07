@@ -291,6 +291,10 @@ typedef struct DOCUMENT {
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 
     size_t descriptor;
+    /* TODO not sure which structure list it should be, may need more
+       information that the element, such as out of tree or not
+     */
+    ELEMENT_LIST element_handles;
     STRING_LIST *small_strings;
     ERROR_MESSAGE_LIST error_messages;
     ERROR_MESSAGE_LIST parser_error_messages;

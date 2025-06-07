@@ -20,6 +20,35 @@
 
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	Preliminary XS interface for Texinfo::TreeElement
+
+	* tta/C/main/build_perl_info.c (register_element_handle_in_sv)
+	(document_tree), tta/C/main/document_types.h (DOCUMENT),
+	tta/C/main/get_perl_info.c (get_sv_element_document)
+	(get_sv_element_element): add element_handles field in DOCUMENT and
+	functions that register or get the C element associated to a Perl
+	element element using the "element_document_descriptor" key for the
+	document descriptor and "_handle" for the number in element_handles.
+
+	* tta/C/main/get_perl_info.c (new_element_from_sv): preliminary
+	function that creates a C element based on a Perl element hash.
+
+	* tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES, TreeElementXS_*),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs: preliminary XS
+	interface for Texinfo::TreeElement.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(import, new_tree_element),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element): XS override warpper around
+	Texinfo::TreeElement::new such that the document can be found in XS to
+	find the C element, which is stored in the document.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element),
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Reader.pm (read): use the TreeElement interface.
 
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
