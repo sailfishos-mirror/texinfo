@@ -1,5 +1,35 @@
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (element_associated_processing_encoding),
+	tta/perl/Texinfo/Convert/Converter.pm (txt_image_text): use the
+	TreeElement interface.
+
+	* tta/perl/Texinfo/Common.pm (element_block_line_argument_command)
+	(element_itemize_item_prepended_element, element_collect_subentries)
+	(element_index_entry_referred_entry)
+	(element_informative_command_value)
+	(element_set_informative_command_value, element_section_level)
+	(element_is_content_empty, _element_inline_or_block)
+	(tree_element_is_inline, element_index_content_element),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(element_expand_verbatiminclude), tta/perl/Texinfo/Convert/Utils.pm
+	(element_expand_verbatiminclude)
+	(element_find_element_authors_internal, element_find_element_authors),
+	tta/perl/Texinfo/Structuring.pm
+	(element_section_level_adjusted_command_name): add another
+	implementation of the function with the same name but element or tree
+	prepended, using the TreeElement interface in the new implementation.
+
+	* tta/perl/Texinfo/TreeElement.pm (source_info): add.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm: update to use function
+	using the TreeElement interface.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (find_innermost_accent_contents):
+	minor changes, rearrange code, use more variables.
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
 	avoid using $menu_target->{'extra'}->{'node_number'} in hash if not
 	defined for menu_target.  For some reason, this only happened with

@@ -1287,6 +1287,29 @@ sub expand_verbatiminclude($$)
               $include_directories, $document, $converter);
 }
 
+# wrapper around Texinfo::Utils::element_expand_verbatiminclude.
+sub element_expand_verbatiminclude($$)
+{
+  my $converter = shift;
+  my $current = shift;
+
+  my $input_file_name_encoding
+    = $converter->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $converter->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+  my $locale_encoding = $converter->get_conf('LOCALE_ENCODING');
+
+  my $include_directories
+    = $converter->get_conf('INCLUDE_DIRECTORIES');
+
+  my $document = $converter->{'document'};
+
+  return Texinfo::Convert::Utils::element_expand_verbatiminclude($current,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $converter);
+}
+
 sub expand_today($)
 {
   my $converter = shift;
@@ -1533,7 +1556,7 @@ sub txt_image_text($$$)
         if (defined($file_name_encoding));
       $self->converter_line_warn(
                sprintf(__("\@image file `%s' unreadable: %s"),
-                          $decoded_file_name, $!), $element->{'source_info'});
+                          $decoded_file_name, $!), $element->source_info());
     }
   }
   return undef, undef;

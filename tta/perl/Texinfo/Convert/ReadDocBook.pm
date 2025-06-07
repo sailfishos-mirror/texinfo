@@ -630,7 +630,8 @@ sub _docbook_section_element($$)
     }
   }
   my $level_adjusted_cmdname
-     = Texinfo::Structuring::section_level_adjusted_command_name($element);
+   = Texinfo::Structuring::element_section_level_adjusted_command_name(
+                                                                   $element);
   if ($level_adjusted_cmdname eq 'unnumbered'
       and $self->{'document'}) {
     my $sections_list = $self->{'document'}->sections_list();
@@ -651,7 +652,7 @@ sub _docbook_section_element($$)
     # special case of no structuring information available for a regular
     # sectioning command, like @section, @appendix, if Structuring
     # sectioning_structure was not called.
-    my $heading_level = Texinfo::Common::section_level($element);
+    my $heading_level = Texinfo::Common::element_section_level($element);
     return $docbook_sections{$heading_level};
   }
 }
@@ -679,15 +680,15 @@ sub _index_entry($$)
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     $result .= $self->convert_tree(
-                   Texinfo::Common::index_content_element($element));
+                Texinfo::Common::element_index_content_element($element));
     $result .= "</primary>";
 
     my $entry_element = $index_entry->{'entry_element'};
 
     # Add any index subentries.
     my @subentries;
-    Texinfo::Common::collect_subentries($entry_element,
-                                        \@subentries);
+    Texinfo::Common::element_collect_subentries($entry_element,
+                                                \@subentries);
     my $level = 'secondary';
     my @levels = ('tertiary');
     foreach my $subentry (@subentries) {
@@ -699,16 +700,16 @@ sub _index_entry($$)
       }
     }
     my $seeentry
-      = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                    'seeentry');
+      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+                                                            'seeentry');
     if ($seeentry) {
       $result .= "<see>";
       $result .= $self->convert_tree($seeentry->get_child(0));
       $result .= "</see>";
     }
     my $seealso
-      = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                    'seealso');
+      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+                                                            'seealso');
     if ($seealso) {
       $result .= "<seealso>";
       $result .= $self->convert_tree($seealso->get_child(0));
@@ -981,7 +982,7 @@ sub _convert($$)
 
               my $command_as_argument_name;
               my $prepended_element
-                = Texinfo::Common::itemize_item_prepended_element(
+                = Texinfo::Common::element_itemize_item_prepended_element(
                                                           $block_line_arg);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->cmdname();
@@ -1045,7 +1046,8 @@ sub _convert($$)
         } elsif (exists($docbook_line_commands{$cmdname})) {
           #warn "  is dbk line command\n";
           if ($docbook_global_commands{$cmdname}) {
-            Texinfo::Common::set_informative_command_value($self, $element);
+            Texinfo::Common::element_set_informative_command_value($self,
+                                                                   $element);
             if ($cmdname eq 'documentlanguage') {
               Texinfo::Convert::Utils::switch_lang_translations($self,
                                          $self->get_conf('documentlanguage'));
@@ -1194,7 +1196,8 @@ sub _convert($$)
                 if ($docbook_sectioning_element eq 'part'
                     and not ($section_relations
                              and $section_relations->{'part_associated_section'})
-                    and !Texinfo::Common::is_content_empty($opened_element)) {
+                    and !Texinfo::Common::element_is_content_empty(
+                                                         $opened_element)) {
                   $$output_ref .= "<partintro>\n";
                 }
               }
@@ -1239,7 +1242,7 @@ sub _convert($$)
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
-            my $expansion = $self->expand_verbatiminclude($element);
+            my $expansion = $self->element_expand_verbatiminclude($element);
             if (defined($expansion)) {
               $$output_ref .= $self->convert_tree($expansion);
             }
@@ -1509,7 +1512,7 @@ sub _convert($$)
               Texinfo::Convert::Text::reset_options_encoding(
                                      $self->{'convert_text_options'});
 
-              my $is_inline = Texinfo::Common::element_is_inline($element);
+              my $is_inline = Texinfo::Common::tree_element_is_inline($element);
               if ($is_inline) {
                 $$output_ref .= "<inlinemediaobject>";
               } else {
@@ -1545,7 +1548,7 @@ sub _convert($$)
               if (!defined($image_text) and !$image_file_found) {
                 $self->converter_line_warn(sprintf(
                          __("\@image file `%s' not found, using `%s'"),
-                           $basefile, "$basefile.jpg"), $element->{'source_info'});
+                       $basefile, "$basefile.jpg"), $element->source_info());
               }
 
               if ($is_inline) {
@@ -1677,7 +1680,8 @@ sub _convert($$)
             if ($Texinfo::Commands::inline_format_commands{$cmdname}) {
               if ($cmdname eq 'inlinefmtifelse'
                   or ($element->get_attribute('format')
-                      and $self->{'expanded_formats'}->{$element->get_attribute('format')})) {
+                      and $self->{'expanded_formats'}
+                                ->{$element->get_attribute('format')})) {
                 $expand = 1;
               }
             } elsif (defined($element->get_attribute('expand_index'))) {
@@ -1689,12 +1693,14 @@ sub _convert($$)
                 _new_document_context($self);
                 $self->{'document_context'}->[-1]->{'raw'} = 1;
               } elsif ($cmdname eq 'inlinefmtifelse'
-                     and ! $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
+                     and ! $self->{'expanded_formats'}
+                            ->{$element->get_attribute('format')}) {
                 $arg_index = 2;
               }
               if ($element->children_number() > $arg_index
                   and $element->get_child($arg_index)->children_number()) {
-                $$output_ref .= $self->convert_tree($element->get_child($arg_index));
+                $$output_ref
+                  .= $self->convert_tree($element->get_child($arg_index));
               }
               if ($cmdname eq 'inlineraw') {
                 pop @{$self->{'document_context'}};
@@ -1810,7 +1816,7 @@ sub _convert($$)
             push @format_elements, 'mathphrase';
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
-            Texinfo::Convert::Utils::find_element_authors($element,
+            Texinfo::Convert::Utils::element_find_element_authors($element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
               if ($author->get_child(0)->children_number()) {
@@ -1901,7 +1907,7 @@ sub _convert($$)
         }
 
           # not restricted enough, includes line_args, for instance
-          #and Texinfo::Common::element_is_inline($element, 1))
+          #and Texinfo::Common::tree_element_is_inline($element, 1))
         if (($e_type eq 'paragraph'
              or $e_type eq 'preformatted')
             and defined($self->{'pending_prepend'})) {
@@ -1992,15 +1998,17 @@ sub _convert($$)
             $section_relations
               = $sections_list->[$element->{'extra'}->{'section_number'} -1];
           }
-          my $docbook_sectioning_element = _docbook_section_element($self, $element);
+          my $docbook_sectioning_element
+             = _docbook_section_element($self, $element);
           if ($docbook_sectioning_element eq 'part'
               and not ($section_relations
                        and $section_relations->{'part_associated_section'})
-              and !Texinfo::Common::is_content_empty($element)) {
+              and !Texinfo::Common::element_is_content_empty($element)) {
             $$output_ref .= "</partintro>\n";
           }
           my $level_adjusted_cmdname
-              = Texinfo::Structuring::section_level_adjusted_command_name($element);
+           = Texinfo::Structuring::element_section_level_adjusted_command_name(
+                                                                    $element);
           if (!($section_relations
                 and $section_relations->{'section_childs'}
                 and scalar(@{$section_relations->{'section_childs'}}))
@@ -2013,11 +2021,12 @@ sub _convert($$)
             while ($current_relations->{'section_directions'}
                    and $current_relations->{'section_directions'}->{'up'}
                    and !$current_relations->{'section_directions'}->{'next'}
-                   and Texinfo::Structuring::section_level_adjusted_command_name(
+         and Texinfo::Structuring::element_section_level_adjusted_command_name(
        $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
               $current_relations = $current_relations->{'section_directions'}->{'up'};
               $current = $current_relations->{'element'};
-              $$output_ref .= '</'._docbook_section_element($self, $current) .">\n";
+              $$output_ref
+                 .= '</'._docbook_section_element($self, $current) .">\n";
               pop @{$self->{'lang_stack'}};
             }
           }

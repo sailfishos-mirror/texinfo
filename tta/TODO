@@ -84,17 +84,25 @@ sectioning command.
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute.
 
-Treat spaces and comments in info as tree elements, not as attributes. <- DONE
+Treat comments in additional info as tree elements, not as attributes?  This
+cannot be done with the current codes, as these codes expect processing these
+comments only as attributes.  No easy fix.  Maybe these comments should be
+associated to the command and not to the line_arg or block_line_arg such
+that they appear after closing the line container, in which case they may
+be processed as regular elements.  This is not obvious, as in term
+of tree structure they are better in line containers than in commands,
+which should only contain line containers.
 
-Maybe treat verb delimiter the same. And also braces of types with implicit
-braces?
+Maybe have verb delimiter being returned by the reader? And also braces of
+types with implicit braces?  Would need to add a specific reader token category
+for that.
 
 Probably elements without handle could be found using find_element_from_sv
 in main/get_perl_info.c.  Probably need to add code to find global
 unique commands, they are used in DocBook conversion for example.
 
 Need to find a way to keep using the API for a construct like
-(with $copying_element C element being findable):
+($copying_element C element is already findable):
     my $copying_result
      = $self->convert_tree(Texinfo::TreeElement::new(
            {'contents' => $copying_element->{'contents'}}));
@@ -108,21 +116,51 @@ Need an interface for
 my ($index_entry, $index_info)
      = Texinfo::Common::lookup_index_entry($index_entry_info,
                                            $indices_information);
+in order to be able to find the element in
 $index_entry->{'entry_element'}
+either because a handle has been added, or through another interface
+centered on the $index_entry.
 
 
 TODO:
- Texinfo::Common::index_content_element
- Texinfo::Common::collect_subentries
- Texinfo::Common::section_level
- Texinfo::Structuring::section_level_adjusted_command_name
- Texinfo::Common::index_entry_referred_entry
- Texinfo::Common::itemize_item_prepended_element
- Texinfo::Common::set_informative_command_value
- Texinfo::Convert::Utils::switch_lang_translations
- Texinfo::Convert::Utils::find_element_authors
- translated_command_tree
- expand_today
+#element_collect_subentries
+#Texinfo::Common::index_content_element
+#Texinfo::Common::section_level
+# Texinfo::Structuring::section_level_adjusted_command_name
+# Texinfo::Common::index_entry_referred_entry
+#    block_line_argument_command
+# Texinfo::Common::itemize_item_prepended_element
+# Texinfo::Common::set_informative_command_value
+#                     informative_command_value
+ Texinfo::Convert::Utils::switch_lang_translations => not needed?
+                                           but may need to switch
+                                       current_lang_translations in C?
+                                       probably not.
+# Texinfo::Convert::Utils::find_element_authors
+# Texinfo::Common::element_associated_processing_encoding  only with TreeElement
+# Texinfo::Common::element_is_inline
+#txt_image_text   only with TreeElement
+ Texinfo::Common::debug_print_element
+# Texinfo::Common::is_content_empty
+ expand_today => Texinfo::TreeElement::new and cdt
+ expand_verbatiminclude
+      need to add modification or tree with addition or elements:
+         push @{$verbatiminclude->{'contents'}},
+ cdt => need to have all the substituted_strings elements findable
+        override Texinfo::TreeElement::new?  => need to be able to
+           setup a C element based on a Perl hash + store this element
+           for an unknown time (as it is not known in advance when the
+           Perl element with be destroyed).
+ + cdt/gdt return should be findable too, possibly through
+   cdt/gdt being overriden
+ xml_accents one option is to override xml_accents
+for accents formatting, going through a stack of commands, obtained from
+find_innermost_accent_contents, two options
+* return a stack object with an API to access elements in it (using
+    the same functions as existing C functions)
+* populate the stack with elements handlers;  note that this is
+  more complicated because there is also a new element constructed
+  dynamically for the innermost accent argument
 
 Initialization:
  from a tree
@@ -151,7 +189,7 @@ Tree access
 Cross references:
  * getTargetById
 
-[Probably not needed]
+[Hopefully not needed]
 Recreation of a tree (DOM)
  preserveElement or get_tree? (preserveNode in XML::LibXML::Reader
    returns a handler on the element
@@ -161,13 +199,6 @@ Recreation of a tree (DOM)
 Another API for access to node, section, heading structure information.
 access to structure associated to element. Accessors for fields. What about
 lists? Also API for output units, but maybe later.
-
-
-for accents formatting, going through a stack of commands, obtained from
-find_innermost_accent_contents, two options
-* return a stack object with an API to access elements in it (using
-    the same functions as existing C functions)
-* populate the stack with elements handlers
 
 
 Delayed bugs/features

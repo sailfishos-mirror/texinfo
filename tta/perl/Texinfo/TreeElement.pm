@@ -57,6 +57,12 @@ sub text($)
   return $element->{'text'};
 }
 
+sub source_info($)
+{
+  my $element = shift;
+  return $element->{'source_info'};
+}
+
 sub children_number($)
 {
   my $element = shift;
@@ -71,7 +77,7 @@ sub get_child($$)
 {
   my $element = shift;
   my $index = shift;
- 
+
   if ($element->{'contents'}) {
     return $element->{'contents'}->[$index];
   }
@@ -94,7 +100,7 @@ sub get_attribute($$)
 sub source_marks_number($)
 {
   my $element = shift;
- 
+
   if ($element->{'source_marks'}) {
     return scalar(@{$element->{'source_marks'}});
   }

@@ -889,6 +889,29 @@ sub block_line_argument_command($)
   return undef;
 }
 
+# same as above, but using the TreeElement interface
+sub element_block_line_argument_command($)
+{
+  my $block_line_arg = shift;
+
+  if ($block_line_arg->children_number() == 1) {
+    my $arg = $block_line_arg->get_child(0);
+    my $cmdname = $arg->cmdname();
+    my $contents_nr = $arg->children_number();
+    if ($cmdname
+        and (!$contents_nr
+             or ($contents_nr == 1
+                 and !$arg->get_child(0)->children_number()))) {
+      if (($Texinfo::Commands::brace_commands{$cmdname}
+           and !$Texinfo::Commands::accent_commands{$cmdname})
+          or ($arg->type() and $arg->type() eq 'definfoenclose_command')) {
+        return $arg;
+      }
+    }
+  }
+  return undef;
+}
+
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 sub itemize_item_prepended_element($)
@@ -899,6 +922,21 @@ sub itemize_item_prepended_element($)
   if ($arg) {
     return $arg;
   } elsif (!$block_line_arg->{'contents'}) {
+    return $default_bullet_command;
+  } else {
+    return $block_line_arg;
+  }
+}
+
+# same as above, but using the TreeElement interface
+sub element_itemize_item_prepended_element($)
+{
+  my $block_line_arg = shift;
+
+  my $arg = element_block_line_argument_command($block_line_arg);
+  if ($arg) {
+    return $arg;
+  } elsif (!$block_line_arg->children_number()) {
     return $default_bullet_command;
   } else {
     return $block_line_arg;
@@ -975,6 +1013,25 @@ sub collect_subentries($$)
   }
 }
 
+# same as above, but using the TreeElement interface
+sub element_collect_subentries($$);
+sub element_collect_subentries($$)
+{
+  my $current = shift;
+  my $subentries = shift;
+
+  my $line_arg = $current->get_child(0);
+  my $contents_nr = $line_arg->children_number();
+  for (my $i = 0; $i < $contents_nr; $i++) {
+    my $content = $line_arg->get_child($i);
+    my $cmdname = $content->cmdname();
+    if ($cmdname and $cmdname eq 'subentry') {
+      push @$subentries, $content;
+      element_collect_subentries($content, $subentries);
+    }
+  }
+}
+
 sub index_entry_referred_entry($$);
 
 # TODO document
@@ -993,6 +1050,34 @@ sub index_entry_referred_entry($$)
           return $content if ($content->{'contents'});
         } elsif ($content->{'cmdname'} eq 'subentry') {
           return index_entry_referred_entry($content, $referred_cmdname);
+        }
+      }
+    }
+  }
+  return undef;
+}
+
+sub element_index_entry_referred_entry($$);
+
+# same as above using the TreeElement interface
+sub element_index_entry_referred_entry($$)
+{
+  my $element = shift;
+  my $referred_cmdname = shift;
+
+  my $line_arg = $element->get_child(0);
+
+  my $contents_nr = $line_arg->children_number();
+  if ($contents_nr) {
+    for (my $i = 0; $i < $contents_nr; $i++) {
+      my $content = $line_arg->get_child($i);
+      my $cmdname = $content->cmdname();
+      if ($cmdname) {
+        if ($cmdname eq $referred_cmdname) {
+          return $content if ($content->children_number());
+        } elsif ($cmdname eq 'subentry') {
+          return element_index_entry_referred_entry($content,
+                                                    $referred_cmdname);
         }
       }
     }
@@ -1083,8 +1168,7 @@ sub element_associated_processing_encoding($)
 {
   my $element = shift;
 
-  my $encoding = $element->{'extra'}->{'input_encoding_name'}
-    if ($element->{'extra'});
+  my $encoding = $element->get_attribute('input_encoding_name');
 
   return processing_output_encoding($encoding);
 }
@@ -1188,6 +1272,39 @@ sub informative_command_value($)
   return undef;
 }
 
+# same as above, but using the TreeElement interface
+sub element_informative_command_value($)
+{
+  my $element = shift;
+
+  my $cmdname = $element->cmdname();
+
+  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
+    if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
+      return 1;
+    } else {
+      my $contents_nr = $element->children_number();
+      if ($contents_nr) {
+        my @strings;
+        for (my $i; $i < $contents_nr; $i++) {
+          push @strings, $element->get_child($i)->text();
+        }
+        return join(' ', @strings);
+      }
+    }
+  } elsif ($element->get_attribute('text_arg')) {
+    return $element->get_attribute('text_arg');
+  } elsif ($element->get_attribute('misc_args')
+           and exists($element->get_attribute('misc_args')->[0])) {
+    return $element->get_attribute('misc_args')->[0];
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
+           and $element->get_child(0)->children_number()
+           and $element->get_child(0)->get_child(0)->text()) {
+    return $element->get_child(0)->get_child(0)->text();
+  }
+  return undef;
+}
+
 # REMARK documentencoding handling is not reverted by resetting a value with
 # set_conf, as the encodings are set using other sources of information
 # (possibly based on @documentencoding) in converter.
@@ -1200,6 +1317,24 @@ sub set_informative_command_value($$)
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = informative_command_value($element);
+
+  if (defined($value)) {
+    my $set = $self->set_conf($cmdname, $value);
+    return $set;
+  }
+  return 0;
+}
+
+# same as above, but using the TreeElement interface
+sub element_set_informative_command_value($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $cmdname = $element->cmdname();
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
+
+  my $value = element_informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);
@@ -1413,6 +1548,30 @@ sub section_level($)
   return $level;
 }
 
+# same as above, but using the TreeElement interface
+sub element_section_level($)
+{
+  my $section = shift;
+
+  my $cmdname = $section->cmdname();
+  my $level = $command_structuring_level{$cmdname};
+  # correct level according to raise/lowersections
+  my $level_modifier = $section->get_attribute('level_modifier');
+  if ($level_modifier) {
+    $level -= $level_modifier;
+    if ($level < $min_level) {
+      if ($command_structuring_level{$cmdname} < $min_level) {
+        $level = $command_structuring_level{$cmdname};
+      } else {
+        $level = $min_level;
+      }
+    } elsif ($level > $max_level) {
+      $level = $max_level;
+    }
+  }
+  return $level;
+}
+
 # decompose a decimal number on a given base.  It is not the
 # decomposition used for counting as we start at 0, not 1 for all
 # the factors.  This is in order to get aa and not ba in calling
@@ -1508,6 +1667,76 @@ sub is_content_empty($;$)
   return 1;
 }
 
+sub element_is_content_empty($;$);
+sub element_is_content_empty($;$)
+{
+  my $tree = shift;
+  my $do_not_ignore_index_entries = shift;
+
+  if (!defined($tree)) {
+    return 1;
+  }
+
+  my $contents_nr = $tree->children_number();
+
+  if (!$contents_nr) {
+    return 1;
+  }
+
+  for (my $i = 0; $i < $contents_nr; $i++) {
+    my $content = $tree->get_child($i);
+    my $text = $content->text();
+    if (defined($text)) {
+      if ($text =~ /\S/) {
+        return 0;
+      } else {
+        next;
+      }
+    }
+    my $type = $content->type();
+    next if ($type and $type eq 'arguments_line');
+
+    my $cmdname = $content->cmdname();
+    if ($cmdname) {
+      if ($type and $type eq 'index_entry_command') {
+        if ($do_not_ignore_index_entries) {
+          return 0;
+        } else {
+          next;
+        }
+      }
+      if (exists($Texinfo::Commands::line_commands{$cmdname})) {
+        if ($Texinfo::Commands::formatted_line_commands{$cmdname}
+            or $Texinfo::Commands::formattable_line_commands{$cmdname}) {
+          return 0;
+        } else {
+          next;
+        }
+      } elsif (exists($Texinfo::Commands::nobrace_commands{$cmdname})) {
+        if ($Texinfo::Commands::formatted_nobrace_commands{$cmdname}) {
+          return 0;
+        } else {
+          next;
+        }
+      } elsif ($Texinfo::Commands::non_formatted_brace_commands{$cmdname}
+               or $Texinfo::Commands::non_formatted_block_commands{$cmdname}) {
+        next;
+      } else {
+        return 0;
+      }
+    }
+    if ($type) {
+      if ($type eq 'paragraph') {
+        return 0;
+      }
+    }
+    if (not is_content_empty($content, $do_not_ignore_index_entries)) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
 # if in this container, we are 'inline', within a running text
 my @inline_types = ('def_line', 'paragraph', 'preformatted',
   'line_arg', 'block_line_arg', 'menu_entry_name', 'menu_entry_node');
@@ -1540,6 +1769,22 @@ sub _inline_or_block($)
   return undef;
 }
 
+# same as above, but with TreeElement interface
+sub _element_inline_or_block($)
+{
+  my $current = shift;
+  my $e_type = $current->type();
+  if ($e_type and $inline_types{$e_type}) {
+    return 1;
+  } else {
+    my $cmdname = $current->cmdname();
+    if ($cmdname and exists($not_inline_commands{$cmdname})) {
+      return 0;
+    }
+  }
+  return undef;
+}
+
 # return true if in running text context.
 # If $CHECK_CURRENT is set, check the element itself, too, in
 # addition to the parent context.
@@ -1556,6 +1801,27 @@ sub element_is_inline($;$)
   while ($current->{'parent'}) {
     $current = $current->{'parent'};
     my $inline_or_block = _inline_or_block($current);
+    return ($inline_or_block) if (defined($inline_or_block));
+  }
+  return 0;
+}
+
+
+
+# same as above, but using TreeElement interface
+sub tree_element_is_inline($;$)
+{
+  my $current = shift;
+  my $check_current = shift;
+
+  if ($check_current) {
+    my $inline_or_block = _element_inline_or_block($current);
+    return ($inline_or_block) if (defined($inline_or_block));
+  }
+
+  while ($current->parent()) {
+    $current = $current->parent();
+    my $inline_or_block = _element_inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
   }
   return 0;
@@ -1583,7 +1849,7 @@ sub count_bytes($;$)
 
   # TODO encoding is unlikely to be ascii, as documentencoding ascii
   # is mapped to output encoding name us-ascii, also it may have been
-  # better to call Texinfo::Common::processing_output_encoding, in 
+  # better to call Texinfo::Common::processing_output_encoding, in
   # which case us-ascii would be mapped to iso-8859-1.
   if (defined($encoding) and $encoding ne 'ascii') {
     if (!defined($last_encoding) or $last_encoding ne $encoding) {
@@ -1615,6 +1881,25 @@ sub index_content_element($;$)
     }
   } else {
     return $element->{'contents'}->[0];
+  }
+}
+
+# same as above, but using the TreeElement interface
+sub element_index_content_element($;$)
+{
+  my $element = shift;
+  my $prefer_reference_element = shift;
+
+  my $def_command = $element->get_attribute('def_command');
+  if ($def_command) {
+    if ($prefer_reference_element
+        and $element->get_attribute('def_index_ref_element')) {
+      return $element->get_attribute('def_index_ref_element');
+    } else {
+      return $element->get_attribute('def_index_element');
+    }
+  } else {
+    return $element->get_child(0);
   }
 }
 
