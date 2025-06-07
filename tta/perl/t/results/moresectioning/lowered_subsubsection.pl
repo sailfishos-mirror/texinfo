@@ -459,6 +459,13 @@ $result_texts{'lowered_subsubsection'} = '
 
 $result_errors{'lowered_subsubsection'} = [
   {
+    'error_line' => 'warning: node up for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu
+',
+    'line_nr' => 41,
+    'text' => 'node up for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target
 ',
     'line_nr' => 22,

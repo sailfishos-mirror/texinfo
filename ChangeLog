@@ -1,3 +1,14 @@
+2025-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Check for nodes in wrong menus first
+
+	* tta/perl/Texinfo/Structuring.pm  (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	If CHECK_NORMAL_MENU_STRUCTURE, first of all check all menus in the
+	document to see if nodes listed therein are in the correct menu,
+	using logic similar to that in set_menus_node_directions.  Suppress
+	later error messages about a node if it is listed in the wrong menu.
+
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Reader.pm (read): use the TreeElement interface.

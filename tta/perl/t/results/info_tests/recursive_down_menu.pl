@@ -116,7 +116,15 @@ $result_texts{'recursive_down_menu'} = 'top
 * chapN::
 ';
 
-$result_errors{'recursive_down_menu'} = [];
+$result_errors{'recursive_down_menu'} = [
+  {
+    'error_line' => 'warning: node up for `chapN\' is `Top\' but up is `chapN\' in menu
+',
+    'line_nr' => 4,
+    'text' => 'node up for `chapN\' is `Top\' but up is `chapN\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'recursive_down_menu'} = '1|Top

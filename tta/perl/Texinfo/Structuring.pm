@@ -774,6 +774,80 @@ sub check_node_tree_menu_structure($)
   # messages.  Indexed by 'node_number' extra value.
   my %node_errors;
 
+  # Check for nodes listed in the wrong menu(s)
+  # TODO: report appropriate line number for menu entry
+  if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+    foreach my $node_relations (@{$nodes_list}) {
+      my $node = $node_relations->{'element'};
+
+      if ($node_relations->{'menus'}) {
+        foreach my $menu (@{$node_relations->{'menus'}}) {
+          foreach my $menu_content (@{$menu->{'contents'}}) {
+            next if !$menu_content->{'type'}
+              or $menu_content->{'type'} ne 'menu_entry';
+            my $menu_node;
+            my $menu_node_relations;
+            foreach my $content (@{$menu_content->{'contents'}}) {
+              next if $content->{'type'} ne 'menu_entry_node';
+              if ($content->{'extra'}) {
+                if (!$content->{'extra'}->{'manual_content'}) {
+                  if (defined($content->{'extra'}->{'normalized'})) {
+                    $menu_node
+                      = $identifier_target->{$content->{'extra'}->{'normalized'}};
+                    if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
+                      $menu_node_relations
+                        = $nodes_list->[$menu_node->{'extra'}->{'node_number'} -1];
+
+                      my $section_relations
+                        = $menu_node_relations->{'associated_section'};
+
+                      # possibly a lone @node that is not part of the
+                      # section structure.
+                      next if !$section_relations;
+
+                      my $arguments_line = $menu_node->{'contents'}->[0];
+                      my $automatic_directions
+                        = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
+                      next if (!$automatic_directions);
+
+                      my $section_up_node
+                        = _section_direction_associated_node($section_relations, 'up');
+                      if (!$section_up_node) {
+                        $registrar->line_warn(
+                 sprintf(__("node %s for `%s' is `%s' in menu but not in sectioning"),
+                                         'up',
+                                         target_element_to_texi_label($menu_node),
+                                         target_element_to_texi_label($node)),
+                            $menu_node->{'source_info'}, 0,
+                            $customization_information->get_conf('DEBUG'));
+                          $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
+                      } elsif ($section_up_node
+                                 and $section_up_node->{'element'}
+                                 and $section_up_node->{'element'} ne $node) {
+                        $registrar->line_warn(
+                       sprintf(__("node %s for `%s' is `%s' but %s is `%s' in menu"),
+                                      'up',
+                                      target_element_to_texi_label($menu_node),
+                                      target_element_to_texi_label
+                                        ($section_up_node->{'element'}),
+                                      'up',
+                                      target_element_to_texi_label($node)),
+                            $menu_node->{'source_info'}, 0,
+                            $customization_information->get_conf('DEBUG'));
+                          $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
+                      }
+                    }
+                  }
+                }
+              }
+              last; # menu_entry_node found
+            }
+          }
+        }
+      }
+    }
+  }
+
   my %cached_menu_nodes;
 
   # check for node up / menu up mismatch

@@ -1107,6 +1107,138 @@ check_node_tree_menu_structure (DOCUMENT *document)
   /* FIXME: where is 'node_number' actually set?  Is it 0- or 1-based? */
   char *node_errors = calloc (nodes_list->number + 1, 1);
 
+  /* Check for nodes listed in the wrong menu(s). */
+  if (!options
+      || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
+    for (i = 0; i < nodes_list->number; i++)
+      {
+        NODE_RELATIONS *node_relations = nodes_list->list[i];
+        ELEMENT *node = (ELEMENT *)node_relations->element;
+        const CONST_ELEMENT_LIST *menus = node_relations->menus;
+
+        if (!menus)
+          continue;
+
+        size_t j;
+        for (j = 0; j < menus->number; j++)
+          {
+            const ELEMENT *menu = menus->list[j];
+            size_t k;
+            for (k = 0; k < menu->e.c->contents.number; k++)
+              {
+                const ELEMENT *menu_content = menu->e.c->contents.list[k];
+                if (menu_content->type != ET_menu_entry)
+                  continue;
+
+                NODE_RELATIONS *menu_node_relations = 0;
+                size_t l;
+                for (l = 0; l < menu_content->e.c->contents.number; l++)
+                  {
+                    const ELEMENT *content
+                      = menu_content->e.c->contents.list[l];
+                    if (content->type != ET_menu_entry_node)
+                      continue;
+
+                    const ELEMENT *manual_content
+                     = lookup_extra_container (content,
+                                               AI_key_manual_content);
+
+                    if (!manual_content)
+                      {
+                        const char *normalized
+                          = lookup_extra_string (content,
+                                                 AI_key_normalized);
+                        if (normalized)
+                          {
+                            const ELEMENT *menu_node
+                             = find_identifier_target (identifiers_target,
+                                                       normalized);
+                            if (menu_node
+                                && menu_node->e.c->cmd == CM_node)
+                              {
+                                int status;
+                                size_t menu_node_number
+                                 = lookup_extra_integer (menu_node,
+                                     AI_key_node_number, &status);
+                                if (status < 0)
+                                  abort ();  /* shouldn't happen */
+                                menu_node_relations
+                                  = nodes_list->list[menu_node_number -1];
+
+                                const SECTION_RELATIONS *menu_section_relations;
+                                menu_section_relations
+                                  = menu_node_relations->associated_section;
+
+                                /* possibly a lone @node that is not
+                                   part of the section structure */
+                                if (!menu_section_relations)
+                                  continue;
+
+                                const ELEMENT *arguments_line
+                                  = menu_node->e.c->contents.list[0];
+                                int automatic_directions
+                                  = (arguments_line->e.c->contents.number <= 1);
+                                if (!automatic_directions)
+                                  continue;
+
+                                const NODE_RELATIONS *section_up_node;
+                                section_up_node = section_direction_associated_node
+                                  (menu_section_relations, D_up);
+                                if (!section_up_node)
+                                  {
+                                    char *menu_node_texi
+                                      = target_element_to_texi_label (menu_node);
+                                    char *entry_texi
+                                      = target_element_to_texi_label (node);
+                                    message_list_command_warn (error_messages,
+                                   (options && options->DEBUG.o.integer > 0),
+                                             menu_node, 0,
+                           "node %s for `%s' is `%s' in menu but not in sectioning",
+                                             direction_names[D_up], menu_node_texi,
+                                             entry_texi);
+                                    free (menu_node_texi);
+                                    free (entry_texi);
+
+                                    const int node_number = lookup_extra_integer
+                                      (menu_node, AI_key_node_number, &status);
+                                    node_errors[menu_node_number] = 1;
+                                  }
+                                else if (section_up_node->element
+                                         && section_up_node->element != node)
+                                  {
+                                    char *menu_node_texi
+                                      = target_element_to_texi_label (menu_node);
+                                    char *section_up_node_texi
+                                      = target_element_to_texi_label
+                                          (section_up_node->element);
+                                    char *entry_texi
+                                      = target_element_to_texi_label (node);
+
+                                    message_list_command_warn (error_messages,
+                                   (options && options->DEBUG.o.integer > 0),
+                                             menu_node, 0,
+                           "node %s for `%s' is `%s' but %s is `%s' in menu",
+                                             direction_names[D_up], menu_node_texi,
+                                             section_up_node_texi,
+                                             direction_names[D_up], entry_texi);
+
+                                    free (menu_node_texi);
+                                    free (section_up_node_texi);
+                                    free (entry_texi);
+
+                                    const int node_number = lookup_extra_integer
+                                      (menu_node, AI_key_node_number, &status);
+                                    node_errors[menu_node_number] = 1;
+                                  }
+                              }
+                          }
+                      }
+                    break; /* menu_entry_node found */
+                  }
+              }
+          }
+      }
+
   /* check for node up / menu up mismatch */
   if ((!options)
       || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)

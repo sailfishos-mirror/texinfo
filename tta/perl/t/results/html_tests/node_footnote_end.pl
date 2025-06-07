@@ -334,22 +334,6 @@ Footnote 3.
 
 $result_errors{'node_footnote_end'} = [
   {
-    'error_line' => 'warning: node next for `chapter\' is `@`a\' in menu but not in sectioning
-',
-    'file_name' => 'node_footnote.texi',
-    'line_nr' => 24,
-    'text' => 'node next for `chapter\' is `@`a\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `chapter\' is `@^a\' in menu but not in sectioning
-',
-    'file_name' => 'node_footnote.texi',
-    'line_nr' => 24,
-    'text' => 'node prev for `chapter\' is `@^a\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: node up for `chapter\' is `Top\' in menu but not in sectioning
 ',
     'file_name' => 'node_footnote.texi',

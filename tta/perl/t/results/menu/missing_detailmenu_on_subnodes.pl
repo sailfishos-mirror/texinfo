@@ -408,31 +408,24 @@ unnumberedsec
 
 $result_errors{'missing_detailmenu_on_subnodes'} = [
   {
-    'error_line' => 'warning: node next for `section\' is `section chap 2\' in menu but not in sectioning
+    'error_line' => 'warning: node up for `section\' is `chapter\' but up is `Top\' in menu
 ',
     'line_nr' => 23,
-    'text' => 'node next for `section\' is `section chap 2\' in menu but not in sectioning',
+    'text' => 'node up for `section\' is `chapter\' but up is `Top\' in menu',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node prev for `section\' is `chapter 2\' in menu but not in sectioning
-',
-    'line_nr' => 23,
-    'text' => 'node prev for `section\' is `chapter 2\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next for `chapter 2\' is `section\' in menu but not in sectioning
-',
-    'line_nr' => 26,
-    'text' => 'node next for `chapter 2\' is `section\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `section chap 2\' is `section\' in menu but not in sectioning
+    'error_line' => 'warning: node up for `section chap 2\' is `chapter 2\' but up is `Top\' in menu
 ',
     'line_nr' => 34,
-    'text' => 'node prev for `section chap 2\' is `section\' in menu but not in sectioning',
+    'text' => 'node up for `section chap 2\' is `chapter 2\' but up is `Top\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node up for `unnumberedsec\' is `chapter 2\' but up is `Top\' in menu
+',
+    'line_nr' => 37,
+    'text' => 'node up for `unnumberedsec\' is `chapter 2\' but up is `Top\' in menu',
     'type' => 'warning'
   }
 ];
