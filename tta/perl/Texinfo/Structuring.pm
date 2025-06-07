@@ -860,7 +860,12 @@ sub check_node_tree_menu_structure($)
           if ($menu_directions
                  and $menu_directions->{$direction}) {
             $menu_target = $menu_directions->{$direction};
-            next if $menu_target
+            # TODO $menu_target defined without
+            # $menu_target->{'extra'}->{'node_number'}
+            # only happens with TEXINFO_XS_STRUCTURE=0.
+            # This is not problematic, but could be caused by underlying bugs.
+            next if $menu_target and $menu_target->{'extra'}
+              and $menu_target->{'extra'}->{'node_number'}
               and $node_errors{$menu_target->{'extra'}->{'node_number'}};
           }
 

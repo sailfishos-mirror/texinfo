@@ -1,5 +1,12 @@
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	avoid using $menu_target->{'extra'}->{'node_number'} in hash if not
+	defined for menu_target.  For some reason, this only happened with
+	TEXINFO_XS_STRUCTURE=0.
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	Comments related to SV or HV comparison and reuse
 
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
