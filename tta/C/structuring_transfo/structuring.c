@@ -1160,8 +1160,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                 size_t menu_node_number
                                  = lookup_extra_integer (menu_node,
                                      AI_key_node_number, &status);
-                                if (status < 0)
-                                  abort ();  /* shouldn't happen */
                                 menu_node_relations
                                   = nodes_list->list[menu_node_number -1];
 
@@ -1190,12 +1188,13 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                       = target_element_to_texi_label (menu_node);
                                     char *entry_texi
                                       = target_element_to_texi_label (node);
+
                                     message_list_command_warn (error_messages,
-                                   (options && options->DEBUG.o.integer > 0),
-                                             menu_node, 0,
-                           "node %s for `%s' is `%s' in menu but not in sectioning",
-                                             direction_names[D_up], menu_node_texi,
-                                             entry_texi);
+                                      (options && options->DEBUG.o.integer > 0),
+                                      menu_content, 0,
+                                      "node `%s' in menu in `%s' but "
+                                      "not under it in sectioning",
+                                      menu_node_texi, entry_texi);
                                     free (menu_node_texi);
                                     free (entry_texi);
 
@@ -1208,19 +1207,19 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                   {
                                     char *menu_node_texi
                                       = target_element_to_texi_label (menu_node);
+                                    char *entry_texi
+                                      = target_element_to_texi_label (node);
                                     char *section_up_node_texi
                                       = target_element_to_texi_label
                                           (section_up_node->element);
-                                    char *entry_texi
-                                      = target_element_to_texi_label (node);
 
                                     message_list_command_warn (error_messages,
-                                   (options && options->DEBUG.o.integer > 0),
-                                             menu_node, 0,
-                           "node %s for `%s' is `%s' but %s is `%s' in menu",
-                                             direction_names[D_up], menu_node_texi,
-                                             section_up_node_texi,
-                                             direction_names[D_up], entry_texi);
+                                      (options && options->DEBUG.o.integer > 0),
+                                      menu_content, 0,
+                                      "node `%s' in menu in `%s' but "
+                                      "under `%s' in sectioning",
+                                      menu_node_texi, entry_texi,
+                                      section_up_node_texi);
 
                                     free (menu_node_texi);
                                     free (section_up_node_texi);

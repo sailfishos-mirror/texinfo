@@ -206,17 +206,17 @@ $result_errors{'section_chapter_before_top_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node up for `section node\' is `chapter node\' in menu but not in sectioning
+    'error_line' => 'warning: node `section node\' in menu in `chapter node\' but not under it in sectioning
 ',
-    'line_nr' => 1,
-    'text' => 'node up for `section node\' is `chapter node\' in menu but not in sectioning',
+    'line_nr' => 8,
+    'text' => 'node `section node\' in menu in `chapter node\' but not under it in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node up for `chapter node\' is `Top\' in menu but not in sectioning
+    'error_line' => 'warning: node `chapter node\' in menu in `Top\' but not under it in sectioning
 ',
-    'line_nr' => 4,
-    'text' => 'node up for `chapter node\' is `Top\' in menu but not in sectioning',
+    'line_nr' => 15,
+    'text' => 'node `chapter node\' in menu in `Top\' but not under it in sectioning',
     'type' => 'warning'
   }
 ];

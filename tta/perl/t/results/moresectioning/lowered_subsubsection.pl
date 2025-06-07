@@ -459,10 +459,10 @@ $result_texts{'lowered_subsubsection'} = '
 
 $result_errors{'lowered_subsubsection'} = [
   {
-    'error_line' => 'warning: node up for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu
+    'error_line' => 'warning: node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning
 ',
-    'line_nr' => 41,
-    'text' => 'node up for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu',
+    'line_nr' => 38,
+    'text' => 'node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning',
     'type' => 'warning'
   },
   {

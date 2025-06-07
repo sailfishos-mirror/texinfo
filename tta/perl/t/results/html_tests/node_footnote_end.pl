@@ -334,11 +334,11 @@ Footnote 3.
 
 $result_errors{'node_footnote_end'} = [
   {
-    'error_line' => 'warning: node up for `chapter\' is `Top\' in menu but not in sectioning
+    'error_line' => 'warning: node `chapter\' in menu in `Top\' but not under it in sectioning
 ',
     'file_name' => 'node_footnote.texi',
-    'line_nr' => 24,
-    'text' => 'node up for `chapter\' is `Top\' in menu but not in sectioning',
+    'line_nr' => 10,
+    'text' => 'node `chapter\' in menu in `Top\' but not under it in sectioning',
     'type' => 'warning'
   }
 ];

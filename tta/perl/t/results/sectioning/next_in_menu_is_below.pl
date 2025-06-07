@@ -271,10 +271,10 @@ $result_texts{'next_in_menu_is_below'} = 'top
 
 $result_errors{'next_in_menu_is_below'} = [
   {
-    'error_line' => 'warning: node up for `subsection\' is `section\' but up is `chapter\' in menu
+    'error_line' => 'warning: node `subsection\' in menu in `chapter\' but under `section\' in sectioning
 ',
-    'line_nr' => 23,
-    'text' => 'node up for `subsection\' is `section\' but up is `chapter\' in menu',
+    'line_nr' => 13,
+    'text' => 'node `subsection\' in menu in `chapter\' but under `section\' in sectioning',
     'type' => 'warning'
   }
 ];

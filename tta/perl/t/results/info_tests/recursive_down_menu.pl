@@ -118,10 +118,10 @@ $result_texts{'recursive_down_menu'} = 'top
 
 $result_errors{'recursive_down_menu'} = [
   {
-    'error_line' => 'warning: node up for `chapN\' is `Top\' but up is `chapN\' in menu
+    'error_line' => 'warning: node `chapN\' in menu in `chapN\' but under `Top\' in sectioning
 ',
-    'line_nr' => 4,
-    'text' => 'node up for `chapN\' is `Top\' but up is `chapN\' in menu',
+    'line_nr' => 8,
+    'text' => 'node `chapN\' in menu in `chapN\' but under `Top\' in sectioning',
     'type' => 'warning'
   }
 ];

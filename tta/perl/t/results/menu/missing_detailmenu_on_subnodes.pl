@@ -408,24 +408,24 @@ unnumberedsec
 
 $result_errors{'missing_detailmenu_on_subnodes'} = [
   {
-    'error_line' => 'warning: node up for `section\' is `chapter\' but up is `Top\' in menu
+    'error_line' => 'warning: node `section\' in menu in `Top\' but under `chapter\' in sectioning
 ',
-    'line_nr' => 23,
-    'text' => 'node up for `section\' is `chapter\' but up is `Top\' in menu',
+    'line_nr' => 8,
+    'text' => 'node `section\' in menu in `Top\' but under `chapter\' in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node up for `section chap 2\' is `chapter 2\' but up is `Top\' in menu
+    'error_line' => 'warning: node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning
 ',
-    'line_nr' => 34,
-    'text' => 'node up for `section chap 2\' is `chapter 2\' but up is `Top\' in menu',
+    'line_nr' => 12,
+    'text' => 'node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node up for `unnumberedsec\' is `chapter 2\' but up is `Top\' in menu
+    'error_line' => 'warning: node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning
 ',
-    'line_nr' => 37,
-    'text' => 'node up for `unnumberedsec\' is `chapter 2\' but up is `Top\' in menu',
+    'line_nr' => 13,
+    'text' => 'node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning',
     'type' => 'warning'
   }
 ];

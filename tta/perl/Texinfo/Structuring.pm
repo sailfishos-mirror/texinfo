@@ -814,27 +814,24 @@ sub check_node_tree_menu_structure($)
                         = _section_direction_associated_node($section_relations, 'up');
                       if (!$section_up_node) {
                         $registrar->line_warn(
-                 sprintf(__("node %s for `%s' is `%s' in menu but not in sectioning"),
-                                         'up',
+        sprintf(__("node `%s' in menu in `%s' but not under it in sectioning"),
                                          target_element_to_texi_label($menu_node),
                                          target_element_to_texi_label($node)),
-                            $menu_node->{'source_info'}, 0,
+                            $menu_content->{'source_info'}, 0,
                             $customization_information->get_conf('DEBUG'));
-                          $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
+                        $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
                       } elsif ($section_up_node
                                  and $section_up_node->{'element'}
                                  and $section_up_node->{'element'} ne $node) {
                         $registrar->line_warn(
-                       sprintf(__("node %s for `%s' is `%s' but %s is `%s' in menu"),
-                                      'up',
-                                      target_element_to_texi_label($menu_node),
-                                      target_element_to_texi_label
-                                        ($section_up_node->{'element'}),
-                                      'up',
-                                      target_element_to_texi_label($node)),
-                            $menu_node->{'source_info'}, 0,
+        sprintf(__("node `%s' in menu in `%s' but under `%s' in sectioning"),
+                            target_element_to_texi_label($menu_node),
+                            target_element_to_texi_label($node),
+                            target_element_to_texi_label
+                              ($section_up_node->{'element'})),
+                            $menu_content->{'source_info'}, 0,
                             $customization_information->get_conf('DEBUG'));
-                          $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
+                        $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
                       }
                     }
                   }

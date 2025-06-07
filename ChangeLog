@@ -1,3 +1,13 @@
+2025-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Change warning message and reported line number
+
+	* tta/perl/Texinfo/Structuring.pm  (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Amend warning message about nodes being in the wrong menu and change
+	reported line number to that of the menu entry rather than the
+	@node line defining the referenced node.
+
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (build_source_info_hash)
