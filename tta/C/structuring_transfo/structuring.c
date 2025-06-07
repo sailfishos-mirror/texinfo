@@ -1352,6 +1352,11 @@ check_node_tree_menu_structure (DOCUMENT *document)
               size_t d;
               for (d = 0; d < directions_length; d++)
                 {
+                  /* Any problems with 'up' direction should have already
+                  been detected. */
+                  if (d == D_up)
+                    continue;
+
                   /* Check consistency with section and menu structure. */
                   const ELEMENT *section_target = 0;
                   const NODE_RELATIONS *direction_associated_node;

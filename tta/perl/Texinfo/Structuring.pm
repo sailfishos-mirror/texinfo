@@ -891,6 +891,10 @@ sub check_node_tree_menu_structure($)
     }
   }
 
+  # Any problems with 'up' direction should have been found by previous code.
+  #my @checked_node_directions_names = ('next', 'prev', 'up');
+  my @checked_node_directions_names = ('next', 'prev');
+
   # Node-by-node structure checking
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     foreach my $node_relations (@{$nodes_list}) {
@@ -917,7 +921,7 @@ sub check_node_tree_menu_structure($)
         = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
       if ($automatic_directions and $direction_relation) {
-        foreach my $direction (@node_directions_names) {
+        foreach my $direction (@checked_node_directions_names) {
           # Check consistency with section and menu structure
           my $section_target;
           my $direction_associated_node

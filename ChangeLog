@@ -1,5 +1,14 @@
 2025-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Only check for next and prev in menu_directions
+
+	* tta/perl/Texinfo/Structuring.pm  (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	In CHECK_NORMAL_MENU_STRUCTURE check of whether menu directions match
+	section directions, only check 'next' and 'prev' directions, not 'up'.
+
+2025-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Check for nodes in wrong menus first
 
 	* tta/perl/Texinfo/Structuring.pm  (check_node_tree_menu_structure),
