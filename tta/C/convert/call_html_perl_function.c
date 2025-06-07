@@ -13,6 +13,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* Note that in all that file with use SvREFHVCNT_inc and not newSVsv.
+   This is somewhat dangerous, as the caller may reassign the element,
+   modifying also the tree.  However the user is not supposed to do that
+   so it should be ok.
+ */
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 

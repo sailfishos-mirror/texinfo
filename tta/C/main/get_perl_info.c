@@ -1109,9 +1109,6 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *subentry_hv)
    to get the index entry tree element content, for instance
    when going through the elements associated with indices to setup
    index entries sort strings.
-
-   We compare the HV and not the SV, as the SV tend to be different.
-   It is not clear whether it is normal or not that the SV are different.
  */
 static const ELEMENT *
 find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
@@ -1124,7 +1121,7 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
 
   if (index_entry->entry_element
   /* if the index entry was reassociated it is important to check */
-      && (HV *) SvRV ((SV *)index_entry->entry_element->sv)  == element_hv)
+      && (HV *) SvRV ((SV *)index_entry->entry_element->sv) == element_hv)
     return index_entry->entry_element;
 
   return 0;

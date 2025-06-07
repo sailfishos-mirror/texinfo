@@ -1,5 +1,9 @@
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	Comments related to SV or HV comparison and reuse
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	Copy references in C/XS code to avoid modifying other references
 
 	* tta/C/convert/build_html_perl_info.c (build_*),
