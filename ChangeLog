@@ -1,5 +1,9 @@
 2025-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Reader.pm (read): use the TreeElement interface.
+
+2025-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (element_associated_processing_encoding),
 	tta/perl/Texinfo/Convert/Converter.pm (txt_image_text): use the
 	TreeElement interface.

@@ -25,9 +25,6 @@ use warnings;
 
 use Carp qw(confess);
 
-#use Texinfo::Common;
-use Texinfo::TreeElement;
-
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
 
@@ -129,35 +126,38 @@ sub read($)
   my $token = Texinfo::ReaderToken::new();
 
   my $element = $array->[$context->[0]];
-  if (exists($element->{'text'})) {
-    if ($element->{'type'} and $ignorable_text_types{$element->{'type'}}) {
+  if (defined($element->text())) {
+    my $type = $element->type();
+    if ($type and $ignorable_text_types{$type}) {
       @$token = ($element, TXI_ELEMENT_IGNORABLE_TEXT);
     } else {
       @$token = ($element, TXI_ELEMENT_TEXT);
     }
   } else {
     my $array = [];
-    if ($element->{'info'}) {
-      foreach my $info ('spaces_after_cmd_before_arg',
-                        'spaces_before_argument') {
-        my $info_element = $element->{'info'}->{$info};
-        if ($info_element) {
-          push @$array, $info_element;
-        }
+
+    foreach my $info ('spaces_after_cmd_before_arg',
+                      'spaces_before_argument') {
+      my $info_element = $element->get_attribute($info);
+      if ($info_element) {
+        push @$array, $info_element;
       }
     }
-    if ($element->{'contents'}) {
-      push @$array, @{$element->{'contents'}};
+    my $contents_nr = $element->children_number();
+    if ($contents_nr) {
+      # TODO this is likely to be slower than perl
+      # push @$array, @{$element->{'contents'}};
+      for (my $i = 0; $i < $contents_nr; $i++) {
+        push @$array, $element->get_child($i);
+      }
     }
-    if ($element->{'info'}) {
-      # TODO handle comment_at_end.  This should be part of a reflexion on
-      # comment_at_end in the tree to avoid all the code that handle
-      # comment_at_end right now
-      foreach my $info ('spaces_after_argument',) {# 'comment_at_end') {
-        my $info_element = $element->{'info'}->{$info};
-        if ($info_element) {
-          push @$array, $info_element;
-        }
+    # TODO handle comment_at_end.  This should be part of a reflexion on
+    # comment_at_end in the tree to avoid all the code that handle
+    # comment_at_end right now
+    foreach my $info ('spaces_after_argument',) {# 'comment_at_end') {
+      my $info_element = $element->get_attribute($info);
+      if ($info_element) {
+        push @$array, $info_element;
       }
     }
     if (scalar(@$array)) {

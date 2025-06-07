@@ -143,8 +143,9 @@ TODO:
  Texinfo::Common::debug_print_element
 # Texinfo::Common::is_content_empty
  expand_today => Texinfo::TreeElement::new and cdt
- expand_verbatiminclude
-      need to add modification or tree with addition or elements:
+ expand_verbatiminclude  could be overriden, if error messages,
+        conf and global_information are accessed in C
+  otherwise need to add modification or tree with addition or elements:
          push @{$verbatiminclude->{'contents'}},
  cdt => need to have all the substituted_strings elements findable
         override Texinfo::TreeElement::new?  => need to be able to
