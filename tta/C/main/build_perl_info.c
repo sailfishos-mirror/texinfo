@@ -382,8 +382,147 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   return sv;
 }
 
+static SV *
+build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
+{
+  enum ai_key_name key;
+  enum extra_type k_type;
+
+  dTHX;
+
+  key = k->key;
+  k_type = associated_info_table[key].type;
+  switch (k_type)
+    {
+    case extra_element:
+      {
+      /* For references to other parts of the tree, create the hash so
+         we can point to it. */
+      /* Note that this does not happen much, as the contents
+         are processed before the extra information.  It only
+         happens for root commands (sections, nodes) and associated
+         commands, and could also happen for subentry as it is not
+         a children of the associated index command */
+      const ELEMENT *f = k->k.const_element;
+      if (!f->sv)
+        {
+ /* need to cast to remove const to add the Perl object reference */
+          ELEMENT *e = (ELEMENT *)f;
+          new_element_perl_data (e);
+        }
+
+      return newSVsv ((SV *)f->sv);
+      break;
+      }
+    case extra_element_oot:
+      {
+      /*
+         Can be used for complex subtrees or special
+         out of tree elements, but must always be associated to only one
+         element and must not refer to the tree through contents.
+       */
+          /* f->sv should not already exist the first time the tree
+             is built, but can already exist if the tree is rebuilt
+      if (f->sv)
+        {
+          static TEXT message;
+          char *debug_str = print_element_debug (e, 1);
+          text_init (&message);
+          text_printf (&message,
+                "element_to_perl_hash oot %s double in %s %p\n",
+                       key, debug_str, f->sv);
+          non_perl_free (debug_str);
+          fatal (message.text);
+          fprintf (stderr, message.text);
+        }
+           */
+      ELEMENT *f = k->k.element;
+      if (!f->sv || !avoid_recursion)
+        element_to_perl_hash (f, avoid_recursion);
+
+      return newSVsv ((SV *)f->sv);
+      break;
+      }
+    case extra_container:
+      {
+      ELEMENT *f = k->k.element;
+      build_perl_container (f, avoid_recursion);
+
+      return newSVsv ((SV *)f->sv);
+      break;
+      }
+    case extra_contents:
+      {
+      const CONST_ELEMENT_LIST *l = k->k.const_list;
+      if (l && l->number)
+        return build_perl_const_element_array (l, avoid_recursion);
+      break;
+      }
+    case extra_directions:
+      {
+      return build_perl_directions (k->k.directions, avoid_recursion);
+      break;
+      }
+    case extra_string:
+      { /* A simple string. */
+      const char *value = k->k.string;
+      return newSVpv_utf8 (value, 0);
+      break;
+      }
+    case extra_integer:
+      { /* A simple integer. */
+      IV value = (IV) (int) k->k.integer;
+      return newSViv (value);
+      break;
+      }
+    case extra_misc_args:
+      {
+      size_t j;
+      const STRING_LIST *l = k->k.strings_list;
+      AV *av = newAV ();
+      av_unshift (av, l->number);
+
+      /* An small array of strings. */
+      for (j = 0; j < l->number; j++)
+        {
+          SV *sv = newSVpv_utf8 (l->list[j],
+                                 strlen (l->list[j]));
+          av_store (av, j, sv);
+        }
+      return newRV_inc ((SV *)av);
+      break;
+      }
+    case extra_index_entry:
+      {
+      const INDEX_ENTRY_LOCATION *entry_loc = k->k.index_entry;
+      AV *av = newAV ();
+      SV *sv;
+
+      av_unshift (av, 2);
+
+      sv = newSVpv_utf8 (entry_loc->index_name,
+                         strlen (entry_loc->index_name));
+      av_store (av, 0, sv);
+      sv = newSViv ((IV) entry_loc->number);
+      av_store (av, 1, sv);
+      return newRV_inc ((SV *)av);
+      break;
+      }
+    default:
+      fatal ("build_key_pair_info: unknown extra type");
+      break;
+    }
+  return 0;
+}
+
+SV *
+build_element_attribute (const ELEMENT *element, const char *attribute)
+{
+  return 0;
+}
+
 static void
-build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
+build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
                        int avoid_recursion, int *nr_info)
 {
   dTHX;
@@ -395,139 +534,22 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
       for (i = 0; i < a->info_number; i++)
         {
           const KEY_PAIR *k = &a->info[i];
-#define STORE(sv) hv_store (extra, key_name, strlen (key_name), sv, 0)
           enum ai_key_name key = k->key;
-          enum extra_type k_type = ai_key_types[key];
+          enum extra_type k_type = associated_info_table[key].type;
           const char *key_name;
+          SV *sv;
 
           if (k_type == extra_none)
             continue;
 
-          key_name = ai_key_names[key];
+          key_name = associated_info_table[key].name;
 
           (*nr_info)++;
 
-          switch (k_type)
-            {
-            case extra_element:
-              {
-              /* For references to other parts of the tree, create the hash so
-                 we can point to it. */
-              /* Note that this does not happen much, as the contents
-                 are processed before the extra information.  It only
-                 happens for root commands (sections, nodes) and associated
-                 commands, and could also happen for subentry as it is not
-                 a children of the associated index command */
-              const ELEMENT *f = k->k.const_element;
-              if (!f->sv)
-                {
-         /* need to cast to remove const to add the Perl object reference */
-                  ELEMENT *e = (ELEMENT *)f;
-                  new_element_perl_data (e);
-                }
-              STORE(newSVsv ((SV *)f->sv));
-              break;
-              }
-            case extra_element_oot:
-              {
-              /*
-                 Can be used for complex subtrees or special
-                 out of tree elements, but must always be associated to only one
-                 element and must not refer to the tree through contents.
-               */
-                  /* f->sv should not already exist the first time the tree
-                     is built, but can already exist if the tree is rebuilt
-              if (f->sv)
-                {
-                  static TEXT message;
-                  char *debug_str = print_element_debug (e, 1);
-                  text_init (&message);
-                  text_printf (&message,
-                        "element_to_perl_hash oot %s double in %s %p\n",
-                               key, debug_str, f->sv);
-                  non_perl_free (debug_str);
-                  fatal (message.text);
-                  fprintf (stderr, message.text);
-                }
-                   */
-              ELEMENT *f = k->k.element;
-              if (!f->sv || !avoid_recursion)
-                element_to_perl_hash (f, avoid_recursion);
-              STORE(newSVsv ((SV *)f->sv));
-              break;
-              }
-            case extra_container:
-              {
-              ELEMENT *f = k->k.element;
-              build_perl_container (f, avoid_recursion);
-              STORE(newSVsv ((SV *)f->sv));
-              break;
-              }
-            case extra_contents:
-              {
-              const CONST_ELEMENT_LIST *l = k->k.const_list;
-              if (l && l->number)
-                STORE(build_perl_const_element_array (l, avoid_recursion));
-              break;
-              }
-            case extra_directions:
-              {
-              STORE(build_perl_directions (k->k.directions, avoid_recursion));
-              break;
-              }
-            case extra_string:
-              { /* A simple string. */
-              const char *value = k->k.string;
-              STORE(newSVpv_utf8 (value, 0));
-              break;
-              }
-            case extra_integer:
-              { /* A simple integer.  The intptr_t cast here prevents
-                   a warning on MinGW ("cast from pointer to integer of
-                   different size"). */
-              IV value = (IV) (int) k->k.integer;
-              STORE(newSViv (value));
-              break;
-              }
-            case extra_misc_args:
-              {
-              size_t j;
-              const STRING_LIST *l = k->k.strings_list;
-              AV *av = newAV ();
-              av_unshift (av, l->number);
-
-              STORE(newRV_inc ((SV *)av));
-              /* An small array of strings. */
-              for (j = 0; j < l->number; j++)
-                {
-                  SV *sv = newSVpv_utf8 (l->list[j],
-                                         strlen (l->list[j]));
-                  av_store (av, j, sv);
-                }
-              break;
-              }
-            case extra_index_entry:
-              {
-              const INDEX_ENTRY_LOCATION *entry_loc = k->k.index_entry;
-              AV *av = newAV ();
-              SV *sv;
-
-              av_unshift (av, 2);
-
-              STORE(newRV_inc ((SV *)av));
-              sv = newSVpv_utf8 (entry_loc->index_name,
-                                 strlen (entry_loc->index_name));
-              av_store (av, 0, sv);
-              sv = newSViv ((IV) entry_loc->number);
-              av_store (av, 1, sv);
-              break;
-              }
-            default:
-              fatal ("store_additional_info: unknown extra type");
-              break;
-            }
+          sv = build_key_pair_info (k, avoid_recursion);
+          if (sv)
+            hv_store (extra, key_name, strlen (key_name), sv, 0);
         }
-#undef STORE
     }
 }
 
@@ -547,7 +569,7 @@ store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
   else
     hv = *info_hv;
 
-  build_additional_info (hv, a, avoid_recursion, &nr_info);
+  build_associated_info (hv, a, avoid_recursion, &nr_info);
 
   if (*info_hv == 0 && nr_info > 0)
     {

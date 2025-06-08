@@ -137,9 +137,9 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k = &info->info[i];
-      enum extra_type k_type = ai_key_types[k->key];
+      enum extra_type k_type = associated_info_table[k->key].type;
 
-      text_printf (&text, "  %s|", ai_key_names[k->key]);
+      text_printf (&text, "  %s|", associated_info_table[k->key].name);
       switch (k_type)
         {
         case extra_none:

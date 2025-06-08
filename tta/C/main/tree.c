@@ -40,15 +40,9 @@ const char *elt_info_names[] = {
   "comment_at_end",
 };
 
-
-const char *ai_key_names[] = {
-  #define ai_key(name, type) #name,
-   AI_KEYS_LIST
-  #undef ai_key
-};
-
-enum extra_type ai_key_types[] = {
-  #define ai_key(name, type) extra_##type,
+const ASSOCIATED_INFO_DATA associated_info_table[] = {
+  #define ai_key(name, type, data) \
+ {AI_key_ ## name, extra_##type, #name, data},
    AI_KEYS_LIST
   #undef ai_key
 };
@@ -163,7 +157,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
   for (i = 0; i < a->info_number; i++)
     {
       KEY_PAIR *k_pair = &a->info[i];
-      switch (ai_key_types[k_pair->key])
+      switch (associated_info_table[k_pair->key].type)
         {
         case extra_string:
           free (k_pair->k.string);

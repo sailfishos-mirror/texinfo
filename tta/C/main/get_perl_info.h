@@ -72,4 +72,6 @@ void set_translated_commands (SV *translated_commands_sv,
 
 CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,
                                  const char *class, CONVERTER *converter);
+
+void debug_print_element_sv (SV *element_sv);
 #endif

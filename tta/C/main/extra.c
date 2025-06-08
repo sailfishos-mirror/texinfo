@@ -58,13 +58,13 @@ static int
 check_key_type_or_abort (enum ai_key_name key, enum extra_type type,
                          const char *error_string)
 {
-  enum extra_type k_type = ai_key_types[key];
+  enum extra_type k_type = associated_info_table[key].type;
 
   if (k_type != type)
     {
       char *msg;
       xasprintf (&msg, "Bad type for %s: %s: %d", error_string,
-                ai_key_names[key], k_type);
+                associated_info_table[key].name, k_type);
       fatal (msg);
       free (msg);
       return 0;

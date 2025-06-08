@@ -66,6 +66,7 @@ SV *
 new (SV *element_hash)
     CODE:
         fprintf (stderr, "Unexpected call of TreeElement new through XS\n");
+        debug_print_element_sv (element_hash);
         RETVAL = newSV (0);
     OUTPUT:
          RETVAL
@@ -213,12 +214,18 @@ get_attribute (SV *element_sv, attribute)
       PREINIT:
         const ELEMENT *element;
         DOCUMENT *document;
+        SV *result_sv;
       CODE:
         document = get_sv_element_document (element_sv);
         element = get_sv_element_element (element_sv, document);
 
-        fprintf (stderr, "BBB %s\n", attribute);
-        RETVAL = newSV (0);
+        result_sv = build_element_attribute (element, attribute);
+
+        /* fprintf (stderr, "BBB %s\n", attribute); */
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
     OUTPUT:
         RETVAL
 

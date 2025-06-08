@@ -1,3 +1,26 @@
+2025-06-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (build_associated_info)
+	(build_key_pair_info, build_element_attribute): rename
+	build_additional_info as build_associated_info.  Split
+	build_key_pair_info out of build_associated_info.
+	Add build_element_attribute, though it does nothing for now.
+
+	* tta/C/main/tree.c (associated_info_table), tta/C/main/tree_types.h
+	(AI_KEYS_LIST, enum extra_type, ASSOCIATED_INFO_DATA): add associated
+	information not in ASSOCIATED_INFO to extra_type and AI_KEYS_LIST for
+	flags, elt_info and string_info.  Add a data information to
+	AI_KEYS_LIST for flags, elt_info and string_info.  Add
+	associated_info_table ASSOCIATED_INFO_DATA array with the enum
+	ai_key_name type, name and data.  Remove ai_key_names and
+	ai_key_types.  Update users.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (new): call
+	debug_print_element_sv.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (get_attribute):
+	call build_element_attribute.
+
 2025-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Change warning message and reported line number

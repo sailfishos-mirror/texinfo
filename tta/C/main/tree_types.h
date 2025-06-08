@@ -23,20 +23,6 @@
 #include "element_types.h"
 #include "text.h"
 
-enum extra_type {
- /* mainly used for deleted associated info */
-   extra_none,
-   extra_element,
-   extra_element_oot,
-   extra_contents,
-   extra_container,
-   extra_directions,
-   extra_misc_args,
-   extra_index_entry, /* index name and position in index */
-   extra_string,
-   extra_integer
-};
-
 /* the *_none enums are not necessarily used, they may also
    be there to avoid using 0, for a code easier to debug */
 
@@ -72,59 +58,152 @@ enum directions {
    D_up,
 };
 
+enum extra_type {
+ /* mainly used for deleted associated info */
+   extra_none,
+ /* CONTAINER ASSOCIATED_INFO and lookup_* functions */
+   extra_element,
+   extra_element_oot,
+   extra_contents,
+   extra_container,
+   extra_directions,
+   extra_misc_args,
+   extra_index_entry, /* index name and position in index */
+   extra_string,
+   extra_integer,
+
+   /* ELEMENT flags */
+   extra_flag,
+
+   /* ELEMENT elt_info */
+   extra_element_info,
+   /* CONTAINER string_info */
+   extra_string_info,
+};
+
+/* tree element flags */
+/* in info in Perl */
+#define EF_inserted                      0x0001
+/* transiently needed for tree element copy */
+#define EF_copy                          0x0002
+/* in extra in Perl */
+#define EF_code                          0x0004
+#define EF_is_target                     0x0008
+#define EF_omit_def_name_space           0x0010
+#define EF_not_after_command             0x0020
+#define EF_invalid_syntax                0x0040
+#define EF_command_as_argument_kbd_code  0x0080
+#define EF_indent                        0x0100
+#define EF_noindent                      0x0200
+#define EF_isindex                       0x0400
+/* not in Perl */
+#define EF_def_line                      0x0800
+/* transiently used for numbering of the elements for the representation
+   of the tree */
+#define EF_numbered                      0x1000
+
+/* indices in ELEMENT elt_info */
+/* to be kept in sync with elt_info_names in main/tree.c */
+enum elt_info_type {
+   eit_spaces_before_argument, /* diverse types.  Only context_brace_command
+                                  also with braces */
+   eit_spaces_after_cmd_before_arg, /* types with braces flag */
+   eit_spaces_after_argument,
+   eit_comment_at_end, /* block_line_arg line_arg */
+};
+
+/* indices in ELEMENT string_info */
+enum string_info_type {
+   sit_alias_of,  /* every @-command + macro_call */
+   sit_arg_line, /* ET_lineraw_command, including @macro and similar */
+   sit_delimiter = 1, /* CM_verb */
+   sit_command_name = 1, /* ET_definfoenclose_command, ET_index_entry_command
+                            and macro_call */
+};
+
+/* corresponds to name, extra type and associated data.  The associated data
+   is only used for interfacing with Perl */
 #define AI_KEYS_LIST \
-  ai_key(none, none) \
+  ai_key(none, none, 0) \
   \
-  ai_key(cell_number, integer) \
-  ai_key(item_number, integer) \
-  ai_key(global_command_number, integer) \
-  ai_key(expand_index, integer) \
-  ai_key(level_modifier, integer) \
-  ai_key(max_columns, integer) \
-  ai_key(row_number, integer) \
-  ai_key(section_level, integer) \
-  ai_key(node_number, integer) \
-  ai_key(heading_number, integer) \
-  ai_key(section_number, integer) \
+  ai_key(cell_number, integer, 0) \
+  ai_key(item_number, integer, 0) \
+  ai_key(global_command_number, integer, 0) \
+  ai_key(expand_index, integer, 0) \
+  ai_key(level_modifier, integer, 0) \
+  ai_key(max_columns, integer, 0) \
+  ai_key(row_number, integer, 0) \
+  ai_key(section_level, integer, 0) \
+  ai_key(node_number, integer, 0) \
+  ai_key(heading_number, integer, 0) \
+  ai_key(section_number, integer, 0) \
   \
-  ai_key(begin, string) \
-  ai_key(def_command, string) \
-  ai_key(documentlanguage, string) \
-  ai_key(element_node, string) \
-  ai_key(element_region, string) \
-  ai_key(end, string) \
-  ai_key(enumerate_specification, string) \
-  ai_key(float_number, string) \
-  ai_key(float_type, string) \
-  ai_key(format, string) \
-  ai_key(index_ignore_chars, string) \
-  ai_key(input_encoding_name, string) \
-  ai_key(macro_name, string) \
-  ai_key(normalized, string) \
-  ai_key(original_def_cmdname, string) \
-  ai_key(section_heading_number, string) \
-  ai_key(sortas, string) \
-  ai_key(text_arg, string) \
-  ai_key(translation_context, string) \
+  ai_key(begin, string, 0) \
+  ai_key(def_command, string, 0) \
+  ai_key(documentlanguage, string, 0) \
+  ai_key(element_node, string, 0) \
+  ai_key(element_region, string, 0) \
+  ai_key(end, string, 0) \
+  ai_key(enumerate_specification, string, 0) \
+  ai_key(float_number, string, 0) \
+  ai_key(float_type, string, 0) \
+  ai_key(format, string, 0) \
+  ai_key(index_ignore_chars, string, 0) \
+  ai_key(input_encoding_name, string, 0) \
+  ai_key(macro_name, string, 0) \
+  ai_key(normalized, string, 0) \
+  ai_key(original_def_cmdname, string, 0) \
+  ai_key(section_heading_number, string, 0) \
+  ai_key(sortas, string, 0) \
+  ai_key(text_arg, string, 0) \
+  ai_key(translation_context, string, 0) \
   \
-  ai_key(def_index_element, element_oot) \
-  ai_key(def_index_ref_element, element_oot) \
+  ai_key(def_index_element, element_oot, 0) \
+  ai_key(def_index_ref_element, element_oot, 0) \
   \
-  ai_key(manual_content, container) \
-  ai_key(node_content, container) \
+  ai_key(manual_content, container, 0) \
+  ai_key(node_content, container, 0) \
   \
-  ai_key(misc_args, misc_args) \
+  ai_key(misc_args, misc_args, 0) \
   \
-  ai_key(index_entry, index_entry) \
-  ai_key(associated_index_entry, index_entry) \
+  ai_key(index_entry, index_entry, 0) \
+  ai_key(associated_index_entry, index_entry, 0) \
+  \
+  ai_key(inserted, flag, EF_inserted) \
+  ai_key(code, flag, EF_code) \
+  ai_key(is_target, flag, EF_is_target) \
+  ai_key(omit_def_name_space, flag, EF_omit_def_name_space) \
+  ai_key(not_after_command, flag, EF_not_after_command) \
+  ai_key(invalid_syntax, flag, EF_invalid_syntax) \
+  ai_key(command_as_argument_kbd_code, flag, EF_command_as_argument_kbd_code) \
+  ai_key(indent, flag, EF_indent) \
+  ai_key(noindent, flag, EF_noindent) \
+  ai_key(isindex, flag, EF_isindex) \
+  \
+  ai_key(spaces_before_argument, element_info, eit_spaces_before_argument) \
+  ai_key(spaces_after_cmd_before_arg, element_info, eit_spaces_after_cmd_before_arg) \
+  ai_key(spaces_after_argument, element_info, eit_spaces_after_argument) \
+  ai_key(comment_at_end, element_info, eit_comment_at_end) \
+  \
+  ai_key(alias_of, string_info, sit_alias_of) \
+  ai_key(arg_line, string_info, sit_arg_line) \
+  ai_key(delimiter, string_info, sit_delimiter) \
+  ai_key(command_name, string_info, sit_command_name) \
 
 
-/* Keys used in ASSOCIATED_INFO structure. */
+/* Keys used in ASSOCIATED_INFO and other associated info structures. */
 enum ai_key_name {
-  #define ai_key(name, type) AI_key_ ## name,
+  #define ai_key(name, type, data) AI_key_ ## name,
    AI_KEYS_LIST
   #undef ai_key
 };
+
+typedef struct ASSOCIATED_INFO_DATA {
+    enum ai_key_name key;
+    enum extra_type type;
+    const char *name;
+    uint16_t data;
+} ASSOCIATED_INFO_DATA;
 
 typedef struct ELEMENT_LIST {
     struct ELEMENT **list;
@@ -216,25 +295,6 @@ typedef struct CONTAINER {
     char **string_info;
     enum command_id cmd;
 } CONTAINER;
-
-/* indices in ELEMENT elt_info */
-/* to be kept in sync with elt_info_names in main/tree.c */
-enum elt_info_type {
-   eit_spaces_before_argument, /* diverse types.  Only context_brace_command
-                                  also with braces */
-   eit_spaces_after_cmd_before_arg, /* types with braces flag */
-   eit_spaces_after_argument,
-   eit_comment_at_end, /* block_line_arg line_arg */
-};
-
-/* indices in ELEMENT string_info */
-enum string_info_type {
-   sit_alias_of,  /* every @-command + macro_call */
-   sit_arg_line, /* ET_lineraw_command, including @macro and similar */
-   sit_delimiter = 1, /* CM_verb */
-   sit_command_name = 1, /* ET_definfoenclose_command, ET_index_entry_command
-                            and macro_call */
-};
 
 typedef struct ELEMENT {
     enum element_type type;
@@ -487,26 +547,5 @@ typedef struct C_HASHMAP {
 
   struct BUCKET_ARENA *arena;
 } C_HASHMAP;
-
-/* tree element flags */
-/* in info in Perl */
-#define EF_inserted                      0x0001
-/* transiently needed for tree element copy */
-#define EF_copy                          0x0002
-/* in extra in Perl */
-#define EF_code                          0x0004
-#define EF_is_target                     0x0008
-#define EF_omit_def_name_space           0x0010
-#define EF_not_after_command             0x0020
-#define EF_invalid_syntax                0x0040
-#define EF_command_as_argument_kbd_code  0x0080
-#define EF_indent                        0x0100
-#define EF_noindent                      0x0200
-#define EF_isindex                       0x0400
-/* not in Perl */
-#define EF_def_line                      0x0800
-/* transiently used for numbering of the elements for the representation
-   of the tree */
-#define EF_numbered                      0x1000
 
 #endif

@@ -6,14 +6,11 @@
 
 #include "tree_types.h"
 
-/* Array of "associated info" key names. */
-extern const char *ai_key_names[];
+/* Array of "associated info" key names, extra type and data. */
+extern const ASSOCIATED_INFO_DATA associated_info_table[];
 
 /* Array of elt_info key names. */
 extern const char *elt_info_names[];
-
-/* associate "associated info" keys to extra type */
-extern enum extra_type ai_key_types[];
 
 ASSOCIATED_INFO *new_associated_info (void);
 ELEMENT *new_element (enum element_type type);

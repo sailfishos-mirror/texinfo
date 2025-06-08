@@ -62,11 +62,8 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
     {
       const KEY_PAIR *k_ref = &info->info[i];
       enum ai_key_name key = k_ref->key;
-      enum extra_type k_type = ai_key_types[key];
+      enum extra_type k_type = associated_info_table[key].type;
       size_t j;
-
-      if (k_type == extra_none)
-        continue;
 
       switch (k_type)
         {
@@ -176,6 +173,11 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
                     sizeof (INDEX_ENTRY_LOCATION));
             break;
           }
+        case extra_none:
+        case extra_flag:
+        case extra_element_info:
+        case extra_string_info:
+          break;
         default:
           fatal ("copy_associated_info: unknown extra type");
           break;
@@ -277,12 +279,9 @@ remove_associated_copy_info (ASSOCIATED_INFO *info,
   for (i = 0; i < info->info_number; i++)
     {
       const KEY_PAIR *k_ref = &info->info[i];
-      enum extra_type k_type = ai_key_types[k_ref->key];
+      enum extra_type k_type = associated_info_table[k_ref->key].type;
 
       size_t j;
-
-      if (k_type == extra_none)
-        continue;
 
       switch (k_type)
         {
@@ -1391,7 +1390,7 @@ print_element_extra (ELEMENT *element, int level,
       int need_free = 1;
       int is_string = 0;
       char *value;
-      switch (ai_key_types[k_pair->key])
+      switch (associated_info_table[k_pair->key].type)
         {
         case extra_string:
           value = k_pair->k.string;
@@ -1506,10 +1505,12 @@ print_element_extra (ELEMENT *element, int level,
         }
 
       if (!is_string)
-        add_info_name_value (&info_strings, ai_key_names[k_pair->key],
+        add_info_name_value (&info_strings,
+                             associated_info_table[k_pair->key].name,
                              value, need_eol);
       else
-        add_info_name_string_value (&info_strings, ai_key_names[k_pair->key],
+        add_info_name_string_value (&info_strings,
+                                    associated_info_table[k_pair->key].name,
                                     value);
 
       if (need_free)
@@ -1706,7 +1707,7 @@ remove_element_tree_numbers (ELEMENT *element)
   for (i = 0; i < a->info_number; i++)
     {
       const KEY_PAIR *k_pair = &a->info[i];
-      switch (ai_key_types[k_pair->key])
+      switch (associated_info_table[k_pair->key].type)
         {
         case extra_element_oot:
           remove_element_tree_numbers (k_pair->k.element);
