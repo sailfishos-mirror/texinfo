@@ -27,9 +27,9 @@ use Texinfo::XSLoader;
 
 BEGIN {
   my $shared_library_name = "TreeElementXS";
-  #if (!Texinfo::XSLoader::XS_structuring_enabled()) {
+  if (!Texinfo::XSLoader::XS_structuring_enabled()) {
     undef $shared_library_name;
-  #}
+  }
 
   my $package = Texinfo::XSLoader::init (
       "Texinfo::TreeElement",

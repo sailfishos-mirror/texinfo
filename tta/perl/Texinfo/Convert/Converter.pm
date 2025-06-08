@@ -82,6 +82,8 @@ our $module_loaded = 0;
 my %XS_tree_element_overrides = (
   "Texinfo::Convert::Converter::new_tree_element"
     => "Texinfo::TreeElement::new_tree_element",
+  "Texinfo::Convert::Converter::get_global_unique_tree_element"
+    => "Texinfo::TreeElement::get_global_unique_tree_element",
 );
 
 my %XS_overrides = (
@@ -390,14 +392,22 @@ sub conversion_output_end($)
   return '';
 }
 
-sub output_tree($$)
+sub output_tree($$;$)
 {
   my $self = shift;
   my $document = shift;
+  my $handle_only = shift;
 
   $self->conversion_initialization($document);
 
-  my $root = $document->tree();
+  # to avoid passing undef to XS
+  $handle_only = 0 unless ($handle_only);
+
+  my $root = $document->tree($handle_only);
+
+  if (ref($root) eq 'HASH') {
+    confess("Converter output_tree unblessed root\n");
+  }
 
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory(
@@ -493,6 +503,20 @@ sub new_tree_element($$)
   my $element_hash = shift;
 
   return Texinfo::TreeElement::new($element_hash);
+}
+
+sub get_global_unique_tree_element($$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+
+  if ($self->{'document'}) {
+    my $global_commands = $self->{'document'}->global_commands_information();
+    if ($global_commands->{$cmdname}) {
+      return $global_commands->{$cmdname};
+    }
+  }
+  return undef;
 }
 
 
@@ -1790,6 +1814,41 @@ sub convert_accents($$$;$$)
   return $result;
 }
 
+# same as above, but using TreeElement interface
+sub element_convert_accents($$$;$$)
+{
+  my $self = shift;
+  my $accent = shift;
+  my $format_accents = shift;
+  my $output_encoded_characters = shift;
+  my $in_upper_case = shift;
+
+  my ($contents_element, $stack)
+   = Texinfo::Convert::Utils::element_find_innermost_accent_contents($self,
+                                                                     $accent);
+  my $arg_text = '';
+  if (defined($contents_element)) {
+    $arg_text = $self->convert_tree($contents_element);
+  }
+
+  if ($output_encoded_characters) {
+    my $encoded = Texinfo::Convert::Unicode::element_encoded_accents($self,
+                                       $arg_text, $stack,
+                                       $self->get_conf('OUTPUT_ENCODING_NAME'),
+                                       $format_accents,
+                                       $in_upper_case);
+    if (defined($encoded)) {
+      return $encoded;
+    }
+  }
+  my $result = $arg_text;
+  foreach my $accent_command (reverse(@$stack)) {
+    $result = &$format_accents ($self, $result, $accent_command,
+                                $in_upper_case);
+  }
+  return $result;
+}
+
 sub _comma_index_subentries_tree($$$$);
 sub _comma_index_subentries_tree($$$$)
 {
@@ -2165,6 +2224,66 @@ sub _xml_numeric_entities_accent($$$;$)
   return xml_accent($self, $text, $command, $in_upper_case, 1);
 }
 
+# same as above, but using TreeElement interface
+sub element_xml_accent($$$;$$$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $command = shift;
+  my $in_upper_case = shift;
+  my $use_numeric_entities = shift;
+  my $accent = $command->cmdname();
+
+  if ($in_upper_case and $text =~ /^\w$/) {
+    $text = uc ($text);
+  }
+
+  # do not return a dotless i or j as such if it is further composed
+  # with an accented letter, return the letter as is
+  if ($accent eq 'dotless') {
+    if ($Texinfo::UnicodeData::unicode_accented_letters{$accent}
+        and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})
+        and ($command->parent()
+             and $command->parent()->parent()
+             and $command->parent()->parent()->cmdname()
+             and $Texinfo::UnicodeData::unicode_accented_letters{$command->parent()
+                                        ->parent()->cmdname()})) {
+      return $text;
+    }
+  }
+
+  if ($use_numeric_entities) {
+    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
+    if (defined($formatted_accent)) {
+      return $formatted_accent;
+    }
+  } else {
+    return "&${text}$xml_accent_entities{$accent};"
+      if (defined($xml_accent_entities{$accent})
+          and defined($xml_accent_text_with_entities{$accent})
+          and ($text =~ /^[$xml_accent_text_with_entities{$accent}]$/));
+    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
+    if (defined($formatted_accent)) {
+      return $formatted_accent;
+    }
+  }
+
+  # There are diacritics for every accent command except for dotless.
+  # We should only get there with dotless if the argument is not recognized.
+  return $text;
+}
+
+# same as above, but using TreeElement interface
+sub _element_xml_numeric_entities_accent($$$;$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $command = shift;
+  my $in_upper_case = shift;
+
+  return element_xml_accent($self, $text, $command, $in_upper_case, 1);
+}
+
 sub xml_accents($$;$)
 {
   my $self = shift;
@@ -2179,6 +2298,25 @@ sub xml_accents($$;$)
   }
 
   return $self->convert_accents($accent, $format_accents,
+                                $self->get_conf('OUTPUT_CHARACTERS'),
+                                $in_upper_case);
+}
+
+# same as above, but using TreeElement interface
+sub element_xml_accents($$;$)
+{
+  my $self = shift;
+  my $accent = shift;
+  my $in_upper_case = shift;
+
+  my $format_accents;
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    $format_accents = \&_element_xml_numeric_entities_accent;
+  } else {
+    $format_accents = \&element_xml_accent;
+  }
+
+  return $self->element_convert_accents($accent, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);
 }

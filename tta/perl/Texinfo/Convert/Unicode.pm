@@ -301,6 +301,57 @@ sub unicode_accent($$)
   return undef;
 }
 
+# same as above, but using TreeElement interface
+sub element_unicode_accent($$)
+{
+  my $text = shift;
+  my $command = shift;
+
+  my $accent = $command->cmdname();
+
+  my $result;
+
+  # special handling of @dotless{i}.
+  # \x{0131}\x{0308} for @dotless{i} @" doesn't lead to NFC 00ef.
+  # so it is set to a real dotless i only if not in an accent command.
+  # Do the same for dotless j, even though we have no clear idea on
+  # what is going on for that character.
+  if ($accent eq 'dotless') {
+    if ($unicode_accented_letters{$accent}->{$text}
+        and (!$command->parent()
+             or !$command->parent()->parent()
+             or !$command->parent()->parent()->cmdname()
+             or !$unicode_diacritics{$command->parent()
+                                        ->parent()->cmdname()})) {
+      return chr(hex($unicode_accented_letters{$accent}->{$text}));
+    } else {
+      return $text;
+    }
+  }
+
+  if (defined($unicode_diacritics{$accent})) {
+    my $diacritic = chr(hex($unicode_diacritics{$accent}));
+    if ($accent ne 'tieaccent') {
+      # FIXME with a malformed string, there can be an infinite loop
+      # in Unicode::Normalize::NFC.
+      return Unicode::Normalize::NFC($text . $diacritic);
+    } else {
+      # tieaccent diacritic is naturally and correctly composed
+      # between two characters
+      my $remaining_text = $text;
+      # \p{L} matches a single code point in the category "letter".
+      if ($remaining_text =~ s/^([\p{L}\d])([\p{L}\d])(.*)$/$3/) {
+        return Unicode::Normalize::NFC($1.$diacritic.$2 . $remaining_text);
+      } else {
+        return Unicode::Normalize::NFC($text . $diacritic);
+      }
+    }
+  }
+  # There are diacritics for every accent command except for dotless and
+  # dotless is handled especially, so we should never end up here.
+  return undef;
+}
+
 sub unicode_text {
   my $text = shift;
   my $in_code = shift;
@@ -350,6 +401,38 @@ sub _format_unicode_accents_stack($$$$;$)
 
   while (@$stack) {
     my $formatted_result = unicode_accent($result, $stack->[-1]);
+    last if (!defined($formatted_result));
+
+    $result = $formatted_result;
+    pop @$stack;
+  }
+  if ($set_case) {
+    if ($set_case > 0) {
+      $result = uc($result);
+    } else {
+      $result = lc($result);
+    }
+  }
+  while (@$stack) {
+    my $accent_command = pop @$stack;
+    $result = &$format_accent($converter, $result, $accent_command, $set_case);
+  }
+  return $result;
+}
+
+# same as above, but using TreeElement interface
+sub _element_format_unicode_accents_stack($$$$;$)
+{
+  my $converter = shift;
+  my $inner_text = shift;
+  my $stack = shift;
+  my $format_accent = shift;
+  my $set_case = shift;
+
+  my $result = $inner_text;
+
+  while (@$stack) {
+    my $formatted_result = element_unicode_accent($result, $stack->[-1]);
     last if (!defined($formatted_result));
 
     $result = $formatted_result;
@@ -492,6 +575,130 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   return $result;
 }
 
+# same as above, but using TreeElement interface
+sub _element_format_eight_bit_accents_stack($$$$$;$)
+{
+  my $converter = shift;
+  my $text = shift;
+  my $stack = shift;
+  my $encoding = shift;
+  my $convert_accent = shift;
+  my $set_case = shift;
+
+  my $result = $text;
+
+  my $debug;
+  #$debug = 1;
+
+  if ($debug) {
+    print STDERR "STACK: ".join('|', map {$_->cmdname()} @$stack)."\n";
+  }
+
+  # accents are formatted and the intermediate results are kept, such
+  # that we can return the maximum of multiaccented letters that can be
+  # rendered with a given eight bit formatting.  undef is stored when
+  # there is no corresponding unicode anymore.
+  my $unicode_formatted = $text;
+  my @results_stack = ([$unicode_formatted, undef]);
+
+  while (@$stack) {
+    if (defined($unicode_formatted)) {
+      $unicode_formatted
+         = element_unicode_accent($unicode_formatted, $stack->[-1]);
+      if (defined($unicode_formatted) and $set_case) {
+        if ($set_case > 0) {
+          $unicode_formatted = uc($unicode_formatted);
+        } else {
+          $unicode_formatted = lc($unicode_formatted);
+        }
+      }
+    }
+    push @results_stack, [$unicode_formatted, $stack->[-1]];
+    pop @$stack;
+  }
+
+  if ($debug) {
+    print STDERR "PARTIAL_RESULTS_STACK:\n";
+    foreach my $partial_result (@results_stack) {
+      my $command = 'TEXT';
+      $command = $partial_result->[1]->cmdname() if ($partial_result->[1]);
+      if (defined($partial_result->[0])) {
+        print STDERR "   -> ".Encode::encode('utf-8', $partial_result->[0])
+                            ."|$command\n";
+      } else {
+        print STDERR "   -> NO accented character |$command\n";
+      }
+    }
+  }
+
+  # At this point we have the unicode character results for the accent
+  # commands stack, with all the intermediate results.
+  # For each one we'll check if it is possible to encode it in the
+  # current eight bit output encoding table and, if so set the result
+  # to the character.
+
+  my $prev_eight_bit = '';
+
+  while (@results_stack) {
+    my $char = $results_stack[0]->[0];
+    last if (!defined($char));
+
+    my ($new_eight_bit, $codepoint)
+      = _eight_bit_and_unicode_point($char, $encoding);
+    if ($debug) {
+      my $command = 'TEXT';
+      $command = $results_stack[0]->[1]->cmdname()
+        if ($results_stack[0]->[1]);
+      print STDERR "" . Encode::encode('utf-8', $char) . " ($command) "
+        . "codepoint: $codepoint "
+        ."8bit: ". (defined($new_eight_bit) ? $new_eight_bit : 'UNDEF')
+        . " prev: $prev_eight_bit\n";
+    }
+
+    # no corresponding eight bit character found for a composed character
+    last if (!$new_eight_bit);
+
+    # in that case, the new eight bit character is the same than the one
+    # found with one less character (and it isn't a @dotless{i}). It may
+    # hapen in 2 case, both meaning that there is no corresponding 8bit char:
+    #
+    # -> there are 2 characters in accent. This could happen, for example
+    #    if an accent that cannot be rendered is found and it leads to
+    #    appending or prepending a character. For example this happens for
+    #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to a 2 character:
+    #    n with a tilde, followed by a ,
+    #    In that case, the additional diacritic is appended, which
+    #    means that it is composed with the , and leaves n with a tilde
+    #    untouched.
+    # -> the diacritic is appended but the normal form doesn't lead
+    #    to a composed character, such that the first character
+    #    of the string is unchanged. This, for example, happens for
+    #    @ubaraccent{a} since there is no composed accent with a and an
+    #    underbar.
+    last if ($new_eight_bit eq $prev_eight_bit
+             and !($results_stack[0]->[1]->cmdname() eq 'dotless'
+                   and $char eq 'i'));
+    $result = $results_stack[0]->[0];
+    $prev_eight_bit = $new_eight_bit;
+    shift @results_stack;
+  }
+
+  # handle the remaining accents, that have not been converted to 8bit
+  # compatible unicode
+  shift @results_stack if (scalar(@results_stack)
+                           and !defined($results_stack[0]->[1]));
+  while (@results_stack) {
+    $result = &$convert_accent($converter, $result,
+                               $results_stack[0]->[1],
+                               $set_case);
+    shift @results_stack;
+  }
+
+  # An important remark is that the final conversion to 8bit is left to
+  # Perl.
+  return $result;
+}
+
 sub encoded_accents($$$$$;$)
 {
   my $converter = shift;
@@ -512,6 +719,33 @@ sub encoded_accents($$$$$;$)
                                             $format_accent, $set_case);
     } elsif ($unicode_to_eight_bit{$encoding}) {
       return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
+                               $format_accent, $set_case);
+    }
+  }
+  return undef;
+}
+
+# same as above, but using TreeElement interface
+sub element_encoded_accents($$$$$;$)
+{
+  my $converter = shift;
+  my $text = shift;
+  my $stack = shift;
+  my $encoding = shift;
+  my $format_accent = shift;
+  my $set_case = shift;
+
+  if ($encoding) {
+    # in case an encoding is directly specified with -c OUTPUT_ENCODING_NAME
+    # in upper case to match with the encodings in Texinfo input, we convert
+    # to lower case to match the encoding names used here.  In the code
+    # encoding names are lower cased early.
+    $encoding = lc($encoding);
+    if ($encoding eq 'utf-8') {
+      return _element_format_unicode_accents_stack($converter, $text, $stack,
+                                            $format_accent, $set_case);
+    } elsif ($unicode_to_eight_bit{$encoding}) {
+      return _element_format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
                                $format_accent, $set_case);
     }
   }

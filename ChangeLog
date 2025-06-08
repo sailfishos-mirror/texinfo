@@ -1,5 +1,68 @@
 2025-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	Turn on and enhance the XS interface for TreeElement for ReadDocbook
+
+	* tta/C/main/get_perl_info.c (get_sv_element_document): add a warn
+	string argument to be able to set it to 0.
+
+	* tta/C/main/get_perl_info.c (new_element_from_sv): add converter
+	argument and add command name and contents.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element, new, parent, type, cmdname, text, source_info)
+	(children_number, get_child, get_attribute): add Perl C code that
+	duplicates the pure Perl code such that the XS code can be used both
+	when there are handlers and when the tree has been built to Perl.
+	For a converter using only the TreeElement interface, this is not
+	useful, or even hides when the built tree is used instead of
+	the TreeElement interface, but for converters using the TreeElement
+	interface with a built tree, this is practical and allows to always
+	override all the functions.
+
+	* tta/perl/Texinfo/TreeElement.pm (BEGIN): load the XS module.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(get_global_unique_tree_element),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin)
+	(_convert), tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(get_global_unique_tree_element): add a TreeElement interface for
+	global unique commands.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin)
+	(_convert), tta/perl/Texinfo/TreeElementNonXS.pm (get_children),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (get_children):
+	add get_children TreeElement interface to get the contents list.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): use
+	new_tree_element interface instead of Texinfo::TreeElement::new
+	to be able to find the document C data where the elements are stored.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (element_convert_accents)
+	(element_xml_accent, _element_xml_numeric_entities_accent)
+	(element_xml_accents), tta/perl/Texinfo/Convert/Unicode.pm
+	(element_unicode_accent, _element_format_unicode_accents_stack)
+	(_element_format_eight_bit_accents_stack)
+	(element_encoded_accents), tta/perl/Texinfo/Convert/Utils.pm
+	(element_find_innermost_accent_contents),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): duplicate
+	implementations of accent formatting functions using the TreeElement
+	interface.
+
+	* tta/C/main/build_perl_info.c (document_tree),
+	tta/perl/Texinfo/Convert/Converter.pm (output_tree),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (convert, output): setup handles
+	usable for the TreeElement interface if handler_only is set.  Pass
+	handle_only argument to output_tree.  Set the argument in convert
+	and output calls.
+
+	* tta/C/main/build_perl_info.c (build_minimal_document): bless
+	tree element.
+
+	* tta/C/main/get_perl_info.c (find_element_from_sv): find global
+	unique commands C associated data.
+
+2025-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_extra_misc_args)
 	(build_extra_index_entry): split out of build_key_pair_info.
 

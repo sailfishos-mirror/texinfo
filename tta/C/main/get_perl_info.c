@@ -156,12 +156,12 @@ get_sv_tree_document (SV *tree_in, char *warn_string)
 
 /* for any element */
 DOCUMENT *
-get_sv_element_document (SV *element_in)
+get_sv_element_document (SV *element_in, char *warn_string)
 {
   dTHX;
 
   return get_document_or_warn (element_in, "element_document_descriptor",
-                               "get_sv_element_document");
+                               warn_string);
 }
 
 DOCUMENT *
@@ -431,14 +431,17 @@ get_source_info (SV *source_info_sv)
 }
 
 ELEMENT *
-new_element_from_sv (SV *element_hash)
+new_element_from_sv (CONVERTER *converter, const SV *element_hash)
 {
   HV *hv_in;
   ELEMENT *e;
   SV **text_sv;
   SV **type_sv;
   SV **cmdname_sv;
-  enum element_type e_type;
+  SV **contents_sv;
+  enum element_type e_type = ET_NONE;
+  enum command_id cmd = CM_NONE;
+  const char *cmdname = 0;
 
   dTHX;
 
@@ -451,8 +454,6 @@ new_element_from_sv (SV *element_hash)
       const char *type_name = (const char *) SvPVutf8_nolen (*type_sv);
       e_type = find_element_type ((char *)type_name);
     }
-  else
-    e_type = ET_NONE;
 
   FETCH(text);
   if (text_sv && SvOK (*text_sv))
@@ -468,9 +469,59 @@ new_element_from_sv (SV *element_hash)
   FETCH(cmdname)
   if (cmdname_sv)
     {
+      cmdname = (const char *) SvPVutf8_nolen (*cmdname_sv);
+      if (e_type != ET_index_entry_command
+          && e_type != ET_definfoenclose_command)
+        {
+          cmd = lookup_builtin_command (cmdname);
+          cmdname = 0;
+        }
+    }
+  if (cmd)
+    e = new_command_element (e_type, cmd);
+  else
+    {
+      e = new_element (e_type);
+      if (cmdname)
+        e->e.c->string_info[sit_command_name] = strdup (cmdname);
     }
 
-  e = new_element (e_type);
+  FETCH(contents)
+  if (contents_sv)
+    {
+      SSize_t i;
+      SSize_t contents_nr;
+      AV *contents_av = (AV *) SvRV (*contents_sv);
+
+      contents_nr = AvFILL (contents_av) +1;
+
+      for (i = 0; i < contents_nr; i++)
+        {
+          SV **content_sv = av_fetch (contents_av, i, 0);
+          if (content_sv)
+            {
+              ELEMENT *element;
+              DOCUMENT *document = get_sv_element_document (*content_sv, 0);
+              if (document)
+                element
+                  = get_sv_element_element (*content_sv, document);
+              else
+                /* TODO using find_element_from_sv may allow to
+                   find the C elements in more situations, but it could
+                   also hide bugs, as we would like not to need to
+                   use find_element_from_sv and instead have a consistent
+                   interface */
+                /* discard const */
+                element = (ELEMENT *)find_element_from_sv (converter, 0,
+                                                           *content_sv, 0);
+              if (element)
+                add_to_element_contents (e, element);
+              else
+                fatal ("No C element");
+            }
+        }
+    }
+
   return e;
 }
 #undef FETCH
@@ -1222,9 +1273,9 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
    the CONVERTER document is used.
    OUTPUT_UNIT_DESCRIPTOR is optional, it should allow to find sectioning
    commands faster.
-   Only for global multi commands, commands with indices, and sectioning root
-   commands.  More could be added if needed, for example global unique
-   command, node associated nodedescription.
+   Only for global commands, commands with indices, and sectioning root
+   commands.  More could be added if needed, for example node
+   associated nodedescription.
  */
 const ELEMENT *
 find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
@@ -1270,6 +1321,13 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
               if (element)
                 return element;
             }
+        }
+      if (document)
+        {
+          const ELEMENT *element
+            = get_cmd_global_uniq_command (&document->global_commands, cmd);
+          if (element)
+            return (element);
         }
     }
 

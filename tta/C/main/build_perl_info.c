@@ -530,7 +530,7 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
   return 0;
 }
 
-/* In this function, elements handles only are registerd, with
+/* In this function, elements handles only are registered, with
    register_element_handle_in_sv */
 SV *
 build_element_attribute (const ELEMENT *element, const char *attribute,
@@ -2131,7 +2131,15 @@ build_minimal_document (DOCUMENT *document)
   if (document->tree)
     {
       HV *hv_tree = newHV ();
-      STORE("tree", hv_tree);
+      HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
+      /* retain a reference in C code */
+      /* TODO we do not retain a reference yet.  Maybe noinc would be better,
+         as the reference may never be released, but it requires
+         investigation to check that it is indeed retained later on */
+      SV *tree_sv = newRV_inc ((SV *) hv_tree);
+      sv_bless (tree_sv, hv_stash);
+
+      hv_store (hv, "tree", strlen ("tree"), tree_sv, 0);
 
       hv_store (hv_tree, "tree_document_descriptor",
                 strlen ("tree_document_descriptor"),
@@ -2826,22 +2834,48 @@ document_tree (SV *document_in, int handler_only)
 
   if (!result_sv)
     {
-      SV **sv_reference = 0;
-      /* Prefer the tree of the Perl document associated to the C data */
-      if (document)
-        sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
-
-      if (!sv_reference)
+      if (document && document->tree)
         {
-          HV *document_hv = (HV *) SvRV (document_in);
-          sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+          /* in that case, we do not reuse the "tree" reference
+             in document->hv.  We therefore need to readd everything
+             relevant, in practice only "tree_document_descriptor" */
+          register_element_handle_in_sv (document->tree, document);
+          if (document->tree->sv)
+            {
+              const char *document_key = "tree_document_descriptor";
+              HV *element_hv;
+              SV **element_document_descriptor_sv;
+
+              result_sv = document->tree->sv;
+              element_hv = (HV *) SvRV (result_sv);
+
+              element_document_descriptor_sv
+                = hv_fetch (element_hv, document_key, strlen (document_key), 0);
+
+              if (!element_document_descriptor_sv)
+                {
+                  hv_store (element_hv, document_key, strlen (document_key),
+                  newSViv (document->descriptor), 0);
+                }
+            }
         }
 
-      if (sv_reference && SvOK (*sv_reference))
+      if (!result_sv)
         {
-          result_sv = *sv_reference;
+          SV **sv_reference = 0;
+
+          /* Prefer the tree of the Perl document associated to the C data */
           if (document)
-            register_element_handle_in_sv (document->tree, document);
+            sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+
+          if (!sv_reference)
+            {
+              HV *document_hv = (HV *) SvRV (document_in);
+              sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+            }
+
+          if (sv_reference && SvOK (*sv_reference))
+            result_sv = *sv_reference;
         }
     }
 

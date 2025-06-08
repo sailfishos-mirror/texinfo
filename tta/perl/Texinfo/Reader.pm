@@ -23,7 +23,7 @@ package Texinfo::Reader;
 use strict;
 use warnings;
 
-use Carp qw(confess);
+use Carp qw(cluck confess);
 
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
@@ -82,6 +82,10 @@ sub new($)
 {
   my $tree = shift;
 
+  if (!defined($tree)) {
+    confess("Texinfo::Reader new undefined tree");
+  }
+
   my $reader = {};
 
   bless $reader;
@@ -126,6 +130,12 @@ sub read($)
   my $token = Texinfo::ReaderToken::new();
 
   my $element = $array->[$context->[0]];
+  if (ref($element) eq 'HASH') {
+    print STDERR "ERROR:read:HASH "
+       .Texinfo::Common::debug_print_element($element)."\n";
+    cluck();
+  }
+
   if (defined($element->text())) {
     my $type = $element->type();
     if ($type and $ignorable_text_types{$type}) {

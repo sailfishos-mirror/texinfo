@@ -25,6 +25,9 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+#use Data::Dumper;
+use Carp qw(cluck confess);
+
 # for XS_structuring_enabled
 use Texinfo::XSLoader;
 
@@ -47,8 +50,6 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Plaintext;
-#use Data::Dumper;
-use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
@@ -365,8 +366,8 @@ sub convert($$)
 
   $self->conversion_initialization($document);
 
-  #my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
-  my $root = $document->tree();
+  my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
+  #my $root = $document->tree();
 
   push @{$self->{'lang_stack'}}, '';
 
@@ -384,6 +385,10 @@ sub convert_tree($$)
 
   if (scalar(@{$self->{'lang_stack'}}) == 0) {
     push @{$self->{'lang_stack'}}, '';
+  }
+
+  if (!defined($root)) {
+    confess("ReadDocbook::convert_tree: undef root\n");
   }
 
   my $reader = Texinfo::Reader::new($root);
@@ -431,36 +436,31 @@ sub conversion_output_begin($;$$)
 '. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
-  my $global_commands;
-  if ($self->{'document'}) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-  if ($global_commands and $global_commands->{'copying'}) {
-    my $copying_element = $global_commands->{'copying'};
+  my $copying_element = $self->get_global_unique_tree_element('copying');
+  if ($copying_element) {
+    my $children = $copying_element->get_children();
     my $copying_result
-     = $self->convert_tree(Texinfo::TreeElement::new(
-           {'contents' => $copying_element->{'contents'}}));
+     = $self->convert_tree($self->new_tree_element(
+           {'contents' => $copying_element->get_children()}));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
   }
 
   my $fulltitle_command;
-  if ($global_commands) {
-    foreach my $title_cmdname ('title', 'shorttitlepage') {
-      if ($global_commands->{$title_cmdname}) {
-        my $command = $global_commands->{$title_cmdname};
-        next if (!$command->get_child(0)->children_number());
-        $fulltitle_command = $command;
-        last;
-      }
+  foreach my $title_cmdname ('title', 'shorttitlepage') {
+    my $command = $self->get_global_unique_tree_element($title_cmdname);
+    if ($command) {
+      next if (!$command->get_child(0)->children_number());
+      $fulltitle_command = $command;
+      last;
     }
-    if (!defined($fulltitle_command)) {
-      my $command = $global_commands->{'titlefont'};
-      if ($command and $command->children_number()
-          and $command->get_child(0)->children_number()) {
-        $fulltitle_command = $command;
-      }
+  }
+  if (!defined($fulltitle_command)) {
+    my $command = $self->get_global_unique_tree_element('titlefont');
+    if ($command and $command->children_number()
+        and $command->get_child(0)->children_number()) {
+      $fulltitle_command = $command;
     }
   }
 
@@ -468,9 +468,10 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if ($global_commands and $global_commands->{'titlepage'}) {
+  my $title_page = $self->get_global_unique_tree_element('titlepage');
+  if ($title_page) {
     my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
-            $global_commands->{'titlepage'}, ['author', 'subtitle']);
+                                        $title_page, ['author', 'subtitle']);
 
     my @authors_elements;
     my $subtitle_text = '';
@@ -518,27 +519,28 @@ sub conversion_output_begin($;$$)
   }
 
   my $settitle_command;
-  if ($global_commands and $global_commands->{'settitle'}) {
-    my $command = $global_commands->{'settitle'};
-    $settitle_command = $command
-      unless (!$command->{'contents'}->[0]->{'contents'});
+  my $settitle = $self->get_global_unique_tree_element('settitle');
+  if ($settitle and $settitle->children_number()
+      and $settitle->get_child(0)->children_number()) {
+    $settitle_command = $settitle;
   }
+
+  my $top_command = $self->get_global_unique_tree_element('top');
 
   my $titleabbrev_command;
   if ($fulltitle_command) {
     $titleabbrev_command = $settitle_command;
   } elsif ($settitle_command) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $global_commands
-           and $global_commands->{'top'}) {
+  } elsif (defined($legalnotice) and $top_command) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
-    my $command = $global_commands->{'top'};
     # arguments_line type element
-    my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
-    my $line_arg = $arguments_line->{'contents'}->[0];
-    $fulltitle_command = $command
-      if ($line_arg->{'contents'});
+    my $arguments_line = $top_command->get_child(0);
+    my $line_arg = $arguments_line->get_child(0);
+    if ($line_arg->children_number()) {
+      $fulltitle_command = $top_command;
+    }
   }
 
   my $title_info = '';
@@ -590,7 +592,8 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  return $self->output_tree($document);
+  return $self->output_tree($document,
+                            Texinfo::XSLoader::XS_structuring_enabled());
 }
 
 my %docbook_sections = (
@@ -1237,13 +1240,10 @@ sub _convert($$)
             $result_text .= "\n";
             $$output_ref .= $result_text;
           } elsif ($cmdname eq 'insertcopying') {
-            if ($self->{'document'}) {
-              my $global_commands
-                = $self->{'document'}->global_commands_information();
-              if ($global_commands and $global_commands->{'copying'}) {
-                $$output_ref .= $self->convert_tree(Texinfo::TreeElement::new(
-                 {'contents' => $global_commands->{'copying'}->{'contents'}}));
-              }
+            my $copying = $self->get_global_unique_tree_element('copying');
+            if ($copying) {
+              $$output_ref .= $self->convert_tree($self->new_tree_element(
+                                   {'contents' => $copying->get_children()}));
             }
           } elsif ($cmdname eq 'verbatiminclude') {
             my $expansion = $self->element_expand_verbatiminclude($element);
@@ -1361,7 +1361,7 @@ sub _convert($$)
               if ($section_name) {
                 my $substituted_strings = {
                     'section_name' =>
-                      Texinfo::TreeElement::new({'type' => '_converted',
+                      $self->new_tree_element({'type' => '_converted',
                                                  'text' => $section_name}),
                     'book' => $book_element
                   };
@@ -1381,7 +1381,7 @@ sub _convert($$)
               } elsif ($node_name) {
                 my $substituted_strings = {
                    'node_name' =>
-                      Texinfo::TreeElement::new({'type' => '_converted',
+                      $self->new_tree_element({'type' => '_converted',
                                                  'text' => $node_name}),
                    'book' => $book_element
                   };
@@ -1417,7 +1417,7 @@ sub _convert($$)
               if ($section_name) {
                 my $substituted_strings = {
                   'section_name' =>
-                     Texinfo::TreeElement::new({'type' => '_converted',
+                     $self->new_tree_element({'type' => '_converted',
                                                 'text' => $section_name}),
                   'manual' => $manual_file_element
                  };
@@ -1437,7 +1437,7 @@ sub _convert($$)
               } elsif ($node_name) {
                 my $substituted_strings = {
                     'node_name' =>
-                      Texinfo::TreeElement::new({'type' => '_converted',
+                      $self->new_tree_element({'type' => '_converted',
                                                  'text' => $node_name}),
                     'manual' => $manual_file_element
                   };
@@ -1485,17 +1485,17 @@ sub _convert($$)
                   or $cmdname eq 'link') {
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('{title_ref}', {'title_ref' =>
-                         Texinfo::TreeElement::new({'type' => '_converted',
+                         $self->new_tree_element({'type' => '_converted',
                                                     'text' => $argument})}));
               } elsif ($cmdname eq 'xref') {
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('See {title_ref}', {'title_ref' =>
-                          Texinfo::TreeElement::new({'type' => '_converted',
+                          $self->new_tree_element({'type' => '_converted',
                                                      'text' => $argument})}));
               } elsif ($cmdname eq 'pxref') {
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('see {title_ref}', {'title_ref' =>
-                         Texinfo::TreeElement::new({'type' => '_converted',
+                         $self->new_tree_element({'type' => '_converted',
                                                     'text' => $argument})}));
               }
             }
@@ -1655,7 +1655,7 @@ sub _convert($$)
               if (defined($argument)) {
                 my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                                {'abbr_or_acronym' =>
-                          Texinfo::TreeElement::new({'type' => '_converted',
+                          $self->new_tree_element({'type' => '_converted',
                                                      'text' => $argument}),
                                 'explanation' =>
                                     $element->get_child(1)});
@@ -2061,7 +2061,7 @@ sub _convert($$)
         # special case to ensure that @w leads to something even if empty
           $$output_ref .= $w_command_mark;
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $result .= $self->xml_accents($element,
+          $result .= $self->element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         } elsif (!exists($docbook_no_warn_empty_commands{$cmdname})
                 # brace commands without braces lead to EMPTY element tokens
@@ -2069,8 +2069,13 @@ sub _convert($$)
                  and !($e_type and $e_type eq 'definfoenclose_command')) {
           print STDERR "UNEXPECTED EMPTY C $cmdname\n";
         }
-      } elsif (!exists($docbook_no_warn_empty_types{$e_type})) {
-        print STDERR "UNEXPECTED EMPTY T $e_type\n";
+      } elsif ($e_type) {
+        if (!exists($docbook_no_warn_empty_types{$e_type})) {
+          print STDERR "UNEXPECTED EMPTY T $e_type\n";
+        }
+      } else {
+        print STDERR "UNEXPECTED no type\n";
+        cluck();
       }
     }
   }

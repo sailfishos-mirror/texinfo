@@ -84,6 +84,15 @@ sub get_child($$)
   return undef;
 }
 
+# TODO it would be better if this was not needed, as it is a complex
+# type (a list) and it is not an element.
+sub get_children($)
+{
+  my $element = shift;
+
+  return $element->{'contents'};
+}
+
 sub get_attribute($$)
 {
   my $element = shift;

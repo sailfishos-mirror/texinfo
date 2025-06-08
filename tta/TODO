@@ -97,19 +97,15 @@ Maybe have verb delimiter being returned by the reader? And also braces of
 types with implicit braces?  Would need to add a specific reader token category
 for that.
 
-Probably elements without handle could be found using find_element_from_sv
-in main/get_perl_info.c.  Probably need to add code to find global
-unique commands, they are used in DocBook conversion for example.
+All the Document interfaces lead to rebuilding the tree, and wiping out
+the handles for access through the TreeElement interface.  It works
+because the XS code also process the rebuilt tree, as would perl do.
+Another API for access to node, section, heading structure information
+is needed. Also probably targets API, indices API. What about lists? Also API
+for output units.
 
-Need to find a way to keep using the API for a construct like
-($copying_element C element is already findable):
-    my $copying_result
-     = $self->convert_tree(Texinfo::TreeElement::new(
-           {'contents' => $copying_element->{'contents'}}));
-Maybe add an overriden function like 
-  new_element_from_contents($) {
-   return {'contents' => $element->{'contents'}}
-  }
+Part of the API:
+ get_global_unique_tree_element
 
 my $index_entry_info = $element->get_attribute('index_entry');
 Need an interface for
@@ -154,14 +150,15 @@ TODO:
            Perl element with be destroyed).
  + cdt/gdt return should be findable too, possibly through
    cdt/gdt being overriden
- xml_accents one option is to override xml_accents
+
+[ xml_accents one option is to override xml_accents
 for accents formatting, going through a stack of commands, obtained from
 find_innermost_accent_contents, two options
 * return a stack object with an API to access elements in it (using
     the same functions as existing C functions)
 * populate the stack with elements handlers;  note that this is
   more complicated because there is also a new element constructed
-  dynamically for the innermost accent argument
+  dynamically for the innermost accent argument]
 
 Initialization:
  from a tree
@@ -196,10 +193,6 @@ Recreation of a tree (DOM)
    returns a handler on the element
  documentElements (document in XML::LibXML::Reader)
 
-
-Another API for access to node, section, heading structure information.
-access to structure associated to element. Accessors for fields. What about
-lists? Also API for output units, but maybe later.
 
 
 Delayed bugs/features
