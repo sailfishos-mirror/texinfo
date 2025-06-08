@@ -775,7 +775,6 @@ sub check_node_tree_menu_structure($)
   my %node_errors;
 
   # Check for nodes listed in the wrong menu(s)
-  # TODO: report appropriate line number for menu entry
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
