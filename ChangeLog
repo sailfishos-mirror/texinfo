@@ -1,5 +1,21 @@
 2025-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_extra_misc_args)
+	(build_extra_index_entry): split out of build_key_pair_info.
+
+	* tta/C/main/document.c (setup_texinfo_main), tta/C/main/tree.c
+	(ASSOCIATED_INFO_KEY_INDEX, compare_associated_info_key_index)
+	(ai_key_name_index, find_associated_info_key)
+	(setup_ai_key_name_index): setup ai_key_name_index sorted by name and
+	associating enum ai_key_name to be able to retrieve with bsearch
+	the key associated to an attribute name.
+
+	* tta/C/main/build_perl_info.c (build_element_attribute),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (get_attribute):
+	implement build_element_attribute.
+
+2025-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_associated_info)
 	(build_key_pair_info, build_element_attribute): rename
 	build_additional_info as build_associated_info.  Split

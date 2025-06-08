@@ -39,7 +39,8 @@ AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
 
 void build_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
 
-SV *build_element_attribute (const ELEMENT *element, const char *attribute);
+SV *build_element_attribute (const ELEMENT *element, const char *attribute,
+                             DOCUMENT *document);
 
 AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
 void pass_document_parser_errors_to_registrar (DOCUMENT *document,

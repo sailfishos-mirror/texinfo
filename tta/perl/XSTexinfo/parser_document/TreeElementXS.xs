@@ -219,9 +219,16 @@ get_attribute (SV *element_sv, attribute)
         document = get_sv_element_document (element_sv);
         element = get_sv_element_element (element_sv, document);
 
-        result_sv = build_element_attribute (element, attribute);
+        if (type_data[element->type].flags & TF_text)
+          {
+            if (!strcmp (attribute, "inserted")
+                && (element->flags & EF_inserted))
+              result_sv = newSViv (1);
+          }
+        else
+          result_sv = build_element_attribute (element, attribute,
+                                               document);
 
-        /* fprintf (stderr, "BBB %s\n", attribute); */
         if (result_sv)
           RETVAL = result_sv;
         else

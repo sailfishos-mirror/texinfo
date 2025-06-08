@@ -26,6 +26,7 @@
 #include "document_types.h"
 /* fatal */
 #include "base_utils.h"
+/* also for library initialization for setup_ai_key_name_index */
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"
@@ -113,6 +114,8 @@ setup_texinfo_main (int texinfo_uninstalled,
 
   set_element_type_name_info ();
   txi_initialise_base_options ();
+
+  setup_ai_key_name_index ();
 
   /* used in Parser */
   setup_unicode_data ();

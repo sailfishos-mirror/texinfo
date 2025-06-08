@@ -65,6 +65,8 @@
 #include "base_utils.h"
 /* for ai_key_names elt_info_names */
 #include "tree.h"
+/* for lookup_extra */
+#include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
 #include "hashmap.h"
@@ -383,6 +385,47 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
 }
 
 static SV *
+build_extra_misc_args (const STRING_LIST *l)
+{
+  size_t j;
+  AV *av;
+
+  dTHX;
+
+  av = newAV ();
+  av_unshift (av, l->number);
+
+  /* A small array of strings. */
+  for (j = 0; j < l->number; j++)
+    {
+      SV *sv = newSVpv_utf8 (l->list[j],
+                             strlen (l->list[j]));
+      av_store (av, j, sv);
+    }
+  return newRV_inc ((SV *)av);
+}
+
+static SV *
+build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc)
+{
+  AV *av;
+  SV *sv;
+
+  dTHX;
+
+  av = newAV ();
+
+  av_unshift (av, 2);
+
+  sv = newSVpv_utf8 (entry_loc->index_name,
+                     strlen (entry_loc->index_name));
+  av_store (av, 0, sv);
+  sv = newSViv ((IV) entry_loc->number);
+  av_store (av, 1, sv);
+  return newRV_inc ((SV *)av);
+}
+
+static SV *
 build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
 {
   enum ai_key_name key;
@@ -399,14 +442,11 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
       /* For references to other parts of the tree, create the hash so
          we can point to it. */
       /* Note that this does not happen much, as the contents
-         are processed before the extra information.  It only
-         happens for root commands (sections, nodes) and associated
-         commands, and could also happen for subentry as it is not
-         a children of the associated index command */
+         are often processed before the extra information. */
       const ELEMENT *f = k->k.const_element;
       if (!f->sv)
         {
- /* need to cast to remove const to add the Perl object reference */
+      /* need to cast to remove const to add the Perl object reference */
           ELEMENT *e = (ELEMENT *)f;
           new_element_perl_data (e);
         }
@@ -465,47 +505,22 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
       }
     case extra_string:
       { /* A simple string. */
-      const char *value = k->k.string;
-      return newSVpv_utf8 (value, 0);
+      return newSVpv_utf8 (k->k.string, 0);
       break;
       }
     case extra_integer:
       { /* A simple integer. */
-      IV value = (IV) (int) k->k.integer;
-      return newSViv (value);
+      return newSViv (k->k.integer);
       break;
       }
     case extra_misc_args:
       {
-      size_t j;
-      const STRING_LIST *l = k->k.strings_list;
-      AV *av = newAV ();
-      av_unshift (av, l->number);
-
-      /* An small array of strings. */
-      for (j = 0; j < l->number; j++)
-        {
-          SV *sv = newSVpv_utf8 (l->list[j],
-                                 strlen (l->list[j]));
-          av_store (av, j, sv);
-        }
-      return newRV_inc ((SV *)av);
+      return build_extra_misc_args (k->k.strings_list);
       break;
       }
     case extra_index_entry:
       {
-      const INDEX_ENTRY_LOCATION *entry_loc = k->k.index_entry;
-      AV *av = newAV ();
-      SV *sv;
-
-      av_unshift (av, 2);
-
-      sv = newSVpv_utf8 (entry_loc->index_name,
-                         strlen (entry_loc->index_name));
-      av_store (av, 0, sv);
-      sv = newSViv ((IV) entry_loc->number);
-      av_store (av, 1, sv);
-      return newRV_inc ((SV *)av);
+      return build_extra_index_entry (k->k.index_entry);
       break;
       }
     default:
@@ -515,9 +530,124 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
   return 0;
 }
 
+/* In this function, elements handles only are registerd, with
+   register_element_handle_in_sv */
 SV *
-build_element_attribute (const ELEMENT *element, const char *attribute)
+build_element_attribute (const ELEMENT *element, const char *attribute,
+                         DOCUMENT *document)
 {
+  enum ai_key_name key;
+
+  dTHX;
+
+  key = find_associated_info_key (attribute);
+
+  if (key)
+    {
+      enum extra_type k_type = associated_info_table[key].type;
+
+      switch (k_type)
+        {
+        case extra_string:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            return newSVpv_utf8 (k->k.string, 0);
+          break;
+          }
+        case extra_integer:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            return newSViv (k->k.integer);
+          break;
+          }
+        case extra_flag:
+          {
+          if (element->flags & associated_info_table[key].data)
+            return newSViv (1);
+          break;
+          }
+        case extra_element_info:
+          {
+          int idx = associated_info_table[key].data;
+          if (idx < type_data[element->type].elt_info_number
+              && element->elt_info[idx])
+            {
+              ELEMENT *info_element = element->elt_info[idx];
+              register_element_handle_in_sv (info_element, document);
+              return newSVsv ((SV *)info_element->sv);
+            }
+          break;
+          }
+        case extra_misc_args:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            return build_extra_misc_args (k->k.strings_list);
+          break;
+          }
+        case extra_index_entry:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            return build_extra_index_entry (k->k.index_entry);
+          break;
+          }
+        case extra_element_oot:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            {
+              ELEMENT *oot_element = k->k.element;
+              register_element_handle_in_sv (oot_element, document);
+              return newSVsv ((SV *)oot_element->sv);
+            }
+          break;
+          }
+        case extra_string_info:
+          {
+          int idx = associated_info_table[key].data;
+          switch (key)
+            {
+            case AI_key_command_name:
+              if ((element->type == ET_index_entry_command
+                   || element->type == ET_definfoenclose_command
+                   || type_data[element->type].flags & TF_macro_call)
+                  && element->e.c->string_info[idx])
+                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
+              break;
+            case AI_key_arg_line:
+              if (element->type == ET_lineraw_command
+                  && element->e.c->string_info[idx])
+                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
+              break;
+            case AI_key_delimiter:
+              if (element->e.c->cmd == CM_verb
+                  && element->e.c->string_info[idx])
+                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
+              break;
+            case AI_key_alias_of:
+              if ((element->e.c->cmd
+                   || type_data[element->type].flags & TF_macro_call)
+                  && element->e.c->string_info[idx])
+                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
+              break;
+            default:
+              break;
+            }
+          break;
+          }
+        default:
+          {
+          const KEY_PAIR *k = lookup_extra (element, key);
+          if (k)
+            return build_key_pair_info (k, 0);
+          break;
+          }
+        }
+    }
+
   return 0;
 }
 

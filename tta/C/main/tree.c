@@ -42,7 +42,8 @@ const char *elt_info_names[] = {
 
 const ASSOCIATED_INFO_DATA associated_info_table[] = {
   #define ai_key(name, type, data) \
- {AI_key_ ## name, extra_##type, #name, data},
+ {AI_key_ ## name, extra_##type, #name, data}, \
+
    AI_KEYS_LIST
   #undef ai_key
 };
@@ -603,3 +604,59 @@ new_directions (void)
   memset (result, 0, (D_up + 1) * sizeof (const ELEMENT *));
   return result;
 }
+
+
+typedef struct ASSOCIATED_INFO_KEY_INDEX {
+    enum ai_key_name key;
+    const char *name;
+} ASSOCIATED_INFO_KEY_INDEX;
+
+#define ASSOCIATED_INFO_KEYS_NR (sizeof (associated_info_table) / sizeof (ASSOCIATED_INFO_DATA))
+
+static ASSOCIATED_INFO_KEY_INDEX ai_key_name_index[ASSOCIATED_INFO_KEYS_NR];
+
+static int
+compare_associated_info_key_index (const void *a, const void *b)
+{
+  const ASSOCIATED_INFO_KEY_INDEX *aika = (ASSOCIATED_INFO_KEY_INDEX *) a;
+  const ASSOCIATED_INFO_KEY_INDEX *aikb = (ASSOCIATED_INFO_KEY_INDEX *) b;
+
+  return strcmp (aika->name, aikb->name);
+}
+
+enum ai_key_name
+find_associated_info_key (const char *attribute)
+{
+  ASSOCIATED_INFO_KEY_INDEX *result;
+  static ASSOCIATED_INFO_KEY_INDEX searched_key;
+  searched_key.name = attribute;
+
+  result = (ASSOCIATED_INFO_KEY_INDEX *)
+    bsearch (&searched_key, ai_key_name_index, ASSOCIATED_INFO_KEYS_NR,
+             sizeof (ASSOCIATED_INFO_KEY_INDEX),
+             compare_associated_info_key_index);
+
+  if (result)
+    return result->key;
+  else
+    return 0;
+}
+
+/* initialization of library */
+void
+setup_ai_key_name_index (void)
+{
+  size_t i;
+
+  for (i = 0; i < ASSOCIATED_INFO_KEYS_NR; i++)
+    {
+      ai_key_name_index[i].key = i;
+      ai_key_name_index[i].name = associated_info_table[i].name;
+    }
+
+  qsort (ai_key_name_index, ASSOCIATED_INFO_KEYS_NR,
+         sizeof (ASSOCIATED_INFO_KEY_INDEX),
+         compare_associated_info_key_index);
+}
+
+#undef ASSOCIATED_INFO_KEYS_NR
