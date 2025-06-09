@@ -1,5 +1,16 @@
 2025-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_single_index_info),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(get_tree_element_index_entry): add build_single_index_info that
+	builds only information about an index, not the entries and use it in
+	get_tree_element_index_entry.
+
+	* tta/perl/Texinfo/Reader.pm (read): use get_children instead of
+	iterating.
+
+2025-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	Complete the XS interface for TreeElement for ReadDocbook
 
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): use

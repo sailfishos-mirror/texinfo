@@ -389,12 +389,6 @@ sub my_test_documentation_convert_index_entry_command_type($$$$)
     $result .= $anchor_with_counter;
     $result .= "\n" unless ($converter->in_preformatted_context());
 
-    #my $indices_information
-    #  = $converter->get_info('document')->indices_information();
-    #my ($index_entry, $index_info)
-    # = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-    #                                       $indices_information);
-    #my $target_element = $index_entry->{'entry_element'};
     my $target_element = $element;
     my $target_text = $converter->command_text($target_element)
         . "<code>purple: $color_number, black: $color2_number</code>";

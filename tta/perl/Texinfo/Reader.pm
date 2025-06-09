@@ -153,13 +153,9 @@ sub read($)
         push @$array, $info_element;
       }
     }
-    my $contents_nr = $element->children_number();
-    if ($contents_nr) {
-      # TODO this is likely to be slower than perl
-      # push @$array, @{$element->{'contents'}};
-      for (my $i = 0; $i < $contents_nr; $i++) {
-        push @$array, $element->get_child($i);
-      }
+    my $contents = $element->get_children();
+    if ($contents) {
+      push @$array, @$contents;
     }
     # TODO handle comment_at_end.  This should be part of a reflexion on
     # comment_at_end in the tree to avoid all the code that handle

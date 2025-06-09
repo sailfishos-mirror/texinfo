@@ -124,11 +124,9 @@ get_tree_element_index_entry (SV *, SV *element_sv)
                     const INDEX_ENTRY *index_entry = idx_info->index_entry;
                     HV *entry_hv = build_index_entry (index_entry);
                     HV *index_info_hv
-                     = build_single_index_data (idx_info->index);
+                     = build_single_index_info (idx_info->index);
                     index_entry_sv = newRV_noinc ((SV *)entry_hv);
-                /* TODO in general the caller only need very few
-                   information, like in_code only, this could be modified */
-                   index_info_sv = newRV_noinc ((SV *)index_info_hv);
+                    index_info_sv = newRV_noinc ((SV *)index_info_hv);
 
                     register_element_handle_in_sv (index_entry->entry_element,
                                                    document);

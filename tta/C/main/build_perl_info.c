@@ -2053,16 +2053,13 @@ build_single_index_data (const INDEX *index)
   STORE("in_code", index->in_code ? newSViv (1) : newSViv (0));
 
   if (index->merged_in)
-    {
-      STORE("merged_in", newSVpv_utf8 (index->merged_in->name, 0));
-    }
+    STORE("merged_in", newSVpv_utf8 (index->merged_in->name, 0));
 
   if (index->entries_number > 0)
     {
       entries = newAV ();
       av_unshift (entries, index->entries_number);
       STORE("index_entries", newRV_noinc ((SV *) entries));
-#undef STORE
 
       for (j = 0; j < index->entries_number; j++)
         {
@@ -2073,6 +2070,29 @@ build_single_index_data (const INDEX *index)
     }
   return hv;
 }
+
+/* build information from index, selecting only the information useful
+   when looking at the index to complement the information available
+   with an index entry */
+HV *
+build_single_index_info (const INDEX *index)
+{
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  STORE("name", newSVpv_utf8 (index->name, 0));
+  STORE("in_code", index->in_code ? newSViv (1) : newSViv (0));
+
+  if (index->merged_in)
+    STORE("merged_in", newSVpv_utf8 (index->merged_in->name, 0));
+
+  return hv;
+}
+
+#undef STORE
 
 /* Return object to be used as $self->{'index_names'} in the perl code.
    build_texinfo_tree must be called before this so all the 'hv' fields
