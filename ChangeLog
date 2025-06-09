@@ -1,5 +1,13 @@
 2025-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	Do not use the Docbook converter based on reader, it is slow
+
+	* tta/perl/t/test_utils.pl (convert_to_docbook), tta/perl/texi2any.pl
+	(%formats_table): do not use ReadDocBook in the default case as it is
+	slow.
+
+2025-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_single_index_info),
 	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
 	(get_tree_element_index_entry): add build_single_index_info that
