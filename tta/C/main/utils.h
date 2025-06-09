@@ -158,6 +158,9 @@ ELEMENT *get_label_element (const ELEMENT *e);
 INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
                                    const char *name);
 INDEX *ultimate_index (INDEX *index);
+INDEX_ENTRY_AND_INDEX *lookup_index_entry (
+                    const INDEX_ENTRY_LOCATION *index_entry_info,
+                    const INDEX_LIST *indices_info);
 size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
                                    const char *name);
 size_t read_flag_len (const char *text);

@@ -84,6 +84,14 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::new_tree_element",
   "Texinfo::Convert::Converter::get_global_unique_tree_element"
     => "Texinfo::TreeElement::get_global_unique_tree_element",
+  "Texinfo::Convert::Converter::get_tree_element_index_entry"
+    => "Texinfo::TreeElement::get_tree_element_index_entry",
+  "Texinfo::Convert::Converter::tree_elements_sections_list"
+    => "Texinfo::TreeElement::tree_elements_sections_list",
+  "Texinfo::Convert::Converter::tree_elements_nodes_list"
+    => "Texinfo::TreeElement::tree_elements_nodes_list",
+  "Texinfo::Convert::Converter::tree_elements_headings_list"
+    => "Texinfo::TreeElement::tree_elements_headings_list",
 );
 
 my %XS_overrides = (
@@ -496,13 +504,35 @@ sub output_files_information($)
 
 
 
-# wrapper useful for overriding, to be able to find the document in C
+# sub useful for overriding, to be able to find the document in C
 sub new_tree_element($$)
 {
   my $self = shift;
   my $element_hash = shift;
 
   return Texinfo::TreeElement::new($element_hash);
+}
+
+sub get_tree_element_index_entry($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $index_entry_info = $element->get_attribute('index_entry');
+  if ($index_entry_info) {
+
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
+    my ($index_entry, $index_info)
+     = Texinfo::Common::lookup_index_entry($index_entry_info,
+                                           $indices_information);
+    return ($index_entry, $index_info);
+  }
+
+  return undef, undef
 }
 
 sub get_global_unique_tree_element($$)
@@ -515,6 +545,39 @@ sub get_global_unique_tree_element($$)
     if ($global_commands->{$cmdname}) {
       return $global_commands->{$cmdname};
     }
+  }
+  return undef;
+}
+
+sub tree_elements_sections_list($)
+{
+  my $self = shift;
+
+  if ($self->{'document'}) {
+    my $relations_list = $self->{'document'}->sections_list();
+    return $relations_list;
+  }
+  return undef;
+}
+
+sub tree_elements_nodes_list($)
+{
+  my $self = shift;
+
+  if ($self->{'document'}) {
+    my $relations_list = $self->{'document'}->nodes_list();
+    return $relations_list;
+  }
+  return undef;
+}
+
+sub tree_elements_headings_list($)
+{
+  my $self = shift;
+
+  if ($self->{'document'}) {
+    my $relations_list = $self->{'document'}->headings_list();
+    return $relations_list;
   }
   return undef;
 }
@@ -1777,6 +1840,98 @@ sub table_item_content_tree($$)
     }
     $command->{'contents'} = [$arg];
     return $command;
+  }
+  return undef;
+}
+
+# same as Texinfo::Common::block_item_line_command, but using the
+# TreeElement interface
+# TODO it would be more efficient to have a static asis command reused
+# as in Texinfo::Common
+sub element_block_item_line_command($$)
+{
+  my $self = shift;
+  my $block_line_arg = shift;
+
+  my $arg
+    = Texinfo::Common::element_item_line_block_line_argument_command(
+                                                        $block_line_arg);
+
+  if (!$arg) {
+    $arg = $self->new_tree_element({'cmdname' => 'asis'});
+  }
+  return $arg;
+}
+
+# same as above, but using the TreeElement interface
+sub element_table_item_content_tree($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $parent = $element->parent();
+  my $parent_type = $parent->type();
+  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
+  # in @table
+  if (!$parent_type or $parent_type ne 'table_term') {
+    return undef;
+  }
+  my $table_command = $parent->parent()->parent();
+
+  # arguments_line type element
+  my $arguments_line = $table_command->get_child(0);
+  my $block_line_arg = $arguments_line->get_child(0);
+
+  my $command_as_argument
+    = element_block_item_line_command($self, $block_line_arg);
+
+  if ($command_as_argument) {
+    my $command_as_argument_cmdname = $command_as_argument->cmdname();
+    my $command = {'cmdname' => $command_as_argument_cmdname,
+                   'source_info' => $element->source_info(),};
+    if ($table_command->get_attribute('command_as_argument_kbd_code')) {
+      $command->{'extra'} = {'code' => 1};
+    }
+    # command name for the Texinfo::Commands hashes tests
+    my $builtin_cmdname;
+    my $type = $command_as_argument->type();
+    if ($type and $type eq 'definfoenclose_command') {
+      $command->{'type'} = $type;
+      $command->{'extra'} = {} if (!$command->{'extra'});
+      $command->{'extra'}->{'begin'}
+        = $command_as_argument->get_attribute('begin');
+      $command->{'extra'}->{'end'}
+        = $command_as_argument->get_attribute('end');
+      $builtin_cmdname = 'definfoenclose_command';
+    } else {
+      $builtin_cmdname = $command_as_argument_cmdname;
+    }
+    my $arg;
+    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
+      # This corresponds to a bogus @*table line with command line @footnote
+      # or @math.  We do not really care about the formatting of the result
+      # but we want to avoid debug messages, so we setup expected trees
+      # for those @-commands.
+      $arg = {'type' => 'brace_command_context',};
+      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
+        $arg->{'contents'} = [$element->get_child(0)];
+      } else {
+        my $paragraph = $self->new_tree_element({'type' => 'paragraph',
+                                  'contents' => [$element->get_child(0)],});
+        $arg->{'contents'} = [$paragraph];
+      }
+    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
+                                                   eq 'arguments') {
+      $arg = {'type' => 'brace_arg',
+              'contents' => [$element->get_child(0)],};
+    } else {
+      $arg = {'type' => 'brace_container',
+              'contents' => [$element->get_child(0)],};
+    }
+    my $arg_element = $self->new_tree_element($arg);
+    my $result = $self->new_tree_element($command);
+    $result->add_to_element_contents($arg_element);
+    return $result;
   }
   return undef;
 }

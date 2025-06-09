@@ -116,6 +116,15 @@ sub source_marks_number($)
   return 0;
 }
 
+sub add_to_element_contents($$)
+{
+  my $parent_element = shift;
+  my $element = shift;
+
+  $element->{'parent'} = $parent_element;
+  push @{$parent_element->{'contents'}}, $element;
+}
+
 1;
 __END__
 =head1 NAME

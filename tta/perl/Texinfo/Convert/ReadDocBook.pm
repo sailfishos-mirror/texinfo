@@ -639,16 +639,17 @@ sub _docbook_section_element($$)
   my $level_adjusted_cmdname
    = Texinfo::Structuring::element_section_level_adjusted_command_name(
                                                                    $element);
-  if ($level_adjusted_cmdname eq 'unnumbered'
-      and $self->{'document'}) {
-    my $sections_list = $self->{'document'}->sections_list();
-    my $section_relations
-      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_relations->{'associated_node'}) {
-      my $associated_node = $section_relations->{'associated_node'}->{'element'};
-      my $normalized = lc($associated_node->get_attribute('normalized'));
-      if ($docbook_special_unnumbered{$normalized}) {
-        return $normalized;
+  if ($level_adjusted_cmdname eq 'unnumbered') {
+    my $sections_list = $self->tree_elements_sections_list();
+    if ($sections_list) {
+      my $section_relations
+        = $sections_list->[$element->get_attribute('section_number') -1];
+      if ($section_relations->{'associated_node'}) {
+        my $associated_node = $section_relations->{'associated_node'}->{'element'};
+        my $normalized = lc($associated_node->get_attribute('normalized'));
+        if ($docbook_special_unnumbered{$normalized}) {
+          return $normalized;
+        }
       }
     }
   }
@@ -668,17 +669,11 @@ sub _index_entry($$)
 {
   my $self = shift;
   my $element = shift;
-  my $index_entry_info = $element->get_attribute('index_entry');
-  if ($index_entry_info) {
 
-    my $indices_information;
-    if ($self->{'document'}) {
-      $indices_information = $self->{'document'}->indices_information();
-    }
+  my ($index_entry, $index_info)
+   = $self->get_tree_element_index_entry($element);
+  if ($index_entry) {
 
-    my ($index_entry, $index_info)
-     = Texinfo::Common::lookup_index_entry($index_entry_info,
-                                           $indices_information);
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
@@ -961,7 +956,7 @@ sub _convert($$)
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree($self->expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $result_text = $self->xml_accents($element,
+          $result_text = $self->element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         }
         if (defined($result_text)) {
@@ -1012,7 +1007,8 @@ sub _convert($$)
             $result_text .= "<term>" if ($cmdname eq 'itemx');
             $result_text .= _index_entry($self, $element);
             if ($element->get_child(0)->children_number()) {
-              my $table_item_tree = $self->table_item_content_tree($element);
+              my $table_item_tree
+                = $self->element_table_item_content_tree($element);
               $table_item_tree = $element->get_child(0)
                 if (!defined($table_item_tree));
 
@@ -1061,10 +1057,12 @@ sub _convert($$)
             }
           } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
             my $section_relations;
-            if ($cmdname ne 'node' and $self->{'document'}) {
-              my $sections_list = $self->{'document'}->sections_list();
-              $section_relations
-                = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+            if ($cmdname ne 'node') {
+              my $sections_list = $self->tree_elements_sections_list();
+              if ($sections_list) {
+                $section_relations
+                = $sections_list->[$element->get_attribute('section_number') -1];
+              }
             }
             if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
               my $node_element;
@@ -1091,15 +1089,15 @@ sub _convert($$)
             }
             my $anchor;
             my $node_relations;
-            if ($cmdname eq 'node' and $self->{'document'}
-                and $element->{'extra'}
-                and $element->{'extra'}->{'node_number'}) {
-              my $nodes_list = $self->{'document'}->nodes_list();
-              $node_relations
-                = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-              if (not $node_relations->{'associated_section'}) {
-                $anchor = _output_anchor($element);
-                $$output_ref .= $anchor . "\n" if ($anchor ne '');
+            if ($cmdname eq 'node') {
+              my $node_number = $element->get_attribute('node_number');
+              if ($node_number) {
+                my $nodes_list = $self->tree_elements_nodes_list();
+                $node_relations = $nodes_list->[$node_number -1];
+                if (not $node_relations->{'associated_section'}) {
+                  $anchor = _output_anchor($element);
+                  $$output_ref .= $anchor . "\n" if ($anchor ne '');
+                }
               }
             }
             if (!defined($anchor)) {
@@ -1167,14 +1165,14 @@ sub _convert($$)
                   $section_attribute .= " label=\"$label\"";
                 }
                 my $section_relations;
-                if ($self->{'document'}) {
-                  my $sections_list = $self->{'document'}->sections_list();
+                my $sections_list = $self->tree_elements_sections_list();
+                if ($sections_list) {
                   $section_relations
-              = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
+              = $sections_list->[$opened_element->get_attribute('section_number') -1];
                   if ($section_relations->{'associated_node'}) {
-                    # FIXME DocBook 5 id -> xml:id
+                   # FIXME DocBook 5 id -> xml:id
                     $section_attribute
-      .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
+      .= " id=\"".$section_relations->{'associated_node'}->{'element'}->get_attribute('normalized')."\"";
                   }
                 }
                 my $language = '';
@@ -1254,7 +1252,7 @@ sub _convert($$)
             my $misc_args = $element->get_attribute('misc_args');
             if ($misc_args) {
               # FIXME DocBook 5
-              #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
+              #return "<index type=\"$misc_args->[0]\"></index>\n";
               $$output_ref .= "<index role=\"$misc_args->[0]\">"
                      ."</index>\n";
             } else {
@@ -1771,7 +1769,7 @@ sub _convert($$)
             my @fractions;
             my $multiply;
             my $columnfractions
-              = Texinfo::Common::multitable_columnfractions($element);
+              = Texinfo::Common::element_multitable_columnfractions($element);
             if ($columnfractions) {
               my $misc_args = $columnfractions->get_attribute('misc_args');
               if ($misc_args) {
@@ -1996,12 +1994,9 @@ sub _convert($$)
         } elsif ($cmdname ne 'node'
                  and $Texinfo::Commands::root_commands{$cmdname}) {
           my $section_relations;
-          my $sections_list;
-          if ($self->{'document'}) {
-            $sections_list = $self->{'document'}->sections_list();
-            $section_relations
-              = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-          }
+          my $sections_list = $self->tree_elements_sections_list();
+          $section_relations
+            = $sections_list->[$element->get_attribute('section_number') -1];
           my $docbook_sectioning_element
              = _docbook_section_element($self, $element);
           if ($docbook_sectioning_element eq 'part'
@@ -2021,7 +2016,7 @@ sub _convert($$)
             pop @{$self->{'lang_stack'}};
             my $current = $element;
             my $current_relations
-              = $sections_list->[$current->{'extra'}->{'section_number'} -1];
+              = $sections_list->[$current->get_attribute('section_number') -1];
             while ($current_relations->{'section_directions'}
                    and $current_relations->{'section_directions'}->{'up'}
                    and !$current_relations->{'section_directions'}->{'next'}

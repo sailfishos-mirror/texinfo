@@ -66,6 +66,13 @@ SV *document_sections_list (SV *document_in);
 SV *document_sectioning_root (SV *document_in);
 SV *document_headings_list (SV *document_in);
 
+SV *build_tree_elements_sections_list (DOCUMENT *document);
+SV *build_tree_elements_nodes_list (DOCUMENT *document);
+SV *build_tree_elements_headings_list (DOCUMENT *document);
+
+HV *build_index_entry (const INDEX_ENTRY *index_entry);
+HV *build_single_index_data (const INDEX *index);
+
 SV *document_floats_information (SV *document_in);
 SV *document_internal_references_information (SV *document_in);
 SV *document_labels_list (SV *document_in);

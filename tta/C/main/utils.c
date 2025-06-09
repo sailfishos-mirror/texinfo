@@ -869,6 +869,32 @@ ultimate_index (INDEX *index)
   return index;
 }
 
+/* in Common.pm */
+INDEX_ENTRY_AND_INDEX *
+lookup_index_entry (const INDEX_ENTRY_LOCATION *index_entry_info,
+                    const INDEX_LIST *indices_info)
+{
+  INDEX_ENTRY_AND_INDEX *result = 0;
+  size_t entry_number = index_entry_info->number;
+  const char *entry_index_name = index_entry_info->index_name;
+  INDEX *index_info;
+
+  index_info = indices_info_index_by_name (indices_info,
+                                           entry_index_name);
+  if (!index_info)
+    return 0;
+
+  result = (INDEX_ENTRY_AND_INDEX *) malloc (sizeof (INDEX_ENTRY_AND_INDEX));
+  result->index = index_info;
+  result->entry_number = entry_number;
+  result->index_entry = 0;
+  if (index_info->entries_number && entry_number <= index_info->entries_number)
+    {
+      result->index_entry = &index_info->index_entries[entry_number -1];
+    }
+  return result;
+}
+
 /* only used in conversion, on sorted indices names */
 /* A linear search is probably ok, as the number of
    indices should always be small.  If needed a bsearch

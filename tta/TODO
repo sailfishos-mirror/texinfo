@@ -81,8 +81,12 @@ the memory referenced). There could be an API to relinquish a handle, but also
 automatic relinquishing, for example when reaching a root command @node or
 sectioning command.
 
+This is implemented, but no memory management, new elements are added,
+sometime with contents in other trees.  Probably need to add more information,
+at least mark differently elements added and elements from the tree.
+
 Go through misc_args extra as if going through regular arguments and not
-as if it was an attribute.
+as if it was an attribute?
 
 Treat comments in additional info as tree elements, not as attributes?  This
 cannot be done with the current codes, as these codes expect processing these
@@ -100,23 +104,21 @@ for that.
 All the Document interfaces lead to rebuilding the tree, and wiping out
 the handles for access through the TreeElement interface.  It works
 because the XS code also process the rebuilt tree, as would perl do.
-Another API for access to node, section, heading structure information
-is needed. Also probably targets API, indices API. What about lists? Also API
-for output units.
+Another interface for access to node, section, heading relations information
+is needed [done]. Also probably targets API, indices API. Also API
+for output units, for formats using output units.
 
-Part of the API:
+It could be relevant to have true API for accessing node, section, heading
+relations C data directly through functions.  Also maybe for targets, indices,
+output units.
+
+Part of the API not in TreeElements but in Converter:
+ new_tree_element
+ get_tree_element_index_entry
  get_global_unique_tree_element
-
-my $index_entry_info = $element->get_attribute('index_entry');
-Need an interface for
-my ($index_entry, $index_info)
-     = Texinfo::Common::lookup_index_entry($index_entry_info,
-                                           $indices_information);
-in order to be able to find the element in
-$index_entry->{'entry_element'}
-either because a handle has been added, or through another interface
-centered on the $index_entry.
-
+ tree_elements_sections_list
+ tree_elements_nodes_list
+ tree_elements_headings_list
 
 TODO:
 #element_collect_subentries
@@ -135,6 +137,8 @@ TODO:
 # Texinfo::Convert::Utils::find_element_authors
 # Texinfo::Common::element_associated_processing_encoding  only with TreeElement
 # Texinfo::Common::element_is_inline
+# Texinfo::Common::multitable_columnfractions
+#table_item_content_tree
 #txt_image_text   only with TreeElement
  Texinfo::Common::debug_print_element
 # Texinfo::Common::is_content_empty
@@ -143,22 +147,16 @@ TODO:
         conf and global_information are accessed in C
   otherwise need to add modification or tree with addition or elements:
          push @{$verbatiminclude->{'contents'}},
+       check if add_to_element_contents is adequate
+
+No extra/info taken into account in new_element_from_sv.
+Some are already set argument, begin and end and code.
+
+cdt/gdt return a tree already built, calling with no_store = 1:
+my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
  cdt => need to have all the substituted_strings elements findable
-        override Texinfo::TreeElement::new?  => need to be able to
-           setup a C element based on a Perl hash + store this element
-           for an unknown time (as it is not known in advance when the
-           Perl element with be destroyed).
  + cdt/gdt return should be findable too, possibly through
    cdt/gdt being overriden
-
-[ xml_accents one option is to override xml_accents
-for accents formatting, going through a stack of commands, obtained from
-find_innermost_accent_contents, two options
-* return a stack object with an API to access elements in it (using
-    the same functions as existing C functions)
-* populate the stack with elements handlers;  note that this is
-  more complicated because there is also a new element constructed
-  dynamically for the innermost accent argument]
 
 Initialization:
  from a tree

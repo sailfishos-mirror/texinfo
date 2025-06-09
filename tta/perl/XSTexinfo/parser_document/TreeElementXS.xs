@@ -30,7 +30,9 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
-/* get_cmd_global_uniq_command */
+#include "tree.h"
+#include "extra.h"
+/* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
@@ -96,6 +98,98 @@ get_global_unique_tree_element (SV *converter_in, cmdname)
     OUTPUT:
         RETVAL
 
+void
+get_tree_element_index_entry (SV *, SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+        SV *index_entry_sv = 0;
+        SV *index_info_sv = 0;
+     PPCODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            const INDEX_ENTRY_LOCATION *index_entry_info
+                        = lookup_extra_index_entry (element,
+                                                    AI_key_index_entry);
+
+            if (index_entry_info)
+              {
+                INDEX_ENTRY_AND_INDEX *idx_info
+                       = lookup_index_entry (index_entry_info,
+                                             &document->indices_info);
+                if (idx_info->index_entry)
+                  {
+                    const INDEX_ENTRY *index_entry = idx_info->index_entry;
+                    HV *entry_hv = build_index_entry (index_entry);
+                    HV *index_info_hv
+                     = build_single_index_data (idx_info->index);
+                    index_entry_sv = newRV_noinc ((SV *)entry_hv);
+                /* TODO in general the caller only need very few
+                   information, like in_code only, this could be modified */
+                   index_info_sv = newRV_noinc ((SV *)index_info_hv);
+
+                    register_element_handle_in_sv (index_entry->entry_element,
+                                                   document);
+                    if (index_entry->entry_associated_element)
+                      register_element_handle_in_sv (
+                                index_entry->entry_associated_element,
+                                                     document);
+                  }
+                free (idx_info);
+              }
+          }
+
+        if (!index_entry_sv)
+          {
+            index_entry_sv = newSV (0);
+            index_info_sv = newSV (0);
+          }
+
+        EXTEND(SP, 2);
+        PUSHs(sv_2mortal(index_entry_sv));
+        PUSHs(sv_2mortal(index_info_sv));
+
+
+SV *
+tree_elements_sections_list (SV *converter_in)
+      PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_in, 0);
+        if (self && self->document)
+          RETVAL = build_tree_elements_sections_list (self->document);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+tree_elements_nodes_list (SV *converter_in)
+      PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_in, 0);
+        if (self && self->document)
+          RETVAL = build_tree_elements_nodes_list (self->document);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+tree_elements_headings_list (SV *converter_in)
+      PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_in, 0);
+        if (self && self->document)
+          RETVAL = build_tree_elements_headings_list (self->document);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 SV *
 new (SV *element_hash)
@@ -461,4 +555,39 @@ get_attribute (SV *element_sv, attribute)
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+void
+add_to_element_contents (SV *parent_element_sv, SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (parent_element_sv, 0);
+        if (document)
+          {
+            ELEMENT *parent_element
+              = get_sv_element_element (parent_element_sv, document);
+            ELEMENT *element = get_sv_element_element (element_sv, document);
+            add_to_element_contents (parent_element, element);
+          }
+        else
+          {
+            const char *key = "contents";
+            HV *parent_element_hv = (HV *) SvRV (parent_element_sv);
+            HV *element_hv = (HV *) SvRV (element_sv);
+            SV **sv = hv_fetch (parent_element_hv, key, strlen(key), 0);
+            AV *contents_av;
+            if (sv && SvOK (*sv))
+              contents_av = (AV *) SvRV (*sv);
+            else
+              {
+                contents_av = newAV ();
+                hv_store (parent_element_hv, key, strlen(key),
+                          newRV_noinc ((SV *)contents_av), 0);
+              }
+
+            av_push (contents_av, SvREFHVCNT_inc (element_sv));
+
+            hv_store (element_hv, "parent", strlen ("parent"),
+                      newSVsv (element_sv), 0);
+          }
 

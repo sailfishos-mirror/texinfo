@@ -864,6 +864,24 @@ sub multitable_columnfractions($)
   return $columnfractions;
 }
 
+# same as above, but for the TreeElement interface
+sub element_multitable_columnfractions($)
+{
+  my $multitable = shift;
+
+  my $arguments_line = $multitable->get_child(0);
+  my $block_line_arg = $arguments_line->get_child(0);
+  my $columnfractions;
+  if ($block_line_arg->children_number()
+      and $block_line_arg->get_child(0)->cmdname()
+      and $block_line_arg->get_child(0)->cmdname()
+                                              eq 'columnfractions') {
+    $columnfractions = $block_line_arg->get_child(0);
+  }
+
+  return $columnfractions;
+}
+
 # there is a command as argument for a block command (@itemize or
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
@@ -952,6 +970,24 @@ sub item_line_block_line_argument_command($)
 
   if ($arg) {
     my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
+    # $Texinfo::Commands::brace_commands{} is undef
+    # for definfoenclose'd commands
+    if ($brace_category and $brace_category eq 'noarg') {
+      $arg = undef;
+    }
+  }
+  return $arg;
+}
+
+# same as above, but with TreeElement interface
+sub element_item_line_block_line_argument_command($)
+{
+  my $block_line_arg = shift;
+
+  my $arg = element_block_line_argument_command($block_line_arg);
+
+  if ($arg) {
+    my $brace_category = $Texinfo::Commands::brace_commands{$arg->cmdname()};
     # $Texinfo::Commands::brace_commands{} is undef
     # for definfoenclose'd commands
     if ($brace_category and $brace_category eq 'noarg') {

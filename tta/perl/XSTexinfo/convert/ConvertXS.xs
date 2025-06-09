@@ -703,10 +703,18 @@ SV *
 text_convert_tree (SV *options_in, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
+        const ELEMENT *element = 0;
     CODE:
-        /* The caller checks that there is a descriptor */
-        document = get_sv_tree_document (tree_in, "text_convert_tree");
+        /* The caller checks that there is an element or a tree descriptor */
+        document = get_sv_element_document (tree_in, 0);
         if (document)
+          element = get_sv_element_element (tree_in, document);
+        else
+          {
+            document = get_sv_tree_document (tree_in, "text_convert_tree");
+            element = document->tree;
+          }
+        if (element)
           {
             char *result;
             TEXT_OPTIONS *text_options;
@@ -718,7 +726,7 @@ text_convert_tree (SV *options_in, SV *tree_in)
 
             text_options->document = document;
 
-            result = convert_to_text (document->tree, text_options);
+            result = convert_to_text (element, text_options);
 
             /* in case we were called from a text converter, pass the
                error messages.  If not called from a Perl converter they

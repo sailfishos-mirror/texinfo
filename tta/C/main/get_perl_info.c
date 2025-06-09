@@ -439,6 +439,7 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
   SV **type_sv;
   SV **cmdname_sv;
   SV **contents_sv;
+  SV **source_info_sv;
   enum element_type e_type = ET_NONE;
   enum command_id cmd = CM_NONE;
   const char *cmdname = 0;
@@ -477,13 +478,18 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
           cmdname = 0;
         }
     }
+
   if (cmd)
     e = new_command_element (e_type, cmd);
   else
     {
-      e = new_element (e_type);
       if (cmdname)
-        e->e.c->string_info[sit_command_name] = strdup (cmdname);
+        {
+          e = new_command_element (e_type, cmd);
+          e->e.c->string_info[sit_command_name] = strdup (cmdname);
+        }
+      else
+        e = new_element (e_type);
     }
 
   FETCH(contents)
@@ -521,6 +527,42 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
             }
         }
     }
+
+#define FETCHSOURCE(key) key##_sv = hv_fetch (source_info_hv, #key, strlen (#key), 0);
+  FETCH(source_info);
+  if (source_info_sv)
+    {
+      /* similar to get_source_info, but the memory is managed differently
+         as here the information is directly added to the element */
+      HV *source_info_hv = (HV *) SvRV (*source_info_sv);
+      SV **macro_sv;
+      SV **file_name_sv;
+      SV **line_nr_sv;
+
+      FETCHSOURCE(macro)
+
+      if (macro_sv)
+        {
+          const char *macro = SvPVutf8_nolen (*macro_sv);
+          e->e.c->source_info.macro
+            = add_string (macro, converter->document->small_strings);
+        }
+
+      FETCHSOURCE(file_name)
+
+      if (file_name_sv && SvOK (*file_name_sv))
+        {
+          const char *file_name = SvPVbyte_nolen (*file_name_sv);
+          e->e.c->source_info.file_name
+            = add_string (file_name, converter->document->small_strings);
+        }
+
+      FETCHSOURCE(line_nr)
+
+      if (line_nr_sv)
+        e->e.c->source_info.line_nr = SvIV (*line_nr_sv);
+    }
+#undef FETCHSOURCE
 
   return e;
 }

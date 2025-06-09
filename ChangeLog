@@ -1,3 +1,58 @@
+2025-06-09  Patrice Dumas  <pertusus@free.fr>
+
+	Complete the XS interface for TreeElement for ReadDocbook
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): use
+	element_xml_accents.
+
+	* tta/perl/Texinfo/Convert/Text.pm (convert_to_text, convert)
+	(output), tta/perl/XSTexinfo/convert/ConvertXS.xs (text_convert_tree):
+	use XS if either tree_document_descriptor or
+	element_document_descriptor is present.
+
+	* tta/C/main/get_perl_info.c (new_element_from_sv): fix
+	definfoenclose'd command creation.  Add source_info.
+
+	* tta/C/main/utils.c (lookup_index_entry): move lookup_index_entry
+	from structuring_transfo/transformations.c to utils.c.
+
+	* tta/perl/Texinfo/TreeElementNonXS.pm (add_to_element_contents),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(add_to_element_contents): add.
+
+	* tta/perl/Texinfo/Common.pm (element_multitable_columnfractions)
+	(element_item_line_block_line_argument_command)
+	(element_block_item_line_command, element_table_item_content_tree),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): add duplicate of
+	functions that use the TreeElement interface.  Use
+	element_multitable_columnfractions and element_table_item_content_tree
+	in ReadDocBook.pm.
+
+	* tta/C/main/build_perl_info.c (build_tree_elements_relations_lists)
+	(build_tree_elements_sections_list, build_tree_elements_nodes_list)
+	(build_tree_elements_headings_list),
+	tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(tree_elements_sections_list, tree_elements_nodes_list)
+	(tree_elements_headings_list), tta/perl/Texinfo/Convert/ReadDocBook.pm
+	(_docbook_section_element, _convert),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(tree_elements_sections_list, tree_elements_nodes_list)
+	(tree_elements_headings_list): add an interface for sections, nodes
+	and headings relations lists that do not require rebuilding the tree.
+	Register all the elements that could be accessed in Perl through the
+	relations.
+
+	* tta/C/main/build_perl_info.c (build_index_entry)
+	(build_single_index_data): split build_index_entry out of
+	build_single_index_data.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(get_tree_element_index_entry),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_index_entry),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(get_tree_element_index_entry): add an interface to access a tree
+	element index entry directly.
+
 2025-06-08  Patrice Dumas  <pertusus@free.fr>
 
 	Turn on and enhance the XS interface for TreeElement for ReadDocbook

@@ -1460,6 +1460,170 @@ build_heading_relations_list (const HEADING_RELATIONS_LIST *list)
 
 #undef STORE_RELS_INFO_ELEMENT
 
+/* to be used with TreeElements interface.  Build all the lists together
+   as they refer to each other in Perl code.  Alternatively an interface
+   with accessors could be set. */
+static void
+build_tree_elements_relations_lists (DOCUMENT *document)
+{
+  dTHX;
+
+  if (document->modified_information & F_DOCM_sections_list)
+    {
+      const char *key = "sections_list";
+      const SECTION_RELATIONS_LIST *list = &document->sections_list;
+      AV *av_list;
+      size_t i;
+      SV *result_sv;
+
+      for (i = 0; i < list->number; i++)
+        {
+          /* cast to drop const */
+          register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
+                                         document);
+        }
+
+      av_list = build_section_relations_list (list);
+      result_sv = newRV_inc ((SV *) av_list);
+      hv_store (document->hv, key, strlen (key), result_sv, 0);
+
+      document->modified_information &= ~F_DOCM_sections_list;
+    }
+
+  if (document->modified_information & F_DOCM_nodes_list)
+    {
+      const char *key = "nodes_list";
+      const NODE_RELATIONS_LIST *list = &document->nodes_list;
+      AV *av_list;
+      size_t i;
+      SV *result_sv;
+
+      for (i = 0; i < list->number; i++)
+        {
+          /* cast to drop const */
+          NODE_RELATIONS *node_relation = list->list[i];
+          register_element_handle_in_sv ((ELEMENT *)node_relation->element,
+                                         document);
+          /* this is probably unneeded, as all the headings and sections
+             elements should be registered as part of their lists */
+          if (node_relation->associated_title_command)
+            register_element_handle_in_sv (
+                      (ELEMENT *)node_relation->associated_title_command,
+                                           document);
+          if (node_relation->node_description)
+            register_element_handle_in_sv (
+                      (ELEMENT *)node_relation->node_description,
+                                           document);
+          if (node_relation->node_long_description)
+            register_element_handle_in_sv (
+                      (ELEMENT *)node_relation->node_long_description,
+                                           document);
+          if (node_relation->menus)
+            {
+              size_t j;
+              CONST_ELEMENT_LIST *menus = node_relation->menus;
+              for (j = 0; j < menus->number; j++)
+                register_element_handle_in_sv ((ELEMENT *)menus->list[j],
+                                               document);
+            }
+        }
+
+      av_list = build_node_relations_list (list);
+      result_sv = newRV_inc ((SV *) av_list);
+      hv_store (document->hv, key, strlen (key), result_sv, 0);
+
+      document->modified_information &= ~F_DOCM_nodes_list;
+    }
+
+  if (document->modified_information & F_DOCM_headings_list)
+    {
+      const char *key = "headings_list";
+      const HEADING_RELATIONS_LIST *list = &document->headings_list;
+      AV *av_list;
+      size_t i;
+      SV *result_sv;
+
+      for (i = 0; i < list->number; i++)
+        {
+          /* cast to drop const */
+          register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
+                                         document);
+        }
+
+      av_list = build_heading_relations_list (list);
+      result_sv = newRV_inc ((SV *) av_list);
+      hv_store (document->hv, key, strlen (key), result_sv, 0);
+
+      document->modified_information &= ~F_DOCM_headings_list;
+    }
+}
+
+/* for use with the TreeElement interface */
+SV *
+build_tree_elements_sections_list (DOCUMENT *document)
+{
+  const char *key = "sections_list";
+  SV **relations_list_sv;
+
+  dTHX;
+
+  build_tree_elements_relations_lists (document);
+
+  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
+
+  if (relations_list_sv)
+    {
+      SV *result_sv = newSVsv (*relations_list_sv);
+      return result_sv;
+    }
+  else
+    return newSV (0);
+}
+
+/* for use with the TreeElement interface */
+SV *
+build_tree_elements_nodes_list (DOCUMENT *document)
+{
+  const char *key = "nodes_list";
+  SV **relations_list_sv;
+
+  dTHX;
+
+  build_tree_elements_relations_lists (document);
+
+  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
+
+  if (relations_list_sv)
+    {
+      SV *result_sv = newSVsv (*relations_list_sv);
+      return result_sv;
+    }
+  else
+    return newSV (0);
+}
+
+/* for use with the TreeElement interface */
+SV *
+build_tree_elements_headings_list (DOCUMENT *document)
+{
+  const char *key = "headings_list";
+  SV **relations_list_sv;
+
+  dTHX;
+
+  build_tree_elements_relations_lists (document);
+
+  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
+
+  if (relations_list_sv)
+    {
+      SV *result_sv = newSVsv (*relations_list_sv);
+      return result_sv;
+    }
+  else
+    return newSV (0);
+}
+
 /* currently unused */
 AV *
 build_integer_stack (const INTEGER_STACK *integer_stack)
@@ -1847,9 +2011,32 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
   return float_hash;
 }
 
+#define STORE2(key, value) hv_store (entry_hv, key, strlen (key), value, 0)
+HV *
+build_index_entry (const INDEX_ENTRY *index_entry)
+{
+  HV *entry_hv;
+
+  dTHX;
+
+  entry_hv = newHV ();
+
+  STORE2("index_name", newSVpv_utf8 (index_entry->index_name, 0));
+  STORE2("entry_element",
+         newSVsv ((SV *)index_entry->entry_element->sv));
+  if (index_entry->entry_associated_element)
+    STORE2("entry_associated_element",
+           newSVsv ((SV *)index_entry->entry_associated_element->sv));
+  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
+  STORE2("entry_number", newSViv ((IV) index_entry->number));
+
+  return entry_hv;
+}
+#undef STORE2
+
 /* returns a hash for a single entry in $self->{'index_names'}, containing
    information about a single index. */
-static HV *
+HV *
 build_single_index_data (const INDEX *index)
 {
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
@@ -1857,7 +2044,6 @@ build_single_index_data (const INDEX *index)
   HV *hv;
   AV *entries;
   size_t j;
-  size_t entry_number;
 
   dTHX;
 
@@ -1878,29 +2064,11 @@ build_single_index_data (const INDEX *index)
       STORE("index_entries", newRV_noinc ((SV *) entries));
 #undef STORE
 
-      entry_number = 1;
       for (j = 0; j < index->entries_number; j++)
         {
-#define STORE2(key, value) hv_store (entry, key, strlen (key), value, 0)
-          HV *entry;
-          const INDEX_ENTRY *e;
+          HV *entry_hv = build_index_entry (&index->index_entries[j]);
 
-          e = &index->index_entries[j];
-          entry = newHV ();
-
-          STORE2("index_name", newSVpv_utf8 (index->name, 0));
-          STORE2("entry_element",
-                 newSVsv ((SV *)e->entry_element->sv));
-          if (e->entry_associated_element)
-            STORE2("entry_associated_element",
-                   newSVsv ((SV *)e->entry_associated_element->sv));
-          /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
-          STORE2("entry_number", newSViv ((IV) entry_number));
-
-          av_store (entries, j, newRV_noinc ((SV *)entry));
-
-          entry_number++;
-#undef STORE2
+          av_store (entries, j, newRV_noinc ((SV *)entry_hv));
         }
     }
   return hv;
