@@ -94,6 +94,7 @@ dist_modules_DATA = \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/Reader.pm \
+ Texinfo/ReaderNonXS.pm \
  Texinfo/Report.pm \
  Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \

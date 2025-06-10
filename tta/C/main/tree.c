@@ -333,6 +333,19 @@ reallocate_list_for (size_t n, ELEMENT_LIST *list)
     }
 }
 
+/* Make sure there is space for at least N more elements. */
+static void
+reallocate_const_element_list_for (size_t n, CONST_ELEMENT_LIST *list)
+{
+  if (list->number + n >= list->space)
+    {
+      list->space += n + 1;
+      list->list = realloc (list->list, list->space * sizeof (const ELEMENT *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
+}
+
 void
 add_to_const_element_list (CONST_ELEMENT_LIST *list, const ELEMENT *e)
 {
@@ -408,6 +421,28 @@ insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
   memmove (&to->list[where + num],
            &to->list[where],
            (to->number - where) * sizeof (ELEMENT *));
+  memmove (&to->list[where],
+           &from->list[start],
+           num * sizeof (ELEMENT *));
+
+  to->number += num;
+}
+
+/* Insert elements to TO at position WHERE from FROM from START inclusive
+   to END exclusive. */
+void
+insert_list_slice_into_const_list (CONST_ELEMENT_LIST *to, size_t where,
+                             const ELEMENT_LIST *from, size_t start, size_t end)
+{
+  /* NOTE there could be theoretically an overflow if
+     list->number + num > SIZE_MAX.  The numbers are big, this is unlikely
+     to happen */
+  size_t num = end - start;
+  reallocate_const_element_list_for (num, to);
+
+  memmove (&to->list[where + num],
+           &to->list[where],
+           (to->number - where) * sizeof (const ELEMENT *));
   memmove (&to->list[where],
            &from->list[start],
            num * sizeof (ELEMENT *));

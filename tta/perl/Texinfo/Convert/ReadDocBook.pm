@@ -49,7 +49,7 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
-use Texinfo::Convert::Plaintext;
+use Texinfo::Convert::DocBook;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
@@ -383,15 +383,35 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  if (scalar(@{$self->{'lang_stack'}}) == 0) {
-    push @{$self->{'lang_stack'}}, '';
-  }
-
   if (!defined($root)) {
     confess("ReadDocbook::convert_tree: undef root\n");
   }
 
+  if (Texinfo::XSLoader::XS_structuring_enabled()
+      and !$root->{'element_document_descriptor'}) {
+    # This happens with cdt, with parse_texi_line called with nostore.
+    # NOTE processing of Perl data from built tree is needed with the XS
+    # Reader as there is no code that process the Perl data if the C element
+    # is not found.  For TreeElements, XS code do the Perl part.
+    # TODO This is quite inefficient to
+    # redo a converter each time, timing shows that conversion_initialization
+    # called in converter() takes a lot of time.
+    my $converter = Texinfo::Convert::DocBook->converter();
+    $converter->conversion_initialization();
+    my $result = $converter->convert_tree($root);
+    $converter->conversion_finalization();
+    return $result;
+  }
+
+  if (scalar(@{$self->{'lang_stack'}}) == 0) {
+    push @{$self->{'lang_stack'}}, '';
+  }
+
   my $reader = Texinfo::Reader::new($root);
+
+  if (!defined($reader)) {
+    confess("ReadDocbook::convert_tree: undef reader\n");
+  }
 
   return _convert($self, $reader);
 }
@@ -863,8 +883,8 @@ sub _convert($$)
   #print STDERR " ---- C\n";
 
   while ($next = $reader->read()) {
-    my $category = $next->category();
-    my $element = $next->element();
+    my $category = $next->{'category'};
+    my $element = $next->{'element'};
 
     my $e_type = $element->type();
 

@@ -107,22 +107,33 @@ build_tree (SV *tree_in, ...)
         if (items > 1 && SvOK(ST(1)))
           no_store = SvIV (ST(1));
 
-        document = get_sv_tree_document (tree_in, "build_tree");
+        document = get_sv_element_document (tree_in, 0);
         if (document)
           {
-            SV *document_sv = build_document (document, no_store);
-            if (!no_store)
+            ELEMENT *element
+              = get_sv_element_element (tree_in, document);
+            result_sv = build_texinfo_tree (element, 0);
+            result_sv = SvREFHVCNT_inc ((SV *) result_sv);
+          }
+        else
+          {
+            document = get_sv_tree_document (tree_in, "build_tree");
+            if (document)
               {
-                if (document->tree)
-                  result_sv = SvREFHVCNT_inc ((SV *) document->tree->sv);
-              }
-            else
-              { /* no more document->tree, get from Perl data */
-                HV *document_hv = (HV *) SvRV (document_sv);
-                SV **tree_sv = hv_fetch (document_hv, "tree",
-                                         strlen("tree"), 0);
-                if (tree_sv && SvOK (*tree_sv))
-                  result_sv = SvREFCNT_inc (*tree_sv);
+                SV *document_sv = build_document (document, no_store);
+                if (!no_store)
+                  {
+                    if (document->tree)
+                      result_sv = SvREFHVCNT_inc ((SV *) document->tree->sv);
+                  }
+                else
+                  { /* no more document->tree, get from Perl data */
+                    HV *document_hv = (HV *) SvRV (document_sv);
+                    SV **tree_sv = hv_fetch (document_hv, "tree",
+                                             strlen("tree"), 0);
+                    if (tree_sv && SvOK (*tree_sv))
+                      result_sv = SvREFCNT_inc (*tree_sv);
+                  }
               }
           }
 

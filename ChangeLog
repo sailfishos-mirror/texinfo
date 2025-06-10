@@ -1,3 +1,50 @@
+2025-06-10  Patrice Dumas  <pertusus@free.fr>
+
+	Texinfo tree reader in C and XS interface
+
+	* tta/C/main/element_types.txt, tta/C/main/types_data.h
+	(TF_ignorable_text): add ignorable_text type flag.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/TestReader.pm (_convert),
+	tta/perl/Texinfo/Reade.pm (_end_element, read, skip_children)
+	(reader_collect_commands_list): remove the Texinfo::ReaderToken
+	class, instead use hash keys.
+
+	* tta/C/main/tree.c (reallocate_const_element_list_for)
+	(insert_list_slice_into_const_list): add.
+
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/C/main/reader.c (txi_reader_new, push_reader_context)
+	(pop_reader_context, top_reader_context, end_element)
+	(txi_reader_read, txi_reader_skip_children, free_reader)
+	(destroy_reader, txi_reader_collect_commands_list),
+	tta/C/main/tree_types.h (TXI_READER_TOKEN_CAT_LST, READER)
+	(enum reader_token_category, READER_CONTEXT, READER_TOKEN): implement
+	the Texinfo tree reader in C.
+
+	* tta/C/main/reader.c (reader_list, retrieve_reader)
+	(register_reader), tta/perl/XSTexinfo/parser_document/ReaderXS.xs
+	(new, read, skip_children, reader_collect_commands_list),
+	tta/C/main/get_perl_info.c (get_sv_reader_reader),
+	tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES, ReaderXS_la_*),
+	tta/perl/Texinfo/ReaderNonXS.pm, tta/perl/Texinfo/Reader.pm (BEGIN)
+	(TXI_ELEMENT_*, %token_category_name): add XS interface for the C
+	Texinfo tree reader.  Rename Texinfo/Reader.pm as
+	Texinfo/ReaderNonXS.pm and put constants and XS loading in
+	Texinfo/Reader.pm.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (convert_tree): if the tree
+	is built to Perl, use a Texinfo::Convert::DocBook converter to convert
+	the tree.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (build_tree): build
+	an element tree having a handle for TreeElements and Reader.
+
+	* tta/perl/Texinfo/Translations.pm (_substitute_element_array):
+	build the tree to Perl if there is an element_document_descriptor.
+
 2025-06-09  Patrice Dumas  <pertusus@free.fr>
 
 	Do not use the Docbook converter based on reader, it is slow

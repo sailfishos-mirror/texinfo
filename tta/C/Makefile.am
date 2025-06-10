@@ -106,6 +106,8 @@ C_libtexinfo_sources = \
 		      main/floats.h \
 		      main/manipulate_tree.c \
 		      main/manipulate_tree.h \
+		      main/reader.c \
+		      main/reader.h \
 		      main/node_name_normalization.c \
 		      main/node_name_normalization.h \
 		      main/command_stack.c \

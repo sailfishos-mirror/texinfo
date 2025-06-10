@@ -18,6 +18,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <sys/types.h>
 
 #include "command_ids.h"
 #include "element_types.h"
@@ -547,5 +548,35 @@ typedef struct C_HASHMAP {
 
   struct BUCKET_ARENA *arena;
 } C_HASHMAP;
+
+#define TXI_READER_TOKEN_CAT_LST \
+  trt_cat(START) \
+  trt_cat(END) \
+  trt_cat(TEXT) \
+  trt_cat(IGNORABLE_TEXT) \
+  trt_cat(EMPTY)
+
+enum reader_token_category {
+  #define trt_cat(name) TXI_ELEMENT_ ## name,
+   TXI_READER_TOKEN_CAT_LST
+  #undef trt_cat
+};
+
+typedef struct READER_CONTEXT {
+    ssize_t index;
+    CONST_ELEMENT_LIST sequence;
+} READER_CONTEXT;
+
+typedef struct READER_TOKEN {
+    const ELEMENT *element;
+    enum reader_token_category category;
+} READER_TOKEN;
+
+typedef struct READER {
+    size_t top;
+    size_t space;
+    READER_CONTEXT *stack;
+    READER_TOKEN token;
+} READER;
 
 #endif

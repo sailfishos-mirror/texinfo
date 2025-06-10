@@ -68,10 +68,10 @@ after_menu_description_line               text
 space_at_end_menu_node                    text
 empty_line                                text,leading_space
 raw                                       text
-ignorable_spaces_after_command            text,leading_space
-ignorable_spaces_before_command           text,trailing_space
-spaces_at_end                             text
-spaces_after_close_brace                  text,leading_space
+ignorable_spaces_after_command            text,leading_space,ignorable_text
+ignorable_spaces_before_command           text,trailing_space,ignorable_text
+spaces_at_end                             text,ignorable_text
+spaces_after_close_brace                  text,leading_space,ignorable_text
 spaces_before_paragraph                   text
 text_after_end                            text
 text_before_beginning                     text
@@ -80,9 +80,9 @@ normal_text                               text
 # Could be part of informative command arguments, for added separators...
 other_text                                text
 # in info text elements of the same name
-spaces_after_argument                     text
-spaces_after_cmd_before_arg               text
-spaces_before_argument                    text
+spaces_after_argument                     text,ignorable_text
+spaces_after_cmd_before_arg               text,ignorable_text
+spaces_before_argument                    text,ignorable_text
 
 # Containers
 document_root

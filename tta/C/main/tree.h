@@ -34,6 +34,8 @@ void insert_slice_into_contents (ELEMENT *to, size_t idx, const ELEMENT *from,
 void insert_list_slice_into_contents (ELEMENT *to, size_t idx,
                                       const ELEMENT_LIST *from,
                                       size_t start, size_t end);
+void insert_list_slice_into_const_list (CONST_ELEMENT_LIST *to, size_t where,
+                          const ELEMENT_LIST *from, size_t start, size_t end);
 void list_set_empty_contents (ELEMENT_LIST *e_list, size_t n);
 ELEMENT *remove_from_element_list (ELEMENT_LIST *list, size_t where);
 const ELEMENT *remove_from_const_element_list (CONST_ELEMENT_LIST *list,

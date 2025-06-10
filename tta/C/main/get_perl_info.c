@@ -47,6 +47,7 @@
 #include "parser_conf.h"
 #include "document.h"
 #include "create_buttons.h"
+#include "reader.h"
 #include "output_unit.h"
 #include "get_perl_info.h"
 
@@ -309,6 +310,42 @@ get_sv_output_units (const DOCUMENT *document,
                                              output_units_descriptor);
     }
   return output_units;
+}
+
+READER *
+get_sv_reader_reader (SV *sv_in)
+{
+  size_t reader_descriptor;
+  READER *reader = 0;
+  SV** reader_descriptor_sv;
+  HV *hv_in;
+  const char *key = "reader_descriptor";
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+  if (!hv_in)
+    {
+      fprintf (stderr, "ERROR: get_sv_reader_reader: no hash\n");
+      return 0;
+    }
+  reader_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+  if (reader_descriptor_sv && SvOK (*reader_descriptor_sv))
+    {
+      reader_descriptor = (size_t) SvIV (*reader_descriptor_sv);
+      reader = retrieve_reader (reader_descriptor);
+    }
+  else
+    {
+      fprintf (stderr, "ERROR: get_sv_reader_reader: no %s\n", key);
+      return 0;
+    }
+  if (! reader)
+    {
+      fprintf (stderr, "ERROR: get_sv_reader_reader: no reader %zu\n",
+                                                      reader_descriptor);
+    }
+  return reader;
 }
 
 /* retrieve C stored configuration from parser and set it */

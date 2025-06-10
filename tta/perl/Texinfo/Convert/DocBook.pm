@@ -25,6 +25,9 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+#use Data::Dumper;
+use Carp qw(cluck);
+
 use Texinfo::Commands;
 
 use Texinfo::TreeElement;
@@ -41,9 +44,6 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
-use Texinfo::Convert::Plaintext;
-#use Data::Dumper;
-use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
