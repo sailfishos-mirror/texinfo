@@ -895,9 +895,45 @@ build_source_info_hash (const SOURCE_INFO *source_info, HV *hv)
     {
       STORE("macro", newSVpv_utf8 (source_info->macro, 0), HSH_macro);
     }
-#undef STORE
 }
 
+static void
+build_base_element (ELEMENT *e, HV *hv)
+{
+  SV *sv;
+
+  dTHX;
+
+  if (type_data[e->type].flags & TF_text)
+    {
+      if (e->type != ET_normal_text)
+        {
+          sv = newSVpv (type_data[e->type].name, 0);
+          STORE("type", sv, HSH_type);
+        }
+      sv = newSVpv_utf8 (e->e.text->text, e->e.text->end);
+      STORE("text", sv, HSH_text);
+      return;
+    }
+
+  /* non-text elements */
+
+  if (e->type
+      && !(type_data[e->type].flags & TF_c_only))
+    {
+      sv = newSVpv (type_data[e->type].name, 0);
+      STORE("type", sv, HSH_type);
+    }
+
+  if (e->e.c->cmd)
+    {
+      /* Note we could optimize the call to newSVpv here and
+         elsewhere by passing an appropriate second argument. */
+      sv = newSVpv (element_command_name (e), 0);
+      STORE("cmdname", sv, HSH_cmdname);
+    }
+#undef STORE
+}
 
 /* Set E->sv and 'hv' on E's descendants.  e->parent->sv is assumed
    to already exist. */
@@ -973,27 +1009,10 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   if (e->flags & EF_inserted)
     store_info_integer (e, 1, "inserted", &info_hv);
 
+  build_base_element (e, element_hv);
+
   if (type_data[e->type].flags & TF_text)
-    {
-      if (e->type != ET_normal_text)
-        {
-          sv = newSVpv (type_data[e->type].name, 0);
-          hv_store (element_hv, "type", strlen ("type"), sv, HSH_type);
-        }
-      sv = newSVpv_utf8 (e->e.text->text, e->e.text->end);
-      hv_store (element_hv, "text", strlen ("text"), sv, HSH_text);
-      return;
-    }
-
-  /* non-text elements */
-
-  if (e->type
-      && !(type_data[e->type].flags & TF_c_only))
-    {
-      sv = newSVpv (type_data[e->type].name, 0);
-      hv_store (element_hv, "type", strlen ("type"), sv, HSH_type);
-    }
-
+    return;
 
 #define store_flag(flag) \
   if (e->flags & EF_##flag) \
@@ -1019,14 +1038,9 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
 #undef store_flag
 
-  /* process cmd and info_string array */
+  /* process info_string array */
   if (e->e.c->cmd)
     {
-      /* Note we could optimize the call to newSVpv here and
-         elsewhere by passing an appropriate second argument. */
-      sv = newSVpv (element_command_name (e), 0);
-      hv_store (element_hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
-
       store_info_string (e, e->e.c->string_info[sit_alias_of],
                          "alias_of", &info_hv);
 
@@ -2979,7 +2993,10 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
   dTHX;
 
   if (!element->sv)
-    element_hv = new_element_perl_data (element);
+    {
+      element_hv = new_element_perl_data (element);
+      build_base_element (element, element_hv);
+    }
   else
     element_hv = (HV *) SvRV ((SV *)element->sv);
 

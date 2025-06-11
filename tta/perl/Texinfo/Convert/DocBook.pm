@@ -1541,8 +1541,8 @@ sub _convert($$;$)
             # There is no possibility to do something similar in DocBook 5.
             # The best is probably either to forget about the name, or
             # follow <email> by the name in parentheses
-            return "<ulink url=\"mailto:$email_text\">"
-              ._convert($self, $name).'</ulink>';
+            my $link_name = _convert($self, $name);
+            return "<ulink url=\"mailto:$email_text\">$link_name</ulink>";
           } elsif ($email) {
             return "<email>$email_text</email>";
           } elsif ($name) {

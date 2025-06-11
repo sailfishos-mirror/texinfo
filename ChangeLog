@@ -1,3 +1,42 @@
+2025-06-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_overrides),
+	(merge_converter_error_messages_lists_noxs)
+	(merge_converter_error_messages_lists),
+	tta/perl/Texinfo/Convert/Text.pm (convert_to_text),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(merge_converter_error_messages_lists): add an XS override
+	for merge_converter_error_messages_lists.  Add a non XS version of
+	merge_converter_error_messages_lists.  Use the non XS version in
+	Text.pm.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (convert_tree): call
+	Texinfo::DocBook converter with customization variables set, pass
+	formatting state an get back error messages.
+
+	* tta/C/main/build_perl_info.c (build_base_element)
+	(element_to_perl_hash, register_element_handle_in_sv): split
+	build_base_element out of element_to_perl_hash.  Call
+	build_base_element in register_element_handle_in_sv.
+
+	* tta/perl/Texinfo/Common.pm: remove _element_inline_or_block, update
+	_inline_or_block.
+
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/ReadDocBook.pm,
+	tta/perl/Texinfo/Convert/Utils.pm, tta/perl/Texinfo/ReaderNonXS.pm:
+	access type through hash key rather than through function.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): minor code change
+	for email.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): update abbr and
+	acronym conversion code.
+
+	* tta/perl/t/test_utils.pl, tta/perl/texi2any.pl: use ReadDocBook in
+	the default case to test it well.  This could be temporary.
+
 2025-06-10  Patrice Dumas  <pertusus@free.fr>
 
 	Texinfo tree reader in C and XS interface

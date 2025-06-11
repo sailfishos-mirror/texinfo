@@ -856,7 +856,7 @@ my %formats_table = (
   'docbook' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Convert::DocBook'
+             'module' => 'Texinfo::Convert::ReadDocBook'
            },
   'docbookreader' => {
              'move_index_entries_after_items' => 1,

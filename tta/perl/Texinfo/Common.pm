@@ -922,7 +922,7 @@ sub element_block_line_argument_command($)
                  and !$arg->get_child(0)->children_number()))) {
       if (($Texinfo::Commands::brace_commands{$cmdname}
            and !$Texinfo::Commands::accent_commands{$cmdname})
-          or ($arg->type() and $arg->type() eq 'definfoenclose_command')) {
+          or ($arg->{'type'} and $arg->{'type'} eq 'definfoenclose_command')) {
         return $arg;
       }
     }
@@ -1729,7 +1729,7 @@ sub element_is_content_empty($;$)
         next;
       }
     }
-    my $type = $content->type();
+    my $type = $content->{'type'};
     next if ($type and $type eq 'arguments_line');
 
     my $cmdname = $content->cmdname();
@@ -1796,24 +1796,11 @@ foreach my $command (
 sub _inline_or_block($)
 {
   my $current = shift;
-  if ($current->{'type'} and $inline_types{$current->{'type'}}) {
-    return 1;
-  } elsif ($current->{'cmdname'}
-           and exists($not_inline_commands{$current->{'cmdname'}})) {
-    return 0;
-  }
-  return undef;
-}
-
-# same as above, but with TreeElement interface
-sub _element_inline_or_block($)
-{
-  my $current = shift;
-  my $e_type = $current->type();
+  my $e_type = $current->{'type'};
   if ($e_type and $inline_types{$e_type}) {
     return 1;
   } else {
-    my $cmdname = $current->cmdname();
+    my $cmdname = $current->{'cmdname'};
     if ($cmdname and exists($not_inline_commands{$cmdname})) {
       return 0;
     }
@@ -1851,13 +1838,13 @@ sub tree_element_is_inline($;$)
   my $check_current = shift;
 
   if ($check_current) {
-    my $inline_or_block = _element_inline_or_block($current);
+    my $inline_or_block = _inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
   }
 
   while ($current->parent()) {
     $current = $current->parent();
-    my $inline_or_block = _element_inline_or_block($current);
+    my $inline_or_block = _inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
   }
   return 0;

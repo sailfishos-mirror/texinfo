@@ -161,7 +161,6 @@ sub _initialize_text_options_encoding($)
     $text_options->{'enabled_encoding'}
        = $text_options->{'OUTPUT_ENCODING_NAME'};
   }
-
 }
 
 # for a converter inheriting Texinfo::Convert::Converter
@@ -889,7 +888,7 @@ sub convert_to_text($;$)
   my $options = shift;
 
   if (ref($root) ne 'HASH' and ref($root) ne 'Texinfo::TreeElement') {
-  #if (ref($root) ne 'Texinfo::TreeElement') {
+  #if (ref($root) ne 'Texinfo::TreeElement') {#}
     confess "root not a hash";
   }
 
@@ -918,7 +917,7 @@ sub convert_to_text($;$)
   my $result = _convert($options, $root);
 
   if ($options->{'converter'}) {
-    $options->{'converter'}->merge_converter_error_messages_lists($options);
+    $options->{'converter'}->merge_converter_error_messages_lists_noxs($options);
   }
 
   return $result;

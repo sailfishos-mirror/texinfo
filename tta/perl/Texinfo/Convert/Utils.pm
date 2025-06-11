@@ -784,8 +784,8 @@ sub element_find_element_authors_internal($$)
         or exists($Texinfo::Commands::line_commands{$cmdname})) {
       return;
     }
-  } elsif (defined($element->type())
-           and $element->type() eq 'arguments_line') {
+  } elsif (defined($element->{'type'})
+           and $element->{'type'} eq 'arguments_line') {
     return;
   }
   my $contents_nr = $element->children_number();

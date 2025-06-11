@@ -88,7 +88,7 @@ get_global_unique_tree_element (SV *converter_in, cmdname)
                   {
                     register_element_handle_in_sv (element, self->document);
                     result_sv = newSVsv ((SV *)element->sv);
-                 }
+                  }
               }
           }
         if (result_sv)

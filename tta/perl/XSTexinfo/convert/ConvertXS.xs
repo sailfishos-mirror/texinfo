@@ -664,6 +664,19 @@ get_converter_errors (SV *converter_in)
         RETVAL
 
 void
+merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
+      PREINIT:
+        CONVERTER *self = 0;
+        CONVERTER *src = 0;
+      CODE:
+        self = get_sv_converter (dst_in,
+                   "merge_converter_error_messages_lists dst");
+        src = get_sv_converter (src_in,
+                   "merge_converter_error_messages_lists src");
+        merge_error_messages_lists (&self->error_messages,
+                                    &src->error_messages);
+
+void
 reset_converter (SV *converter_in)
       PREINIT:
         CONVERTER *self;
@@ -705,7 +718,7 @@ text_convert_tree (SV *options_in, SV *tree_in)
         DOCUMENT *document = 0;
         const ELEMENT *element = 0;
     CODE:
-        /* The caller checks that there is an element or a tree descriptor */
+        /* The caller checks that there is an element or tree descriptor */
         document = get_sv_element_document (tree_in, 0);
         if (document)
           element = get_sv_element_element (tree_in, document);

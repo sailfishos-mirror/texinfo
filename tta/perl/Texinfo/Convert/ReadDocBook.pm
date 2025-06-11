@@ -396,10 +396,46 @@ sub convert_tree($$)
     # TODO This is quite inefficient to
     # redo a converter each time, timing shows that conversion_initialization
     # called in converter() takes a lot of time.
-    my $converter = Texinfo::Convert::DocBook->converter();
-    $converter->conversion_initialization();
+    my %options;
+    foreach my $option ('ASCII_GLYPH', 'TEST', 'ENABLE_ENCODING',
+                        'DOC_ENCODING_FOR_INPUT_FILE_NAME', 'NUMBER_SECTIONS',
+                        'OPEN_QUOTE_SYMBOL', 'CLOSE_QUOTE_SYMBOL',
+                        'INCLUDE_DIRECTORIES',
+                        'OUTPUT_ENCODING_NAME', 'documentlanguage',
+                        'INPUT_FILE_NAME_ENCODING', 'LOCALE_ENCODING') {
+      my $value = $self->get_conf($option);
+      $options{$option} = $value if (defined($value));
+    }
+    my $converter
+      = Texinfo::Convert::DocBook->converter(\%options);
+    $converter->conversion_initialization($self->{'document'});
+    # NOTE If we want to make it generic, there could be a converter argument
+    # to conversion_initialization.
+    if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]) {
+      push @{$converter->{'document_context'}->[-1]->{'upper_case'}}, 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
+      push @{$converter->{'document_context'}->[-1]->{'monospace'}}, 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'no_break'}->[-1]) {
+      push @{$converter->{'document_context'}->[-1]->{'no_break'}}, 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'inline'}) {
+      $converter->{'document_context'}->{'inline'} = 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'raw'}) {
+      $converter->{'document_context'}->[-1]->{'raw'} = 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
+      $converter->{'document_context'}->[-1]->{'in_preformatted'} = 1;
+    }
+    if ($self->{'document_context'}->[-1]->{'preformatted_stack'}) {
+      push @{$converter->{'document_context'}->[-1]->{'preformatted_stack'}},
+          @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
+    }
     my $result = $converter->convert_tree($root);
     $converter->conversion_finalization();
+    $self->merge_converter_error_messages_lists($converter);
     return $result;
   }
 
@@ -775,7 +811,7 @@ sub _convert_argument_and_end_line($$)
 
   my $line_arg;
   my $first_child = $element->get_child(0);
-  my $first_child_type = $first_child->type();
+  my $first_child_type = $first_child->{'type'};
   if ($first_child_type and $first_child_type eq 'arguments_line') {
     $line_arg = $first_child->get_child(-1);
   } else {
@@ -834,7 +870,7 @@ sub _convert_def_line($$)
     }
     for (my $i = 0; $i < $contents_nr; $i++) {
       my $arg = $first_child->get_child($i);
-      my $type = $arg->type();
+      my $type = $arg->{'type'};
 
       my $content = $self->convert_tree($arg);
       if ($type eq 'spaces' or $type eq 'delimiter') {
@@ -886,7 +922,7 @@ sub _convert($$)
     my $category = $next->{'category'};
     my $element = $next->{'element'};
 
-    my $e_type = $element->type();
+    my $e_type = $element->{'type'};
 
     my $debug_element_nr;
     #if (1) { #}
@@ -1021,8 +1057,8 @@ sub _convert($$)
           } elsif (($cmdname eq 'item'
                     or $cmdname eq 'itemx')
                    and $element->children_number()
-                   and $element->get_child(0)->type()
-                   and $element->get_child(0)->type() eq 'line_arg') {
+                   and $element->get_child(0)->{'type'}
+                   and $element->get_child(0)->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
             $result_text .= _index_entry($self, $element);
@@ -1044,8 +1080,8 @@ sub _convert($$)
             unless (($cmdname eq 'item'
                      or $cmdname eq 'headitem'
                     or $cmdname eq 'tab')
-                    and $element->parent()->type()
-                    and $element->parent()->type() eq 'row') {
+                    and $element->parent()->{'type'}
+                    and $element->parent()->{'type'} eq 'row') {
               warn "BUG: multitable cell command not in a row "
                 .Texinfo::Common::debug_print_element($element, 1);
             }
@@ -1607,8 +1643,9 @@ sub _convert($$)
               # There is no possibility to do something similar in DocBook 5.
               # The best is probably either to forget about the name, or
               # follow <email> by the name in parentheses
-              $$output_ref .= "<ulink url=\"mailto:$email_text\">"
-                .$self->convert_tree($name).'</ulink>';
+              my $link_name = $self->convert_tree($name);
+              $$output_ref
+                .= "<ulink url=\"mailto:$email_text\">$link_name</ulink>";
             } elsif ($email) {
               $$output_ref .= "<email>$email_text</email>";
             } elsif ($name) {
@@ -1655,34 +1692,40 @@ sub _convert($$)
             #    xmlns:xlink="http://www.w3.org/1999/xlink"
             # return "<link xlink:href=\"$url_text\">$replacement</link>";
           } elsif ($cmdname eq 'abbr' or $cmdname eq 'acronym') {
-            my $argument;
-            if ($element->get_child(0)->children_number()) {
-              my $arg_text = $self->convert_tree($element->get_child(0));
-              if ($arg_text ne '') {
-                my $format_element;
-                if ($cmdname eq 'abbr') {
-                  $format_element = 'abbrev';
-                } else {
-                  $format_element = $cmdname;
+            my $args_nr = $element->children_number();
+            if ($args_nr) {
+              my $argument;
+              my $arg_element = $element->get_child(0);
+              if ($arg_element->children_number()) {
+                my $arg_text = $self->convert_tree($arg_element);
+                if ($arg_text ne '') {
+                  my $format_element;
+                  if ($cmdname eq 'abbr') {
+                    $format_element = 'abbrev';
+                  } else {
+                    $format_element = $cmdname;
+                  }
+                  $argument = "<$format_element>$arg_text</$format_element>";
                 }
-                $argument = "<$format_element>$arg_text</$format_element>";
               }
-            }
-            if ($element->children_number() >= 2
-                and $element->get_child(1)->children_number()) {
-              if (defined($argument)) {
-                my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
-                               {'abbr_or_acronym' =>
-                          $self->new_tree_element({'type' => '_converted',
-                                                     'text' => $argument}),
-                                'explanation' =>
-                                    $element->get_child(1)});
-                $$output_ref .= $self->convert_tree($tree);
-              } else {
-                $$output_ref .= $self->convert_tree($element->get_child(1));
+              my $explanation_e;
+              if ($args_nr >= 2) {
+                $explanation_e = $element->get_child(1);
               }
-            } elsif (defined($argument)) {
-              $$output_ref .= $argument;
+              if ($explanation_e and $explanation_e->children_number()) {
+                if (defined($argument)) {
+                  my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
+                                 {'abbr_or_acronym' =>
+                            $self->new_tree_element({'type' => '_converted',
+                                                       'text' => $argument}),
+                                  'explanation' => $explanation_e});
+                  $$output_ref .= $self->convert_tree($tree);
+                } else {
+                  $$output_ref .= $self->convert_tree($explanation_e);
+                }
+              } elsif (defined($argument)) {
+                $$output_ref .= $argument;
+              }
             }
             $reader->skip_children($element);
           } elsif ($cmdname eq 'U') {
@@ -1805,8 +1848,8 @@ sub _convert($$)
                 $multiply = 1;
                 for (my $i = 0; $i < $args_nr; $i++) {
                   my $content = $block_line_arg->get_child($i);
-                  if ($content->type()
-                      and $content->type() eq 'bracketed_arg') {
+                  if ($content->{'type'}
+                      and $content->{'type'} eq 'bracketed_arg') {
                     my $prototype_text = '';
                     if ($content->children_number()) {
                       Texinfo::Convert::Text::set_options_encoding_if_not_ascii(

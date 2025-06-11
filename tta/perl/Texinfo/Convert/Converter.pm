@@ -110,6 +110,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_conf",
   "Texinfo::Convert::Converter::get_converter_errors"
    => "Texinfo::Convert::ConvertXS::get_converter_errors",
+  "Texinfo::Convert::Converter::merge_converter_error_messages_lists"
+   => "Texinfo::Convert::ConvertXS::merge_converter_error_messages_lists",
   "Texinfo::Convert::Converter::converter_line_error"
    => "Texinfo::Convert::ConvertXS::converter_line_error",
   "Texinfo::Convert::Converter::converter_line_warn"
@@ -686,7 +688,7 @@ sub get_converter_errors($)
   return $self->{'error_warning_messages'};
 }
 
-sub merge_converter_error_messages_lists($$)
+sub merge_converter_error_messages_lists_noxs($$)
 {
   my $dst = shift;
   my $src = shift;
@@ -698,6 +700,14 @@ sub merge_converter_error_messages_lists($$)
   push @{$dst->{'error_warning_messages'}},
        @{$src->{'error_warning_messages'}};
   @{$src->{'error_warning_messages'}} = ();
+}
+
+sub merge_converter_error_messages_lists($$)
+{
+  my $dst = shift;
+  my $src = shift;
+
+  merge_converter_error_messages_lists_noxs($dst, $src);
 }
 
 
@@ -1596,7 +1606,7 @@ sub element_format_comment_or_end_line($$)
   my $line_arg;
   my $first_child = $element->get_child(0);
   if ($first_child) {
-    my $first_child_type = $first_child->type();
+    my $first_child_type = $first_child->{'type'};
     if ($first_child_type and $first_child_type eq 'arguments_line') {
       $line_arg = $first_child->get_child(-1);
     } else {
@@ -1870,7 +1880,7 @@ sub element_table_item_content_tree($$)
   my $element = shift;
 
   my $parent = $element->parent();
-  my $parent_type = $parent->type();
+  my $parent_type = $parent->{'type'};
   # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
   # in @table
   if (!$parent_type or $parent_type ne 'table_term') {
@@ -1894,7 +1904,7 @@ sub element_table_item_content_tree($$)
     }
     # command name for the Texinfo::Commands hashes tests
     my $builtin_cmdname;
-    my $type = $command_as_argument->type();
+    my $type = $command_as_argument->{'type'};
     if ($type and $type eq 'definfoenclose_command') {
       $command->{'type'} = $type;
       $command->{'extra'} = {} if (!$command->{'extra'});
