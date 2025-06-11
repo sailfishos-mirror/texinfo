@@ -84,6 +84,7 @@ sectioning command.
 This is implemented, but no memory management, new elements are added,
 sometime with contents in other trees.  Probably need to add more information,
 at least mark differently elements added and elements from the tree.
+Or even put them in different arrays.
 
 Go through misc_args extra as if going through regular arguments and not
 as if it was an attribute?
@@ -96,6 +97,10 @@ that they appear after closing the line container, in which case they may
 be processed as regular elements.  This is not obvious, as in term
 of tree structure they are better in line containers than in commands,
 which should only contain line containers.
+
+Treat info spaces as tree elements not as attributes?  There is a penalty
+in speed for all the formats except TexinfoXML, so it is probably not a
+good idea.
 
 Maybe have verb delimiter being returned by the reader? And also braces of
 types with implicit braces?  Would need to add a specific reader token category

@@ -564,7 +564,7 @@ enum reader_token_category {
 
 typedef struct READER_CONTEXT {
     ssize_t index;
-    CONST_ELEMENT_LIST sequence;
+    ELEMENT_LIST *sequence;
 } READER_CONTEXT;
 
 typedef struct READER_TOKEN {

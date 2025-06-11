@@ -1,4 +1,13 @@
-2025-06-12  Patrice Dumas  <pertusus@free.fr>
+2025-06-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/reader.c (allocate_reader, initialize_reader)
+	(push_reader_context, end_element, txi_reader_read, free_reader),
+	tta/C/main/tree_types.h (READER_CONTEXT),
+	tta/perl/Texinfo/ReaderNonXS.pm (read): reuse the contents for the
+	elements array in the reader context, do no go through the space
+	elements in info in the reader.
+
+2025-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/reader.c (allocate_reader, initialize_reader)
 	(txi_reader_new, txi_register_new_reader),
@@ -7,14 +16,14 @@
 	register_reader by txi_register_new_reader and reuse reusable reader
 	in the function.
 
-2025-06-12  Patrice Dumas  <pertusus@free.fr>
+2025-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/ReadDocBook.pm,
 	tta/perl/Texinfo/Convert/Utils.pm,
 	tta/perl/Texinfo/TreeElementNonXS.pm: call get_children more instead
 	of iterating explicitely.  Other minor changes.
 
-2025-06-12  Patrice Dumas  <pertusus@free.fr>
+2025-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/get_perl_info.c (get_sv_reader_reader),
 	tta/C/main/reader.c (txi_reader_new), tta/C/main/tree_types.h

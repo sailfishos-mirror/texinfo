@@ -48,6 +48,7 @@ static READER *
 allocate_reader (void)
 {
   READER *new_reader = (READER *) malloc (sizeof (READER));
+  ELEMENT_LIST *sequence = new_list();
 
   new_reader->top = 0;
   new_reader->space = 4;
@@ -55,21 +56,23 @@ allocate_reader (void)
     malloc (sizeof (READER_CONTEXT) * new_reader->space);
   memset (new_reader->stack, 0, sizeof (READER_CONTEXT) * new_reader->space);
 
+  new_reader->stack[0].sequence = sequence;
+
   return new_reader;
 }
 
 static void
-initialize_reader (READER *reader, const ELEMENT *tree, DOCUMENT *document)
+initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
 {
   reader->top = 1;
   reader->stack[0].index = -1;
-  add_to_const_element_list (&reader->stack[0].sequence, tree);
+  add_to_element_list (reader->stack[0].sequence, tree);
 
   reader->document = document;
 }
 
 READER *
-txi_reader_new (const ELEMENT *tree, DOCUMENT *document)
+txi_reader_new (ELEMENT *tree, DOCUMENT *document)
 {
   READER *new_reader = allocate_reader();
 
@@ -80,7 +83,7 @@ txi_reader_new (const ELEMENT *tree, DOCUMENT *document)
 
 /* descriptor starts at 1, 0 is an error */
 size_t
-txi_register_new_reader (const ELEMENT *tree, DOCUMENT *document)
+txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   size_t i;
 
@@ -125,7 +128,6 @@ push_reader_context (READER *reader)
 static void
 pop_reader_context (READER *reader)
 {
-  reader->stack[reader->top -1].sequence.number = 0;
   reader->top--;
 }
 
@@ -143,7 +145,10 @@ end_element (READER *reader)
 
   pop_reader_context (reader);
   if (!reader->top)
-    return 0;
+    {
+      reader->stack[0].sequence->number = 0;
+      return 0;
+    }
 
   token = &reader->token;
 
@@ -151,7 +156,7 @@ end_element (READER *reader)
 
   top_context = top_reader_context (reader);
   token->element
-    = top_context->sequence.list[top_context->index];
+    = top_context->sequence->list[top_context->index];
 
   return token;
 }
@@ -167,10 +172,10 @@ txi_reader_read (READER *reader)
 
   top_context->index++;
 
-  if (top_context->index +1 > (ssize_t) top_context->sequence.number)
+  if (top_context->index +1 > (ssize_t) top_context->sequence->number)
     return end_element (reader);
 
-  element = top_context->sequence.list[top_context->index];
+  element = top_context->sequence->list[top_context->index];
 
   token->element = element;
 
@@ -184,7 +189,11 @@ txi_reader_read (READER *reader)
     }
   else
     {
-      if (element->e.c->contents.number
+      if (element->e.c->contents.number)
+        {
+          push_reader_context (reader);
+          top_context = top_reader_context (reader);
+       /*
           || (type_data[element->type].elt_info_number > eit_spaces_after_cmd_before_arg
               && element->elt_info[eit_spaces_after_cmd_before_arg])
           || (type_data[element->type].elt_info_number > eit_spaces_before_argument
@@ -212,6 +221,8 @@ txi_reader_read (READER *reader)
               && element->elt_info[eit_spaces_after_argument])
             add_to_const_element_list (array,
                  element->elt_info[eit_spaces_after_argument]);
+        */
+          top_context->sequence = &element->e.c->contents;
           token->category = TXI_ELEMENT_START;
         }
       else
@@ -247,12 +258,7 @@ txi_reader_skip_children (READER *reader, const ELEMENT *element)
 void
 free_reader (READER *reader)
 {
-  size_t i;
-
-  for (i = 0; i < reader->space; i++)
-    {
-      free (reader->stack[i].sequence.list);
-    }
+  free (reader->stack[0].sequence);
 }
 
 void
@@ -263,7 +269,7 @@ destroy_reader (READER *reader)
 }
 
 CONST_ELEMENT_LIST *
-txi_reader_collect_commands_list (const ELEMENT *tree,
+txi_reader_collect_commands_list (ELEMENT *tree,
                                   const COMMAND_STACK *commands)
 {
   CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
