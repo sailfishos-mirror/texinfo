@@ -66,8 +66,8 @@ sub get_child($$)
   return undef;
 }
 
-# TODO it would be better if this was not needed, as it is a complex
-# type (a list) and it is not an element.
+# NOTE it is a complex type and not an element, so it complexify the
+# API, but it could be more efficient in many cases, so we keep it.
 sub get_children($)
 {
   my $element = shift;

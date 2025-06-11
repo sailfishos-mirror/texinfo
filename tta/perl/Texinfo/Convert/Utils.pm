@@ -468,15 +468,14 @@ sub element_find_innermost_accent_contents($$)
     }
 
     my $arg = $current->get_child(0);
-    my $contents_nr = $arg->children_number();
-    if (!$contents_nr) {
+    my $contents = $arg->get_children();
+    if (!$contents) {
       return (undef, \@accent_commands);
     }
     # inside the argument of an accent
     my $text_contents = [];
 
-    for (my $i = 0; $i < $contents_nr; $i++) {
-      my $content = $arg->get_child($i);
+    foreach my $content (@$contents) {
       my $cmdname = $content->{'cmdname'};
       if ($cmdname) {
         if ($Texinfo::Commands::accent_commands{$cmdname}) {
@@ -788,10 +787,9 @@ sub element_find_element_authors_internal($$)
            and $element->{'type'} eq 'arguments_line') {
     return;
   }
-  my $contents_nr = $element->children_number();
-  if ($contents_nr) {
-    for (my $i = 0; $i < $contents_nr; $i++) {
-      my $content = $element->get_child($i);
+  my $contents = $element->get_children();
+  if ($contents) {
+    foreach my $content (@$contents) {
       element_find_element_authors_internal($content, $quotation_authors);
     }
   }
@@ -803,9 +801,8 @@ sub element_find_element_authors($$)
   my $element = shift;
   my $quotation_authors = shift;
 
-  my $contents_nr = $element->children_number();
-  for (my $i = 0; $i < $contents_nr; $i++) {
-    my $content = $element->get_child($i);
+  my $contents = $element->get_children();
+  foreach my $content (@$contents) {
     element_find_element_authors_internal($content, $quotation_authors);
   }
 }

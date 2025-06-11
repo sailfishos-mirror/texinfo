@@ -855,11 +855,11 @@ sub _convert_def_line($$)
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
   my $first_child = $element->get_child(0);
-  my $contents_nr;
+  my $contents;
   if ($first_child) {
-    $contents_nr = $first_child->children_number();
+    $contents = $first_child->get_children();
   }
-  if ($contents_nr) {
+  if ($contents) {
     my $main_command;
     my $def_command = $element->get_attribute('def_command');
     if ($Texinfo::Common::def_aliases{$def_command}) {
@@ -868,8 +868,7 @@ sub _convert_def_line($$)
     } else {
       $main_command = $def_command;
     }
-    for (my $i = 0; $i < $contents_nr; $i++) {
-      my $arg = $first_child->get_child($i);
+    foreach my $arg (@$contents) {
       my $type = $arg->{'type'};
 
       my $content = $self->convert_tree($arg);
@@ -903,6 +902,11 @@ sub _convert_def_line($$)
 
 my $debug_global_element_nr = 0;
 
+my $TXI_ELEMENT_TEXT = Texinfo::Reader::TXI_ELEMENT_TEXT;
+my $TXI_ELEMENT_IGNORABLE_TEXT = Texinfo::Reader::TXI_ELEMENT_IGNORABLE_TEXT;
+my $TXI_ELEMENT_START = Texinfo::Reader::TXI_ELEMENT_START;
+my $TXI_ELEMENT_END = Texinfo::Reader::TXI_ELEMENT_END;
+
 
 sub _convert($$)
 {
@@ -911,25 +915,25 @@ sub _convert($$)
 
   my $result = '';
   my $void = '';
-  my $next;
 
   my $output_ref = \$result;
   my @format_elements_stack = ();
 
   #print STDERR " ---- C\n";
 
-  while ($next = $reader->read()) {
+  while (1) {
+    my $next = $reader->read();
+    last if (!defined($next));
     my $category = $next->{'category'};
     my $element = $next->{'element'};
 
     my $e_type = $element->{'type'};
 
-    my $debug_element_nr;
     #if (1) { #}
     if (0) { #} verbose even for debugging
-      $debug_element_nr = $debug_global_element_nr++;
+      $debug_global_element_nr++;
       my $category_name = $Texinfo::Reader::token_category_name{$category};
-      print STDERR "element $category_name $debug_element_nr";
+      print STDERR "element $category_name $debug_global_element_nr";
       my $cmdname = $element->{'cmdname'};
       print STDERR " cmd: $cmdname," if (defined($cmdname));
       print STDERR " type: $e_type" if (defined($e_type));
@@ -956,7 +960,7 @@ sub _convert($$)
       print STDERR "\n";
     }
 
-    if ($category == Texinfo::Reader::TXI_ELEMENT_TEXT) {
+    if ($category == $TXI_ELEMENT_TEXT) {
       next if (defined($e_type) and $ignored_text_types{$e_type});
 
       my $text = $element->{'text'};
@@ -982,10 +986,10 @@ sub _convert($$)
         #warn "had text `$text', returning $result_text\n";
         $$output_ref .= $result_text;
       }
-    } elsif ($category == Texinfo::Reader::TXI_ELEMENT_IGNORABLE_TEXT) {
+    } elsif ($category == $TXI_ELEMENT_IGNORABLE_TEXT) {
       # nothing to do
 
-    } elsif ($category == Texinfo::Reader::TXI_ELEMENT_START) {
+    } elsif ($category == $TXI_ELEMENT_START) {
 
       #warn " START element\n";
       my $cmdname = $element->{'cmdname'};
@@ -1378,21 +1382,26 @@ sub _convert($$)
               $manual_file_index = 2;
               $command_name = 'ref';
             } else {
-              if ($args_nr >= 5
-                  and $element->get_child(4)->children_number()) {
-                $book_element = $element->get_child(4);
+              if ($args_nr >= 5) {
+                my $book_arg = $element->get_child(4);
+                if ($book_arg->children_number()) {
+                  $book_element = $book_arg;
+                }
               }
-              if ($args_nr >= 3
-                  and $element->get_child(2)->children_number()) {
+              if ($args_nr >= 3) {
                 my $section_arg = $element->get_child(2);
-                $section_name = $self->convert_tree($section_arg);
+                if ($section_arg->children_number()) {
+                  $section_name = $self->convert_tree($section_arg);
+                }
               }
               $command_name = $cmdname;
             }
             my $manual_file_element;
-            if ($args_nr >= $manual_file_index+1
-                and $element->get_child($manual_file_index)->children_number()) {
-              $manual_file_element = $element->get_child($manual_file_index);
+            if ($args_nr >= $manual_file_index+1) {
+              my $manual_file_arg = $element->get_child($manual_file_index);
+              if ($manual_file_arg->children_number()) {
+                $manual_file_element = $manual_file_arg;
+              }
             }
             if (! defined($section_name) and $args_nr >= 2
                 and $element->get_child(1)->children_number()) {
@@ -1620,13 +1629,21 @@ sub _convert($$)
           } elsif ($cmdname eq 'email') {
             my $name;
             my $email;
-            my $email_text;
-            if ($element->children_number() >= 2
-                and $element->get_child(1)->children_number()) {
-              $name = $element->get_child(1);
+            my $args_nr = $element->children_number();
+            if ($args_nr) {
+              my $email_arg = $element->get_child(0);
+              if ($email_arg->children_number()) {
+                $email = $email_arg;
+              }
             }
-            if ($element->get_child(0)->children_number()) {
-              $email = $element->get_child(0);
+            my $email_text;
+            if ($args_nr >= 2) {
+              my $name_arg = $element->get_child(1);
+              if ($name_arg->children_number()) {
+                $name = $name_arg;
+              }
+            }
+            if ($email) {
               Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1655,9 +1672,9 @@ sub _convert($$)
             $reader->skip_children($element);
           } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
             my $args_nr = $element->children_number();
-            my ($url_text, $url_arg);
-            if ($element->get_child(0)->children_number()) {
-              $url_arg = $element->get_child(0);
+            my $url_text;
+            my $url_arg = $element->get_child(0);
+            if ($url_arg->children_number()) {
               Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1673,14 +1690,18 @@ sub _convert($$)
               $url_text = '';
             }
             my $replacement;
-            if ($args_nr >= 2
-                and $element->get_child(1)->children_number()) {
-              $replacement = $self->convert_tree($element->get_child(1));
+            if ($args_nr >= 2) {
+              my $replacement_arg = $element->get_child(1);
+              if ($replacement_arg->children_number()) {
+                $replacement = $self->convert_tree($replacement_arg);
+              }
             }
             if (!defined($replacement) or $replacement eq '') {
-              if ($args_nr >= 3
-                  and $element->get_child(2)->children_number()) {
-                $replacement = $self->convert_tree($element->get_child(2));
+              if ($args_nr >= 3) {
+                my $replacement_arg = $element->get_child(2);
+                if ($replacement_arg->children_number()) {
+                  $replacement = $self->convert_tree($replacement_arg);
+                }
               }
             }
             if (!defined($replacement) or $replacement eq '') {
@@ -1762,10 +1783,11 @@ sub _convert($$)
                             ->{$element->get_attribute('format')}) {
                 $arg_index = 2;
               }
-              if ($element->children_number() > $arg_index
-                  and $element->get_child($arg_index)->children_number()) {
-                $$output_ref
-                  .= $self->convert_tree($element->get_child($arg_index));
+              if ($element->children_number() > $arg_index) {
+                my $converted_arg = $element->get_child($arg_index);
+                if ($converted_arg->children_number()) {
+                  $$output_ref .= $self->convert_tree($converted_arg);
+                }
               }
               if ($cmdname eq 'inlineraw') {
                 pop @{$self->{'document_context'}};
@@ -1843,11 +1865,10 @@ sub _convert($$)
               # @multitable line arguments_line type element
               my $arguments_line = $element->get_child(0);
               my $block_line_arg = $arguments_line->get_child(0);
-              my $args_nr = $block_line_arg->children_number();
-              if ($args_nr) {
+              my $contents = $block_line_arg->get_children();
+              if ($contents) {
                 $multiply = 1;
-                for (my $i = 0; $i < $args_nr; $i++) {
-                  my $content = $block_line_arg->get_child($i);
+                foreach my $content (@$contents) {
                   if ($content->{'type'}
                       and $content->{'type'} eq 'bracketed_arg') {
                     my $prototype_text = '';
@@ -1884,9 +1905,10 @@ sub _convert($$)
             Texinfo::Convert::Utils::element_find_element_authors($element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
-              if ($author->get_child(0)->children_number()) {
+              my $arg = $author->get_child(0);
+              if ($arg->children_number()) {
                 $appended .= '<attribution>'.
-                       $self->convert_tree($author->get_child(0))
+                       $self->convert_tree($arg)
                            ."</attribution>\n";
               }
             }
@@ -1973,9 +1995,9 @@ sub _convert($$)
 
           # not restricted enough, includes line_args, for instance
           #and Texinfo::Common::tree_element_is_inline($element, 1))
-        if (($e_type eq 'paragraph'
-             or $e_type eq 'preformatted')
-            and defined($self->{'pending_prepend'})) {
+        if (defined($self->{'pending_prepend'})
+            and ($e_type eq 'paragraph'
+                 or $e_type eq 'preformatted')) {
           $$output_ref .= $self->{'pending_prepend'};
           delete $self->{'pending_prepend'};
         }
@@ -1983,7 +2005,7 @@ sub _convert($$)
       #warn " end of START\n";
 
 
-    } elsif ($category == Texinfo::Reader::TXI_ELEMENT_END) {
+    } elsif ($category == $TXI_ELEMENT_END) {
       my $cmdname = $element->{'cmdname'};
       if (defined($cmdname)) {
         if ($style_commands_formatting{$cmdname}

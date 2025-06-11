@@ -1057,13 +1057,14 @@ sub element_collect_subentries($$)
   my $subentries = shift;
 
   my $line_arg = $current->get_child(0);
-  my $contents_nr = $line_arg->children_number();
-  for (my $i = 0; $i < $contents_nr; $i++) {
-    my $content = $line_arg->get_child($i);
-    my $cmdname = $content->{'cmdname'};
-    if ($cmdname and $cmdname eq 'subentry') {
-      push @$subentries, $content;
-      element_collect_subentries($content, $subentries);
+  my $contents = $line_arg->get_children();
+  if ($contents) {
+    foreach my $content (@$contents) {
+      my $cmdname = $content->{'cmdname'};
+      if ($cmdname and $cmdname eq 'subentry') {
+        push @$subentries, $content;
+        element_collect_subentries($content, $subentries);
+      }
     }
   }
 }
@@ -1103,10 +1104,9 @@ sub element_index_entry_referred_entry($$)
 
   my $line_arg = $element->get_child(0);
 
-  my $contents_nr = $line_arg->children_number();
-  if ($contents_nr) {
-    for (my $i = 0; $i < $contents_nr; $i++) {
-      my $content = $line_arg->get_child($i);
+  my $contents = $line_arg->get_children();
+  if ($contents) {
+    foreach my $content (@$contents) {
       my $cmdname = $content->{'cmdname'};
       if ($cmdname) {
         if ($cmdname eq $referred_cmdname) {
@@ -1319,11 +1319,11 @@ sub element_informative_command_value($)
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
       return 1;
     } else {
-      my $contents_nr = $element->children_number();
-      if ($contents_nr) {
+      my $contents = $element->get_children();
+      if ($contents) {
         my @strings;
-        for (my $i; $i < $contents_nr; $i++) {
-          push @strings, $element->get_child($i)->{'text'};
+        foreach my $content (@$contents) {
+          push @strings, $content->{'text'};
         }
         return join(' ', @strings);
       }
@@ -1714,14 +1714,13 @@ sub element_is_content_empty($;$)
     return 1;
   }
 
-  my $contents_nr = $tree->children_number();
+  my $contents = $tree->get_children();
 
-  if (!$contents_nr) {
+  if (!$contents) {
     return 1;
   }
 
-  for (my $i = 0; $i < $contents_nr; $i++) {
-    my $content = $tree->get_child($i);
+  foreach my $content (@$contents) {
     my $text = $content->{'text'};
     if (defined($text)) {
       if ($text =~ /\S/) {
