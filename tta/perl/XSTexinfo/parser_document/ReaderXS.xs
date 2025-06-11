@@ -54,8 +54,7 @@ new (SV *element_sv)
           {
             ELEMENT *element
               = get_sv_element_element (element_sv, document);
-            READER *reader = txi_reader_new (element, document);
-            size_t reader_number = register_reader (reader);
+            size_t reader_number = txi_register_new_reader (element, document);
             HV *hv_stash = gv_stashpv ("Texinfo::Reader", GV_ADD);
             RETVAL = sv_bless (newRV_noinc (newSViv (reader_number)), hv_stash);
           }

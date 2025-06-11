@@ -1,15 +1,15 @@
 /* Copyright 2010-2025 Free Software Foundation, Inc.
-  
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-  
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-  
+
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
@@ -44,56 +44,69 @@ retrieve_reader (size_t reader_descriptor)
   return 0;
 }
 
-/* descriptor starts at 1, 0 is an error */
-size_t
-register_reader (READER *reader)
-{
-  size_t reader_index;
-  size_t i;
-  int slot_found = 0;
- 
-  for (i = 0; i < reader_number; i++)
-    {
-      if (reader_list[i] == 0)
-        {
-          slot_found = 1;
-          reader_index = i;
-        }
-    }
-  if (!slot_found)
-    {
-      if (reader_number == reader_space)
-        {
-          reader_list = realloc (reader_list,
-                              (reader_space += 5) * sizeof (READER *));
-          if (!reader_list)
-            fatal ("realloc failed");
-        }
-      reader_index = reader_number;
-      reader_number++;
-    }
-  reader_list[reader_index] = reader;
- 
-  return reader_index +1;
-}
-
-
-READER *
-txi_reader_new (const ELEMENT *tree, DOCUMENT *document)
+static READER *
+allocate_reader (void)
 {
   READER *new_reader = (READER *) malloc (sizeof (READER));
 
-  new_reader->top = 1;
+  new_reader->top = 0;
   new_reader->space = 4;
   new_reader->stack = (READER_CONTEXT *)
     malloc (sizeof (READER_CONTEXT) * new_reader->space);
   memset (new_reader->stack, 0, sizeof (READER_CONTEXT) * new_reader->space);
 
-  new_reader->document = document;
-  new_reader->stack[0].index = -1;
-  add_to_const_element_list (&new_reader->stack[0].sequence, tree);
+  return new_reader;
+}
 
-  return new_reader; 
+static void
+initialize_reader (READER *reader, const ELEMENT *tree, DOCUMENT *document)
+{
+  reader->top = 1;
+  reader->stack[0].index = -1;
+  add_to_const_element_list (&reader->stack[0].sequence, tree);
+
+  reader->document = document;
+}
+
+READER *
+txi_reader_new (const ELEMENT *tree, DOCUMENT *document)
+{
+  READER *new_reader = allocate_reader();
+
+  initialize_reader (new_reader, tree, document);
+
+  return new_reader;
+}
+
+/* descriptor starts at 1, 0 is an error */
+size_t
+txi_register_new_reader (const ELEMENT *tree, DOCUMENT *document)
+{
+  size_t i;
+
+  for (i = 0; i < reader_number; i++)
+    {
+      if (reader_list[i]->top == 0)
+        {
+          /* reusable reader */
+          initialize_reader (reader_list[i], tree, document);
+          return i+1;
+        }
+    }
+
+  if (reader_number == reader_space)
+    {
+      reader_list = realloc (reader_list,
+                          (reader_space += 5) * sizeof (READER *));
+      if (!reader_list)
+        fatal ("realloc failed");
+    }
+
+  reader_list[reader_number] = txi_reader_new (tree, document);
+
+  reader_number++;
+
+  return reader_number;
 }
 
 static void

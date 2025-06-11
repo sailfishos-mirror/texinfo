@@ -1,5 +1,14 @@
 2025-06-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/reader.c (allocate_reader, initialize_reader)
+	(txi_reader_new, txi_register_new_reader),
+	tta/perl/XSTexinfo/parser_document/ReaderXS.xs (new): split
+	allocate_reader and initialize_reader out of txi_reader_new.  Replace
+	register_reader by txi_register_new_reader and reuse reusable reader
+	in the function.
+
+2025-06-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/ReadDocBook.pm,
 	tta/perl/Texinfo/Convert/Utils.pm,
 	tta/perl/Texinfo/TreeElementNonXS.pm: call get_children more instead
