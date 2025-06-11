@@ -767,7 +767,7 @@ sub element_find_element_authors_internal($$)
   my $element = shift;
   my $quotation_authors = shift;
 
-  return if (defined($element->text()));
+  return if (defined($element->{'text'}));
 
   my $cmdname = $element->cmdname();
   if (defined($cmdname)) {

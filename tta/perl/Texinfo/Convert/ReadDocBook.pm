@@ -933,7 +933,7 @@ sub _convert($$)
       my $cmdname = $element->cmdname();
       print STDERR " cmd: $cmdname," if (defined($cmdname));
       print STDERR " type: $e_type" if (defined($e_type));
-      my $text = $element->text();
+      my $text = $element->{'text'};
       if (defined($text)) {
         my $protected_text = $text;
         $protected_text =~ s/\n/\\n/;
@@ -959,7 +959,7 @@ sub _convert($$)
     if ($category == Texinfo::Reader::TXI_ELEMENT_TEXT) {
       next if (defined($e_type) and $ignored_text_types{$e_type});
 
-      my $text = $element->text();
+      my $text = $element->{'text'};
       if (defined($e_type) and $e_type eq '_converted') {
         $$output_ref .= $text;
       } elsif ($self->{'document_context'}->[-1]->{'raw'}) {
@@ -1264,7 +1264,8 @@ sub _convert($$)
               }
             }
           } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-            $$output_ref .= $self->xml_comment($element->get_child(0)->text());
+            $$output_ref
+              .= $self->xml_comment($element->get_child(0)->{'text'});
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
               my ($arg, $end_line)
@@ -1729,14 +1730,13 @@ sub _convert($$)
             }
             $reader->skip_children($element);
           } elsif ($cmdname eq 'U') {
-            if ($element->children_number()
-                and $element->get_child(0)->children_number()
-                and $element->get_child(0)->get_child(0)->text()) {
-              my $arg_text
-                = $element->get_child(0)->get_child(0)->text();
-
-              if (defined($arg_text)) {
-                $$output_ref .= "&#x$arg_text;";
+            if ($element->children_number()) {
+              my $arg = $element->get_child(0);
+              if ($arg->children_number()) {
+                my $arg_text = $arg->get_child(0)->{'text'};
+                if (defined($arg_text)) {
+                  $$output_ref .= "&#x$arg_text;";
+                }
               }
             }
             $reader->skip_children($element);

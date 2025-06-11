@@ -1620,7 +1620,7 @@ sub element_format_comment_or_end_line($$)
   if ($comment) {
     $end_line = $self->convert_tree($comment);
   } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
-    my $text = $line_arg->get_attribute('spaces_after_argument')->text();
+    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
     if (chomp($text)) {
       $end_line = "\n";
     } else {

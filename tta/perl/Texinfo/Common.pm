@@ -1323,7 +1323,7 @@ sub element_informative_command_value($)
       if ($contents_nr) {
         my @strings;
         for (my $i; $i < $contents_nr; $i++) {
-          push @strings, $element->get_child($i)->text();
+          push @strings, $element->get_child($i)->{'text'};
         }
         return join(' ', @strings);
       }
@@ -1333,10 +1333,11 @@ sub element_informative_command_value($)
   } elsif ($element->get_attribute('misc_args')
            and exists($element->get_attribute('misc_args')->[0])) {
     return $element->get_attribute('misc_args')->[0];
-  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
-           and $element->get_child(0)->children_number()
-           and $element->get_child(0)->get_child(0)->text()) {
-    return $element->get_child(0)->get_child(0)->text();
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
+    my $arg = $element->get_child(0);
+    if ($arg->children_number()) {
+      return $arg->get_child(0)->{'text'};
+    }
   }
   return undef;
 }
@@ -1721,7 +1722,7 @@ sub element_is_content_empty($;$)
 
   for (my $i = 0; $i < $contents_nr; $i++) {
     my $content = $tree->get_child($i);
-    my $text = $content->text();
+    my $text = $content->{'text'};
     if (defined($text)) {
       if ($text =~ /\S/) {
         return 0;

@@ -115,7 +115,7 @@ sub read($)
     cluck();
   }
 
-  if (defined($element->text())) {
+  if (defined($element->{'text'})) {
     my $type = $element->{'type'};
     if ($type and $ignorable_text_types{$type}) {
       $token->{'category'} = Texinfo::Reader->TXI_ELEMENT_IGNORABLE_TEXT;
