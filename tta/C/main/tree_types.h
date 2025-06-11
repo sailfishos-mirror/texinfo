@@ -577,6 +577,10 @@ typedef struct READER {
     size_t space;
     READER_CONTEXT *stack;
     READER_TOKEN token;
+
+    /* not intrisically needed, but if the elements are registered in
+       the document, may allow for faster access */
+    struct DOCUMENT *document;
 } READER;
 
 #endif

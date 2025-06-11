@@ -54,17 +54,10 @@ new (SV *element_sv)
           {
             ELEMENT *element
               = get_sv_element_element (element_sv, document);
-            READER *reader = txi_reader_new (element);
+            READER *reader = txi_reader_new (element, document);
             size_t reader_number = register_reader (reader);
-            HV *hv = newHV ();
             HV *hv_stash = gv_stashpv ("Texinfo::Reader", GV_ADD);
-
-            RETVAL = sv_bless (newRV_noinc ((SV *) hv), hv_stash);
-
-            hv_store (hv, "reader_descriptor", strlen ("reader_descriptor"),
-                      newSViv (reader_number), 0);
-            hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-                      newSViv (document->descriptor), 0);
+            RETVAL = sv_bless (newRV_noinc (newSViv (reader_number)), hv_stash);
           }
         else
           RETVAL = newSV (0);   
@@ -89,7 +82,7 @@ read (SV *reader_sv)
 
                 if (token->category != TXI_ELEMENT_END)
                   {
-                    document = get_sv_document_document (reader_sv, "read");
+                    document = reader->document;
                     register_element_handle_in_sv ((ELEMENT *)token->element,
                                                    document);
                   }

@@ -1,3 +1,13 @@
+2025-06-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/get_perl_info.c (get_sv_reader_reader),
+	tta/C/main/reader.c (txi_reader_new), tta/C/main/tree_types.h
+	(READER), tta/perl/XSTexinfo/parser_document/ReaderXS.xs (new, read):
+	add a document field in READER and set it in txi_reader_new, such that
+	there is no need for document_descriptor in Perl reference anymore.
+	Update callers.  Make reader in Perl a reference on the reader
+	descriptor.
+
 2025-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/Converter.pm,

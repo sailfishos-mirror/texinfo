@@ -22,6 +22,7 @@
 #include <stdio.h>
 
 #include "tree_types.h"
+#include "document_types.h"
 #include "types_data.h"
 #include "tree.h"
 #include "debug.h"
@@ -78,7 +79,7 @@ register_reader (READER *reader)
 
 
 READER *
-txi_reader_new (const ELEMENT *tree)
+txi_reader_new (const ELEMENT *tree, DOCUMENT *document)
 {
   READER *new_reader = (READER *) malloc (sizeof (READER));
 
@@ -88,6 +89,7 @@ txi_reader_new (const ELEMENT *tree)
     malloc (sizeof (READER_CONTEXT) * new_reader->space);
   memset (new_reader->stack, 0, sizeof (READER_CONTEXT) * new_reader->space);
 
+  new_reader->document = document;
   new_reader->stack[0].index = -1;
   add_to_const_element_list (&new_reader->stack[0].sequence, tree);
 
@@ -253,7 +255,7 @@ txi_reader_collect_commands_list (const ELEMENT *tree,
 {
   CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
 
-  READER *reader = txi_reader_new (tree);
+  READER *reader = txi_reader_new (tree, 0);
   const READER_TOKEN *next;
 
   while (1)

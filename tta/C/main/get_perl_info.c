@@ -317,29 +317,12 @@ get_sv_reader_reader (SV *sv_in)
 {
   size_t reader_descriptor;
   READER *reader = 0;
-  SV** reader_descriptor_sv;
-  HV *hv_in;
-  const char *key = "reader_descriptor";
 
   dTHX;
 
-  hv_in = (HV *)SvRV (sv_in);
-  if (!hv_in)
-    {
-      fprintf (stderr, "ERROR: get_sv_reader_reader: no hash\n");
-      return 0;
-    }
-  reader_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
-  if (reader_descriptor_sv && SvOK (*reader_descriptor_sv))
-    {
-      reader_descriptor = (size_t) SvIV (*reader_descriptor_sv);
-      reader = retrieve_reader (reader_descriptor);
-    }
-  else
-    {
-      fprintf (stderr, "ERROR: get_sv_reader_reader: no %s\n", key);
-      return 0;
-    }
+  reader_descriptor = (size_t) SvIV (SvRV (sv_in));
+  reader = retrieve_reader (reader_descriptor);
+
   if (! reader)
     {
       fprintf (stderr, "ERROR: get_sv_reader_reader: no reader %zu\n",
