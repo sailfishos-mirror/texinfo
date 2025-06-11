@@ -1896,7 +1896,7 @@ sub element_table_item_content_tree($$)
     = element_block_item_line_command($self, $block_line_arg);
 
   if ($command_as_argument) {
-    my $command_as_argument_cmdname = $command_as_argument->cmdname();
+    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
     my $command = {'cmdname' => $command_as_argument_cmdname,
                    'source_info' => $element->source_info(),};
     if ($table_command->get_attribute('command_as_argument_kbd_code')) {
@@ -2397,23 +2397,27 @@ sub element_xml_accent($$$;$$$)
   my $command = shift;
   my $in_upper_case = shift;
   my $use_numeric_entities = shift;
-  my $accent = $command->cmdname();
+  my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc ($text);
+    $text = uc($text);
   }
 
   # do not return a dotless i or j as such if it is further composed
   # with an accented letter, return the letter as is
-  if ($accent eq 'dotless') {
-    if ($Texinfo::UnicodeData::unicode_accented_letters{$accent}
-        and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})
-        and ($command->parent()
-             and $command->parent()->parent()
-             and $command->parent()->parent()->cmdname()
-             and $Texinfo::UnicodeData::unicode_accented_letters{$command->parent()
-                                        ->parent()->cmdname()})) {
-      return $text;
+  if ($accent eq 'dotless'
+      and $Texinfo::UnicodeData::unicode_accented_letters{$accent}
+      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})) {
+    my $parent = $command->parent();
+    if ($parent) {
+      my $parent_parent = $parent->parent();
+      if ($parent_parent) {
+        my $out_cmdname = $parent_parent->{'cmdname'};
+        if ($out_cmdname
+            and $Texinfo::UnicodeData::unicode_accented_letters{$out_cmdname}) {
+          return $text;
+        }
+      }
     }
   }
 

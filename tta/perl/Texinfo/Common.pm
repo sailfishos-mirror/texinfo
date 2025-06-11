@@ -871,15 +871,15 @@ sub element_multitable_columnfractions($)
 
   my $arguments_line = $multitable->get_child(0);
   my $block_line_arg = $arguments_line->get_child(0);
-  my $columnfractions;
-  if ($block_line_arg->children_number()
-      and $block_line_arg->get_child(0)->cmdname()
-      and $block_line_arg->get_child(0)->cmdname()
-                                              eq 'columnfractions') {
-    $columnfractions = $block_line_arg->get_child(0);
+  if ($block_line_arg->children_number()) {
+    my $child = $block_line_arg->get_child(0);
+    my $child_cmdname = $child->{'cmdname'};
+    if ($child_cmdname and $child_cmdname eq 'columnfractions') {
+      return $block_line_arg->get_child(0);
+    }
   }
 
-  return $columnfractions;
+  return undef;
 }
 
 # there is a command as argument for a block command (@itemize or
@@ -914,7 +914,7 @@ sub element_block_line_argument_command($)
 
   if ($block_line_arg->children_number() == 1) {
     my $arg = $block_line_arg->get_child(0);
-    my $cmdname = $arg->cmdname();
+    my $cmdname = $arg->{'cmdname'};
     my $contents_nr = $arg->children_number();
     if ($cmdname
         and (!$contents_nr
@@ -987,7 +987,7 @@ sub element_item_line_block_line_argument_command($)
   my $arg = element_block_line_argument_command($block_line_arg);
 
   if ($arg) {
-    my $brace_category = $Texinfo::Commands::brace_commands{$arg->cmdname()};
+    my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
     # $Texinfo::Commands::brace_commands{} is undef
     # for definfoenclose'd commands
     if ($brace_category and $brace_category eq 'noarg') {
@@ -1060,7 +1060,7 @@ sub element_collect_subentries($$)
   my $contents_nr = $line_arg->children_number();
   for (my $i = 0; $i < $contents_nr; $i++) {
     my $content = $line_arg->get_child($i);
-    my $cmdname = $content->cmdname();
+    my $cmdname = $content->{'cmdname'};
     if ($cmdname and $cmdname eq 'subentry') {
       push @$subentries, $content;
       element_collect_subentries($content, $subentries);
@@ -1107,7 +1107,7 @@ sub element_index_entry_referred_entry($$)
   if ($contents_nr) {
     for (my $i = 0; $i < $contents_nr; $i++) {
       my $content = $line_arg->get_child($i);
-      my $cmdname = $content->cmdname();
+      my $cmdname = $content->{'cmdname'};
       if ($cmdname) {
         if ($cmdname eq $referred_cmdname) {
           return $content if ($content->children_number());
@@ -1313,7 +1313,7 @@ sub element_informative_command_value($)
 {
   my $element = shift;
 
-  my $cmdname = $element->cmdname();
+  my $cmdname = $element->{'cmdname'};
 
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
@@ -1368,7 +1368,7 @@ sub element_set_informative_command_value($$)
   my $self = shift;
   my $element = shift;
 
-  my $cmdname = $element->cmdname();
+  my $cmdname = $element->{'cmdname'};
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = element_informative_command_value($element);
@@ -1590,7 +1590,7 @@ sub element_section_level($)
 {
   my $section = shift;
 
-  my $cmdname = $section->cmdname();
+  my $cmdname = $section->{'cmdname'};
   my $level = $command_structuring_level{$cmdname};
   # correct level according to raise/lowersections
   my $level_modifier = $section->get_attribute('level_modifier');
@@ -1733,7 +1733,7 @@ sub element_is_content_empty($;$)
     my $type = $content->{'type'};
     next if ($type and $type eq 'arguments_line');
 
-    my $cmdname = $content->cmdname();
+    my $cmdname = $content->{'cmdname'};
     if ($cmdname) {
       if ($type and $type eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {

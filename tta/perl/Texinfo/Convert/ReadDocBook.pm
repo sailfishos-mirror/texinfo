@@ -533,7 +533,7 @@ sub conversion_output_begin($;$$)
     my $subtitle_text = '';
     if (scalar(@{$collected_commands})) {
       foreach my $element (@{$collected_commands}) {
-        my $cmdname = $element->cmdname();
+        my $cmdname = $element->{'cmdname'};
         if ($cmdname eq 'author') {
           push @authors_elements, $element;
         } elsif ($cmdname eq 'subtitle') {
@@ -930,7 +930,7 @@ sub _convert($$)
       $debug_element_nr = $debug_global_element_nr++;
       my $category_name = $Texinfo::Reader::token_category_name{$category};
       print STDERR "element $category_name $debug_element_nr";
-      my $cmdname = $element->cmdname();
+      my $cmdname = $element->{'cmdname'};
       print STDERR " cmd: $cmdname," if (defined($cmdname));
       print STDERR " type: $e_type" if (defined($e_type));
       my $text = $element->{'text'};
@@ -988,7 +988,7 @@ sub _convert($$)
     } elsif ($category == Texinfo::Reader::TXI_ELEMENT_START) {
 
       #warn " START element\n";
-      my $cmdname = $element->cmdname();
+      my $cmdname = $element->{'cmdname'};
       if (defined($cmdname)) {
         #warn "  START got cmdname $cmdname\n";
         my $result_text;
@@ -1028,7 +1028,7 @@ sub _convert($$)
           push @format_elements_stack, [];
 
           my $parent = $element->parent();
-          my $parent_cmdname = $parent->cmdname();
+          my $parent_cmdname = $parent->{'cmdname'};
           if ($cmdname eq 'item' and $parent_cmdname
               and ($parent_cmdname eq 'itemize'
                    or $parent_cmdname eq 'enumerate')) {
@@ -1043,7 +1043,7 @@ sub _convert($$)
                 = Texinfo::Common::element_itemize_item_prepended_element(
                                                           $block_line_arg);
               if ($prepended_element) {
-                $command_as_argument_name = $prepended_element->cmdname();
+                $command_as_argument_name = $prepended_element->{'cmdname'};
               }
 
               if (!($command_as_argument_name
@@ -1984,7 +1984,7 @@ sub _convert($$)
 
 
     } elsif ($category == Texinfo::Reader::TXI_ELEMENT_END) {
-      my $cmdname = $element->cmdname();
+      my $cmdname = $element->{'cmdname'};
       if (defined($cmdname)) {
         if ($style_commands_formatting{$cmdname}
             and !($e_type and $e_type eq 'definfoenclose_command')) {
@@ -2111,7 +2111,7 @@ sub _convert($$)
       }
 
     } else {# EMPTY
-      my $cmdname = $element->cmdname();
+      my $cmdname = $element->{'cmdname'};
       if ($cmdname) {
         if (defined($docbook_no_arg_commands_formatting{$cmdname})) {
           $$output_ref .= $docbook_no_arg_commands_formatting{$cmdname};

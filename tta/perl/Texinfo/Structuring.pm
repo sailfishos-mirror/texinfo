@@ -1729,7 +1729,7 @@ sub element_section_level_adjusted_command_name($)
 {
   my $element = shift;
 
-  my $cmdname = $element->cmdname();
+  my $cmdname = $element->{'cmdname'};
 
   # the following condition should only be false if sectioning_structure was
   # not called

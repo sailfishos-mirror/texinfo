@@ -195,7 +195,7 @@ sub reader_collect_commands_list($$)
     if ($category == Texinfo::Reader->TXI_ELEMENT_START
         or $category == Texinfo::Reader->TXI_ELEMENT_EMPTY) {
       my $element = $next->{'element'};
-      my $cmdname = $element->cmdname();
+      my $cmdname = $element->{'cmdname'};
       if (defined($cmdname) and defined($commands_hash->{$cmdname})) {
         push @{$collected_commands_list}, $element;
       }

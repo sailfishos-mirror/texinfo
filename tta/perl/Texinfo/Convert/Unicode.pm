@@ -307,7 +307,7 @@ sub element_unicode_accent($$)
   my $text = shift;
   my $command = shift;
 
-  my $accent = $command->cmdname();
+  my $accent = $command->{'cmdname'};
 
   my $result;
 
@@ -320,9 +320,9 @@ sub element_unicode_accent($$)
     if ($unicode_accented_letters{$accent}->{$text}
         and (!$command->parent()
              or !$command->parent()->parent()
-             or !$command->parent()->parent()->cmdname()
+             or !$command->parent()->parent()->{'cmdname'}
              or !$unicode_diacritics{$command->parent()
-                                        ->parent()->cmdname()})) {
+                                        ->parent()->{'cmdname'}})) {
       return chr(hex($unicode_accented_letters{$accent}->{$text}));
     } else {
       return $text;
@@ -591,7 +591,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
   #$debug = 1;
 
   if ($debug) {
-    print STDERR "STACK: ".join('|', map {$_->cmdname()} @$stack)."\n";
+    print STDERR "STACK: ".join('|', map {$_->{'cmdname'}} @$stack)."\n";
   }
 
   # accents are formatted and the intermediate results are kept, such
@@ -621,7 +621,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
     print STDERR "PARTIAL_RESULTS_STACK:\n";
     foreach my $partial_result (@results_stack) {
       my $command = 'TEXT';
-      $command = $partial_result->[1]->cmdname() if ($partial_result->[1]);
+      $command = $partial_result->[1]->{'cmdname'} if ($partial_result->[1]);
       if (defined($partial_result->[0])) {
         print STDERR "   -> ".Encode::encode('utf-8', $partial_result->[0])
                             ."|$command\n";
@@ -647,7 +647,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
       = _eight_bit_and_unicode_point($char, $encoding);
     if ($debug) {
       my $command = 'TEXT';
-      $command = $results_stack[0]->[1]->cmdname()
+      $command = $results_stack[0]->[1]->{'cmdname'}
         if ($results_stack[0]->[1]);
       print STDERR "" . Encode::encode('utf-8', $char) . " ($command) "
         . "codepoint: $codepoint "
@@ -676,7 +676,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
     #    @ubaraccent{a} since there is no composed accent with a and an
     #    underbar.
     last if ($new_eight_bit eq $prev_eight_bit
-             and !($results_stack[0]->[1]->cmdname() eq 'dotless'
+             and !($results_stack[0]->[1]->{'cmdname'} eq 'dotless'
                    and $char eq 'i'));
     $result = $results_stack[0]->[0];
     $prev_eight_bit = $new_eight_bit;

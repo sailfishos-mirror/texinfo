@@ -39,24 +39,6 @@ sub parent($)
   return $element->{'parent'};
 }
 
-sub type($)
-{
-  my $element = shift;
-  return $element->{'type'};
-}
-
-sub cmdname($)
-{
-  my $element = shift;
-  return $element->{'cmdname'};
-}
-
-sub text($)
-{
-  my $element = shift;
-  return $element->{'text'};
-}
-
 sub source_info($)
 {
   my $element = shift;

@@ -451,7 +451,7 @@ sub element_find_innermost_accent_contents($$)
   my $debug = 0;
  ACCENT:
   while (1) {
-    my $current_cmdname = $current->cmdname();
+    my $current_cmdname = $current->{'cmdname'};
     # the following can happen if called with a bad tree
     if (!$current_cmdname
         or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
@@ -477,7 +477,7 @@ sub element_find_innermost_accent_contents($$)
 
     for (my $i = 0; $i < $contents_nr; $i++) {
       my $content = $arg->get_child($i);
-      my $cmdname = $content->cmdname();
+      my $cmdname = $content->{'cmdname'};
       if ($cmdname) {
         if ($Texinfo::Commands::accent_commands{$cmdname}) {
         # if outer accent is tieaccent, keep accent inside and do not try to
@@ -660,7 +660,7 @@ sub element_expand_verbatiminclude($$$$$;$$)
   } elsif ($converter) {
     $converter->converter_line_error(
                            sprintf(__("\@%s: could not find %s"),
-                                       $current->cmdname(), $file_name_text),
+                                       $current->{'cmdname'}, $file_name_text),
                            $current->source_info());
   }
   return $verbatiminclude;
@@ -769,7 +769,7 @@ sub element_find_element_authors_internal($$)
 
   return if (defined($element->{'text'}));
 
-  my $cmdname = $element->cmdname();
+  my $cmdname = $element->{'cmdname'};
   if (defined($cmdname)) {
     if ($cmdname eq 'author') {
       push @$quotation_authors, $element;
