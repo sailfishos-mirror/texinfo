@@ -33,16 +33,24 @@ sub new($)
   return $element;
 }
 
-sub parent($)
+# next accessors are not actually used because using an accessor is much
+# slower than accessing hash values
+sub type($)
 {
   my $element = shift;
-  return $element->{'parent'};
+  return $element->{'type'};
 }
 
-sub source_info($)
+sub cmdname($)
 {
   my $element = shift;
-  return $element->{'source_info'};
+  return $element->{'cmdname'};
+}
+
+sub text($)
+{
+  my $element = shift;
+  return $element->{'text'};
 }
 
 sub children_number($)
@@ -67,12 +75,26 @@ sub get_child($$)
 }
 
 # NOTE it is a complex type and not an element, so it complexify the
-# API, but it could be more efficient in many cases, so we keep it.
+# API, but is simplifies code and could be more efficient
 sub get_children($)
 {
   my $element = shift;
 
   return $element->{'contents'};
+}
+
+# following accessors need to be used when the C tree data is not fully
+# built to Perl
+sub parent($)
+{
+  my $element = shift;
+  return $element->{'parent'};
+}
+
+sub source_info($)
+{
+  my $element = shift;
+  return $element->{'source_info'};
 }
 
 sub get_attribute($$)

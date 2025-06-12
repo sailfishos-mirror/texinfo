@@ -1,10 +1,18 @@
+2025-06-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/TreeElementNonXS.pm (text, type, cmdname),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (text, type)
+	(cmdname): readd accessors even if they are not used such that they
+	can be used by code that wants the runtime check that comes with
+	accessors and also to demonstrate what needs to be in the API.
+
 2025-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/reader.c (allocate_reader, initialize_reader)
 	(push_reader_context, end_element, txi_reader_read, free_reader),
 	tta/C/main/tree_types.h (READER_CONTEXT),
 	tta/perl/Texinfo/ReaderNonXS.pm (read): reuse the contents for the
-	elements array in the reader context, do no go through the space
+	elements array in the reader context, do not go through the space
 	elements in info in the reader.
 
 2025-06-11  Patrice Dumas  <pertusus@free.fr>

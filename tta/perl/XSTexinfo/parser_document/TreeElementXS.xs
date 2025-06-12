@@ -189,6 +189,8 @@ tree_elements_headings_list (SV *converter_in)
     OUTPUT:
         RETVAL
 
+# following is in TreeElements.  Many accessors are not actually used
+# because using an accessor is much slower than accessing hash values in Perl
 SV *
 new (SV *element_hash)
     PREINIT:
@@ -207,7 +209,7 @@ new (SV *element_hash)
          RETVAL
 
 SV *
-parent (SV *element_sv)
+type (SV *element_sv)
       PREINIT:
         DOCUMENT *document;
       CODE:
@@ -216,18 +218,15 @@ parent (SV *element_sv)
           {
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
-
-            if (element->parent)
-              {
-                register_element_handle_in_sv (element->parent, document);
-                RETVAL = newSVsv ((SV *)element->parent->sv);
-              }
+            if (element->type && element->type != ET_normal_text
+                && !(type_data[element->type].flags & TF_c_only))
+              RETVAL = newSVpv (type_data[element->type].name, 0);
             else
               RETVAL = newSV (0);
           }
         else
           {
-            const char *key = "parent";
+            const char *key = "type";
             HV *element_hv = (HV *) SvRV (element_sv);
             SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
             if (sv && SvOK (*sv))
@@ -239,7 +238,7 @@ parent (SV *element_sv)
         RETVAL
 
 SV *
-source_info (SV *element_sv)
+cmdname (SV *element_sv)
       PREINIT:
         DOCUMENT *document;
       CODE:
@@ -249,19 +248,45 @@ source_info (SV *element_sv)
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
 
-            if (!(type_data[element->type].flags & TF_text))
-              {
-                const SOURCE_INFO *source_info = &element->e.c->source_info;
-                HV *hv = newHV ();
-                build_source_info_hash (source_info, hv);
-                RETVAL = newRV_noinc ((SV *)hv);
-              }
+            if (!(type_data[element->type].flags & TF_text)
+                && element->e.c->cmd)
+              RETVAL = newSVpv (element_command_name (element), 0);
             else
               RETVAL = newSV (0);
           }
         else
           {
-            const char *key = "source_info";
+            const char *key = "cmdname";
+            HV *element_hv = (HV *) SvRV (element_sv);
+            SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
+            if (sv && SvOK (*sv))
+             RETVAL = newSVsv (*sv);
+            else
+              RETVAL = newSV (0);
+          }
+    OUTPUT:
+        RETVAL
+
+SV *
+text (SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+
+            if (type_data[element->type].flags & TF_text)
+              RETVAL
+                = newSVpv_utf8 (element->e.text->text, element->e.text->end);
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          {
+            const char *key = "text";
             HV *element_hv = (HV *) SvRV (element_sv);
             SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
             if (sv && SvOK (*sv))
@@ -402,6 +427,72 @@ get_children (SV *element_sv)
         else
           {
             const char *key = "contents";
+            HV *element_hv = (HV *) SvRV (element_sv);
+            SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
+            if (sv && SvOK (*sv))
+              RETVAL = newSVsv (*sv);
+            else
+              RETVAL = newSV (0);
+          }
+    OUTPUT:
+        RETVAL
+
+SV *
+parent (SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+
+            if (element->parent)
+              {
+                register_element_handle_in_sv (element->parent, document);
+                RETVAL = newSVsv ((SV *)element->parent->sv);
+              }
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          {
+            const char *key = "parent";
+            HV *element_hv = (HV *) SvRV (element_sv);
+            SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
+            if (sv && SvOK (*sv))
+              RETVAL = newSVsv (*sv);
+            else
+              RETVAL = newSV (0);
+          }
+    OUTPUT:
+        RETVAL
+
+SV *
+source_info (SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+
+            if (!(type_data[element->type].flags & TF_text))
+              {
+                const SOURCE_INFO *source_info = &element->e.c->source_info;
+                HV *hv = newHV ();
+                build_source_info_hash (source_info, hv);
+                RETVAL = newRV_noinc ((SV *)hv);
+              }
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          {
+            const char *key = "source_info";
             HV *element_hv = (HV *) SvRV (element_sv);
             SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
             if (sv && SvOK (*sv))
