@@ -303,7 +303,7 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
           }
 
 SV *
-document_tree (SV *document_in, int handler_only=0)
+document_tree (SV *document_in, int handler_only=0, int elements_handler_only=0)
 
 SV *
 document_global_information (SV *document_in)

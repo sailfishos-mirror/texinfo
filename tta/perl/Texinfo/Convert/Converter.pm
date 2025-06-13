@@ -402,18 +402,20 @@ sub conversion_output_end($)
   return '';
 }
 
-sub output_tree($$;$)
+sub output_tree($$;$$)
 {
   my $self = shift;
   my $document = shift;
-  my $handle_only = shift;
+  my $tree_handle_only = shift;
+  my $elements_handle_only = shift;
 
   $self->conversion_initialization($document);
 
   # to avoid passing undef to XS
-  $handle_only = 0 unless ($handle_only);
+  $tree_handle_only = 0 unless ($tree_handle_only);
+  $elements_handle_only = 0 unless ($elements_handle_only);
 
-  my $root = $document->tree($handle_only);
+  my $root = $document->tree($tree_handle_only, $elements_handle_only);
 
   if (ref($root) eq 'HASH') {
     confess("Converter output_tree unblessed root\n");
@@ -507,7 +509,7 @@ sub output_files_information($)
 
 
 # sub useful for overriding, to be able to find the document in C
-sub new_tree_element($$)
+sub new_tree_element($$;$)
 {
   my $self = shift;
   my $element_hash = shift;
@@ -1604,6 +1606,42 @@ sub element_format_comment_or_end_line($$)
   my $end_line;
 
   my $line_arg;
+  my $first_child = $element->{'contents'}->[0];
+  if ($first_child) {
+    my $first_child_type = $first_child->{'type'};
+    if ($first_child_type and $first_child_type eq 'arguments_line') {
+      $line_arg = $first_child->{'contents'}->[-1];
+    } else {
+      $line_arg = $element->{'contents'}->[-1];
+    }
+  }
+
+  my $comment = $line_arg->get_attribute('comment_at_end')
+    if ($line_arg);
+
+  if ($comment) {
+    $end_line = $self->convert_tree($comment);
+  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
+    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
+    if (chomp($text)) {
+      $end_line = "\n";
+    } else {
+      $end_line = '';
+    }
+  } else {
+    $end_line = '';
+  }
+  return $end_line;
+}
+
+sub tree_element_format_comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $end_line;
+
+  my $line_arg;
   my $first_child = $element->get_child(0);
   if ($first_child) {
     my $first_child_type = $first_child->{'type'};
@@ -1854,27 +1892,83 @@ sub table_item_content_tree($$)
   return undef;
 }
 
-# same as Texinfo::Common::block_item_line_command, but using the
-# TreeElement interface
-# TODO it would be more efficient to have a static asis command reused
-# as in Texinfo::Common
-sub element_block_item_line_command($$)
+# same as above, but using the tree only interface
+sub element_table_item_content_tree($$)
 {
   my $self = shift;
-  my $block_line_arg = shift;
+  my $element = shift;
 
-  my $arg
-    = Texinfo::Common::element_item_line_block_line_argument_command(
-                                                        $block_line_arg);
-
-  if (!$arg) {
-    $arg = $self->new_tree_element({'cmdname' => 'asis'});
+  my $parent = $element->parent();
+  my $parent_type = $parent->{'type'};
+  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
+  # in @table
+  if (!$parent_type or $parent_type ne 'table_term') {
+    return undef;
   }
-  return $arg;
+  my $table_command = $parent->parent()->parent();
+
+  # arguments_line type element
+  my $arguments_line = $table_command->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  my $command_as_argument
+    = Texinfo::Common::element_block_item_line_command($self, $block_line_arg);
+
+  if ($command_as_argument) {
+    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
+    my $command = {'cmdname' => $command_as_argument_cmdname,
+                   'source_info' => $element->source_info(),};
+    if ($table_command->get_attribute('command_as_argument_kbd_code')) {
+      $command->{'extra'} = {'code' => 1};
+    }
+    # command name for the Texinfo::Commands hashes tests
+    my $builtin_cmdname;
+    my $type = $command_as_argument->{'type'};
+    if ($type and $type eq 'definfoenclose_command') {
+      $command->{'type'} = $type;
+      $command->{'extra'} = {} if (!$command->{'extra'});
+      $command->{'extra'}->{'begin'}
+        = $command_as_argument->get_attribute('begin');
+      $command->{'extra'}->{'end'}
+        = $command_as_argument->get_attribute('end');
+      $builtin_cmdname = 'definfoenclose_command';
+    } else {
+      $builtin_cmdname = $command_as_argument_cmdname;
+    }
+    my $arg;
+    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
+      # This corresponds to a bogus @*table line with command line @footnote
+      # or @math.  We do not really care about the formatting of the result
+      # but we want to avoid debug messages, so we setup expected trees
+      # for those @-commands.
+      $arg = {'type' => 'brace_command_context',};
+      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
+        $arg->{'contents'} = [$element->{'contents'}->[0]];
+      } else {
+        my $paragraph = $self->new_tree_element({'type' => 'paragraph',
+                           'contents' => [$element->{'contents'}->[0]],}, 1);
+        $arg->{'contents'} = [$paragraph];
+      }
+    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
+                                                   eq 'arguments') {
+      $arg = {'type' => 'brace_arg',
+              'contents' => [$element->{'contents'}->[0]],};
+    } else {
+      $arg = {'type' => 'brace_container',
+              'contents' => [$element->{'contents'}->[0]],};
+    }
+    my $arg_element = $self->new_tree_element($arg, 1);
+    my $result = $self->new_tree_element($command, 1);
+    $result->add_to_element_contents($arg_element);
+    # the line above does it in C, do it in Perl too
+    push @{$result->{'contents'}}, $arg_element;
+    return $result;
+  }
+  return undef;
 }
 
 # same as above, but using the TreeElement interface
-sub element_table_item_content_tree($$)
+sub tree_element_table_item_content_tree($$)
 {
   my $self = shift;
   my $element = shift;
@@ -1893,7 +1987,8 @@ sub element_table_item_content_tree($$)
   my $block_line_arg = $arguments_line->get_child(0);
 
   my $command_as_argument
-    = element_block_item_line_command($self, $block_line_arg);
+    = Texinfo::Common::tree_element_block_item_line_command($self,
+                                                        $block_line_arg);
 
   if ($command_as_argument) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};

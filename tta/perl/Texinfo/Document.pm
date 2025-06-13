@@ -169,7 +169,7 @@ sub set_document_global_info($$$)
   $document->{'global_info'}->{$key} = $value;
 }
 
-sub tree($;$)
+sub tree($;$$)
 {
   my $self = shift;
   return $self->{'tree'};

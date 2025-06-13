@@ -1,3 +1,55 @@
+2025-06-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (register_sv_element_handle_in_sv)
+	(register_element_handle_in_sv): split
+	register_sv_element_handle_in_sv out of register_element_handle_in_sv
+	for the code used to register the C element and the specific keys in
+	the Perl data.
+
+	* tta/C/main/build_perl_info.c (register_tree_handle_in_sv): add
+	a function to build the 'skeleton' of the tree only, with contents and
+	elements oot.
+
+	* tta/C/main/build_perl_info.c (document_tree),
+	tta/perl/Texinfo/Convert/Converter.pm (output_tree),
+	tta/perl/Texinfo/Document.pm (tree),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_tree): add
+	an argument to tree and document_tree to be able to call
+	register_tree_handle_in_sv instead of register_element_handle_in_sv.
+	Update callers.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (new_tree_element),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element): add an argument to be able to use the hash
+	argument to associate directly to the C element.
+
+	* tta/perl/Texinfo/Common.pm (element_block_item_line_command): move
+	element_table_item_content_tree to Common.pm.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm,
+	tta/perl/Texinfo/Convert/ReadDocBook.pm, tta/perl/Texinfo/Common.pm
+	(tree_element_block_line_argument_command)
+	(tree_element_itemize_item_prepended_element)
+	(tree_element_item_line_block_line_argument_command)
+	(tree_element_block_item_line_command)
+	(tree_element_index_content_element),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(tree_element_format_comment_or_end_line)
+	(tree_element_table_item_content_tree): rename ReadDocBook.pm as
+	TreeElementReadDocBook.pm and modify ReadDocBook.pm to use directly
+	the contents hash key instead of accessors.  Similar changes for
+	functions, with element_* functions renamed as tree_element_* and
+	element_* functions using directly the contents hash key.  Also call
+	tree and new_tree_element with the new arguments.
+
+	* tta/perl/XSTexinfo/parser_document/ReaderXS.xs (new)
+	(read): update to be in line with 'skeleton' tree, do not register
+	elements.  Note that it means that TreeElementReadDocBook.pm cannot
+	really work with XS.
+
+	* tta/C/main/build_perl_info.c (build_perl_container): use
+	HSH_contents.
+
 2025-06-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/TreeElementNonXS.pm (text, type, cmdname),

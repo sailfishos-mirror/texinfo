@@ -123,6 +123,7 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
 
 # Two optional arguments, line number and NO_STORE.  If NO_STORE is set,
 # the C data is removed.
+# TODO add elements_handler_only option?
 SV *
 parse_texi_line (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
@@ -155,7 +156,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
               document_sv = build_minimal_document (document);
             else
               document_sv = build_document (document, 1);
-            RETVAL = document_tree (document_sv, 0);
+            RETVAL = document_tree (document_sv, 0, 0);
           }
       OUTPUT:
         RETVAL

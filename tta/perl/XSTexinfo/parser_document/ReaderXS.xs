@@ -56,6 +56,7 @@ new (SV *element_sv)
               = get_sv_element_element (element_sv, document);
             size_t reader_number = txi_register_new_reader (element, document);
             HV *hv_stash = gv_stashpv ("Texinfo::Reader", GV_ADD);
+            /* register_tree_handle_in_sv (element, document); */
             RETVAL = sv_bless (newRV_noinc (newSViv (reader_number)), hv_stash);
           }
         else
@@ -79,12 +80,19 @@ read (SV *reader_sv)
               {
                 HV *token_hv = newHV ();
 
+                 /* If there is not Perl element yet, and the tree is not
+                    already built, a Perl (minimal) Perl element would
+                    need to be built here;  it would be better if it could
+                    be done outside, but it is not obvious how it could be
+                    possible
+
                 if (token->category != TXI_ELEMENT_END)
                   {
                     document = reader->document;
                     register_element_handle_in_sv ((ELEMENT *)token->element,
                                                    document);
                   }
+                  */
                 hv_store (token_hv, "element", strlen ("element"),
                           newSVsv ((SV *)token->element->sv), 0);
                 hv_store (token_hv, "category", strlen ("category"),

@@ -311,6 +311,19 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
   return sv;
 }
 
+static int hashes_ready = 0;
+static U32 HSH_parent = 0;
+static U32 HSH_type = 0;
+static U32 HSH_cmdname = 0;
+static U32 HSH_contents = 0;
+static U32 HSH_text = 0;
+static U32 HSH_extra = 0;
+static U32 HSH_info = 0;
+static U32 HSH_source_info = 0;
+static U32 HSH_file_name = 0;
+static U32 HSH_line_nr = 0;
+static U32 HSH_macro = 0;
+
 /* contents appears in other parts of the tree */
 static void
 build_perl_container (ELEMENT *e, int avoid_recursion)
@@ -332,7 +345,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
 
   sv = build_perl_array (&e->e.c->contents, avoid_recursion);
 
-  hv_store (element_hv, "contents", strlen ("contents"), sv, 0);
+  hv_store (element_hv, "contents", strlen ("contents"), sv, HSH_contents);
 }
 
 static SV *
@@ -805,19 +818,6 @@ store_source_mark_list (const ELEMENT *e)
         }
     }
 }
-
-static int hashes_ready = 0;
-static U32 HSH_parent = 0;
-static U32 HSH_type = 0;
-static U32 HSH_cmdname = 0;
-static U32 HSH_contents = 0;
-static U32 HSH_text = 0;
-static U32 HSH_extra = 0;
-static U32 HSH_info = 0;
-static U32 HSH_source_info = 0;
-static U32 HSH_file_name = 0;
-static U32 HSH_line_nr = 0;
-static U32 HSH_macro = 0;
 
 
 static void
@@ -2982,7 +2982,8 @@ store_document_tree_output_units (DOCUMENT *document)
 }
 
 void
-register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
+register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
+                                  DOCUMENT *document)
 {
   HV *element_hv;
   SV **element_document_descriptor_sv;
@@ -2992,13 +2993,7 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
 
   dTHX;
 
-  if (!element->sv)
-    {
-      element_hv = new_element_perl_data (element);
-      build_base_element (element, element_hv);
-    }
-  else
-    element_hv = (HV *) SvRV ((SV *)element->sv);
+  element_hv = (HV *) SvRV (element_sv);
 
   element_document_descriptor_sv
     = hv_fetch (element_hv, document_key, strlen (document_key), 0);
@@ -3018,6 +3013,67 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
     }
 }
 
+HV *
+register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
+{
+  HV *element_hv;
+
+  dTHX;
+
+  if (!element->sv)
+    {
+      element_hv = new_element_perl_data (element);
+      build_base_element (element, element_hv);
+    }
+  else
+    element_hv = (HV *) SvRV ((SV *)element->sv);
+
+  register_sv_element_handle_in_sv (element, element->sv, document);
+
+  return element_hv;
+}
+
+void
+register_tree_handle_in_sv (ELEMENT *tree, DOCUMENT *document)
+{
+
+  dTHX;
+
+  HV *element_hv = register_element_handle_in_sv (tree, document);
+
+  if (type_data[tree->type].flags & TF_text)
+    return;
+
+  if (tree->e.c->contents.number)
+    {
+      size_t i;
+      AV *av = newAV ();
+      SV *sv = newRV_noinc ((SV *) av);
+      hv_store (element_hv, "contents", strlen ("contents"), sv, HSH_contents);
+
+      av_unshift (av, tree->e.c->contents.number);
+
+      for (i = 0; i < tree->e.c->contents.number; i++)
+        {
+          ELEMENT *content = tree->e.c->contents.list[i];
+          register_tree_handle_in_sv (content, document);
+          av_store (av, (SSize_t) i, newSVsv ((SV *) content->sv));
+        }
+    }
+
+  if (tree->flags & EF_def_line)
+    {
+      ELEMENT *def_index_element
+        = lookup_extra_element_oot (tree, AI_key_def_index_element);
+      ELEMENT *def_index_ref_element
+        = lookup_extra_element_oot (tree, AI_key_def_index_ref_element);
+      if (def_index_element)
+        register_tree_handle_in_sv (def_index_element, document);
+      if (def_index_ref_element)
+        register_tree_handle_in_sv (def_index_ref_element, document);
+    }
+}
+
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -3025,7 +3081,7 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
    If the C document data was not stored, the tree will be only be
    in DOCUMENT_IN. */
 SV *
-document_tree (SV *document_in, int handler_only)
+document_tree (SV *document_in, int handler_only, int elements_handler_only)
 {
   SV *result_sv = 0;
   DOCUMENT *document = 0;
@@ -3034,17 +3090,21 @@ document_tree (SV *document_in, int handler_only)
 
   document = get_sv_document_document (document_in, 0);
 
-  if (!handler_only && document)
+  if (!handler_only && !elements_handler_only && document)
     result_sv = store_document_tree_output_units (document);
 
   if (!result_sv)
     {
       if (document && document->tree)
         {
+          if (elements_handler_only) {
+            register_tree_handle_in_sv (document->tree, document);
+          } else {
+            register_element_handle_in_sv (document->tree, document);
+          }
           /* in that case, we do not reuse the "tree" reference
              in document->hv.  We therefore need to readd everything
              relevant, in practice only "tree_document_descriptor" */
-          register_element_handle_in_sv (document->tree, document);
           if (document->tree->sv)
             {
               const char *document_key = "tree_document_descriptor";

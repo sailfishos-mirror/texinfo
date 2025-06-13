@@ -50,7 +50,7 @@ PROTOTYPES: ENABLE
 # not in Texinfo::TreeElement but in Texinfo::Convert::Converter in order
 # to be able to find the document.
 SV *
-new_tree_element (SV *converter_in, SV *element_hash)
+new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
     PREINIT:
         CONVERTER *self;
      CODE:
@@ -58,8 +58,19 @@ new_tree_element (SV *converter_in, SV *element_hash)
         if (self && self->document)
           {
             ELEMENT *e = new_element_from_sv (self, element_hash);
-            register_element_handle_in_sv (e, self->document);
-            RETVAL = newSVsv ((SV *)e->sv);
+            if (use_sv)
+              {
+                HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
+             /* this first refcount increase keeps the mortal argument alive */
+                e->sv = sv_bless (SvREFHVCNT_inc (element_hash), hv_stash);
+                register_sv_element_handle_in_sv (e, e->sv, self->document);
+                RETVAL = (SvREFHVCNT_inc (e->sv));
+              }
+            else
+              {
+                register_element_handle_in_sv (e, self->document);
+                RETVAL = newSVsv ((SV *)e->sv);
+              }
           }
         else
           {

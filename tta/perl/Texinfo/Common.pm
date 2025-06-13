@@ -885,6 +885,7 @@ sub element_multitable_columnfractions($)
 # there is a command as argument for a block command (@itemize or
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
+# also used by the tree only interface.
 sub block_line_argument_command($)
 {
   my $block_line_arg = shift;
@@ -908,7 +909,7 @@ sub block_line_argument_command($)
 }
 
 # same as above, but using the TreeElement interface
-sub element_block_line_argument_command($)
+sub tree_element_block_line_argument_command($)
 {
   my $block_line_arg = shift;
 
@@ -932,6 +933,7 @@ sub element_block_line_argument_command($)
 
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
+# also used for the tree only interface
 sub itemize_item_prepended_element($)
 {
   my $block_line_arg = shift;
@@ -947,11 +949,11 @@ sub itemize_item_prepended_element($)
 }
 
 # same as above, but using the TreeElement interface
-sub element_itemize_item_prepended_element($)
+sub tree_element_itemize_item_prepended_element($)
 {
   my $block_line_arg = shift;
 
-  my $arg = element_block_line_argument_command($block_line_arg);
+  my $arg = tree_element_block_line_argument_command($block_line_arg);
   if ($arg) {
     return $arg;
   } elsif (!$block_line_arg->children_number()) {
@@ -962,6 +964,7 @@ sub element_itemize_item_prepended_element($)
 }
 
 # always return something
+# also for tree only interface
 sub item_line_block_line_argument_command($)
 {
   my $block_line_arg = shift;
@@ -980,11 +983,11 @@ sub item_line_block_line_argument_command($)
 }
 
 # same as above, but with TreeElement interface
-sub element_item_line_block_line_argument_command($)
+sub tree_element_item_line_block_line_argument_command($)
 {
   my $block_line_arg = shift;
 
-  my $arg = element_block_line_argument_command($block_line_arg);
+  my $arg = tree_element_block_line_argument_command($block_line_arg);
 
   if ($arg) {
     my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
@@ -1007,6 +1010,39 @@ sub block_item_line_command($)
 
   if (!$arg) {
     $arg = $default_asis_command;
+  }
+  return $arg;
+}
+
+# same as above, but with tree only interface
+# TODO it would be more efficient to have a static asis command reused
+sub element_block_item_line_command($$)
+{
+  my $self = shift;
+  my $block_line_arg = shift;
+
+  my $arg
+    = item_line_block_line_argument_command($block_line_arg);
+
+  if (!$arg) {
+    $arg = $self->new_tree_element({'cmdname' => 'asis'});
+  }
+  return $arg;
+}
+
+# same as above, but with TreeElement interface
+# TODO it would be more efficient to have a static asis command reused
+sub tree_element_block_item_line_command($$)
+{
+  my $self = shift;
+  my $block_line_arg = shift;
+
+  my $arg
+    = tree_element_item_line_block_line_argument_command(
+                                                        $block_line_arg);
+
+  if (!$arg) {
+    $arg = $self->new_tree_element({'cmdname' => 'asis'});
   }
   return $arg;
 }
@@ -1907,8 +1943,27 @@ sub index_content_element($;$)
   }
 }
 
-# same as above, but using the TreeElement interface
+# same as above, but using the tree only interface
 sub element_index_content_element($;$)
+{
+  my $element = shift;
+  my $prefer_reference_element = shift;
+
+  my $def_command = $element->get_attribute('def_command');
+  if ($def_command) {
+    if ($prefer_reference_element
+        and $element->get_attribute('def_index_ref_element')) {
+      return $element->get_attribute('def_index_ref_element');
+    } else {
+      return $element->get_attribute('def_index_element');
+    }
+  } else {
+    return $element->{'contents'}->[0];
+  }
+}
+
+# same as above, but using the TreeElement interface
+sub tree_element_index_content_element($;$)
 {
   my $element = shift;
   my $prefer_reference_element = shift;

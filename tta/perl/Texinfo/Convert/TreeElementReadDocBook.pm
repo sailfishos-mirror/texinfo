@@ -28,9 +28,6 @@ use strict;
 #use Data::Dumper;
 use Carp qw(cluck confess);
 
-#use Devel::Refcount qw(refcount);
-#use Devel::Peek qw(SvREFCNT);
-
 # for XS_structuring_enabled
 use Texinfo::XSLoader;
 
@@ -369,7 +366,8 @@ sub convert($$)
 
   $self->conversion_initialization($document);
 
-  my $root = $document->tree(0, Texinfo::XSLoader::XS_structuring_enabled());
+  my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
+  #my $root = $document->tree();
 
   push @{$self->{'lang_stack'}}, '';
 
@@ -496,10 +494,10 @@ sub conversion_output_begin($;$$)
   my $legalnotice;
   my $copying_element = $self->get_global_unique_tree_element('copying');
   if ($copying_element) {
-    my $children = $copying_element->{'contents'};
+    my $children = $copying_element->get_children();
     my $copying_result
      = $self->convert_tree($self->new_tree_element(
-           {'contents' => $copying_element->{'contents'}}));
+           {'contents' => $copying_element->get_children()}));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
@@ -509,15 +507,15 @@ sub conversion_output_begin($;$$)
   foreach my $title_cmdname ('title', 'shorttitlepage') {
     my $command = $self->get_global_unique_tree_element($title_cmdname);
     if ($command) {
-      next if (!$command->{'contents'}->[0]->{'contents'});
+      next if (!$command->get_child(0)->children_number());
       $fulltitle_command = $command;
       last;
     }
   }
   if (!defined($fulltitle_command)) {
     my $command = $self->get_global_unique_tree_element('titlefont');
-    if ($command and $command->{'contents'}
-        and $command->{'contents'}->[0]->{'contents'}) {
+    if ($command and $command->children_number()
+        and $command->get_child(0)->children_number()) {
       $fulltitle_command = $command;
     }
   }
@@ -578,8 +576,8 @@ sub conversion_output_begin($;$$)
 
   my $settitle_command;
   my $settitle = $self->get_global_unique_tree_element('settitle');
-  if ($settitle and $settitle->{'contents'}
-      and $settitle->{'contents'}->[0]->{'contents'}) {
+  if ($settitle and $settitle->children_number()
+      and $settitle->get_child(0)->children_number()) {
     $settitle_command = $settitle;
   }
 
@@ -594,9 +592,9 @@ sub conversion_output_begin($;$$)
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     # arguments_line type element
-    my $arguments_line = $top_command->{'contents'}->[0];
-    my $line_arg = $arguments_line->{'contents'}->[0];
-    if ($line_arg->{'contents'}) {
+    my $arguments_line = $top_command->get_child(0);
+    my $line_arg = $arguments_line->get_child(0);
+    if ($line_arg->children_number()) {
       $fulltitle_command = $top_command;
     }
   }
@@ -650,7 +648,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  return $self->output_tree($document, 0,
+  return $self->output_tree($document,
                             Texinfo::XSLoader::XS_structuring_enabled());
 }
 
@@ -740,7 +738,7 @@ sub _index_entry($$)
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     $result .= $self->convert_tree(
-                Texinfo::Common::element_index_content_element($element));
+                Texinfo::Common::tree_element_index_content_element($element));
     $result .= "</primary>";
 
     my $entry_element = $index_entry->{'entry_element'};
@@ -753,7 +751,7 @@ sub _index_entry($$)
     my @levels = ('tertiary');
     foreach my $subentry (@subentries) {
       $result .= "<$level>";
-      $result .= $self->convert_tree($subentry->{'contents'}->[0]);
+      $result .= $self->convert_tree($subentry->get_child(0));
       $result .= "</$level>";
       if (scalar(@levels)) {
         $level = shift @levels;
@@ -764,7 +762,7 @@ sub _index_entry($$)
                                                             'seeentry');
     if ($seeentry) {
       $result .= "<see>";
-      $result .= $self->convert_tree($seeentry->{'contents'}->[0]);
+      $result .= $self->convert_tree($seeentry->get_child(0));
       $result .= "</see>";
     }
     my $seealso
@@ -772,7 +770,7 @@ sub _index_entry($$)
                                                             'seealso');
     if ($seealso) {
       $result .= "<seealso>";
-      $result .= $self->convert_tree($seealso->{'contents'}->[0]);
+      $result .= $self->convert_tree($seealso->get_child(0));
       $result .= "</seealso>";
     }
 
@@ -812,15 +810,15 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $line_arg;
-  my $first_child = $element->{'contents'}->[0];
+  my $first_child = $element->get_child(0);
   my $first_child_type = $first_child->{'type'};
   if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->{'contents'}->[-1];
+    $line_arg = $first_child->get_child(-1);
   } else {
-    $line_arg = $element->{'contents'}->[-1];
+    $line_arg = $element->get_child(-1);
   }
   my $converted = $self->convert_tree($line_arg);
-  my $end_line = $self->element_format_comment_or_end_line($element);
+  my $end_line = $self->tree_element_format_comment_or_end_line($element);
   return ($converted, $end_line);
 }
 
@@ -856,10 +854,10 @@ sub _convert_def_line($$)
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  my $first_child = $element->{'contents'}->[0];
+  my $first_child = $element->get_child(0);
   my $contents;
   if ($first_child) {
-    $contents = $first_child->{'contents'};
+    $contents = $first_child->get_children();
   }
   if ($contents) {
     my $main_command;
@@ -928,10 +926,6 @@ sub _convert($$)
     last if (!defined($next));
     my $category = $next->{'category'};
     my $element = $next->{'element'};
-
-    if (!defined($element)) {
-      confess("ReadDocBook _convert element undef");
-    }
 
     my $e_type = $element->{'type'};
 
@@ -1045,12 +1039,12 @@ sub _convert($$)
             $$output_ref .= "<listitem>";
             if ($parent_cmdname eq 'itemize') {
               # parent line arguments_line type element
-              my $arguments_line = $parent->{'contents'}->[0];
-              my $block_line_arg = $arguments_line->{'contents'}->[0];
+              my $arguments_line = $parent->get_child(0);
+              my $block_line_arg = $arguments_line->get_child(0);
 
               my $command_as_argument_name;
               my $prepended_element
-                = Texinfo::Common::itemize_item_prepended_element(
+                = Texinfo::Common::tree_element_itemize_item_prepended_element(
                                                           $block_line_arg);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->{'cmdname'};
@@ -1066,16 +1060,16 @@ sub _convert($$)
             push @{$format_elements_stack[-1]}, 'listitem';
           } elsif (($cmdname eq 'item'
                     or $cmdname eq 'itemx')
-                   and $element->{'contents'}
-                   and $element->{'contents'}->[0]->{'type'}
-                   and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
+                   and $element->children_number()
+                   and $element->get_child(0)->{'type'}
+                   and $element->get_child(0)->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
             $result_text .= _index_entry($self, $element);
-            if ($element->{'contents'}->[0]->{'contents'}) {
+            if ($element->get_child(0)->children_number()) {
               my $table_item_tree
-                = $self->element_table_item_content_tree($element);
-              $table_item_tree = $element->{'contents'}->[0]
+                = $self->tree_element_table_item_content_tree($element);
+              $table_item_tree = $element->get_child(0)
                 if (!defined($table_item_tree));
 
               $result_text .= $self->convert_tree($table_item_tree);
@@ -1103,7 +1097,8 @@ sub _convert($$)
                  and $e_type eq 'index_entry_command') {
           my $end_line;
           if ($element->get_attribute('index_entry')) {
-            $end_line = $self->element_format_comment_or_end_line($element);
+            $end_line
+              = $self->tree_element_format_comment_or_end_line($element);
             if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
               chomp($end_line);
             }
@@ -1275,7 +1270,7 @@ sub _convert($$)
             }
           } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
             $$output_ref
-              .= $self->xml_comment($element->{'contents'}->[0]->{'text'});
+              .= $self->xml_comment($element->get_child(0)->{'text'});
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
               my ($arg, $end_line)
@@ -1308,7 +1303,7 @@ sub _convert($$)
             my $copying = $self->get_global_unique_tree_element('copying');
             if ($copying) {
               $$output_ref .= $self->convert_tree($self->new_tree_element(
-                                   {'contents' => $copying->{'contents'}}));
+                                   {'contents' => $copying->get_children()}));
             }
           } elsif ($cmdname eq 'verbatiminclude') {
             my $expansion = $self->element_expand_verbatiminclude($element);
@@ -1376,7 +1371,7 @@ sub _convert($$)
             $$output_ref .= _output_anchor($element);
             $reader->skip_children($element);
           } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
-            my $args_nr = scalar(@{$element->{'contents'}});
+            my $args_nr = $element->children_number();
             my $command_name;
             my $book_element;
             my ($section_name, $node_name);
@@ -1389,14 +1384,14 @@ sub _convert($$)
               $command_name = 'ref';
             } else {
               if ($args_nr >= 5) {
-                my $book_arg = $element->{'contents'}->[4];
-                if ($book_arg->{'contents'}) {
+                my $book_arg = $element->get_child(4);
+                if ($book_arg->children_number()) {
                   $book_element = $book_arg;
                 }
               }
               if ($args_nr >= 3) {
-                my $section_arg = $element->{'contents'}->[2];
-                if ($section_arg->{'contents'}) {
+                my $section_arg = $element->get_child(2);
+                if ($section_arg->children_number()) {
                   $section_name = $self->convert_tree($section_arg);
                 }
               }
@@ -1404,18 +1399,17 @@ sub _convert($$)
             }
             my $manual_file_element;
             if ($args_nr >= $manual_file_index+1) {
-              my $manual_file_arg
-                 = $element->{'contents'}->[$manual_file_index];
-              if ($manual_file_arg->{'contents'}) {
+              my $manual_file_arg = $element->get_child($manual_file_index);
+              if ($manual_file_arg->children_number()) {
                 $manual_file_element = $manual_file_arg;
               }
             }
             if (! defined($section_name) and $args_nr >= 2
-                and $element->{'contents'}->[1]->{'contents'}) {
-              my $section_arg = $element->{'contents'}->[1];
+                and $element->get_child(1)->children_number()) {
+              my $section_arg = $element->get_child(1);
               $section_name = $self->convert_tree($section_arg);
-            } elsif ($element->{'contents'}->[0]->{'contents'}) {
-              my $node_arg = $element->{'contents'}->[0];
+            } elsif ($element->get_child(0)->children_number()) {
+              my $node_arg = $element->get_child(0);
               push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
               $node_name = $self->convert_tree($node_arg);
               pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1543,7 +1537,7 @@ sub _convert($$)
             } elsif ($cmdname eq 'inforef') {
             } else {
               my $linkend = '';
-              my $node_arg = $element->{'contents'}->[0];
+              my $node_arg = $element->get_child(0);
               if ($node_arg and defined($node_arg->get_attribute('normalized'))
                   and !$node_arg->get_attribute('manual_content')) {
                 $linkend = ' linkend="'.
@@ -1573,14 +1567,14 @@ sub _convert($$)
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
             $reader->skip_children($element);
           } elsif ($cmdname eq 'image') {
-            if ($element->{'contents'}
-                and $element->{'contents'}->[0]->{'contents'}) {
+            if ($element->children_number()
+                and $element->get_child(0)->children_number()) {
               Texinfo::Convert::Text::set_options_code(
                                      $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                       $self->{'convert_text_options'});
               my $basefile = Texinfo::Convert::Text::convert_to_text(
-                                            $element->{'contents'}->[0],
+                                            $element->get_child(0),
                                         $self->{'convert_text_options'});
               Texinfo::Convert::Text::reset_options_code(
                                      $self->{'convert_text_options'});
@@ -1636,19 +1630,17 @@ sub _convert($$)
           } elsif ($cmdname eq 'email') {
             my $name;
             my $email;
-            my $args_nr = 0;
-            $args_nr = scalar(@{$element->{'contents'}})
-              if ($element->{'contents'});
+            my $args_nr = $element->children_number();
             if ($args_nr) {
-              my $email_arg = $element->{'contents'}->[0];
-              if ($email_arg->{'contents'}) {
+              my $email_arg = $element->get_child(0);
+              if ($email_arg->children_number()) {
                 $email = $email_arg;
               }
             }
             my $email_text;
             if ($args_nr >= 2) {
-              my $name_arg = $element->{'contents'}->[1];
-              if ($name_arg->{'contents'}) {
+              my $name_arg = $element->get_child(1);
+              if ($name_arg->children_number()) {
                 $name = $name_arg;
               }
             }
@@ -1680,10 +1672,10 @@ sub _convert($$)
             }
             $reader->skip_children($element);
           } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
-            my $args_nr = scalar(@{$element->{'contents'}});
+            my $args_nr = $element->children_number();
             my $url_text;
-            my $url_arg = $element->{'contents'}->[0];
-            if ($url_arg->{'contents'}) {
+            my $url_arg = $element->get_child(0);
+            if ($url_arg->children_number()) {
               Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1700,15 +1692,15 @@ sub _convert($$)
             }
             my $replacement;
             if ($args_nr >= 2) {
-              my $replacement_arg = $element->{'contents'}->[1];
-              if ($replacement_arg->{'contents'}) {
+              my $replacement_arg = $element->get_child(1);
+              if ($replacement_arg->children_number()) {
                 $replacement = $self->convert_tree($replacement_arg);
               }
             }
             if (!defined($replacement) or $replacement eq '') {
               if ($args_nr >= 3) {
-                my $replacement_arg = $element->{'contents'}->[2];
-                if ($replacement_arg->{'contents'}) {
+                my $replacement_arg = $element->get_child(2);
+                if ($replacement_arg->children_number()) {
                   $replacement = $self->convert_tree($replacement_arg);
                 }
               }
@@ -1723,11 +1715,11 @@ sub _convert($$)
             #    xmlns:xlink="http://www.w3.org/1999/xlink"
             # return "<link xlink:href=\"$url_text\">$replacement</link>";
           } elsif ($cmdname eq 'abbr' or $cmdname eq 'acronym') {
-            my $args_nr = scalar(@{$element->{'contents'}});
+            my $args_nr = $element->children_number();
             if ($args_nr) {
               my $argument;
-              my $arg_element = $element->{'contents'}->[0];
-              if ($arg_element->{'contents'}) {
+              my $arg_element = $element->get_child(0);
+              if ($arg_element->children_number()) {
                 my $arg_text = $self->convert_tree($arg_element);
                 if ($arg_text ne '') {
                   my $format_element;
@@ -1741,9 +1733,9 @@ sub _convert($$)
               }
               my $explanation_e;
               if ($args_nr >= 2) {
-                $explanation_e = $element->{'contents'}->[1];
+                $explanation_e = $element->get_child(1);
               }
-              if ($explanation_e and $explanation_e->{'contents'}) {
+              if ($explanation_e and $explanation_e->children_number()) {
                 if (defined($argument)) {
                   my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                                  {'abbr_or_acronym' =>
@@ -1760,10 +1752,10 @@ sub _convert($$)
             }
             $reader->skip_children($element);
           } elsif ($cmdname eq 'U') {
-            if ($element->{'contents'}) {
-              my $arg = $element->{'contents'}->[0];
-              if ($arg->{'contents'}) {
-                my $arg_text = $arg->{'contents'}->[0]->{'text'};
+            if ($element->children_number()) {
+              my $arg = $element->get_child(0);
+              if ($arg->children_number()) {
+                my $arg_text = $arg->get_child(0)->{'text'};
                 if (defined($arg_text)) {
                   $$output_ref .= "&#x$arg_text;";
                 }
@@ -1792,9 +1784,9 @@ sub _convert($$)
                             ->{$element->get_attribute('format')}) {
                 $arg_index = 2;
               }
-              if (scalar(@{$element->{'contents'}}) > $arg_index) {
-                my $converted_arg = $element->{'contents'}->[$arg_index];
-                if ($converted_arg->{'contents'}) {
+              if ($element->children_number() > $arg_index) {
+                my $converted_arg = $element->get_child($arg_index);
+                if ($converted_arg->children_number()) {
                   $$output_ref .= $self->convert_tree($converted_arg);
                 }
               }
@@ -1872,16 +1864,16 @@ sub _convert($$)
               }
             } else {
               # @multitable line arguments_line type element
-              my $arguments_line = $element->{'contents'}->[0];
-              my $block_line_arg = $arguments_line->{'contents'}->[0];
-              my $contents = $block_line_arg->{'contents'};
+              my $arguments_line = $element->get_child(0);
+              my $block_line_arg = $arguments_line->get_child(0);
+              my $contents = $block_line_arg->get_children();
               if ($contents) {
                 $multiply = 1;
                 foreach my $content (@$contents) {
                   if ($content->{'type'}
                       and $content->{'type'} eq 'bracketed_arg') {
                     my $prototype_text = '';
-                    if ($content->{'contents'}) {
+                    if ($content->children_number()) {
                       Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
                                       $self, $self->{'convert_text_options'});
                       $prototype_text
@@ -1914,8 +1906,8 @@ sub _convert($$)
             Texinfo::Convert::Utils::element_find_element_authors($element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
-              my $arg = $author->{'contents'}->[0];
-              if ($arg->{'contents'}) {
+              my $arg = $author->get_child(0);
+              if ($arg->children_number()) {
                 $appended .= '<attribution>'.
                        $self->convert_tree($arg)
                            ."</attribution>\n";
@@ -1923,9 +1915,9 @@ sub _convert($$)
             }
             my $format_element;
             # arguments_line type element
-            my $arguments_line = $element->{'contents'}->[0];
-            my $block_line_arg = $arguments_line->{'contents'}->[0];
-            if ($block_line_arg->{'contents'}) {
+            my $arguments_line = $element->get_child(0);
+            my $block_line_arg = $arguments_line->get_child(0);
+            if ($block_line_arg->children_number()) {
               my $quotation_arg_text
                 = Texinfo::Convert::Text::convert_to_text($block_line_arg,
                                            $self->{'convert_text_options'});
@@ -1942,9 +1934,9 @@ sub _convert($$)
           } elsif ($cmdname eq 'cartouche') {
             push @format_elements, 'sidebar';
             # arguments_line type element
-            my $arguments_line = $element->{'contents'}->[0];
-            my $block_line_arg = $arguments_line->{'contents'}->[0];
-            if ($block_line_arg->{'contents'}) {
+            my $arguments_line = $element->get_child(0);
+            my $block_line_arg = $arguments_line->get_child(0);
+            if ($block_line_arg->children_number()) {
               my $title = $self->convert_tree($block_line_arg);
               if ($title ne '') {
                 $appended .= '<title>'.$title.'</title>'."\n";
