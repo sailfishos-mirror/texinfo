@@ -1120,7 +1120,7 @@ sub index_entry_referred_entry($$)
     foreach my $content (@{$line_arg->{'contents'}}) {
       if ($content->{'cmdname'}) {
         if ($content->{'cmdname'} eq $referred_cmdname) {
-          return $content if ($content->{'contents'});
+          return $content->{'contents'}->[0] if ($content->{'contents'});
         } elsif ($content->{'cmdname'} eq 'subentry') {
           return index_entry_referred_entry($content, $referred_cmdname);
         }
@@ -1146,7 +1146,7 @@ sub element_index_entry_referred_entry($$)
       my $cmdname = $content->{'cmdname'};
       if ($cmdname) {
         if ($cmdname eq $referred_cmdname) {
-          return $content if ($content->children_number());
+          return $content->get_child(0) if ($content->children_number());
         } elsif ($cmdname eq 'subentry') {
           return element_index_entry_referred_entry($content,
                                                     $referred_cmdname);

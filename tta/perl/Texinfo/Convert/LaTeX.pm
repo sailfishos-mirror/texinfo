@@ -2619,7 +2619,7 @@ sub _index_entry($$)
                                                       $seecommand);
       if ($referred_element) {
         my $seeconverted
-          = _convert($self, $referred_element->{'contents'}->[0]);
+          = _convert($self, $referred_element);
         $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
                         .$seeconverted.'}';
         last;

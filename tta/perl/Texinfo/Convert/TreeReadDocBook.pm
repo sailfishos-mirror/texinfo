@@ -764,7 +764,7 @@ sub _index_entry($$)
                                                             'seeentry');
     if ($seeentry) {
       $result .= "<see>";
-      $result .= $self->convert_tree($seeentry->{'contents'}->[0]);
+      $result .= $self->convert_tree($seeentry);
       $result .= "</see>";
     }
     my $seealso
@@ -772,7 +772,7 @@ sub _index_entry($$)
                                                             'seealso');
     if ($seealso) {
       $result .= "<seealso>";
-      $result .= $self->convert_tree($seealso->{'contents'}->[0]);
+      $result .= $self->convert_tree($seealso);
       $result .= "</seealso>";
     }
 

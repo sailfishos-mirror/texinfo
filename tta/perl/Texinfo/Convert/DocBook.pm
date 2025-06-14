@@ -679,7 +679,7 @@ sub _index_entry($$)
                                                     'seeentry');
     if ($seeentry) {
       $result .= "<see>";
-      $result .= _convert($self, $seeentry->{'contents'}->[0]);
+      $result .= _convert($self, $seeentry);
       $result .= "</see>";
     }
     my $seealso
@@ -687,7 +687,7 @@ sub _index_entry($$)
                                                     'seealso');
     if ($seealso) {
       $result .= "<seealso>";
-      $result .= _convert($self, $seealso->{'contents'}->[0]);
+      $result .= _convert($self, $seealso);
       $result .= "</seealso>";
     }
 

@@ -31,6 +31,12 @@
 
 2025-06-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (index_entry_referred_entry)
+	(element_index_entry_referred_entry): return the brace command
+	argument.  Update callers.
+
+2025-06-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (tree_element_multitable_columnfractions)
 	(associated_processing_encoding)
 	(tree_element_informative_command_value)

@@ -1995,9 +1995,8 @@ sub process_printindex($$;$)
       my $referred_tree = Texinfo::TreeElement::new({});
       $referred_tree->{'type'} = '_code'
         if ($indices_information->{$entry_index_name}->{'in_code'});
-      if ($referred_entry->{'contents'} and $referred_entry->{'contents'}->[0]
-          and $referred_entry->{'contents'}->[0]->{'contents'}) {
-        $referred_tree->{'contents'} = [$referred_entry->{'contents'}->[0]];
+      if ($referred_entry->{'contents'}) {
+        $referred_tree->{'contents'} = [$referred_entry];
       }
 
       # indent with the same width as '* ', but do not use * such that the

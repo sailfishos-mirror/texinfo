@@ -6656,10 +6656,8 @@ sub _convert_printindex_command($$$$)
       if ($referred_entry) {
         my $referred_tree = Texinfo::TreeElement::new({});
         $referred_tree->{'type'} = '_code' if ($in_code);
-        if ($referred_entry->{'contents'}
-            and $referred_entry->{'contents'}->[0]
-            and $referred_entry->{'contents'}->[0]->{'contents'}) {
-          $referred_tree->{'contents'} = [$referred_entry->{'contents'}->[0]];
+        if ($referred_entry->{'contents'}) {
+          $referred_tree->{'contents'} = [$referred_entry];
         }
         my $entry;
         # for @seealso, to appear where chapter/node ususally appear
