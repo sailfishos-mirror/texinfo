@@ -46,7 +46,7 @@ PROTOTYPES: ENABLE
 
 SV *
 new (SV *element_sv)
-      PREINIT: 
+      PREINIT:
         DOCUMENT *document;
       CODE:
         document = get_sv_element_document (element_sv, 0);
@@ -56,45 +56,39 @@ new (SV *element_sv)
               = get_sv_element_element (element_sv, document);
             size_t reader_number = txi_register_new_reader (element, document);
             HV *hv_stash = gv_stashpv ("Texinfo::Reader", GV_ADD);
-            /* register_tree_handle_in_sv (element, document); */
             RETVAL = sv_bless (newRV_noinc (newSViv (reader_number)), hv_stash);
           }
         else
-          RETVAL = newSV (0);   
+          RETVAL = newSV (0);
     OUTPUT:
          RETVAL
 
 SV *
 read (SV *reader_sv)
-      PREINIT: 
+      PREINIT:
         READER *reader;
         SV *token_sv = 0;
       CODE:
         reader = get_sv_reader_reader (reader_sv);
         if (reader)
           {
-            DOCUMENT *document;
             const READER_TOKEN *token = txi_reader_read (reader);
 
             if (token)
               {
                 HV *token_hv = newHV ();
+                SV *token_element_sv;
+                if (token->element->sv)
+                  token_element_sv = newSVsv ((SV *)token->element->sv);
+                else
+             /* in that case the element is not in the token, but the
+                caller can call register_token_element
+                on the Perl reader to register the element and add handles
+                for Perl and get the Perl element reference */
+                  token_element_sv = newSV (0);
 
-                 /* If there is not Perl element yet, and the tree is not
-                    already built, a Perl (minimal) Perl element would
-                    need to be built here;  it would be better if it could
-                    be done outside, but it is not obvious how it could be
-                    possible
-
-                if (token->category != TXI_ELEMENT_END)
-                  {
-                    document = reader->document;
-                    register_element_handle_in_sv ((ELEMENT *)token->element,
-                                                   document);
-                  }
-                  */
                 hv_store (token_hv, "element", strlen ("element"),
-                          newSVsv ((SV *)token->element->sv), 0);
+                          token_element_sv, 0);
                 hv_store (token_hv, "category", strlen ("category"),
                           newSViv (token->category), 0);
                 token_sv = newRV_noinc ((SV *)token_hv);
@@ -138,7 +132,7 @@ skip_children (SV *reader_sv, SV *)
 
 SV *
 reader_collect_commands_list (SV *element_sv, SV *commands_list_sv)
-      PREINIT: 
+      PREINIT:
         DOCUMENT *document;
       CODE:
         document = get_sv_element_document (element_sv, 0);
@@ -182,3 +176,30 @@ reader_collect_commands_list (SV *element_sv, SV *commands_list_sv)
           RETVAL = newSV (0);
     OUTPUT:
          RETVAL
+
+SV *
+register_token_element (SV *reader_sv)
+      PREINIT:
+        READER *reader;
+      CODE:
+        reader = get_sv_reader_reader (reader_sv);
+        if (reader)
+          {
+            register_element_handle_in_sv ((ELEMENT *)reader->token.element,
+                                           reader->document);
+            RETVAL = newSVsv ((SV *)reader->token.element->sv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+void
+register_token_tree (SV *reader_sv)
+      PREINIT:
+        READER *reader;
+      CODE:
+        reader = get_sv_reader_reader (reader_sv);
+        if (reader)
+          register_tree_handle_in_sv ((ELEMENT *)reader->token.element,
+                                         reader->document);

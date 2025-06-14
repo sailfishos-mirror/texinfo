@@ -792,6 +792,8 @@ my %converter_format_expanded_region_name = (
   'texinfoxml' => 'xml',
   'docbookreader' => 'docbook',
   'docbooknoreader' => 'docbook',
+  'docbooktreereader' => 'docbook',
+  'docbooktreeelementreader' => 'docbook',
 );
 
 my %format_command_line_names = (
@@ -856,12 +858,22 @@ my %formats_table = (
   'docbook' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Convert::ReadDocBook'
+             'module' => 'Texinfo::Convert::DocBook'
            },
   'docbookreader' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::ReadDocBook'
+           },
+  'docbooktreereader' => {
+             'move_index_entries_after_items' => 1,
+             'no_warn_non_empty_parts' => 1,
+             'module' => 'Texinfo::Convert::TreeReadDocBook'
+           },
+  'docbooktreeelementreader' => {
+             'move_index_entries_after_items' => 1,
+             'no_warn_non_empty_parts' => 1,
+             'module' => 'Texinfo::Convert::TreeElementReadDocBook'
            },
   'epub3' => {
             'converted_format' => 'html',

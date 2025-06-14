@@ -509,7 +509,7 @@ sub conversion_output_begin($;$$)
     # preceding it, so we also use @top
     my $command = $global_commands->{'top'};
     # arguments_line type element
-    my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
+    my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
     $fulltitle_command = $command
       if ($line_arg->{'contents'});
@@ -729,9 +729,9 @@ sub _convert_argument_and_end_line($$)
   my $line_arg;
   if ($element->{'contents'}->[0]->{'type'}
       and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+    $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
   } else {
-    $line_arg = $element->{'contents'}->[-1];
+    $line_arg = $element->{'contents'}->[0];
   }
   my $converted = $self->convert_tree($line_arg);
   my $end_line = $self->format_comment_or_return_end_line($element);
@@ -770,16 +770,20 @@ sub _convert_def_line($$)
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  if ($element->{'contents'}
-      and $element->{'contents'}->[0]->{'contents'}) {
+  my $first_child = $element->{'contents'}->[0];
+  my $contents;
+  if ($first_child) {
+    $contents = $first_child->{'contents'};
+  }
+  if ($contents) {
     my $main_command;
-    if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-      $main_command
-        = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+    my $def_command = $element->{'extra'}->{'def_command'};
+    if ($Texinfo::Common::def_aliases{$def_command}) {
+      $main_command = $Texinfo::Common::def_aliases{$def_command};
     } else {
-      $main_command = $element->{'extra'}->{'def_command'};
+      $main_command = $def_command;
     }
-    foreach my $arg (@{$element->{'contents'}->[0]->{'contents'}}) {
+    foreach my $arg (@$contents) {
       my $type = $arg->{'type'};
 
       my $content = _convert($self, $arg);
@@ -824,8 +828,8 @@ sub _convert($$;$)
   my $e_type = $element->{'type'};
 
   my $debug_element_nr;
-  #if (1) {
-  if (0) { # verbose even for debugging
+  #if (1) { #}
+  if (0) { #}
     $debug_element_nr = $debug_global_element_nr++;
     print STDERR "element $debug_element_nr";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
@@ -1176,8 +1180,8 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($cmdname eq 'printindex') {
-        if (defined($element->{'extra'})
-            and defined($element->{'extra'}->{'misc_args'})) {
+        if ($element->{'extra'}
+            and $element->{'extra'}->{'misc_args'}) {
           # FIXME DocBook 5
           #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
           return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\">"
@@ -1697,9 +1701,11 @@ sub _convert($$;$)
         my $numeration;
         if ($element->{'extra'}
             and $element->{'extra'}->{'enumerate_specification'}) {
-          if ($element->{'extra'}->{'enumerate_specification'} =~ /^[A-Z]/) {
+          my $enumerate_specification
+            = $element->{'extra'}->{'enumerate_specification'};
+          if ($enumerate_specification =~ /^[A-Z]/) {
             $numeration = 'upperalpha';
-          } elsif ($element->{'extra'}->{'enumerate_specification'} =~ /^[a-z]/) {
+          } elsif ($enumerate_specification =~ /^[a-z]/) {
             $numeration = 'loweralpha';
           } else {
             $numeration = 'arabic';
@@ -1717,7 +1723,8 @@ sub _convert($$;$)
         push @format_elements, "informaltable";
         push @attributes, '';
         my $columns_count;
-        if ($element->{'extra'} and defined($element->{'extra'}->{'max_columns'})) {
+        if ($element->{'extra'}
+            and defined($element->{'extra'}->{'max_columns'})) {
           $columns_count = $element->{'extra'}->{'max_columns'};
         } else {
           $columns_count = 0;

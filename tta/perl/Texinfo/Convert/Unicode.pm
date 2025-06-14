@@ -301,7 +301,7 @@ sub unicode_accent($$)
   return undef;
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using TreeElement or tree only interface
 sub element_unicode_accent($$)
 {
   my $text = shift;
@@ -420,7 +420,7 @@ sub _format_unicode_accents_stack($$$$;$)
   return $result;
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using TreeElement or tree only interface
 sub _element_format_unicode_accents_stack($$$$;$)
 {
   my $converter = shift;
@@ -575,7 +575,7 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   return $result;
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using TreeElement or tree only interface
 sub _element_format_eight_bit_accents_stack($$$$$;$)
 {
   my $converter = shift;
@@ -725,7 +725,7 @@ sub encoded_accents($$$$$;$)
   return undef;
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using TreeElement or tree only interface
 sub element_encoded_accents($$$$$;$)
 {
   my $converter = shift;

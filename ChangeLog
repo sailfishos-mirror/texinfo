@@ -1,3 +1,47 @@
+2025-06-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Common.pm (tree_element_multitable_columnfractions)
+	(associated_processing_encoding)
+	(tree_element_informative_command_value)
+	(tree_element_set_informative_command_value),
+	tta/perl/Texinfo/Convert/Converter.pm (tree_element_xml_accents),
+	tta/perl/Texinfo/Convert/Utils.pm
+	(tree_element_find_innermost_accent_contents): add
+	tree_* for tree element interface, modify functions for tree only
+	interface and add associated_processing_encoding for pure Perl.
+	Update callers.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(element_table_item_content_tree),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(add_to_element_contents): do not push on contents in Perl, but in XS.
+
+	* tta/perl/Texinfo/Convert/TreeReadDocBook.pm (package) 
+	(_convert): fix package.  Call multitable_columnfractions instead of
+	element_multitable_columnfractions.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (package)
+	(_convert): fix package.  Call tree_element_* functions.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm: Reader based converter
+	not using the tree element interface at all.  Only for pure Perl for
+	now, does not work in XS.
+
+	* tta/perl/Texinfo/ReaderNonXS.pm (read): do not use the TreeElements
+	interface, as the tree should alwais be built to Perl if XS is not
+	used.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_convert),
+	tta/perl/Texinfo/ReaderNonXS.pm (register_token_element)
+	(register_token_tree), tta/perl/XSTexinfo/parser_document/ReaderXS.xs
+	(read, register_token_element, register_token_tree)
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(_convert_argument_and_end_line, _convert_def_line, _convert): minor
+	changes and improvements of code.
+
+	* texi2any.pl: update for new/fixed DocBook converters.
+
 2025-06-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (register_sv_element_handle_in_sv)

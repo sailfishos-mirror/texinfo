@@ -580,25 +580,22 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
             ELEMENT *element = get_sv_element_element (element_sv, document);
             add_to_element_contents (parent_element, element);
           }
+
+        const char *key = "contents";
+        HV *parent_element_hv = (HV *) SvRV (parent_element_sv);
+        HV *element_hv = (HV *) SvRV (element_sv);
+        SV **sv = hv_fetch (parent_element_hv, key, strlen(key), 0);
+        AV *contents_av;
+        if (sv && SvOK (*sv))
+          contents_av = (AV *) SvRV (*sv);
         else
           {
-            const char *key = "contents";
-            HV *parent_element_hv = (HV *) SvRV (parent_element_sv);
-            HV *element_hv = (HV *) SvRV (element_sv);
-            SV **sv = hv_fetch (parent_element_hv, key, strlen(key), 0);
-            AV *contents_av;
-            if (sv && SvOK (*sv))
-              contents_av = (AV *) SvRV (*sv);
-            else
-              {
-                contents_av = newAV ();
-                hv_store (parent_element_hv, key, strlen(key),
-                          newRV_noinc ((SV *)contents_av), 0);
-              }
-
-            av_push (contents_av, SvREFHVCNT_inc (element_sv));
-
-            hv_store (element_hv, "parent", strlen ("parent"),
-                      newSVsv (element_sv), 0);
+            contents_av = newAV ();
+            hv_store (parent_element_hv, key, strlen(key),
+                      newRV_noinc ((SV *)contents_av), 0);
           }
 
+        av_push (contents_av, SvREFHVCNT_inc (element_sv));
+
+        hv_store (element_hv, "parent", strlen ("parent"),
+                  newSVsv (element_sv), 0);

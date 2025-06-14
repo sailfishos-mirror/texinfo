@@ -971,7 +971,7 @@ sub output_ixin($$)
             $blob_nr++;
             if ($extension eq 'txt') {
               my $encoding
-                 = Texinfo::Common::element_associated_processing_encoding($command);
+                 = Texinfo::Common::associated_processing_encoding($command);
               if (defined($encoding)) {
                 binmode($filehandle, ":encoding($encoding)");
               }

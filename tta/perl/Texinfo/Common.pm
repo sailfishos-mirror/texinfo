@@ -865,7 +865,7 @@ sub multitable_columnfractions($)
 }
 
 # same as above, but for the TreeElement interface
-sub element_multitable_columnfractions($)
+sub tree_element_multitable_columnfractions($)
 {
   my $multitable = shift;
 
@@ -1236,6 +1236,16 @@ sub processing_output_encoding($)
   return $perl_encoding;
 }
 
+sub associated_processing_encoding($)
+{
+  my $element = shift;
+
+  my $encoding = $element->{'extra'}->{'input_encoding_name'}
+    if ($element->{'extra'});
+
+  return processing_output_encoding($encoding);
+}
+
 sub element_associated_processing_encoding($)
 {
   my $element = shift;
@@ -1344,8 +1354,35 @@ sub informative_command_value($)
   return undef;
 }
 
-# same as above, but using the TreeElement interface
+# same as above, but using the tree only interface
 sub element_informative_command_value($)
+{
+  my $element = shift;
+
+  my $cmdname = $element->{'cmdname'};
+
+  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
+    if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
+      return 1;
+    } elsif ($element->{'contents'}) {
+      return join(' ', map {$_->{'text'}} @{$element->{'contents'}});
+    }
+  } elsif ($element->get_attribute('text_arg')) {
+    return $element->get_attribute('text_arg');
+  } elsif ($element->get_attribute('misc_args')
+           and exists($element->get_attribute('misc_args')->[0])) {
+    return $element->get_attribute('misc_args')->[0];
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
+    my $arg = $element->{'contents'}->[0];
+    if ($arg->{'contents'}) {
+      return $arg->{'contents'}->[0]->{'text'};
+    }
+  }
+  return undef;
+}
+
+# same as above, but using the TreeElement interface
+sub tree_element_informative_command_value($)
 {
   my $element = shift;
 
@@ -1398,7 +1435,7 @@ sub set_informative_command_value($$)
   return 0;
 }
 
-# same as above, but using the TreeElement interface
+# same as above, but using the tree only interface
 sub element_set_informative_command_value($$)
 {
   my $self = shift;
@@ -1408,6 +1445,24 @@ sub element_set_informative_command_value($$)
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = element_informative_command_value($element);
+
+  if (defined($value)) {
+    my $set = $self->set_conf($cmdname, $value);
+    return $set;
+  }
+  return 0;
+}
+
+# same as above, but using the TreeElement interface
+sub tree_element_set_informative_command_value($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $cmdname = $element->{'cmdname'};
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
+
+  my $value = tree_element_informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);
@@ -2587,8 +2642,8 @@ to the @-commands names specified in the I<$commands_list> found
 in I<$tree> by traversing the tree.  The order of the @-commands
 should be kept.
 
-=item $encoding_name = element_associated_processing_encoding($element)
-X<C<element_associated_processing_encoding>>
+=item $encoding_name = associated_processing_encoding($element)
+X<C<associated_processing_encoding>>
 
 Returns the encoding name that can be used for decoding derived
 from the encoding that was set where I<$element> appeared.

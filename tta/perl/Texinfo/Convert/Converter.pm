@@ -1960,8 +1960,6 @@ sub element_table_item_content_tree($$)
     my $arg_element = $self->new_tree_element($arg, 1);
     my $result = $self->new_tree_element($command, 1);
     $result->add_to_element_contents($arg_element);
-    # the line above does it in C, do it in Perl too
-    push @{$result->{'contents'}}, $arg_element;
     return $result;
   }
   return undef;
@@ -2050,7 +2048,7 @@ sub convert_accents($$$;$$)
   my $in_upper_case = shift;
 
   my ($contents_element, $stack)
-      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+    = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
   my $arg_text = '';
   if (defined($contents_element)) {
     $arg_text = $self->convert_tree($contents_element);
@@ -2085,6 +2083,41 @@ sub element_convert_accents($$$;$$)
 
   my ($contents_element, $stack)
    = Texinfo::Convert::Utils::element_find_innermost_accent_contents($self,
+                                                                     $accent);
+  my $arg_text = '';
+  if (defined($contents_element)) {
+    $arg_text = $self->convert_tree($contents_element);
+  }
+
+  if ($output_encoded_characters) {
+    my $encoded = Texinfo::Convert::Unicode::element_encoded_accents($self,
+                                       $arg_text, $stack,
+                                       $self->get_conf('OUTPUT_ENCODING_NAME'),
+                                       $format_accents,
+                                       $in_upper_case);
+    if (defined($encoded)) {
+      return $encoded;
+    }
+  }
+  my $result = $arg_text;
+  foreach my $accent_command (reverse(@$stack)) {
+    $result = &$format_accents ($self, $result, $accent_command,
+                                $in_upper_case);
+  }
+  return $result;
+}
+
+# same as above, but using TreeElement interface
+sub tree_element_convert_accents($$$;$$)
+{
+  my $self = shift;
+  my $accent = shift;
+  my $format_accents = shift;
+  my $output_encoded_characters = shift;
+  my $in_upper_case = shift;
+
+  my ($contents_element, $stack)
+   = Texinfo::Convert::Utils::tree_element_find_innermost_accent_contents($self,
                                                                      $accent);
   my $arg_text = '';
   if (defined($contents_element)) {
@@ -2319,7 +2352,7 @@ sub xml_protect_text($$)
   my $self = shift;
   my $text = shift;
   if (!defined($text)) {
-    cluck;
+    confess('xml_protect_text: undef text in');
   }
   $text =~ s/&/&amp;/g;
   $text =~ s/</&lt;/g;
@@ -2484,7 +2517,7 @@ sub _xml_numeric_entities_accent($$$;$)
   return xml_accent($self, $text, $command, $in_upper_case, 1);
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using TreeElement or tree only interface
 sub element_xml_accent($$$;$$$)
 {
   my $self = shift;
@@ -2566,7 +2599,7 @@ sub xml_accents($$;$)
                                 $in_upper_case);
 }
 
-# same as above, but using TreeElement interface
+# same as above, but using tree only interface
 sub element_xml_accents($$;$)
 {
   my $self = shift;
@@ -2581,6 +2614,25 @@ sub element_xml_accents($$;$)
   }
 
   return $self->element_convert_accents($accent, $format_accents,
+                                $self->get_conf('OUTPUT_CHARACTERS'),
+                                $in_upper_case);
+}
+
+# same as above, but using TreeElement interface
+sub tree_element_xml_accents($$;$)
+{
+  my $self = shift;
+  my $accent = shift;
+  my $in_upper_case = shift;
+
+  my $format_accents;
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    $format_accents = \&_element_xml_numeric_entities_accent;
+  } else {
+    $format_accents = \&element_xml_accent;
+  }
+
+  return $self->tree_element_convert_accents($accent, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);
 }

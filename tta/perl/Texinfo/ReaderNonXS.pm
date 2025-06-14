@@ -73,6 +73,16 @@ sub new($)
   return $reader;
 }
 
+# For XS
+sub register_token_element ($)
+{
+}
+
+# For XS
+sub register_token_tree ($)
+{
+}
+
 sub _end_element($)
 {
   my $reader = shift;
@@ -132,7 +142,8 @@ sub read($)
     #    push @$array, $info_element;
     #  }
     #}
-    my $contents = $element->get_children();
+    #my $contents = $element->get_children();
+    my $contents = $element->{'contents'};
     #if ($contents) {
     #  push @$array, @$contents;
     #}

@@ -52,7 +52,6 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
-use Texinfo::Convert::DocBook;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
@@ -369,7 +368,7 @@ sub convert($$)
 
   $self->conversion_initialization($document);
 
-  my $root = $document->tree(0, Texinfo::XSLoader::XS_structuring_enabled());
+  my $root = $document->tree();
 
   push @{$self->{'lang_stack'}}, '';
 
@@ -387,58 +386,6 @@ sub convert_tree($$)
 
   if (!defined($root)) {
     confess("ReadDocbook::convert_tree: undef root\n");
-  }
-
-  if (Texinfo::XSLoader::XS_structuring_enabled()
-      and !$root->{'element_document_descriptor'}) {
-    # This happens with cdt, with parse_texi_line called with nostore.
-    # NOTE processing of Perl data from built tree is needed with the XS
-    # Reader as there is no code that process the Perl data if the C element
-    # is not found.  For TreeElements, XS code do the Perl part.
-    # TODO This is quite inefficient to
-    # redo a converter each time, timing shows that conversion_initialization
-    # called in converter() takes a lot of time.
-    my %options;
-    foreach my $option ('ASCII_GLYPH', 'TEST', 'ENABLE_ENCODING',
-                        'DOC_ENCODING_FOR_INPUT_FILE_NAME', 'NUMBER_SECTIONS',
-                        'OPEN_QUOTE_SYMBOL', 'CLOSE_QUOTE_SYMBOL',
-                        'INCLUDE_DIRECTORIES',
-                        'OUTPUT_ENCODING_NAME', 'documentlanguage',
-                        'INPUT_FILE_NAME_ENCODING', 'LOCALE_ENCODING') {
-      my $value = $self->get_conf($option);
-      $options{$option} = $value if (defined($value));
-    }
-    my $converter
-      = Texinfo::Convert::DocBook->converter(\%options);
-    $converter->conversion_initialization($self->{'document'});
-    # NOTE If we want to make it generic, there could be a converter argument
-    # to conversion_initialization.
-    if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]) {
-      push @{$converter->{'document_context'}->[-1]->{'upper_case'}}, 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
-      push @{$converter->{'document_context'}->[-1]->{'monospace'}}, 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'no_break'}->[-1]) {
-      push @{$converter->{'document_context'}->[-1]->{'no_break'}}, 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'inline'}) {
-      $converter->{'document_context'}->{'inline'} = 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'raw'}) {
-      $converter->{'document_context'}->[-1]->{'raw'} = 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
-      $converter->{'document_context'}->[-1]->{'in_preformatted'} = 1;
-    }
-    if ($self->{'document_context'}->[-1]->{'preformatted_stack'}) {
-      push @{$converter->{'document_context'}->[-1]->{'preformatted_stack'}},
-          @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
-    }
-    my $result = $converter->convert_tree($root);
-    $converter->conversion_finalization();
-    $self->merge_converter_error_messages_lists($converter);
-    return $result;
   }
 
   if (scalar(@{$self->{'lang_stack'}}) == 0) {
@@ -494,31 +441,36 @@ sub conversion_output_begin($;$$)
 '. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
-  my $copying_element = $self->get_global_unique_tree_element('copying');
-  if ($copying_element) {
-    my $children = $copying_element->{'contents'};
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  if ($global_commands and $global_commands->{'copying'}) {
+    my $copying_element = $global_commands->{'copying'};
     my $copying_result
      = $self->convert_tree($self->new_tree_element(
-           {'contents' => $copying_element->{'contents'}}));
+           {'contents' => $copying_element->{'contents'}}, 1));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
   }
 
   my $fulltitle_command;
-  foreach my $title_cmdname ('title', 'shorttitlepage') {
-    my $command = $self->get_global_unique_tree_element($title_cmdname);
-    if ($command) {
-      next if (!$command->{'contents'}->[0]->{'contents'});
-      $fulltitle_command = $command;
-      last;
+  if ($global_commands) {
+    foreach my $title_cmdname ('title', 'shorttitlepage') {
+      if ($global_commands->{$title_cmdname}) {
+        my $command = $global_commands->{$title_cmdname};
+        next if (!$command->{'contents'}->[0]->{'contents'});
+        $fulltitle_command = $command;
+        last;
+      }
     }
-  }
-  if (!defined($fulltitle_command)) {
-    my $command = $self->get_global_unique_tree_element('titlefont');
-    if ($command and $command->{'contents'}
-        and $command->{'contents'}->[0]->{'contents'}) {
-      $fulltitle_command = $command;
+    if (!defined($fulltitle_command)) {
+      my $command = $global_commands->{'titlefont'};
+      if ($command and $command->{'contents'}
+          and $command->{'contents'}->[0]->{'contents'}) {
+        $fulltitle_command = $command;
+      }
     }
   }
 
@@ -526,8 +478,8 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  my $title_page = $self->get_global_unique_tree_element('titlepage');
-  if ($title_page) {
+  if ($global_commands and $global_commands->{'titlepage'}) {
+    my $title_page = $global_commands->{'titlepage'};
     my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
                                         $title_page, ['author', 'subtitle']);
 
@@ -577,28 +529,28 @@ sub conversion_output_begin($;$$)
   }
 
   my $settitle_command;
-  my $settitle = $self->get_global_unique_tree_element('settitle');
-  if ($settitle and $settitle->{'contents'}
-      and $settitle->{'contents'}->[0]->{'contents'}) {
-    $settitle_command = $settitle;
+  if ($global_commands and $global_commands->{'settitle'}) {
+    my $command = $global_commands->{'settitle'};
+    $settitle_command = $command
+      unless (!$command->{'contents'}->[0]->{'contents'});
   }
-
-  my $top_command = $self->get_global_unique_tree_element('top');
 
   my $titleabbrev_command;
   if ($fulltitle_command) {
     $titleabbrev_command = $settitle_command;
   } elsif ($settitle_command) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $top_command) {
+  } elsif (defined($legalnotice) and $global_commands
+           and $global_commands->{'top'}) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     # arguments_line type element
-    my $arguments_line = $top_command->{'contents'}->[0];
+    my $command = $global_commands->{'top'};
+    # arguments_line type element
+    my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    if ($line_arg->{'contents'}) {
-      $fulltitle_command = $top_command;
-    }
+    $fulltitle_command = $command
+      if ($line_arg->{'contents'});
   }
 
   my $title_info = '';
@@ -650,8 +602,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  return $self->output_tree($document, 0,
-                            Texinfo::XSLoader::XS_structuring_enabled());
+  return $self->output_tree($document);
 }
 
 my %docbook_sections = (
@@ -687,27 +638,25 @@ sub _docbook_section_element($$)
   my $self = shift;
   my $element = shift;
 
-  my $section_level = $element->get_attribute('section_level');
-  if (defined($section_level)) {
-    my $heading_level = $section_level;
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'section_level'})) {
+    my $heading_level = $element->{'extra'}->{'section_level'};
     if (exists $docbook_sections{$heading_level}) {
       return $docbook_sections{$heading_level};
     }
   }
   my $level_adjusted_cmdname
-   = Texinfo::Structuring::element_section_level_adjusted_command_name(
-                                                                   $element);
-  if ($level_adjusted_cmdname eq 'unnumbered') {
-    my $sections_list = $self->tree_elements_sections_list();
-    if ($sections_list) {
-      my $section_relations
-        = $sections_list->[$element->get_attribute('section_number') -1];
-      if ($section_relations->{'associated_node'}) {
-        my $associated_node = $section_relations->{'associated_node'}->{'element'};
-        my $normalized = lc($associated_node->get_attribute('normalized'));
-        if ($docbook_special_unnumbered{$normalized}) {
-          return $normalized;
-        }
+   = Texinfo::Structuring::section_level_adjusted_command_name($element);
+  if ($level_adjusted_cmdname eq 'unnumbered'
+      and $self->{'document'}) {
+    my $sections_list = $self->{'document'}->sections_list();
+    my $section_relations
+      = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+    if ($section_relations->{'associated_node'}) {
+      my $associated_node = $section_relations->{'associated_node'}->{'element'};
+      if ($docbook_special_unnumbered{
+              lc($associated_node->{'extra'}->{'normalized'})}) {
+        return lc($associated_node->{'extra'}->{'normalized'});
       }
     }
   }
@@ -718,7 +667,7 @@ sub _docbook_section_element($$)
     # special case of no structuring information available for a regular
     # sectioning command, like @section, @appendix, if Structuring
     # sectioning_structure was not called.
-    my $heading_level = Texinfo::Common::element_section_level($element);
+    my $heading_level = Texinfo::Common::section_level($element);
     return $docbook_sections{$heading_level};
   }
 }
@@ -728,10 +677,16 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
 
-  my ($index_entry, $index_info)
-   = $self->get_tree_element_index_entry($element);
-  if ($index_entry) {
+  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
 
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
+    my ($index_entry, $index_info)
+     = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                           $indices_information);
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
@@ -740,15 +695,15 @@ sub _index_entry($$)
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     $result .= $self->convert_tree(
-                Texinfo::Common::element_index_content_element($element));
+                 Texinfo::Common::index_content_element($element));
     $result .= "</primary>";
 
     my $entry_element = $index_entry->{'entry_element'};
 
     # Add any index subentries.
     my @subentries;
-    Texinfo::Common::element_collect_subentries($entry_element,
-                                                \@subentries);
+    Texinfo::Common::collect_subentries($entry_element,
+                                        \@subentries);
     my $level = 'secondary';
     my @levels = ('tertiary');
     foreach my $subentry (@subentries) {
@@ -760,7 +715,7 @@ sub _index_entry($$)
       }
     }
     my $seeentry
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
                                                             'seeentry');
     if ($seeentry) {
       $result .= "<see>";
@@ -768,7 +723,7 @@ sub _index_entry($$)
       $result .= "</see>";
     }
     my $seealso
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
                                                             'seealso');
     if ($seealso) {
       $result .= "<seealso>";
@@ -815,9 +770,9 @@ sub _convert_argument_and_end_line($$)
   my $first_child = $element->{'contents'}->[0];
   my $first_child_type = $first_child->{'type'};
   if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->{'contents'}->[-1];
+    $line_arg = $first_child->{'contents'}->[0];
   } else {
-    $line_arg = $element->{'contents'}->[-1];
+    $line_arg = $element->{'contents'}->[0];
   }
   my $converted = $self->convert_tree($line_arg);
   my $end_line = $self->element_format_comment_or_end_line($element);
@@ -828,9 +783,9 @@ sub _output_anchor($)
 {
   my $element = shift;
 
-  if ($element->get_attribute('is_target')) {
+  if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
     # FIXME DocBook 5 id -> xml:id
-    return '<anchor id="'.$element->get_attribute('normalized').'"/>';
+    return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
   } else {
     return '';
   }
@@ -863,10 +818,9 @@ sub _convert_def_line($$)
   }
   if ($contents) {
     my $main_command;
-    my $def_command = $element->get_attribute('def_command');
+    my $def_command = $element->{'extra'}->{'def_command'};
     if ($Texinfo::Common::def_aliases{$def_command}) {
-      $main_command
-        = $Texinfo::Common::def_aliases{$def_command};
+      $main_command = $Texinfo::Common::def_aliases{$def_command};
     } else {
       $main_command = $def_command;
     }
@@ -936,7 +890,7 @@ sub _convert($$)
     my $e_type = $element->{'type'};
 
     #if (1) { #}
-    if (0) { #} verbose even for debugging
+    if (0) { #}
       $debug_global_element_nr++;
       my $category_name = $Texinfo::Reader::token_category_name{$category};
       print STDERR "element $category_name $debug_global_element_nr";
@@ -1022,7 +976,7 @@ sub _convert($$)
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree($self->expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $result_text = $self->element_xml_accents($element,
+          $result_text = $self->xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         }
         if (defined($result_text)) {
@@ -1037,7 +991,7 @@ sub _convert($$)
 
           push @format_elements_stack, [];
 
-          my $parent = $element->parent();
+          my $parent = $element->{'parent'};
           my $parent_cmdname = $parent->{'cmdname'};
           if ($cmdname eq 'item' and $parent_cmdname
               and ($parent_cmdname eq 'itemize'
@@ -1090,8 +1044,8 @@ sub _convert($$)
             unless (($cmdname eq 'item'
                      or $cmdname eq 'headitem'
                     or $cmdname eq 'tab')
-                    and $element->parent()->{'type'}
-                    and $element->parent()->{'type'} eq 'row') {
+                    and $element->{'parent'}->{'type'}
+                    and $element->{'parent'}->{'type'} eq 'row') {
               warn "BUG: multitable cell command not in a row "
                 .Texinfo::Common::debug_print_element($element, 1);
             }
@@ -1102,7 +1056,7 @@ sub _convert($$)
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
           my $end_line;
-          if ($element->get_attribute('index_entry')) {
+          if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
             $end_line = $self->element_format_comment_or_end_line($element);
             if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
               chomp($end_line);
@@ -1115,8 +1069,7 @@ sub _convert($$)
         } elsif (exists($docbook_line_commands{$cmdname})) {
           #warn "  is dbk line command\n";
           if ($docbook_global_commands{$cmdname}) {
-            Texinfo::Common::element_set_informative_command_value($self,
-                                                                   $element);
+            Texinfo::Common::set_informative_command_value($self, $element);
             if ($cmdname eq 'documentlanguage') {
               Texinfo::Convert::Utils::switch_lang_translations($self,
                                          $self->get_conf('documentlanguage'));
@@ -1124,10 +1077,11 @@ sub _convert($$)
           } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
             my $section_relations;
             if ($cmdname ne 'node') {
-              my $sections_list = $self->tree_elements_sections_list();
-              if ($sections_list) {
+              my $sections_list;
+              if ($self->{'document'}) {
+                $sections_list = $self->{'document'}->sections_list();
                 $section_relations
-                = $sections_list->[$element->get_attribute('section_number') -1];
+                 = $sections_list->[$element->{'extra'}->{'section_number'} -1];
               }
             }
             if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
@@ -1142,8 +1096,9 @@ sub _convert($$)
               }
               if ($node_element or $cmdname eq 'part') {
                 # normalized not defined happens for empty nodes
-                if ($node_element and $node_element->get_attribute('normalized')
-                    and $node_element->get_attribute('normalized') eq 'Top') {
+                if ($node_element and $node_element->{'extra'}
+                    and $node_element->{'extra'}->{'normalized'}
+                    and $node_element->{'extra'}->{'normalized'} eq 'Top') {
                   $self->{'in_skipped_node_top'} = 1;
                   $output_ref = \$void;
                 } elsif (defined($self->{'in_skipped_node_top'})
@@ -1155,15 +1110,15 @@ sub _convert($$)
             }
             my $anchor;
             my $node_relations;
-            if ($cmdname eq 'node') {
-              my $node_number = $element->get_attribute('node_number');
-              if ($node_number) {
-                my $nodes_list = $self->tree_elements_nodes_list();
-                $node_relations = $nodes_list->[$node_number -1];
-                if (not $node_relations->{'associated_section'}) {
-                  $anchor = _output_anchor($element);
-                  $$output_ref .= $anchor . "\n" if ($anchor ne '');
-                }
+            if ($cmdname eq 'node' and $self->{'document'}
+                and $element->{'extra'}
+                and $element->{'extra'}->{'node_number'}) {
+              my $nodes_list = $self->{'document'}->nodes_list();
+              $node_relations
+                = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
+              if (not $node_relations->{'associated_section'}) {
+                $anchor = _output_anchor($element);
+                $$output_ref .= $anchor . "\n" if ($anchor ne '');
               }
             }
             if (!defined($anchor)) {
@@ -1216,14 +1171,15 @@ sub _convert($$)
                 # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
                 # having a label (empty) is important.
                 my $label = '';
-                my $section_heading_number
-                  = $opened_element->get_attribute('section_heading_number');
-                if (defined($section_heading_number)
+                if ($opened_element->{'extra'}
+                    and defined($opened_element->{'extra'}
+                                            ->{'section_heading_number'})
                     and ($self->get_conf('NUMBER_SECTIONS')
                          or !defined($self->get_conf('NUMBER_SECTIONS')))) {
                   # Looking at docbook2html output, Appendix is appended in the
                   # section title, so only the letter is used.
-                  $label = $section_heading_number;
+                  $label
+                    = $opened_element->{'extra'}->{'section_heading_number'};
                 }
                 my $docbook_sectioning_element
                    = _docbook_section_element($self, $opened_element);
@@ -1231,14 +1187,14 @@ sub _convert($$)
                   $section_attribute .= " label=\"$label\"";
                 }
                 my $section_relations;
-                my $sections_list = $self->tree_elements_sections_list();
-                if ($sections_list) {
+                if ($self->{'document'}) {
+                  my $sections_list = $self->{'document'}->sections_list();
                   $section_relations
-              = $sections_list->[$opened_element->get_attribute('section_number') -1];
+            = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
                   if ($section_relations->{'associated_node'}) {
                    # FIXME DocBook 5 id -> xml:id
                     $section_attribute
-      .= " id=\"".$section_relations->{'associated_node'}->{'element'}->get_attribute('normalized')."\"";
+    .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
                   }
                 }
                 my $language = '';
@@ -1305,22 +1261,26 @@ sub _convert($$)
             $result_text .= "\n";
             $$output_ref .= $result_text;
           } elsif ($cmdname eq 'insertcopying') {
-            my $copying = $self->get_global_unique_tree_element('copying');
-            if ($copying) {
-              $$output_ref .= $self->convert_tree($self->new_tree_element(
-                                   {'contents' => $copying->{'contents'}}));
+            if ($self->{'document'}) {
+              my $global_commands
+                = $self->{'document'}->global_commands_information();
+              if ($global_commands and $global_commands->{'copying'}) {
+                $$output_ref .= $self->convert_tree($self->new_tree_element(
+            {'contents' => $global_commands->{'copying'}->{'contents'}}, 1));
+              }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
-            my $expansion = $self->element_expand_verbatiminclude($element);
+            my $expansion = $self->expand_verbatiminclude($element);
             if (defined($expansion)) {
               $$output_ref .= $self->convert_tree($expansion);
             }
           } elsif ($cmdname eq 'printindex') {
-            my $misc_args = $element->get_attribute('misc_args');
-            if ($misc_args) {
+            if ($element->{'extra'}
+                and $element->{'extra'}->{'misc_args'}) {
               # FIXME DocBook 5
-              #return "<index type=\"$misc_args->[0]\"></index>\n";
-              $$output_ref .= "<index role=\"$misc_args->[0]\">"
+              #"<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
+              $$output_ref
+           .= "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\">"
                      ."</index>\n";
             } else {
               $$output_ref .=  "<index></index>\n";
@@ -1433,7 +1393,7 @@ sub _convert($$)
                 my $substituted_strings = {
                     'section_name' =>
                       $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $section_name}),
+                                                 'text' => $section_name}, 1),
                     'book' => $book_element
                   };
                 if ($command_name eq 'ref') {
@@ -1453,7 +1413,7 @@ sub _convert($$)
                 my $substituted_strings = {
                    'node_name' =>
                       $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $node_name}),
+                                                 'text' => $node_name}, 1),
                    'book' => $book_element
                   };
                 if ($command_name eq 'ref') {
@@ -1489,7 +1449,7 @@ sub _convert($$)
                 my $substituted_strings = {
                   'section_name' =>
                      $self->new_tree_element({'type' => '_converted',
-                                                'text' => $section_name}),
+                                                'text' => $section_name}, 1),
                   'manual' => $manual_file_element
                  };
                 if ($command_name eq 'ref') {
@@ -1509,7 +1469,7 @@ sub _convert($$)
                 my $substituted_strings = {
                     'node_name' =>
                       $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $node_name}),
+                                                 'text' => $node_name}, 1),
                     'manual' => $manual_file_element
                   };
                 if ($command_name eq 'ref') {
@@ -1544,10 +1504,10 @@ sub _convert($$)
             } else {
               my $linkend = '';
               my $node_arg = $element->{'contents'}->[0];
-              if ($node_arg and defined($node_arg->get_attribute('normalized'))
-                  and !$node_arg->get_attribute('manual_content')) {
-                $linkend = ' linkend="'.
-                     $node_arg->get_attribute('normalized').'"';
+              if ($node_arg and $node_arg->{'extra'}
+                  and defined($node_arg->{'extra'}->{'normalized'})
+                  and !$node_arg->{'extra'}->{'manual_content'}) {
+                $linkend = " linkend=\"$node_arg->{'extra'}->{'normalized'}\"";
               }
               my $link_text = $section_name;
               $link_text = $node_name if (! defined($link_text));
@@ -1557,17 +1517,17 @@ sub _convert($$)
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('{title_ref}', {'title_ref' =>
                          $self->new_tree_element({'type' => '_converted',
-                                                    'text' => $argument})}));
+                                                    'text' => $argument}, 1)}));
               } elsif ($cmdname eq 'xref') {
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('See {title_ref}', {'title_ref' =>
                           $self->new_tree_element({'type' => '_converted',
-                                                     'text' => $argument})}));
+                                                     'text' => $argument}, 1)}));
               } elsif ($cmdname eq 'pxref') {
                 $$output_ref .= $self->convert_tree(
                         $self->cdt('see {title_ref}', {'title_ref' =>
                          $self->new_tree_element({'type' => '_converted',
-                                                    'text' => $argument})}));
+                                                    'text' => $argument}, 1)}));
               }
             }
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1748,7 +1708,7 @@ sub _convert($$)
                   my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                                  {'abbr_or_acronym' =>
                             $self->new_tree_element({'type' => '_converted',
-                                                       'text' => $argument}),
+                                                       'text' => $argument}, 1),
                                   'explanation' => $explanation_e});
                   $$output_ref .= $self->convert_tree($tree);
                 } else {
@@ -1774,12 +1734,11 @@ sub _convert($$)
             my $expand = 0;
             if ($Texinfo::Commands::inline_format_commands{$cmdname}) {
               if ($cmdname eq 'inlinefmtifelse'
-                  or ($element->get_attribute('format')
-                      and $self->{'expanded_formats'}
-                                ->{$element->get_attribute('format')})) {
+                  or ($element->{'extra'} and $element->{'extra'}->{'format'}
+                      and $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}})) {
                 $expand = 1;
               }
-            } elsif (defined($element->get_attribute('expand_index'))) {
+            } elsif (defined($element->{'extra'}->{'expand_index'})) {
               $expand = 1;
             }
             if ($expand) {
@@ -1788,8 +1747,7 @@ sub _convert($$)
                 _new_document_context($self);
                 $self->{'document_context'}->[-1]->{'raw'} = 1;
               } elsif ($cmdname eq 'inlinefmtifelse'
-                     and ! $self->{'expanded_formats'}
-                            ->{$element->get_attribute('format')}) {
+      and ! $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
                 $arg_index = 2;
               }
               if (scalar(@{$element->{'contents'}}) > $arg_index) {
@@ -1834,9 +1792,10 @@ sub _convert($$)
           } elsif ($cmdname eq 'enumerate') {
             push @format_elements, 'orderedlist';
             my $numeration;
-            my $enumerate_specification
-              = $element->get_attribute('enumerate_specification');
-            if (defined($enumerate_specification)) {
+            if ($element->{'extra'}
+                and $element->{'extra'}->{'enumerate_specification'}) {
+              my $enumerate_specification
+                = $element->{'extra'}->{'enumerate_specification'};
               if ($enumerate_specification =~ /^[A-Z]/) {
                 $numeration = 'upperalpha';
               } elsif ($enumerate_specification =~ /^[a-z]/) {
@@ -1856,18 +1815,23 @@ sub _convert($$)
           } elsif ($cmdname eq 'multitable') {
             push @format_elements, "informaltable";
             push @attributes, '';
-            my $columns_count = $element->get_attribute('max_columns');
-            $columns_count = 0 if (!defined($columns_count));
+            my $columns_count;
+            if ($element->{'extra'}
+                and defined($element->{'extra'}->{'max_columns'})) {
+              $columns_count = $element->{'extra'}->{'max_columns'};
+            } else {
+              $columns_count = 0;
+            }
             push @format_elements, 'tgroup';
             push @attributes, " cols=\"$columns_count\"";
             my @fractions;
             my $multiply;
             my $columnfractions
-              = Texinfo::Common::element_multitable_columnfractions($element);
+              = Texinfo::Common::multitable_columnfractions($element);
             if ($columnfractions) {
-              my $misc_args = $columnfractions->get_attribute('misc_args');
-              if ($misc_args) {
-                @fractions = @{$misc_args};
+              if ($columnfractions->{'extra'}
+                  and $columnfractions->{'extra'}->{'misc_args'}) {
+                @fractions = @{$columnfractions->{'extra'}->{'misc_args'}};
                 $multiply = 100;
               }
             } else {
@@ -2089,8 +2053,11 @@ sub _convert($$)
                  and $Texinfo::Commands::root_commands{$cmdname}) {
           my $section_relations;
           my $sections_list = $self->tree_elements_sections_list();
-          $section_relations
-            = $sections_list->[$element->get_attribute('section_number') -1];
+          if ($self->{'document'}) {
+            $sections_list = $self->{'document'}->sections_list();
+            $section_relations
+              = $sections_list->[$element->{'extra'}->{'section_number'} -1];
+          }
           my $docbook_sectioning_element
              = _docbook_section_element($self, $element);
           if ($docbook_sectioning_element eq 'part'
@@ -2110,7 +2077,7 @@ sub _convert($$)
             pop @{$self->{'lang_stack'}};
             my $current = $element;
             my $current_relations
-              = $sections_list->[$current->get_attribute('section_number') -1];
+              = $sections_list->[$current->{'extra'}->{'section_number'} -1];
             while ($current_relations->{'section_directions'}
                    and $current_relations->{'section_directions'}->{'up'}
                    and !$current_relations->{'section_directions'}->{'next'}
