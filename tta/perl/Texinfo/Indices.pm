@@ -584,7 +584,7 @@ sub index_entry_first_letter_text_or_command($;$)
   #my $entry_key = shift;
 
   if (!defined($index_entry)) {
-    confess ("index_entry_first_letter_text_or_command: undef index_entry");
+    confess('index_entry_first_letter_text_or_command: undef index_entry');
   }
 
   my $index_entry_element = $index_entry->{'entry_element'};

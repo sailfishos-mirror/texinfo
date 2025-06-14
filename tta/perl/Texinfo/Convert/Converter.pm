@@ -528,12 +528,12 @@ sub get_tree_element_index_entry($$)
     my $indices_information;
     if ($self->{'document'}) {
       $indices_information = $self->{'document'}->indices_information();
-    }
 
-    my ($index_entry, $index_info)
-     = Texinfo::Common::lookup_index_entry($index_entry_info,
-                                           $indices_information);
-    return ($index_entry, $index_info);
+      my ($index_entry, $index_info)
+       = Texinfo::Common::lookup_index_entry($index_entry_info,
+                                             $indices_information);
+      return ($index_entry, $index_info);
+    }
   }
 
   return undef, undef

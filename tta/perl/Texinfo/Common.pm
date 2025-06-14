@@ -1982,6 +1982,7 @@ sub count_bytes($;$)
 }
 
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
+# Seems to be used in converter only
 sub index_content_element($;$)
 {
   my $element = shift;

@@ -672,21 +672,15 @@ sub _docbook_section_element($$)
   }
 }
 
-sub _index_entry($$)
+sub _begin_index_entry($$)
 {
   my $self = shift;
   my $element = shift;
 
-  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+  my ($index_entry, $index_info)
+   = $self->get_tree_element_index_entry($element);
+  if ($index_entry) {
 
-    my $indices_information;
-    if ($self->{'document'}) {
-      $indices_information = $self->{'document'}->indices_information();
-    }
-
-    my ($index_entry, $index_info)
-     = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-                                           $indices_information);
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
@@ -694,49 +688,21 @@ sub _index_entry($$)
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_info->{'in_code'});
     $result .= "<primary>";
-    $result .= $self->convert_tree(
-                 Texinfo::Common::index_content_element($element));
-    $result .= "</primary>";
-
-    my $entry_element = $index_entry->{'entry_element'};
-
-    # Add any index subentries.
-    my @subentries;
-    Texinfo::Common::collect_subentries($entry_element,
-                                        \@subentries);
-    my $level = 'secondary';
-    my @levels = ('tertiary');
-    foreach my $subentry (@subentries) {
-      $result .= "<$level>";
-      $result .= $self->convert_tree($subentry->{'contents'}->[0]);
-      $result .= "</$level>";
-      if (scalar(@levels)) {
-        $level = shift @levels;
-      }
-    }
-    my $seeentry
-      = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                            'seeentry');
-    if ($seeentry) {
-      $result .= "<see>";
-      $result .= $self->convert_tree($seeentry);
-      $result .= "</see>";
-    }
-    my $seealso
-      = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                            'seealso');
-    if ($seealso) {
-      $result .= "<seealso>";
-      $result .= $self->convert_tree($seealso);
-      $result .= "</seealso>";
-    }
-
-    pop @{$self->{'document_context'}};
-
-    $result .= "</indexterm>";
-    return $result;
+    return ($result, $index_entry);
   }
-  return '';
+  return (undef, undef);
+}
+
+sub _end_index_entry($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  pop @{$self->{'document_context'}};
+
+  my $result = "</primary>";
+  $result .= "</indexterm>";
+  return $result;
 }
 
 sub _parse_attribute($)
@@ -775,7 +741,7 @@ sub _convert_argument_and_end_line($$)
     $line_arg = $element->{'contents'}->[0];
   }
   my $converted = $self->convert_tree($line_arg);
-  my $end_line = $self->element_format_comment_or_end_line($element);
+  my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
 
@@ -807,7 +773,13 @@ sub _convert_def_line($$)
   my $element = shift;
 
   my $result = "<synopsis>";;
-  $result .= _index_entry($self, $element);
+  my ($index_entry_text, $index_entry) = _begin_index_entry($self, $element);
+  if ($index_entry) {
+    $result .= $index_entry_text;
+    $result .= $self->convert_tree(
+                 Texinfo::Common::index_content_element($element));
+    $result .= _end_index_entry($self, $element);
+  }
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
@@ -1025,7 +997,14 @@ sub _convert($$)
                    and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
-            $result_text .= _index_entry($self, $element);
+            my ($index_entry_text, $index_entry)
+              = _begin_index_entry($self, $element);
+            if ($index_entry) {
+              $result_text .= $index_entry_text;
+              $result_text .= $self->convert_tree(
+                 Texinfo::Common::index_content_element($element));
+              $result_text .= _end_index_entry($self, $element);
+            }
             if ($element->{'contents'}->[0]->{'contents'}) {
               my $table_item_tree
                 = $self->element_table_item_content_tree($element);
@@ -1055,17 +1034,33 @@ sub _convert($$)
           # end *item* tab
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
-          my $end_line;
-          if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-            $end_line = $self->element_format_comment_or_end_line($element);
-            if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
-              chomp($end_line);
-            }
+          my ($result, $index_entry) = _begin_index_entry($self, $element);
+          if ($index_entry) {
+            $$output_ref .= $result;
           } else {
-            $end_line = '';
+            $reader->skip_children($element);
           }
-          $$output_ref .= _index_entry($self, $element).${end_line};
-          $reader->skip_children($element);
+        } elsif ($cmdname eq 'subentry') {
+          # keep the initial output_ref
+          if (!$self->{'document_context'}->[-1]->{'subentry_level'}) {
+            push @{$self->{'document_context'}->[-1]->{'subentry_output'}},
+              $output_ref;
+          }
+          my $subentry_output = '';
+          my $level;
+          if (scalar(@{$self->{'document_context'}->[-1]
+                ->{'subentry_output'}}) == 1) {
+            $level = 'secondary';
+          } else {
+            $level = 'tertiary';
+          }
+          $subentry_output .= "<$level>";
+          $self->{'document_context'}->[-1]->{'subentry_level'}++;
+          # redirect output_ref to be able to output subentries without
+          # nesting them.
+          $output_ref = \$subentry_output;
+          push @{$self->{'document_context'}->[-1]->{'subentry_output'}},
+            $output_ref;
         } elsif (exists($docbook_line_commands{$cmdname})) {
           #warn "  is dbk line command\n";
           if ($docbook_global_commands{$cmdname}) {
@@ -2090,6 +2085,64 @@ sub _convert($$)
               pop @{$self->{'lang_stack'}};
             }
           }
+        } elsif ($e_type
+                 and $e_type eq 'index_entry_command') {
+          my $result = '';
+          my $index_entry_info = $element->{'extra'}->{'index_entry'};
+          my $indices_information = $self->{'document'}->indices_information();
+          my ($index_entry, $index_info)
+             = Texinfo::Common::lookup_index_entry($index_entry_info,
+                                                   $indices_information);
+
+            my $entry_element = $index_entry->{'entry_element'};
+            if ($self->{'document_context'}->[-1]->{'subentry_output'}) {
+              $output_ref = shift(@{$self->{'document_context'}
+                              ->[-1]->{'subentry_output'}});
+              foreach my $subentry_output
+                 (@{$self->{'document_context'}->[-1]->{'subentry_output'}}) {
+                $result .= $$subentry_output;
+              }
+            }
+            my $seeentry
+              = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                            'seeentry');
+            if ($seeentry) {
+              $result .= "<see>";
+              $result .= $self->convert_tree($seeentry);
+              $result .= "</see>";
+            }
+            my $seealso
+              = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                            'seealso');
+            if ($seealso) {
+              $result .= "<seealso>";
+              $result .= $self->convert_tree($seealso);
+              $result .= "</seealso>";
+            }
+            $$output_ref .= "</primary>";
+            $$output_ref .= $result;
+            $$output_ref .= "</indexterm>";
+
+            pop @{$self->{'document_context'}};
+            my $end_line = $self->format_comment_or_return_end_line($element);
+            if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
+              chomp($end_line);
+            }
+            $$output_ref .= $end_line;
+        } elsif ($cmdname eq 'subentry') {
+          my $subentry_level
+            = $self->{'document_context'}->[-1]->{'subentry_level'};
+          my $level;
+          if ($subentry_level == 1) {
+            $level = 'secondary';
+          } else {
+            $level = 'tertiary';
+          }
+          $self->{'document_context'}->[-1]->{'subentry_level'}--;
+          $output_ref
+            = $self->{'document_context'}->[-1]
+                    ->{'subentry_output'}->[$subentry_level];
+          $$output_ref .= "</$level>";
         }
 
       } elsif ($e_type) {

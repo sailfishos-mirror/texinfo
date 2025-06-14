@@ -31,6 +31,20 @@
 
 2025-06-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(get_tree_element_index_entry): return index_entry only if there are
+	indices_information.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_begin_index_entry)
+	(_end_index_entry, _convert_def_line, _convert): split
+	_begin_index_entry and _end_index_entry out of _index_entry.  Convert
+	@subentry and index entry commands through the reader.  Add
+	information in document_context for subentry such as to avoid nesting
+	their output and output them at the end of the index command
+	formatting.  Remove _index_entry.
+
+2025-06-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (index_entry_referred_entry)
 	(element_index_entry_referred_entry): return the brace command
 	argument.  Update callers.
