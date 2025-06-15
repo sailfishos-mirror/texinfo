@@ -230,6 +230,12 @@ my %defcommand_name_type = (
  'defvr'     => 'varname',
 );
 
+foreach my $def_alias (keys(%Texinfo::Common::def_aliases))
+{
+  my $main_command = $Texinfo::Common::def_aliases{$def_alias};
+  $defcommand_name_type{$def_alias} = $defcommand_name_type{$main_command};
+}
+
 my %def_argument_types_docbook = (
   'def_type' => ['returnvalue'],
   'def_class' => ['ooclass', 'classname'],
@@ -767,12 +773,12 @@ sub _new_document_context($)
                           });
 }
 
-sub _convert_def_line($$)
+sub _begin_def_line($$)
 {
   my $self = shift;
   my $element = shift;
 
-  my $result = "<synopsis>";;
+  my $result = "<synopsis>";
   my ($index_entry_text, $index_entry) = _begin_index_entry($self, $element);
   if ($index_entry) {
     $result .= $index_entry_text;
@@ -783,49 +789,15 @@ sub _convert_def_line($$)
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  my $first_child = $element->{'contents'}->[0];
-  my $contents;
-  if ($first_child) {
-    $contents = $first_child->{'contents'};
-  }
-  if ($contents) {
-    my $main_command;
-    my $def_command = $element->{'extra'}->{'def_command'};
-    if ($Texinfo::Common::def_aliases{$def_command}) {
-      $main_command = $Texinfo::Common::def_aliases{$def_command};
-    } else {
-      $main_command = $def_command;
-    }
-    foreach my $arg (@$contents) {
-      my $type = $arg->{'type'};
-
-      my $content = $self->convert_tree($arg);
-      if ($type eq 'spaces' or $type eq 'delimiter') {
-        $result .= $content;
-      } elsif ($type eq 'def_category') {
-        $result .= "<phrase role=\"category\"><emphasis role=\"bold\">"
-                     ."$content</emphasis>:</phrase>";
-      } elsif ($type eq 'def_name') {
-        $result .= "<$defcommand_name_type{$main_command}>$content"
-                       ."</$defcommand_name_type{$main_command}>";
-      } else {
-        if (!defined($def_argument_types_docbook{$type})) {
-          warn "BUG: no def_argument_types_docbook for $type";
-          return undef;
-        }
-        foreach my $element_attribute (reverse (
-                               @{$def_argument_types_docbook{$type}})) {
-          my ($element, $attribute_text) = _parse_attribute($element_attribute);
-          $content = "<$element${attribute_text}>$content</$element>";
-        }
-        $result .= $content;
-      }
-    }
-  }
-  pop @{$self->{'document_context'}};
-  $result .= "</synopsis>";
-  $result .= "\n";
   return $result;
+}
+
+sub _end_def_line($$)
+{
+  my $self = shift;
+
+  pop @{$self->{'document_context'}};
+  return "</synopsis>\n";
 }
 
 my $debug_global_element_nr = 0;
@@ -1239,7 +1211,7 @@ sub _convert($$)
               $$output_ref .= $result_text;
             }
           } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
-            my $def_line_result = _convert_def_line($self, $element);
+            my $def_line_result = _begin_def_line($self, $element);
             $$output_ref .= $def_line_result if (defined($def_line_result));
           } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
             my ($docbook_element, $attribute_text)
@@ -1281,7 +1253,8 @@ sub _convert($$)
               $$output_ref .=  "<index></index>\n";
             }
           }
-          if (!$Texinfo::Commands::root_commands{$cmdname}) {
+          if (!$Texinfo::Commands::root_commands{$cmdname}
+              and !$Texinfo::Commands::def_commands{$cmdname}) {
             $reader->skip_children($element);
           }
           # ignore all the other line commands
@@ -1939,8 +1912,7 @@ sub _convert($$)
           $$output_ref .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
         } elsif ($e_type eq 'def_line') {
-          my $def_line_result = _convert_def_line($self, $element);
-          $reader->skip_children($element);
+          my $def_line_result = _begin_def_line($self, $element);
           $$output_ref .= $def_line_result if (defined($def_line_result));
         } elsif ($e_type eq 'table_term') {
           # should be closed by the @item.  Allows to have the index entries in
@@ -1953,6 +1925,19 @@ sub _convert($$)
             # markup, unless _DOCBOOK_PIECE is set to mean that a the output is not
             # a full book.
             $output_ref = \$void;
+          }
+        } elsif ($e_type eq 'def_category') {
+          $$output_ref .= "<phrase role=\"category\"><emphasis role=\"bold\">";
+        } elsif ($e_type eq 'def_name') {
+          my $def_command
+            = $element->{'parent'}->{'parent'}->{'extra'}->{'def_command'};
+          $$output_ref .= "<$defcommand_name_type{$def_command}>";
+        } elsif ($def_argument_types_docbook{$e_type}) {
+          foreach my $element_attribute (
+                               @{$def_argument_types_docbook{$e_type}}) {
+            my ($element, $attribute_text)
+              = _parse_attribute($element_attribute);
+            $$output_ref .= "<$element${attribute_text}>";
           }
         } elsif (exists($docbook_preformatted_types{$e_type})) {
           push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
@@ -2129,35 +2114,56 @@ sub _convert($$)
               chomp($end_line);
             }
             $$output_ref .= $end_line;
-        } elsif ($cmdname eq 'subentry') {
-          my $subentry_level
-            = $self->{'document_context'}->[-1]->{'subentry_level'};
-          my $level;
-          if ($subentry_level == 1) {
-            $level = 'secondary';
-          } else {
-            $level = 'tertiary';
-          }
-          $self->{'document_context'}->[-1]->{'subentry_level'}--;
-          $output_ref
-            = $self->{'document_context'}->[-1]
+        } elsif (exists($docbook_line_commands{$cmdname})) {
+          if ($Texinfo::Commands::def_commands{$cmdname}) {
+            $$output_ref .= _end_def_line($self, $element);
+          } elsif ($cmdname eq 'subentry') {
+            my $subentry_level
+              = $self->{'document_context'}->[-1]->{'subentry_level'};
+            my $level;
+            if ($subentry_level == 1) {
+              $level = 'secondary';
+            } else {
+              $level = 'tertiary';
+            }
+            $self->{'document_context'}->[-1]->{'subentry_level'}--;
+            $output_ref
+              = $self->{'document_context'}->[-1]
                     ->{'subentry_output'}->[$subentry_level];
-          $$output_ref .= "</$level>";
+            $$output_ref .= "</$level>";
+          }
         }
 
       } elsif ($e_type) {
         if (defined($type_elements{$e_type})) {
           $$output_ref .= "</$type_elements{$e_type}>";
         } elsif ($e_type eq 'preformatted') {
-          $$output_ref .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
+          $$output_ref
+            .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           delete $self->{'document_context'}->[-1]->{'in_preformatted'};
+        } elsif ($e_type eq 'def_line') {
+          $$output_ref .= _end_def_line($self, $element);
+        } elsif ($e_type eq 'def_category') {
+          $$output_ref .= "</emphasis>:</phrase>";
+        } elsif ($e_type eq 'def_name') {
+          my $def_command
+            = $element->{'parent'}->{'parent'}->{'extra'}->{'def_command'};
+          $$output_ref .= "</$defcommand_name_type{$def_command}>";
+        } elsif ($def_argument_types_docbook{$e_type}) {
+          foreach my $element_attribute (reverse (
+                               @{$def_argument_types_docbook{$e_type}})) {
+            my ($element, $attribute_text)
+              = _parse_attribute($element_attribute);
+            $$output_ref .= "</$element>";
+          }
+        } elsif (exists($docbook_preformatted_types{$e_type})) {
+          my $format
+           = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
+          die "BUG $format ne $docbook_preformatted_types{$e_type}"
+            if ($format ne $docbook_preformatted_types{$e_type});
         } elsif ($e_type eq 'before_node_section'
                  and !$self->get_conf('_DOCBOOK_PIECE')) {
           $output_ref = \$result;
-        } elsif (exists($docbook_preformatted_types{$e_type})) {
-          my $format = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
-          die "BUG $format ne $docbook_preformatted_types{$e_type}"
-            if ($format ne $docbook_preformatted_types{$e_type});
         }
       }
 

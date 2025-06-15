@@ -1,3 +1,15 @@
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (%defcommand_name_type)
+	(_convert_def_line), tta/perl/Texinfo/Convert/ReadDocBook.pm
+	(%defcommand_name_type, _convert_def_line): setup def line aliases in
+	%defcommand_name_type before starting the conversion. 
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_begin_def_line)
+	(_end_def_line, _convert): split _convert_def_line in _begin_def_line
+	and _end_def_line.  Convert def line and def types through the reader.
+	Remove _convert_def_line.
+
 2025-06-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Section directions rather than node directions for CHECK_MISSING_MENU_ENTRY

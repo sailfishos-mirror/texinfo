@@ -208,6 +208,12 @@ my %defcommand_name_type = (
  'defvr'     => 'varname',
 );
 
+foreach my $def_alias (keys(%Texinfo::Common::def_aliases))
+{
+  my $main_command = $Texinfo::Common::def_aliases{$def_alias};
+  $defcommand_name_type{$def_alias} = $defcommand_name_type{$main_command};
+}
+
 my %def_argument_types_docbook = (
   'def_type' => ['returnvalue'],
   'def_class' => ['ooclass', 'classname'],
@@ -776,13 +782,7 @@ sub _convert_def_line($$)
     $contents = $first_child->{'contents'};
   }
   if ($contents) {
-    my $main_command;
     my $def_command = $element->{'extra'}->{'def_command'};
-    if ($Texinfo::Common::def_aliases{$def_command}) {
-      $main_command = $Texinfo::Common::def_aliases{$def_command};
-    } else {
-      $main_command = $def_command;
-    }
     foreach my $arg (@$contents) {
       my $type = $arg->{'type'};
 
@@ -793,8 +793,8 @@ sub _convert_def_line($$)
         $result .= "<phrase role=\"category\"><emphasis role=\"bold\">"
                      ."$content</emphasis>:</phrase>";
       } elsif ($type eq 'def_name') {
-        $result .= "<$defcommand_name_type{$main_command}>$content"
-                       ."</$defcommand_name_type{$main_command}>";
+        $result .= "<$defcommand_name_type{$def_command}>$content"
+                       ."</$defcommand_name_type{$def_command}>";
       } else {
         if (!defined($def_argument_types_docbook{$type})) {
           warn "BUG: no def_argument_types_docbook for $type";
