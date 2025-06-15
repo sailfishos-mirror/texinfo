@@ -796,8 +796,6 @@ sub _end_def_line($$)
 {
   my $self = shift;
 
-  pop @{$self->{'document_context'}};
-  return "</synopsis>\n";
 }
 
 my $debug_global_element_nr = 0;
@@ -2116,7 +2114,8 @@ sub _convert($$)
             $$output_ref .= $end_line;
         } elsif (exists($docbook_line_commands{$cmdname})) {
           if ($Texinfo::Commands::def_commands{$cmdname}) {
-            $$output_ref .= _end_def_line($self, $element);
+            pop @{$self->{'document_context'}};
+            $$output_ref .= "</synopsis>\n";
           } elsif ($cmdname eq 'subentry') {
             my $subentry_level
               = $self->{'document_context'}->[-1]->{'subentry_level'};
@@ -2142,7 +2141,8 @@ sub _convert($$)
             .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           delete $self->{'document_context'}->[-1]->{'in_preformatted'};
         } elsif ($e_type eq 'def_line') {
-          $$output_ref .= _end_def_line($self, $element);
+          pop @{$self->{'document_context'}};
+          $$output_ref .= "</synopsis>\n";
         } elsif ($e_type eq 'def_category') {
           $$output_ref .= "</emphasis>:</phrase>";
         } elsif ($e_type eq 'def_name') {

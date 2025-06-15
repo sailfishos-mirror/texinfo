@@ -1,5 +1,10 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): inline and
+	remove _end_def_line.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/DocBook.pm (%defcommand_name_type)
 	(_convert_def_line), tta/perl/Texinfo/Convert/ReadDocBook.pm
 	(%defcommand_name_type, _convert_def_line): setup def line aliases in
