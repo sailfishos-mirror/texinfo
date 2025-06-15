@@ -95,7 +95,9 @@ my %XS_tree_element_overrides = (
   "Texinfo::Convert::Converter::comment_or_end_line"
     => "Texinfo::TreeElement::comment_or_end_line",
   "Texinfo::Convert::Converter::argument_comment_end_line"
-    => "Texinfo::TreeElement::argument_comment_end_line"
+    => "Texinfo::TreeElement::argument_comment_end_line",
+  "Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element"
+    => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
 );
 
 my %XS_overrides = (
@@ -555,6 +557,14 @@ sub get_global_unique_tree_element($$)
     }
   }
   return undef;
+}
+
+sub tree_element_itemize_item_prepended_element($)
+{
+  my $block_line_arg = shift;
+
+  return Texinfo::Common::tree_element_itemize_item_prepended_element(
+                                        $block_line_arg);
 }
 
 sub tree_elements_sections_list($)

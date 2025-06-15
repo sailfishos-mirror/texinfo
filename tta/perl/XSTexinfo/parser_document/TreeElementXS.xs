@@ -32,9 +32,10 @@
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
-/* get_cmd_global_uniq_command lookup_index_entry
-   comment_or_end_line argument_comment_end_line */
+/* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
+/* comment_or_end_line argument_comment_end_line */
+#include "convert_utils.h"
 #include "xs_utils.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
@@ -234,6 +235,26 @@ argument_comment_end_line (SV *, SV *element_sv)
         PUSHs(sv_2mortal(argument_sv));
         PUSHs(sv_2mortal(comment_sv));
         PUSHs(sv_2mortal(end_line_sv));
+
+SV *
+tree_element_itemize_item_prepended_element (SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            const ELEMENT *prepended
+              = itemize_item_prepended_element (element);
+            register_element_handle_in_sv ((ELEMENT *)prepended, document);
+            RETVAL = newSVsv ((SV *)prepended->sv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 SV *
 tree_elements_sections_list (SV *converter_in)

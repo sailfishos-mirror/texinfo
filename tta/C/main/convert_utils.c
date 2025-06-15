@@ -49,6 +49,15 @@ char *convert_utils_month_name[12] = {
   gdt_noop("November"), gdt_noop("December")
 };
 
+static const ELEMENT *default_bullet_command;
+
+void
+setup_convert_utils (void)
+{
+  default_bullet_command = new_command_element (ET_brace_noarg_command,
+                                                CM_bullet);
+}
+
 /* in Texinfo::Common */
 static const char *
 element_associated_processing_encoding (const ELEMENT *element)
@@ -783,6 +792,105 @@ definition_category_tree (const ELEMENT *current,
   return result;
 }
 
+/* ELEMENT should not be a text element */
+static void
+get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
+{
+  const ELEMENT *line_arg = 0;
+  const ELEMENT *comment = 0;
+
+  if (element->e.c->contents.number)
+    {
+      if (element->e.c->contents.list[0]->type == ET_arguments_line)
+        {
+          const ELEMENT *arguments_line = element->e.c->contents.list[0];
+          line_arg = arguments_line->e.c->contents.list[
+                        arguments_line->e.c->contents.number -1];
+        }
+      else
+        {
+          line_arg = element->e.c->contents.list[
+                        element->e.c->contents.number -1];
+        }
+    }
+
+  if (line_arg)
+    comment = line_arg->elt_info[eit_comment_at_end];
+
+  if (comment)
+    {
+      result->comment = comment;
+      result->end_line = 0;
+      return;
+    }
+  result->comment = 0;
+
+  if (line_arg)
+    {
+      const ELEMENT *spaces_after_argument
+        = line_arg->elt_info[eit_spaces_after_argument];
+      if (spaces_after_argument)
+        {
+          if (!strchr (spaces_after_argument->e.text->text, '\n'))
+            result->end_line = "\n";
+          else
+            result->end_line = "";
+        }
+      else
+        result->end_line = "";
+    }
+  else
+    result->end_line = "";
+}
+
+COMMENT_OR_END_LINE *
+comment_or_end_line (const ELEMENT *element)
+{
+  COMMENT_OR_END_LINE *result = (COMMENT_OR_END_LINE *) malloc
+    (sizeof (COMMENT_OR_END_LINE));
+
+  get_comment_or_end_line (element, result);
+
+  return result;
+}
+
+ARGUMENT_COMMENT_END_LINE *
+argument_comment_end_line (const ELEMENT *element)
+{
+  ARGUMENT_COMMENT_END_LINE *result = (ARGUMENT_COMMENT_END_LINE *) malloc
+    (sizeof (ARGUMENT_COMMENT_END_LINE));
+
+  if (element->e.c->contents.number)
+    {
+      if (element->e.c->contents.list[0]->type == ET_arguments_line)
+        {
+          const ELEMENT *arguments_line = element->e.c->contents.list[0];
+          result->argument = arguments_line->e.c->contents.list[0];
+        }
+      else
+        result->argument = element->e.c->contents.list[0];
+    }
+  else
+    result->argument = 0;
+
+  get_comment_or_end_line (element, &result->comment_end_line);
+
+  return result;
+}
+
+const ELEMENT *
+itemize_item_prepended_element (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = block_line_argument_command (block_line_arg);
+
+  if (arg)
+    return arg;
+  else if (block_line_arg->e.c->contents.number == 0)
+    return default_bullet_command;
+  else
+    return block_line_arg;
+}
+
 ELEMENT *
 cdt_tree (const char *string, CONVERTER *self,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -825,7 +933,6 @@ translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
     }
   return 0;
 }
-
 
 /*
   API to open, set encoding and register files.

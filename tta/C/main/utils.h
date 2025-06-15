@@ -285,9 +285,6 @@ const ELEMENT *get_cmd_global_uniq_command (
                                     const GLOBAL_COMMANDS *global_commands_ref,
                                     enum command_id cmd);
 
-COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
-ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);
-
 void html_fill_button_directions_specification_list (const CONVERTER *converter,
                                               BUTTON_SPECIFICATION_LIST *buttons);
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);

@@ -1,5 +1,27 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (setup_converter_generic),
+	tta/C/main/convert_utils.c (default_bullet_command)
+	(setup_convert_utils, itemize_item_prepended_element): move
+	itemize_item_prepended_element and default_bullet_command to
+	convert_utils.c.  Add setup_convert_utils to setup
+	default_bullet_command and call from setup_converter_generic.
+
+	* tta/C/main/convert_utils.c (get_comment_or_end_line)
+	(comment_or_end_line, argument_comment_end_line), tta/C/main/utils.c:
+	move get_comment_or_end_line, comment_or_end_line and
+	argument_comment_end_line to convert_utils.c.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(tree_element_itemize_item_prepended_element),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(tree_element_itemize_item_prepended_element): add XS interface for
+	tree_element_itemize_item_prepended_element and use it in
+	ReadDocBook.pm.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin)
 	(_convert): call get_global_unique_tree_element,
 	tree_elements_sections_list and get_tree_element_index_entry to have

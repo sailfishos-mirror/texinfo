@@ -37,6 +37,8 @@ LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION *current_lang_translations,
                           size_t cache_size);
 
+void setup_convert_utils (void);
+
 ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
@@ -70,6 +72,11 @@ ELEMENT *definition_category_tree (const ELEMENT *current,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
                           );
+
+const ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
+
+COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
+ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);
 
 ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
