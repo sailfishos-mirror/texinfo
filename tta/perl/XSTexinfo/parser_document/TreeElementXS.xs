@@ -280,6 +280,46 @@ tree_element_index_content_element (SV *element_sv, int prefer_reference_element
         RETVAL
 
 SV *
+element_table_item_content_tree (SV *, SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            ELEMENT *converted_e;
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            TREE_ADDED_ELEMENTS *tree = table_item_content_tree (0, element);
+            if (tree)
+              {
+                build_texinfo_tree (tree->tree, 1);
+                converted_e = tree->tree;
+                if (tree->status == tree_added_status_elements_added)
+                  {
+                    size_t i;
+                    for (i = 0; i < tree->added.number; i++)
+                      {
+                        ELEMENT *added_e = tree->added.list[i];
+                        register_element_handle_in_sv (added_e, document);
+                      }
+                  }
+                free (tree->added.list);
+                free (tree);
+              }
+            else
+              {
+                converted_e = element->e.c->contents.list[0];
+                register_element_handle_in_sv (converted_e, document);
+              }
+            RETVAL = newSVsv ((SV *)converted_e->sv);
+         }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
 tree_elements_sections_list (SV *converter_in)
       PREINIT:
         CONVERTER *self;

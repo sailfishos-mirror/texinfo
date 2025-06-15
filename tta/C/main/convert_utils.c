@@ -50,12 +50,14 @@ char *convert_utils_month_name[12] = {
 };
 
 static const ELEMENT *default_bullet_command;
+static const ELEMENT *default_asis_command;
 
 void
 setup_convert_utils (void)
 {
   default_bullet_command = new_command_element (ET_brace_noarg_command,
                                                 CM_bullet);
+  default_asis_command = new_command_element (ET_brace_command, CM_asis);
 }
 
 /* in Texinfo::Common */
@@ -89,6 +91,47 @@ switch_lang_translations (LANG_TRANSLATION ***lang_translations,
     = get_lang_translation (lang_translations, lang, cache_size);
   return lang_translation;
 }
+
+
+
+TREE_ADDED_ELEMENTS *
+new_tree_added_elements (enum tree_added_elements_status status)
+{
+  TREE_ADDED_ELEMENTS *new
+    = (TREE_ADDED_ELEMENTS *) malloc (sizeof (TREE_ADDED_ELEMENTS));
+  memset (new, 0, sizeof (TREE_ADDED_ELEMENTS));
+  new->status = status;
+  return new;
+}
+
+ELEMENT *
+new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
+{
+  ELEMENT *new = new_element (type);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+ELEMENT *
+new_command_element_added (TREE_ADDED_ELEMENTS *added_elements,
+                           enum element_type type,
+                           enum command_id cmd)
+{
+  ELEMENT *new = new_command_element (type, cmd);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+ELEMENT *
+new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
+                        enum element_type type)
+{
+  ELEMENT *new = new_text_element (type);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+
 
 ELEMENT *
 expand_today (int test, LANG_TRANSLATION *lang_translation,
@@ -898,6 +941,126 @@ item_itemize_item_prepended_element (const ELEMENT *element)
   const ELEMENT *arguments_line = itemize->e.c->contents.list[0];
   return itemize_item_prepended_element (
                       arguments_line->e.c->contents.list[0]);
+}
+
+const ELEMENT *
+item_line_block_line_argument_command (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = block_line_argument_command (block_line_arg);
+
+  if (arg)
+    {
+      enum command_id data_cmd = element_builtin_data_cmd (arg);
+      if (builtin_command_data[data_cmd].data == BRACE_noarg)
+        arg = 0;
+    }
+
+  return arg;
+}
+
+const ELEMENT *
+block_item_line_command (const ELEMENT *block_line_arg)
+{
+  const ELEMENT *arg = item_line_block_line_argument_command (block_line_arg);
+
+  /* if no command_as_argument given, default to @asis for @table. */
+  if (!arg)
+    arg = default_asis_command;
+  return arg;
+}
+
+/* SELF is not used */
+TREE_ADDED_ELEMENTS *
+table_item_content_tree (CONVERTER *self, const ELEMENT *element)
+{
+  const ELEMENT *table_command;
+  const ELEMENT *arguments_line;
+  const ELEMENT *block_line_arg;
+  const ELEMENT *command_as_argument;
+
+  /* not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
+     in @table */
+  if (element->parent->type != ET_table_term)
+    return 0;
+
+  table_command = element->parent->parent->parent;
+
+  /* arguments_line type element */
+  arguments_line = table_command->e.c->contents.list[0];
+  block_line_arg = arguments_line->e.c->contents.list[0];
+
+  command_as_argument = block_item_line_command (block_line_arg);
+
+  if (command_as_argument)
+    {
+      TREE_ADDED_ELEMENTS *tree
+        = new_tree_added_elements (tree_added_status_elements_added);
+      int command_as_argument_kbd_code;
+      ELEMENT *command;
+      ELEMENT *arg;
+      enum command_id cmd = element_builtin_cmd (command_as_argument);
+      enum command_id data_cmd
+            = element_builtin_data_cmd (command_as_argument);
+
+      command
+        = new_command_element_added (tree, command_as_argument->type, cmd);
+      tree->tree = command;
+
+      command->e.c->source_info = element->e.c->source_info;
+      command_as_argument_kbd_code
+        = (table_command->flags & EF_command_as_argument_kbd_code);
+      if (command_as_argument_kbd_code > 0)
+        command->flags |= EF_code;
+
+      if (command_as_argument->type == ET_definfoenclose_command)
+        {
+          const char *begin = lookup_extra_string (command_as_argument,
+                                                   AI_key_begin);
+          const char *end = lookup_extra_string (command_as_argument,
+                                                 AI_key_end);
+          const char *command_name
+            = command_as_argument->e.c->string_info[sit_command_name];
+
+          if (begin)
+            add_extra_string_dup (command, AI_key_begin, begin);
+          if (end)
+            add_extra_string_dup (command, AI_key_end, end);
+          if (command_name)
+            command->e.c->string_info[sit_command_name] = strdup (command_name);
+        }
+      if (builtin_command_data[data_cmd].data == BRACE_context)
+        {
+    /* This corresponds to a bogus @*table line with command line @footnote
+       or @math.  We do not really care about the formatting of the result
+       but we want to avoid debug messages, so we setup expected trees
+       for those @-commands. */
+          arg = new_element_added (tree, ET_brace_command_context);
+          if (cmd == CM_math)
+            {
+              add_to_contents_as_array (arg, element->e.c->contents.list[0]);
+            }
+          else
+            {
+              ELEMENT *paragraph = new_element_added (tree, ET_paragraph);
+              add_to_contents_as_array (paragraph,
+                                        element->e.c->contents.list[0]);
+              add_to_element_contents (arg, paragraph);
+            }
+        }
+      else if (builtin_command_data[data_cmd].data == BRACE_arguments)
+        {
+          arg = new_element_added (tree, ET_brace_arg);
+          add_to_contents_as_array (arg, element->e.c->contents.list[0]);
+        }
+      else
+        {
+          arg = new_element_added (tree, ET_brace_container);
+          add_to_contents_as_array (arg, element->e.c->contents.list[0]);
+        }
+      add_to_element_contents (command, arg);
+      return tree;
+    }
+  return 0;
 }
 
 ELEMENT *

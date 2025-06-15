@@ -455,7 +455,7 @@ sub conversion_output_begin($;$$)
     my $copying_element = $self->get_global_unique_tree_element('copying');
     my $copying_result
      = $self->convert_tree($self->new_tree_element(
-           {'contents' => $copying_element->{'contents'}}, 1));
+           {'contents' => $copying_element->children()}, 1));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
@@ -1236,7 +1236,7 @@ sub _convert($$)
                  = $self->get_global_unique_tree_element('copying');
               if ($global_commands and $global_commands->{'copying'}) {
                 $$output_ref .= $self->convert_tree($self->new_tree_element(
-                      {'contents' => $copying_element->{'contents'}}, 1));
+                      {'contents' => $copying_element->children()}, 1));
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {

@@ -1,5 +1,22 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (setup_converter_generic),
+	tta/C/main/convert_utils.c (default_asis_command)
+	(setup_convert_utils, new_tree_added_elements, new_element_added)
+	(new_command_element_added, new_text_element_added)
+	(item_line_block_line_argument_command, block_item_line_command)
+	(table_item_content_tree): move functions to convert_utils.c.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(element_table_item_content_tree): XS interface for
+	table_item_content_tree.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin)
+	(_convert): call children method to register elements in contents.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (get_comment_or_end_line): fix
 	conditional.
 

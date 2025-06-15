@@ -193,21 +193,12 @@ void write_or_return (const ENCODING_CONVERSION *conversion,
                  const char *encoded_out_filepath,
                  FILE *file_fh, TEXT *result, char *text);
 
-TREE_ADDED_ELEMENTS *new_tree_added_elements
-                      (enum tree_added_elements_status status);
-ELEMENT *new_element_added (TREE_ADDED_ELEMENTS *added_elements,
-                            enum element_type type);
-ELEMENT *new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
-                                 enum element_type type);
 void clear_tree_added_elements (CONVERTER *self,
                                 TREE_ADDED_ELEMENTS *tree_elements);
 void free_tree_added_elements (CONVERTER *self,
                                TREE_ADDED_ELEMENTS *tree_elements);
 void destroy_tree_added_elements (CONVERTER *self,
                                   TREE_ADDED_ELEMENTS *tree_elements);
-
-TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
-                                              const ELEMENT *element);
 
 void id_to_filename (CONVERTER *self, char **id_ref);
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,

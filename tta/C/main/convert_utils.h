@@ -31,13 +31,20 @@ typedef struct PARSED_DEF {
     ELEMENT *args;
 } PARSED_DEF;
 
+void setup_convert_utils (void);
+
 LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
                           LANG_TRANSLATION *current_lang_translations,
                           size_t cache_size);
 
-void setup_convert_utils (void);
+TREE_ADDED_ELEMENTS *new_tree_added_elements
+                      (enum tree_added_elements_status status);
+ELEMENT *new_element_added (TREE_ADDED_ELEMENTS *added_elements,
+                            enum element_type type);
+ELEMENT *new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
+                                 enum element_type type);
 
 ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
@@ -75,6 +82,9 @@ ELEMENT *definition_category_tree (const ELEMENT *current,
 
 const ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
 const ELEMENT *item_itemize_item_prepended_element (const ELEMENT *element);
+
+TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
+                                              const ELEMENT *element);
 
 COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
 ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);

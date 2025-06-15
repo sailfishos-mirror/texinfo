@@ -100,6 +100,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
   "Texinfo::Convert::Converter::tree_element_index_content_element"
     => "Texinfo::TreeElement::tree_element_index_content_element",
+  "Texinfo::Convert::Converter::element_table_item_content_tree"
+    => "Texinfo::TreeElement::element_table_item_content_tree",
 );
 
 my %XS_overrides = (
