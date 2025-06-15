@@ -6,6 +6,19 @@
 	<CHECK_MISSING_MENU_ENTRY>,
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
 	<CHECK_MISSING_MENU_ENTRY>:
+	Reword warning message not to refer to "Up" target as this may also
+	be given explicitly and differ from the section parent.
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure):
+	Remove unneeded casts away from const.
+
+2025-06-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Section directions rather than node directions for CHECK_MISSING_MENU_ENTRY
+
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure)
+	<CHECK_MISSING_MENU_ENTRY>,
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	<CHECK_MISSING_MENU_ENTRY>:
 	Use section directions rather than node directions to get superior node.
 	Section directions is more direct, as node directions is set from
 	section directions plus explicit pointers.  It also fits better with

@@ -293,10 +293,10 @@ $result_errors{'nodename_parentheses'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: node `Top\' lacks menu item for `(manual)node\' despite being its Up target
+    'error_line' => 'warning: node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning
 ',
     'line_nr' => 1,
-    'text' => 'node `Top\' lacks menu item for `(manual)node\' despite being its Up target',
+    'text' => 'node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning',
     'type' => 'warning'
   }
 ];

@@ -887,7 +887,7 @@ sub check_node_tree_menu_structure($)
           }
           if (!$cached_menu_nodes{$up_node}->{$node}) {
             $registrar->line_warn(sprintf(
-               __("node `%s' lacks menu item for `%s' despite being its Up target"),
+               __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
                target_element_to_texi_label($up_node),
                target_element_to_texi_label($node)),
                                 $up_node->{'source_info'}, 0,

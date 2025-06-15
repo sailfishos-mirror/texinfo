@@ -485,10 +485,10 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target
+    'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning
 ',
     'line_nr' => 5,
-    'text' => 'node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target',
+    'text' => 'node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning',
     'type' => 'warning'
   },
   {

@@ -1113,7 +1113,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
     for (i = 0; i < nodes_list->number; i++)
       {
         NODE_RELATIONS *node_relations = nodes_list->list[i];
-        ELEMENT *node = (ELEMENT *)node_relations->element;
+        const ELEMENT *node = node_relations->element;
         const CONST_ELEMENT_LIST *menus = node_relations->menus;
 
         if (!menus)
@@ -1316,7 +1316,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                         message_list_command_warn (error_messages,
                            (options && options->DEBUG.o.integer > 0),
                                 up_node, 0,
-         "node `%s' lacks menu item for `%s' despite being its Up target",
+         "node `%s' lacks menu item for `%s' but is above it in sectioning",
                                 up_texi, node_texi);
                         free (up_texi);
                         free (node_texi);
@@ -1339,7 +1339,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
           if (node_errors[i+1])
             continue;
           NODE_RELATIONS *node_relations = nodes_list->list[i];
-          ELEMENT *node = (ELEMENT *)node_relations->element;
+          const ELEMENT *node = node_relations->element;
           const ELEMENT * const *node_directions
                            = node_relations->node_directions;
           const char *normalized = lookup_extra_string (node, AI_key_normalized);

@@ -406,10 +406,10 @@ $result_texts{'menutextorder'} = '* foo::
 
 $result_errors{'menutextorder'} = [
   {
-    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
+    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' but is above it in sectioning
 ',
     'line_nr' => 6,
-    'text' => 'node `bar\' lacks menu item for `onesub1\' despite being its Up target',
+    'text' => 'node `bar\' lacks menu item for `onesub1\' but is above it in sectioning',
     'type' => 'warning'
   },
   {

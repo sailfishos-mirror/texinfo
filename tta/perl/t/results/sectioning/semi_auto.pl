@@ -252,10 +252,10 @@ $result_texts{'semi_auto'} = 'Top
 
 $result_errors{'semi_auto'} = [
   {
-    'error_line' => 'warning: node `Chap1\' lacks menu item for `Section non auto\' despite being its Up target
+    'error_line' => 'warning: node `Chap1\' lacks menu item for `Section non auto\' but is above it in sectioning
 ',
     'line_nr' => 9,
-    'text' => 'node `Chap1\' lacks menu item for `Section non auto\' despite being its Up target',
+    'text' => 'node `Chap1\' lacks menu item for `Section non auto\' but is above it in sectioning',
     'type' => 'warning'
   }
 ];
