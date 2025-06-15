@@ -891,6 +891,15 @@ itemize_item_prepended_element (const ELEMENT *block_line_arg)
     return block_line_arg;
 }
 
+const ELEMENT *
+item_itemize_item_prepended_element (const ELEMENT *element)
+{
+  const ELEMENT *itemize = element->parent;
+  const ELEMENT *arguments_line = itemize->e.c->contents.list[0];
+  return itemize_item_prepended_element (
+                      arguments_line->e.c->contents.list[0]);
+}
+
 ELEMENT *
 cdt_tree (const char *string, CONVERTER *self,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,

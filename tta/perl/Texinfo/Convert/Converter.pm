@@ -561,7 +561,11 @@ sub get_global_unique_tree_element($$)
 
 sub tree_element_itemize_item_prepended_element($)
 {
-  my $block_line_arg = shift;
+  my $element = shift;
+
+  my $itemize = $element->{'parent'};
+  my $arguments_line = $itemize->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
 
   return Texinfo::Common::tree_element_itemize_item_prepended_element(
                                         $block_line_arg);

@@ -1,5 +1,17 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/convert_utils.c (item_itemize_item_prepended_element),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(tree_element_itemize_item_prepended_element),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(tree_element_itemize_item_prepended_element): add
+	item_itemize_item_prepended_element that takes an item element and
+	returns the prepended element.  Use it in ReadDocBook.pm and for the
+	tree_element_itemize_item_prepended_element XS interface.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (setup_converter_generic),
 	tta/C/main/convert_utils.c (default_bullet_command)
 	(setup_convert_utils, itemize_item_prepended_element): move

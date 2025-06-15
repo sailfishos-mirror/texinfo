@@ -74,6 +74,7 @@ ELEMENT *definition_category_tree (const ELEMENT *current,
                           );
 
 const ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
+const ELEMENT *item_itemize_item_prepended_element (const ELEMENT *element);
 
 COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
 ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);
