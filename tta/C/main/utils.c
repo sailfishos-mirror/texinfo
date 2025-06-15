@@ -2227,6 +2227,94 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
 }
 
 
+
+/* ELEMENT should not be a text element */
+static void
+get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
+{
+  const ELEMENT *line_arg = 0;
+  const ELEMENT *comment = 0;
+
+  if (element->e.c->contents.number)
+    {
+      if (element->e.c->contents.list[0]->type == ET_arguments_line)
+        {
+          const ELEMENT *arguments_line = element->e.c->contents.list[0];
+          line_arg = arguments_line->e.c->contents.list[
+                        arguments_line->e.c->contents.number -1];
+        }
+      else
+        {
+          line_arg = element->e.c->contents.list[
+                        element->e.c->contents.number -1];
+        }
+    }
+
+  if (line_arg)
+    comment = line_arg->elt_info[eit_comment_at_end];
+
+  if (comment)
+    {
+      result->comment = comment;
+      result->end_line = 0;
+      return;
+    }
+  result->comment = 0;
+
+  if (line_arg)
+    {
+      const ELEMENT *spaces_after_argument
+        = line_arg->elt_info[eit_spaces_after_argument];
+      if (spaces_after_argument)
+        {
+          if (!strchr (spaces_after_argument->e.text->text, '\n'))
+            result->end_line = "\n";
+          else
+            result->end_line = "";
+        }
+      else
+        result->end_line = "";
+    }
+  else
+    result->end_line = "";
+}
+
+COMMENT_OR_END_LINE *
+comment_or_end_line (const ELEMENT *element)
+{
+  COMMENT_OR_END_LINE *result = (COMMENT_OR_END_LINE *) malloc
+    (sizeof (COMMENT_OR_END_LINE));
+
+  get_comment_or_end_line (element, result);
+
+  return result;
+}
+
+ARGUMENT_COMMENT_END_LINE *
+argument_comment_end_line (const ELEMENT *element)
+{
+  ARGUMENT_COMMENT_END_LINE *result = (ARGUMENT_COMMENT_END_LINE *) malloc
+    (sizeof (ARGUMENT_COMMENT_END_LINE));
+
+  if (element->e.c->contents.number)
+    {
+      if (element->e.c->contents.list[0]->type == ET_arguments_line)
+        {
+          const ELEMENT *arguments_line = element->e.c->contents.list[0];
+          result->argument = arguments_line->e.c->contents.list[0];
+        }
+      else
+        result->argument = element->e.c->contents.list[0];
+    }
+  else
+    result->argument = 0;
+
+  get_comment_or_end_line (element, &result->comment_end_line);
+
+  return result;
+}
+
+
 void
 destroy_accent_stack (ACCENTS_STACK *accent_stack)
 {

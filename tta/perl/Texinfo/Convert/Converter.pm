@@ -92,6 +92,10 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::tree_elements_nodes_list",
   "Texinfo::Convert::Converter::tree_elements_headings_list"
     => "Texinfo::TreeElement::tree_elements_headings_list",
+  "Texinfo::Convert::Converter::comment_or_end_line"
+    => "Texinfo::TreeElement::comment_or_end_line",
+  "Texinfo::Convert::Converter::argument_comment_end_line"
+    => "Texinfo::TreeElement::argument_comment_end_line"
 );
 
 my %XS_overrides = (
@@ -1562,7 +1566,7 @@ sub present_bug_message($$;$)
 
 # This is used when the formatted text has no comment nor new line, but
 # one want to add the comment or new line from the original arg
-sub comment_or_end_line($$)
+sub comment_or_end_line_nonxs($$)
 {
   my $self = shift;
   my $element = shift;
@@ -1570,12 +1574,13 @@ sub comment_or_end_line($$)
   my $end_line;
 
   my $line_arg;
-  if ($element->{'contents'}
-      and $element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
-  } elsif ($element->{'contents'}) {
-    $line_arg = $element->{'contents'}->[-1];
+  if ($element->{'contents'}) {
+    if ($element->{'contents'}->[0]->{'type'}
+        and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
+      $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+    } else {
+      $line_arg = $element->{'contents'}->[-1];
+    }
   }
 
   my $comment = $line_arg->{'info'}->{'comment_at_end'}
@@ -1598,17 +1603,44 @@ sub comment_or_end_line($$)
   return (undef, $end_line);
 }
 
+# for XS overriding
+sub comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  return comment_or_end_line_nonxs($self, $element);
+}
+
 sub format_comment_or_return_end_line($$)
 {
   my $self = shift;
   my $element = shift;
-  my ($comment, $end_line) = $self->comment_or_end_line($element);
+  my ($comment, $end_line) = $self->comment_or_end_line_nonxs($element);
 
   if ($comment) {
     return $self->convert_tree($comment);
   } else {
     return $end_line;
   }
+}
+
+# for XS overriding
+sub argument_comment_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $line_arg;
+  my $first_child = $element->{'contents'}->[0];
+  my $first_child_type = $first_child->{'type'};
+  if ($first_child_type and $first_child_type eq 'arguments_line') {
+    $line_arg = $first_child->{'contents'}->[0];
+  } else {
+    $line_arg = $element->{'contents'}->[0];
+  }
+  my ($comment, $end_line) = $self->comment_or_end_line($element);
+  return $line_arg, $comment, $end_line;
 }
 
 sub element_format_comment_or_end_line($$)

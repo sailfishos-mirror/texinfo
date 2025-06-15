@@ -32,8 +32,10 @@
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
-/* get_cmd_global_uniq_command lookup_index_entry */
+/* get_cmd_global_uniq_command lookup_index_entry
+   comment_or_end_line argument_comment_end_line */
 #include "utils.h"
+#include "xs_utils.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
 /* get_sv_converter */
@@ -160,6 +162,78 @@ get_tree_element_index_entry (SV *, SV *element_sv)
         PUSHs(sv_2mortal(index_entry_sv));
         PUSHs(sv_2mortal(index_info_sv));
 
+void
+comment_or_end_line (SV *, SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+        SV *comment_sv = 0;
+        SV *end_line_sv = 0;
+     PPCODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            COMMENT_OR_END_LINE *end_line_info = comment_or_end_line (element);
+            if (end_line_info->comment)
+              comment_sv = newSVsv ((SV *)end_line_info->comment->sv);
+            else
+              end_line_sv = newSVpv_utf8 (end_line_info->end_line, 0);
+            non_perl_free (end_line_info);
+          }
+
+        if (!comment_sv)
+          comment_sv = newSV (0);
+        if (!end_line_sv)
+          end_line_sv = newSV (0);
+
+        EXTEND(SP, 2);
+        PUSHs(sv_2mortal(comment_sv));
+        PUSHs(sv_2mortal(end_line_sv));
+
+void
+argument_comment_end_line (SV *, SV *element_sv)
+      PREINIT:
+        DOCUMENT *document;
+        SV *comment_sv = 0;
+        SV *end_line_sv = 0;
+        SV *argument_sv = 0;
+     PPCODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            ARGUMENT_COMMENT_END_LINE *arg_end_l_info
+              = argument_comment_end_line (element);
+            if (arg_end_l_info->comment_end_line.comment)
+              comment_sv = newSVsv ((SV *)
+                 arg_end_l_info->comment_end_line.comment->sv);
+            else
+              end_line_sv = newSVpv_utf8 (
+                 arg_end_l_info->comment_end_line.end_line, 0);
+
+            if (arg_end_l_info->argument)
+              {
+                register_element_handle_in_sv (
+                    (ELEMENT *)arg_end_l_info->argument, document);
+                argument_sv = newSVsv ((SV *)arg_end_l_info->argument->sv);
+              }
+
+            non_perl_free (arg_end_l_info);
+          }
+
+        if (!argument_sv)
+          argument_sv = newSV (0);
+        if (!comment_sv)
+          comment_sv = newSV (0);
+        if (!end_line_sv)
+          end_line_sv = newSV (0);
+
+        EXTEND(SP, 3);
+        PUSHs(sv_2mortal(argument_sv));
+        PUSHs(sv_2mortal(comment_sv));
+        PUSHs(sv_2mortal(end_line_sv));
 
 SV *
 tree_elements_sections_list (SV *converter_in)

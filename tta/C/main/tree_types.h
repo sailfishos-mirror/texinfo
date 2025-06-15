@@ -520,6 +520,16 @@ typedef struct NAME_NUMBER_LIST {
     NAME_NUMBER *list;
 } NAME_NUMBER_LIST;
 
+typedef struct COMMENT_OR_END_LINE {
+    const ELEMENT *comment;
+    const char *end_line;
+} COMMENT_OR_END_LINE;
+
+typedef struct ARGUMENT_COMMENT_END_LINE {
+    const ELEMENT *argument;
+    COMMENT_OR_END_LINE comment_end_line;
+} ARGUMENT_COMMENT_END_LINE;
+
 /* not used in parser, here because it is used in translations */
 typedef struct TRANSLATION_TREE {
     char *translated;

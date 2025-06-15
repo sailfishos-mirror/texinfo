@@ -51,8 +51,9 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
+/* identical to Texinfo::Convert::Utils::switch_lang_translations */
 static void
-switch_lang_translations (HV *converter_hv, const char *lang)
+switch_perl_lang_translations (HV *converter_hv, const char *lang)
 {
   AV *current_lang_translations_av;
   const char *translation_lang;
@@ -161,7 +162,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
 
-  switch_lang_translations (converter_hv, documentlanguage);
+  switch_perl_lang_translations (converter_hv, documentlanguage);
 
   FETCH(special_unit_info);
   special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);

@@ -451,8 +451,8 @@ sub conversion_output_begin($;$$)
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
-  if ($global_commands and $global_commands->{'copying'}) {
-    my $copying_element = $global_commands->{'copying'};
+  if ($global_commands) {
+    my $copying_element = $self->get_global_unique_tree_element('copying');
     my $copying_result
      = $self->convert_tree($self->new_tree_element(
            {'contents' => $copying_element->{'contents'}}, 1));
@@ -464,15 +464,14 @@ sub conversion_output_begin($;$$)
   my $fulltitle_command;
   if ($global_commands) {
     foreach my $title_cmdname ('title', 'shorttitlepage') {
-      if ($global_commands->{$title_cmdname}) {
-        my $command = $global_commands->{$title_cmdname};
-        next if (!$command->{'contents'}->[0]->{'contents'});
+      my $command = $self->get_global_unique_tree_element($title_cmdname);
+      if ($command and $command->{'contents'}->[0]->{'contents'}) {
         $fulltitle_command = $command;
         last;
       }
     }
     if (!defined($fulltitle_command)) {
-      my $command = $global_commands->{'titlefont'};
+      my $command = $self->get_global_unique_tree_element('titlefont');
       if ($command and $command->{'contents'}
           and $command->{'contents'}->[0]->{'contents'}) {
         $fulltitle_command = $command;
@@ -484,53 +483,54 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if ($global_commands and $global_commands->{'titlepage'}) {
-    my $title_page = $global_commands->{'titlepage'};
-    my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
+  if ($global_commands) {
+    my $title_page = $self->get_global_unique_tree_element('titlepage');
+    if ($title_page) {
+      my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
                                         $title_page, ['author', 'subtitle']);
-
-    my @authors_elements;
-    my $subtitle_text = '';
-    if (scalar(@{$collected_commands})) {
-      foreach my $element (@{$collected_commands}) {
-        my $cmdname = $element->{'cmdname'};
-        if ($cmdname eq 'author') {
-          push @authors_elements, $element;
-        } elsif ($cmdname eq 'subtitle') {
-          # concatenate the text of @subtitle as DocBook only allows one.
-          my ($arg, $end_line)
-            = _convert_argument_and_end_line($self, $element);
-          $subtitle_text .= $arg . $end_line
+      my @authors_elements;
+      my $subtitle_text = '';
+      if (scalar(@{$collected_commands})) {
+        foreach my $element (@{$collected_commands}) {
+          my $cmdname = $element->{'cmdname'};
+          if ($cmdname eq 'author') {
+            push @authors_elements, $element;
+          } elsif ($cmdname eq 'subtitle') {
+            # concatenate the text of @subtitle as DocBook only allows one.
+            my ($arg, $end_line)
+              = _convert_argument_and_end_line($self, $element);
+            $subtitle_text .= $arg . $end_line
+          }
         }
       }
-    }
-    if ($subtitle_text ne '') {
-      chomp ($subtitle_text);
-      $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
-    }
-
-    if (scalar(@authors_elements)) {
-      # using authorgroup and collab is the best, because it doesn't require
-      # knowing people name decomposition.  Also it should work for group names.
-      # FIXME dblatex ignores collab/collabname.
-      $authors_info .= "<authorgroup>\n";
-      foreach my $element (@authors_elements) {
-        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
-        # FIXME DocBook 5 no more collabname, merged with other elements in
-        # orgname, which is much more specific than collabname, it is for an
-        # organisation and therefore not suitable here.
-        # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
-        # person/personname is not suitable either, because in Texinfo @author
-        # may correspond to more than one author, and also because we do not
-        # have the information in Texinfo needed for <person>, which requires
-        # a split of the name in honorific, firstname, surname...
-        # https://tdg.docbook.org/tdg/5.0/personname
-        my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
-        chomp ($result);
-        $result .= "\n";
-        $authors_info .= $result;
+      if ($subtitle_text ne '') {
+        chomp ($subtitle_text);
+        $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
       }
-      $authors_info .= "</authorgroup>\n";
+
+      if (scalar(@authors_elements)) {
+        # using authorgroup and collab is the best, because it doesn't require
+        # knowing people name decomposition.  Also it should work for group names.
+        # FIXME dblatex ignores collab/collabname.
+        $authors_info .= "<authorgroup>\n";
+        foreach my $element (@authors_elements) {
+          my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
+          # FIXME DocBook 5 no more collabname, merged with other elements in
+          # orgname, which is much more specific than collabname, it is for an
+          # organisation and therefore not suitable here.
+          # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
+          # person/personname is not suitable either, because in Texinfo @author
+          # may correspond to more than one author, and also because we do not
+          # have the information in Texinfo needed for <person>, which requires
+          # a split of the name in honorific, firstname, surname...
+          # https://tdg.docbook.org/tdg/5.0/personname
+          my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
+          chomp ($result);
+          $result .= "\n";
+          $authors_info .= $result;
+        }
+        $authors_info .= "</authorgroup>\n";
+      }
     }
   }
 
@@ -738,16 +738,10 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $line_arg;
-  my $first_child = $element->{'contents'}->[0];
-  my $first_child_type = $first_child->{'type'};
-  if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->{'contents'}->[0];
-  } else {
-    $line_arg = $element->{'contents'}->[0];
-  }
+  my ($line_arg, $comment, $end_line)
+    = $self->argument_comment_end_line($element);
+
   my $converted = $self->convert_tree($line_arg);
-  my ($comment, $end_line) = $self->comment_or_end_line($element);
   if ($comment) {
     $end_line = $self->xml_comment($comment->{'contents'}->[0]->{'text'});
   }
@@ -1156,7 +1150,7 @@ sub _convert($$)
                 }
                 my $section_relations;
                 if ($self->{'document'}) {
-                  my $sections_list = $self->{'document'}->sections_list();
+                  my $sections_list = $self->tree_elements_sections_list();
                   $section_relations
             = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
                   if ($section_relations->{'associated_node'}) {
@@ -2074,51 +2068,48 @@ sub _convert($$)
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
           my $result = '';
-          my $index_entry_info = $element->{'extra'}->{'index_entry'};
-          my $indices_information = $self->{'document'}->indices_information();
           my ($index_entry, $index_info)
-             = Texinfo::Common::lookup_index_entry($index_entry_info,
-                                                   $indices_information);
+            = $self->get_tree_element_index_entry($element);
 
-            my $entry_element = $index_entry->{'entry_element'};
-            if ($self->{'document_context'}->[-1]->{'subentry_output'}) {
-              $output_ref = shift(@{$self->{'document_context'}
-                              ->[-1]->{'subentry_output'}});
-              foreach my $subentry_output
-                 (@{$self->{'document_context'}->[-1]->{'subentry_output'}}) {
-                $result .= $$subentry_output;
-              }
+          my $entry_element = $index_entry->{'entry_element'};
+          if ($self->{'document_context'}->[-1]->{'subentry_output'}) {
+            $output_ref = shift(@{$self->{'document_context'}
+                            ->[-1]->{'subentry_output'}});
+            foreach my $subentry_output
+               (@{$self->{'document_context'}->[-1]->{'subentry_output'}}) {
+              $result .= $$subentry_output;
             }
-            my $seeentry
-              = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                            'seeentry');
-            if ($seeentry) {
-              $result .= "<see>";
-              $result .= $self->convert_tree($seeentry);
-              $result .= "</see>";
-            }
-            my $seealso
-              = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                            'seealso');
-            if ($seealso) {
-              $result .= "<seealso>";
-              $result .= $self->convert_tree($seealso);
-              $result .= "</seealso>";
-            }
-            $$output_ref .= "</primary>";
-            $$output_ref .= $result;
-            $$output_ref .= "</indexterm>";
+          }
+          my $seeentry
+            = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                          'seeentry');
+          if ($seeentry) {
+            $result .= "<see>";
+            $result .= $self->convert_tree($seeentry);
+            $result .= "</see>";
+          }
+          my $seealso
+            = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                          'seealso');
+          if ($seealso) {
+            $result .= "<seealso>";
+            $result .= $self->convert_tree($seealso);
+            $result .= "</seealso>";
+          }
+          $$output_ref .= "</primary>";
+          $$output_ref .= $result;
+          $$output_ref .= "</indexterm>";
 
-            pop @{$self->{'document_context'}};
-            my ($comment, $end_line) = $self->comment_or_end_line($element);
-            if ($comment) {
-              $end_line
-                = $self->xml_comment($comment->{'contents'}->[0]->{'text'});
-            }
-            if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
-              chomp($end_line);
-            }
-            $$output_ref .= $end_line;
+          pop @{$self->{'document_context'}};
+          my ($comment, $end_line) = $self->comment_or_end_line($element);
+          if ($comment) {
+            $end_line
+              = $self->xml_comment($comment->{'contents'}->[0]->{'text'});
+          }
+          if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
+            chomp($end_line);
+          }
+          $$output_ref .= $end_line;
         } elsif (exists($docbook_line_commands{$cmdname})) {
           if ($Texinfo::Commands::def_commands{$cmdname}) {
             pop @{$self->{'document_context'}};
