@@ -850,21 +850,33 @@ sub check_node_tree_menu_structure($)
   if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
-      my $node_directions = $node_relations->{'node_directions'};
 
-      my $up_node;
-      if ($node_directions
-          and $node_directions->{'up'}) {
-        $up_node = $node_directions->{'up'};
+      my $section_relations = $node_relations->{'associated_section'};
+      next if !defined($section_relations);
+
+      # We need to check both toplevel_ and section_directions in case
+      # the up section is a @part.
+      my $section_directions = $section_relations->{'toplevel_directions'};
+      if (!defined($section_directions)) {
+        $section_directions = $section_relations->{'section_directions'};
       }
+
+      my ($up_node_relations, $up_node);
+
+      if ($section_directions
+          and $section_directions->{'up'}) {
+        $up_node_relations = $section_directions->{'up'}->{'associated_node'};
+        if ($up_node_relations) {
+          $up_node = $up_node_relations->{'element'};
+        }
+      }
+
       if ($up_node
           # No check if node up is an external manual
           and not $up_node->{'extra'}->{'manual_content'}
           # no check for a redundant node, the node registered in the menu
           # was the main equivalent node
           and $node->{'extra'}->{'is_target'}) {
-        my $up_node_relations
-          = $nodes_list->[$up_node->{'extra'}->{'node_number'} -1];
 
         # check only if there are menus
         if ($up_node_relations->{'menus'}) {

@@ -1244,13 +1244,29 @@ check_node_tree_menu_structure (DOCUMENT *document)
     for (i = 0; i < nodes_list->number; i++)
       {
         NODE_RELATIONS *node_relations = nodes_list->list[i];
-        ELEMENT *node = (ELEMENT *)node_relations->element;
-        const ELEMENT * const *node_directions
-                         = node_relations->node_directions;
+        const ELEMENT *node = node_relations->element;
+
+        const SECTION_RELATIONS *section_relations
+          = node_relations->associated_section;
+        if (!section_relations)
+          continue;
+
+        /* We need to check both toplevel_ and section_directions in case
+           the up section is a @part. */
+        const SECTION_RELATIONS *const *section_directions;
+        section_directions = section_relations->toplevel_directions;
+        if (!section_directions)
+          section_directions = section_relations->section_directions;
 
         const ELEMENT *up_node = 0;
-        if (node_directions && node_directions[D_up])
-          up_node = node_directions[D_up];
+        const NODE_RELATIONS *up_node_relations = 0;
+
+        if (section_directions && section_directions[D_up])
+          {
+            up_node_relations = section_directions[D_up]->associated_node;
+            if (up_node_relations)
+              up_node = up_node_relations->element;
+          }
         if (up_node)
           {
             const ELEMENT *manual_content = lookup_extra_container (up_node,
@@ -1264,11 +1280,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
                 && is_target)
               {
                 int status;
-                size_t up_node_number
-                  = lookup_extra_integer (up_node,
-                                          AI_key_node_number, &status);
-                const NODE_RELATIONS *up_node_relations
-                  = nodes_list->list[up_node_number -1];
                 const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
                 int found = 0;
                 /* check only if there are menus */
