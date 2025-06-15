@@ -139,7 +139,7 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{b}
    |original_def_cmdname:{defline}

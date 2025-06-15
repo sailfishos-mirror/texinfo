@@ -260,20 +260,20 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    |def_command:{defivar}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{Language}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Which}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{Language}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Which}
    |documentlanguage:{ab_us}

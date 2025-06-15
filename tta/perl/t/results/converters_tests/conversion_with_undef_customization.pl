@@ -158,7 +158,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{name}
    |element_node:{sec}

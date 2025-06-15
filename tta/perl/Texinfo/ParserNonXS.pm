@@ -4289,6 +4289,12 @@ sub _end_line_def_line($$$)
       if ($index_entry) {
         my $element_copy
           = Texinfo::ManipulateTree::copy_treeNonXS($index_entry);
+        delete $element_copy->{'type'};
+        if ($element_copy->{'contents'}
+            and $element_copy->{'contents'}->[0]->{'type'}
+            and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
+          $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
+        }
         $current->{'extra'}->{'def_index_element'} = $element_copy;
       }
 

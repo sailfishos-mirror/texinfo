@@ -15,7 +15,7 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{b}
    |index_entry:I{fn,1}

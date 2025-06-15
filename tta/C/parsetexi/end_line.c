@@ -766,6 +766,13 @@ end_line_def_line (ELEMENT *current)
           else
             {
               ELEMENT *element_copy = copy_tree (index_entry, 0);
+
+              element_copy->type = ET_NONE;
+              if (element_copy->e.c->contents.number
+                  && element_copy->e.c->contents.list[0]->type
+                    == ET_bracketed_arg)
+                element_copy->e.c->contents.list[0]->type = ET_brace_arg;
+
               add_extra_element_oot (current, AI_key_def_index_element,
                                      element_copy);
             }
@@ -785,7 +792,6 @@ end_line_def_line (ELEMENT *current)
       def_cmdname = lookup_extra_string (current, AI_key_original_def_cmdname);
       command_warn (current, "missing category for @%s", def_cmdname);
     }
-
 
   current = current->parent;
   current = begin_preformatted (current);

@@ -21,7 +21,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
@@ -49,7 +49,7 @@ $result_tree_text{'adjacent_defline'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foo2}
    |original_def_cmdname:{defline}

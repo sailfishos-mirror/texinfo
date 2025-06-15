@@ -98,8 +98,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C2
+    |* C1
+     |*brace_arg C2
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}

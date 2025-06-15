@@ -98,8 +98,8 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |EXTRA
    |def_command:{defun}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |*@w C1
        |*brace_container
    |element_node:{chap}
@@ -132,8 +132,8 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |EXTRA
    |def_command:{defun}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |*@w C1
        |*brace_container
    |element_node:{chap}

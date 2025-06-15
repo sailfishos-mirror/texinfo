@@ -137,20 +137,20 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
    |def_command:{deftypemethod}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{class}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{class}
    |documentlanguage:{unknown}

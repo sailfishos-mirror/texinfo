@@ -249,8 +249,8 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |{arg1}
    |original_def_cmdname:{defline}
     *line_arg C7

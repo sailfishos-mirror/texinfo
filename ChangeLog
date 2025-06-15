@@ -31,6 +31,18 @@
 
 2025-06-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_def_line),
+	tta/C/parsetexi/indices.c (remove_def_types, complete_indices),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_def_line),
+	tta/perl/Texinfo/Translations.pm (complete_indices): remove def_* type
+	and substitute bracketed_arg to brace_arg in def_index_element and
+	def_index_ref_element, to avoid specific def types for the
+	conversion of the index entry.  Use brace_arg instead of bracketed_arg
+	to have a type that have the same memory layout as bracketed_arg for
+	C.
+
+2025-06-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm
 	(get_tree_element_index_entry): return index_entry only if there are
 	indices_information.

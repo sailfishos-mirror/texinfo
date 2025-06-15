@@ -37,7 +37,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
      |EXTRA
      |def_command:{defun}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |{fun}
      |element_region:{copying}
@@ -67,7 +67,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
      |EXTRA
      |def_command:{defun}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |{xf}
      |element_region:{copying}

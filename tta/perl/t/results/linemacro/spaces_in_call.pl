@@ -48,7 +48,7 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C3
       |*bracketed_arg C1
        |{a b}

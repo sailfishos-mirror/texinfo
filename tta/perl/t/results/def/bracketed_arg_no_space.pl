@@ -15,7 +15,7 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C2
       |*bracketed_arg C1
        |{e g}

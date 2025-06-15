@@ -50,7 +50,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foo}
    |index_entry:I{fn,1}
@@ -126,7 +126,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C3
       |{foo}
       |*@ 
@@ -210,7 +210,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foo}
    |index_entry:I{fn,3}

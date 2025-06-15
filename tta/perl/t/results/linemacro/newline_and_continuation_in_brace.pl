@@ -59,7 +59,7 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C3
       |{a}
       |*@code C1

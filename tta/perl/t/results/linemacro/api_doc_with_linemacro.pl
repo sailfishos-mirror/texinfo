@@ -85,7 +85,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{fft.fft}
    |omit_def_name_space:{1}
@@ -168,7 +168,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      |EXTRA
      |def_command:{defline}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |*@var C1
          |*brace_container C1
@@ -221,7 +221,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      |EXTRA
      |def_command:{defline}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |*@var C1
          |*brace_container C1
@@ -279,7 +279,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      |EXTRA
      |def_command:{defline}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |*@var C1
          |*brace_container C1
@@ -332,7 +332,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      |EXTRA
      |def_command:{defline}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |*@var C1
          |*brace_container C1
@@ -380,7 +380,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      |EXTRA
      |def_command:{defline}
      |def_index_element:
-      |*def_name C1
+      |* C1
        |*def_line_arg C1
         |{IndexError}
      |omit_def_name_space:{1}

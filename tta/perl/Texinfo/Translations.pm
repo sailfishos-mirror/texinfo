@@ -552,6 +552,18 @@ sub complete_indices($;$)
           my $name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
           my $ref_class_copy = Texinfo::ManipulateTree::copy_treeNonXS($class);
           my $ref_name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
+          foreach my $element_copy ($class_copy, $name_copy, $ref_class_copy,
+                                    $ref_name_copy) {
+            delete $element_copy->{'type'};
+            if ($element_copy->{'contents'}
+                and $element_copy->{'contents'}->[0]->{'type'}
+           # use brace_arg instead of bracketed_arg to avoid specific def
+           # type for the conversion of the index entry, but still have
+           # a type that have the same memory layout as bracketed_arg for C
+           and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
+              $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
+            }
+          }
 
           # Use the document language that was current when the command was
           # used for getting the translation.

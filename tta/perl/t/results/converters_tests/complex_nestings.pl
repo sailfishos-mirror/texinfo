@@ -80,8 +80,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
     |EXTRA
     |def_command:{defun}
     |def_index_element:
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{my def}
     |element_node:{chap}
     |index_entry:I{fn,1}
@@ -121,8 +121,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
     |EXTRA
     |def_command:{defun}
     |def_index_element:
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{other def}
     |element_node:{chap}
     |index_entry:I{fn,2}
@@ -157,8 +157,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
       |EXTRA
       |def_command:{deffn}
       |def_index_element:
-       |*def_name C1
-        |*bracketed_arg C1
+       |* C1
+        |*brace_arg C1
          |{name}
       |element_node:{chap}
       |index_entry:I{fn,3}
@@ -199,8 +199,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
         |EXTRA
         |def_command:{defvar}
         |def_index_element:
-         |*def_name C1
-          |*bracketed_arg C1
+         |* C1
+          |*brace_arg C1
            |{variables}
         |element_node:{chap}
         |index_entry:I{vr,1}
@@ -232,8 +232,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
         |EXTRA
         |def_command:{defvar}
         |def_index_element:
-         |*def_name C1
-          |*bracketed_arg C1
+         |* C1
+          |*brace_arg C1
            |{variables too}
         |element_node:{chap}
         |index_entry:I{vr,2}

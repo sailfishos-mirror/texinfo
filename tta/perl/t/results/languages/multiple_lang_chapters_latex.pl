@@ -239,20 +239,20 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |def_command:{defivar}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{ja}
@@ -354,20 +354,20 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |def_command:{defivar}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{en}
@@ -460,20 +460,20 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
    |def_command:{defivar}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ de }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{AAA}
    |documentlanguage:{fr_FR}

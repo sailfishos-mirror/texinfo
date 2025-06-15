@@ -30,7 +30,7 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{b}
    |element_node:{first}

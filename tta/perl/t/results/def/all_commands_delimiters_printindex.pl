@@ -57,7 +57,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -169,7 +169,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defvr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{fill-column}
    |element_node:{chap}
@@ -271,7 +271,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foobar}
    |element_node:{chap}
@@ -335,7 +335,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foobar}
    |element_node:{chap}
@@ -465,7 +465,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{foobug}
    |element_node:{chap}
@@ -510,7 +510,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{push}
    |element_node:{chap}
@@ -605,7 +605,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypevr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{enable}
    |element_node:{chap}
@@ -703,7 +703,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftp}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{pair}
    |element_node:{chap}
@@ -805,7 +805,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{border-pattern}
    |element_node:{chap}
@@ -904,20 +904,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{border-pattern}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{border-pattern}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Window}
    |element_node:{chap}
@@ -1022,20 +1022,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{defop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{windows}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{windows}
    |element_node:{chap}
@@ -1134,20 +1134,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W,indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W,indow}
    |element_node:{chap}
@@ -1252,20 +1252,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{Window}
    |element_node:{chap}
@@ -1321,21 +1321,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e,xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W,indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e,xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W,indow}
    |element_node:{chap}
    |index_entry:I{fn,9}
@@ -1390,21 +1390,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{,expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{,Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{,expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{,Window}
    |element_node:{chap}
    |index_entry:I{fn,10}
@@ -1459,20 +1459,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e,xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W,indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e,xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W,indow}
    |element_node:{chap}
@@ -1528,20 +1528,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{,expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{,Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{,expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{,Window}
    |element_node:{chap}
@@ -1597,21 +1597,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e)xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W)indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e)xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W)indow}
    |element_node:{chap}
    |index_entry:I{fn,13}
@@ -1666,21 +1666,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{)expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{)Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{)expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{)Window}
    |element_node:{chap}
    |index_entry:I{fn,14}
@@ -1735,20 +1735,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e)xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W)indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e)xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W)indow}
    |element_node:{chap}
@@ -1804,20 +1804,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{)expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{)Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{)expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{)Window}
    |element_node:{chap}
@@ -1873,21 +1873,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e;xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W;indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{e;xpose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{W;indow}
    |element_node:{chap}
    |index_entry:I{fn,17}
@@ -1942,21 +1942,21 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{;expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{;Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{;expose}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C1
+     |* C1
+      |*brace_arg C1
        |{;Window}
    |element_node:{chap}
    |index_entry:I{fn,18}
@@ -2011,20 +2011,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e;xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W;indow}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{e;xpose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{W;indow}
    |element_node:{chap}
@@ -2080,20 +2080,20 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{;expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{;Window}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{;expose}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{;Window}
    |element_node:{chap}
@@ -2149,24 +2149,24 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{name}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C2
+     |* C1
+      |*brace_arg C2
        |{Window}
        |*@code C1
         |*brace_container C1
          |{int}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{name}
      |{ on }
-     |*def_class C1
-      |*bracketed_arg C2
+     |* C1
+      |*brace_arg C2
        |{Window}
        |*@code C1
         |*brace_container C1
@@ -2222,7 +2222,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{apply}
    |element_node:{chap}
@@ -2273,7 +2273,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2328,7 +2328,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2383,7 +2383,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defvr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2438,7 +2438,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defvr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2493,7 +2493,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2554,7 +2554,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2615,7 +2615,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypevr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2676,7 +2676,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypevr}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2737,7 +2737,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftp}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2792,7 +2792,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftp}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2847,7 +2847,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -2908,7 +2908,7 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftp}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@code C1
        |*brace_container C1
@@ -2970,26 +2970,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A4}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A4}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
@@ -3057,26 +3057,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A4}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A4}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
@@ -3144,26 +3144,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{defop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A3}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A3}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
@@ -3225,26 +3225,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{defop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A3}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A3}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
@@ -3306,26 +3306,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A4}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
          |{A4}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@var C1
         |*brace_container C1
@@ -3393,26 +3393,26 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A4}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
          |{A4}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |*@code C1
         |*brace_container C1
@@ -3479,8 +3479,8 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |{fun_name}
    |element_node:{chap}
    |index_entry:I{fn,31}
@@ -3544,8 +3544,8 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |{fun_name1}
    |element_node:{chap}
    |index_entry:I{fn,32}

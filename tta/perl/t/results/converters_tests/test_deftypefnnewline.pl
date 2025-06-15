@@ -97,7 +97,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deftypefun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{name}
    |element_node:{chapter}
@@ -147,7 +147,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{d--eftypefn_name}
    |element_node:{chapter}
@@ -192,20 +192,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |element_node:{chapter}
@@ -258,20 +258,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |element_node:{chapter}
@@ -320,20 +320,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |element_node:{chapter}
@@ -382,20 +382,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass}
    |element_node:{chapter}
@@ -447,7 +447,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{arg}
    |element_node:{chapter}
@@ -500,7 +500,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deftypefun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{name2}
    |element_node:{chapter}
@@ -550,7 +550,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{d--eftypefn_name2}
    |element_node:{chapter}
@@ -595,20 +595,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name2}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name2}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |element_node:{chapter}
@@ -661,20 +661,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypeop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name2}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypeop_name2}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |element_node:{chapter}
@@ -723,20 +723,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name2}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name2}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |element_node:{chapter}
@@ -785,20 +785,20 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |def_command:{deftypecv}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name2}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{d--eftypecv_name2}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c--lass2}
    |element_node:{chapter}
@@ -850,7 +850,7 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{arg2}
    |element_node:{chapter}

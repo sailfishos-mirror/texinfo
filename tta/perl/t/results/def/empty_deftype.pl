@@ -15,7 +15,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    |EXTRA
    |def_command:{deftypefun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{f}
    |index_entry:I{fn,1}
@@ -73,7 +73,7 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    |EXTRA
    |def_command:{defun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{f}
    |index_entry:I{fn,2}
@@ -129,20 +129,20 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    |def_command:{deftypemethod}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{f}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{f}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |index_entry:I{fn,3}
@@ -205,20 +205,20 @@ $result_tree_text{'empty_deftype'} = '*document_root C1
    |def_command:{defmethod}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{f}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{f}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |index_entry:I{fn,4}

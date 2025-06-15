@@ -36,20 +36,20 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
      |def_command:{defivar}
      |def_index_element:
       |* C3
-       |*def_name C1
+       |* C1
         |*def_line_arg C1
          |{a}
        |{ de }
-       |*def_class C1
+       |* C1
         |*def_line_arg C1
          |{copying}
      |def_index_ref_element:
       |* C3
-       |*def_name C1
+       |* C1
         |*def_line_arg C1
          |{a}
        |{ of }
-       |*def_class C1
+       |* C1
         |*def_line_arg C1
          |{copying}
      |documentlanguage:{fr}
@@ -203,20 +203,20 @@ $result_tree_text{'multiple_in_preamble_before_node'} = '*document_root C5
    |def_command:{defivar}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ von }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{BBB}
      |{ of }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{c}
    |documentlanguage:{de}

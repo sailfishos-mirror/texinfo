@@ -15,7 +15,7 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C3
       |{b}
       |*@code C1
@@ -89,8 +89,8 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C2
+    |* C1
+     |*brace_arg C2
       |{br }
       |*@samp C1
        |*brace_container C1

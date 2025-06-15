@@ -15,7 +15,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,1}
@@ -63,7 +63,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,2}
@@ -115,7 +115,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,3}
@@ -166,7 +166,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,4}
@@ -220,7 +220,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{b}
    |index_entry:I{fn,5}
@@ -255,7 +255,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,6}
@@ -290,7 +290,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,7}
@@ -329,7 +329,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,8}
@@ -367,7 +367,7 @@ $result_tree_text{'wrong_braces_simple'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,9}

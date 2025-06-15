@@ -385,6 +385,16 @@ resolve_indices_merged_in (const INDEX_LIST *indices_info)
 
 static LANG_TRANSLATION **lang_translations;
 
+static void
+remove_def_types (ELEMENT *element)
+{
+  element->type = ET_NONE;
+
+  if (element->e.c->contents.number
+      && element->e.c->contents.list[0]->type == ET_bracketed_arg)
+    element->e.c->contents.list[0]->type = ET_brace_arg;
+}
+
 /* complete some @def* index information that require translations.
    Done in a separate function and not inside the main parser loop because
    it requires parsing Texinfo code in gdt_tree too */
@@ -455,9 +465,13 @@ complete_indices (DOCUMENT *document, int debug_level)
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *name_copy = copy_tree (name, 0);
+                      remove_def_types (name_copy);
                       ELEMENT *class_copy = copy_tree (class, 0);
+                      remove_def_types (class_copy);
                       ELEMENT *ref_name_copy = copy_tree (name, 0);
+                      remove_def_types (ref_name_copy);
                       ELEMENT *ref_class_copy = copy_tree (class, 0);
+                      remove_def_types (ref_class_copy);
 
                       if (!lang)
                         lang = "";

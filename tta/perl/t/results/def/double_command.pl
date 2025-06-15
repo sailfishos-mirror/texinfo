@@ -15,7 +15,7 @@ $result_tree_text{'double_command'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{plot}
    |index_entry:I{fn,2}
@@ -59,7 +59,7 @@ $result_tree_text{'double_command'} = '*document_root C1
        |EXTRA
        |def_command:{deffn}
        |def_index_element:
-        |*def_name C1
+        |* C1
          |*def_line_arg C1
           |{plot2}
        |index_entry:I{fn,1}
@@ -125,7 +125,7 @@ $result_tree_text{'double_command'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{aaaa}
    |index_entry:I{fn,3}
@@ -153,7 +153,7 @@ $result_tree_text{'double_command'} = '*document_root C1
         |EXTRA
         |def_command:{defvr}
         |def_index_element:
-         |*def_name C1
+         |* C1
           |*def_line_arg C1
            |{d--efvr_name}
         |index_entry:I{vr,1}

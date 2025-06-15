@@ -108,7 +108,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -144,7 +144,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |element_node:{Top}

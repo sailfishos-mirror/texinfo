@@ -58,7 +58,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
    |EXTRA
    |def_command:{defline}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C2
       |{rest}
       |*bracketed_arg C1

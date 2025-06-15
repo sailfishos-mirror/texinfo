@@ -16,7 +16,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{d--effn_name}
    |index_entry:I{fn,1}
@@ -59,7 +59,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{de--ffn_name}
    |index_entry:I{fn,2}
@@ -128,7 +128,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@var C1
        |*brace_container C1
@@ -163,7 +163,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{truc}
    |index_entry:I{fn,4}
@@ -189,8 +189,8 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |{log trap}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deffnx}
@@ -215,8 +215,8 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
      ||INFO
      ||spaces_before_argument:
       ||{spaces_before_argument: }
@@ -247,8 +247,8 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument: }
@@ -279,7 +279,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@b C1
        |*brace_container C1
@@ -310,7 +310,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |*@b C1
        |*brace_container C3
@@ -346,7 +346,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,10}
@@ -365,8 +365,8 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
-     |*bracketed_arg C1
+    |* C1
+     |*brace_arg C1
       |{bidule machin}
    |index_entry:I{fn,11}
    |original_def_cmdname:{deffnx}
@@ -384,7 +384,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{machin}
    |index_entry:I{fn,12}
@@ -407,7 +407,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{followed}
    |index_entry:I{fn,13}
@@ -445,7 +445,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{after}
    |index_entry:I{fn,14}
@@ -483,7 +483,7 @@ $result_tree_text{'def'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{deffnx}
    |index_entry:I{fn,15}

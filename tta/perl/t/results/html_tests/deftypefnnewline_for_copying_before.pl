@@ -35,7 +35,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
     |EXTRA
     |def_command:{deftypefun}
     |def_index_element:
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{NAME}
     |element_region:{copying}
@@ -153,7 +153,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
    |EXTRA
    |def_command:{deftypefun}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{something}
    |element_node:{chap}

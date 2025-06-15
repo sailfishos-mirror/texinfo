@@ -16,20 +16,20 @@ $result_tree_text{'ampchar'} = '*document_root C1
    |def_command:{defop}
    |def_index_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{b}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{a}
    |def_index_ref_element:
     |* C3
-     |*def_name C1
+     |* C1
       |*def_line_arg C1
        |{b}
      |{ on }
-     |*def_class C1
+     |* C1
       |*def_line_arg C1
        |{a}
    |index_entry:I{fn,1}

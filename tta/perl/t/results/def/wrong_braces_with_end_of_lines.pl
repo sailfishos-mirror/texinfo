@@ -15,7 +15,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{name}
    |index_entry:I{fn,1}
@@ -68,7 +68,7 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
-    |*def_name C1
+    |* C1
      |*def_line_arg C1
       |{name}
    |index_entry:I{fn,2}
