@@ -831,7 +831,7 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
         = line_arg->elt_info[eit_spaces_after_argument];
       if (spaces_after_argument)
         {
-          if (!strchr (spaces_after_argument->e.text->text, '\n'))
+          if (strchr (spaces_after_argument->e.text->text, '\n'))
             result->end_line = "\n";
           else
             result->end_line = "";

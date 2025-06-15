@@ -194,6 +194,25 @@ register_token_element (SV *reader_sv)
     OUTPUT:
          RETVAL
 
+SV *
+register_token_element_child (SV *reader_sv, int child_index=0)
+      PREINIT:
+        READER *reader;
+      CODE:
+        reader = get_sv_reader_reader (reader_sv);
+        if (reader)
+          {
+            const ELEMENT *element = reader->token.element;
+            ELEMENT *e_child = contents_child_by_index (element, child_index);
+            register_element_handle_in_sv (e_child,
+                                           reader->document);
+            RETVAL = newSVsv ((SV *)e_child->sv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 void
 register_token_tree (SV *reader_sv)
       PREINIT:

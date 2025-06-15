@@ -98,6 +98,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::argument_comment_end_line",
   "Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element"
     => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
+  "Texinfo::Convert::Converter::tree_element_index_content_element"
+    => "Texinfo::TreeElement::tree_element_index_content_element",
 );
 
 my %XS_overrides = (
@@ -569,6 +571,15 @@ sub tree_element_itemize_item_prepended_element($)
 
   return Texinfo::Common::tree_element_itemize_item_prepended_element(
                                         $block_line_arg);
+}
+
+sub tree_element_index_content_element($;$)
+{
+  my $element = shift;
+  my $prefer_reference_element = shift;
+
+  return Texinfo::Common::tree_element_index_content_element($element,
+                                                 $prefer_reference_element);
 }
 
 sub tree_elements_sections_list($)

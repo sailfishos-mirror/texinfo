@@ -780,7 +780,7 @@ sub _begin_def_line($$)
   if ($index_entry) {
     $result .= $index_entry_text;
     $result .= $self->convert_tree(
-                 Texinfo::Common::index_content_element($element));
+  Texinfo::Convert::Converter::tree_element_index_content_element($element));
     $result .= _end_index_entry($self, $element);
   }
   _new_document_context($self);
@@ -915,7 +915,8 @@ sub _convert($$)
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree($self->expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $result_text = $self->xml_accents($element,
+          $reader->register_token_element();
+          $result_text = $self->tree_element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         }
         if (defined($result_text)) {
@@ -942,6 +943,7 @@ sub _convert($$)
               my $block_line_arg = $arguments_line->{'contents'}->[0];
 
               my $command_as_argument_name;
+              $reader->register_token_element();
               my $prepended_element
    = Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element(
                                                           $element);
@@ -964,12 +966,13 @@ sub _convert($$)
                    and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
+            $reader->register_token_element();
             my ($index_entry_text, $index_entry)
               = _begin_index_entry($self, $element);
             if ($index_entry) {
               $result_text .= $index_entry_text;
               $result_text .= $self->convert_tree(
-                 Texinfo::Common::index_content_element($element));
+    Texinfo::Convert::Converter::tree_element_index_content_element($element));
               $result_text .= _end_index_entry($self, $element);
             }
             if ($element->{'contents'}->[0]->{'contents'}) {
@@ -1001,6 +1004,7 @@ sub _convert($$)
           # end *item* tab
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
+          $reader->register_token_element();
           my ($result, $index_entry) = _begin_index_entry($self, $element);
           if ($index_entry) {
             $$output_ref .= $result;
@@ -1196,6 +1200,7 @@ sub _convert($$)
               .= $self->xml_comment($element->{'contents'}->[0]->{'text'});
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
+              $reader->register_token_element();
               my ($arg, $end_line)
                 = _convert_argument_and_end_line($self, $element);
               $result_text .=
@@ -1206,6 +1211,7 @@ sub _convert($$)
               $$output_ref .= $result_text;
             }
           } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
+            $reader->register_token_element();
             my $def_line_result = _begin_def_line($self, $element);
             $$output_ref .= $def_line_result if (defined($def_line_result));
           } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
@@ -1226,9 +1232,11 @@ sub _convert($$)
             if ($self->{'document'}) {
               my $global_commands
                 = $self->{'document'}->global_commands_information();
+              my $copying_element
+                 = $self->get_global_unique_tree_element('copying');
               if ($global_commands and $global_commands->{'copying'}) {
                 $$output_ref .= $self->convert_tree($self->new_tree_element(
-            {'contents' => $global_commands->{'copying'}->{'contents'}}, 1));
+                      {'contents' => $copying_element->{'contents'}}, 1));
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
@@ -1565,6 +1573,7 @@ sub _convert($$)
             if ($args_nr) {
               my $email_arg = $element->{'contents'}->[0];
               if ($email_arg->{'contents'}) {
+                $reader->register_token_element_child(0);
                 $email = $email_arg;
               }
             }
@@ -1572,6 +1581,7 @@ sub _convert($$)
             if ($args_nr >= 2) {
               my $name_arg = $element->{'contents'}->[1];
               if ($name_arg->{'contents'}) {
+                $reader->register_token_element_child(1);
                 $name = $name_arg;
               }
             }
@@ -1907,6 +1917,7 @@ sub _convert($$)
           $$output_ref .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
         } elsif ($e_type eq 'def_line') {
+          $reader->register_token_element();
           my $def_line_result = _begin_def_line($self, $element);
           $$output_ref .= $def_line_result if (defined($def_line_result));
         } elsif ($e_type eq 'table_term') {

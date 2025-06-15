@@ -34,6 +34,7 @@
 #include "extra.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
+#include "manipulate_indices.h"
 /* comment_or_end_line argument_comment_end_line */
 #include "convert_utils.h"
 #include "xs_utils.h"
@@ -252,6 +253,26 @@ tree_element_itemize_item_prepended_element (SV *element_sv)
               = item_itemize_item_prepended_element (element);
             register_element_handle_in_sv ((ELEMENT *)prepended, document);
             RETVAL = newSVsv ((SV *)prepended->sv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+tree_element_index_content_element (SV *element_sv, int prefer_reference_element=0)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            ELEMENT *idx_content = index_content_element (element,
+                                           prefer_reference_element);
+            register_element_handle_in_sv (idx_content, document);
+            RETVAL = newSVsv ((SV *)idx_content->sv);
           }
         else
           RETVAL = newSV (0);

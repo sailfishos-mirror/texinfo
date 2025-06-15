@@ -83,6 +83,11 @@ sub register_token_tree ($)
 {
 }
 
+# For XS
+sub register_token_element_child ($;$)
+{
+}
+
 sub _end_element($)
 {
   my $reader = shift;
