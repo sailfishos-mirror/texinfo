@@ -1562,7 +1562,7 @@ sub present_bug_message($$;$)
 
 # This is used when the formatted text has no comment nor new line, but
 # one want to add the comment or new line from the original arg
-sub format_comment_or_return_end_line($$)
+sub comment_or_end_line($$)
 {
   my $self = shift;
   my $element = shift;
@@ -1582,7 +1582,7 @@ sub format_comment_or_return_end_line($$)
     if ($line_arg and $line_arg->{'info'});
 
   if ($comment) {
-    $end_line = $self->convert_tree($comment);
+    return ($comment, undef);
   } elsif ($line_arg and $line_arg->{'info'}
       and $line_arg->{'info'}->{'spaces_after_argument'}) {
     my $text = $line_arg
@@ -1595,7 +1595,20 @@ sub format_comment_or_return_end_line($$)
   } else {
     $end_line = '';
   }
-  return $end_line;
+  return (undef, $end_line);
+}
+
+sub format_comment_or_return_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+  my ($comment, $end_line) = $self->comment_or_end_line($element);
+
+  if ($comment) {
+    return $self->convert_tree($comment);
+  } else {
+    return $end_line;
+  }
 }
 
 sub element_format_comment_or_end_line($$)

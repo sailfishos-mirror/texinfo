@@ -1,5 +1,14 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (comment_or_end_line)
+	(format_comment_or_return_end_line): split comment_or_end_line out of
+	format_comment_or_return_end_line.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm
+	(_convert_argument_and_end_line, _convert): use comment_or_end_line.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm
 	(%docbook_no_warn_empty_types): add line_arg.
 

@@ -747,7 +747,10 @@ sub _convert_argument_and_end_line($$)
     $line_arg = $element->{'contents'}->[0];
   }
   my $converted = $self->convert_tree($line_arg);
-  my $end_line = $self->format_comment_or_return_end_line($element);
+  my ($comment, $end_line) = $self->comment_or_end_line($element);
+  if ($comment) {
+    $end_line = $self->xml_comment($comment->{'contents'}->[0]->{'text'});
+  }
   return ($converted, $end_line);
 }
 
@@ -2107,7 +2110,11 @@ sub _convert($$)
             $$output_ref .= "</indexterm>";
 
             pop @{$self->{'document_context'}};
-            my $end_line = $self->format_comment_or_return_end_line($element);
+            my ($comment, $end_line) = $self->comment_or_end_line($element);
+            if ($comment) {
+              $end_line
+                = $self->xml_comment($comment->{'contents'}->[0]->{'text'});
+            }
             if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
               chomp($end_line);
             }
