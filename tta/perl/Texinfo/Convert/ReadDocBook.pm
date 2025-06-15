@@ -199,7 +199,7 @@ my %docbook_no_warn_empty_types;
 # do not warn for empty brace commands and bracketed arguments and
 # for a few containers.
 foreach my $type ('brace_container', 'bracketed_arg', 'brace_command_context',
-                  'preformatted', 'before_item',
+                  'preformatted', 'before_item', 'line_arg',
                   'preamble_before_content', 'before_node_section') {
   $docbook_no_warn_empty_types{$type} = 1;
 }
