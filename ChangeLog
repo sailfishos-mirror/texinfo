@@ -1,5 +1,19 @@
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin):
+	fix legalnotice conditional and use get_children.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): use correctly
+	get_children.  Call tree_elements_nodes_list instead of document
+	nodes_list.  Do not check that there is document as it is not checked
+	afterwards.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): convert
+	cartouche title using the reader, accumulating content in a separate
+	text to be able to put in elements only if not empty.
+
+2025-06-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (setup_converter_generic),
 	tta/C/main/convert_utils.c (default_asis_command)
 	(setup_convert_utils, new_tree_added_elements, new_element_added)

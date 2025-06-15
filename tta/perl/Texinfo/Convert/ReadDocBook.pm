@@ -199,7 +199,7 @@ my %docbook_no_warn_empty_types;
 # do not warn for empty brace commands and bracketed arguments and
 # for a few containers.
 foreach my $type ('brace_container', 'bracketed_arg', 'brace_command_context',
-                  'preformatted', 'before_item', 'line_arg',
+                  'preformatted', 'before_item', 'line_arg', 'block_line_arg',
                   'preamble_before_content', 'before_node_section') {
   $docbook_no_warn_empty_types{$type} = 1;
 }
@@ -270,7 +270,7 @@ foreach my $type (
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'arguments_line',
+            #'arguments_line',
   ) {
   $ignored_types{$type} = 1;
 }
@@ -453,11 +453,13 @@ sub conversion_output_begin($;$$)
   }
   if ($global_commands) {
     my $copying_element = $self->get_global_unique_tree_element('copying');
-    my $copying_result
-     = $self->convert_tree($self->new_tree_element(
-           {'contents' => $copying_element->children()}, 1));
-    if ($copying_result ne '') {
-      $legalnotice = "<legalnotice>$copying_result</legalnotice>";
+    my $copying_result;
+    if ($copying_element) {
+      $copying_result = $self->convert_tree($self->new_tree_element(
+           {'contents' => $copying_element->get_children()}, 1));
+      if ($copying_result ne '') {
+        $legalnotice = "<legalnotice>$copying_result</legalnotice>";
+      }
     }
   }
 
@@ -1079,7 +1081,7 @@ sub _convert($$)
             if ($cmdname eq 'node' and $self->{'document'}
                 and $element->{'extra'}
                 and $element->{'extra'}->{'node_number'}) {
-              my $nodes_list = $self->{'document'}->nodes_list();
+              my $nodes_list = $self->tree_elements_nodes_list();
               $node_relations
                 = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
               if (not $node_relations->{'associated_section'}) {
@@ -1236,7 +1238,7 @@ sub _convert($$)
                  = $self->get_global_unique_tree_element('copying');
               if ($global_commands and $global_commands->{'copying'}) {
                 $$output_ref .= $self->convert_tree($self->new_tree_element(
-                      {'contents' => $copying_element->children()}, 1));
+                      {'contents' => $copying_element->get_children()}, 1));
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
@@ -1878,15 +1880,6 @@ sub _convert($$)
             push @format_elements, $format_element;
           } elsif ($cmdname eq 'cartouche') {
             push @format_elements, 'sidebar';
-            # arguments_line type element
-            my $arguments_line = $element->{'contents'}->[0];
-            my $block_line_arg = $arguments_line->{'contents'}->[0];
-            if ($block_line_arg->{'contents'}) {
-              my $title = $self->convert_tree($block_line_arg);
-              if ($title ne '') {
-                $appended .= '<title>'.$title.'</title>'."\n";
-              }
-            }
           } elsif ($Texinfo::Commands::block_commands{$cmdname} eq 'format_raw') {
             # the document_context was opened for the command, so this is
             # forgotten once all the raw internal text has been formatted
@@ -1901,7 +1894,20 @@ sub _convert($$)
           }
           $$output_ref .= $appended if (defined($appended));
 
-          if ($Texinfo::Commands::preformatted_code_commands{$cmdname}
+          if ($cmdname eq 'cartouche') {
+            # arguments_line type element
+            my $arguments_line = $element->{'contents'}->[0];
+            my $block_line_arg = $arguments_line->{'contents'}->[0];
+            if ($block_line_arg->{'contents'}) {
+              # Keep the previous output reference and
+              # accumulate in a separate text to be able to add the opening
+              # element only if not empty
+              my $title_text = '';
+              $self->{'document_context'}->[-1]->{'cartouche_title'}
+                = [$output_ref, \$title_text];
+              $output_ref = \$title_text;
+            }
+          } elsif ($Texinfo::Commands::preformatted_code_commands{$cmdname}
               or $Texinfo::Commands::math_commands{$cmdname}) {
             push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
           }
@@ -1948,7 +1954,10 @@ sub _convert($$)
         } elsif (exists($docbook_preformatted_types{$e_type})) {
           push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
              $docbook_preformatted_types{$e_type};
-        } elsif ($ignored_types{$e_type}) {
+        } elsif ($ignored_types{$e_type}
+                 or ($e_type eq 'arguments_line'
+                     and not (
+             $self->{'document_context'}->[-1]->{'cartouche_title'}))) {
           $reader->skip_children($element);
         }
 
@@ -2037,13 +2046,9 @@ sub _convert($$)
         # close sectioning command
         } elsif ($cmdname ne 'node'
                  and $Texinfo::Commands::root_commands{$cmdname}) {
-          my $section_relations;
           my $sections_list = $self->tree_elements_sections_list();
-          if ($self->{'document'}) {
-            $sections_list = $self->{'document'}->sections_list();
-            $section_relations
-              = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-          }
+          my $section_relations
+            = $sections_list->[$element->{'extra'}->{'section_number'} -1];
           my $docbook_sectioning_element
              = _docbook_section_element($self, $element);
           if ($docbook_sectioning_element eq 'part'
@@ -2164,6 +2169,17 @@ sub _convert($$)
             my ($element, $attribute_text)
               = _parse_attribute($element_attribute);
             $$output_ref .= "</$element>";
+          }
+        } elsif ($e_type eq 'block_line_arg') {
+          my $top_cartouche_title
+            = $self->{'document_context'}->[-1]->{'cartouche_title'};
+          if ($top_cartouche_title) {
+            my $title_text_ref;
+            ($output_ref, $title_text_ref) = @$top_cartouche_title;
+            if ($$title_text_ref ne '') {
+              $$output_ref .= '<title>'.$$title_text_ref.'</title>'."\n";
+            }
+            delete $self->{'document_context'}->[-1]->{'cartouche_title'};
           }
         } elsif (exists($docbook_preformatted_types{$e_type})) {
           my $format
