@@ -1741,6 +1741,17 @@ sub _convert($$)
             }
             #warn "  returning after braced cmd result\n";
             $reader->skip_children($element);
+          } elsif ($cmdname eq 'seeentry' or $cmdname eq 'seealso') {
+            # gather the text to output it when the index entry closes
+            # and not where the command appears
+            if (!$self->{'document_context'}->[-1]->{$cmdname.'_info'}) {
+              my $command_text = '';
+              $self->{'document_context'}->[-1]->{$cmdname.'_info'}
+                = [\$command_text, $output_ref];
+              $output_ref = \$command_text;
+            } else {
+              $reader->skip_children($element);
+            }
           } else {
             # ignored brace command
             #warn "  returning empty string for ignored braced cmd\n";
@@ -2085,6 +2096,9 @@ sub _convert($$)
               pop @{$self->{'lang_stack'}};
             }
           }
+        } elsif ($cmdname eq 'seeentry' or $cmdname eq 'seealso') {
+          $output_ref
+            = $self->{'document_context'}->[-1]->{$cmdname.'_info'}->[1];
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
           my $result = '';
@@ -2100,21 +2114,21 @@ sub _convert($$)
               $result .= $$subentry_output;
             }
           }
-          my $seeentry
-            = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                          'seeentry');
-          if ($seeentry) {
+          if (defined($self->{'document_context'}->[-1]->{'seeentry_info'})) {
+            my $seeentry_ref
+              = $self->{'document_context'}->[-1]->{'seeentry_info'}->[0];
             $result .= "<see>";
-            $result .= $self->convert_tree($seeentry);
+            $result .= $$seeentry_ref;
             $result .= "</see>";
+            delete $self->{'document_context'}->[-1]->{'seeentry_output'};
           }
-          my $seealso
-            = Texinfo::Common::index_entry_referred_entry($entry_element,
-                                                          'seealso');
-          if ($seealso) {
+          if (defined($self->{'document_context'}->[-1]->{'seealso_info'})) {
+            my $seealso_ref
+              = $self->{'document_context'}->[-1]->{'seealso_info'}->[0];
             $result .= "<seealso>";
-            $result .= $self->convert_tree($seealso);
+            $result .= $$seealso_ref;
             $result .= "</seealso>";
+            delete $self->{'document_context'}->[-1]->{'seealso_output'};
           }
           $$output_ref .= "</primary>";
           $$output_ref .= $result;

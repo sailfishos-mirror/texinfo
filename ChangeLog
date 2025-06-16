@@ -1,5 +1,27 @@
 2025-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): process seeentry
+	and seealso as commands with the reader, keeping their output in the
+	document state to output it when the index entry closes and not where
+	the command appears.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(index_entry_referred_entry),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(index_entry_referred_entry): XS interface for
+	index_entry_referred_entry.  Currently unused.
+
+	* tta/perl/Texinfo/Convert/TreeReadDocBook.pm (_index_entry): call
+	index_entry_referred_entry.
+
+	* tta/perl/Texinfo/Common.pm
+	(tree_element_index_entry_referred_entry),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_index_entry):
+	rename element_index_entry_referred_entry as
+	tree_element_index_entry_referred_entry.
+
+2025-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c
 	(register_document_sections_list_elements)
 	(register_document_nodes_list_elements)

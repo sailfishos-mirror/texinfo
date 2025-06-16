@@ -1130,10 +1130,10 @@ sub index_entry_referred_entry($$)
   return undef;
 }
 
-sub element_index_entry_referred_entry($$);
+sub tree_element_index_entry_referred_entry($$);
 
 # same as above using the TreeElement interface
-sub element_index_entry_referred_entry($$)
+sub tree_element_index_entry_referred_entry($$)
 {
   my $element = shift;
   my $referred_cmdname = shift;
@@ -1148,7 +1148,7 @@ sub element_index_entry_referred_entry($$)
         if ($cmdname eq $referred_cmdname) {
           return $content->get_child(0) if ($content->children_number());
         } elsif ($cmdname eq 'subentry') {
-          return element_index_entry_referred_entry($content,
+          return tree_element_index_entry_referred_entry($content,
                                                     $referred_cmdname);
         }
       }

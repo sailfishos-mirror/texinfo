@@ -319,6 +319,37 @@ element_table_item_content_tree (SV *, SV *element_sv)
     OUTPUT:
         RETVAL
 
+# unused
+SV *
+index_entry_referred_entry (SV *element_sv, referred_cmdname)
+        const char *referred_cmdname = (char *)SvPV_nolen($arg);
+      PREINIT:
+        DOCUMENT *document;
+        SV *result_sv = 0;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        enum command_id cmd = lookup_builtin_command (referred_cmdname);
+        if (document && cmd)
+          {
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            const ELEMENT *referred_e
+              = index_entry_referred_entry (element, cmd);
+            if (referred_e)
+              {
+                register_element_handle_in_sv ((ELEMENT *)referred_e,
+                                               document);
+                result_sv = newSVsv ((SV *)referred_e->sv);
+              }
+         }
+
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
 SV *
 tree_elements_sections_list (SV *converter_in)
       PREINIT:

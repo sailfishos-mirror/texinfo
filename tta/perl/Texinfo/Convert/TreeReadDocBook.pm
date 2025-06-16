@@ -760,16 +760,16 @@ sub _index_entry($$)
       }
     }
     my $seeentry
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
-                                                            'seeentry');
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                   'seeentry');
     if ($seeentry) {
       $result .= "<see>";
       $result .= $self->convert_tree($seeentry);
       $result .= "</see>";
     }
     my $seealso
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
-                                                            'seealso');
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                    'seealso');
     if ($seealso) {
       $result .= "<seealso>";
       $result .= $self->convert_tree($seealso);

@@ -102,6 +102,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::tree_element_index_content_element",
   "Texinfo::Convert::Converter::element_table_item_content_tree"
     => "Texinfo::TreeElement::element_table_item_content_tree",
+  "Texinfo::Convert::Converter::index_entry_referred_entry"
+    => "Texinfo::TreeElement::index_entry_referred_entry",
 );
 
 my %XS_overrides = (
@@ -582,6 +584,15 @@ sub tree_element_index_content_element($;$)
 
   return Texinfo::Common::tree_element_index_content_element($element,
                                                  $prefer_reference_element);
+}
+
+sub index_entry_referred_entry($$)
+{
+  my $element = shift;
+  my $referred_cmdname = shift;
+
+  return Texinfo::Common::index_entry_referred_entry($element,
+                                                     $referred_cmdname);
 }
 
 sub tree_elements_sections_list($)

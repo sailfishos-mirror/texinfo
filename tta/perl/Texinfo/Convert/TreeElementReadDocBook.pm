@@ -758,7 +758,7 @@ sub _index_entry($$)
       }
     }
     my $seeentry
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+      = Texinfo::Common::tree_element_index_entry_referred_entry($entry_element,
                                                             'seeentry');
     if ($seeentry) {
       $result .= "<see>";
@@ -766,7 +766,7 @@ sub _index_entry($$)
       $result .= "</see>";
     }
     my $seealso
-      = Texinfo::Common::element_index_entry_referred_entry($entry_element,
+      = Texinfo::Common::tree_element_index_entry_referred_entry($entry_element,
                                                             'seealso');
     if ($seealso) {
       $result .= "<seealso>";
