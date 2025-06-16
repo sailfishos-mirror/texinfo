@@ -516,6 +516,12 @@ sub insert_nodes_for_sectioning_commands($)
   my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
   my $sections_list = $document->sections_list();
+  # this is not used in the function.  The call makes sure that the C code
+  # considers that the C data is up to date and do not attempts to rebuild
+  # from C afterwards and instead returns the Perl data. This is important
+  # because the Perl labels_list is modified in _new_node, not the C data,
+  # such that the C data is not up to date and should not be accessed again.
+  my $labels_list = $document->labels_list();
 
   my @added_nodes;
   my $previous_node_relations;

@@ -1,5 +1,16 @@
 2025-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands): call labels_list() at the
+	beginning of the function, to make sure that the C code considers that
+	the C data is up to date and do not attempts to rebuild from C
+	afterwards and instead returns the Perl data. This is important
+	because the Perl labels_list is modified in _new_node, not the C data,
+	such that the C data is not up to date and should not be accessed
+	again.  Report from Gavin.
+
+2025-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): process seeentry
 	and seealso as commands with the reader, keeping their output in the
 	document state to output it when the index entry closes and not where
