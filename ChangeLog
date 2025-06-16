@@ -1,3 +1,27 @@
+2025-06-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c
+	(register_document_sections_list_elements)
+	(register_document_nodes_list_elements)
+	(register_document_headings_list_elements)
+	(build_tree_elements_relations_lists): split
+	register_document_*_list_elements out of
+	build_tree_elements_relations_lists.
+
+	* tta/C/main/build_perl_info.c
+	(register_document_relations_lists_elements),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_initialization),
+	tta/perl/Texinfo/Document.pm (%XS_structure_overrides)
+	(register_document_relations_lists_elements),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(register_document_relations_lists_elements): add
+	register_document_relations_lists_elements to register the C data
+	handle in Perl elements even if the Perl data do not need to be
+	rebuilt.  Call in ReadDocBook.pm conversion_initialization.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_docbook_section_element)
+	(_convert): call tree_elements_sections_list.
+
 2025-06-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin):

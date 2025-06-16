@@ -45,6 +45,8 @@ use Texinfo::Common;
 # for debugging
 use Texinfo::Convert::Texinfo;
 
+use Texinfo::Document;
+
 # for section_level_adjusted_command_name
 use Texinfo::Structuring;
 
@@ -351,6 +353,8 @@ sub conversion_initialization($;$)
 
   if ($document) {
     $self->set_document($document);
+
+    $document->register_document_relations_lists_elements();
   }
 
   $self->{'document_context'} = [];
@@ -657,7 +661,7 @@ sub _docbook_section_element($$)
    = Texinfo::Structuring::section_level_adjusted_command_name($element);
   if ($level_adjusted_cmdname eq 'unnumbered'
       and $self->{'document'}) {
-    my $sections_list = $self->{'document'}->sections_list();
+    my $sections_list = $self->tree_elements_sections_list();
     my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     if ($section_relations->{'associated_node'}) {
@@ -1047,7 +1051,7 @@ sub _convert($$)
             if ($cmdname ne 'node') {
               my $sections_list;
               if ($self->{'document'}) {
-                $sections_list = $self->{'document'}->sections_list();
+                $sections_list = $self->tree_elements_sections_list();
                 $section_relations
                  = $sections_list->[$element->{'extra'}->{'section_number'} -1];
               }

@@ -1474,6 +1474,86 @@ build_heading_relations_list (const HEADING_RELATIONS_LIST *list)
 
 #undef STORE_RELS_INFO_ELEMENT
 
+static void
+register_document_sections_list_elements (DOCUMENT *document)
+{
+  size_t i;
+  const SECTION_RELATIONS_LIST *list = &document->sections_list;
+
+  for (i = 0; i < list->number; i++)
+    {
+      /* cast to drop const */
+      register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
+                                     document);
+    }
+}
+
+static void
+register_document_nodes_list_elements (DOCUMENT *document)
+{
+  size_t i;
+  const NODE_RELATIONS_LIST *list = &document->nodes_list;
+
+  for (i = 0; i < list->number; i++)
+    {
+      /* cast to drop const */
+      NODE_RELATIONS *node_relation = list->list[i];
+      register_element_handle_in_sv ((ELEMENT *)node_relation->element,
+                                     document);
+      /* this is probably unneeded, as all the headings and sections
+         elements should be registered as part of their lists */
+      if (node_relation->associated_title_command)
+        register_element_handle_in_sv (
+                  (ELEMENT *)node_relation->associated_title_command,
+                                       document);
+      if (node_relation->node_description)
+        register_element_handle_in_sv (
+                  (ELEMENT *)node_relation->node_description,
+                                       document);
+      if (node_relation->node_long_description)
+        register_element_handle_in_sv (
+                  (ELEMENT *)node_relation->node_long_description,
+                                       document);
+      if (node_relation->menus)
+        {
+          size_t j;
+          CONST_ELEMENT_LIST *menus = node_relation->menus;
+          for (j = 0; j < menus->number; j++)
+            register_element_handle_in_sv ((ELEMENT *)menus->list[j],
+                                           document);
+        }
+    }
+}
+
+static void
+register_document_headings_list_elements (DOCUMENT *document)
+{
+  const HEADING_RELATIONS_LIST *list = &document->headings_list;
+  size_t i;
+  for (i = 0; i < list->number; i++)
+    {
+      /* cast to drop const */
+      register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
+                                     document);
+    }
+}
+
+/* to register elements when the document information is already built */
+
+void
+register_document_relations_lists_elements (SV *document_in)
+{
+  DOCUMENT *document = get_sv_document_document (document_in,
+                     "register_document_relations_lists_elements");
+
+  if (document)
+    {
+       register_document_sections_list_elements (document);
+       register_document_nodes_list_elements (document);
+       register_document_headings_list_elements (document);
+    }
+}
+
 /* to be used with TreeElements interface.  Build all the lists together
    as they refer to each other in Perl code.  Alternatively an interface
    with accessors could be set. */
@@ -1487,15 +1567,9 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       const char *key = "sections_list";
       const SECTION_RELATIONS_LIST *list = &document->sections_list;
       AV *av_list;
-      size_t i;
       SV *result_sv;
 
-      for (i = 0; i < list->number; i++)
-        {
-          /* cast to drop const */
-          register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
-                                         document);
-        }
+      register_document_sections_list_elements (document);
 
       av_list = build_section_relations_list (list);
       result_sv = newRV_inc ((SV *) av_list);
@@ -1509,38 +1583,9 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       const char *key = "nodes_list";
       const NODE_RELATIONS_LIST *list = &document->nodes_list;
       AV *av_list;
-      size_t i;
       SV *result_sv;
 
-      for (i = 0; i < list->number; i++)
-        {
-          /* cast to drop const */
-          NODE_RELATIONS *node_relation = list->list[i];
-          register_element_handle_in_sv ((ELEMENT *)node_relation->element,
-                                         document);
-          /* this is probably unneeded, as all the headings and sections
-             elements should be registered as part of their lists */
-          if (node_relation->associated_title_command)
-            register_element_handle_in_sv (
-                      (ELEMENT *)node_relation->associated_title_command,
-                                           document);
-          if (node_relation->node_description)
-            register_element_handle_in_sv (
-                      (ELEMENT *)node_relation->node_description,
-                                           document);
-          if (node_relation->node_long_description)
-            register_element_handle_in_sv (
-                      (ELEMENT *)node_relation->node_long_description,
-                                           document);
-          if (node_relation->menus)
-            {
-              size_t j;
-              CONST_ELEMENT_LIST *menus = node_relation->menus;
-              for (j = 0; j < menus->number; j++)
-                register_element_handle_in_sv ((ELEMENT *)menus->list[j],
-                                               document);
-            }
-        }
+      register_document_nodes_list_elements (document);
 
       av_list = build_node_relations_list (list);
       result_sv = newRV_inc ((SV *) av_list);
@@ -1554,15 +1599,9 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       const char *key = "headings_list";
       const HEADING_RELATIONS_LIST *list = &document->headings_list;
       AV *av_list;
-      size_t i;
       SV *result_sv;
 
-      for (i = 0; i < list->number; i++)
-        {
-          /* cast to drop const */
-          register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
-                                         document);
-        }
+      register_document_headings_list_elements (document);
 
       av_list = build_heading_relations_list (list);
       result_sv = newRV_inc ((SV *) av_list);

@@ -329,6 +329,9 @@ document_sectioning_root (SV *document_in)
 SV *
 document_headings_list (SV *document_in)
 
+void
+register_document_relations_lists_elements (SV *document_in)
+
 SV *
 document_floats_information (SV *document_in)
      CODE:

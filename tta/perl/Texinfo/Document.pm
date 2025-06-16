@@ -105,6 +105,8 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our %XS_structure_overrides = (
   "Texinfo::Document::print_document_listoffloats"
     => "Texinfo::DocumentXS::print_document_listoffloats",
+  "Texinfo::Document::register_document_relations_lists_elements"
+    => "Texinfo::DocumentXS::register_document_relations_lists_elements",
 );
 
 
@@ -275,6 +277,12 @@ sub get_conf($$)
 
 # do nothing, only the XS override does something.
 sub remove_document($)
+{
+  my $document = shift;
+}
+
+# do nothing, only the XS override does something.
+sub register_document_relations_lists_elements($)
 {
   my $document = shift;
 }

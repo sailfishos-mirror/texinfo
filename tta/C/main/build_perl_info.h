@@ -70,6 +70,8 @@ SV *document_sections_list (SV *document_in);
 SV *document_sectioning_root (SV *document_in);
 SV *document_headings_list (SV *document_in);
 
+void register_document_relations_lists_elements (SV *document_in);
+
 SV *build_tree_elements_sections_list (DOCUMENT *document);
 SV *build_tree_elements_nodes_list (DOCUMENT *document);
 SV *build_tree_elements_headings_list (DOCUMENT *document);
