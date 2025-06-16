@@ -6,6 +6,15 @@
 
 2025-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_initialization)
+	(convert, conversion_output_begin): call
+	register_document_relations_lists_elements after building the tree.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): call
+	register_token_element_child for xref arguments.
+
+2025-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Transformations.pm
 	(insert_nodes_for_sectioning_commands): call labels_list() at the
 	beginning of the function, to make sure that the C code considers that

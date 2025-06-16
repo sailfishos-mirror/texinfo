@@ -353,8 +353,6 @@ sub conversion_initialization($;$)
 
   if ($document) {
     $self->set_document($document);
-
-    $document->register_document_relations_lists_elements();
   }
 
   $self->{'document_context'} = [];
@@ -379,6 +377,8 @@ sub convert($$)
   $self->conversion_initialization($document);
 
   my $root = $document->tree();
+
+  $document->register_document_relations_lists_elements();
 
   push @{$self->{'lang_stack'}}, '';
 
@@ -416,6 +416,10 @@ sub conversion_output_begin($;$$)
   my $self = shift;
   my $output_file = shift;
   my $output_filename = shift;
+
+  if ($self->{'document'}) {
+    $self->{'document'}->register_document_relations_lists_elements();
+  }
 
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
@@ -1328,12 +1332,14 @@ sub _convert($$)
               if ($args_nr >= 5) {
                 my $book_arg = $element->{'contents'}->[4];
                 if ($book_arg->{'contents'}) {
+                  $reader->register_token_element_child(4);
                   $book_element = $book_arg;
                 }
               }
               if ($args_nr >= 3) {
                 my $section_arg = $element->{'contents'}->[2];
                 if ($section_arg->{'contents'}) {
+                  $reader->register_token_element_child(2);
                   $section_name = $self->convert_tree($section_arg);
                 }
               }
@@ -1344,15 +1350,18 @@ sub _convert($$)
               my $manual_file_arg
                  = $element->{'contents'}->[$manual_file_index];
               if ($manual_file_arg->{'contents'}) {
+                $reader->register_token_element_child($manual_file_index);
                 $manual_file_element = $manual_file_arg;
               }
             }
             if (! defined($section_name) and $args_nr >= 2
                 and $element->{'contents'}->[1]->{'contents'}) {
               my $section_arg = $element->{'contents'}->[1];
+              $reader->register_token_element_child(1);
               $section_name = $self->convert_tree($section_arg);
             } elsif ($element->{'contents'}->[0]->{'contents'}) {
               my $node_arg = $element->{'contents'}->[0];
+              $reader->register_token_element_child(0);
               push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
               $node_name = $self->convert_tree($node_arg);
               pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
