@@ -6276,7 +6276,8 @@ See also @ref{@code{@@verbatiminclude}}.
 @findex lisp
 @cindex Lisp example
 
-The @code{@@lisp} command was used for Lisp code:
+The @code{@@lisp} command is very similar to @code{@@example},
+but marks the contents as Lisp code.  For example:
 
 @example
 @@lisp
@@ -6284,7 +6285,10 @@ Example lisp code
 @@end lisp
 @end example
 
-@noindent This is now synonymous with the following:
+@noindent
+The programming language can also be given as an argument to the
+@code{@@example} command (@pxref{@code{@@example}}), so the example
+above could also be written as:
 
 @example
 @@example lisp
