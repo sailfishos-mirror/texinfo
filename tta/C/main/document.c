@@ -41,6 +41,8 @@
 #include "floats.h"
 #include "manipulate_indices.h"
 #include "convert_to_text.h"
+/* setup_convert_utils */
+#include "convert_utils.h"
 #include "output_unit.h"
 #include "api_to_perl.h"
 /* for setup_unicode_data */
@@ -116,6 +118,9 @@ setup_texinfo_main (int texinfo_uninstalled,
   txi_initialise_base_options ();
 
   setup_ai_key_name_index ();
+
+  /* used for the TreeElements interface */
+  setup_convert_utils ();
 
   /* used in Parser */
   setup_unicode_data ();

@@ -630,7 +630,7 @@ sub tree_elements_headings_list($)
   return undef;
 }
 
-# for XS override
+# for XS override, with a simpler interface than element_cdt
 sub element_gdt($$$;$$$)
 {
   my ($string, $lang_translations, $document, $replaced_substrings,
@@ -641,7 +641,7 @@ sub element_gdt($$$;$$$)
                                     $translation_context);
 }
 
-# a wrapper with the same interface than cdt
+# same interface as cdt
 sub element_cdt($$;$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
@@ -1444,6 +1444,21 @@ sub encoded_output_file_name($$)
                  $output_file_name_encoding,
                  $doc_encoding_for_output_file_name, $locale_encoding,
                  $self->{'document'});
+}
+
+# using the interface with registered elements, compatible with TreeElements
+sub element_translated_command_tree($)
+{
+  my $converter = shift;
+  my $cmdname = shift;
+
+  my $translated_commands = $converter->{'translated_commands'};
+  if ($translated_commands
+      and defined($translated_commands->{$cmdname})) {
+    my $to_translate = $translated_commands->{$cmdname};
+    return $converter->element_cdt($to_translate);
+  }
+  return undef;
 }
 
 sub translated_command_tree($)

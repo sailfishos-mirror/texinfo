@@ -58,23 +58,25 @@ PROTOTYPES: ENABLE
 SV *
 new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
     PREINIT:
-        CONVERTER *self;
+        DOCUMENT *document;
      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self && self->document)
+        document = get_converter_sv_document (converter_in, 0);
+
+        if (document)
           {
-            ELEMENT *e = new_element_from_sv (self, element_hash);
+            CONVERTER *converter = get_sv_converter (converter_in, 0);
+            ELEMENT *e = new_element_from_sv (converter, element_hash);
             if (use_sv)
               {
                 HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
              /* this first refcount increase keeps the mortal argument alive */
                 e->sv = sv_bless (SvREFHVCNT_inc (element_hash), hv_stash);
-                register_sv_element_handle_in_sv (e, e->sv, self->document);
+                register_sv_element_handle_in_sv (e, e->sv, document);
                 RETVAL = (SvREFHVCNT_inc (e->sv));
               }
             else
               {
-                register_element_handle_in_sv (e, self->document);
+                register_element_handle_in_sv (e, document);
                 RETVAL = newSVsv ((SV *)e->sv);
               }
           }
@@ -90,20 +92,20 @@ SV *
 get_global_unique_tree_element (SV *converter_in, cmdname)
         const char *cmdname = (char *)SvPV_nolen($arg);
       PREINIT:
-        CONVERTER *self;
+        DOCUMENT *document;
         SV *result_sv = 0;
      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self && self->document)
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
           {
             enum command_id cmd = lookup_builtin_command (cmdname);
             if (cmd)
               {
                 ELEMENT *element = (ELEMENT *)get_cmd_global_uniq_command (
-                              &self->document->global_commands, cmd);
+                              &document->global_commands, cmd);
                 if (element)
                   {
-                    register_element_handle_in_sv (element, self->document);
+                    register_element_handle_in_sv (element, document);
                     result_sv = newSVsv ((SV *)element->sv);
                   }
               }

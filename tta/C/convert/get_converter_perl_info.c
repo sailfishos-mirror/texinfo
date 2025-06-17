@@ -96,6 +96,32 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
   return converter;
 }
 
+DOCUMENT *
+get_converter_sv_document (SV *converter_sv, const char *warn_string)
+{
+  CONVERTER *converter;
+  DOCUMENT *document = 0;
+  HV *converter_hv;
+  SV **document_sv;
+
+  dTHX;
+
+  converter = get_sv_converter (converter_sv, 0);
+  if (converter && converter->document)
+    return converter->document;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+
+  document_sv = hv_fetch (converter_hv, "document", strlen ("document"), 0);
+
+  if (document_sv && SvOK (*document_sv))
+    {
+      document = get_sv_document_document (*document_sv, warn_string);
+    }
+
+  return document;
+}
+
 /* add to converter hash the INIT_INFO_SV key values that are
    not customization variables, listed in NO_VALID_CUSTOMIZATION */
 void

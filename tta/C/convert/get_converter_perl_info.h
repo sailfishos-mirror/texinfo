@@ -21,6 +21,8 @@ void set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
                                STRING_LIST *non_valid_customization);
 CONVERTER *converter_set_document_from_sv (SV *converter_in, SV *document_in);
 
+DOCUMENT *get_converter_sv_document (SV *converter_sv, const char *warn_string);
+
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 #endif

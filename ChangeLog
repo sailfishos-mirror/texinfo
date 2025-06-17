@@ -1,5 +1,30 @@
 2025-06-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/get_converter_perl_info.c (get_converter_sv_document):
+	add.
+
+	* tta/C/convert/converter.c, tta/C/main/document.c
+	(setup_texinfo_main): call setup_convert_utils in setup_texinfo_main
+	such that the function is called even if converter XS is not loaded.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element, get_global_unique_tree_element): call
+	get_converter_sv_document to find the document even if converter XS is
+	not loaded.
+
+	* tta/C/main/get_perl_info.c (new_element_from_sv): allow converter to
+	be NULL, as it may now happen with new_tree_element call.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(element_translated_command_tree),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): add, calling
+	element_cdt instead of cdt.  Use in ReadDocBook.pm.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): call element_cdt
+	instead of cdt.
+
+2025-06-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (get_replaced_substrings): add.
 
 	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)

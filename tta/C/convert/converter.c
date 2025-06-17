@@ -151,8 +151,6 @@ setup_converter_generic (void)
       /* TRANSLATORS: expansion of @error{} as Texinfo code */
       (void) gdt_noop("error@arrow{}");
     }
-
-  setup_convert_utils ();
 }
 
 

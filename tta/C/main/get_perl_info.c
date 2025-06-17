@@ -112,7 +112,7 @@ debug_print_element_sv (SV *element_sv)
 #undef FETCH
 
 DOCUMENT *
-get_document_or_warn (SV *sv_in, char *key, char *warn_string)
+get_document_or_warn (SV *sv_in, char *key, const char *warn_string)
 {
   size_t document_descriptor;
   DOCUMENT *document = 0;
@@ -148,7 +148,7 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
 
 /* for the tree root */
 DOCUMENT *
-get_sv_tree_document (SV *tree_in, char *warn_string)
+get_sv_tree_document (SV *tree_in, const char *warn_string)
 {
   dTHX;
 
@@ -158,7 +158,7 @@ get_sv_tree_document (SV *tree_in, char *warn_string)
 
 /* for any element */
 DOCUMENT *
-get_sv_element_document (SV *element_in, char *warn_string)
+get_sv_element_document (SV *element_in, const char *warn_string)
 {
   dTHX;
 
@@ -167,7 +167,7 @@ get_sv_element_document (SV *element_in, char *warn_string)
 }
 
 DOCUMENT *
-get_sv_document_document (SV *document_in, char *warn_string)
+get_sv_document_document (SV *document_in, const char *warn_string)
 {
   dTHX;
 
@@ -209,7 +209,7 @@ get_sv_element_element (SV *element_sv, DOCUMENT *document)
    too.
  */
 size_t
-get_sv_output_units_descriptor (SV *output_units_in, char *warn_string,
+get_sv_output_units_descriptor (SV *output_units_in, const char *warn_string,
                                 const DOCUMENT **document_out)
 {
   size_t output_units_descriptor = 0;
@@ -577,7 +577,7 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
               if (document)
                 element
                   = get_sv_element_element (*content_sv, document);
-              else
+              else if (converter)
                 /* TODO using find_element_from_sv may allow to
                    find the C elements in more situations, but it could
                    also hide bugs, as we would like not to need to
