@@ -30,10 +30,12 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
+#include "translations.h"
 #include "manipulate_indices.h"
 /* comment_or_end_line argument_comment_end_line */
 #include "convert_utils.h"
@@ -788,3 +790,66 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
 
         hv_store (element_hv, "parent", strlen ("parent"),
                   newSVsv (element_sv), 0);
+
+SV *
+element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
+        const char *string = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$$;$$$
+      PREINIT:
+        DOCUMENT *document;
+        SV *result_sv = 0;
+        SV *replaced_substrings_sv = 0;
+        int debug = 0;
+        const char *translation_context = 0;
+      CODE:
+        if (items > 3 && SvOK(ST(3)))
+          replaced_substrings_sv = ST(3);
+        if (items > 4 && SvOK(ST(4)))
+          debug = SvIV (ST(4));
+        if (items > 5 && SvOK(ST(5)))
+          translation_context = (char *)SvPVutf8_nolen(ST(5));
+
+        document = get_sv_document_document (document_sv, "element_gdt");
+        if (document)
+          {
+            NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
+            AV *lang_translations_av;
+            SV **lang_sv;
+            LANG_TRANSLATION *lang_translations;
+            const char *lang;
+            ELEMENT *e_result;
+            
+            if (!lang_translations_sv)
+              fatal ("element_cdt no lang_translations");
+
+            lang_translations_av = (AV *) SvRV (lang_translations_sv);
+            lang_sv = av_fetch (lang_translations_av, 0, 0);
+            if (!*lang_sv || !SvOK (*lang_sv))
+              fatal ("element_cdt lang_translations no lang");
+
+            lang = (char *)SvPVutf8_nolen(*lang_sv);
+            lang_translations
+              = switch_lang_translations (&translation_cache, lang,
+                                          0, TXI_CONVERT_STRINGS_NR);
+
+            if (replaced_substrings_sv)
+              {
+                replaced_substrings
+                  = get_replaced_substrings (replaced_substrings_sv);
+              }
+            e_result = gdt_tree (string, document, lang_translations,
+                                 replaced_substrings, debug,
+                                 translation_context);
+            result_sv = build_texinfo_tree (e_result, 1);
+            register_element_handle_in_sv (e_result, document);
+            if (replaced_substrings)
+              destroy_named_string_element_list (replaced_substrings);
+          }
+
+        if (result_sv)
+          RETVAL = SvREFHVCNT_inc (result_sv);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+

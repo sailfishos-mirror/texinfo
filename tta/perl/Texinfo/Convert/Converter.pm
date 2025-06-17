@@ -104,6 +104,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::element_table_item_content_tree",
   "Texinfo::Convert::Converter::index_entry_referred_entry"
     => "Texinfo::TreeElement::index_entry_referred_entry",
+  "Texinfo::Convert::Converter::element_gdt"
+    => "Texinfo::TreeElement::element_gdt",
 );
 
 my %XS_overrides = (
@@ -626,6 +628,29 @@ sub tree_elements_headings_list($)
     return $relations_list;
   }
   return undef;
+}
+
+# for XS override
+sub element_gdt($$$;$$$)
+{
+  my ($string, $lang_translations, $document, $replaced_substrings,
+      $debug, $translation_context);
+  return Texinfo::Translations::gdt($string,
+                                    $lang_translations,
+                                    $replaced_substrings, $debug,
+                                    $translation_context);
+}
+
+# a wrapper with the same interface than cdt
+sub element_cdt($$;$$)
+{
+  my ($self, $string, $replaced_substrings, $translation_context) = @_;
+
+  return element_gdt($string, $self->{'current_lang_translations'},
+                              $self->{'document'},
+                              $replaced_substrings,
+                              $self->get_conf('DEBUG'),
+                              $translation_context);
 }
 
 

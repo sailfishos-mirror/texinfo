@@ -1,3 +1,14 @@
+2025-06-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/get_perl_info.c (get_replaced_substrings): add.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(element_gdt, element_cdt),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (element_gdt): add
+	element_cdt with the cdt interface, that calls element_gdt, and an
+	XS override for element_gdt, to translate the string in C, build and
+	register the tree.
+
 2025-06-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@lisp):

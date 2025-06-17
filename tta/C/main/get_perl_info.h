@@ -12,6 +12,7 @@
 #include "option_types.h"
 #include "options_data.h"
 #include "converter_types.h"
+#include "translations.h"
 #include "convert_to_text.h"
 
 /* in options_get_perl.c */
@@ -45,6 +46,9 @@ void add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
 SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, const char *message);
+
+NAMED_STRING_ELEMENT_LIST *get_replaced_substrings (SV *replaced_substrings_sv);
+
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
 

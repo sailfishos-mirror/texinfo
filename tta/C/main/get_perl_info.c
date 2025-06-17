@@ -35,6 +35,7 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
+#include "translations.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -448,6 +449,51 @@ get_source_info (SV *source_info_sv)
     source_info->line_nr = SvIV (*line_nr_sv);
 
   return source_info;
+}
+
+NAMED_STRING_ELEMENT_LIST *
+get_replaced_substrings (SV *replaced_substrings_sv)
+{
+  I32 hv_number;
+  I32 i;
+  HV *replaced_substrings_hv;
+  NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
+
+  dTHX;
+
+  replaced_substrings_hv = (HV *)SvRV (replaced_substrings_sv);
+  hv_number = hv_iterinit (replaced_substrings_hv);
+  if (hv_number > 0)
+    {
+      replaced_substrings = new_named_string_element_list ();
+      for (i = 0; i < hv_number; i++)
+        {
+          ELEMENT *element = 0;
+          char *key;
+          I32 retlen;
+          SV *element_sv = hv_iternextsv(replaced_substrings_hv,
+                                         &key, &retlen);
+          DOCUMENT *document = get_sv_tree_document (element_sv, 0);
+          if (document && document->tree)
+            element = document->tree;
+          else
+            {
+              document = get_sv_element_document (element_sv, 0);
+              if (document)
+                element = get_sv_element_element (element_sv, document);
+            }
+          if (element)
+            add_element_to_named_string_element_list (
+                                      replaced_substrings, key, element);
+          else
+            {
+              fprintf (stderr, "ERROR: translation substring not found: %s\n",
+                       key);
+              debug_print_element_sv (element_sv);
+            }
+        }
+    }
+  return replaced_substrings;
 }
 
 ELEMENT *
