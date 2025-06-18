@@ -1063,6 +1063,52 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
   return 0;
 }
 
+static void
+find_element_authors_internal (const ELEMENT *element,
+                      CONST_ELEMENT_LIST *quotation_authors)
+{
+  size_t i;
+  enum command_id cmd;
+
+  if (type_data[element->type].flags & TF_text)
+    return;
+
+  cmd = element_builtin_data_cmd (element);
+
+  if (cmd == CM_author)
+    {
+      add_to_const_element_list (quotation_authors, element);
+      return;
+    }
+
+  if (cmd == CM_quotation
+      || cmd == CM_smallquotation
+      || cmd == CM_titlepage
+      || cmd == CM_menu
+      || (builtin_command_data[cmd].flags & CF_brace
+          && builtin_command_data[cmd].data == BRACE_context)
+      || builtin_command_data[cmd].flags & CF_line)
+    return;
+
+  if (element->type == ET_arguments_line)
+    return;
+
+  for (i =0; i < element->e.c->contents.number; i++)
+    find_element_authors_internal (element->e.c->contents.list[i],
+                                   quotation_authors);
+}
+
+void
+find_element_authors (const ELEMENT *element,
+                      CONST_ELEMENT_LIST *quotation_authors)
+{
+  size_t i;
+
+  for (i =0; i < element->e.c->contents.number; i++)
+    find_element_authors_internal (element->e.c->contents.list[i],
+                                   quotation_authors);
+}
+
 ELEMENT *
 cdt_tree (const char *string, CONVERTER *self,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,

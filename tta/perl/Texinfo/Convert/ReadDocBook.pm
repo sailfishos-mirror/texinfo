@@ -1885,10 +1885,11 @@ sub _convert($$)
             push @format_elements, 'mathphrase';
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
-            Texinfo::Convert::Utils::element_find_element_authors($element,
+            $reader->register_token_element();
+            Texinfo::Convert::Converter::element_find_element_authors($element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
-              my $arg = $author->{'contents'}->[0];
+              my $arg = $author->get_child(0);
               if ($arg->{'contents'}) {
                 $appended .= '<attribution>'.
                        $self->convert_tree($arg)

@@ -106,6 +106,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::index_entry_referred_entry",
   "Texinfo::Convert::Converter::element_gdt"
     => "Texinfo::TreeElement::element_gdt",
+  "Texinfo::Convert::Converter::element_find_element_authors"
+    => "Texinfo::TreeElement::element_find_element_authors",
 );
 
 my %XS_overrides = (
@@ -522,7 +524,9 @@ sub output_files_information($)
 
 
 
-# sub useful for overriding, to be able to find the document in C
+# sub useful for XS overriding, to call C code that registers Perl
+# tree elements and add keys be able to find the document and C elemnt in XS
+# code
 sub new_tree_element($$;$)
 {
   my $self = shift;
@@ -595,6 +599,15 @@ sub index_entry_referred_entry($$)
 
   return Texinfo::Common::index_entry_referred_entry($element,
                                                      $referred_cmdname);
+}
+
+sub element_find_element_authors($$)
+{
+  my $element = shift;
+  my $quotation_authors = shift;
+
+  Texinfo::Convert::Utils::element_find_element_authors($element,
+                                                        $quotation_authors);
 }
 
 sub tree_elements_sections_list($)

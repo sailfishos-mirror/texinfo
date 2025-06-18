@@ -86,6 +86,9 @@ const ELEMENT *item_itemize_item_prepended_element (const ELEMENT *element);
 TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
                                               const ELEMENT *element);
 
+void find_element_authors (const ELEMENT *element,
+                           CONST_ELEMENT_LIST *quotation_authors);
+
 COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
 ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);
 

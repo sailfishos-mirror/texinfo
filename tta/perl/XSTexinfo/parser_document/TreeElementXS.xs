@@ -354,6 +354,33 @@ index_entry_referred_entry (SV *element_sv, referred_cmdname)
     OUTPUT:
         RETVAL
 
+void
+element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
+      PREINIT:
+        DOCUMENT *document;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            size_t i;
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            AV *quotation_authors_av = (AV *) SvRV (quotation_authors_sv);
+            CONST_ELEMENT_LIST *quotation_authors = new_const_element_list ();
+
+            find_element_authors (element, quotation_authors);
+
+            for (i = 0; i < quotation_authors->number; i++)
+              {
+                const ELEMENT *author = quotation_authors->list[i];
+
+                register_element_handle_in_sv ((ELEMENT *)author, document);
+
+                av_push (quotation_authors_av, newSVsv ((SV *)author->sv));
+              }
+            destroy_const_element_list (quotation_authors);
+          }
+
 SV *
 tree_elements_sections_list (SV *converter_in)
       PREINIT:
