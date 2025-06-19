@@ -25,6 +25,7 @@
 
 #undef context
 
+#include "element_types.h"
 #include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
@@ -203,6 +204,13 @@ register_token_element_child (SV *reader_sv, int child_index=0)
         if (reader)
           {
             const ELEMENT *element = reader->token.element;
+            long flags = builtin_command_data[element->e.c->cmd].flags;
+            if (flags & CF_root || flags & CF_block)
+              {
+                const ELEMENT *argument = contents_child_by_index (element, 0);
+                if (argument->type == ET_arguments_line)
+                  element = argument;
+              }
             ELEMENT *e_child = contents_child_by_index (element, child_index);
             register_element_handle_in_sv (e_child,
                                            reader->document);

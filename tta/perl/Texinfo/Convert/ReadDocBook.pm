@@ -1228,6 +1228,7 @@ sub _convert($$)
           } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
             my ($docbook_element, $attribute_text)
               = _parse_attribute($docbook_line_elements_with_arg_map{$cmdname});
+            $reader->register_token_element();
             my ($arg, $end_line)
               = _convert_argument_and_end_line($self, $element);
             if ($docbook_element eq '') {
@@ -1251,7 +1252,9 @@ sub _convert($$)
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
-            my $expansion = $self->expand_verbatiminclude($element);
+            $reader->register_token_element();
+            my $expansion
+              = $self->converter_element_expand_verbatiminclude($element);
             if (defined($expansion)) {
               $$output_ref .= $self->convert_tree($expansion);
             }
@@ -1898,6 +1901,7 @@ sub _convert($$)
             }
             my $format_element;
             # arguments_line type element
+            $reader->register_token_element_child(0);
             my $arguments_line = $element->{'contents'}->[0];
             my $block_line_arg = $arguments_line->{'contents'}->[0];
             if ($block_line_arg->{'contents'}) {

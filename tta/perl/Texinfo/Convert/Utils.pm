@@ -721,6 +721,7 @@ sub element_expand_verbatiminclude($$$$$;$$)
   }
   return $verbatiminclude;
 }
+
 sub add_heading_number($$;$$)
 {
   my $current = shift;

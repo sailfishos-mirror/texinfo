@@ -108,6 +108,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::element_gdt",
   "Texinfo::Convert::Converter::element_find_element_authors"
     => "Texinfo::TreeElement::element_find_element_authors",
+  "Texinfo::Convert::Converter::element_expand_verbatiminclude"
+    => "Texinfo::TreeElement::element_expand_verbatiminclude",
 );
 
 my %XS_overrides = (
@@ -608,6 +610,22 @@ sub element_find_element_authors($$)
 
   Texinfo::Convert::Utils::element_find_element_authors($element,
                                                         $quotation_authors);
+}
+
+sub element_expand_verbatiminclude($$$$$;$$)
+{
+  my $current = shift;
+  my $input_file_name_encoding = shift;
+  my $doc_encoding_for_input_file_name = shift;
+  my $locale_encoding = shift;
+  my $include_directories = shift;
+  my $document = shift;
+  my $converter = shift;
+
+  return Texinfo::Convert::Utils::element_expand_verbatiminclude($current,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $converter);
 }
 
 sub tree_elements_sections_list($)
@@ -1508,7 +1526,7 @@ sub expand_verbatiminclude($$)
 }
 
 # wrapper around Texinfo::Utils::element_expand_verbatiminclude.
-sub element_expand_verbatiminclude($$)
+sub converter_element_expand_verbatiminclude($$)
 {
   my $converter = shift;
   my $current = shift;
@@ -1524,7 +1542,7 @@ sub element_expand_verbatiminclude($$)
 
   my $document = $converter->{'document'};
 
-  return Texinfo::Convert::Utils::element_expand_verbatiminclude($current,
+  return element_expand_verbatiminclude($current,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);

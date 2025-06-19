@@ -36,6 +36,7 @@
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "translations.h"
+#include "errors.h"
 #include "manipulate_indices.h"
 /* comment_or_end_line argument_comment_end_line */
 #include "convert_utils.h"
@@ -382,13 +383,87 @@ element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
           }
 
 SV *
+element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, SV *include_directories_sv, ...)
+      PROTOTYPE: $$$$$;$$
+      PREINIT:
+        DOCUMENT *document;
+        SV *result_sv = 0;
+      CODE:
+        document = get_sv_element_document (element_sv, 0);
+        if (document)
+          {
+            const char *input_file_name_encoding = 0;
+            const char *locale_encoding = 0;
+            STRING_LIST *include_directories = 0;
+            const ELEMENT *element
+              = get_sv_element_element (element_sv, document);
+            ELEMENT *result;
+            SV *converter_sv = 0;
+            CONVERTER *converter = 0;
+            ERROR_MESSAGE_LIST *error_messages = 0;
+
+            if (SvOK (input_file_name_encoding_sv))
+              input_file_name_encoding
+                = (char *)SvPVutf8_nolen (input_file_name_encoding_sv);
+            if (SvOK (locale_encoding_sv))
+              locale_encoding  = (char *)SvPVutf8_nolen (locale_encoding_sv);
+
+            if (items > 7 && SvOK(ST(7)))
+              converter_sv = ST(7);
+
+            if (converter_sv)
+              converter = get_sv_converter (converter_sv, 0);
+
+            if (converter)
+              error_messages = &converter->error_messages;
+            else if (converter_sv)
+              {
+                error_messages = (ERROR_MESSAGE_LIST *)
+                   non_perl_malloc (sizeof (ERROR_MESSAGE_LIST));
+                memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+              }
+
+            if (include_directories_sv)
+              {
+                include_directories = new_string_list ();
+                add_svav_to_string_list (include_directories_sv,
+                                         include_directories, svt_dir);
+              }
+            result = expand_verbatiminclude (input_file_name_encoding,
+                     doc_encoding_for_input_file_name, locale_encoding,
+                     include_directories, 0, error_messages,
+                     &document->global_info, element);
+            if (result)
+              {
+                result_sv = build_texinfo_tree (result, 1);
+                register_element_handle_in_sv (result, document);
+              }
+            if (!converter && converter_sv)
+              {
+                pass_errors_to_registrar (error_messages, converter_sv, 0, 0);
+                wipe_error_message_list (error_messages);
+                free (error_messages);
+              }
+
+            if (include_directories)
+              destroy_strings_list (include_directories);
+          }
+
+        if (result_sv)
+          RETVAL = SvREFHVCNT_inc (result_sv);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
 tree_elements_sections_list (SV *converter_in)
       PREINIT:
-        CONVERTER *self;
+        DOCUMENT *document;
      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self && self->document)
-          RETVAL = build_tree_elements_sections_list (self->document);
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
+          RETVAL = build_tree_elements_sections_list (document);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -397,11 +472,11 @@ tree_elements_sections_list (SV *converter_in)
 SV *
 tree_elements_nodes_list (SV *converter_in)
       PREINIT:
-        CONVERTER *self;
+        DOCUMENT *document;
      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self && self->document)
-          RETVAL = build_tree_elements_nodes_list (self->document);
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
+          RETVAL = build_tree_elements_nodes_list (document);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -410,11 +485,11 @@ tree_elements_nodes_list (SV *converter_in)
 SV *
 tree_elements_headings_list (SV *converter_in)
       PREINIT:
-        CONVERTER *self;
+        DOCUMENT *document;
      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self && self->document)
-          RETVAL = build_tree_elements_headings_list (self->document);
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
+          RETVAL = build_tree_elements_headings_list (document);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -844,23 +919,23 @@ element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
             NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
             AV *lang_translations_av;
             SV **lang_sv;
-            LANG_TRANSLATION *lang_translations;
+            LANG_TRANSLATION *lang_translations = 0;
             const char *lang;
             ELEMENT *e_result;
-            
-            if (!lang_translations_sv)
-              fatal ("element_cdt no lang_translations");
 
-            lang_translations_av = (AV *) SvRV (lang_translations_sv);
-            lang_sv = av_fetch (lang_translations_av, 0, 0);
-            if (!*lang_sv || !SvOK (*lang_sv))
-              fatal ("element_cdt lang_translations no lang");
+            /* undef happens with DocBook convert */
+            if (lang_translations_sv && SvOK (lang_translations_sv))
+              {
+                lang_translations_av = (AV *) SvRV (lang_translations_sv);
+                lang_sv = av_fetch (lang_translations_av, 0, 0);
+                if (!*lang_sv || !SvOK (*lang_sv))
+                  fatal ("element_gdt lang_translations no lang");
 
-            lang = (char *)SvPVutf8_nolen(*lang_sv);
-            lang_translations
-              = switch_lang_translations (&translation_cache, lang,
-                                          0, TXI_CONVERT_STRINGS_NR);
-
+                lang = (char *)SvPVutf8_nolen(*lang_sv);
+                lang_translations
+                 = switch_lang_translations (&translation_cache, lang,
+                                             0, TXI_CONVERT_STRINGS_NR);
+              }
             if (replaced_substrings_sv)
               {
                 replaced_substrings

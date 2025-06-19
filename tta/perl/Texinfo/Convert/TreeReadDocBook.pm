@@ -1311,7 +1311,8 @@ sub _convert($$)
                                    {'contents' => $copying->{'contents'}}));
             }
           } elsif ($cmdname eq 'verbatiminclude') {
-            my $expansion = $self->element_expand_verbatiminclude($element);
+            my $expansion
+              = $self->converter_element_expand_verbatiminclude($element);
             if (defined($expansion)) {
               $$output_ref .= $self->convert_tree($expansion);
             }
