@@ -1,5 +1,31 @@
 2025-06-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (element_gdt): add missing
+	arguments array.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin):
+	use get_global_unique_tree_element.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): more calls to
+	register_token_element_child.
+
+	* tta/C/main/convert_utils.c, tta/C/main/translations.c
+	(switch_lang_translations): move switch_lang_translations to
+	translations.c.
+
+	* tta/C/main/get_perl_info.c (get_lang_translations_sv),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs (element_gdt):
+	add get_lang_translations_sv based on element_gdt code.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides)
+	(element_expand_today, converter_element_expand_today),
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(element_expand_today): add an XS interface for expand_today, use it
+	in ReadDocBook.pm.
+
+2025-06-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/ReaderXS.xs
 	(register_token_element_child): skip through arguments_line.
 
@@ -298,7 +324,7 @@
 	* tta/perl/Texinfo/Convert/DocBook.pm (%defcommand_name_type)
 	(_convert_def_line), tta/perl/Texinfo/Convert/ReadDocBook.pm
 	(%defcommand_name_type, _convert_def_line): setup def line aliases in
-	%defcommand_name_type before starting the conversion. 
+	%defcommand_name_type before starting the conversion.
 
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_begin_def_line)
 	(_end_def_line, _convert): split _convert_def_line in _begin_def_line

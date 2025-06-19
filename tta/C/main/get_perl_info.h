@@ -50,6 +50,8 @@ void get_line_message (CONVERTER *self, enum error_type type, int continuation,
 
 NAMED_STRING_ELEMENT_LIST *get_replaced_substrings (SV *replaced_substrings_sv);
 
+LANG_TRANSLATION *get_lang_translations_sv (SV *lang_translations_sv);
+
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
 

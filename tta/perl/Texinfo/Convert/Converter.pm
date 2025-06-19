@@ -110,6 +110,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::element_find_element_authors",
   "Texinfo::Convert::Converter::element_expand_verbatiminclude"
     => "Texinfo::TreeElement::element_expand_verbatiminclude",
+  "Texinfo::Convert::Converter::element_expand_today"
+    => "Texinfo::TreeElement::element_expand_today",
 );
 
 my %XS_overrides = (
@@ -665,7 +667,7 @@ sub tree_elements_headings_list($)
 sub element_gdt($$$;$$$)
 {
   my ($string, $lang_translations, $document, $replaced_substrings,
-      $debug, $translation_context);
+      $debug, $translation_context) = @_;
   return Texinfo::Translations::gdt($string,
                                     $lang_translations,
                                     $replaced_substrings, $debug,
@@ -1546,6 +1548,28 @@ sub converter_element_expand_verbatiminclude($$)
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
+}
+
+# Wrapper used for XS override
+sub element_expand_today($$$$)
+{
+  my $test = shift;
+  my $lang_translations = shift;
+  my $debug = shift;
+  my $converter = shift;
+
+  return Texinfo::Convert::Utils::expand_today($test, $lang_translations,
+                                               $debug, $converter);
+}
+
+sub converter_element_expand_today($)
+{
+  my $converter = shift;
+
+  my $test = $converter->get_conf('TEST');
+  my $debug = $converter->get_conf('DEBUG');
+  return element_expand_today($test,
+          $converter->{'current_lang_translations'}, $debug, $converter);
 }
 
 sub expand_today($)

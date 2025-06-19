@@ -46,7 +46,7 @@
 #include "convert_to_texinfo.h"
 */
 #include "debug.h"
-/* for gdt_tree */
+/* for gdt_tree switch_lang_translations */
 #include "translations.h"
 #include "convert_to_text.h"
 

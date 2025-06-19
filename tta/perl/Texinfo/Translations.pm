@@ -30,8 +30,7 @@ use strict;
 
 use Encode;
 use POSIX qw(setlocale LC_ALL LC_MESSAGES);
-#use Carp qw(confess);
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 use Locale::Messages;
 
 use Storable qw(dclone);
@@ -244,6 +243,9 @@ sub cache_translate_string($$;$)
 {
   my ($string, $lang_translations, $translation_context) = @_;
 
+  #if (!defined($string)) {
+  #  confess("cache_translate_string: undef string\n");
+  #}
   my $lang;
   my $translations;
   if ($lang_translations) {

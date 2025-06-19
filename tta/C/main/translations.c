@@ -484,6 +484,29 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
   return lang_translations[i];
 }
 
+LANG_TRANSLATION *
+switch_lang_translations (LANG_TRANSLATION ***lang_translations,
+                          const char *in_lang,
+                          LANG_TRANSLATION *current_lang_translations,
+                          size_t cache_size)
+{
+  const char *lang;
+  LANG_TRANSLATION *lang_translation;
+
+  if (in_lang)
+    lang = in_lang;
+  else
+    lang = "";
+
+  if (current_lang_translations
+      && !strcmp(current_lang_translations->lang, lang))
+    return current_lang_translations;
+
+  lang_translation
+    = get_lang_translation (lang_translations, lang, cache_size);
+  return lang_translation;
+}
+
 TRANSLATION_TREE *
 new_translation_tree (const char *translated)
 {
@@ -913,3 +936,4 @@ destroy_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel)
     free (nsel->list);
   free (nsel);
 }
+

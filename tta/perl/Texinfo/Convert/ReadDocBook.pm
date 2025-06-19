@@ -545,10 +545,12 @@ sub conversion_output_begin($;$$)
   }
 
   my $settitle_command;
-  if ($global_commands and $global_commands->{'settitle'}) {
-    my $command = $global_commands->{'settitle'};
-    $settitle_command = $command
-      unless (!$command->{'contents'}->[0]->{'contents'});
+  if ($global_commands) {
+    my $command = $self->get_global_unique_tree_element('settitle');
+    if ($command and $command->{'contents'}
+        and $command->{'contents'}->[0]->{'contents'}) {
+      $settitle_command = $command;
+    }
   }
 
   my $titleabbrev_command;
@@ -924,7 +926,8 @@ sub _convert($$)
             $result_text = $docbook_no_arg_commands_formatting{$command_name};
           }
         } elsif ($cmdname eq 'today') {
-          $result_text = $self->convert_tree($self->expand_today());
+          $result_text = $self->convert_tree(
+                           $self->converter_element_expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
           $reader->register_token_element();
           $result_text = $self->tree_element_xml_accents($element,
@@ -1645,6 +1648,7 @@ sub _convert($$)
             my $url_text;
             my $url_arg = $element->{'contents'}->[0];
             if ($url_arg->{'contents'}) {
+              $reader->register_token_element_child(0);
               Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1663,6 +1667,7 @@ sub _convert($$)
             if ($args_nr >= 2) {
               my $replacement_arg = $element->{'contents'}->[1];
               if ($replacement_arg->{'contents'}) {
+                $reader->register_token_element_child(1);
                 $replacement = $self->convert_tree($replacement_arg);
               }
             }
@@ -1670,6 +1675,7 @@ sub _convert($$)
               if ($args_nr >= 3) {
                 my $replacement_arg = $element->{'contents'}->[2];
                 if ($replacement_arg->{'contents'}) {
+                  $reader->register_token_element_child(2);
                   $replacement = $self->convert_tree($replacement_arg);
                 }
               }
@@ -1689,6 +1695,7 @@ sub _convert($$)
               my $argument;
               my $arg_element = $element->{'contents'}->[0];
               if ($arg_element->{'contents'}) {
+                $reader->register_token_element_child(0);
                 my $arg_text = $self->convert_tree($arg_element);
                 if ($arg_text ne '') {
                   my $format_element;
@@ -1702,6 +1709,7 @@ sub _convert($$)
               }
               my $explanation_e;
               if ($args_nr >= 2) {
+                $reader->register_token_element_child(1);
                 $explanation_e = $element->{'contents'}->[1];
               }
               if ($explanation_e and $explanation_e->{'contents'}) {
@@ -1755,6 +1763,7 @@ sub _convert($$)
               if (scalar(@{$element->{'contents'}}) > $arg_index) {
                 my $converted_arg = $element->{'contents'}->[$arg_index];
                 if ($converted_arg->{'contents'}) {
+                  $reader->register_token_element_child($arg_index);
                   $$output_ref .= $self->convert_tree($converted_arg);
                 }
               }

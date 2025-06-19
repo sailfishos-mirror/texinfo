@@ -457,6 +457,44 @@ element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv,
         RETVAL
 
 SV *
+element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *converter_in)
+      PREINIT:
+        DOCUMENT *document;
+        SV *result_sv = 0;
+     CODE:
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
+          {
+            int debug = 0;
+            int test = 0;
+            LANG_TRANSLATION *lang_translations
+              = get_lang_translations_sv (lang_translations_sv);
+
+            if (SvOK (debug_sv))
+              debug = SvIV (debug_sv);
+            if (SvOK (test_sv))
+              test = SvIV (test_sv);
+
+            /* we do not set the converter argument even when we could, nor
+               the translation function, although we could check the converter
+               output format and set it if HTML, assuming that there is no
+               need for a specific translation function for the output formats
+               using this function
+             */
+            ELEMENT *e_today = expand_today (test, lang_translations,
+                                             debug, 0, 0);
+            result_sv = build_texinfo_tree (e_today, 1);
+            register_element_handle_in_sv (e_today, document);
+          }
+
+        if (result_sv)
+          RETVAL = SvREFHVCNT_inc (result_sv);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
 tree_elements_sections_list (SV *converter_in)
       PREINIT:
         DOCUMENT *document;
@@ -917,25 +955,10 @@ element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
         if (document)
           {
             NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
-            AV *lang_translations_av;
-            SV **lang_sv;
-            LANG_TRANSLATION *lang_translations = 0;
-            const char *lang;
+            LANG_TRANSLATION *lang_translations
+              = get_lang_translations_sv (lang_translations_sv);
             ELEMENT *e_result;
 
-            /* undef happens with DocBook convert */
-            if (lang_translations_sv && SvOK (lang_translations_sv))
-              {
-                lang_translations_av = (AV *) SvRV (lang_translations_sv);
-                lang_sv = av_fetch (lang_translations_av, 0, 0);
-                if (!*lang_sv || !SvOK (*lang_sv))
-                  fatal ("element_gdt lang_translations no lang");
-
-                lang = (char *)SvPVutf8_nolen(*lang_sv);
-                lang_translations
-                 = switch_lang_translations (&translation_cache, lang,
-                                             0, TXI_CONVERT_STRINGS_NR);
-              }
             if (replaced_substrings_sv)
               {
                 replaced_substrings

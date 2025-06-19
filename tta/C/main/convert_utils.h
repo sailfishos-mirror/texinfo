@@ -33,12 +33,6 @@ typedef struct PARSED_DEF {
 
 void setup_convert_utils (void);
 
-LANG_TRANSLATION *switch_lang_translations (
-                          LANG_TRANSLATION ***lang_translations,
-                          const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations,
-                          size_t cache_size);
-
 TREE_ADDED_ELEMENTS *new_tree_added_elements
                       (enum tree_added_elements_status status);
 ELEMENT *new_element_added (TREE_ADDED_ELEMENTS *added_elements,

@@ -69,29 +69,6 @@ element_associated_processing_encoding (const ELEMENT *element)
   return input_encoding;
 }
 
-LANG_TRANSLATION *
-switch_lang_translations (LANG_TRANSLATION ***lang_translations,
-                          const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations,
-                          size_t cache_size)
-{
-  const char *lang;
-  LANG_TRANSLATION *lang_translation;
-
-  if (in_lang)
-    lang = in_lang;
-  else
-    lang = "";
-
-  if (current_lang_translations
-      && !strcmp(current_lang_translations->lang, lang))
-    return current_lang_translations;
-
-  lang_translation
-    = get_lang_translation (lang_translations, lang, cache_size);
-  return lang_translation;
-}
-
 
 
 TREE_ADDED_ELEMENTS *

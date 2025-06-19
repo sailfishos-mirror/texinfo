@@ -49,7 +49,7 @@
 /* retrieve_output_units output_unit_texi */
 #include "output_unit.h"
 #include "convert_to_texinfo.h"
-/* translate_string NAMED_STRING_ELEMENT_LIST */
+/* translate_string NAMED_STRING_ELEMENT_LIST switch_lang_translations */
 #include "translations.h"
 /* convert_to_text */
 #include "convert_to_text.h"

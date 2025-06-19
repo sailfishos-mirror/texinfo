@@ -496,6 +496,37 @@ get_replaced_substrings (SV *replaced_substrings_sv)
   return replaced_substrings;
 }
 
+/* NOTE in general converters also use the global translation_cache
+   but if it was not the case, it may be relevant to have another
+   function too or a converter argument */
+LANG_TRANSLATION *
+get_lang_translations_sv (SV *lang_translations_sv)
+{
+  LANG_TRANSLATION *lang_translations = 0;
+
+  dTHX;
+
+  /* undef happens with DocBook convert */
+  if (lang_translations_sv && SvOK (lang_translations_sv))
+    {
+      AV *lang_translations_av;
+      SV **lang_sv;
+      const char *lang;
+
+      lang_translations_av = (AV *) SvRV (lang_translations_sv);
+      lang_sv = av_fetch (lang_translations_av, 0, 0);
+      if (!*lang_sv || !SvOK (*lang_sv))
+        fatal ("element_gdt lang_translations no lang");
+
+      lang = (char *)SvPVutf8_nolen(*lang_sv);
+      lang_translations
+       = switch_lang_translations (&translation_cache, lang,
+                                   0, TXI_CONVERT_STRINGS_NR);
+    }
+  return lang_translations;
+}
+
+
 ELEMENT *
 new_element_from_sv (CONVERTER *converter, const SV *element_hash)
 {
