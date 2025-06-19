@@ -664,24 +664,25 @@ sub tree_elements_headings_list($)
 }
 
 # for XS override, with a simpler interface than element_cdt
-sub element_gdt($$$;$$$)
+sub element_gdt($$$;$$$$)
 {
-  my ($string, $lang_translations, $document, $replaced_substrings,
-      $debug, $translation_context) = @_;
+  my ($string, $lang_translations, $document,
+      $replaced_substrings, $build_tree, $debug, $translation_context) = @_;
   return Texinfo::Translations::gdt($string,
                                     $lang_translations,
-                                    $replaced_substrings, $debug,
-                                    $translation_context);
+                                    $replaced_substrings, $build_tree,
+                                    $debug, $translation_context);
 }
 
-# same interface as cdt
-sub element_cdt($$;$$)
+# similar interface as cdt
+sub element_cdt($$;$$$)
 {
-  my ($self, $string, $replaced_substrings, $translation_context) = @_;
+  my ($self, $string, $replaced_substrings,
+      $build_tree, $translation_context) = @_;
 
   return element_gdt($string, $self->{'current_lang_translations'},
                               $self->{'document'},
-                              $replaced_substrings,
+                              $replaced_substrings, $build_tree,
                               $self->get_conf('DEBUG'),
                               $translation_context);
 }
@@ -1480,16 +1481,17 @@ sub encoded_output_file_name($$)
 }
 
 # using the interface with registered elements, compatible with TreeElements
-sub element_translated_command_tree($)
+sub element_translated_command_tree($$;$)
 {
   my $converter = shift;
   my $cmdname = shift;
+  my $build_tree = shift;
 
   my $translated_commands = $converter->{'translated_commands'};
   if ($translated_commands
       and defined($translated_commands->{$cmdname})) {
     my $to_translate = $translated_commands->{$cmdname};
-    return $converter->element_cdt($to_translate);
+    return $converter->element_cdt($to_translate, undef, $build_tree);
   }
   return undef;
 }
@@ -1551,24 +1553,27 @@ sub converter_element_expand_verbatiminclude($$)
 }
 
 # Wrapper used for XS override
-sub element_expand_today($$$$)
+sub element_expand_today($$$$$)
 {
+  my $build_tree = shift;
   my $test = shift;
   my $lang_translations = shift;
   my $debug = shift;
   my $converter = shift;
 
-  return Texinfo::Convert::Utils::expand_today($test, $lang_translations,
+  return Texinfo::Convert::Utils::expand_today($test,
+                                               $lang_translations,
                                                $debug, $converter);
 }
 
-sub converter_element_expand_today($)
+sub converter_element_expand_today($;$)
 {
   my $converter = shift;
+  my $build_tree = shift;
 
   my $test = $converter->get_conf('TEST');
   my $debug = $converter->get_conf('DEBUG');
-  return element_expand_today($test,
+  return element_expand_today($build_tree, $test,
           $converter->{'current_lang_translations'}, $debug, $converter);
 }
 

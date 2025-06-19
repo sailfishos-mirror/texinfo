@@ -457,19 +457,21 @@ element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv,
         RETVAL
 
 SV *
-element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *converter_in)
+element_expand_today (SV *build_tree_sv, SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *converter_in)
       PREINIT:
         DOCUMENT *document;
-        SV *result_sv = 0;
      CODE:
         document = get_converter_sv_document (converter_in, 0);
         if (document)
           {
+            int build_tree = 0;
             int debug = 0;
             int test = 0;
             LANG_TRANSLATION *lang_translations
               = get_lang_translations_sv (lang_translations_sv);
 
+            if (SvOK (build_tree_sv))
+              build_tree = SvIV (build_tree_sv);
             if (SvOK (debug_sv))
               debug = SvIV (debug_sv);
             if (SvOK (test_sv))
@@ -483,12 +485,12 @@ element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *c
              */
             ELEMENT *e_today = expand_today (test, lang_translations,
                                              debug, 0, 0);
-            result_sv = build_texinfo_tree (e_today, 1);
+            if (build_tree)
+              build_texinfo_tree (e_today, 1);
             register_element_handle_in_sv (e_today, document);
-          }
 
-        if (result_sv)
-          RETVAL = SvREFHVCNT_inc (result_sv);
+            RETVAL = SvREFHVCNT_inc ((SV *) e_today->sv);
+          }
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -936,20 +938,22 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
 SV *
 element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
         const char *string = (char *)SvPVutf8_nolen($arg);
-      PROTOTYPE: $$$;$$$
+      PROTOTYPE: $$$;$$$$
       PREINIT:
         DOCUMENT *document;
-        SV *result_sv = 0;
         SV *replaced_substrings_sv = 0;
         int debug = 0;
         const char *translation_context = 0;
+        int build_tree = 0;
       CODE:
         if (items > 3 && SvOK(ST(3)))
           replaced_substrings_sv = ST(3);
         if (items > 4 && SvOK(ST(4)))
-          debug = SvIV (ST(4));
+          build_tree = SvIV (ST(4));
         if (items > 5 && SvOK(ST(5)))
-          translation_context = (char *)SvPVutf8_nolen(ST(5));
+          debug = SvIV (ST(5));
+        if (items > 6 && SvOK(ST(6)))
+          translation_context = (char *)SvPVutf8_nolen(ST(6));
 
         document = get_sv_document_document (document_sv, "element_gdt");
         if (document)
@@ -967,14 +971,13 @@ element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
             e_result = gdt_tree (string, document, lang_translations,
                                  replaced_substrings, debug,
                                  translation_context);
-            result_sv = build_texinfo_tree (e_result, 1);
+            if (build_tree)
+              build_texinfo_tree (e_result, 1);
             register_element_handle_in_sv (e_result, document);
             if (replaced_substrings)
               destroy_named_string_element_list (replaced_substrings);
+            RETVAL = SvREFHVCNT_inc ((SV *)e_result->sv);
           }
-
-        if (result_sv)
-          RETVAL = SvREFHVCNT_inc (result_sv);
         else
           RETVAL = newSV (0);
     OUTPUT:

@@ -919,7 +919,7 @@ sub _convert($$)
           }
 
           my $translated_tree
-            = $self->element_translated_command_tree($command_name);
+            = $self->element_translated_command_tree($command_name, 1);
           if ($translated_tree) {
             $result_text = $self->convert_tree($translated_tree);
           } else {
@@ -927,7 +927,7 @@ sub _convert($$)
           }
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree(
-                           $self->converter_element_expand_today());
+                           $self->converter_element_expand_today(1));
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
           $reader->register_token_element();
           $result_text = $self->tree_element_xml_accents($element,
@@ -1393,17 +1393,17 @@ sub _convert($$)
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                        'section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                    $self->element_cdt(
                      'See section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                    $self->element_cdt(
                      'see section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 }
               } elsif ($node_name) {
                 my $substituted_strings = {
@@ -1415,30 +1415,30 @@ sub _convert($$)
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('See ``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                          'see ``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('@cite{{book}}',
-                      {'book' => $book_element }));
+                      {'book' => $book_element }, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('See @cite{{book}}',
-                               {'book' => $book_element }));
+                               {'book' => $book_element }, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('see @cite{{book}}',
-                      {'book' => $book_element }));
+                      {'book' => $book_element }, 1));
                 }
               }
             } elsif ($manual_file_element) {
@@ -1453,17 +1453,17 @@ sub _convert($$)
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                       'section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                        'See section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                      $self->element_cdt(
                      'see section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 }
               } elsif ($node_name) {
                 my $substituted_strings = {
@@ -1475,31 +1475,31 @@ sub _convert($$)
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                       'See ``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt(
                         'see ``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings));
+                               $substituted_strings, 1));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('@file{{manual}}',
-                      {'manual' => $manual_file_element }));
+                      {'manual' => $manual_file_element }, 1));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('See @file{{manual}}',
-                      {'manual' => $manual_file_element }));
+                      {'manual' => $manual_file_element }, 1));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
                     $self->element_cdt('see @file{{manual}}',
-                      {'manual' => $manual_file_element }));
+                      {'manual' => $manual_file_element }, 1));
                 }
               }
             } elsif ($cmdname eq 'inforef') {
@@ -1517,19 +1517,22 @@ sub _convert($$)
               if ($cmdname eq 'ref'
                   or $cmdname eq 'link') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('{title_ref}', {'title_ref' =>
-                         $self->new_tree_element({'type' => '_converted',
-                                                    'text' => $argument}, 1)}));
+                        $self->element_cdt('{title_ref}',
+                         {'title_ref' =>
+                            $self->new_tree_element({'type' => '_converted',
+                                               'text' => $argument}, 1)}, 1));
               } elsif ($cmdname eq 'xref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('See {title_ref}', {'title_ref' =>
-                          $self->new_tree_element({'type' => '_converted',
-                                                     'text' => $argument}, 1)}));
+                        $self->element_cdt('See {title_ref}',
+                         {'title_ref' =>
+                            $self->new_tree_element({'type' => '_converted',
+                                            'text' => $argument}, 1)}, 1));
               } elsif ($cmdname eq 'pxref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('see {title_ref}', {'title_ref' =>
-                         $self->new_tree_element({'type' => '_converted',
-                                                    'text' => $argument}, 1)}));
+                        $self->element_cdt('see {title_ref}',
+                         {'title_ref' =>
+                           $self->new_tree_element({'type' => '_converted',
+                                               'text' => $argument}, 1)}, 1));
               }
             }
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1718,8 +1721,8 @@ sub _convert($$)
                               '{abbr_or_acronym} ({explanation})',
                                  {'abbr_or_acronym' =>
                             $self->new_tree_element({'type' => '_converted',
-                                                       'text' => $argument}, 1),
-                                  'explanation' => $explanation_e});
+                                                     'text' => $argument}, 1),
+                                  'explanation' => $explanation_e}, 1);
                   $$output_ref .= $self->convert_tree($tree);
                 } else {
                   $$output_ref .= $self->convert_tree($explanation_e);
@@ -1923,7 +1926,7 @@ sub _convert($$)
                 $self->{'pending_prepend'}
                   = $self->convert_tree(
                           $self->element_cdt('@b{{quotation_arg}:} ',
-                                {'quotation_arg' => $block_line_arg}));
+                                {'quotation_arg' => $block_line_arg}, 1));
               }
             }
             $format_element = 'blockquote' if (!defined($format_element));
