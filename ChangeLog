@@ -1,3 +1,13 @@
+2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	More checks if defined rather than true
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
+	Change some conditions to check whether value is defined,
+	rather than true.  In theory this is simpler and faster as
+	it doesn't need to check whether a string is "0" which would
+	be false.
+
 2025-06-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (convert)

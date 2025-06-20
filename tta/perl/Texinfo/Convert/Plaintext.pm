@@ -2883,7 +2883,7 @@ sub _convert($$)
     # First handle empty lines. This has to be done before the handling
     # of text below to be sure that an empty line is always processed
     # especially
-    if ($type) {
+    if (defined($type)) {
       if ($type eq 'empty_line'
           or $type eq 'after_menu_description_line') {
         delete $self->{'text_element_context'}->[-1]->{'counter'};
@@ -2932,7 +2932,7 @@ sub _convert($$)
     # lines and blocks do not set that key, the formatting of text should
     # be done in those formatters.
     if (!$formatter->{'_top_formatter'}) {
-      if ($type and $type eq 'raw') {
+      if (defined($type) and $type eq 'raw') {
         _stream_output_add_next($self, $element->{'text'});
       } else {
         # Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
@@ -2974,7 +2974,7 @@ sub _convert($$)
         $count_context->{'pending_text'} .= $added_text;
       }
       return;
-    } elsif ($type and $type eq 'spaces_before_paragraph') {
+    } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
       if ($self->get_conf('paragraphindent') eq 'asis') {
         _stream_output($self, $element->{'text'});
       }
@@ -2982,7 +2982,7 @@ sub _convert($$)
       return;
     # ignore text outside of any format, but warn if ignored text not empty
     } else {
-      if ($type) {
+      if (defined($type)) {
         $self->present_bug_message("unexpected text element type: $type",
                                    $element);
       }
@@ -3002,8 +3002,8 @@ sub _convert($$)
 
   my $cmdname = $element->{'cmdname'};
 
-  if (($type and $ignored_types{$type})
-       or ($cmdname
+  if ((defined($type) and $ignored_types{$type})
+       or (defined($cmdname)
             and ($self->{'ignored_commands'}->{$cmdname}
                  or ($brace_commands{$cmdname}
                      and $brace_commands{$cmdname} eq 'inline'
@@ -3036,13 +3036,13 @@ sub _convert($$)
     $self->{'index_entries_line_location'}->{$element} = $location;
   }
 
-  if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+  if (defined($type) and $type eq 'index_entry_command') {
     return;
   }
 
   my $cell;
   my $preformatted;
-  if ($cmdname) {
+  if (defined($cmdname)) {
     my $unknown_command;
     if ($accent_commands{$cmdname}) {
       my $encoding = $self->{'enabled_encoding'};
@@ -3074,9 +3074,9 @@ sub _convert($$)
         if ($accented_text ne '');
       return;
     } elsif (exists($brace_commands{$cmdname})
-             or ($type and $type eq 'definfoenclose_command')) {
+             or (defined($type) and $type eq 'definfoenclose_command')) {
       if ($self->{'style_map'}->{$cmdname}
-           or ($type and $type eq 'definfoenclose_command')) {
+           or (defined($type) and $type eq 'definfoenclose_command')) {
         if ($brace_code_commands{$cmdname}) {
           if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
@@ -3108,8 +3108,8 @@ sub _convert($$)
             if ($formatter->{'w'} == 1);
         }
         my ($text_before, $text_after);
-        if ($element->{'type'}
-            and $element->{'type'} eq 'definfoenclose_command') {
+        if (defined($type)
+            and $type eq 'definfoenclose_command') {
           $text_before = $element->{'extra'}->{'begin'};
           $text_after = $element->{'extra'}->{'end'};
         } elsif ($non_quoted_commands_when_nested{$cmdname}
@@ -4046,8 +4046,8 @@ sub _convert($$)
       $unknown_command = 1;
     }
     if ($unknown_command
-        and !($element->{'type'}
-              and ($element->{'type'} eq 'index_entry_command'))) {
+        and !($type
+              and ($type eq 'index_entry_command'))) {
       warn "Unhandled $cmdname\n";
       _stream_output($self, "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n");
       _add_lines_count($self, 1)
@@ -4056,7 +4056,7 @@ sub _convert($$)
 
   # open 'type' constructs.
   my $paragraph;
-  if ($type) {
+  if (defined($type)) {
     if ($type eq 'paragraph') {
       my $conf = {};
       # indent. Not first paragraph.
@@ -4375,7 +4375,7 @@ sub _convert($$)
   }
 
   # now closing. First, close types.
-  if ($type) {
+  if (defined($type)) {
     if ($type eq 'frenchspacing') {
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
@@ -4547,7 +4547,7 @@ sub _convert($$)
   }
 
   # close commands
-  if ($cmdname) {
+  if (defined($cmdname)) {
     if ($cmdname eq 'float') {
       my ($caption, $shortcaption)
         = Texinfo::Common::find_float_caption_shortcaption($element);
