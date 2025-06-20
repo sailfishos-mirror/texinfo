@@ -1,5 +1,12 @@
 2025-06-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <unhandled warning>:
+	Remove exemption for 'index_entry_command' type.  In that case,
+	the function exits earlier since large commit dated 2024-11-23
+	"remove remaining args from line commands and from Texinfo tree"
+
+2025-06-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
 	Rewrite condition for skipped types or commands to
 	be easier to read.

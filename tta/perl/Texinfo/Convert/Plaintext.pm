@@ -4055,10 +4055,7 @@ sub _convert
     } else {
       $unknown_command = 1;
     }
-    if ($unknown_command
-        and !($type
-              and ($type eq 'index_entry_command'))) {
-      warn "Unhandled $cmdname\n";
+    if ($unknown_command) {
       _stream_output($self, "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n");
       _add_lines_count($self, 1)
     }
