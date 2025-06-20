@@ -895,7 +895,8 @@ sub _process_text_internal($) {
   return $text;
 }
 
-sub new_formatter($$;$)
+#sub new_formatter($$;$)
+sub new_formatter
 {
   my ($self, $type, $conf) = @_;
 
@@ -1046,7 +1047,8 @@ sub convert_line_new_context($$;$)
   return ($result, $count, $end_line_count);
 }
 
-sub _add_lines_count($$)
+#sub _add_lines_count($$)
+sub _add_lines_count
 {
   my ($self, $lines_count) = @_;
   $self->{'count_context'}->[-1]->{'lines'} += $lines_count;
@@ -1104,7 +1106,8 @@ sub add_image($$$$;$)
   };
 }
 
-sub _stream_output($$;$)
+#sub _stream_output($$;$)
+sub _stream_output
 {
   my ($self, $text, $container) = @_;
   my $count_context = $self->{'count_context'}->[-1];
@@ -1185,7 +1188,8 @@ sub _stream_output_encoded($$)
   return;
 }
 
-sub _stream_result($)
+#sub _stream_result($)
+sub _stream_result
 {
   my $self = shift;
 
@@ -1196,7 +1200,8 @@ sub _stream_result($)
   return defined($result) ? $result : '';
 }
 
-sub _stream_encode($$)
+#sub _stream_encode($$)
+sub _stream_encode
 {
   my $self = shift;
   my $string = shift;
@@ -1230,7 +1235,8 @@ sub _stream_encode($$)
 }
 
 
-sub _stream_byte_count($)
+#sub _stream_byte_count($)
+sub _stream_byte_count
 {
   my $self = shift;
   my $count_context = $self->{'count_context'}->[-1];
@@ -2864,10 +2870,11 @@ sub _convert_def_line($$)
 # computed as 32/72, rounded up
 my $description_align_column_factor = 0.45;
 
-sub _convert($$);
+#sub _convert($$);
 
 # Convert the Texinfo tree under $ROOT to plain text.
-sub _convert($$)
+#sub _convert($$)
+sub _convert
 {
   my ($self, $element) = @_;
 

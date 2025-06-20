@@ -1,5 +1,16 @@
 2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Disable prototypes for frequently-called functions
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm
+	(new_formatter, _add_lines_count, _stream_output)
+	(_stream_result, _stream_encode, _stream_byte_count)
+	(_convert): Disable prototypes for these frequently-used
+	subroutines, as the protoype checking appears to have a
+	minor performance penalty.
+
+2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Use exists check rather than true for commands
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
