@@ -3007,23 +3007,29 @@ sub _convert
     }
   }
 
-  my $cmdname = $element->{'cmdname'};
+  return if defined($type) and exists $ignored_types{$type};
 
-  if ((defined($type) and $ignored_types{$type})
-       or (defined($cmdname)
-            and ($self->{'ignored_commands'}->{$cmdname}
-                 or ($brace_commands{$cmdname}
-                     and $brace_commands{$cmdname} eq 'inline'
-                     and $cmdname ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$cmdname}
-                          and (!$element->{'extra'}
-                               or !$element->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats'}
-                                           ->{$element->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$cmdname}
-                             and (!$element->{'extra'}
-                  or  !defined($element->{'extra'}->{'expand_index'})))))))) {
-    return;
+  my $cmdname = $element->{'cmdname'};
+  if (defined($cmdname)) {
+    return if $self->{'ignored_commands'}->{$cmdname};
+
+    if (exists $brace_commands{$cmdname}
+        and $brace_commands{$cmdname} eq 'inline'
+        and $cmdname ne 'inlinefmtifelse') {
+      if (exists $inline_format_commands{$cmdname}) {
+        if (!$element->{'extra'}
+             or !$element->{'extra'}->{'format'}
+             or !$self->{'expanded_formats'}
+                         ->{$element->{'extra'}->{'format'}}) {
+          return;
+        }
+      } else {
+        if (!$element->{'extra'}
+             or !defined($element->{'extra'}->{'expand_index'})) {
+          return;
+        }
+      }
+    }
   }
 
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
