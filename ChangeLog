@@ -1,5 +1,15 @@
 2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use exists check rather than true for commands
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
+	Replace some hash checks for command properties with 'exists'.
+	In theory this should be slightly faster as all that needs to
+	be done is to check if the key is defined in the hash, and the
+	value does not need to be checked.
+
+2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	More checks if defined rather than true
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
