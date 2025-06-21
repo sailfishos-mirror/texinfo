@@ -604,7 +604,7 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
           SV **content_sv = av_fetch (contents_av, i, 0);
           if (content_sv)
             {
-              ELEMENT *element;
+              ELEMENT *element = 0;
               DOCUMENT *document = get_sv_element_document (*content_sv, 0);
               if (document)
                 element
