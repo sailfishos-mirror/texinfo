@@ -834,7 +834,7 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
         }
     }
 
-  if (line_arg)
+  if (line_arg && eit_comment_at_end < type_data[line_arg->type].elt_info_number)
     comment = line_arg->elt_info[eit_comment_at_end];
 
   if (comment)
@@ -847,8 +847,10 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
 
   if (line_arg)
     {
-      const ELEMENT *spaces_after_argument
-        = line_arg->elt_info[eit_spaces_after_argument];
+      const ELEMENT *spaces_after_argument = 0;
+      if (eit_spaces_after_argument < type_data[line_arg->type].elt_info_number)
+        spaces_after_argument
+          = line_arg->elt_info[eit_spaces_after_argument];
       if (spaces_after_argument)
         {
           if (strchr (spaces_after_argument->e.text->text, '\n'))

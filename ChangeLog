@@ -1,5 +1,27 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	($build_tree_for_text_converter, converter_initialize, _convert): add
+	$build_tree_for_text_converter, set if there is no XS for conversion,
+	and there is XS for structuring, and build tree to Perl before calling
+	Converter to Text only if $build_tree_for_text_converter is set.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_utils.c (get_comment_or_end_line): check
+	elt_info_number before accessing element elt_info.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (conversion_output_begin),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	(conversion_output_begin): get first titlefont multiple global
+	commands command.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	(_convert_def_line): use definition aliases information to complete
+	%defcommand_name_type at the modules initialization.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	Remove Texinfo::Convert::TreeReadDocBook
 
 	* tta/perl/texi2any.pl: remove reference to TreeReadDocBook.  Remove

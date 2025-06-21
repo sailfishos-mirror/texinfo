@@ -42,6 +42,8 @@ use Texinfo::Common;
 # for debugging
 use Texinfo::Convert::Texinfo;
 
+use Texinfo::Document;
+
 # for section_level_adjusted_command_name
 use Texinfo::Structuring;
 
@@ -227,6 +229,12 @@ my %defcommand_name_type = (
  'defvr'     => 'varname',
 );
 
+foreach my $def_alias (keys(%Texinfo::Common::def_aliases))
+{
+  my $main_command = $Texinfo::Common::def_aliases{$def_alias};
+  $defcommand_name_type{$def_alias} = $defcommand_name_type{$main_command};
+}
+
 my %def_argument_types_docbook = (
   'def_type' => ['returnvalue'],
   'def_class' => ['ooclass', 'classname'],
@@ -317,12 +325,17 @@ sub converter_defaults($;$)
 
 
 
-my $XS_convert_enabled;
+my $build_tree_for_text_converter;
 sub converter_initialize($)
 {
   my $self = shift;
 
-  $XS_convert_enabled = Texinfo::XSLoader::XS_convert_enabled();
+  # need to build the Perl tree for the Texinfo::Convert::Tree converter
+  # if the converter does not use C data as XS is not enabled for
+  # conversion, and the tree is not already built to Perl, which
+  # happens if XS is enabled for structuring.
+  $build_tree_for_text_converter = (not Texinfo::XSLoader::XS_convert_enabled()
+                               and Texinfo::XSLoader::XS_structuring_enabled());
 
   $self->{'context_block_commands'} = {%default_context_block_commands};
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
@@ -471,10 +484,15 @@ sub conversion_output_begin($;$$)
     }
   }
   if (!defined($fulltitle_command)) {
-    my $command = $self->get_global_unique_tree_element('titlefont');
-    if ($command and $command->children_number()
-        and $command->get_child(0)->children_number()) {
-      $fulltitle_command = $command;
+    my $command_list
+      = Texinfo::Convert::Converter::global_commands_information_command_list(
+          $self->{'document'}, 'titlefont');
+    if ($command_list) {
+      my $command = $command_list->[0];
+      if ($command->children_number()
+          and $command->get_child(0)->children_number()) {
+        $fulltitle_command = $command;
+      }
     }
   }
 
@@ -763,6 +781,7 @@ sub _protect_text($$)
   return $result;
 }
 
+# NOTE may be called on brace commands such as @titlefont
 sub _convert_argument_and_end_line($$)
 {
   my $self = shift;
@@ -817,14 +836,7 @@ sub _convert_def_line($$)
     $contents = $first_child->get_children();
   }
   if ($contents) {
-    my $main_command;
     my $def_command = $element->get_attribute('def_command');
-    if ($Texinfo::Common::def_aliases{$def_command}) {
-      $main_command
-        = $Texinfo::Common::def_aliases{$def_command};
-    } else {
-      $main_command = $def_command;
-    }
     foreach my $arg (@$contents) {
       my $type = $arg->{'type'};
 
@@ -835,8 +847,8 @@ sub _convert_def_line($$)
         $result .= "<phrase role=\"category\"><emphasis role=\"bold\">"
                      ."$content</emphasis>:</phrase>";
       } elsif ($type eq 'def_name') {
-        $result .= "<$defcommand_name_type{$main_command}>$content"
-                       ."</$defcommand_name_type{$main_command}>";
+        $result .= "<$defcommand_name_type{$def_command}>$content"
+                       ."</$defcommand_name_type{$def_command}>";
       } else {
         if (!defined($def_argument_types_docbook{$type})) {
           warn "BUG: no def_argument_types_docbook for $type";
@@ -1551,7 +1563,7 @@ sub _convert($$)
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                       $self->{'convert_text_options'});
               Texinfo::Document::build_tree ($argument)
-                if (!$XS_convert_enabled);
+                if ($build_tree_for_text_converter);
               my $basefile = Texinfo::Convert::Text::convert_to_text(
                                             $argument,
                                         $self->{'convert_text_options'});
@@ -1629,7 +1641,7 @@ sub _convert($$)
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
               Texinfo::Document::build_tree ($email)
-                if (!$XS_convert_enabled);
+                if ($build_tree_for_text_converter);
               $email_text
                 = _protect_text($self, Texinfo::Convert::Text::convert_to_text(
                               $email, $self->{'convert_text_options'}));
@@ -1662,7 +1674,7 @@ sub _convert($$)
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
               Texinfo::Document::build_tree ($url_arg)
-                if (!$XS_convert_enabled);
+                if ($build_tree_for_text_converter);
               $url_text = _protect_text($self,
                 Texinfo::Convert::Text::convert_to_text($url_arg,
                                          $self->{'convert_text_options'}));
@@ -1861,7 +1873,7 @@ sub _convert($$)
                       Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
                                       $self, $self->{'convert_text_options'});
                       Texinfo::Document::build_tree ($content)
-                        if (!$XS_convert_enabled);
+                        if ($build_tree_for_text_converter);
                       $prototype_text
                         = Texinfo::Convert::Text::convert_to_text(
                                          $content,
@@ -1905,7 +1917,7 @@ sub _convert($$)
             my $block_line_arg = $arguments_line->get_child(0);
             if ($block_line_arg->children_number()) {
               Texinfo::Document::build_tree ($block_line_arg)
-                if (!$XS_convert_enabled);
+                if ($build_tree_for_text_converter);
               my $quotation_arg_text
                 = Texinfo::Convert::Text::convert_to_text($block_line_arg,
                                            $self->{'convert_text_options'});

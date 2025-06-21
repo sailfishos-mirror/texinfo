@@ -481,10 +481,15 @@ sub conversion_output_begin($;$$)
       }
     }
     if (!defined($fulltitle_command)) {
-      my $command = $self->get_global_unique_tree_element('titlefont');
-      if ($command and $command->{'contents'}
-          and $command->{'contents'}->[0]->{'contents'}) {
-        $fulltitle_command = $command;
+      my $command_list
+        = Texinfo::Convert::Converter::global_commands_information_command_list(
+            $self->{'document'}, 'titlefont');
+      if ($command_list) {
+        my $command = $command_list->[0];
+        if ($command->{'contents'}
+            and $command->{'contents'}->[0]->{'contents'}) {
+          $fulltitle_command = $command;
+        }
       }
     }
   }
