@@ -952,10 +952,6 @@ sub _convert($$)
                    or $parent_cmdname eq 'enumerate')) {
             $$output_ref .= "<listitem>";
             if ($parent_cmdname eq 'itemize') {
-              # parent line arguments_line type element
-              my $arguments_line = $parent->{'contents'}->[0];
-              my $block_line_arg = $arguments_line->{'contents'}->[0];
-
               my $command_as_argument_name;
               $reader->register_token_element();
               my $prepended_element

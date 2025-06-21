@@ -94,13 +94,19 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::tree_elements_headings_list",
   "Texinfo::Convert::Converter::comment_or_end_line"
     => "Texinfo::TreeElement::comment_or_end_line",
+  "Texinfo::Convert::Converter::tree_element_comment_or_end_line"
+    => "Texinfo::TreeElement::comment_or_end_line",
   "Texinfo::Convert::Converter::argument_comment_end_line"
+    => "Texinfo::TreeElement::argument_comment_end_line",
+  "Texinfo::Convert::Converter::tree_element_argument_comment_end_line"
     => "Texinfo::TreeElement::argument_comment_end_line",
   "Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element"
     => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
   "Texinfo::Convert::Converter::tree_element_index_content_element"
     => "Texinfo::TreeElement::tree_element_index_content_element",
   "Texinfo::Convert::Converter::element_table_item_content_tree"
+    => "Texinfo::TreeElement::element_table_item_content_tree",
+  "Texinfo::Convert::Converter::table_item_content_tree"
     => "Texinfo::TreeElement::element_table_item_content_tree",
   "Texinfo::Convert::Converter::index_entry_referred_entry"
     => "Texinfo::TreeElement::index_entry_referred_entry",
@@ -112,6 +118,8 @@ my %XS_tree_element_overrides = (
     => "Texinfo::TreeElement::element_expand_verbatiminclude",
   "Texinfo::Convert::Converter::element_expand_today"
     => "Texinfo::TreeElement::element_expand_today",
+  "Texinfo::Convert::Converter::global_commands_information_command_list"
+    => "Texinfo::TreeElement::global_commands_information_command_list",
 );
 
 my %XS_overrides = (
@@ -1670,6 +1678,136 @@ sub set_global_document_commands($$$)
   }
 }
 
+sub _tree_element_in_preamble($)
+{
+  my $element = shift;
+  my $current_element = $element;
+  while (1) {
+    my $parent = $current_element->parent();
+    last if (!$parent);
+    if (defined($parent->{'type'})
+        and $parent->{'type'} eq 'preamble_before_content') {
+      return 1;
+    }
+    $current_element = $parent;
+  }
+  return 0;
+}
+
+# used for XS override (when there is no XS converter but XS parser/document)
+# for the TreeElement interface
+sub global_commands_information_command_list($$)
+{
+  my $document = shift;
+  my $global_command = shift;
+
+  return undef if (!$document);
+
+  my $global_commands = $document->global_commands_information();
+
+  return undef if (!$global_commands or !$global_commands->{$global_command}
+        or ref($global_commands->{$global_command}) ne 'ARRAY');
+
+  return $global_commands->{$global_command};
+}
+
+# same as Texinfo::Common::get_global_document_command for TreeElements
+sub tree_element_get_global_document_command($$$)
+{
+  my $self = shift;
+  my $global_command = shift;
+  my $command_location = shift;
+
+  if ($command_location ne 'last' and $command_location ne 'preamble_or_first'
+      and $command_location ne 'preamble') {
+    warn "BUG: get_global_document_command: unknown command_location: $command_location";
+  }
+
+  my $element;
+  my $commands_list
+      = global_commands_information_command_list ($self->{'document'},
+                                                  $global_command);
+
+  if (!$commands_list) {
+    return $self->get_global_unique_tree_element($global_command);
+  }
+
+  if ($command_location eq 'last') {
+    $element = $commands_list->[-1];
+  } else {
+    if ($command_location eq 'preamble_or_first'
+        and not _tree_element_in_preamble($commands_list->[0])) {
+      $element = $commands_list->[0];
+    } else {
+      foreach my $command_element (@{$commands_list}) {
+        if (_tree_element_in_preamble($command_element)) {
+          $element = $command_element;
+        } else {
+          last;
+        }
+      }
+    }
+  }
+  return $element;
+}
+
+# sale as above but with the tree element interface
+sub tree_element_set_global_document_commands($$$)
+{
+  my $self = shift;
+  my $commands_location = shift;
+  my $selected_commands = shift;
+
+  my $init_conf = $self->{'commands_init_conf'};
+
+  if (not defined($selected_commands)) {
+    die "tree_element_set_global_document_commands: requires selected commands";
+  }
+  if ($commands_location eq 'before') {
+    foreach my $global_command (@{$selected_commands}) {
+      # for commands not appearing in the document, this should set to
+      # the converter initialization value, which is in init_conf,
+      # or generic default
+      $self->set_conf($global_command,
+                      _command_init($global_command, $init_conf));
+      # NOTE if the variable is set from an handler, or in the converter after
+      # $init_conf was set, but before starting the conversion, it is ignored
+      # here and the $init_conf value is set.  The previously set value
+      # could be in $self->get_conf(), but what is available from
+      # $self->get_conf() could also be a value set by a previous call of
+      # set_global_document_commands.
+      # There is no easy way to deal with this issue, other than making sure
+      # that a customization value that is expected to be set early is set in
+      # $init_conf.
+    }
+  } else {
+    #my $global_commands;
+    #if ($self->{'document'}) {
+    #  $global_commands = $self->{'document'}->global_commands_information();
+    #}
+    foreach my $global_command (@{$selected_commands}) {
+      if ($self->get_conf('DEBUG')) {
+        print STDERR "SET_global($commands_location) $global_command\n";
+      }
+
+      my $element
+        = tree_element_get_global_document_command($self, $global_command,
+                                                   $commands_location);
+      if ($element) {
+        Texinfo::Common::tree_element_set_informative_command_value($self,
+                                                                 $element);
+      } else {
+        # for commands not appearing in the document, this should set to
+        # the converter initialization value, which is in init_conf,
+        # or generic default
+        # the NOTE above in 'before' holds here too.
+        $self->set_conf($global_command,
+                        _command_init($global_command, $init_conf));
+      }
+    }
+  }
+}
+
 sub present_bug_message($$;$)
 {
   my $self = shift;
@@ -1781,6 +1919,69 @@ sub argument_comment_end_line($$)
   return $line_arg, $comment, $end_line;
 }
 
+sub tree_element_comment_or_end_line_nonxs($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $end_line;
+
+  my $line_arg;
+  my $first_child = $element->get_child(0);
+  if ($first_child) {
+    my $first_child_type = $first_child->{'type'};
+    if ($first_child_type and $first_child_type eq 'arguments_line') {
+      $line_arg = $first_child->get_child(-1);
+    } else {
+      $line_arg = $element->get_child(-1);
+    }
+  }
+
+  my $comment = $line_arg->get_attribute('comment_at_end')
+    if ($line_arg);
+
+  if ($comment) {
+    return ($comment, undef);
+  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
+    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
+    if (chomp($text)) {
+      $end_line = "\n";
+    } else {
+      $end_line = '';
+    }
+  } else {
+    $end_line = '';
+  }
+  return (undef, $end_line);
+}
+
+sub tree_element_comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  return tree_element_comment_or_end_line_nonxs($self, $element);
+}
+
+# for XS overriding
+sub tree_element_argument_comment_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $line_arg;
+  my $first_child = $element->get_child(0);
+  my $first_child_type = $first_child->{'type'};
+  if ($first_child_type and $first_child_type eq 'arguments_line') {
+    $line_arg = $first_child->get_child(0);
+  } else {
+    $line_arg = $element->get_child(0);
+  }
+  my ($comment, $end_line)
+    = $self->tree_element_comment_or_end_line($element);
+  return $line_arg, $comment, $end_line;
+}
+
 sub element_format_comment_or_end_line($$)
 {
   my $self = shift;
@@ -1796,42 +1997,6 @@ sub element_format_comment_or_end_line($$)
       $line_arg = $first_child->{'contents'}->[-1];
     } else {
       $line_arg = $element->{'contents'}->[-1];
-    }
-  }
-
-  my $comment = $line_arg->get_attribute('comment_at_end')
-    if ($line_arg);
-
-  if ($comment) {
-    $end_line = $self->convert_tree($comment);
-  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
-    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
-    if (chomp($text)) {
-      $end_line = "\n";
-    } else {
-      $end_line = '';
-    }
-  } else {
-    $end_line = '';
-  }
-  return $end_line;
-}
-
-sub tree_element_format_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $end_line;
-
-  my $line_arg;
-  my $first_child = $element->get_child(0);
-  if ($first_child) {
-    my $first_child_type = $first_child->{'type'};
-    if ($first_child_type and $first_child_type eq 'arguments_line') {
-      $line_arg = $first_child->get_child(-1);
-    } else {
-      $line_arg = $element->get_child(-1);
     }
   }
 
@@ -2001,7 +2166,7 @@ sub float_name_caption($$)
   return ($caption_element, $prepended);
 }
 
-sub table_item_content_tree($$)
+sub table_item_content_tree_noxs($$)
 {
   my $self = shift;
   my $element = shift;
@@ -2073,6 +2238,14 @@ sub table_item_content_tree($$)
     return $command;
   }
   return undef;
+}
+
+sub table_item_content_tree($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  return table_item_content_tree_noxs($self, $element);
 }
 
 # same as above, but using the tree only interface

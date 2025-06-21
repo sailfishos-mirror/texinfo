@@ -3751,7 +3751,7 @@ sub _convert
              and $element->{'contents'}->[0]->{'type'}
              and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       if ($element->{'contents'}->[0]->{'contents'}) {
-        my $table_item_tree = $self->table_item_content_tree($element);
+        my $table_item_tree = $self->table_item_content_tree_noxs($element);
         $table_item_tree = $element->{'contents'}->[0]
           if (!defined($table_item_tree));
         my $frenchspacing_element = {'type' => 'frenchspacing',

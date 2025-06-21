@@ -74,8 +74,20 @@ sub new($)
 }
 
 # For XS
-sub register_token_element ($)
+sub register_token_element($)
 {
+  my $reader = shift;
+
+  # it is not direct to find the token element if there was a
+  # push on the context (though context->[-2] could be used if index == -1)
+  # so this function should only be called when it is overriden in XS.
+  # The caller should call that function only if $token->{'element'}
+  # is undef as it may only happen with XS.
+
+  #my $context = $reader->{'stack'}->[-1];
+  #my ($index, $array) = @{$context};
+
+  #return $array->[$index];
 }
 
 # For XS
@@ -84,7 +96,7 @@ sub register_token_tree ($)
 }
 
 # For XS
-sub register_token_element_child ($;$)
+sub register_token_element_child($;$)
 {
 }
 

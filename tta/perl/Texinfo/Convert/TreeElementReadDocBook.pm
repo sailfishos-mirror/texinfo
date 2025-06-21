@@ -196,7 +196,7 @@ my %docbook_no_warn_empty_types;
 # do not warn for empty brace commands and bracketed arguments and
 # for a few containers.
 foreach my $type ('brace_container', 'bracketed_arg', 'brace_command_context',
-                  'preformatted', 'before_item',
+                  'preformatted', 'before_item', 'line_arg', 'block_line_arg',
                   'preamble_before_content', 'before_node_section') {
   $docbook_no_warn_empty_types{$type} = 1;
 }
@@ -316,9 +316,13 @@ sub converter_defaults($;$)
 }
 
 
+
+my $XS_convert_enabled;
 sub converter_initialize($)
 {
   my $self = shift;
+
+  $XS_convert_enabled = Texinfo::XSLoader::XS_convert_enabled();
 
   $self->{'context_block_commands'} = {%default_context_block_commands};
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
@@ -426,7 +430,8 @@ sub conversion_output_begin($;$$)
   }
 
   my $lang_attribute;
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
+  $self->tree_element_set_global_document_commands('preamble',
+                                                   ['documentlanguage']);
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
     $lang_attribute = " lang=\"$documentlanguage\"";
@@ -570,7 +575,8 @@ sub conversion_output_begin($;$$)
       }
     }
   }
-  $self->set_global_document_commands('before', ['documentlanguage']);
+  $self->tree_element_set_global_document_commands('before',
+                                                   ['documentlanguage']);
   Texinfo::Convert::Utils::switch_lang_translations($self,
                                        $self->get_conf('documentlanguage'));
 
@@ -691,7 +697,7 @@ sub _index_entry($$)
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     $result .= $self->convert_tree(
-                Texinfo::Common::tree_element_index_content_element($element));
+     Texinfo::Convert::Converter::tree_element_index_content_element($element));
     $result .= "</primary>";
 
     my $entry_element = $index_entry->{'entry_element'};
@@ -762,16 +768,14 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $line_arg;
-  my $first_child = $element->get_child(0);
-  my $first_child_type = $first_child->{'type'};
-  if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->get_child(-1);
-  } else {
-    $line_arg = $element->get_child(-1);
-  }
+  my ($line_arg, $comment, $end_line)
+    = $self->tree_element_argument_comment_end_line($element);
+
   my $converted = $self->convert_tree($line_arg);
-  my $end_line = $self->tree_element_format_comment_or_end_line($element);
+
+  if ($comment) {
+    $end_line = $self->xml_comment($comment->get_child(0)->{'text'});
+  }
   return ($converted, $end_line);
 }
 
@@ -880,7 +884,13 @@ sub _convert($$)
 
     my $category = $next->{'category'};
 
-    my $element = $reader->register_token_element();
+    my $element = $next->{'element'};
+
+    my $registerd_element = $reader->register_token_element();
+
+    if (!defined($element)) {
+      $element = $registerd_element;
+    }
 
     my $e_type = $element->{'type'};
 
@@ -995,14 +1005,10 @@ sub _convert($$)
                    or $parent_cmdname eq 'enumerate')) {
             $$output_ref .= "<listitem>";
             if ($parent_cmdname eq 'itemize') {
-              # parent line arguments_line type element
-              my $arguments_line = $parent->get_child(0);
-              my $block_line_arg = $arguments_line->get_child(0);
-
               my $command_as_argument_name;
               my $prepended_element
-                = Texinfo::Common::tree_element_itemize_item_prepended_element(
-                                                          $block_line_arg);
+   = Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element(
+                                                          $element);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->{'cmdname'};
               }
@@ -1054,8 +1060,13 @@ sub _convert($$)
                  and $e_type eq 'index_entry_command') {
           my $end_line;
           if ($element->get_attribute('index_entry')) {
-            $end_line
-              = $self->tree_element_format_comment_or_end_line($element);
+            my $comment;
+            ($comment, $end_line)
+              = $self->tree_element_comment_or_end_line($element);
+            if ($comment) {
+              $end_line
+                = $self->xml_comment($comment->get_child(0)->{'text'});
+            }
             if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
               chomp($end_line);
             }
@@ -1533,14 +1544,16 @@ sub _convert($$)
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
             $reader->skip_children($element);
           } elsif ($cmdname eq 'image') {
-            if ($element->children_number()
-                and $element->get_child(0)->children_number()) {
+            my $argument = $element->get_child(0);
+            if ($argument and $argument->children_number()) {
               Texinfo::Convert::Text::set_options_code(
                                      $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                       $self->{'convert_text_options'});
+              Texinfo::Document::build_tree ($argument)
+                if (!$XS_convert_enabled);
               my $basefile = Texinfo::Convert::Text::convert_to_text(
-                                            $element->get_child(0),
+                                            $argument,
                                         $self->{'convert_text_options'});
               Texinfo::Convert::Text::reset_options_code(
                                      $self->{'convert_text_options'});
@@ -1615,6 +1628,8 @@ sub _convert($$)
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
+              Texinfo::Document::build_tree ($email)
+                if (!$XS_convert_enabled);
               $email_text
                 = _protect_text($self, Texinfo::Convert::Text::convert_to_text(
                               $email, $self->{'convert_text_options'}));
@@ -1646,6 +1661,8 @@ sub _convert($$)
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
+              Texinfo::Document::build_tree ($url_arg)
+                if (!$XS_convert_enabled);
               $url_text = _protect_text($self,
                 Texinfo::Convert::Text::convert_to_text($url_arg,
                                          $self->{'convert_text_options'}));
@@ -1843,6 +1860,8 @@ sub _convert($$)
                     if ($content->children_number()) {
                       Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
                                       $self, $self->{'convert_text_options'});
+                      Texinfo::Document::build_tree ($content)
+                        if (!$XS_convert_enabled);
                       $prototype_text
                         = Texinfo::Convert::Text::convert_to_text(
                                          $content,
@@ -1870,7 +1889,7 @@ sub _convert($$)
             push @format_elements, 'mathphrase';
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
-            Texinfo::Convert::Utils::element_find_element_authors($element,
+            Texinfo::Convert::Converter::element_find_element_authors($element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
               my $arg = $author->get_child(0);
@@ -1885,12 +1904,17 @@ sub _convert($$)
             my $arguments_line = $element->get_child(0);
             my $block_line_arg = $arguments_line->get_child(0);
             if ($block_line_arg->children_number()) {
+              Texinfo::Document::build_tree ($block_line_arg)
+                if (!$XS_convert_enabled);
               my $quotation_arg_text
                 = Texinfo::Convert::Text::convert_to_text($block_line_arg,
                                            $self->{'convert_text_options'});
               if ($docbook_special_quotations{lc($quotation_arg_text)}) {
                 $format_element = lc($quotation_arg_text);
               } else {
+                # FIXME this is needed because build_tree removes the
+                # C data handler
+                $block_line_arg = $arguments_line->get_child(0);
                 $self->{'pending_prepend'}
                   = $self->convert_tree(
                         $self->element_cdt('@b{{quotation_arg}:} ',

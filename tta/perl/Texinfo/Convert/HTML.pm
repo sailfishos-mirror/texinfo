@@ -5994,7 +5994,7 @@ sub _convert_item_command($$$$$)
           }
         }
       }
-      my $table_item_tree = $self->table_item_content_tree($command);
+      my $table_item_tree = $self->table_item_content_tree_noxs($command);
       $table_item_tree = $command->{'contents'}->[0]
         if (!defined($table_item_tree));
       my $converted_item = $self->convert_tree($table_item_tree,

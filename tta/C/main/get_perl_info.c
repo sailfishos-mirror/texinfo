@@ -528,7 +528,8 @@ get_lang_translations_sv (SV *lang_translations_sv)
 
 
 ELEMENT *
-new_element_from_sv (CONVERTER *converter, const SV *element_hash)
+new_element_from_sv (DOCUMENT *document, const SV *element_hash,
+                     CONVERTER *converter)
 {
   HV *hv_in;
   ELEMENT *e;
@@ -642,7 +643,7 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
         {
           const char *macro = SvPVutf8_nolen (*macro_sv);
           e->e.c->source_info.macro
-            = add_string (macro, converter->document->small_strings);
+            = add_string (macro, document->small_strings);
         }
 
       FETCHSOURCE(file_name)
@@ -651,7 +652,7 @@ new_element_from_sv (CONVERTER *converter, const SV *element_hash)
         {
           const char *file_name = SvPVbyte_nolen (*file_name_sv);
           e->e.c->source_info.file_name
-            = add_string (file_name, converter->document->small_strings);
+            = add_string (file_name, document->small_strings);
         }
 
       FETCHSOURCE(line_nr)

@@ -66,7 +66,8 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
         if (document)
           {
             CONVERTER *converter = get_sv_converter (converter_in, 0);
-            ELEMENT *e = new_element_from_sv (converter, element_hash);
+            ELEMENT *e = new_element_from_sv (document, element_hash,
+                                              converter);
             if (use_sv)
               {
                 HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
@@ -110,6 +111,41 @@ get_global_unique_tree_element (SV *converter_in, cmdname)
                     result_sv = newSVsv ((SV *)element->sv);
                   }
               }
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+global_commands_information_command_list (SV *document_sv, char *cmdname)
+      PREINIT:
+        SV *result_sv = 0;
+        DOCUMENT *document;
+        enum command_id cmd;
+      CODE:
+        document = get_sv_document_document (document_sv,
+                             "global_commands_information_command_list");
+        cmd = lookup_builtin_command (cmdname);
+        if (document && cmd)
+          {
+             const ELEMENT_LIST *command_list
+               = get_cmd_global_multi_command (&document->global_commands, cmd);
+             if (command_list && command_list->number)
+               {
+                 size_t i;
+                 AV *av = newAV ();
+                 result_sv = newRV_inc ((SV *) av);
+                 for (i = 0; i < command_list->number; i++)
+                   {
+                     ELEMENT *element = command_list->list[i];
+                     register_element_handle_in_sv (element, document);
+
+                     av_push (av, newSVsv ((SV *) element->sv));
+                   }
+               }
           }
         if (result_sv)
           RETVAL = result_sv;

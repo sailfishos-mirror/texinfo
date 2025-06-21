@@ -1,3 +1,63 @@
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/get_perl_info.c (new_element_from_sv),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(new_tree_element): pass document to new_element_from_sv, in case
+	there is no C converter (with TEXINFO_XS_CONVERT=0).
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	(%docbook_no_warn_empty_types): add types.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_convert): fix
+	reading and registering the next element to work in all the cases of
+	XS overrides.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_index_entry):
+	call functions with XS overrides for tree_element_index_content_element 
+	tree_element_itemize_item_prepended_element and
+	element_find_element_authors.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(tree_element_comment_or_end_line_nonxs)
+	(tree_element_comment_or_end_line)
+	(tree_element_argument_comment_end_line),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	(_convert_argument_and_end_line, _convert): modify to be in line with
+	the similar functions used in ReadDocBook.  Use in
+	TreeElementReadDocBook.pm similarly as in ReadDocBook.pm.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides):
+	add XS overrides for the tree elements interfaces,
+	tree_element_comment_or_end_line,
+	tree_element_argument_comment_end_line and table_item_content_tree
+	using the functions already used for Texinfo::Convert::ReadDocBook.
+	Add table_item_content_tree_noxs and update callers to call this
+	function directly when needed.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (_tree_element_in_preamble)
+	(global_commands_information_command_list)
+	(tree_element_get_global_document_command)
+	(tree_element_set_global_document_commands),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
+	(conversion_output_begin): add functions similar to
+	set_global_document_commands and to functions called by
+	set_global_document_commands using the TreeElements interface.  Use in
+	TreeElementReadDocBook.pm.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_tree_element_overrides),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(global_commands_information_command_list): add XS interface for
+	global_commands_information_command_list/
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm ($XS_convert_enabled)
+	(converter_initialize, _convert): add XS_convert_enabled call. call
+	Texinfo::Document::build_tree if XS is not enabled for converters
+	before calling Texinfo::Convert::Text::convert_to_text.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_convert): remove
+	unused code.
+
 2025-06-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Disable prototypes for frequently-called functions
@@ -48,6 +108,9 @@
 	(convert_tree): call element_translated_command_tree,
 	converter_element_expand_today and element_cdt.  Do not call the
 	Texinfo::Convert::DocBook converter anymore.
+
+	* tta/perl/XSTexinfo/parser_document/ReaderXS.xs
+	(register_token_element_child): do not return anything.
 
 2025-06-19  Patrice Dumas  <pertusus@free.fr>
 
