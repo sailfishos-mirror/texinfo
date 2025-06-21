@@ -1940,10 +1940,14 @@ sub tree_element_comment_or_end_line_nonxs($$)
 
   if ($comment) {
     return ($comment, undef);
-  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
-    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
-    if (chomp($text)) {
-      $end_line = "\n";
+  } elsif ($line_arg) {
+    my $spaces_after_argument
+      = $line_arg->get_attribute('spaces_after_argument');
+    if (defined($spaces_after_argument)) {
+      my $text = $spaces_after_argument->{'text'};
+      if (chomp($text)) {
+        $end_line = "\n";
+      }
     } else {
       $end_line = '';
     }
