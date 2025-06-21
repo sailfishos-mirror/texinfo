@@ -72,55 +72,7 @@ our $VERSION = '7.2dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
-# Through the TreeElement interface, the converter codes can directly access
-# the C elements even though the converter is in Perl only, and XS is only
-# used for structuring.
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
-
 our $module_loaded = 0;
-
-my %XS_tree_element_overrides = (
-  "Texinfo::Convert::Converter::new_tree_element"
-    => "Texinfo::TreeElement::new_tree_element",
-  "Texinfo::Convert::Converter::get_global_unique_tree_element"
-    => "Texinfo::TreeElement::get_global_unique_tree_element",
-  "Texinfo::Convert::Converter::get_tree_element_index_entry"
-    => "Texinfo::TreeElement::get_tree_element_index_entry",
-  "Texinfo::Convert::Converter::tree_elements_sections_list"
-    => "Texinfo::TreeElement::tree_elements_sections_list",
-  "Texinfo::Convert::Converter::tree_elements_nodes_list"
-    => "Texinfo::TreeElement::tree_elements_nodes_list",
-  "Texinfo::Convert::Converter::tree_elements_headings_list"
-    => "Texinfo::TreeElement::tree_elements_headings_list",
-  "Texinfo::Convert::Converter::comment_or_end_line"
-    => "Texinfo::TreeElement::comment_or_end_line",
-  "Texinfo::Convert::Converter::tree_element_comment_or_end_line"
-    => "Texinfo::TreeElement::comment_or_end_line",
-  "Texinfo::Convert::Converter::argument_comment_end_line"
-    => "Texinfo::TreeElement::argument_comment_end_line",
-  "Texinfo::Convert::Converter::tree_element_argument_comment_end_line"
-    => "Texinfo::TreeElement::argument_comment_end_line",
-  "Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element"
-    => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
-  "Texinfo::Convert::Converter::tree_element_index_content_element"
-    => "Texinfo::TreeElement::tree_element_index_content_element",
-  "Texinfo::Convert::Converter::element_table_item_content_tree"
-    => "Texinfo::TreeElement::element_table_item_content_tree",
-  "Texinfo::Convert::Converter::table_item_content_tree"
-    => "Texinfo::TreeElement::element_table_item_content_tree",
-  "Texinfo::Convert::Converter::index_entry_referred_entry"
-    => "Texinfo::TreeElement::index_entry_referred_entry",
-  "Texinfo::Convert::Converter::element_gdt"
-    => "Texinfo::TreeElement::element_gdt",
-  "Texinfo::Convert::Converter::element_find_element_authors"
-    => "Texinfo::TreeElement::element_find_element_authors",
-  "Texinfo::Convert::Converter::element_expand_verbatiminclude"
-    => "Texinfo::TreeElement::element_expand_verbatiminclude",
-  "Texinfo::Convert::Converter::element_expand_today"
-    => "Texinfo::TreeElement::element_expand_today",
-  "Texinfo::Convert::Converter::global_commands_information_command_list"
-    => "Texinfo::TreeElement::global_commands_information_command_list",
-);
 
 my %XS_overrides = (
   # fully overriden for all the converters
@@ -172,11 +124,6 @@ sub _XS_setup_converter_generic()
 
 sub import {
   if (!$module_loaded) {
-    if ($XS_structuring) {
-      foreach my $sub (keys %XS_tree_element_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_tree_element_overrides{$sub});
-      }
-    }
     if ($XS_convert) {
       foreach my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
@@ -531,167 +478,6 @@ sub output_files_information($)
   return $self->{'output_files'};
 }
 
-
-
-
-# sub useful for XS overriding, to call C code that registers Perl
-# tree elements and add keys be able to find the document and C elemnt in XS
-# code
-sub new_tree_element($$;$)
-{
-  my $self = shift;
-  my $element_hash = shift;
-
-  return Texinfo::TreeElement::new($element_hash);
-}
-
-sub get_tree_element_index_entry($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $index_entry_info = $element->get_attribute('index_entry');
-  if ($index_entry_info) {
-
-    my $indices_information;
-    if ($self->{'document'}) {
-      $indices_information = $self->{'document'}->indices_information();
-
-      my ($index_entry, $index_info)
-       = Texinfo::Common::lookup_index_entry($index_entry_info,
-                                             $indices_information);
-      return ($index_entry, $index_info);
-    }
-  }
-
-  return undef, undef
-}
-
-sub get_global_unique_tree_element($$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-
-  if ($self->{'document'}) {
-    my $global_commands = $self->{'document'}->global_commands_information();
-    if ($global_commands->{$cmdname}) {
-      return $global_commands->{$cmdname};
-    }
-  }
-  return undef;
-}
-
-sub tree_element_itemize_item_prepended_element($)
-{
-  my $element = shift;
-
-  my $itemize = $element->{'parent'};
-  my $arguments_line = $itemize->{'contents'}->[0];
-  my $block_line_arg = $arguments_line->{'contents'}->[0];
-
-  return Texinfo::Common::tree_element_itemize_item_prepended_element(
-                                        $block_line_arg);
-}
-
-sub tree_element_index_content_element($;$)
-{
-  my $element = shift;
-  my $prefer_reference_element = shift;
-
-  return Texinfo::Common::tree_element_index_content_element($element,
-                                                 $prefer_reference_element);
-}
-
-sub index_entry_referred_entry($$)
-{
-  my $element = shift;
-  my $referred_cmdname = shift;
-
-  return Texinfo::Common::index_entry_referred_entry($element,
-                                                     $referred_cmdname);
-}
-
-sub element_find_element_authors($$)
-{
-  my $element = shift;
-  my $quotation_authors = shift;
-
-  Texinfo::Convert::Utils::element_find_element_authors($element,
-                                                        $quotation_authors);
-}
-
-sub element_expand_verbatiminclude($$$$$;$$)
-{
-  my $current = shift;
-  my $input_file_name_encoding = shift;
-  my $doc_encoding_for_input_file_name = shift;
-  my $locale_encoding = shift;
-  my $include_directories = shift;
-  my $document = shift;
-  my $converter = shift;
-
-  return Texinfo::Convert::Utils::element_expand_verbatiminclude($current,
-              $input_file_name_encoding,
-              $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
-}
-
-sub tree_elements_sections_list($)
-{
-  my $self = shift;
-
-  if ($self->{'document'}) {
-    my $relations_list = $self->{'document'}->sections_list();
-    return $relations_list;
-  }
-  return undef;
-}
-
-sub tree_elements_nodes_list($)
-{
-  my $self = shift;
-
-  if ($self->{'document'}) {
-    my $relations_list = $self->{'document'}->nodes_list();
-    return $relations_list;
-  }
-  return undef;
-}
-
-sub tree_elements_headings_list($)
-{
-  my $self = shift;
-
-  if ($self->{'document'}) {
-    my $relations_list = $self->{'document'}->headings_list();
-    return $relations_list;
-  }
-  return undef;
-}
-
-# for XS override, with a simpler interface than element_cdt
-sub element_gdt($$$;$$$$)
-{
-  my ($string, $lang_translations, $document,
-      $replaced_substrings, $build_tree, $debug, $translation_context) = @_;
-  return Texinfo::Translations::gdt($string,
-                                    $lang_translations,
-                                    $replaced_substrings,
-                                    $debug, $translation_context);
-}
-
-# similar interface as cdt
-sub element_cdt($$;$$$)
-{
-  my ($self, $string, $replaced_substrings,
-      $build_tree, $translation_context) = @_;
-
-  return element_gdt($string, $self->{'current_lang_translations'},
-                              $self->{'document'},
-                              $replaced_substrings, $build_tree,
-                              $self->get_conf('DEBUG'),
-                              $translation_context);
-}
 
 
 
@@ -1486,22 +1272,6 @@ sub encoded_output_file_name($$)
                  $self->{'document'});
 }
 
-# using the interface with registered elements, compatible with TreeElements
-sub element_translated_command_tree($$;$)
-{
-  my $converter = shift;
-  my $cmdname = shift;
-  my $build_tree = shift;
-
-  my $translated_commands = $converter->{'translated_commands'};
-  if ($translated_commands
-      and defined($translated_commands->{$cmdname})) {
-    my $to_translate = $translated_commands->{$cmdname};
-    return $converter->element_cdt($to_translate, undef, $build_tree);
-  }
-  return undef;
-}
-
 sub translated_command_tree($)
 {
   my $converter = shift;
@@ -1535,54 +1305,6 @@ sub expand_verbatiminclude($$)
               $include_directories, $document, $converter);
 }
 
-# wrapper around Texinfo::Utils::element_expand_verbatiminclude.
-sub converter_element_expand_verbatiminclude($$)
-{
-  my $converter = shift;
-  my $current = shift;
-
-  my $input_file_name_encoding
-    = $converter->get_conf('INPUT_FILE_NAME_ENCODING');
-  my $doc_encoding_for_input_file_name
-    = $converter->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
-  my $locale_encoding = $converter->get_conf('LOCALE_ENCODING');
-
-  my $include_directories
-    = $converter->get_conf('INCLUDE_DIRECTORIES');
-
-  my $document = $converter->{'document'};
-
-  return element_expand_verbatiminclude($current,
-              $input_file_name_encoding,
-              $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
-}
-
-# Wrapper used for XS override
-sub element_expand_today($$$$$)
-{
-  my $build_tree = shift;
-  my $test = shift;
-  my $lang_translations = shift;
-  my $debug = shift;
-  my $converter = shift;
-
-  return Texinfo::Convert::Utils::expand_today($test,
-                                               $lang_translations,
-                                               $debug, $converter);
-}
-
-sub converter_element_expand_today($;$)
-{
-  my $converter = shift;
-  my $build_tree = shift;
-
-  my $test = $converter->get_conf('TEST');
-  my $debug = $converter->get_conf('DEBUG');
-  return element_expand_today($build_tree, $test,
-          $converter->{'current_lang_translations'}, $debug, $converter);
-}
-
 sub expand_today($)
 {
   my $converter = shift;
@@ -1594,7 +1316,7 @@ sub expand_today($)
 
 # determine the default, with $INIT_CONF if set, or the default common
 # to all the converters
-sub _command_init($$)
+sub get_command_init($$)
 {
   my $global_command = shift;
   my $init_conf = shift;
@@ -1638,7 +1360,7 @@ sub set_global_document_commands($$$)
       # the converter initialization value, which is in init_conf,
       # or generic default
       $self->set_conf($global_command,
-                      _command_init($global_command, $init_conf));
+                      get_command_init($global_command, $init_conf));
       # NOTE if the variable is set from an handler, or in the converter after
       # $init_conf was set, but before starting the conversion, it is ignored
       # here and the $init_conf value is set.  The previously set value
@@ -1670,137 +1392,7 @@ sub set_global_document_commands($$$)
         # or generic default
         # the NOTE above in 'before' holds here too.
         $self->set_conf($global_command,
-                        _command_init($global_command, $init_conf));
-      }
-    }
-  }
-}
-
-sub _tree_element_in_preamble($)
-{
-  my $element = shift;
-  my $current_element = $element;
-  while (1) {
-    my $parent = $current_element->parent();
-    last if (!$parent);
-    if (defined($parent->{'type'})
-        and $parent->{'type'} eq 'preamble_before_content') {
-      return 1;
-    }
-    $current_element = $parent;
-  }
-  return 0;
-}
-
-# used for XS override (when there is no XS converter but XS parser/document)
-# for the TreeElement interface
-sub global_commands_information_command_list($$)
-{
-  my $document = shift;
-  my $global_command = shift;
-
-  return undef if (!$document);
-
-  my $global_commands = $document->global_commands_information();
-
-  return undef if (!$global_commands or !$global_commands->{$global_command}
-        or ref($global_commands->{$global_command}) ne 'ARRAY');
-
-  return $global_commands->{$global_command};
-}
-
-# same as Texinfo::Common::get_global_document_command for TreeElements
-sub tree_element_get_global_document_command($$$)
-{
-  my $self = shift;
-  my $global_command = shift;
-  my $command_location = shift;
-
-  if ($command_location ne 'last' and $command_location ne 'preamble_or_first'
-      and $command_location ne 'preamble') {
-    warn "BUG: get_global_document_command: unknown command_location: $command_location";
-  }
-
-  my $element;
-  my $commands_list
-      = global_commands_information_command_list ($self->{'document'},
-                                                  $global_command);
-
-  if (!$commands_list) {
-    return $self->get_global_unique_tree_element($global_command);
-  }
-
-  if ($command_location eq 'last') {
-    $element = $commands_list->[-1];
-  } else {
-    if ($command_location eq 'preamble_or_first'
-        and not _tree_element_in_preamble($commands_list->[0])) {
-      $element = $commands_list->[0];
-    } else {
-      foreach my $command_element (@{$commands_list}) {
-        if (_tree_element_in_preamble($command_element)) {
-          $element = $command_element;
-        } else {
-          last;
-        }
-      }
-    }
-  }
-  return $element;
-}
-
-# sale as above but with the tree element interface
-sub tree_element_set_global_document_commands($$$)
-{
-  my $self = shift;
-  my $commands_location = shift;
-  my $selected_commands = shift;
-
-  my $init_conf = $self->{'commands_init_conf'};
-
-  if (not defined($selected_commands)) {
-    die "tree_element_set_global_document_commands: requires selected commands";
-  }
-  if ($commands_location eq 'before') {
-    foreach my $global_command (@{$selected_commands}) {
-      # for commands not appearing in the document, this should set to
-      # the converter initialization value, which is in init_conf,
-      # or generic default
-      $self->set_conf($global_command,
-                      _command_init($global_command, $init_conf));
-      # NOTE if the variable is set from an handler, or in the converter after
-      # $init_conf was set, but before starting the conversion, it is ignored
-      # here and the $init_conf value is set.  The previously set value
-      # could be in $self->get_conf(), but what is available from
-      # $self->get_conf() could also be a value set by a previous call of
-      # set_global_document_commands.
-      # There is no easy way to deal with this issue, other than making sure
-      # that a customization value that is expected to be set early is set in
-      # $init_conf.
-    }
-  } else {
-    #my $global_commands;
-    #if ($self->{'document'}) {
-    #  $global_commands = $self->{'document'}->global_commands_information();
-    #}
-    foreach my $global_command (@{$selected_commands}) {
-      if ($self->get_conf('DEBUG')) {
-        print STDERR "SET_global($commands_location) $global_command\n";
-      }
-
-      my $element
-        = tree_element_get_global_document_command($self, $global_command,
-                                                   $commands_location);
-      if ($element) {
-        Texinfo::Common::tree_element_set_informative_command_value($self,
-                                                                 $element);
-      } else {
-        # for commands not appearing in the document, this should set to
-        # the converter initialization value, which is in init_conf,
-        # or generic default
-        # the NOTE above in 'before' holds here too.
-        $self->set_conf($global_command,
-                        _command_init($global_command, $init_conf));
+                        get_command_init($global_command, $init_conf));
       }
     }
   }
@@ -1877,15 +1469,6 @@ sub comment_or_end_line_nonxs($$)
   return (undef, $end_line);
 }
 
-# for XS overriding
-sub comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  return comment_or_end_line_nonxs($self, $element);
-}
-
 sub format_comment_or_return_end_line($$)
 {
   my $self = shift;
@@ -1897,91 +1480,6 @@ sub format_comment_or_return_end_line($$)
   } else {
     return $end_line;
   }
-}
-
-# for XS overriding
-sub argument_comment_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $line_arg;
-  my $first_child = $element->{'contents'}->[0];
-  my $first_child_type = $first_child->{'type'};
-  if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->{'contents'}->[0];
-  } else {
-    $line_arg = $element->{'contents'}->[0];
-  }
-  my ($comment, $end_line) = $self->comment_or_end_line($element);
-  return $line_arg, $comment, $end_line;
-}
-
-sub tree_element_comment_or_end_line_nonxs($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $end_line;
-
-  my $line_arg;
-  my $first_child = $element->get_child(0);
-  if ($first_child) {
-    my $first_child_type = $first_child->{'type'};
-    if ($first_child_type and $first_child_type eq 'arguments_line') {
-      $line_arg = $first_child->get_child(-1);
-    } else {
-      $line_arg = $element->get_child(-1);
-    }
-  }
-
-  my $comment = $line_arg->get_attribute('comment_at_end')
-    if ($line_arg);
-
-  if ($comment) {
-    return ($comment, undef);
-  } elsif ($line_arg) {
-    my $spaces_after_argument
-      = $line_arg->get_attribute('spaces_after_argument');
-    if (defined($spaces_after_argument)) {
-      my $text = $spaces_after_argument->{'text'};
-      if (chomp($text)) {
-        $end_line = "\n";
-      }
-    } else {
-      $end_line = '';
-    }
-  } else {
-    $end_line = '';
-  }
-  return (undef, $end_line);
-}
-
-sub tree_element_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  return tree_element_comment_or_end_line_nonxs($self, $element);
-}
-
-# for TreeElement interface XS overriding
-sub tree_element_argument_comment_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $line_arg;
-  my $first_child = $element->get_child(0);
-  my $first_child_type = $first_child->{'type'};
-  if ($first_child_type and $first_child_type eq 'arguments_line') {
-    $line_arg = $first_child->get_child(0);
-  } else {
-    $line_arg = $element->get_child(0);
-  }
-  my ($comment, $end_line)
-    = $self->tree_element_comment_or_end_line($element);
-  return $line_arg, $comment, $end_line;
 }
 
 
@@ -2003,7 +1501,7 @@ sub txt_image_text($$$)
     my $filehandle = do { local *FH };
     if (open($filehandle, $txt_file)) {
       my $encoding
-          = Texinfo::Common::element_associated_processing_encoding($element);
+          = Texinfo::Common::associated_processing_encoding($element);
       if (defined($encoding)) {
         binmode($filehandle, ":encoding($encoding)");
       }
@@ -2206,161 +1704,6 @@ sub table_item_content_tree_noxs($$)
   return undef;
 }
 
-sub table_item_content_tree($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  return table_item_content_tree_noxs($self, $element);
-}
-
-# same as above, but using the tree only interface
-sub element_table_item_content_tree($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $parent = $element->parent();
-  my $parent_type = $parent->{'type'};
-  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
-  # in @table
-  if (!$parent_type or $parent_type ne 'table_term') {
-    return undef;
-  }
-  my $table_command = $parent->parent()->parent();
-
-  # arguments_line type element
-  my $arguments_line = $table_command->{'contents'}->[0];
-  my $block_line_arg = $arguments_line->{'contents'}->[0];
-
-  my $command_as_argument
-    = Texinfo::Common::element_block_item_line_command($self, $block_line_arg);
-
-  if ($command_as_argument) {
-    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
-    my $command = {'cmdname' => $command_as_argument_cmdname,
-                   'source_info' => $element->source_info(),};
-    if ($table_command->get_attribute('command_as_argument_kbd_code')) {
-      $command->{'extra'} = {'code' => 1};
-    }
-    # command name for the Texinfo::Commands hashes tests
-    my $builtin_cmdname;
-    my $type = $command_as_argument->{'type'};
-    if ($type and $type eq 'definfoenclose_command') {
-      $command->{'type'} = $type;
-      $command->{'extra'} = {} if (!$command->{'extra'});
-      $command->{'extra'}->{'begin'}
-        = $command_as_argument->get_attribute('begin');
-      $command->{'extra'}->{'end'}
-        = $command_as_argument->get_attribute('end');
-      $builtin_cmdname = 'definfoenclose_command';
-    } else {
-      $builtin_cmdname = $command_as_argument_cmdname;
-    }
-    my $arg;
-    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
-      # This corresponds to a bogus @*table line with command line @footnote
-      # or @math.  We do not really care about the formatting of the result
-      # but we want to avoid debug messages, so we setup expected trees
-      # for those @-commands.
-      $arg = {'type' => 'brace_command_context',};
-      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
-        $arg->{'contents'} = [$element->{'contents'}->[0]];
-      } else {
-        my $paragraph = $self->new_tree_element({'type' => 'paragraph',
-                           'contents' => [$element->{'contents'}->[0]],}, 1);
-        $arg->{'contents'} = [$paragraph];
-      }
-    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
-                                                   eq 'arguments') {
-      $arg = {'type' => 'brace_arg',
-              'contents' => [$element->{'contents'}->[0]],};
-    } else {
-      $arg = {'type' => 'brace_container',
-              'contents' => [$element->{'contents'}->[0]],};
-    }
-    my $arg_element = $self->new_tree_element($arg, 1);
-    my $result = $self->new_tree_element($command, 1);
-    $result->add_to_element_contents($arg_element);
-    return $result;
-  }
-  return undef;
-}
-
-# same as above, but using the TreeElement interface
-sub tree_element_table_item_content_tree($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $parent = $element->parent();
-  my $parent_type = $parent->{'type'};
-  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
-  # in @table
-  if (!$parent_type or $parent_type ne 'table_term') {
-    return undef;
-  }
-  my $table_command = $parent->parent()->parent();
-
-  # arguments_line type element
-  my $arguments_line = $table_command->get_child(0);
-  my $block_line_arg = $arguments_line->get_child(0);
-
-  my $command_as_argument
-    = Texinfo::Common::tree_element_block_item_line_command($self,
-                                                        $block_line_arg);
-
-  if ($command_as_argument) {
-    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
-    my $command = {'cmdname' => $command_as_argument_cmdname,
-                   'source_info' => $element->source_info(),};
-    if ($table_command->get_attribute('command_as_argument_kbd_code')) {
-      $command->{'extra'} = {'code' => 1};
-    }
-    # command name for the Texinfo::Commands hashes tests
-    my $builtin_cmdname;
-    my $type = $command_as_argument->{'type'};
-    if ($type and $type eq 'definfoenclose_command') {
-      $command->{'type'} = $type;
-      $command->{'extra'} = {} if (!$command->{'extra'});
-      $command->{'extra'}->{'begin'}
-        = $command_as_argument->get_attribute('begin');
-      $command->{'extra'}->{'end'}
-        = $command_as_argument->get_attribute('end');
-      $builtin_cmdname = 'definfoenclose_command';
-    } else {
-      $builtin_cmdname = $command_as_argument_cmdname;
-    }
-    my $arg;
-    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
-      # This corresponds to a bogus @*table line with command line @footnote
-      # or @math.  We do not really care about the formatting of the result
-      # but we want to avoid debug messages, so we setup expected trees
-      # for those @-commands.
-      $arg = {'type' => 'brace_command_context',};
-      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
-        $arg->{'contents'} = [$element->get_child(0)];
-      } else {
-        my $paragraph = $self->new_tree_element({'type' => 'paragraph',
-                                  'contents' => [$element->get_child(0)],});
-        $arg->{'contents'} = [$paragraph];
-      }
-    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
-                                                   eq 'arguments') {
-      $arg = {'type' => 'brace_arg',
-              'contents' => [$element->get_child(0)],};
-    } else {
-      $arg = {'type' => 'brace_container',
-              'contents' => [$element->get_child(0)],};
-    }
-    my $arg_element = $self->new_tree_element($arg);
-    my $result = $self->new_tree_element($command);
-    $result->add_to_element_contents($arg_element);
-    return $result;
-  }
-  return undef;
-}
-
 sub convert_accents($$$;$$)
 {
   my $self = shift;
@@ -2378,41 +1721,6 @@ sub convert_accents($$$;$$)
 
   if ($output_encoded_characters) {
     my $encoded = Texinfo::Convert::Unicode::encoded_accents($self,
-                                       $arg_text, $stack,
-                                       $self->get_conf('OUTPUT_ENCODING_NAME'),
-                                       $format_accents,
-                                       $in_upper_case);
-    if (defined($encoded)) {
-      return $encoded;
-    }
-  }
-  my $result = $arg_text;
-  foreach my $accent_command (reverse(@$stack)) {
-    $result = &$format_accents ($self, $result, $accent_command,
-                                $in_upper_case);
-  }
-  return $result;
-}
-
-# same as above, but using TreeElement interface
-sub tree_element_convert_accents($$$;$$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $format_accents = shift;
-  my $output_encoded_characters = shift;
-  my $in_upper_case = shift;
-
-  my ($contents_element, $stack)
-   = Texinfo::Convert::Utils::tree_element_find_innermost_accent_contents($self,
-                                                                     $accent);
-  my $arg_text = '';
-  if (defined($contents_element)) {
-    $arg_text = $self->convert_tree($contents_element);
-  }
-
-  if ($output_encoded_characters) {
-    my $encoded = Texinfo::Convert::Unicode::element_encoded_accents($self,
                                        $arg_text, $stack,
                                        $self->get_conf('OUTPUT_ENCODING_NAME'),
                                        $format_accents,
@@ -2804,70 +2112,6 @@ sub _xml_numeric_entities_accent($$$;$)
   return xml_accent($self, $text, $command, $in_upper_case, 1);
 }
 
-# same as above, but using TreeElement or tree only interface
-sub element_xml_accent($$$;$$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-  my $use_numeric_entities = shift;
-  my $accent = $command->{'cmdname'};
-
-  if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc($text);
-  }
-
-  # do not return a dotless i or j as such if it is further composed
-  # with an accented letter, return the letter as is
-  if ($accent eq 'dotless'
-      and $Texinfo::UnicodeData::unicode_accented_letters{$accent}
-      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})) {
-    my $parent = $command->parent();
-    if ($parent) {
-      my $parent_parent = $parent->parent();
-      if ($parent_parent) {
-        my $out_cmdname = $parent_parent->{'cmdname'};
-        if ($out_cmdname
-            and $Texinfo::UnicodeData::unicode_accented_letters{$out_cmdname}) {
-          return $text;
-        }
-      }
-    }
-  }
-
-  if ($use_numeric_entities) {
-    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
-    if (defined($formatted_accent)) {
-      return $formatted_accent;
-    }
-  } else {
-    return "&${text}$xml_accent_entities{$accent};"
-      if (defined($xml_accent_entities{$accent})
-          and defined($xml_accent_text_with_entities{$accent})
-          and ($text =~ /^[$xml_accent_text_with_entities{$accent}]$/));
-    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
-    if (defined($formatted_accent)) {
-      return $formatted_accent;
-    }
-  }
-
-  # There are diacritics for every accent command except for dotless.
-  # We should only get there with dotless if the argument is not recognized.
-  return $text;
-}
-
-# same as above, but using TreeElement interface
-sub _element_xml_numeric_entities_accent($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-
-  return element_xml_accent($self, $text, $command, $in_upper_case, 1);
-}
-
 sub xml_accents($$;$)
 {
   my $self = shift;
@@ -2882,25 +2126,6 @@ sub xml_accents($$;$)
   }
 
   return $self->convert_accents($accent, $format_accents,
-                                $self->get_conf('OUTPUT_CHARACTERS'),
-                                $in_upper_case);
-}
-
-# same as above, but using TreeElement interface
-sub tree_element_xml_accents($$;$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $in_upper_case = shift;
-
-  my $format_accents;
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    $format_accents = \&_element_xml_numeric_entities_accent;
-  } else {
-    $format_accents = \&element_xml_accent;
-  }
-
-  return $self->tree_element_convert_accents($accent, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);
 }

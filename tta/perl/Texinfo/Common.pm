@@ -864,24 +864,6 @@ sub multitable_columnfractions($)
   return $columnfractions;
 }
 
-# same as above, but for the TreeElement interface
-sub tree_element_multitable_columnfractions($)
-{
-  my $multitable = shift;
-
-  my $arguments_line = $multitable->get_child(0);
-  my $block_line_arg = $arguments_line->get_child(0);
-  if ($block_line_arg->children_number()) {
-    my $child = $block_line_arg->get_child(0);
-    my $child_cmdname = $child->{'cmdname'};
-    if ($child_cmdname and $child_cmdname eq 'columnfractions') {
-      return $block_line_arg->get_child(0);
-    }
-  }
-
-  return undef;
-}
-
 # there is a command as argument for a block command (@itemize or
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
@@ -898,29 +880,6 @@ sub block_line_argument_command($)
              or (scalar(@{$arg->{'contents'}}) == 1
                  and !$arg->{'contents'}->[0]->{'contents'}))) {
       my $cmdname = $arg->{'cmdname'};
-      if (($Texinfo::Commands::brace_commands{$cmdname}
-           and !$Texinfo::Commands::accent_commands{$cmdname})
-          or ($arg->{'type'} and $arg->{'type'} eq 'definfoenclose_command')) {
-        return $arg;
-      }
-    }
-  }
-  return undef;
-}
-
-# same as above, but using the TreeElement interface
-sub tree_element_block_line_argument_command($)
-{
-  my $block_line_arg = shift;
-
-  if ($block_line_arg->children_number() == 1) {
-    my $arg = $block_line_arg->get_child(0);
-    my $cmdname = $arg->{'cmdname'};
-    my $contents_nr = $arg->children_number();
-    if ($cmdname
-        and (!$contents_nr
-             or ($contents_nr == 1
-                 and !$arg->get_child(0)->children_number()))) {
       if (($Texinfo::Commands::brace_commands{$cmdname}
            and !$Texinfo::Commands::accent_commands{$cmdname})
           or ($arg->{'type'} and $arg->{'type'} eq 'definfoenclose_command')) {
@@ -948,46 +907,12 @@ sub itemize_item_prepended_element($)
   }
 }
 
-# same as above, but using the TreeElement interface
-sub tree_element_itemize_item_prepended_element($)
-{
-  my $block_line_arg = shift;
-
-  my $arg = tree_element_block_line_argument_command($block_line_arg);
-  if ($arg) {
-    return $arg;
-  } elsif (!$block_line_arg->children_number()) {
-    return $default_bullet_command;
-  } else {
-    return $block_line_arg;
-  }
-}
-
 # always return something
-# also for tree only interface
 sub item_line_block_line_argument_command($)
 {
   my $block_line_arg = shift;
 
   my $arg = block_line_argument_command($block_line_arg);
-
-  if ($arg) {
-    my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
-    # $Texinfo::Commands::brace_commands{} is undef
-    # for definfoenclose'd commands
-    if ($brace_category and $brace_category eq 'noarg') {
-      $arg = undef;
-    }
-  }
-  return $arg;
-}
-
-# same as above, but with TreeElement interface
-sub tree_element_item_line_block_line_argument_command($)
-{
-  my $block_line_arg = shift;
-
-  my $arg = tree_element_block_line_argument_command($block_line_arg);
 
   if ($arg) {
     my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
@@ -1010,39 +935,6 @@ sub block_item_line_command($)
 
   if (!$arg) {
     $arg = $default_asis_command;
-  }
-  return $arg;
-}
-
-# same as above, but with tree only interface
-# TODO it would be more efficient to have a static asis command reused
-sub element_block_item_line_command($$)
-{
-  my $self = shift;
-  my $block_line_arg = shift;
-
-  my $arg
-    = item_line_block_line_argument_command($block_line_arg);
-
-  if (!$arg) {
-    $arg = $self->new_tree_element({'cmdname' => 'asis'});
-  }
-  return $arg;
-}
-
-# same as above, but with TreeElement interface
-# TODO it would be more efficient to have a static asis command reused
-sub tree_element_block_item_line_command($$)
-{
-  my $self = shift;
-  my $block_line_arg = shift;
-
-  my $arg
-    = tree_element_item_line_block_line_argument_command(
-                                                        $block_line_arg);
-
-  if (!$arg) {
-    $arg = $self->new_tree_element({'cmdname' => 'asis'});
   }
   return $arg;
 }
@@ -1199,15 +1091,6 @@ sub associated_processing_encoding($)
   return processing_output_encoding($encoding);
 }
 
-sub element_associated_processing_encoding($)
-{
-  my $element = shift;
-
-  my $encoding = $element->get_attribute('input_encoding_name');
-
-  return processing_output_encoding($encoding);
-}
-
 # Reverse the decoding of the file name from the input encoding.  When
 # dealing with file names, we want Perl strings representing sequences of
 # bytes, not Unicode codepoints.
@@ -1307,40 +1190,6 @@ sub informative_command_value($)
   return undef;
 }
 
-# same as above, but using the TreeElement interface
-sub tree_element_informative_command_value($)
-{
-  my $element = shift;
-
-  my $cmdname = $element->{'cmdname'};
-
-  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
-    if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
-      return 1;
-    } else {
-      my $contents = $element->get_children();
-      if ($contents) {
-        my @strings;
-        foreach my $content (@$contents) {
-          push @strings, $content->{'text'};
-        }
-        return join(' ', @strings);
-      }
-    }
-  } elsif ($element->get_attribute('text_arg')) {
-    return $element->get_attribute('text_arg');
-  } elsif ($element->get_attribute('misc_args')
-           and exists($element->get_attribute('misc_args')->[0])) {
-    return $element->get_attribute('misc_args')->[0];
-  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
-    my $arg = $element->get_child(0);
-    if ($arg->children_number()) {
-      return $arg->get_child(0)->{'text'};
-    }
-  }
-  return undef;
-}
-
 # REMARK documentencoding handling is not reverted by resetting a value with
 # set_conf, as the encodings are set using other sources of information
 # (possibly based on @documentencoding) in converter.
@@ -1353,24 +1202,6 @@ sub set_informative_command_value($$)
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = informative_command_value($element);
-
-  if (defined($value)) {
-    my $set = $self->set_conf($cmdname, $value);
-    return $set;
-  }
-  return 0;
-}
-
-# same as above, but using the TreeElement interface
-sub tree_element_set_informative_command_value($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $cmdname = $element->{'cmdname'};
-  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
-
-  my $value = tree_element_informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);
@@ -1584,30 +1415,6 @@ sub section_level($)
   return $level;
 }
 
-# same as above, but using the TreeElement interface
-sub element_section_level($)
-{
-  my $section = shift;
-
-  my $cmdname = $section->{'cmdname'};
-  my $level = $command_structuring_level{$cmdname};
-  # correct level according to raise/lowersections
-  my $level_modifier = $section->get_attribute('level_modifier');
-  if ($level_modifier) {
-    $level -= $level_modifier;
-    if ($level < $min_level) {
-      if ($command_structuring_level{$cmdname} < $min_level) {
-        $level = $command_structuring_level{$cmdname};
-      } else {
-        $level = $min_level;
-      }
-    } elsif ($level > $max_level) {
-      $level = $max_level;
-    }
-  }
-  return $level;
-}
-
 # decompose a decimal number on a given base.  It is not the
 # decomposition used for counting as we start at 0, not 1 for all
 # the factors.  This is in order to get aa and not ba in calling
@@ -1703,75 +1510,6 @@ sub is_content_empty($;$)
   return 1;
 }
 
-sub element_is_content_empty($;$);
-sub element_is_content_empty($;$)
-{
-  my $tree = shift;
-  my $do_not_ignore_index_entries = shift;
-
-  if (!defined($tree)) {
-    return 1;
-  }
-
-  my $contents = $tree->get_children();
-
-  if (!$contents) {
-    return 1;
-  }
-
-  foreach my $content (@$contents) {
-    my $text = $content->{'text'};
-    if (defined($text)) {
-      if ($text =~ /\S/) {
-        return 0;
-      } else {
-        next;
-      }
-    }
-    my $type = $content->{'type'};
-    next if ($type and $type eq 'arguments_line');
-
-    my $cmdname = $content->{'cmdname'};
-    if ($cmdname) {
-      if ($type and $type eq 'index_entry_command') {
-        if ($do_not_ignore_index_entries) {
-          return 0;
-        } else {
-          next;
-        }
-      }
-      if (exists($Texinfo::Commands::line_commands{$cmdname})) {
-        if ($Texinfo::Commands::formatted_line_commands{$cmdname}
-            or $Texinfo::Commands::formattable_line_commands{$cmdname}) {
-          return 0;
-        } else {
-          next;
-        }
-      } elsif (exists($Texinfo::Commands::nobrace_commands{$cmdname})) {
-        if ($Texinfo::Commands::formatted_nobrace_commands{$cmdname}) {
-          return 0;
-        } else {
-          next;
-        }
-      } elsif ($Texinfo::Commands::non_formatted_brace_commands{$cmdname}
-               or $Texinfo::Commands::non_formatted_block_commands{$cmdname}) {
-        next;
-      } else {
-        return 0;
-      }
-    }
-    if ($type) {
-      if ($type eq 'paragraph') {
-        return 0;
-      }
-    }
-    if (not is_content_empty($content, $do_not_ignore_index_entries)) {
-      return 0;
-    }
-  }
-  return 1;
-}
-
 # if in this container, we are 'inline', within a running text
 my @inline_types = ('def_line', 'paragraph', 'preformatted',
   'line_arg', 'block_line_arg', 'menu_entry_name', 'menu_entry_node');
@@ -1792,7 +1530,8 @@ foreach my $command (
 
 # Return 1 if inline in a running text, 0 if right in top-level or block
 # environment, and undef otherwise.
-sub _inline_or_block($)
+# internal, not documented.
+sub element_inline_or_block($)
 {
   my $current = shift;
   my $e_type = $current->{'type'};
@@ -1816,38 +1555,19 @@ sub element_is_inline($;$)
   my $check_current = shift;
 
   if ($check_current) {
-    my $inline_or_block = _inline_or_block($current);
+    my $inline_or_block = element_inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
   }
 
   while ($current->{'parent'}) {
     $current = $current->{'parent'};
-    my $inline_or_block = _inline_or_block($current);
+    my $inline_or_block = element_inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
   }
   return 0;
 }
 
 
-
-# same as above, but using TreeElement interface
-sub tree_element_is_inline($;$)
-{
-  my $current = shift;
-  my $check_current = shift;
-
-  if ($check_current) {
-    my $inline_or_block = _inline_or_block($current);
-    return ($inline_or_block) if (defined($inline_or_block));
-  }
-
-  while ($current->parent()) {
-    $current = $current->parent();
-    my $inline_or_block = _inline_or_block($current);
-    return ($inline_or_block) if (defined($inline_or_block));
-  }
-  return 0;
-}
 
 sub normalize_top_node_name($)
 {

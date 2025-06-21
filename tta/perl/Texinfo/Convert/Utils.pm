@@ -442,62 +442,6 @@ sub find_innermost_accent_contents($)
   }
 }
 
-# same as above, but using TreeElement interface
-sub tree_element_find_innermost_accent_contents($$)
-{
-  my $self = shift;
-  my $current = shift;
-
-  my @accent_commands = ();
-  my $debug = 0;
- ACCENT:
-  while (1) {
-    my $current_cmdname = $current->{'cmdname'};
-    # the following can happen if called with a bad tree
-    if (!$current_cmdname
-        or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
-      #print STDERR "BUG: Not an accent command in accent\n";
-      cluck "BUG: Not an accent command in accent\n";
-      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
-      #print STDERR Data::Dumper->Dump([$current]);
-      return (undef, \@accent_commands);
-    }
-    push @accent_commands, $current;
-    # A bogus accent, that may happen
-    if (!$current->children_number()) {
-      return (undef, \@accent_commands);
-    }
-
-    my $arg = $current->get_child(0);
-    my $contents = $arg->get_children();
-    if (!$contents) {
-      return (undef, \@accent_commands);
-    }
-    # inside the argument of an accent
-    my $text_contents = [];
-
-    foreach my $content (@$contents) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname) {
-        if ($Texinfo::Commands::accent_commands{$cmdname}) {
-        # if outer accent is tieaccent, keep accent inside and do not try to
-        # nest more
-          if ($current_cmdname ne 'tieaccent') {
-            $current = $content;
-            next ACCENT;
-          }
-        } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-          next;
-        }
-      }
-      push @$text_contents, $content;
-    }
-    # we go here if there was no nested accent
-    return ($self->new_tree_element({'contents' => $text_contents}),
-            \@accent_commands);
-  }
-}
-
 sub translated_command_tree($$$$;$)
 {
   my $translated_commands = shift;
@@ -594,78 +538,6 @@ sub expand_verbatiminclude($$$$$;$$)
   return $verbatiminclude;
 }
 
-# same as above, but with TreeElement interface
-sub element_expand_verbatiminclude($$$$$;$$)
-{
-  my $current = shift;
-  my $input_file_name_encoding = shift;
-  my $doc_encoding_for_input_file_name = shift;
-  my $locale_encoding = shift;
-  my $include_directories = shift;
-  my $document = shift;
-  my $converter = shift;
-
-  my $file_name_text = $current->get_attribute('text_arg');
-  return undef unless (defined($file_name_text));
-
-  my $input_encoding
-    = Texinfo::Common::element_associated_processing_encoding($current);
-
-  my ($file_name, $file_name_encoding)
-    = encoded_input_file_name($file_name_text, $input_file_name_encoding,
-                  $doc_encoding_for_input_file_name, $locale_encoding,
-                                          $document, $input_encoding);
-
-  my $file = Texinfo::Common::locate_include_file($file_name,
-                                                  $include_directories);
-
-  my $verbatiminclude;
-
-  if (defined($file)) {
-    if (!open(VERBINCLUDE, $file)) {
-      if ($converter) {
-        my $decoded_file = $file;
-        # need to decode to the internal perl codepoints for error message
-        $decoded_file = Encode::decode($file_name_encoding, $file)
-           if (defined($file_name_encoding));
-        $converter->converter_line_error(
-                      sprintf(__("could not read %s: %s"), $decoded_file, $!),
-                      $current->source_info());
-      }
-    } else {
-      if (defined($input_encoding)) {
-        binmode(VERBINCLUDE, ":encoding($input_encoding)");
-      }
-      $verbatiminclude
-        = Texinfo::TreeElement::new({ 'cmdname' => 'verbatim',
-                                      'parent' => $current->parent(),
-                                      'contents' => [],});
-      while (<VERBINCLUDE>) {
-        push @{$verbatiminclude->{'contents'}},
-          Texinfo::TreeElement::new({'type' => 'raw', 'text' => $_ });
-      }
-      if (!close (VERBINCLUDE)) {
-        if ($converter) {
-          my $decoded_file = $file;
-          # need to decode to the internal perl codepoints for error message
-          $decoded_file = Encode::decode($file_name_encoding, $file)
-             if (defined($file_name_encoding));
-          $converter->converter_document_warn(
-                 sprintf(__(
-                      "error on closing \@verbatiminclude file %s: %s"),
-                          $decoded_file, $!));
-        }
-      }
-    }
-  } elsif ($converter) {
-    $converter->converter_line_error(
-                           sprintf(__("\@%s: could not find %s"),
-                                       $current->{'cmdname'}, $file_name_text),
-                           $current->source_info());
-  }
-  return $verbatiminclude;
-}
-
 sub add_heading_number($$;$$)
 {
   my $current = shift;
@@ -757,55 +629,6 @@ sub find_element_authors($$)
 
   foreach my $content (@{$element->{'contents'}}) {
     find_element_authors_internal($content, $quotation_authors);
-  }
-}
-
-sub element_find_element_authors_internal($$);
-
-# same as above, but using the TreeElement interface
-sub element_find_element_authors_internal($$)
-{
-  my $element = shift;
-  my $quotation_authors = shift;
-
-  return if (defined($element->{'text'}));
-
-  my $cmdname = $element->{'cmdname'};
-  if (defined($cmdname)) {
-    if ($cmdname eq 'author') {
-      push @$quotation_authors, $element;
-      return;
-    }
-    if ($cmdname eq 'quotation'
-        or $cmdname eq 'smallquotation'
-        or $cmdname eq 'titlepage'
-        or $cmdname eq 'menu'
-        or ($Texinfo::Commands::brace_commands{$cmdname}
-            and $Texinfo::Commands::brace_commands{$cmdname} eq 'context')
-        or exists($Texinfo::Commands::line_commands{$cmdname})) {
-      return;
-    }
-  } elsif (defined($element->{'type'})
-           and $element->{'type'} eq 'arguments_line') {
-    return;
-  }
-  my $contents = $element->get_children();
-  if ($contents) {
-    foreach my $content (@$contents) {
-      element_find_element_authors_internal($content, $quotation_authors);
-    }
-  }
-}
-
-# same as above, but using the TreeElement interface
-sub element_find_element_authors($$)
-{
-  my $element = shift;
-  my $quotation_authors = shift;
-
-  my $contents = $element->get_children();
-  foreach my $content (@$contents) {
-    element_find_element_authors_internal($content, $quotation_authors);
   }
 }
 

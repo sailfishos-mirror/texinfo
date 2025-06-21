@@ -1736,28 +1736,6 @@ sub section_level_adjusted_command_name($)
   return $element->{'cmdname'};
 }
 
-# same as above, but using the TreeElement interface
-sub element_section_level_adjusted_command_name($)
-{
-  my $element = shift;
-
-  my $cmdname = $element->{'cmdname'};
-
-  # the following condition should only be false if sectioning_structure was
-  # not called
-  my $heading_level = $element->get_attribute('section_level');
-  if (defined($heading_level)) {
-    if ($heading_level ne $Texinfo::CommandsValues::command_structuring_level{
-                                                                  $cmdname}) {
-      my $command
-        = $Texinfo::Common::level_to_structuring_command{$cmdname}
-                                                            ->[$heading_level];
-      return $command;
-    }
-  }
-  return $cmdname;
-}
-
 
 # The following code is about menu elements creation
 

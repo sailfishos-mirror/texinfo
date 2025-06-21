@@ -1,5 +1,42 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (element_inline_or_block),
+	tta/perl/Texinfo/Convert/Converter.pm (get_command_init): rename
+	_inline_or_block as element_inline_or_block and _command_init as
+	get_command_init.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (txt_image_text): call
+	associated_processing_encoding instead of
+	element_associated_processing_encoding.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): call
+	section_level_adjusted_command_name instead of
+	element_section_level_adjusted_command_name.
+
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm,
+	tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/ReadDocBook.pm (@ISA)
+	(conversion_output_begin, _convert),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (@ISA)
+	(conversion_output_begin, _docbook_section_element, _begin_def_line)
+	(_convert), tta/perl/Texinfo/Convert/Utils.pm,
+	tta/perl/Texinfo/Structuring.pm: move element_* and tree_element_*
+	functions used for the TreeElements and Reader interfaces to a new
+	module, Texinfo::Convert::TreeElementConverter, that
+	Texinfo::Convert::ReadDocBook and
+	Texinfo::Convert::TreeElementReadDocBook inherit from.
+
+	* Texinfo::Convert::TreeElementConverter
+	(tree_element_txt_image_text),
+	tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_convert): add to
+	use the TreeElement interface.
+
+	* tta/perl/XSTexinfo/parser_document/TreeElementXS.xs: remove
+	index_entry_referred_entry.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (new_element_from_sv): initialize
 	element.
 

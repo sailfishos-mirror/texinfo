@@ -121,6 +121,7 @@ Part of the API not in TreeElements but in Converter:
  new_tree_element
  get_tree_element_index_entry
  get_global_unique_tree_element
+ register_document_relations_lists_elements
  tree_elements_sections_list
  tree_elements_nodes_list
  tree_elements_headings_list

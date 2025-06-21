@@ -54,8 +54,10 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
+use Texinfo::Convert::TreeElementConverter;
 
-our @ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::TreeElementConverter
+              Texinfo::Convert::Converter);
 
 our $VERSION = '7.2dev';
 
@@ -474,7 +476,7 @@ sub conversion_output_begin($;$$)
   }
   if (!defined($fulltitle_command)) {
     my $command_list
-      = Texinfo::Convert::Converter::global_commands_information_command_list(
+      = Texinfo::Convert::TreeElementConverter::global_commands_information_command_list(
           $self->{'document'}, 'titlefont');
     if ($command_list) {
       my $command = $command_list->[0];
@@ -784,7 +786,7 @@ sub _begin_def_line($$)
   if ($index_entry) {
     $result .= $index_entry_text;
     $result .= $self->convert_tree(
-  Texinfo::Convert::Converter::tree_element_index_content_element($element));
+  Texinfo::Convert::TreeElementConverter::tree_element_index_content_element($element));
     $result .= _end_index_entry($self, $element);
   }
   _new_document_context($self);
@@ -943,7 +945,7 @@ sub _convert($$)
               my $command_as_argument_name;
               $reader->register_token_element();
               my $prepended_element
-   = Texinfo::Convert::Converter::tree_element_itemize_item_prepended_element(
+   = Texinfo::Convert::TreeElementConverter::tree_element_itemize_item_prepended_element(
                                                           $element);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->{'cmdname'};
@@ -970,7 +972,7 @@ sub _convert($$)
             if ($index_entry) {
               $result_text .= $index_entry_text;
               $result_text .= $self->convert_tree(
-    Texinfo::Convert::Converter::tree_element_index_content_element($element));
+    Texinfo::Convert::TreeElementConverter::tree_element_index_content_element($element));
               $result_text .= _end_index_entry($self, $element);
             }
             if ($element->{'contents'}->[0]->{'contents'}) {
@@ -1187,7 +1189,7 @@ sub _convert($$)
                 if ($docbook_sectioning_element eq 'part'
                     and not ($section_relations
                              and $section_relations->{'part_associated_section'})
-                    and !Texinfo::Common::element_is_content_empty(
+       and !Texinfo::Convert::TreeElementConverter::element_is_content_empty(
                                                          $opened_element)) {
                   $$output_ref .= "<partintro>\n";
                 }
@@ -1536,7 +1538,9 @@ sub _convert($$)
               Texinfo::Convert::Text::reset_options_encoding(
                                      $self->{'convert_text_options'});
 
-              my $is_inline = Texinfo::Common::tree_element_is_inline($element);
+              my $is_inline
+            = Texinfo::Convert::TreeElementConverter::tree_element_is_inline(
+                 $element);
               if ($is_inline) {
                 $$output_ref .= "<inlinemediaobject>";
               } else {
@@ -1885,7 +1889,8 @@ sub _convert($$)
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
             $reader->register_token_element();
-            Texinfo::Convert::Converter::element_find_element_authors($element,
+            Texinfo::Convert::TreeElementConverter::element_find_element_authors(
+                                                        $element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
               my $arg = $author->get_child(0);
@@ -1999,7 +2004,7 @@ sub _convert($$)
         }
 
           # not restricted enough, includes line_args, for instance
-          #and Texinfo::Common::tree_element_is_inline($element, 1))
+          #and tree_element_is_inline($element, 1))
         if (defined($self->{'pending_prepend'})
             and ($e_type eq 'paragraph'
                  or $e_type eq 'preformatted')) {
@@ -2091,11 +2096,12 @@ sub _convert($$)
           if ($docbook_sectioning_element eq 'part'
               and not ($section_relations
                        and $section_relations->{'part_associated_section'})
-              and !Texinfo::Common::element_is_content_empty($element)) {
+     and !Texinfo::Convert::TreeElementConverter::element_is_content_empty(
+                                                                  $element)) {
             $$output_ref .= "</partintro>\n";
           }
           my $level_adjusted_cmdname
-           = Texinfo::Structuring::element_section_level_adjusted_command_name(
+           = Texinfo::Structuring::section_level_adjusted_command_name(
                                                                     $element);
           if (!($section_relations
                 and $section_relations->{'section_childs'}
@@ -2109,7 +2115,7 @@ sub _convert($$)
             while ($current_relations->{'section_directions'}
                    and $current_relations->{'section_directions'}->{'up'}
                    and !$current_relations->{'section_directions'}->{'next'}
-         and Texinfo::Structuring::element_section_level_adjusted_command_name(
+         and Texinfo::Structuring::section_level_adjusted_command_name(
        $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
               $current_relations = $current_relations->{'section_directions'}->{'up'};
               $current = $current_relations->{'element'};
