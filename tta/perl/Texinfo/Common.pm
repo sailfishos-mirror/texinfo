@@ -1085,26 +1085,6 @@ sub collect_subentries($$)
   }
 }
 
-# same as above, but using the TreeElement interface
-sub element_collect_subentries($$);
-sub element_collect_subentries($$)
-{
-  my $current = shift;
-  my $subentries = shift;
-
-  my $line_arg = $current->get_child(0);
-  my $contents = $line_arg->get_children();
-  if ($contents) {
-    foreach my $content (@$contents) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname and $cmdname eq 'subentry') {
-        push @$subentries, $content;
-        element_collect_subentries($content, $subentries);
-      }
-    }
-  }
-}
-
 sub index_entry_referred_entry($$);
 
 # TODO document
@@ -1123,33 +1103,6 @@ sub index_entry_referred_entry($$)
           return $content->{'contents'}->[0] if ($content->{'contents'});
         } elsif ($content->{'cmdname'} eq 'subentry') {
           return index_entry_referred_entry($content, $referred_cmdname);
-        }
-      }
-    }
-  }
-  return undef;
-}
-
-sub tree_element_index_entry_referred_entry($$);
-
-# same as above using the TreeElement interface
-sub tree_element_index_entry_referred_entry($$)
-{
-  my $element = shift;
-  my $referred_cmdname = shift;
-
-  my $line_arg = $element->get_child(0);
-
-  my $contents = $line_arg->get_children();
-  if ($contents) {
-    foreach my $content (@$contents) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname) {
-        if ($cmdname eq $referred_cmdname) {
-          return $content->get_child(0) if ($content->children_number());
-        } elsif ($cmdname eq 'subentry') {
-          return tree_element_index_entry_referred_entry($content,
-                                                    $referred_cmdname);
         }
       }
     }

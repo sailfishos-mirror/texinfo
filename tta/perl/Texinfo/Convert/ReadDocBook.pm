@@ -792,7 +792,7 @@ sub _begin_def_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $result = "<synopsis>";
+  my $result = '<synopsis>';
   my ($index_entry_text, $index_entry) = _begin_index_entry($self, $element);
   if ($index_entry) {
     $result .= $index_entry_text;
@@ -804,12 +804,6 @@ sub _begin_def_line($$)
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
   return $result;
-}
-
-sub _end_def_line($$)
-{
-  my $self = shift;
-
 }
 
 my $debug_global_element_nr = 0;
@@ -836,7 +830,9 @@ sub _convert($$)
   while (1) {
     my $next = $reader->read();
     last if (!defined($next));
+
     my $category = $next->{'category'};
+
     my $element = $next->{'element'};
 
     if (!defined($element)) {
@@ -1171,7 +1167,7 @@ sub _convert($$)
                 if ($self->{'document'}) {
                   my $sections_list = $self->tree_elements_sections_list();
                   $section_relations
-            = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
+          = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
                   if ($section_relations->{'associated_node'}) {
                    # FIXME DocBook 5 id -> xml:id
                     $section_attribute

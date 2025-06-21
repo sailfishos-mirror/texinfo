@@ -1,5 +1,20 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm: remove unused
+	_end_def_line.
+
+	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (%ignored_types)
+	(_begin_index_entry, _end_index_entry, _begin_def_line, _convert):
+	remove arguments_line from %ignored_types.  Convert definition lines,
+	index entries and @cartouche title through the reader, with similar
+	code as ReadDocBook.pm.  Remove _index_entry and _convert_def_line.
+
+	* tta/perl/Texinfo/Common.pm: remove now unused
+	tree_element_index_entry_referred_entry and
+	element_collect_subentries.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm
 	($build_tree_for_text_converter, converter_initialize, _convert): add
 	$build_tree_for_text_converter, set if there is no XS for conversion,

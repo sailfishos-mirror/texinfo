@@ -269,7 +269,7 @@ foreach my $type (
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'arguments_line',
+            #'arguments_line',
   ) {
   $ignored_types{$type} = 1;
 }
@@ -383,7 +383,6 @@ sub convert($$)
   $self->conversion_initialization($document);
 
   my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
-  #my $root = $document->tree();
 
   $document->register_document_relations_lists_elements();
 
@@ -698,7 +697,7 @@ sub _docbook_section_element($$)
   }
 }
 
-sub _index_entry($$)
+sub _begin_index_entry($$)
 {
   my $self = shift;
   my $element = shift;
@@ -714,49 +713,21 @@ sub _index_entry($$)
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_info->{'in_code'});
     $result .= "<primary>";
-    $result .= $self->convert_tree(
-     Texinfo::Convert::Converter::tree_element_index_content_element($element));
-    $result .= "</primary>";
-
-    my $entry_element = $index_entry->{'entry_element'};
-
-    # Add any index subentries.
-    my @subentries;
-    Texinfo::Common::element_collect_subentries($entry_element,
-                                                \@subentries);
-    my $level = 'secondary';
-    my @levels = ('tertiary');
-    foreach my $subentry (@subentries) {
-      $result .= "<$level>";
-      $result .= $self->convert_tree($subentry->get_child(0));
-      $result .= "</$level>";
-      if (scalar(@levels)) {
-        $level = shift @levels;
-      }
-    }
-    my $seeentry
-      = Texinfo::Common::tree_element_index_entry_referred_entry($entry_element,
-                                                            'seeentry');
-    if ($seeentry) {
-      $result .= "<see>";
-      $result .= $self->convert_tree($seeentry);
-      $result .= "</see>";
-    }
-    my $seealso
-      = Texinfo::Common::tree_element_index_entry_referred_entry($entry_element,
-                                                            'seealso');
-    if ($seealso) {
-      $result .= "<seealso>";
-      $result .= $self->convert_tree($seealso);
-      $result .= "</seealso>";
-    }
-
-    pop @{$self->{'document_context'}};
-
-    $result .= "</indexterm>";
-    return $result;
+    return ($result, $index_entry);
   }
-  return '';
+  return (undef, undef);
+}
+
+sub _end_index_entry($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  pop @{$self->{'document_context'}};
+
+  my $result = "</primary>";
+  $result .= "</indexterm>";
+  return $result;
 }
 
 sub _parse_attribute($)
@@ -820,52 +791,22 @@ sub _new_document_context($)
                           });
 }
 
-sub _convert_def_line($$)
+sub _begin_def_line($$)
 {
   my $self = shift;
   my $element = shift;
 
-  my $result = "<synopsis>";;
-  $result .= _index_entry($self, $element);
+  my $result = '<synopsis>';
+  my ($index_entry_text, $index_entry) = _begin_index_entry($self, $element);
+  if ($index_entry) {
+    $result .= $index_entry_text;
+    $result .= $self->convert_tree(
+  Texinfo::Convert::Converter::tree_element_index_content_element($element));
+    $result .= _end_index_entry($self, $element);
+  }
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  my $first_child = $element->get_child(0);
-  my $contents;
-  if ($first_child) {
-    $contents = $first_child->get_children();
-  }
-  if ($contents) {
-    my $def_command = $element->get_attribute('def_command');
-    foreach my $arg (@$contents) {
-      my $type = $arg->{'type'};
-
-      my $content = $self->convert_tree($arg);
-      if ($type eq 'spaces' or $type eq 'delimiter') {
-        $result .= $content;
-      } elsif ($type eq 'def_category') {
-        $result .= "<phrase role=\"category\"><emphasis role=\"bold\">"
-                     ."$content</emphasis>:</phrase>";
-      } elsif ($type eq 'def_name') {
-        $result .= "<$defcommand_name_type{$def_command}>$content"
-                       ."</$defcommand_name_type{$def_command}>";
-      } else {
-        if (!defined($def_argument_types_docbook{$type})) {
-          warn "BUG: no def_argument_types_docbook for $type";
-          return undef;
-        }
-        foreach my $element_attribute (reverse (
-                               @{$def_argument_types_docbook{$type}})) {
-          my ($element, $attribute_text) = _parse_attribute($element_attribute);
-          $content = "<$element${attribute_text}>$content</$element>";
-        }
-        $result .= $content;
-      }
-    }
-  }
-  pop @{$self->{'document_context'}};
-  $result .= "</synopsis>";
-  $result .= "\n";
   return $result;
 }
 
@@ -993,7 +934,7 @@ sub _convert($$)
           }
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree(
-                             $self->converter_element_expand_today());
+                           $self->converter_element_expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
           $result_text = $self->tree_element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
@@ -1040,7 +981,14 @@ sub _convert($$)
                    and $element->get_child(0)->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
-            $result_text .= _index_entry($self, $element);
+            my ($index_entry_text, $index_entry)
+              = _begin_index_entry($self, $element);
+            if ($index_entry) {
+              $result_text .= $index_entry_text;
+              $result_text .= $self->convert_tree(
+    Texinfo::Convert::Converter::tree_element_index_content_element($element));
+              $result_text .= _end_index_entry($self, $element);
+            }
             if ($element->get_child(0)->children_number()) {
               my $table_item_tree
                 = $self->tree_element_table_item_content_tree($element);
@@ -1070,23 +1018,33 @@ sub _convert($$)
           # end *item* tab
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
-          my $end_line;
-          if ($element->get_attribute('index_entry')) {
-            my $comment;
-            ($comment, $end_line)
-              = $self->tree_element_comment_or_end_line($element);
-            if ($comment) {
-              $end_line
-                = $self->xml_comment($comment->get_child(0)->{'text'});
-            }
-            if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
-              chomp($end_line);
-            }
+          my ($result, $index_entry) = _begin_index_entry($self, $element);
+          if ($index_entry) {
+            $$output_ref .= $result;
           } else {
-            $end_line = '';
+            $reader->skip_children($element);
           }
-          $$output_ref .= _index_entry($self, $element).${end_line};
-          $reader->skip_children($element);
+        } elsif ($cmdname eq 'subentry') {
+          # keep the initial output_ref
+          if (!$self->{'document_context'}->[-1]->{'subentry_level'}) {
+            push @{$self->{'document_context'}->[-1]->{'subentry_output'}},
+              $output_ref;
+          }
+          my $subentry_output = '';
+          my $level;
+          if (scalar(@{$self->{'document_context'}->[-1]
+                ->{'subentry_output'}}) == 1) {
+            $level = 'secondary';
+          } else {
+            $level = 'tertiary';
+          }
+          $subentry_output .= "<$level>";
+          $self->{'document_context'}->[-1]->{'subentry_level'}++;
+          # redirect output_ref to be able to output subentries without
+          # nesting them.
+          $output_ref = \$subentry_output;
+          push @{$self->{'document_context'}->[-1]->{'subentry_output'}},
+            $output_ref;
         } elsif (exists($docbook_line_commands{$cmdname})) {
           #warn "  is dbk line command\n";
           if ($docbook_global_commands{$cmdname}) {
@@ -1263,7 +1221,7 @@ sub _convert($$)
               $$output_ref .= $result_text;
             }
           } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
-            my $def_line_result = _convert_def_line($self, $element);
+            my $def_line_result = _begin_def_line($self, $element);
             $$output_ref .= $def_line_result if (defined($def_line_result));
           } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
             my ($docbook_element, $attribute_text)
@@ -1302,7 +1260,8 @@ sub _convert($$)
               $$output_ref .=  "<index></index>\n";
             }
           }
-          if (!$Texinfo::Commands::root_commands{$cmdname}) {
+          if (!$Texinfo::Commands::root_commands{$cmdname}
+              and !$Texinfo::Commands::def_commands{$cmdname}) {
             $reader->skip_children($element);
           }
           # ignore all the other line commands
@@ -1792,6 +1751,17 @@ sub _convert($$)
             }
             #warn "  returning after braced cmd result\n";
             $reader->skip_children($element);
+          } elsif ($cmdname eq 'seeentry' or $cmdname eq 'seealso') {
+            # gather the text to output it when the index entry closes
+            # and not where the command appears
+            if (!$self->{'document_context'}->[-1]->{$cmdname.'_info'}) {
+              my $command_text = '';
+              $self->{'document_context'}->[-1]->{$cmdname.'_info'}
+                = [\$command_text, $output_ref];
+              $output_ref = \$command_text;
+            } else {
+              $reader->skip_children($element);
+            }
           } else {
             # ignored brace command
             #warn "  returning empty string for ignored braced cmd\n";
@@ -1929,7 +1899,7 @@ sub _convert($$)
                 $block_line_arg = $arguments_line->get_child(0);
                 $self->{'pending_prepend'}
                   = $self->convert_tree(
-                        $self->element_cdt('@b{{quotation_arg}:} ',
+                          $self->element_cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg}));
               }
             }
@@ -1937,15 +1907,6 @@ sub _convert($$)
             push @format_elements, $format_element;
           } elsif ($cmdname eq 'cartouche') {
             push @format_elements, 'sidebar';
-            # arguments_line type element
-            my $arguments_line = $element->get_child(0);
-            my $block_line_arg = $arguments_line->get_child(0);
-            if ($block_line_arg->children_number()) {
-              my $title = $self->convert_tree($block_line_arg);
-              if ($title ne '') {
-                $appended .= '<title>'.$title.'</title>'."\n";
-              }
-            }
           } elsif ($Texinfo::Commands::block_commands{$cmdname} eq 'format_raw') {
             # the document_context was opened for the command, so this is
             # forgotten once all the raw internal text has been formatted
@@ -1960,7 +1921,20 @@ sub _convert($$)
           }
           $$output_ref .= $appended if (defined($appended));
 
-          if ($Texinfo::Commands::preformatted_code_commands{$cmdname}
+          if ($cmdname eq 'cartouche') {
+            # arguments_line type element
+            my $arguments_line = $element->get_child(0);
+            my $block_line_arg = $arguments_line->get_child(0);
+            if ($block_line_arg->children_number()) {
+              # Keep the previous output reference and
+              # accumulate in a separate text to be able to add the opening
+              # element only if not empty
+              my $title_text = '';
+              $self->{'document_context'}->[-1]->{'cartouche_title'}
+                = [$output_ref, \$title_text];
+              $output_ref = \$title_text;
+            }
+          } elsif ($Texinfo::Commands::preformatted_code_commands{$cmdname}
               or $Texinfo::Commands::math_commands{$cmdname}) {
             push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
           }
@@ -1976,8 +1950,7 @@ sub _convert($$)
           $$output_ref .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
         } elsif ($e_type eq 'def_line') {
-          my $def_line_result = _convert_def_line($self, $element);
-          $reader->skip_children($element);
+          my $def_line_result = _begin_def_line($self, $element);
           $$output_ref .= $def_line_result if (defined($def_line_result));
         } elsif ($e_type eq 'table_term') {
           # should be closed by the @item.  Allows to have the index entries in
@@ -1991,10 +1964,26 @@ sub _convert($$)
             # a full book.
             $output_ref = \$void;
           }
+        } elsif ($e_type eq 'def_category') {
+          $$output_ref .= "<phrase role=\"category\"><emphasis role=\"bold\">";
+        } elsif ($e_type eq 'def_name') {
+          my $def_command
+            = $element->parent()->parent()->get_attribute('def_command');
+          $$output_ref .= "<$defcommand_name_type{$def_command}>";
+        } elsif ($def_argument_types_docbook{$e_type}) {
+          foreach my $element_attribute (
+                               @{$def_argument_types_docbook{$e_type}}) {
+            my ($element, $attribute_text)
+              = _parse_attribute($element_attribute);
+            $$output_ref .= "<$element${attribute_text}>";
+          }
         } elsif (exists($docbook_preformatted_types{$e_type})) {
           push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
              $docbook_preformatted_types{$e_type};
-        } elsif ($ignored_types{$e_type}) {
+        } elsif ($ignored_types{$e_type}
+                 or ($e_type eq 'arguments_line'
+                     and not (
+             $self->{'document_context'}->[-1]->{'cartouche_title'}))) {
           $reader->skip_children($element);
         }
 
@@ -2083,9 +2072,8 @@ sub _convert($$)
         # close sectioning command
         } elsif ($cmdname ne 'node'
                  and $Texinfo::Commands::root_commands{$cmdname}) {
-          my $section_relations;
           my $sections_list = $self->tree_elements_sections_list();
-          $section_relations
+          my $section_relations
             = $sections_list->[$element->get_attribute('section_number') -1];
           my $docbook_sectioning_element
              = _docbook_section_element($self, $element);
@@ -2119,21 +2107,118 @@ sub _convert($$)
               pop @{$self->{'lang_stack'}};
             }
           }
+        } elsif ($cmdname eq 'seeentry' or $cmdname eq 'seealso') {
+          $output_ref
+            = $self->{'document_context'}->[-1]->{$cmdname.'_info'}->[1];
+        } elsif ($e_type
+                 and $e_type eq 'index_entry_command') {
+          my $result = '';
+          my ($index_entry, $index_info)
+            = $self->get_tree_element_index_entry($element);
+
+          my $entry_element = $index_entry->{'entry_element'};
+          if ($self->{'document_context'}->[-1]->{'subentry_output'}) {
+            $output_ref = shift(@{$self->{'document_context'}
+                            ->[-1]->{'subentry_output'}});
+            foreach my $subentry_output
+               (@{$self->{'document_context'}->[-1]->{'subentry_output'}}) {
+              $result .= $$subentry_output;
+            }
+          }
+          if (defined($self->{'document_context'}->[-1]->{'seeentry_info'})) {
+            my $seeentry_ref
+              = $self->{'document_context'}->[-1]->{'seeentry_info'}->[0];
+            $result .= "<see>";
+            $result .= $$seeentry_ref;
+            $result .= "</see>";
+            delete $self->{'document_context'}->[-1]->{'seeentry_output'};
+          }
+          if (defined($self->{'document_context'}->[-1]->{'seealso_info'})) {
+            my $seealso_ref
+              = $self->{'document_context'}->[-1]->{'seealso_info'}->[0];
+            $result .= "<seealso>";
+            $result .= $$seealso_ref;
+            $result .= "</seealso>";
+            delete $self->{'document_context'}->[-1]->{'seealso_output'};
+          }
+          $$output_ref .= "</primary>";
+          $$output_ref .= $result;
+          $$output_ref .= "</indexterm>";
+
+          pop @{$self->{'document_context'}};
+          my ($comment, $end_line)
+            = $self->tree_element_comment_or_end_line($element);
+          if ($comment) {
+            $end_line
+              = $self->xml_comment($comment->get_child(0)->{'text'})
+          }
+          if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
+            chomp($end_line);
+          }
+          $$output_ref .= $end_line;
+        } elsif (exists($docbook_line_commands{$cmdname})) {
+          if ($Texinfo::Commands::def_commands{$cmdname}) {
+            pop @{$self->{'document_context'}};
+            $$output_ref .= "</synopsis>\n";
+          } elsif ($cmdname eq 'subentry') {
+            my $subentry_level
+              = $self->{'document_context'}->[-1]->{'subentry_level'};
+            my $level;
+            if ($subentry_level == 1) {
+              $level = 'secondary';
+            } else {
+              $level = 'tertiary';
+            }
+            $self->{'document_context'}->[-1]->{'subentry_level'}--;
+            $output_ref
+              = $self->{'document_context'}->[-1]
+                    ->{'subentry_output'}->[$subentry_level];
+            $$output_ref .= "</$level>";
+          }
         }
 
       } elsif ($e_type) {
         if (defined($type_elements{$e_type})) {
           $$output_ref .= "</$type_elements{$e_type}>";
         } elsif ($e_type eq 'preformatted') {
-          $$output_ref .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
+          $$output_ref
+            .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           delete $self->{'document_context'}->[-1]->{'in_preformatted'};
+        } elsif ($e_type eq 'def_line') {
+          pop @{$self->{'document_context'}};
+          $$output_ref .= "</synopsis>\n";
+        } elsif ($e_type eq 'def_category') {
+          $$output_ref .= "</emphasis>:</phrase>";
+        } elsif ($e_type eq 'def_name') {
+          my $def_command
+            = $element->parent()->parent()->get_attribute('def_command');
+          $$output_ref .= "</$defcommand_name_type{$def_command}>";
+        } elsif ($def_argument_types_docbook{$e_type}) {
+          foreach my $element_attribute (reverse (
+                               @{$def_argument_types_docbook{$e_type}})) {
+            my ($element, $attribute_text)
+              = _parse_attribute($element_attribute);
+            $$output_ref .= "</$element>";
+          }
+        } elsif ($e_type eq 'block_line_arg') {
+          my $top_cartouche_title
+            = $self->{'document_context'}->[-1]->{'cartouche_title'};
+          if ($top_cartouche_title) {
+            my $title_text_ref;
+            ($output_ref, $title_text_ref) = @$top_cartouche_title;
+            if ($$title_text_ref ne '') {
+              $$output_ref .= '<title>'.$$title_text_ref.'</title>'."\n";
+            }
+            delete $self->{'document_context'}->[-1]->{'cartouche_title'};
+          }
+        } elsif (exists($docbook_preformatted_types{$e_type})) {
+          my $format
+           = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
+          die "BUG $format ne $docbook_preformatted_types{$e_type}"
+            if ($format ne $docbook_preformatted_types{$e_type});
         } elsif ($e_type eq 'before_node_section'
                  and !$self->get_conf('_DOCBOOK_PIECE')) {
           $output_ref = \$result;
-        } elsif (exists($docbook_preformatted_types{$e_type})) {
-          my $format = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
-          die "BUG $format ne $docbook_preformatted_types{$e_type}"
-            if ($format ne $docbook_preformatted_types{$e_type});
         }
       }
 
