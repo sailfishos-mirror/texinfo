@@ -435,8 +435,8 @@ sub conversion_output_begin($;$$)
         last;
       }
     }
-    if (!defined($fulltitle_command)) {
-      my $command = $global_commands->{'titlefont'};
+    if (!defined($fulltitle_command) and $global_commands->{'titlefont'}) {
+      my $command = $global_commands->{'titlefont'}->[0];
       if ($command and $command->{'contents'}
           and $command->{'contents'}->[0]->{'contents'}) {
         $fulltitle_command = $command;

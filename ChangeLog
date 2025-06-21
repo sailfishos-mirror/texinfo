@@ -1,5 +1,14 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin): get
+	first titlefont multiple global commands command.  Report from Gavin.
+
+	* tta/perl/Makefile.tres, tta/perl/t/docbook_tests.t (@test_doc)
+	(titlefont_for_docbook): add tests that test docbook_doc.  Add
+	titlefont_for_docbook test with a @titlefont.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (new_element_from_sv),
 	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
 	(new_tree_element): pass document to new_element_from_sv, in case

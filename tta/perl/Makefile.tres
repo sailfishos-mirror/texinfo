@@ -518,6 +518,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/docbook_tests/empty_quotation_with_arg_followed_by_quotation.pl \
   t/results/docbook_tests/multiple_documentlanguage.pl \
   t/results/docbook_tests/special_docbook_unnumbered.pl \
+  t/results/docbook_tests/titlefont_for_docbook.pl \
   t/results/epub_tests/chapter_before_top_epub.pl \
   t/results/epub_tests/chapter_before_top_epub/res_epub \
   t/results/epub_tests/section_part_epub.pl \

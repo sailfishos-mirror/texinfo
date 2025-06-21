@@ -84,8 +84,19 @@ Ack!
 '],
 );
 
+my @test_doc = (
+['titlefont_for_docbook',
+'@titlefont{Reference Manual}
+'],
+);
+
 foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['docbook'];
 }
 
-run_all('docbook_tests', [@test_cases]);
+foreach my $test (@test_doc) {
+  $test->[2]->{'test_formats'} = ['docbook_doc'];
+}
+
+
+run_all('docbook_tests', [@test_cases, @test_doc]);
