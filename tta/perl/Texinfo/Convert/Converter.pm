@@ -676,7 +676,7 @@ sub element_gdt($$$;$$$$)
       $replaced_substrings, $build_tree, $debug, $translation_context) = @_;
   return Texinfo::Translations::gdt($string,
                                     $lang_translations,
-                                    $replaced_substrings, $build_tree,
+                                    $replaced_substrings,
                                     $debug, $translation_context);
 }
 

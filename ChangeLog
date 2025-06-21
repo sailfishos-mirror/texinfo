@@ -1,5 +1,10 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (element_gdt): remove spurious
+	argument in gdt call.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ReadDocBook.pm: remove unused
 	_end_def_line.
 
