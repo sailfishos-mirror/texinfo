@@ -281,7 +281,8 @@ sub remove_document($)
   my $document = shift;
 }
 
-# do nothing, only the XS override does something.
+# The XS override register a reference to the C element in Perl root
+# and heading commands
 sub register_document_relations_lists_elements($)
 {
   my $document = shift;

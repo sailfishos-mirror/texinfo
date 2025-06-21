@@ -455,41 +455,32 @@ sub conversion_output_begin($;$$)
 '. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
-  my $global_commands;
-  if ($self->{'document'}) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-  if ($global_commands) {
-    my $copying_element = $self->get_global_unique_tree_element('copying');
-    my $copying_result;
-    if ($copying_element) {
-      $copying_result = $self->convert_tree($self->new_tree_element(
+  my $copying_element = $self->get_global_unique_tree_element('copying');
+  if ($copying_element) {
+    my $copying_result = $self->convert_tree($self->new_tree_element(
            {'contents' => $copying_element->get_children()}, 1));
-      if ($copying_result ne '') {
-        $legalnotice = "<legalnotice>$copying_result</legalnotice>";
-      }
+    if ($copying_result ne '') {
+      $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
   }
 
   my $fulltitle_command;
-  if ($global_commands) {
-    foreach my $title_cmdname ('title', 'shorttitlepage') {
-      my $command = $self->get_global_unique_tree_element($title_cmdname);
-      if ($command and $command->{'contents'}->[0]->{'contents'}) {
-        $fulltitle_command = $command;
-        last;
-      }
+  foreach my $title_cmdname ('title', 'shorttitlepage') {
+    my $command = $self->get_global_unique_tree_element($title_cmdname);
+    if ($command and $command->{'contents'}->[0]->{'contents'}) {
+      $fulltitle_command = $command;
+      last;
     }
-    if (!defined($fulltitle_command)) {
-      my $command_list
-        = Texinfo::Convert::Converter::global_commands_information_command_list(
-            $self->{'document'}, 'titlefont');
-      if ($command_list) {
-        my $command = $command_list->[0];
-        if ($command->{'contents'}
-            and $command->{'contents'}->[0]->{'contents'}) {
-          $fulltitle_command = $command;
-        }
+  }
+  if (!defined($fulltitle_command)) {
+    my $command_list
+      = Texinfo::Convert::Converter::global_commands_information_command_list(
+          $self->{'document'}, 'titlefont');
+    if ($command_list) {
+      my $command = $command_list->[0];
+      if ($command->{'contents'}
+          and $command->{'contents'}->[0]->{'contents'}) {
+        $fulltitle_command = $command;
       }
     }
   }
@@ -498,81 +489,77 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if ($global_commands) {
-    my $title_page = $self->get_global_unique_tree_element('titlepage');
-    if ($title_page) {
-      my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
+  my $title_page = $self->get_global_unique_tree_element('titlepage');
+  if ($title_page) {
+    my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
                                         $title_page, ['author', 'subtitle']);
-      my @authors_elements;
-      my $subtitle_text = '';
-      if (scalar(@{$collected_commands})) {
-        foreach my $element (@{$collected_commands}) {
-          my $cmdname = $element->{'cmdname'};
-          if ($cmdname eq 'author') {
-            push @authors_elements, $element;
-          } elsif ($cmdname eq 'subtitle') {
-            # concatenate the text of @subtitle as DocBook only allows one.
-            my ($arg, $end_line)
-              = _convert_argument_and_end_line($self, $element);
-            $subtitle_text .= $arg . $end_line
-          }
-        }
-      }
-      if ($subtitle_text ne '') {
-        chomp ($subtitle_text);
-        $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
-      }
 
-      if (scalar(@authors_elements)) {
-        # using authorgroup and collab is the best, because it doesn't require
-        # knowing people name decomposition.  Also it should work for group names.
-        # FIXME dblatex ignores collab/collabname.
-        $authors_info .= "<authorgroup>\n";
-        foreach my $element (@authors_elements) {
-          my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
-          # FIXME DocBook 5 no more collabname, merged with other elements in
-          # orgname, which is much more specific than collabname, it is for an
-          # organisation and therefore not suitable here.
-          # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
-          # person/personname is not suitable either, because in Texinfo @author
-          # may correspond to more than one author, and also because we do not
-          # have the information in Texinfo needed for <person>, which requires
-          # a split of the name in honorific, firstname, surname...
-          # https://tdg.docbook.org/tdg/5.0/personname
-          my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
-          chomp ($result);
-          $result .= "\n";
-          $authors_info .= $result;
+    my @authors_elements;
+    my $subtitle_text = '';
+    if (scalar(@{$collected_commands})) {
+      foreach my $element (@{$collected_commands}) {
+        my $cmdname = $element->{'cmdname'};
+        if ($cmdname eq 'author') {
+          push @authors_elements, $element;
+        } elsif ($cmdname eq 'subtitle') {
+          # concatenate the text of @subtitle as DocBook only allows one.
+          my ($arg, $end_line)
+            = _convert_argument_and_end_line($self, $element);
+          $subtitle_text .= $arg . $end_line
         }
-        $authors_info .= "</authorgroup>\n";
       }
+    }
+    if ($subtitle_text ne '') {
+      chomp ($subtitle_text);
+      $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
+    }
+
+    if (scalar(@authors_elements)) {
+      # using authorgroup and collab is the best, because it doesn't require
+      # knowing people name decomposition.  Also it should work for group names.
+      # FIXME dblatex ignores collab/collabname.
+      $authors_info .= "<authorgroup>\n";
+      foreach my $element (@authors_elements) {
+        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
+        # FIXME DocBook 5 no more collabname, merged with other elements in
+        # orgname, which is much more specific than collabname, it is for an
+        # organisation and therefore not suitable here.
+        # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
+        # person/personname is not suitable either, because in Texinfo @author
+        # may correspond to more than one author, and also because we do not
+        # have the information in Texinfo needed for <person>, which requires
+        # a split of the name in honorific, firstname, surname...
+        # https://tdg.docbook.org/tdg/5.0/personname
+        my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
+        chomp ($result);
+        $result .= "\n";
+        $authors_info .= $result;
+      }
+      $authors_info .= "</authorgroup>\n";
     }
   }
 
   my $settitle_command;
-  if ($global_commands) {
-    my $command = $self->get_global_unique_tree_element('settitle');
-    if ($command and $command->{'contents'}
-        and $command->{'contents'}->[0]->{'contents'}) {
-      $settitle_command = $command;
-    }
+  my $settitle = $self->get_global_unique_tree_element('settitle');
+  if ($settitle and $settitle->{'contents'}
+      and $settitle->{'contents'}->[0]->{'contents'}) {
+    $settitle_command = $settitle;
   }
+
+  my $top_command = $self->get_global_unique_tree_element('top');
 
   my $titleabbrev_command;
   if ($fulltitle_command) {
     $titleabbrev_command = $settitle_command;
   } elsif ($settitle_command) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $global_commands
-           and $global_commands->{'top'}) {
+  } elsif (defined($legalnotice) and $top_command) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     # arguments_line type element
-    my $command = $global_commands->{'top'};
-    # arguments_line type element
-    my $arguments_line = $command->{'contents'}->[0];
+    my $arguments_line = $top_command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    $fulltitle_command = $command
+    $fulltitle_command = $top_command
       if ($line_arg->{'contents'});
   }
 
