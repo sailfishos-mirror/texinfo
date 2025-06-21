@@ -34,7 +34,6 @@ SV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
 HV *register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document);
-void register_tree_handle_in_sv (ELEMENT *tree, DOCUMENT *document);
 void register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
                                        DOCUMENT *document);
 
@@ -60,8 +59,7 @@ SV *store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
                                  SV **special_units_sv,
                                  SV **associated_special_units_sv);
 
-SV *document_tree (SV *document_in, int handler_only,
-                   int elements_handler_only);
+SV *document_tree (SV *document_in, int handler_only);
 SV *document_indices_information (SV *document_in);
 SV *document_global_commands_information (SV *document_in);
 SV *document_labels_information (SV *document_in);

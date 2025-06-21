@@ -3072,47 +3072,6 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
   return element_hv;
 }
 
-void
-register_tree_handle_in_sv (ELEMENT *tree, DOCUMENT *document)
-{
-
-  dTHX;
-
-  HV *element_hv = register_element_handle_in_sv (tree, document);
-
-  if (type_data[tree->type].flags & TF_text)
-    return;
-
-  if (tree->e.c->contents.number)
-    {
-      size_t i;
-      AV *av = newAV ();
-      SV *sv = newRV_noinc ((SV *) av);
-      hv_store (element_hv, "contents", strlen ("contents"), sv, HSH_contents);
-
-      av_unshift (av, tree->e.c->contents.number);
-
-      for (i = 0; i < tree->e.c->contents.number; i++)
-        {
-          ELEMENT *content = tree->e.c->contents.list[i];
-          register_tree_handle_in_sv (content, document);
-          av_store (av, (SSize_t) i, newSVsv ((SV *) content->sv));
-        }
-    }
-
-  if (tree->flags & EF_def_line)
-    {
-      ELEMENT *def_index_element
-        = lookup_extra_element_oot (tree, AI_key_def_index_element);
-      ELEMENT *def_index_ref_element
-        = lookup_extra_element_oot (tree, AI_key_def_index_ref_element);
-      if (def_index_element)
-        register_tree_handle_in_sv (def_index_element, document);
-      if (def_index_ref_element)
-        register_tree_handle_in_sv (def_index_ref_element, document);
-    }
-}
-
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -3120,7 +3079,7 @@ register_tree_handle_in_sv (ELEMENT *tree, DOCUMENT *document)
    If the C document data was not stored, the tree will be only be
    in DOCUMENT_IN. */
 SV *
-document_tree (SV *document_in, int handler_only, int elements_handler_only)
+document_tree (SV *document_in, int handler_only)
 {
   SV *result_sv = 0;
   DOCUMENT *document = 0;
@@ -3129,18 +3088,14 @@ document_tree (SV *document_in, int handler_only, int elements_handler_only)
 
   document = get_sv_document_document (document_in, 0);
 
-  if (!handler_only && !elements_handler_only && document)
+  if (!handler_only && document)
     result_sv = store_document_tree_output_units (document);
 
   if (!result_sv)
     {
       if (document && document->tree)
         {
-          if (elements_handler_only) {
-            register_tree_handle_in_sv (document->tree, document);
-          } else {
-            register_element_handle_in_sv (document->tree, document);
-          }
+          register_element_handle_in_sv (document->tree, document);
           /* in that case, we do not reuse the "tree" reference
              in document->hv.  We therefore need to readd everything
              relevant, in practice only "tree_document_descriptor" */

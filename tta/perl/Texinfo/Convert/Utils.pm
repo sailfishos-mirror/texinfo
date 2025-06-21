@@ -443,62 +443,6 @@ sub find_innermost_accent_contents($)
 }
 
 # same as above, but using TreeElement interface
-sub element_find_innermost_accent_contents($$)
-{
-  my $self = shift;
-  my $current = shift;
-
-  my @accent_commands = ();
-  my $debug = 0;
- ACCENT:
-  while (1) {
-    my $current_cmdname = $current->{'cmdname'};
-    # the following can happen if called with a bad tree
-    if (!$current_cmdname
-        or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
-      #print STDERR "BUG: Not an accent command in accent\n";
-      cluck "BUG: Not an accent command in accent\n";
-      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
-      #print STDERR Data::Dumper->Dump([$current]);
-      return (undef, \@accent_commands);
-    }
-    push @accent_commands, $current;
-    # A bogus accent, that may happen
-    if (!$current->{'contents'}) {
-      return (undef, \@accent_commands);
-    }
-
-    my $arg = $current->{'contents'}->[0];
-    my $contents = $arg->{'contents'};
-    if (!$contents) {
-      return (undef, \@accent_commands);
-    }
-    # inside the argument of an accent
-    my $text_contents = [];
-
-    foreach my $content (@$contents) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname) {
-        if ($Texinfo::Commands::accent_commands{$cmdname}) {
-        # if outer accent is tieaccent, keep accent inside and do not try to
-        # nest more
-          if ($current_cmdname ne 'tieaccent') {
-            $current = $content;
-            next ACCENT;
-          }
-        } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-          next;
-        }
-      }
-      push @$text_contents, $content;
-    }
-    # we go here if there was no nested accent
-    return ($self->new_tree_element({'contents' => $text_contents}, 1),
-            \@accent_commands);
-  }
-}
-
-# same as above, but using TreeElement interface
 sub tree_element_find_innermost_accent_contents($$)
 {
   my $self = shift;

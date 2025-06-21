@@ -2253,7 +2253,8 @@ sub _convert($$)
         # special case to ensure that @w leads to something even if empty
           $$output_ref .= $w_command_mark;
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $result .= $self->element_xml_accents($element,
+          $reader->register_token_element();
+          $result .= $self->tree_element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         } elsif (!exists($docbook_no_warn_empty_commands{$cmdname})
                 # brace commands without braces lead to EMPTY element tokens

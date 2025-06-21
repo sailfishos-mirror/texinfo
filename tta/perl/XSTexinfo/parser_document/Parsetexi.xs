@@ -156,7 +156,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
               document_sv = build_minimal_document (document);
             else
               document_sv = build_document (document, 1);
-            RETVAL = document_tree (document_sv, 0, 0);
+            RETVAL = document_tree (document_sv, 0);
           }
       OUTPUT:
         RETVAL

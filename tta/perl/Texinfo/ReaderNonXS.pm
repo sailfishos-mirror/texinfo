@@ -91,7 +91,7 @@ sub register_token_element($)
 }
 
 # For XS
-sub register_token_tree ($)
+sub register_token_tree($)
 {
 }
 

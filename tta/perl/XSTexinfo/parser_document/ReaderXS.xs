@@ -216,12 +216,3 @@ register_token_element_child (SV *reader_sv, int child_index=0)
                                            reader->document);
           }
 
-void
-register_token_tree (SV *reader_sv)
-      PREINIT:
-        READER *reader;
-      CODE:
-        reader = get_sv_reader_reader (reader_sv);
-        if (reader)
-          register_tree_handle_in_sv ((ELEMENT *)reader->token.element,
-                                         reader->document);

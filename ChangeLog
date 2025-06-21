@@ -1,5 +1,37 @@
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	Remove Texinfo::Convert::TreeReadDocBook
+
+	* tta/perl/texi2any.pl: remove reference to TreeReadDocBook.  Remove
+	tta/perl/Texinfo/Convert/TreeReadDocBook.pm.  It is slow, not used and
+	requires duplicating code and interfaces.
+
+	* tta/perl/Texinfo/Convert/ReadDocBook.pm (_convert): call
+	tree_element_xml_accents.
+
+	* tta/C/main/build_perl_info.c (document_tree),
+	tta/perl/Texinfo/Document.pm (tree),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_tree)
+	tta/perl/Texinfo/Convert/Converter.pm (output_tree): remove the third
+	argument of tree/document_tree and fourth argument of output_tree.
+	Update callers.
+
+	* tta/C/main/build_perl_info.c,
+	tta/perl/XSTexinfo/parser_document/ReaderXS.xs: remove
+	register_tree_handle_in_sv and register_token_tree.
+
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/Utils.pm:
+	remove element_informative_command_value,
+	element_set_informative_command_value, element_index_content_element,
+	element_format_comment_or_end_line, element_convert_accents,
+	element_xml_accents and element_find_innermost_accent_contents.
+
+	* tta/perl/Makefile.am (dist_convertmodules_DATA): add
+	TreeElementReadDocBook.pm.
+
+2025-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin): get
 	first titlefont multiple global commands command.  Report from Gavin.
 

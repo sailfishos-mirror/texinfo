@@ -135,6 +135,7 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/TexinfoXML.pm \
  Texinfo/Convert/Text.pm \
  Texinfo/Convert/TextContent.pm \
+ Texinfo/Convert/TreeElementReadDocBook.pm \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm
 

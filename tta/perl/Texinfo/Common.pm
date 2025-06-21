@@ -1354,33 +1354,6 @@ sub informative_command_value($)
   return undef;
 }
 
-# same as above, but using the tree only interface
-sub element_informative_command_value($)
-{
-  my $element = shift;
-
-  my $cmdname = $element->{'cmdname'};
-
-  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
-    if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
-      return 1;
-    } elsif ($element->{'contents'}) {
-      return join(' ', map {$_->{'text'}} @{$element->{'contents'}});
-    }
-  } elsif ($element->get_attribute('text_arg')) {
-    return $element->get_attribute('text_arg');
-  } elsif ($element->get_attribute('misc_args')
-           and exists($element->get_attribute('misc_args')->[0])) {
-    return $element->get_attribute('misc_args')->[0];
-  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
-    my $arg = $element->{'contents'}->[0];
-    if ($arg->{'contents'}) {
-      return $arg->{'contents'}->[0]->{'text'};
-    }
-  }
-  return undef;
-}
-
 # same as above, but using the TreeElement interface
 sub tree_element_informative_command_value($)
 {
@@ -1427,24 +1400,6 @@ sub set_informative_command_value($$)
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = informative_command_value($element);
-
-  if (defined($value)) {
-    my $set = $self->set_conf($cmdname, $value);
-    return $set;
-  }
-  return 0;
-}
-
-# same as above, but using the tree only interface
-sub element_set_informative_command_value($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $cmdname = $element->{'cmdname'};
-  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
-
-  my $value = element_informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);
@@ -1993,25 +1948,6 @@ sub index_content_element($;$)
       return $element->{'extra'}->{'def_index_ref_element'};
     } else {
       return $element->{'extra'}->{'def_index_element'};
-    }
-  } else {
-    return $element->{'contents'}->[0];
-  }
-}
-
-# same as above, but using the tree only interface
-sub element_index_content_element($;$)
-{
-  my $element = shift;
-  my $prefer_reference_element = shift;
-
-  my $def_command = $element->get_attribute('def_command');
-  if ($def_command) {
-    if ($prefer_reference_element
-        and $element->get_attribute('def_index_ref_element')) {
-      return $element->get_attribute('def_index_ref_element');
-    } else {
-      return $element->get_attribute('def_index_element');
     }
   } else {
     return $element->{'contents'}->[0];

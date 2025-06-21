@@ -792,7 +792,6 @@ my %converter_format_expanded_region_name = (
   'texinfoxml' => 'xml',
   'docbookreader' => 'docbook',
   'docbooknoreader' => 'docbook',
-  'docbooktreereader' => 'docbook',
   'docbooktreeelementreader' => 'docbook',
 );
 
@@ -864,11 +863,6 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::ReadDocBook'
-           },
-  'docbooktreereader' => {
-             'move_index_entries_after_items' => 1,
-             'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Convert::TreeReadDocBook'
            },
   'docbooktreeelementreader' => {
              'move_index_entries_after_items' => 1,

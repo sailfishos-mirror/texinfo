@@ -430,20 +430,18 @@ sub conversion_output_end($)
   return '';
 }
 
-sub output_tree($$;$$)
+sub output_tree($$;$)
 {
   my $self = shift;
   my $document = shift;
   my $tree_handle_only = shift;
-  my $elements_handle_only = shift;
 
   $self->conversion_initialization($document);
 
   # to avoid passing undef to XS
   $tree_handle_only = 0 unless ($tree_handle_only);
-  $elements_handle_only = 0 unless ($elements_handle_only);
 
-  my $root = $document->tree($tree_handle_only, $elements_handle_only);
+  my $root = $document->tree($tree_handle_only);
 
   if (ref($root) eq 'HASH') {
     confess("Converter output_tree unblessed root\n");
@@ -1963,7 +1961,7 @@ sub tree_element_comment_or_end_line($$)
   return tree_element_comment_or_end_line_nonxs($self, $element);
 }
 
-# for XS overriding
+# for TreeElement interface XS overriding
 sub tree_element_argument_comment_end_line($$)
 {
   my $self = shift;
@@ -1980,42 +1978,6 @@ sub tree_element_argument_comment_end_line($$)
   my ($comment, $end_line)
     = $self->tree_element_comment_or_end_line($element);
   return $line_arg, $comment, $end_line;
-}
-
-sub element_format_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $end_line;
-
-  my $line_arg;
-  my $first_child = $element->{'contents'}->[0];
-  if ($first_child) {
-    my $first_child_type = $first_child->{'type'};
-    if ($first_child_type and $first_child_type eq 'arguments_line') {
-      $line_arg = $first_child->{'contents'}->[-1];
-    } else {
-      $line_arg = $element->{'contents'}->[-1];
-    }
-  }
-
-  my $comment = $line_arg->get_attribute('comment_at_end')
-    if ($line_arg);
-
-  if ($comment) {
-    $end_line = $self->convert_tree($comment);
-  } elsif ($line_arg and $line_arg->get_attribute('spaces_after_argument')) {
-    my $text = $line_arg->get_attribute('spaces_after_argument')->{'text'};
-    if (chomp($text)) {
-      $end_line = "\n";
-    } else {
-      $end_line = '';
-    }
-  } else {
-    $end_line = '';
-  }
-  return $end_line;
 }
 
 
@@ -2412,41 +2374,6 @@ sub convert_accents($$$;$$)
 
   if ($output_encoded_characters) {
     my $encoded = Texinfo::Convert::Unicode::encoded_accents($self,
-                                       $arg_text, $stack,
-                                       $self->get_conf('OUTPUT_ENCODING_NAME'),
-                                       $format_accents,
-                                       $in_upper_case);
-    if (defined($encoded)) {
-      return $encoded;
-    }
-  }
-  my $result = $arg_text;
-  foreach my $accent_command (reverse(@$stack)) {
-    $result = &$format_accents ($self, $result, $accent_command,
-                                $in_upper_case);
-  }
-  return $result;
-}
-
-# same as above, but using TreeElement interface
-sub element_convert_accents($$$;$$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $format_accents = shift;
-  my $output_encoded_characters = shift;
-  my $in_upper_case = shift;
-
-  my ($contents_element, $stack)
-   = Texinfo::Convert::Utils::element_find_innermost_accent_contents($self,
-                                                                     $accent);
-  my $arg_text = '';
-  if (defined($contents_element)) {
-    $arg_text = $self->convert_tree($contents_element);
-  }
-
-  if ($output_encoded_characters) {
-    my $encoded = Texinfo::Convert::Unicode::element_encoded_accents($self,
                                        $arg_text, $stack,
                                        $self->get_conf('OUTPUT_ENCODING_NAME'),
                                        $format_accents,
@@ -2951,25 +2878,6 @@ sub xml_accents($$;$)
   }
 
   return $self->convert_accents($accent, $format_accents,
-                                $self->get_conf('OUTPUT_CHARACTERS'),
-                                $in_upper_case);
-}
-
-# same as above, but using tree only interface
-sub element_xml_accents($$;$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $in_upper_case = shift;
-
-  my $format_accents;
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    $format_accents = \&_element_xml_numeric_entities_accent;
-  } else {
-    $format_accents = \&element_xml_accent;
-  }
-
-  return $self->element_convert_accents($accent, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);
 }
