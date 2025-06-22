@@ -25,18 +25,18 @@
 
 #undef context
 
-#include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
-#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "translations.h"
+/* wipe_error_message_list */
 #include "errors.h"
+/* index_content_element */
 #include "manipulate_indices.h"
 /* comment_or_end_line argument_comment_end_line */
 #include "convert_utils.h"

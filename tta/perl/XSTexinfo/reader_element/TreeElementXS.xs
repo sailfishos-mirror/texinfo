@@ -28,23 +28,12 @@
 #include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
-#include "converter_types.h"
+#include "element_types.h"
+/* element_command_name */
 #include "builtin_commands.h"
-#include "base_utils.h"
 #include "tree.h"
-#include "extra.h"
-/* get_cmd_global_uniq_command lookup_index_entry */
-#include "utils.h"
-#include "translations.h"
-#include "errors.h"
-#include "manipulate_indices.h"
-/* comment_or_end_line argument_comment_end_line */
-#include "convert_utils.h"
-#include "xs_utils.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
-/* get_sv_converter */
-#include "get_converter_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
