@@ -1,5 +1,20 @@
 2025-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Unicode.pm (eight_bit_and_unicode_point):
+	rename _eight_bit_and_unicode_point as eight_bit_and_unicode_point.
+	Update callers.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(element_unicode_accent, _element_format_unicode_accents_stack)
+	(_element_format_eight_bit_accents_stack)
+	(element_encoded_accents)
+	(tree_element_find_innermost_accent_contents),
+	tta/perl/Texinfo/Convert/Unicode.pm: move functions using the
+	TreeElement interface from Texinfo/Convert/Unicode.pm to
+	TreeElementConverter.pm.
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Example/TreeElementReadDocBook.pm (package),
 	tta/perl/Texinfo/Example/ReadDocBook.pm (package): fix package names.
 
