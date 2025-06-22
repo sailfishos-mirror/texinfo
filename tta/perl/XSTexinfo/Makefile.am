@@ -180,6 +180,23 @@ TreeElementXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 TreeElementXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+########################## TreeElementConverter XS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += TreeElementConverterXS.la
+endif
+
+nodist_TreeElementConverterXS_la_SOURCES = parser_document/TreeElementConverterXS.c
+CLEANFILES += parser_document/TreeElementConverterXS.c
+
+EXTRA_DIST += parser_document/TreeElementConverterXS.xs
+
+# locate include files under out-of-source builds.
+TreeElementConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+TreeElementConverterXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+TreeElementConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+TreeElementConverterXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+
 ########################## Reader XS
 
 if HAVE_ICONV

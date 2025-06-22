@@ -136,6 +136,7 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/Text.pm \
  Texinfo/Convert/TextContent.pm \
  Texinfo/Convert/TreeElementConverter.pm \
+ Texinfo/Convert/TreeElementConverterXS.pm \
  Texinfo/Convert/TreeElementReadDocBook.pm \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm
