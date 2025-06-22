@@ -33,8 +33,8 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 SV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
-HV *register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document);
-void register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
+size_t register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document);
+size_t register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
                                        DOCUMENT *document);
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);

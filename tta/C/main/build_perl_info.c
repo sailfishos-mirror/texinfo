@@ -3020,7 +3020,9 @@ store_document_tree_output_units (DOCUMENT *document)
   return result_sv;
 }
 
-void
+/* return the handle if the element is registered by the call,
+   not if it was already registered */
+size_t
 register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
                                   DOCUMENT *document)
 {
@@ -3049,13 +3051,16 @@ register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
       add_to_element_list (&document->element_handles, element);
       hv_store (element_hv, handle_key, strlen(handle_key),
                 newSViv (document->element_handles.number), 0);
+      return document->element_handles.number;
     }
+  return 0;
 }
 
-HV *
+size_t
 register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
 {
   HV *element_hv;
+  size_t number;
 
   dTHX;
 
@@ -3067,9 +3072,9 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
   else
     element_hv = (HV *) SvRV ((SV *)element->sv);
 
-  register_sv_element_handle_in_sv (element, element->sv, document);
+  number = register_sv_element_handle_in_sv (element, element->sv, document);
 
-  return element_hv;
+  return number;
 }
 
 /* Get a reference to the document tree.  Either from C data if the
