@@ -278,10 +278,8 @@ argument_comment_end_line (SV *, SV *element_sv)
         PUSHs(sv_2mortal(comment_sv));
         PUSHs(sv_2mortal(end_line_sv));
 
-# the argument is the item element, not the block_line_arg.  This is
-# different from Texinfo::Common::tree_element_itemize_item_prepended_element
 SV *
-tree_element_itemize_item_prepended_element (SV *element_sv)
+tree_element_item_itemize_prepended (SV *element_sv)
       PREINIT:
         DOCUMENT *document;
       CODE:
@@ -291,7 +289,7 @@ tree_element_itemize_item_prepended_element (SV *element_sv)
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
             const ELEMENT *prepended
-              = item_itemize_item_prepended_element (element);
+              = item_itemize_prepended (element);
             register_element_handle_in_sv ((ELEMENT *)prepended, document);
             RETVAL = newSVsv ((SV *)prepended->sv);
           }

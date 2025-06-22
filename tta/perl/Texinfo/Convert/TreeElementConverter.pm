@@ -66,8 +66,12 @@ my %XS_overrides = (
     => "Texinfo::TreeElement::get_global_unique_tree_element",
   "Texinfo::Convert::TreeElementConverter::global_commands_information_command_list"
     => "Texinfo::TreeElement::global_commands_information_command_list",
-  "Texinfo::Convert::TreeElementConverter::tree_element_itemize_item_prepended_element"
-    => "Texinfo::TreeElement::tree_element_itemize_item_prepended_element",
+  "Texinfo::Convert::TreeElementConverter::tree_element_item_itemize_prepended"
+    => "Texinfo::TreeElement::tree_element_item_itemize_prepended",
+  "Texinfo::Convert::TreeElementConverter::item_itemize_prepended"
+    => "Texinfo::TreeElement::tree_element_item_itemize_prepended",
+  "Texinfo::Convert::TreeElementConverter::find_element_authors"
+    => "Texinfo::TreeElement::element_find_element_authors",
   "Texinfo::Convert::TreeElementConverter::element_find_element_authors"
     => "Texinfo::TreeElement::element_find_element_authors",
   "Texinfo::Convert::TreeElementConverter::element_table_item_content_tree"
@@ -86,6 +90,8 @@ my %XS_overrides = (
     => "Texinfo::TreeElement::element_expand_verbatiminclude",
   "Texinfo::Convert::TreeElementConverter::element_expand_today"
     => "Texinfo::TreeElement::element_expand_today",
+  "Texinfo::Convert::TreeElementConverter::index_content_element"
+    => "Texinfo::TreeElement::tree_element_index_content_element",
   "Texinfo::Convert::TreeElementConverter::tree_element_index_content_element"
     => "Texinfo::TreeElement::tree_element_index_content_element",
   "Texinfo::Convert::TreeElementConverter::element_gdt"
@@ -96,6 +102,7 @@ my %XS_overrides = (
     => "Texinfo::TreeElement::tree_elements_nodes_list",
   "Texinfo::Convert::TreeElementConverter::tree_elements_headings_list"
     => "Texinfo::TreeElement::tree_elements_headings_list",
+
 );
 
 sub import {
@@ -340,13 +347,33 @@ sub element_translated_command_tree($$;$)
   return undef;
 }
 
+# wraper used for XS overriding
+sub index_content_element($;$)
+{
+  my $element = shift;
+  my $prefer_reference_element = shift;
+
+return Texinfo::Common::index_content_element($element,
+                                              $prefer_reference_element);
+}
+
+# same as in Texinfo::Common, but using the TreeElement interface
 sub tree_element_index_content_element($;$)
 {
   my $element = shift;
   my $prefer_reference_element = shift;
 
-  return Texinfo::Common::tree_element_index_content_element($element,
-                                                 $prefer_reference_element);
+  my $def_command = $element->get_attribute('def_command');
+  if ($def_command) {
+    if ($prefer_reference_element
+        and $element->get_attribute('def_index_ref_element')) {
+      return $element->get_attribute('def_index_ref_element');
+    } else {
+      return $element->get_attribute('def_index_element');
+    }
+  } else {
+    return $element->get_child(0);
+  }
 }
 
 
@@ -588,6 +615,16 @@ sub tree_element_set_global_document_commands($$$)
 
 # helper methods for conversion
 
+# for XS overriding
+
+sub find_element_authors($$)
+{
+  my ($element, $quotation_authors) = @_;
+
+  return Texinfo::Convert::Utils::find_element_authors($element,
+                                                       $quotation_authors);
+}
+
 sub element_find_element_authors_internal($$);
 
 # same as in Texinfo::Convert::Utils, but using the TreeElement interface
@@ -681,7 +718,7 @@ sub tree_element_item_line_block_line_argument_command($)
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 # same as in Texinfo::Common, but using the TreeElement interface
-sub _tree_element_itemize_item_prepended_element($)
+sub _tree_element_itemize_line_prepended_element($)
 {
   my $block_line_arg = shift;
 
@@ -695,15 +732,15 @@ sub _tree_element_itemize_item_prepended_element($)
   }
 }
 
-sub tree_element_itemize_item_prepended_element($)
+sub tree_element_item_itemize_prepended($)
 {
   my $element = shift;
 
-  my $itemize = $element->{'parent'};
-  my $arguments_line = $itemize->{'contents'}->[0];
-  my $block_line_arg = $arguments_line->{'contents'}->[0];
+  my $itemize = $element->parent();
+  my $arguments_line = $itemize->get_child(0);
+  my $block_line_arg = $arguments_line->get_child(0);
 
-  return _tree_element_itemize_item_prepended_element(
+  return _tree_element_itemize_line_prepended_element(
                                         $block_line_arg);
 }
 
@@ -721,6 +758,17 @@ sub element_block_item_line_command($$)
     $arg = $self->new_tree_element({'cmdname' => 'asis'});
   }
   return $arg;
+}
+
+sub item_itemize_prepended($)
+{
+  my $element = shift;
+
+  my $itemize = $element->{'parent'};
+  my $arguments_line = $itemize->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  return Texinfo::Common::itemize_line_prepended_element($block_line_arg);
 }
 
 # same as in Texinfo::Common, but with TreeElement interface

@@ -311,7 +311,7 @@ sub html32_convert_item_command($$$$$)
     my $block_line_arg = $arguments_line->{'contents'}->[0];
     my $command_as_argument_name;
     my $prepended_element
-      = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
+      = Texinfo::Common::itemize_line_prepended_element($block_line_arg);
     if ($prepended_element) {
       $command_as_argument_name = $prepended_element->{'cmdname'};
     }

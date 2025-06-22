@@ -892,8 +892,7 @@ sub block_line_argument_command($)
 
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
-# also used for the tree only interface
-sub itemize_item_prepended_element($)
+sub itemize_line_prepended_element($)
 {
   my $block_line_arg = shift;
 
@@ -1624,25 +1623,6 @@ sub index_content_element($;$)
     }
   } else {
     return $element->{'contents'}->[0];
-  }
-}
-
-# same as above, but using the TreeElement interface
-sub tree_element_index_content_element($;$)
-{
-  my $element = shift;
-  my $prefer_reference_element = shift;
-
-  my $def_command = $element->get_attribute('def_command');
-  if ($def_command) {
-    if ($prefer_reference_element
-        and $element->get_attribute('def_index_ref_element')) {
-      return $element->get_attribute('def_index_ref_element');
-    } else {
-      return $element->get_attribute('def_index_element');
-    }
-  } else {
-    return $element->get_child(0);
   }
 }
 

@@ -1,3 +1,32 @@
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_utils.c (itemize_line_prepended_element)
+	(item_itemize_prepended), tta/perl/Texinfo/Common.pm
+	(itemize_line_prepended_element),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_itemize_line_prepended_element),
+	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
+	(tree_element_item_itemize_prepended): rename
+	itemize_item_prepended_element as itemize_line_prepended_element,
+	item_itemize_item_prepended_element as item_itemize_prepended,
+	_tree_element_itemize_item_prepended_element as
+	_tree_element_itemize_line_prepended_element and
+	tree_element_itemize_item_prepended_element as
+	tree_element_item_itemize_prepended.  Update callers.
+
+	* tta/perl/Texinfo/Common.pm,
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(tree_element_index_content_element): remove
+	tree_element_index_content_element from Common.pm and add code to
+	TreeElementConverter.pm tree_element_index_content_element.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides)
+	(index_content_element, find_element_authors, item_itemize_prepended):
+	add wrappers for XS overriding.
+
+	* perl/Texinfo/Convert/ReadDocBook.pm (_begin_def_line, _convert): use
+	functions that do not use the TreeElement interface when possible.
+
 2025-06-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm (element_inline_or_block),

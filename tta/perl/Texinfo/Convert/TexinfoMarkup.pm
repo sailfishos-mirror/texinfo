@@ -770,7 +770,7 @@ sub _convert($$;$)
           my $arguments_line = $element->{'parent'}->{'contents'}->[0];
           my $block_line_arg = $arguments_line->{'contents'}->[0];
           my $prepended_element
-        = Texinfo::Common::itemize_item_prepended_element($block_line_arg);
+        = Texinfo::Common::itemize_line_prepended_element($block_line_arg);
           $result .= $self->txi_markup_open_element('prepend')
             .$self->_convert($prepended_element)
             .$self->txi_markup_close_element('prepend');

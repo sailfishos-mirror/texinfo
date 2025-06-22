@@ -8995,7 +8995,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
   block_line_arg = arguments_line->e.c->contents.list[0];
 
   prepended_element
-    = itemize_item_prepended_element (block_line_arg);
+    = itemize_line_prepended_element (block_line_arg);
 
   if (prepended_element)
     {

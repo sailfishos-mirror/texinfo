@@ -961,7 +961,7 @@ sub _convert($$)
             if ($parent_cmdname eq 'itemize') {
               my $command_as_argument_name;
               my $prepended_element
-   = Texinfo::Convert::TreeElementConverter::tree_element_itemize_item_prepended_element(
+   = Texinfo::Convert::TreeElementConverter::tree_element_item_itemize_prepended(
                                                           $element);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->{'cmdname'};

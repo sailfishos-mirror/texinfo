@@ -901,7 +901,7 @@ argument_comment_end_line (const ELEMENT *element)
 }
 
 const ELEMENT *
-itemize_item_prepended_element (const ELEMENT *block_line_arg)
+itemize_line_prepended_element (const ELEMENT *block_line_arg)
 {
   const ELEMENT *arg = block_line_argument_command (block_line_arg);
 
@@ -914,11 +914,11 @@ itemize_item_prepended_element (const ELEMENT *block_line_arg)
 }
 
 const ELEMENT *
-item_itemize_item_prepended_element (const ELEMENT *element)
+item_itemize_prepended (const ELEMENT *element)
 {
   const ELEMENT *itemize = element->parent;
   const ELEMENT *arguments_line = itemize->e.c->contents.list[0];
-  return itemize_item_prepended_element (
+  return itemize_line_prepended_element (
                       arguments_line->e.c->contents.list[0]);
 }
 

@@ -74,8 +74,8 @@ ELEMENT *definition_category_tree (const ELEMENT *current,
                              const char *translation_context)
                           );
 
-const ELEMENT *itemize_item_prepended_element (const ELEMENT *block_line_arg);
-const ELEMENT *item_itemize_item_prepended_element (const ELEMENT *element);
+const ELEMENT *itemize_line_prepended_element (const ELEMENT *block_line_arg);
+const ELEMENT *item_itemize_prepended (const ELEMENT *element);
 
 TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
                                               const ELEMENT *element);
