@@ -1303,7 +1303,7 @@ my %unicode_accented_letters = %Texinfo::UnicodeData::unicode_accented_letters;
 my %unicode_to_eight_bit = %Texinfo::UnicodeData::unicode_to_eight_bit;
 
 # same as in Texinfo::Convert::Unicode, using the TreeElement interface
-sub element_unicode_accent($$)
+sub _tree_element_unicode_accent($$)
 {
   my $text = shift;
   my $command = shift;
@@ -1354,7 +1354,7 @@ sub element_unicode_accent($$)
 }
 
 # same as in Texinfo::Convert::Unicode, with the TreeElement interface
-sub _element_format_unicode_accents_stack($$$$;$)
+sub _tree_element_format_unicode_accents_stack($$$$;$)
 {
   my $converter = shift;
   my $inner_text = shift;
@@ -1365,7 +1365,7 @@ sub _element_format_unicode_accents_stack($$$$;$)
   my $result = $inner_text;
 
   while (@$stack) {
-    my $formatted_result = element_unicode_accent($result, $stack->[-1]);
+    my $formatted_result = _tree_element_unicode_accent($result, $stack->[-1]);
     last if (!defined($formatted_result));
 
     $result = $formatted_result;
@@ -1386,7 +1386,7 @@ sub _element_format_unicode_accents_stack($$$$;$)
 }
 
 # same as in Texinfo::Convert::Unicode, with the TreeElement interface
-sub _element_format_eight_bit_accents_stack($$$$$;$)
+sub _tree_element_format_eight_bit_accents_stack($$$$$;$)
 {
   my $converter = shift;
   my $text = shift;
@@ -1414,7 +1414,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
   while (@$stack) {
     if (defined($unicode_formatted)) {
       $unicode_formatted
-         = element_unicode_accent($unicode_formatted, $stack->[-1]);
+         = _tree_element_unicode_accent($unicode_formatted, $stack->[-1]);
       if (defined($unicode_formatted) and $set_case) {
         if ($set_case > 0) {
           $unicode_formatted = uc($unicode_formatted);
@@ -1510,7 +1510,7 @@ sub _element_format_eight_bit_accents_stack($$$$$;$)
 }
 
 # same as in Texinfo::Convert::Unicode, with the TreeElement interface
-sub element_encoded_accents($$$$$;$)
+sub _tree_element_encoded_accents($$$$$;$)
 {
   my $converter = shift;
   my $text = shift;
@@ -1526,10 +1526,12 @@ sub element_encoded_accents($$$$$;$)
     # encoding names are lower cased early.
     $encoding = lc($encoding);
     if ($encoding eq 'utf-8') {
-      return _element_format_unicode_accents_stack($converter, $text, $stack,
+      return _tree_element_format_unicode_accents_stack($converter,
+                                            $text, $stack,
                                             $format_accent, $set_case);
     } elsif ($unicode_to_eight_bit{$encoding}) {
-      return _element_format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
+      return _tree_element_format_eight_bit_accents_stack(
+                               $converter, $text, $stack, $encoding,
                                $format_accent, $set_case);
     }
   }
@@ -1537,7 +1539,7 @@ sub element_encoded_accents($$$$$;$)
 }
 
 # same as in Texinfo::Convert::Utils, but using TreeElement interface
-sub tree_element_find_innermost_accent_contents($$)
+sub _tree_element_find_innermost_accent_contents($$)
 {
   my $self = shift;
   my $current = shift;
@@ -1602,14 +1604,14 @@ sub tree_element_convert_accents($$$;$$)
   my $in_upper_case = shift;
 
   my ($contents_element, $stack)
-   = tree_element_find_innermost_accent_contents($self, $accent);
+   = _tree_element_find_innermost_accent_contents($self, $accent);
   my $arg_text = '';
   if (defined($contents_element)) {
     $arg_text = $self->convert_tree($contents_element);
   }
 
   if ($output_encoded_characters) {
-    my $encoded = element_encoded_accents($self,
+    my $encoded = _tree_element_encoded_accents($self,
                                        $arg_text, $stack,
                                        $self->get_conf('OUTPUT_ENCODING_NAME'),
                                        $format_accents,
