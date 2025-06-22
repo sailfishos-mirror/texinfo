@@ -212,9 +212,9 @@ to the @@-commands names specified in the @emph{$commands_list} found
 in @emph{$tree} by traversing the tree.  The order of the @@-commands
 should be kept.
 
-@item $encoding_name = element_associated_processing_encoding($element)
-@anchor{Texinfo@asis{::}Common $encoding_name = element_associated_processing_encoding($element)}
-@cindex @code{element_associated_processing_encoding}
+@item $encoding_name = associated_processing_encoding($element)
+@anchor{Texinfo@asis{::}Common $encoding_name = associated_processing_encoding($element)}
+@cindex @code{associated_processing_encoding}
 
 Returns the encoding name that can be used for decoding derived
 from the encoding that was set where @emph{$element} appeared.
