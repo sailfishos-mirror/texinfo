@@ -1,5 +1,12 @@
 2025-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/Makefile.am (nodist_TreeElementXS_la_SOURCES)
+	(nodist_TreeElementConverterXS_la_SOURCES)
+	(nodist_ReaderXS_la_SOURCES): move ReaderXS.xs, TreeElementXS.xs and
+	TreeElementConverterXS.xs to the reader_element subdirectory.
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (dist_convertmodules_DATA),
 	tta/perl/Texinfo/Convert/TreeElementConverterXS.pm,
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides),

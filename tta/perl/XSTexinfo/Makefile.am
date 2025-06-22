@@ -169,10 +169,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += TreeElementXS.la
 endif
 
-nodist_TreeElementXS_la_SOURCES = parser_document/TreeElementXS.c
-CLEANFILES += parser_document/TreeElementXS.c
+nodist_TreeElementXS_la_SOURCES = reader_element/TreeElementXS.c
+CLEANFILES += reader_element/TreeElementXS.c
 
-EXTRA_DIST += parser_document/TreeElementXS.xs
+EXTRA_DIST += reader_element/TreeElementXS.xs
 
 # locate include files under out-of-source builds.
 TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
@@ -186,10 +186,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += TreeElementConverterXS.la
 endif
 
-nodist_TreeElementConverterXS_la_SOURCES = parser_document/TreeElementConverterXS.c
-CLEANFILES += parser_document/TreeElementConverterXS.c
+nodist_TreeElementConverterXS_la_SOURCES = reader_element/TreeElementConverterXS.c
+CLEANFILES += reader_element/TreeElementConverterXS.c
 
-EXTRA_DIST += parser_document/TreeElementConverterXS.xs
+EXTRA_DIST += reader_element/TreeElementConverterXS.xs
 
 # locate include files under out-of-source builds.
 TreeElementConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
@@ -203,10 +203,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += ReaderXS.la
 endif
 
-nodist_ReaderXS_la_SOURCES = parser_document/ReaderXS.c
-CLEANFILES += parser_document/ReaderXS.c
+nodist_ReaderXS_la_SOURCES = reader_element/ReaderXS.c
+CLEANFILES += reader_element/ReaderXS.c
 
-EXTRA_DIST += parser_document/ReaderXS.xs
+EXTRA_DIST += reader_element/ReaderXS.xs
 
 # locate include files under out-of-source builds.
 #ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
