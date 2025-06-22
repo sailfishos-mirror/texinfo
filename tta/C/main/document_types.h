@@ -291,10 +291,6 @@ typedef struct DOCUMENT {
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 
     size_t descriptor;
-    /* TODO not sure which structure list it should be, may need more
-       information that the element, such as out of tree or not
-     */
-    ELEMENT_LIST element_handles;
     STRING_LIST *small_strings;
     ERROR_MESSAGE_LIST error_messages;
     ERROR_MESSAGE_LIST parser_error_messages;
@@ -314,6 +310,15 @@ typedef struct DOCUMENT {
     /* this is used if the output units are used outside of converters,
        as is done in the tests */
     size_t output_units_descriptors[OUDT_external_nodes_units+1];
+
+    /* lists used to retrieve and store element handles to retrieve
+       C elements associated to Perl elements.  Only used for converters
+       that use the TreeElement XS interface, currently none are
+       used in texi2any. */
+    ELEMENT_LIST element_handles;
+    /* elements not in the tree, in general added with new_element_from_sv.
+       Currently these elements should also be in element_handles. */
+    ELEMENT_LIST additional_elements;
 
     /* flags for modified information not already passed to Perl */
     unsigned long modified_information;

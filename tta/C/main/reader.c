@@ -137,6 +137,7 @@ top_reader_context (READER *reader)
   return &reader->stack[reader->top -1];
 }
 
+/* NOTE that this functions takes care of resetting the reader when empty */
 static const READER_TOKEN *
 end_element (READER *reader)
 {
@@ -146,6 +147,7 @@ end_element (READER *reader)
   pop_reader_context (reader);
   if (!reader->top)
     {
+      /* reset reader, such that it may be reused for another tree */
       reader->stack[0].sequence->number = 0;
       return 0;
     }
@@ -256,15 +258,10 @@ txi_reader_skip_children (READER *reader, const ELEMENT *element)
 }
 
 void
-free_reader (READER *reader)
-{
-  free (reader->stack[0].sequence);
-}
-
-void
 destroy_reader (READER *reader)
 {
-  free_reader (reader);
+  destroy_list (reader->stack[0].sequence);
+  free (reader->stack);
   free (reader);
 }
 

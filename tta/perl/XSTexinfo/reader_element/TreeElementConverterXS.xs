@@ -53,6 +53,14 @@ MODULE = Texinfo::Convert::TreeElementConverterXS		PACKAGE = Texinfo::Convert::T
 
 PROTOTYPES: ENABLE
 
+# USE_SV set means that the ELEMENT_HASH argument should be used as
+# the Perl element associated to the C data.  That way there is no
+# need to build a Perl element from C afterwards.  This is relevant
+# when the TreeElement interface is not used.
+# If the Perl elements are never built, when the TreeElement+Reader
+# interfaces are both used, the Perl element fields that are not
+# setup by register_element_handle_in_sv are never accessed so
+# there is no need to set USE_SV.
 SV *
 new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
     PREINIT:
@@ -78,6 +86,7 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
                 register_element_handle_in_sv (e, document);
                 RETVAL = newSVsv ((SV *)e->sv);
               }
+            add_to_element_list (&document->additional_elements, e);
           }
         else
           {

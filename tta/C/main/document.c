@@ -616,13 +616,21 @@ void
 remove_document (DOCUMENT *document)
 {
   size_t document_descriptor = document->descriptor;
+  size_t i;
 
   destroy_document_information_except_tree (document);
+
+  for (i = 0; i < document->additional_elements.number; i++)
+    destroy_element (document->additional_elements.list[i]);
+  free (document->additional_elements.list);
+
+  free (document->element_handles.list);
 
   if (document->tree)
     {
       destroy_element_and_children (document->tree);
     }
+
   if (document->small_strings)
     destroy_strings_list (document->small_strings);
 

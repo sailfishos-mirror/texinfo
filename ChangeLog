@@ -1,5 +1,20 @@
 2025-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(new_tree_element), tta/C/main/document_types.h (DOCUMENT): add
+	additional_elements field in DOCUMENT and put there elements created
+	by a call to new_tree_element call.
+
+	* tta/C/main/document.c (remove_document): free additional_elements
+	and element_handles DOCUMENT fields data.
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/reader.c (destroy_reader): remove free_reader.  destroy
+	the root sequence list and free the stack.
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (register_sv_element_handle_in_sv)
 	(register_element_handle_in_sv): return the handle if the element is
 	registered by the call.
