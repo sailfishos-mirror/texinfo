@@ -849,12 +849,16 @@ my %formats_table = (
              'module' => 'Texinfo::Convert::IXINSXML',
              'floats' => 1,
            },
-  'docbooknoreader' => {
+  'docbook' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
+             #'module' => 'Texinfo::Example::TreeElementReadDocBook'
+             #'module' => 'Texinfo::Example::ReadDocBook'
            },
-  'docbook' => {
+  # next 3 formats are not documented since they should not be used except
+  # for development/timing
+  'docbooknoreader' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
@@ -862,12 +866,12 @@ my %formats_table = (
   'docbookreader' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Convert::ReadDocBook'
+             'module' => 'Texinfo::Example::ReadDocBook'
            },
   'docbooktreeelementreader' => {
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Convert::TreeElementReadDocBook'
+             'module' => 'Texinfo::Example::TreeElementReadDocBook'
            },
   'epub3' => {
             'converted_format' => 'html',

@@ -91,8 +91,8 @@ use Texinfo::Convert::LaTeX;
 use Texinfo::Convert::HTML;
 use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
-use Texinfo::Convert::ReadDocBook;
-use Texinfo::Convert::TreeElementReadDocBook;
+#use Texinfo::Example::ReadDocBook;
+#use Texinfo::Example::TreeElementReadDocBook;
 
 # the tests reference perl results file is loaded through a require
 # of a file containing code setting those variables.
@@ -531,8 +531,8 @@ sub convert_to_docbook($$$$$)
     $converter_options->{'_DOCBOOK_PIECE'} = 1;
   }
 
-  #my $converter = Texinfo::Convert::TreeElementReadDocBook->converter($converter_options);
-  #my $converter = Texinfo::Convert::ReadDocBook->converter($converter_options);
+  #my $converter = Texinfo::Example::TreeElementReadDocBook->converter($converter_options);
+  #my $converter = Texinfo::Example::ReadDocBook->converter($converter_options);
   my $converter = Texinfo::Convert::DocBook->converter($converter_options);
 
   my $result;
