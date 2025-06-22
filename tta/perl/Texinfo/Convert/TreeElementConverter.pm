@@ -24,6 +24,8 @@
 # The functions correspond to functions in Texinfo::Convert::Converter,
 # Texinfo::Common, Texinfo::Convert::Utils and Texinfo::Structuring.
 
+# This module is not used in texi2any converters.
+
 package Texinfo::Convert::TreeElementConverter;
 
 use 5.006;
@@ -73,9 +75,9 @@ my %XS_overrides = (
   "Texinfo::Convert::TreeElementConverter::item_itemize_prepended"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_item_itemize_prepended",
   "Texinfo::Convert::TreeElementConverter::find_element_authors"
-    => "Texinfo::Convert::TreeElementConverterXS::element_find_element_authors",
-  "Texinfo::Convert::TreeElementConverter::element_find_element_authors"
-    => "Texinfo::Convert::TreeElementConverterXS::element_find_element_authors",
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
+  "Texinfo::Convert::TreeElementConverter::tree_element_find_element_authors"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
   "Texinfo::Convert::TreeElementConverter::element_table_item_content_tree"
     => "Texinfo::Convert::TreeElementConverterXS::element_table_item_content_tree",
   "Texinfo::Convert::TreeElementConverter::table_item_content_tree"
@@ -88,8 +90,10 @@ my %XS_overrides = (
     => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
   "Texinfo::Convert::TreeElementConverter::tree_element_argument_comment_end_line"
     => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
-  "Texinfo::Convert::TreeElementConverter::element_expand_verbatiminclude"
-    => "Texinfo::Convert::TreeElementConverterXS::element_expand_verbatiminclude",
+  "Texinfo::Convert::TreeElementConverter::utils_tree_element_expand_verbatiminclude"
+    => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
+  "Texinfo::Convert::TreeElementConverter::utils_expand_verbatiminclude"
+    => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
   "Texinfo::Convert::TreeElementConverter::element_expand_today"
     => "Texinfo::Convert::TreeElementConverterXS::element_expand_today",
   "Texinfo::Convert::TreeElementConverter::index_content_element"
@@ -98,12 +102,12 @@ my %XS_overrides = (
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_index_content_element",
   "Texinfo::Convert::TreeElementConverter::element_gdt"
     => "Texinfo::Convert::TreeElementConverterXS::element_gdt",
-  "Texinfo::Convert::TreeElementConverter::tree_elements_sections_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_elements_sections_list",
-  "Texinfo::Convert::TreeElementConverter::tree_elements_nodes_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_elements_nodes_list",
-  "Texinfo::Convert::TreeElementConverter::tree_elements_headings_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_elements_headings_list",
+  "Texinfo::Convert::TreeElementConverter::tree_element_sections_list"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_sections_list",
+  "Texinfo::Convert::TreeElementConverter::tree_element_nodes_list"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_nodes_list",
+  "Texinfo::Convert::TreeElementConverter::tree_element_headings_list"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_headings_list",
 );
 
 sub import {
@@ -134,7 +138,7 @@ my $min_level = $command_structuring_level{'chapter'};
 my $max_level = $command_structuring_level{'subsubsection'};
 
 # same as in Texinfo::Common, but using the TreeElement interface
-sub element_section_level($)
+sub tree_element_section_level($)
 {
   my $section = shift;
 
@@ -158,7 +162,7 @@ sub element_section_level($)
 }
 
 # same as in Texinfo::Structuring, but using the TreeElement interface
-sub element_section_level_adjusted_command_name($)
+sub tree_element_section_level_adjusted_command_name($)
 {
   my $element = shift;
 
@@ -179,8 +183,8 @@ sub element_section_level_adjusted_command_name($)
   return $cmdname;
 }
 
-sub element_is_content_empty($;$);
-sub element_is_content_empty($;$)
+sub tree_element_is_content_empty($;$);
+sub tree_element_is_content_empty($;$)
 {
   my $tree = shift;
   my $do_not_ignore_index_entries = shift;
@@ -241,7 +245,8 @@ sub element_is_content_empty($;$)
         return 0;
       }
     }
-    if (not element_is_content_empty($content, $do_not_ignore_index_entries)) {
+    if (not tree_element_is_content_empty($content,
+                                          $do_not_ignore_index_entries)) {
       return 0;
     }
   }
@@ -249,7 +254,7 @@ sub element_is_content_empty($;$)
 }
 
 # same as in Texinfo::Common, but using TreeElement interface
-sub tree_element_is_inline($;$)
+sub tree_element_element_is_inline($;$)
 {
   my $current = shift;
   my $check_current = shift;
@@ -333,7 +338,7 @@ sub global_commands_information_command_list($$)
 }
 
 # using the interface with registered elements, compatible with TreeElements
-sub element_translated_command_tree($$;$)
+sub tree_element_translated_command_tree($$;$)
 {
   my $converter = shift;
   my $cmdname = shift;
@@ -343,7 +348,7 @@ sub element_translated_command_tree($$;$)
   if ($translated_commands
       and defined($translated_commands->{$cmdname})) {
     my $to_translate = $translated_commands->{$cmdname};
-    return $converter->element_cdt($to_translate, undef, $build_tree);
+    return $converter->tree_element_cdt($to_translate, undef, $build_tree);
   }
   return undef;
 }
@@ -381,7 +386,8 @@ sub tree_element_index_content_element($;$)
 
 # translations
 
-# for XS override, with a simpler interface than element_cdt
+# for XS override, with a simpler interface than element_cdt.  Should
+# not be called directly.
 sub element_gdt($$$;$$$$)
 {
   my ($string, $lang_translations, $document,
@@ -393,7 +399,7 @@ sub element_gdt($$$;$$$$)
 }
 
 # similar interface as cdt
-sub element_cdt($$;$$$)
+sub tree_element_cdt($$;$$$)
 {
   my ($self, $string, $replaced_substrings,
       $build_tree, $translation_context) = @_;
@@ -409,7 +415,7 @@ sub element_cdt($$;$$$)
 
 # relations
 
-sub tree_elements_sections_list($)
+sub tree_element_sections_list($)
 {
   my $self = shift;
 
@@ -420,7 +426,7 @@ sub tree_elements_sections_list($)
   return undef;
 }
 
-sub tree_elements_nodes_list($)
+sub tree_element_nodes_list($)
 {
   my $self = shift;
 
@@ -431,7 +437,7 @@ sub tree_elements_nodes_list($)
   return undef;
 }
 
-sub tree_elements_headings_list($)
+sub tree_element_headings_list($)
 {
   my $self = shift;
 
@@ -626,10 +632,10 @@ sub find_element_authors($$)
                                                        $quotation_authors);
 }
 
-sub element_find_element_authors_internal($$);
+sub _element_find_element_authors($$);
 
 # same as in Texinfo::Convert::Utils, but using the TreeElement interface
-sub element_find_element_authors_internal($$)
+sub _element_find_element_authors($$)
 {
   my $element = shift;
   my $quotation_authors = shift;
@@ -658,20 +664,20 @@ sub element_find_element_authors_internal($$)
   my $contents = $element->get_children();
   if ($contents) {
     foreach my $content (@$contents) {
-      element_find_element_authors_internal($content, $quotation_authors);
+      _element_find_element_authors($content, $quotation_authors);
     }
   }
 }
 
 # same as in Texinfo::Convert::Utils, but using the TreeElement interface
-sub element_find_element_authors($$)
+sub tree_element_find_element_authors($$)
 {
   my $element = shift;
   my $quotation_authors = shift;
 
   my $contents = $element->get_children();
   foreach my $content (@$contents) {
-    element_find_element_authors_internal($content, $quotation_authors);
+    _element_find_element_authors($content, $quotation_authors);
   }
 }
 
@@ -1086,7 +1092,7 @@ sub tree_element_txt_image_text($$$)
 }
 
 # same as in Texinfo::Convert::Utils, but with TreeElement interface
-sub _element_expand_verbatiminclude($$$$$;$$)
+sub _tree_element_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
   my $input_file_name_encoding = shift;
@@ -1158,8 +1164,8 @@ sub _element_expand_verbatiminclude($$$$$;$$)
   return $verbatiminclude;
 }
 
-# For XS
-sub element_expand_verbatiminclude($$$$$;$$)
+# For XS, lower level interface.  Should not be called directly
+sub utils_tree_element_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
   my $input_file_name_encoding = shift;
@@ -1169,13 +1175,14 @@ sub element_expand_verbatiminclude($$$$$;$$)
   my $document = shift;
   my $converter = shift;
 
-  return _element_expand_verbatiminclude($current,
+  return _tree_element_expand_verbatiminclude($current,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
 }
 
-sub converter_element_expand_verbatiminclude($$)
+# converter interface
+sub tree_element_expand_verbatiminclude($$)
 {
   my $converter = shift;
   my $current = shift;
@@ -1191,13 +1198,54 @@ sub converter_element_expand_verbatiminclude($$)
 
   my $document = $converter->{'document'};
 
-  return element_expand_verbatiminclude($current,
+  return utils_tree_element_expand_verbatiminclude($current,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
 }
 
-# Wrapper used for XS override
+# for the XS override
+sub utils_expand_verbatiminclude($$$$$;$$)
+{
+  my $current = shift;
+  my $input_file_name_encoding = shift;
+  my $doc_encoding_for_input_file_name = shift;
+  my $locale_encoding = shift;
+  my $include_directories = shift;
+  my $document = shift;
+  my $converter = shift;
+
+  return Texinfo::Convert::Utils::expand_verbatiminclude($current,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $converter);
+}
+
+# converter interface, same as Texinfo::Convert::Converter, including
+# the name but with an XS interface for the lower level
+sub expand_verbatiminclude($$)
+{
+  my $converter = shift;
+  my $current = shift;
+
+  my $input_file_name_encoding
+    = $converter->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $converter->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+  my $locale_encoding = $converter->get_conf('LOCALE_ENCODING');
+
+  my $include_directories
+    = $converter->get_conf('INCLUDE_DIRECTORIES');
+
+  my $document = $converter->{'document'};
+
+  return utils_expand_verbatiminclude($current,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $converter);
+}
+
+# Wrapper used for XS override.  Should not be accessed directly.
 sub element_expand_today($$$$$)
 {
   my $build_tree = shift;
@@ -1211,7 +1259,10 @@ sub element_expand_today($$$$$)
                                                $debug, $converter);
 }
 
-sub converter_element_expand_today($;$)
+# Does not follow the TreeElement interface when there is no XS,
+# as Texinfo::Convert::Utils::expand_today is called.  But calls a function
+# that has an XS override, which allows to get the right output with XS.
+sub tree_element_expand_today($;$)
 {
   my $converter = shift;
   my $build_tree = shift;
@@ -1331,7 +1382,7 @@ sub tree_element_convert_accents($$$;$$)
 }
 
 # same as in Texinfo::Convert::Converter, but using TreeElement interface
-sub element_xml_accent($$$;$$$)
+sub _tree_element_xml_accent($$$;$$$)
 {
   my $self = shift;
   my $text = shift;
@@ -1386,14 +1437,14 @@ sub element_xml_accent($$$;$$$)
 }
 
 # same as in Texinfo::Convert::Converter, but using TreeElement interface
-sub _element_xml_numeric_entities_accent($$$;$)
+sub _tree_element_xml_numeric_entities_accent($$$;$)
 {
   my $self = shift;
   my $text = shift;
   my $command = shift;
   my $in_upper_case = shift;
 
-  return element_xml_accent($self, $text, $command, $in_upper_case, 1);
+  return _tree_element_xml_accent($self, $text, $command, $in_upper_case, 1);
 }
 
 # same as in Texinfo::Convert::Converter, but using TreeElement interface
@@ -1405,9 +1456,9 @@ sub tree_element_xml_accents($$;$)
 
   my $format_accents;
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    $format_accents = \&_element_xml_numeric_entities_accent;
+    $format_accents = \&_tree_element_xml_numeric_entities_accent;
   } else {
-    $format_accents = \&element_xml_accent;
+    $format_accents = \&_tree_element_xml_accent;
   }
 
   return $self->tree_element_convert_accents($accent, $format_accents,
@@ -1491,226 +1542,85 @@ Texinfo::Convert::TreeElementConverter - Parent class for TreeElement based conv
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.
 
+Note that this module is not used in C<texi2any>.
+
 =head1 DESCRIPTION
 
-C<Texinfo::Convert::TreeElementConverter> is a super class that implements
-functions present in other Texinfo modules, mainly
-C<Texinfo::Convert::Converter> and C<Texinfo::Common> using the TreeElement
-L<Texinfo::TreeElement> interfaces.
+C<Texinfo::Convert::TreeElementConverter> is a super class that helps
+using the L<Texinfo::TreeElement> interface in converters.  It provides
+implementations of method interfaces from other Texinfo Perl modules using the
+TreeElement L<Texinfo::TreeElement> interface only.  These methods can be in the
+L<Texinfo::Convert::Converter>, L<Texinfo::Common>, L<Texinfo::Convert::Utils>
+and L<Texinfo::Structuring> modules.
 
-=over
+It also provides wrappers around some methods present in these other Texinfo
+modules with associated XS interfaces that perform the tasks needed for the
+TreeElement interface with XS.
+
+Lastly, some methods are also available to create or access Texinfo tree
+elements.  If XS is used, the information provided by these methods should only
+be accessed through these methods to get Texinfo elements that can be accessed
+later on through the TreeElement interface.
 
 =head1 METHODS
 
-=head2 Translations in output documents
-
-C<Texinfo::Convert::Converter> provides wrappers around
-L<Texinfo::Translations> methods that sets the language to the current
-C<documentlanguage>.
-
-The C<cdt> and C<pcdt> methods are used to translate strings to be output in
-converted documents, and return a Texinfo tree.  The C<cdt_string> is similar
-but returns a simple string, for already converted strings.
+The following methods allow to create new elements and get elements.
+Elements accessed through the TreeElement interface in XS should only be
+created and accessed through these methods such that the association
+of Perl to C data is made for the created or returned element.
 
 =over
 
-=item $tree = $converter->cdt($string, $replaced_substrings, $translation_context)
+=item $converter->new_tree_element($element, $use_sv)
+X<C<new_tree_element>>
 
-=item $string = $converter->cdt_string($string, $replaced_substrings, $translation_context)
-X<C<cdt>> X<C<cdt_string>>
+Create a new tree elements based on the I<$element> hash reference.  The
+I<$use_sv> argument is optional; if set and XS is used, the I<$element> hash
+reference is associated to the new tree element data in C, otherwise it is
+discarded.
 
-The I<$string> is a string to be translated.  With C<cdt>
-the function returns a Texinfo tree, as the string is interpreted
-as Texinfo code after translation.  With C<cdt_string> a string
-is returned.
+=item ($index_entry, $index_info) = $converter->get_tree_element_index_entry($element)
+X<C<get_tree_element_index_entry>>
 
-I<$replaced_substrings> is an optional hash reference specifying
-some substitution to be done after the translation.  The key of the
-I<$replaced_substrings> hash reference identifies what is to be substituted.
-In the string to be translated word in brace matching keys of
-I<$replaced_substrings> are replaced.
-For C<cdt>, the value is a Texinfo tree that is substituted in the
-resulting Texinfo tree. For C<cdt_string>, the value is a string that
-is replaced in the resulting string.
+Finds the index entry and index information associated to the tree
+element I<$element>.  See L<< Texinfo::Common lookup_index_entry|Texinfo::Common/($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information) >>
+for a description of the return values.
 
-The I<$translation_context> is optional.  If not C<undef> this is a translation
-context string for I<$string>.  It is the first argument of C<pgettext>
-in the C API of Gettext.
+=item $element = $converter->get_global_unique_tree_element($command_name)
 
-=item $tree = $object->pcdt($translation_context, $string, $replaced_substrings)
-X<C<pcdt>>
+=item $elements = global_commands_information_command_list($document, $command_name)
 
-Same to C<cdt> except that the I<$translation_context> is not optional.
-This function is useful to mark strings with a translation context for
-translation.  This function is similar to pgettext in the Gettext C API.
+X<C<get_global_unique_tree_element>>
+X<C<global_commands_information_command_list>>
 
-=back
+Returns the tree element or tree elements corresponding to the
+I<$command_name> @-command.  Only for @-commands that are accessed
+through L<< Texinfo::Document global_commands_information|Texinfo::Document/$commands = global_commands_information($document) >>
+when the TreeElement interface is not used.
 
-=head2 Conversion to XML
+C<get_global_unique_tree_element> should be called for @-commands that should
+appear only once in a Texinfo document.  This method returns the element.
 
-Some C<Texinfo::Convert::Converter> methods target conversion to XML.
-Most methods take a I<$converter> as argument to get some
-information and use methods for error reporting.
-
-=over
-
-=item $formatted_text = $converter->xml_format_text_with_numeric_entities($text)
-X<C<xml_format_text_with_numeric_entities>>
-
-Replace quotation marks and hyphens used to represent dash in
-Texinfo text with numeric XML entities.
-
-=item $protected_text = $converter->xml_protect_text($text)
-X<C<xml_protect_text>>
-
-Protect special XML characters (&, E<lt>, E<gt>, ") of I<$text>.
-
-=item $comment = $converter->xml_comment($text)
-X<C<xml_comment>>
-
-Returns an XML comment for I<$text>.
-
-=item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
-X<C<xml_accent>>
-
-I<$text> is the text appearing within an accent command.  I<$accent_command>
-should be a Texinfo tree element corresponding to an accent command taking
-an argument.  I<$in_upper_case> is optional, and, if set, the text is put
-in upper case.  The function returns the accented letter as XML named entity
-if possible, falling back to numeric entities if there is no named entity
-and returns the argument as last resort.  I<$use_numeric_entities>
-is optional.  If set, numerical entities are used instead of named entities
-if possible.
-
-=item $result = $converter->xml_accents($accent_command, $in_upper_case)
-X<C<xml_accents>>
-
-I<$accent_command> is an accent command, which may have other accent
-commands nested.  If I<$in_upper_case> is set, the result should be
-upper cased.  The function returns the accents formatted as XML.
-
-=item $result = xml_numeric_entity_accent($accent_command_name, $text)
-X<C<xml_numeric_entity_accent>>
-
-I<$accent_command_name> is the name of an accent command.  I<$text> is the text
-appearing within the accent command.  Returns the accented letter as XML numeric
-entity, or C<undef> is there is no such entity.
+C<global_commands_information_command_list> requires a C<Texinfo::Document>
+I<$document> argument.  The I<$document> could be available as
+C<< $converter->{'document'} >>. This method should be called for @-commands
+that may appear more than once in a Texinfo document.  This method returns
+a reference on the array of all the I<$command_name> @-command tree elements
+appearing in the document.
 
 =back
 
-The following hashes, defined as C<our> variable are also available:
-
-=over
-
-=item %xml_text_entity_no_arg_commands_formatting
-X<C<%xml_text_entity_no_arg_commands_formatting>>
-
-Values are entities or, if not available, ASCII representation of
-single character non-alphabetical commands without brace such as C<*> or C<:>
-and of commands with empty braces such as C<atchar>, C<LaTeX>, C<arrow>,
-C<quoteleft> or C<AA>.
-
-=back
-
-=head2 Helper methods
-
-The module provides methods that may be useful for converter.
-Most methods take a I<$converter> as argument to get some
-information and use methods for error reporting, see L</Registering error and
-warning messages>.  Also to translate strings, see L</Translations in output
-documents>.  For useful methods that need a converter optionally and can be
-used in converters that do not inherit from C<Texinfo::Convert::Converter>, see
-L<Texinfo::Convert::Utils>.
-
-=over
-
-=item $tree = $converter->expand_today()
-
-Expand today's date, as a Texinfo tree with translations.
-
-=item ($caption, $prepended) = $converter->float_name_caption($float)
-X<C<float_name_caption>>
-
-I<$float> is a Texinfo tree C<@float> element.  This function
-returns the caption element that should be used for the float formatting
-and the I<$prepended> Texinfo tree combining the type and label
-of the float.
-
-=item $tree = $converter->float_type_number($float)
-X<C<float_type_number>>
-
-I<$float> is a Texinfo tree C<@float> element.  This function
-returns the type and number of the float as a Texinfo tree with
-translations.
-
-=item $end_line = $converter->format_comment_or_return_end_line($element)
-X<C<format_comment_or_return_end_line>>
-
-Format comment at end of line or return the end of line associated with
-the element.  In many cases, converters ignore comments and output is
-better formatted with new lines added independently of the presence
-of newline or comment in the initial Texinfo line, so most converters
-are better off not using this method.
-
-=item $converter->set_global_document_commands($commands_location, $selected_commands)
-X<C<set_global_document_commands>>
-
-Set the Texinfo customization options for @-commands.  I<$selected_commands>
-is an array reference containing the @-commands set.  I<$commands_location>
-specifies where in the document the value should be taken from. The
-possibilities are:
-
-=over
-
-=item before
-
-Set to the values before document conversion, from defaults and command-line.
-
-=item last
-
-Set to the last value for the command.
-
-=item preamble
-
-Set sequentially to the values in the Texinfo preamble.
-
-=item preamble_or_first
-
-Set to the first value of the command if the first command is not
-in the Texinfo preamble, else set as with I<preamble>,
-sequentially to the values in the Texinfo preamble.
-
-=back
-
-Notice that the only effect of this function is to set a customization
-variable value, no @-command side effects are run, no associated customization
-variables are set.
-
-For more information on the function used to set the value for each of the command, see
-L<C<Texinfo::Common> C<set_global_document_command>|Texinfo::Common/$element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)>.
-
-=item $table_item_tree = $converter->table_item_content_tree($element)
-X<C<table_item_content_tree>>
-
-I<$element> should be an C<@item> or C<@itemx> tree element.
-Returns a tree in which the @-command in argument of C<@*table>
-of the I<$element> has been applied to the I<$element> line argument,
-or C<undef>.
-
-=item $tree = $converter->expand_verbatiminclude($verbatiminclude)
-X<C<expand_verbatiminclude>>
-
-I<$verbatiminclude> is a C<@verbatiminclude> tree element.  This function
-returns a C<@verbatim> tree elements after finding the included file and
-reading it.
-
-=back
+The other methods are documented in the modules that provide the
+non-TreeElement interface.   The method name is either the same
+as in this module, if the method is used as a wrapper around the method
+with the same name, or can be obtained by removing a leading C<tree_element_>.
+For example, the C<index_content_element> documentation can be used for the
+C<tree_element_index_content_element> method of this module.
 
 =head1 SEE ALSO
 
-L<Texinfo::Common>, L<Texinfo::Convert::Unicode>, L<Texinfo::Report>,
-L<Texinfo::Translations>, L<Texinfo::Convert::Utils>
-and L<Texinfo::Convert::Converter>.
+L<Texinfo::Convert::Converter>, L<Texinfo::Common>, L<Texinfo::Convert::Utils>
+and L<Texinfo::Structuring>.
 
 =head1 AUTHOR
 

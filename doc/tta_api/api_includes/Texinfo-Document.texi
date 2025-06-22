@@ -24,7 +24,8 @@ Texinfo::Document - Texinfo document tree and information
   # node/float/anchor/namedanchor names.
   my $identifier_target = $document->labels_information();
 
-  # A hash reference, keys are @-command names, value is an
+  # A hash reference, keys are @-command names, value is the
+  # corresponding @-commands tree element or an
   # array reference holding all the corresponding @-commands.
   # Also contains dircategory and direntry list.
   my $global_commands_information
@@ -133,9 +134,11 @@ available through @code{global_commands_information}:
 @anchor{Texinfo@asis{::}Document $commands = global_commands_information($document)}
 @cindex @code{global_commands_information}
 
-@emph{$commands} is an hash reference.  The keys are @@-command names.  The
+@emph{$commands} is an hash reference.  The keys are @@-command names.  For
+@@-commands that may appear multiple time in the Texinfo document, the
 associated values are array references containing all the corresponding
-tree elements.
+tree elements.  For @@-commands that should appear only once, the associated
+value is the tree element.
 
 The following list of commands is also available as a key:
 

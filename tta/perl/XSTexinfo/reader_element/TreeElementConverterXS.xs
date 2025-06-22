@@ -365,7 +365,7 @@ element_table_item_content_tree (SV *, SV *element_sv)
         RETVAL
 
 void
-element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
+tree_element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
       PREINIT:
         DOCUMENT *document;
       CODE:
@@ -392,7 +392,7 @@ element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
           }
 
 SV *
-element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, SV *include_directories_sv, ...)
+utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, SV *include_directories_sv, ...)
       PROTOTYPE: $$$$$;$$
       PREINIT:
         DOCUMENT *document;
@@ -554,7 +554,7 @@ element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
         RETVAL
 
 SV *
-tree_elements_sections_list (SV *converter_in)
+tree_element_sections_list (SV *converter_in)
       PREINIT:
         DOCUMENT *document;
      CODE:
@@ -567,7 +567,7 @@ tree_elements_sections_list (SV *converter_in)
         RETVAL
 
 SV *
-tree_elements_nodes_list (SV *converter_in)
+tree_element_nodes_list (SV *converter_in)
       PREINIT:
         DOCUMENT *document;
      CODE:
@@ -580,7 +580,7 @@ tree_elements_nodes_list (SV *converter_in)
         RETVAL
 
 SV *
-tree_elements_headings_list (SV *converter_in)
+tree_element_headings_list (SV *converter_in)
       PREINIT:
         DOCUMENT *document;
      CODE:

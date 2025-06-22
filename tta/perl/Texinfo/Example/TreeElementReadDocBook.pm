@@ -17,7 +17,10 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-package Texinfo::Convert::TreeElementReadDocBook;
+# This file is an example of a converter using the Reader interface and
+# the TreeElement interface.  It is not used in texi2any.
+
+package Texinfo::Example::TreeElementReadDocBook;
 
 use 5.006;
 use strict;
@@ -50,9 +53,9 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::TreeElementConverter;
 
-our @ISA = qw(Texinfo::Convert::TreeElementConverter
-              Texinfo::Convert::Converter);
-
+# inherits from Texinfo::Convert::Converter through
+# Texinfo::Convert::TreeElementConverter
+our @ISA = qw(Texinfo::Convert::TreeElementConverter);
 
 our $VERSION = '7.2dev';
 
@@ -669,10 +672,10 @@ sub _docbook_section_element($$)
     }
   }
   my $level_adjusted_cmdname
-   = Texinfo::Convert::TreeElementConverter::element_section_level_adjusted_command_name(
+   = Texinfo::Convert::TreeElementConverter::tree_element_section_level_adjusted_command_name(
                                                                    $element);
   if ($level_adjusted_cmdname eq 'unnumbered') {
-    my $sections_list = $self->tree_elements_sections_list();
+    my $sections_list = $self->tree_element_sections_list();
     if ($sections_list) {
       my $section_relations
         = $sections_list->[$element->get_attribute('section_number') -1];
@@ -693,7 +696,7 @@ sub _docbook_section_element($$)
     # sectioning command, like @section, @appendix, if Structuring
     # sectioning_structure was not called.
     my $heading_level
-      = Texinfo::Convert::TreeElementConverter::element_section_level($element);
+      = Texinfo::Convert::TreeElementConverter::tree_element_section_level($element);
     return $docbook_sections{$heading_level};
   }
 }
@@ -927,7 +930,7 @@ sub _convert($$)
           }
 
           my $translated_tree
-            = $self->element_translated_command_tree($command_name);
+            = $self->tree_element_translated_command_tree($command_name);
           if ($translated_tree) {
             $result_text = $self->convert_tree($translated_tree);
           } else {
@@ -935,7 +938,7 @@ sub _convert($$)
           }
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree(
-                           $self->converter_element_expand_today());
+                           $self->tree_element_expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
           $result_text = $self->tree_element_xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
@@ -1058,7 +1061,7 @@ sub _convert($$)
           } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
             my $section_relations;
             if ($cmdname ne 'node') {
-              my $sections_list = $self->tree_elements_sections_list();
+              my $sections_list = $self->tree_element_sections_list();
               if ($sections_list) {
                 $section_relations
                 = $sections_list->[$element->get_attribute('section_number') -1];
@@ -1092,7 +1095,7 @@ sub _convert($$)
             if ($cmdname eq 'node') {
               my $node_number = $element->get_attribute('node_number');
               if ($node_number) {
-                my $nodes_list = $self->tree_elements_nodes_list();
+                my $nodes_list = $self->tree_element_nodes_list();
                 $node_relations = $nodes_list->[$node_number -1];
                 if (not $node_relations->{'associated_section'}) {
                   $anchor = _output_anchor($element);
@@ -1165,7 +1168,7 @@ sub _convert($$)
                   $section_attribute .= " label=\"$label\"";
                 }
                 my $section_relations;
-                my $sections_list = $self->tree_elements_sections_list();
+                my $sections_list = $self->tree_element_sections_list();
                 if ($sections_list) {
                   $section_relations
               = $sections_list->[$opened_element->get_attribute('section_number') -1];
@@ -1201,7 +1204,7 @@ sub _convert($$)
                 if ($docbook_sectioning_element eq 'part'
                     and not ($section_relations
                              and $section_relations->{'part_associated_section'})
-     and !Texinfo::Convert::TreeElementConverter::element_is_content_empty(
+     and !Texinfo::Convert::TreeElementConverter::tree_element_is_content_empty(
                                                          $opened_element)) {
                   $$output_ref .= "<partintro>\n";
                 }
@@ -1246,7 +1249,7 @@ sub _convert($$)
             }
           } elsif ($cmdname eq 'verbatiminclude') {
             my $expansion
-              = $self->converter_element_expand_verbatiminclude($element);
+              = $self->tree_element_expand_verbatiminclude($element);
             if (defined($expansion)) {
               $$output_ref .= $self->convert_tree($expansion);
             }
@@ -1373,17 +1376,17 @@ sub _convert($$)
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt(
+                    $self->tree_element_cdt(
                       'section ``{section_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                   $self->element_cdt(
+                   $self->tree_element_cdt(
                      'See section ``{section_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                   $self->element_cdt(
+                   $self->tree_element_cdt(
                       'see section ``{section_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 }
@@ -1396,29 +1399,29 @@ sub _convert($$)
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('``{node_name}\'\' in @cite{{book}}',
+                    $self->tree_element_cdt('``{node_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('See ``{node_name}\'\' in @cite{{book}}',
+                    $self->tree_element_cdt('See ``{node_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('see ``{node_name}\'\' in @cite{{book}}',
+                    $self->tree_element_cdt('see ``{node_name}\'\' in @cite{{book}}',
                                $substituted_strings));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('@cite{{book}}',
+                    $self->tree_element_cdt('@cite{{book}}',
                       {'book' => $book_element }));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('See @cite{{book}}',
+                    $self->tree_element_cdt('See @cite{{book}}',
                       {'book' => $book_element }));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('see @cite{{book}}',
+                    $self->tree_element_cdt('see @cite{{book}}',
                       {'book' => $book_element }));
                 }
               }
@@ -1432,17 +1435,17 @@ sub _convert($$)
                  };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt(
+                    $self->tree_element_cdt(
                       'section ``{section_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt(
+                    $self->tree_element_cdt(
                       'See section ``{section_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                     $self->element_cdt(
+                     $self->tree_element_cdt(
                        'see section ``{section_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 }
@@ -1455,31 +1458,31 @@ sub _convert($$)
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('``{node_name}\'\' in @file{{manual}}',
+                    $self->tree_element_cdt('``{node_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt(
+                    $self->tree_element_cdt(
                       'See ``{node_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt(
+                    $self->tree_element_cdt(
                         'see ``{node_name}\'\' in @file{{manual}}',
                                $substituted_strings));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('@file{{manual}}',
+                    $self->tree_element_cdt('@file{{manual}}',
                       {'manual' => $manual_file_element }));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('See @file{{manual}}',
+                    $self->tree_element_cdt('See @file{{manual}}',
                       {'manual' => $manual_file_element }));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->element_cdt('see @file{{manual}}',
+                    $self->tree_element_cdt('see @file{{manual}}',
                       {'manual' => $manual_file_element }));
                 }
               }
@@ -1498,17 +1501,17 @@ sub _convert($$)
               if ($cmdname eq 'ref'
                   or $cmdname eq 'link') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('{title_ref}', {'title_ref' =>
+                        $self->tree_element_cdt('{title_ref}', {'title_ref' =>
                          $self->new_tree_element({'type' => '_converted',
                                                     'text' => $argument})}));
               } elsif ($cmdname eq 'xref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('See {title_ref}', {'title_ref' =>
+                        $self->tree_element_cdt('See {title_ref}', {'title_ref' =>
                           $self->new_tree_element({'type' => '_converted',
                                                      'text' => $argument})}));
               } elsif ($cmdname eq 'pxref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->element_cdt('see {title_ref}', {'title_ref' =>
+                        $self->tree_element_cdt('see {title_ref}', {'title_ref' =>
                          $self->new_tree_element({'type' => '_converted',
                                                     'text' => $argument})}));
               }
@@ -1533,7 +1536,7 @@ sub _convert($$)
                                      $self->{'convert_text_options'});
 
               my $is_inline
-         = Texinfo::Convert::TreeElementConverter::tree_element_is_inline(
+     = Texinfo::Convert::TreeElementConverter::tree_element_element_is_inline(
                                                                   $element);
               if ($is_inline) {
                 $$output_ref .= "<inlinemediaobject>";
@@ -1695,7 +1698,7 @@ sub _convert($$)
               if ($explanation_e and $explanation_e->children_number()) {
                 if (defined($argument)) {
                   my $tree
-                    = $self->element_cdt('{abbr_or_acronym} ({explanation})',
+                    = $self->tree_element_cdt('{abbr_or_acronym} ({explanation})',
                                  {'abbr_or_acronym' =>
                             $self->new_tree_element({'type' => '_converted',
                                                        'text' => $argument}),
@@ -1875,7 +1878,7 @@ sub _convert($$)
             push @format_elements, 'mathphrase';
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
-            Texinfo::Convert::TreeElementConverter::element_find_element_authors(
+    Texinfo::Convert::TreeElementConverter::tree_element_find_element_authors(
                                                         $element,
                                                         $quotation_authors);
             foreach my $author (@$quotation_authors) {
@@ -1904,7 +1907,7 @@ sub _convert($$)
                 $block_line_arg = $arguments_line->get_child(0);
                 $self->{'pending_prepend'}
                   = $self->convert_tree(
-                          $self->element_cdt('@b{{quotation_arg}:} ',
+                          $self->tree_element_cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg}));
               }
             }
@@ -1993,7 +1996,7 @@ sub _convert($$)
         }
 
           # not restricted enough, includes line_args, for instance
-          #and tree_element_is_inline($element, 1))
+          #and tree_element_element_is_inline($element, 1))
         if (defined($self->{'pending_prepend'})
             and ($e_type eq 'paragraph'
                  or $e_type eq 'preformatted')) {
@@ -2077,7 +2080,7 @@ sub _convert($$)
         # close sectioning command
         } elsif ($cmdname ne 'node'
                  and $Texinfo::Commands::root_commands{$cmdname}) {
-          my $sections_list = $self->tree_elements_sections_list();
+          my $sections_list = $self->tree_element_sections_list();
           my $section_relations
             = $sections_list->[$element->get_attribute('section_number') -1];
           my $docbook_sectioning_element
@@ -2085,12 +2088,12 @@ sub _convert($$)
           if ($docbook_sectioning_element eq 'part'
               and not ($section_relations
                        and $section_relations->{'part_associated_section'})
-      and !Texinfo::Convert::TreeElementConverter::element_is_content_empty(
+   and !Texinfo::Convert::TreeElementConverter::tree_element_is_content_empty(
                                                                   $element)) {
             $$output_ref .= "</partintro>\n";
           }
           my $level_adjusted_cmdname
- = Texinfo::Convert::TreeElementConverter::element_section_level_adjusted_command_name(
+ = Texinfo::Convert::TreeElementConverter::tree_element_section_level_adjusted_command_name(
                                                                     $element);
           if (!($section_relations
                 and $section_relations->{'section_childs'}
@@ -2104,7 +2107,7 @@ sub _convert($$)
             while ($current_relations->{'section_directions'}
                    and $current_relations->{'section_directions'}->{'up'}
                    and !$current_relations->{'section_directions'}->{'next'}
-         and Texinfo::Convert::TreeElementConverter::element_section_level_adjusted_command_name(
+         and Texinfo::Convert::TreeElementConverter::tree_element_section_level_adjusted_command_name(
        $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
               $current_relations = $current_relations->{'section_directions'}->{'up'};
               $current = $current_relations->{'element'};

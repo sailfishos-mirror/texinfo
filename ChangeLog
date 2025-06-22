@@ -13,6 +13,55 @@
 
 2025-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Example/TreeElementReadDocBook.pm (package),
+	tta/perl/Texinfo/Example/ReadDocBook.pm (package): fix package names.
+
+	* tta/perl/Texinfo/Example/TreeElementReadDocBook.pm (@ISA),
+	tta/perl/Texinfo/Example/ReadDocBook.pm (@ISA): inherits directly from
+	Texinfo::Convert::TreeElementConverter only.
+	Texinfo::Convert::TreeElementConverter already inherits from
+	Texinfo::Convert::Converter.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides)
+	(utils_tree_element_expand_verbatiminclude)
+	(_tree_element_expand_verbatiminclude)
+	(tree_element_expand_verbatiminclude)
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(utils_tree_element_expand_verbatiminclude),
+	tta/perl/Texinfo/Example/ReadDocBook.pm (_convert): rename
+	element_expand_verbatiminclude as
+	utils_tree_element_expand_verbatiminclude,
+	_element_expand_verbatiminclude as
+	_tree_element_expand_verbatiminclude and
+	converter_element_expand_verbatiminclude as
+	tree_element_expand_verbatiminclude.  Add utils_expand_verbatiminclude
+	for the XS override and expand_verbatiminclude to redefine the
+	Texinfo::Converter::Convert method to a method that calls an overriden
+	method.  Update callers.  Call expand_verbatiminclude in
+	ReadDocBook.pm.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides)
+	(tree_element_section_level)
+	(tree_element_section_level_adjusted_command_name)
+	(tree_element_is_content_empty, tree_element_element_is_inline)
+	(tree_element_translated_command_tree, tree_element_cdt)
+	(tree_element_sections_list, tree_element_nodes_list)
+	(tree_element_headings_list, tree_element_find_element_authors)
+	(tree_element_expand_today, _tree_element_xml_accent)
+	(_tree_element_xml_numeric_entities_accent)
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_find_element_authors, tree_element_sections_list)
+	(tree_element_nodes_list, tree_element_headings_list): more homogenous
+	names with tree_element_ prepended to the name of the method from
+	other modules whose interface is implemented.  Update callers.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_element_find_element_authors): rename
+	element_find_element_authors_internal as
+	_element_find_element_authors,
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am, tta/perl/Texinfo/Example/ReadDocBook.pm,
 	tta/perl/Texinfo/Example/TreeElementReadDocBook.pm: move
 	ReadDocBook.pm and TreeElementReadDocBook.pm to
