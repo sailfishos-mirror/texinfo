@@ -105,6 +105,8 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our %XS_structure_overrides = (
   "Texinfo::Document::print_document_listoffloats"
     => "Texinfo::DocumentXS::print_document_listoffloats",
+
+  # needed with the Reader/TreeElement interfaces only
   "Texinfo::Document::register_document_relations_lists_elements"
     => "Texinfo::DocumentXS::register_document_relations_lists_elements",
 );
@@ -281,8 +283,10 @@ sub remove_document($)
   my $document = shift;
 }
 
-# The XS override register a reference to the C element in Perl root
-# and heading commands
+# The XS override register a reference to the C element in Perl
+# nodes, sectioning and heading commands.  Only needed if the
+# TreeElement/Reader interfaces are used, which is not the case for
+# converters used used in texi2any.
 sub register_document_relations_lists_elements($)
 {
   my $document = shift;

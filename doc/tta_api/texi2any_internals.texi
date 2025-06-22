@@ -45,6 +45,7 @@
 * Texinfo@asis{::}Convert@asis{::}TexinfoMarkup::
 * Texinfo@asis{::}Convert@asis{::}TexinfoXML::
 * Texinfo@asis{::}Convert@asis{::}Plaintext::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter::
 
 @detailmenu
  --- The Detailed Node Listing ---
@@ -371,6 +372,17 @@ Texinfo::Convert::Plaintext
 * Texinfo@asis{::}Convert@asis{::}Plaintext METHODS::
 * Texinfo@asis{::}Convert@asis{::}Plaintext AUTHOR::
 * Texinfo@asis{::}Convert@asis{::}Plaintext COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::TreeElementConverter
+
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter NOTES::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter METHODS::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter SEE ALSO::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}TreeElementConverter COPYRIGHT AND LICENSE::
 @end detailmenu
 @end menu
 
@@ -398,6 +410,7 @@ Texinfo::Convert::Plaintext
 @include api_includes/Texinfo-Convert-TexinfoMarkup.texi
 @include api_includes/Texinfo-Convert-TexinfoXML.texi
 @include api_includes/Texinfo-Convert-Plaintext.texi
+@include api_includes/Texinfo-Convert-TreeElementConverter.texi
 
 
 @node Index

@@ -77,7 +77,8 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Convert/DocBook.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoMarkup.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoXML.pm \
-  $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/TreeElementConverter.pm
 
 $(srcdir)/texi2any_internals.texi: $(texi2any_internals_dependencies) $(srcdir)/texi2any_internals_indices.texi $(srcdir)/texi2any_internals_preamble.texi
 	target=$(srcdir)/texi2any_internals.texi ; \
