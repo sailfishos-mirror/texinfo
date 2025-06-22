@@ -768,7 +768,7 @@ sub _convert($$;$)
                                 [_leading_spaces_arg($element)]);
         if ($element->{'parent'}->{'cmdname'} eq 'itemize') {
           my $prepended_element
-           = Texinfo::Common::item_itemize_prepended_element($element);
+           = Texinfo::Common::item_itemize_prepended($element);
           $result .= $self->txi_markup_open_element('prepend')
             .$self->_convert($prepended_element)
             .$self->txi_markup_close_element('prepend');

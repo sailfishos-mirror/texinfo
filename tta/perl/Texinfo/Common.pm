@@ -906,7 +906,7 @@ sub itemize_line_prepended_element($)
   }
 }
 
-sub item_itemize_prepended_element($)
+sub item_itemize_prepended($)
 {
   my $element = shift;
 

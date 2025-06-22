@@ -911,7 +911,7 @@ sub _convert($$;$)
           my $command_as_argument_name;
 
           my $prepended_element
-            = Texinfo::Common::item_itemize_prepended_element($element);
+            = Texinfo::Common::item_itemize_prepended($element);
 
           if ($prepended_element) {
             $command_as_argument_name = $prepended_element->{'cmdname'};

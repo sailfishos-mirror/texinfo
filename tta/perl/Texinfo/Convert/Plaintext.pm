@@ -3780,7 +3780,7 @@ sub _convert
                $element->{'extra'}->{'item_number'}) . '. ');
       } else {
         my $prepended_element
-          = Texinfo::Common::item_itemize_prepended_element($element);
+          = Texinfo::Common::item_itemize_prepended($element);
         # this is the text prepended to items.
         _convert($self, $prepended_element);
         _convert($self, Texinfo::TreeElement::new({ 'text' => ' ' }));
