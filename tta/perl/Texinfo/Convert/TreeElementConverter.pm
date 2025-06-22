@@ -718,9 +718,13 @@ sub tree_element_item_line_block_line_argument_command($)
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 # same as in Texinfo::Common, but using the TreeElement interface
-sub _tree_element_itemize_line_prepended_element($)
+sub tree_element_item_itemize_prepended($)
 {
-  my $block_line_arg = shift;
+  my $element = shift;
+
+  my $itemize = $element->parent();
+  my $arguments_line = $itemize->get_child(0);
+  my $block_line_arg = $arguments_line->get_child(0);
 
   my $arg = _tree_element_block_line_argument_command($block_line_arg);
   if ($arg) {
@@ -730,18 +734,6 @@ sub _tree_element_itemize_line_prepended_element($)
   } else {
     return $block_line_arg;
   }
-}
-
-sub tree_element_item_itemize_prepended($)
-{
-  my $element = shift;
-
-  my $itemize = $element->parent();
-  my $arguments_line = $itemize->get_child(0);
-  my $block_line_arg = $arguments_line->get_child(0);
-
-  return _tree_element_itemize_line_prepended_element(
-                                        $block_line_arg);
 }
 
 # same as in Texinfo::Common, but with new_tree_element call
@@ -764,11 +756,7 @@ sub item_itemize_prepended($)
 {
   my $element = shift;
 
-  my $itemize = $element->{'parent'};
-  my $arguments_line = $itemize->{'contents'}->[0];
-  my $block_line_arg = $arguments_line->{'contents'}->[0];
-
-  return Texinfo::Common::itemize_line_prepended_element($block_line_arg);
+  return Texinfo::Common::item_itemize_prepended($element);
 }
 
 # same as in Texinfo::Common, but with TreeElement interface

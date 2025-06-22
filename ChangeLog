@@ -1,5 +1,20 @@
 2025-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (item_itemize_prepended_element),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(item_itemize_prepended): add item_itemize_prepended_element to
+	Common.pm.  Use it.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(tree_element_item_itemize_prepended): inline
+	_tree_element_itemize_line_prepended_element in
+	tree_element_item_itemize_prepended and remove.
+
+2025-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (itemize_line_prepended_element)
 	(item_itemize_prepended), tta/perl/Texinfo/Common.pm
 	(itemize_line_prepended_element),

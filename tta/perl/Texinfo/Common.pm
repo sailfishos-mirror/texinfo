@@ -906,6 +906,17 @@ sub itemize_line_prepended_element($)
   }
 }
 
+sub item_itemize_prepended_element($)
+{
+  my $element = shift;
+
+  # parent line arguments_line type element
+  my $arguments_line = $element->{'parent'}->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  return itemize_line_prepended_element($block_line_arg);
+}
+
 # always return something
 sub item_line_block_line_argument_command($)
 {

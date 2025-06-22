@@ -908,14 +908,11 @@ sub _convert($$;$)
                or $parent_cmdname eq 'enumerate')) {
         $result .= "<listitem>";
         if ($parent_cmdname eq 'itemize') {
-          # parent line arguments_line type element
-          my $arguments_line = $element->{'parent'}->{'contents'}->[0];
-          my $block_line_arg = $arguments_line->{'contents'}->[0];
-
           my $command_as_argument_name;
+
           my $prepended_element
-            = Texinfo::Common::itemize_line_prepended_element(
-                                                          $block_line_arg);
+            = Texinfo::Common::item_itemize_prepended_element($element);
+
           if ($prepended_element) {
             $command_as_argument_name = $prepended_element->{'cmdname'};
           }

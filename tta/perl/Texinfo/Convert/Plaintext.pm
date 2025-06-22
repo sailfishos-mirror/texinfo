@@ -3779,11 +3779,8 @@ sub _convert
                $element->{'parent'}->{'extra'}->{'enumerate_specification'},
                $element->{'extra'}->{'item_number'}) . '. ');
       } else {
-        # arguments_line type element
-        my $arguments_line = $element->{'parent'}->{'contents'}->[0];
-        my $block_line_arg = $arguments_line->{'contents'}->[0];
         my $prepended_element
-          = Texinfo::Common::itemize_line_prepended_element($block_line_arg);
+          = Texinfo::Common::item_itemize_prepended_element($element);
         # this is the text prepended to items.
         _convert($self, $prepended_element);
         _convert($self, Texinfo::TreeElement::new({ 'text' => ' ' }));
