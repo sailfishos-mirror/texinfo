@@ -44,13 +44,23 @@ PROTOTYPES: ENABLE
 
 # Some accessors are not actually used  because using an accessor is much
 # slower than accessing hash values in Perl
+
+# C data are used, or Perl data if C data is not found, such that the
+# functions could also be called on a Perl built tree without associated
+# C data information registered.
+
+
+# This function does exactly the same as in pure Perl, and is not used
+# to register a new element in C because there is no way to find the
+# C data document to register the element in.  The TreeElementConverterXS
+# new_tree_element method should be used to register a new element in C.
 SV *
 new (SV *element_hash)
     PREINIT:
         HV *hv_stash;
     CODE:
         /*
-        fprintf (stderr, "Unexpected call of TreeElement new through XS\n");
+        fprintf (stderr, "Call of TreeElement new through XS\n");
         debug_print_element_sv (element_hash);
          */
         hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
@@ -113,7 +123,7 @@ cmdname (SV *element_sv)
             HV *element_hv = (HV *) SvRV (element_sv);
             SV **sv = hv_fetch (element_hv, key, strlen(key), 0);
             if (sv && SvOK (*sv))
-             RETVAL = newSVsv (*sv);
+              RETVAL = newSVsv (*sv);
             else
               RETVAL = newSV (0);
           }
