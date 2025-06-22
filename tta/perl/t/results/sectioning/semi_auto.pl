@@ -257,6 +257,14 @@ $result_errors{'semi_auto'} = [
     'line_nr' => 9,
     'text' => 'node `Chap1\' lacks menu item for `Section non auto\' but is above it in sectioning',
     'type' => 'warning'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'warning: node up pointer for `Section non auto\' is `Top\'
+',
+    'line_nr' => 19,
+    'text' => 'node up pointer for `Section non auto\' is `Top\'',
+    'type' => 'warning'
   }
 ];
 
