@@ -1,5 +1,12 @@
 2025-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/ParserNonXS.pm
+	(_rearrange_tree_beginning, _add_preamble_before_content)
+	(_parse_texi_document): move _rearrange_tree_beginning from Common.pm
+	to ParserNonXS.pm.
+
+2025-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree_types.h (TXI_READER_TOKEN_CAT_LST, enum
 	reader_token_category), tta/perl/Texinfo/Reader.pm (constant)
 	(%token_category_name): rename reader token categories as TXI_READER_*

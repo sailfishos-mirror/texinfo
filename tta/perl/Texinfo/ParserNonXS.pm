@@ -981,6 +981,70 @@ sub parse_texi_file($$)
   return $document;
 }
 
+sub _rearrange_tree_beginning($$)
+{
+  my $document = shift;
+  my $before_node_section = shift;
+
+  # Put everything before @setfilename in a special type.  This allows to
+  # ignore everything before @setfilename.
+  if ($document->global_commands_information()->{'setfilename'}
+      and $document->global_commands_information()->{'setfilename'}->{'parent'}
+                                                 eq $before_node_section) {
+    my $before_setfilename
+      = Texinfo::TreeElement::new({'type' => 'preamble_before_setfilename',
+                                   'parent' => $before_node_section,
+                                   'contents' => []});
+    while (@{$before_node_section->{'contents'}}
+        and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
+          or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
+      my $content = shift @{$before_node_section->{'contents'}};
+      $content->{'parent'} = $before_setfilename;
+      push @{$before_setfilename->{'contents'}}, $content;
+    }
+    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
+      if (@{$before_setfilename->{'contents'}});
+    delete $before_node_section->{'contents'}
+      if (scalar(@{$before_node_section->{'contents'}}) == 0);
+  }
+
+  _add_preamble_before_content($before_node_section);
+}
+
+sub _add_preamble_before_content($)
+{
+  my $before_node_section = shift;
+
+  # add a preamble for informational commands
+  my $informational_preamble
+    = Texinfo::TreeElement::new({'type' => 'preamble_before_content',
+                                 'parent' => $before_node_section,});
+  my @first_types;
+  if ($before_node_section->{'contents'}) {
+    while (@{$before_node_section->{'contents'}}) {
+      my $next_content = $before_node_section->{'contents'}->[0];
+      if ($next_content->{'type'}
+          and ($next_content->{'type'} eq 'preamble_before_beginning'
+               or $next_content->{'type'} eq 'preamble_before_setfilename')) {
+        push @first_types, shift @{$before_node_section->{'contents'}};
+      } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
+               or ($next_content->{'cmdname'} and
+                   not $Texinfo::Commands::preamble_commands{
+                                              $next_content->{'cmdname'}})) {
+        last;
+      } else {
+        my $content = shift @{$before_node_section->{'contents'}};
+        $content->{'parent'} = $informational_preamble;
+        $informational_preamble->{'contents'} = []
+            if (!$informational_preamble->{'contents'});
+        push @{$informational_preamble->{'contents'}}, $content;
+      }
+    }
+  }
+  push @first_types, $informational_preamble;
+  unshift (@{$before_node_section->{'contents'}}, @first_types);
+}
+
 sub _parse_texi_document($)
 {
   my $self = shift;
@@ -1018,7 +1082,7 @@ sub _parse_texi_document($)
 
   my $document = $self->_parse_texi($document_root, $before_node_section);
 
-  Texinfo::Common::rearrange_tree_beginning($document, $before_node_section);
+  _rearrange_tree_beginning($document, $before_node_section);
 
   return $document;
 }
