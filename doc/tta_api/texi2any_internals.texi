@@ -45,6 +45,7 @@
 * Texinfo@asis{::}Convert@asis{::}TexinfoMarkup::
 * Texinfo@asis{::}Convert@asis{::}TexinfoXML::
 * Texinfo@asis{::}Convert@asis{::}Plaintext::
+* Texinfo@asis{::}Reader::
 * Texinfo@asis{::}Convert@asis{::}TreeElementConverter::
 
 @detailmenu
@@ -373,6 +374,21 @@ Texinfo::Convert::Plaintext
 * Texinfo@asis{::}Convert@asis{::}Plaintext AUTHOR::
 * Texinfo@asis{::}Convert@asis{::}Plaintext COPYRIGHT AND LICENSE::
 
+Texinfo::Reader
+
+* Texinfo@asis{::}Reader NAME::
+* Texinfo@asis{::}Reader SYNOPSIS::
+* Texinfo@asis{::}Reader NOTES::
+* Texinfo@asis{::}Reader DESCRIPTION::
+* Texinfo@asis{::}Reader METHODS::
+* Texinfo@asis{::}Reader SEE ALSO::
+* Texinfo@asis{::}Reader AUTHOR::
+* Texinfo@asis{::}Reader COPYRIGHT AND LICENSE::
+
+Texinfo::Reader METHODS
+
+* Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions::
+
 Texinfo::Convert::TreeElementConverter
 
 * Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME::
@@ -410,6 +426,7 @@ Texinfo::Convert::TreeElementConverter
 @include api_includes/Texinfo-Convert-TexinfoMarkup.texi
 @include api_includes/Texinfo-Convert-TexinfoXML.texi
 @include api_includes/Texinfo-Convert-Plaintext.texi
+@include api_includes/Texinfo-Reader.texi
 @include api_includes/Texinfo-Convert-TreeElementConverter.texi
 
 

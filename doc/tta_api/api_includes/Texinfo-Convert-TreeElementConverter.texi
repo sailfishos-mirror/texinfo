@@ -92,13 +92,14 @@ Note that this module is not used in @code{texi2any}.
 
 @code{Texinfo::Convert::TreeElementConverter} is a super class that helps
 using the @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface in converters.  It provides
-implementations of method interfaces from other Texinfo Perl modules using the
-TreeElement @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface only.  These methods can be in the
-@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common}, @ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils}
-and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring} modules.
+implementations of methods from other Texinfo Perl modules using the
+TreeElement @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface only.  The original
+methods can be in the @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common},
+@ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils} and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring} modules.
 
 If XS/C is used, finding the C element data from the associated Perl element
-is required in some cases, namely to initialize @url{https://metacpan.org/pod/Texinfo::Reader, Texinfo::Reader} with XS
+is required in some cases, namely to initialize
+@ref{Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions} with XS
 on an element (except for the tree root) or to find replaced substrings
 elements in translations.
 
@@ -121,8 +122,9 @@ Perl elements to C element data.
 @section Texinfo::Convert::TreeElementConverter METHODS
 
 The following methods allow to create new elements and get elements.
-Elements should be created and accessed through these methods to have
-a link from Perl to C data setup for the created or returned element.
+If XS extensions are used, elements should be created and accessed through
+these methods to have a link from Perl to C data setup for the created or
+returned element.
 
 @table @asis
 @item $converter->new_tree_element($element, $use_sv)
@@ -141,7 +143,7 @@ discarded.
 Finds the index entry and index information associated to the tree
 element @emph{$element}.  See @ref{Texinfo@asis{::}Common ($index_entry@comma{} $index_info) = lookup_index_entry($index_entry_info@comma{} $indices_information),, Texinfo::Common lookup_index_entry}
 for a general description of the return values.  Note that the returned
-@emph{$index_info} information do not contain the index entries associated to
+@emph{$index_info} information does not contain the index entries associated to
 the index, only some basic information on the index.
 
 @item $element = $converter->get_global_unique_tree_element($command_name)
@@ -156,7 +158,7 @@ the index, only some basic information on the index.
 
 Returns the tree element or tree elements corresponding to the
 @emph{$command_name} @@-command with a link from Perl to C element data setup.
-Only for @@-commands that could also accessed
+Only for @@-commands that could also be accessed
 through @ref{Texinfo@asis{::}Document $commands = global_commands_information($document),, Texinfo::Document global_commands_information}
 (if the link from Perl to C element data was not needed).
 
@@ -182,31 +184,10 @@ relations have Perl associated to C data already:
   $converter->{'document'}->register_document_relations_lists_elements()
 @end verbatim
 
-If you use the @url{https://metacpan.org/pod/Texinfo::Reader, Texinfo::Reader} to go through the tree you can call
+If you use the @ref{Texinfo@asis{::}Reader NAME,, Texinfo::Reader} to go through the tree you can call
 reader methods to associate Perl to C data based on the current element
-being read.  For example:
-
-@verbatim
-  my $reader = Texinfo::Reader::new($root_element);
-
-  ...
-
-  while (1) {
-
-    my $next = $reader->read();
-    last if (!defined($next));
-
-    my $element = $next->{'element'};
-
-    my $registerd_element = $reader->register_token_element();
-
-    if (!defined($element)) {
-      $element = $registerd_element;
-    }
-
-    ...
-  }
-@end verbatim
+being read, @ref{Texinfo@asis{::}Reader $reader->register_token_element(),, Texinfo::Reader @code{register_token_element}}
+and @ref{Texinfo@asis{::}Reader $reader->register_token_element_child($index),, Texinfo::Reader @code{register_token_element_child}}.
 
 The other methods are documented in the modules that provide the
 non-TreeElement interface or the methods that do not setup elements with

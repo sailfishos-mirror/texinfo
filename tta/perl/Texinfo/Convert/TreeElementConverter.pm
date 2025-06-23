@@ -1802,13 +1802,14 @@ Note that this module is not used in C<texi2any>.
 
 C<Texinfo::Convert::TreeElementConverter> is a super class that helps
 using the L<Texinfo::TreeElement> interface in converters.  It provides
-implementations of method interfaces from other Texinfo Perl modules using the
-TreeElement L<Texinfo::TreeElement> interface only.  These methods can be in the
-L<Texinfo::Convert::Converter>, L<Texinfo::Common>, L<Texinfo::Convert::Utils>
-and L<Texinfo::Structuring> modules.
+implementations of methods from other Texinfo Perl modules using the
+TreeElement L<Texinfo::TreeElement> interface only.  The original
+methods can be in the L<Texinfo::Convert::Converter>, L<Texinfo::Common>,
+L<Texinfo::Convert::Utils> and L<Texinfo::Structuring> modules.
 
 If XS/C is used, finding the C element data from the associated Perl element
-is required in some cases, namely to initialize L<Texinfo::Reader> with XS
+is required in some cases, namely to initialize
+L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >> with XS
 on an element (except for the tree root) or to find replaced substrings
 elements in translations.
 
@@ -1830,8 +1831,9 @@ Perl elements to C element data.
 =head1 METHODS
 
 The following methods allow to create new elements and get elements.
-Elements should be created and accessed through these methods to have
-a link from Perl to C data setup for the created or returned element.
+If XS extensions are used, elements should be created and accessed through
+these methods to have a link from Perl to C data setup for the created or
+returned element.
 
 =over
 
@@ -1849,7 +1851,7 @@ X<C<get_tree_element_index_entry>>
 Finds the index entry and index information associated to the tree
 element I<$element>.  See L<< Texinfo::Common lookup_index_entry|Texinfo::Common/($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information) >>
 for a general description of the return values.  Note that the returned
-I<$index_info> information do not contain the index entries associated to
+I<$index_info> information does not contain the index entries associated to
 the index, only some basic information on the index.
 
 =item $element = $converter->get_global_unique_tree_element($command_name)
@@ -1861,7 +1863,7 @@ X<C<global_commands_information_command_list>>
 
 Returns the tree element or tree elements corresponding to the
 I<$command_name> @-command with a link from Perl to C element data setup.
-Only for @-commands that could also accessed
+Only for @-commands that could also be accessed
 through L<< Texinfo::Document global_commands_information|Texinfo::Document/$commands = global_commands_information($document) >>
 (if the link from Perl to C element data was not needed).
 
@@ -1887,27 +1889,8 @@ relations have Perl associated to C data already:
 
 If you use the L<Texinfo::Reader> to go through the tree you can call
 reader methods to associate Perl to C data based on the current element
-being read.  For example:
-
-  my $reader = Texinfo::Reader::new($root_element);
-
-  ...
-
-  while (1) {
-
-    my $next = $reader->read();
-    last if (!defined($next));
-
-    my $element = $next->{'element'};
-
-    my $registerd_element = $reader->register_token_element();
-
-    if (!defined($element)) {
-      $element = $registerd_element;
-    }
-
-    ...
-  }
+being read, L<< Texinfo::Reader C<register_token_element>|Texinfo::Reader/$reader->register_token_element() >>
+and L<< Texinfo::Reader C<register_token_element_child>|Texinfo::Reader/$reader->register_token_element_child($index) >>.
 
 The other methods are documented in the modules that provide the
 non-TreeElement interface or the methods that do not setup elements with

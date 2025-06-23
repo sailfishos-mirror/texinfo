@@ -1,5 +1,16 @@
 2025-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ReaderNonXS.pm: remove unused register_token_tree.
+
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies): add
+	ReaderNonXS.pm.
+
+	* tta/perl/Texinfo/ReaderNonXS.pm,
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm: update Pod
+	documentation.
+
+2025-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next),
 	tta/C/structuring_transfo/structuring.c (set_top_node_next): simplify
 	the code, by following the FIXME advice to avoid looping over the
