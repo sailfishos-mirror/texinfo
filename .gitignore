@@ -327,8 +327,10 @@ tta/gnulib/lib/stdio.h
 tta/gnulib/lib/string.h
 tta/gnulib/lib/unicase.h
 tta/gnulib/lib/unicase/special-casing.h
+tta/gnulib/lib/unicase/special-casing-table.h
 tta/gnulib/lib/unictype.h
 tta/gnulib/lib/uninorm.h
+tta/gnulib/lib/uninorm/composition-table.h
 tta/gnulib/lib/unitypes.h
 tta/gnulib/lib/uniwidth.h
 tta/gnulib/lib/wchar.h

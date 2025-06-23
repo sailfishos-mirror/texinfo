@@ -1,5 +1,9 @@
 2025-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	Remove gnulib gperf generated special-casing-table.h and composition-table.h
+
+2025-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ReaderNonXS.pm: remove unused register_token_tree.
 
 	* doc/tta_api/Makefile.am (texi2any_internals_dependencies): add
