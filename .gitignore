@@ -219,6 +219,7 @@ doc/refcard/*.ps
 
 doc/tta_api/*.t2p
 doc/tta_api/*.info
+doc/tta_api/*.info-*
 doc/tta_api/texi2any_internals.pdf
 
 man/info.1
