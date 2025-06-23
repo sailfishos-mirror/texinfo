@@ -154,7 +154,7 @@ end_element (READER *reader)
 
   token = &reader->token;
 
-  token->category = TXI_ELEMENT_END;
+  token->category = TXI_READ_ELEMENT_END;
 
   top_context = top_reader_context (reader);
   token->element
@@ -183,11 +183,11 @@ txi_reader_read (READER *reader)
 
   if (type_data[element->type].flags & TF_ignorable_text)
     {
-      token->category = TXI_ELEMENT_IGNORABLE_TEXT;
+      token->category = TXI_READ_IGNORABLE_TEXT;
     }
   else if (type_data[element->type].flags & TF_text)
     {
-      token->category = TXI_ELEMENT_TEXT;
+      token->category = TXI_READ_TEXT;
     }
   else
     {
@@ -225,11 +225,11 @@ txi_reader_read (READER *reader)
                  element->elt_info[eit_spaces_after_argument]);
         */
           top_context->sequence = &element->e.c->contents;
-          token->category = TXI_ELEMENT_START;
+          token->category = TXI_READ_ELEMENT_START;
         }
       else
         {
-          token->category = TXI_ELEMENT_EMPTY;
+          token->category = TXI_READ_EMPTY;
         }
     }
 
@@ -281,8 +281,8 @@ txi_reader_collect_commands_list (ELEMENT *tree,
       if (!next)
         break;
 
-      if (next->category == TXI_ELEMENT_START
-          || next->category == TXI_ELEMENT_EMPTY)
+      if (next->category == TXI_READ_ELEMENT_START
+          || next->category == TXI_READ_EMPTY)
         {
           size_t i;
           for (i = 0; i < commands->top; i++)

@@ -112,7 +112,7 @@ sub _end_element($)
   my ($index, $array) = @{$context};
 
   my $token = {'element' => $array->[$index],
-               'category' => Texinfo::Reader->TXI_ELEMENT_END};
+               'category' => Texinfo::Reader->TXI_READ_ELEMENT_END};
 
   return $token;
 }
@@ -145,9 +145,9 @@ sub read($)
   if (defined($element->{'text'})) {
     my $type = $element->{'type'};
     if ($type and $ignorable_text_types{$type}) {
-      $token->{'category'} = Texinfo::Reader->TXI_ELEMENT_IGNORABLE_TEXT;
+      $token->{'category'} = Texinfo::Reader->TXI_READ_IGNORABLE_TEXT;
     } else {
-      $token->{'category'} = Texinfo::Reader->TXI_ELEMENT_TEXT;
+      $token->{'category'} = Texinfo::Reader->TXI_READ_TEXT;
     }
   } else {
     #my $array = [];
@@ -177,9 +177,9 @@ sub read($)
     #  push @{$reader->{'stack'}}, [-1, $array];
     if ($contents) {
       push @{$reader->{'stack'}}, [-1, $contents];
-      $token->{'category'} = Texinfo::Reader->TXI_ELEMENT_START;
+      $token->{'category'} = Texinfo::Reader->TXI_READ_ELEMENT_START;
     } else {
-      $token->{'category'} = Texinfo::Reader->TXI_ELEMENT_EMPTY;
+      $token->{'category'} = Texinfo::Reader->TXI_READ_EMPTY;
     }
   }
 
@@ -222,8 +222,8 @@ sub reader_collect_commands_list($$)
 
   while ($next = $reader->read()) {
     my $category = $next->{'category'};
-    if ($category == Texinfo::Reader->TXI_ELEMENT_START
-        or $category == Texinfo::Reader->TXI_ELEMENT_EMPTY) {
+    if ($category == Texinfo::Reader->TXI_READ_ELEMENT_START
+        or $category == Texinfo::Reader->TXI_READ_EMPTY) {
       my $element = $next->{'element'};
       my $cmdname = $element->{'cmdname'};
       if (defined($cmdname) and defined($commands_hash->{$cmdname})) {

@@ -1,5 +1,12 @@
 2025-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/tree_types.h (TXI_READER_TOKEN_CAT_LST, enum
+	reader_token_category), tta/perl/Texinfo/Reader.pm (constant)
+	(%token_category_name): rename reader token categories as TXI_READER_*
+	instead of TXI_ELEMENT_*.  Update codes using those constants.
+
+2025-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (modify_tree),
 	tta/perl/Texinfo/ManipulateTree.pm (modify_tree): comment out specific
 	handling of element in source marks, it could be done on each element.

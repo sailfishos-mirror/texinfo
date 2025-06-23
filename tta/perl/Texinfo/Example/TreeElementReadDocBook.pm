@@ -816,10 +816,10 @@ sub _begin_def_line($$)
 
 my $debug_global_element_nr = 0;
 
-my $TXI_ELEMENT_TEXT = Texinfo::Reader::TXI_ELEMENT_TEXT;
-my $TXI_ELEMENT_IGNORABLE_TEXT = Texinfo::Reader::TXI_ELEMENT_IGNORABLE_TEXT;
-my $TXI_ELEMENT_START = Texinfo::Reader::TXI_ELEMENT_START;
-my $TXI_ELEMENT_END = Texinfo::Reader::TXI_ELEMENT_END;
+my $TXI_READ_TEXT = Texinfo::Reader::TXI_READ_TEXT;
+my $TXI_READ_IGNORABLE_TEXT = Texinfo::Reader::TXI_READ_IGNORABLE_TEXT;
+my $TXI_READ_ELEMENT_START = Texinfo::Reader::TXI_READ_ELEMENT_START;
+my $TXI_READ_ELEMENT_END = Texinfo::Reader::TXI_READ_ELEMENT_END;
 
 
 sub _convert($$)
@@ -882,7 +882,7 @@ sub _convert($$)
       print STDERR "\n";
     }
 
-    if ($category == $TXI_ELEMENT_TEXT) {
+    if ($category == $TXI_READ_TEXT) {
       next if (defined($e_type) and $ignored_text_types{$e_type});
 
       my $text = $element->{'text'};
@@ -908,10 +908,10 @@ sub _convert($$)
         #warn "had text `$text', returning $result_text\n";
         $$output_ref .= $result_text;
       }
-    } elsif ($category == $TXI_ELEMENT_IGNORABLE_TEXT) {
+    } elsif ($category == $TXI_READ_IGNORABLE_TEXT) {
       # nothing to do
 
-    } elsif ($category == $TXI_ELEMENT_START) {
+    } elsif ($category == $TXI_READ_ELEMENT_START) {
 
       #warn " START element\n";
       my $cmdname = $element->{'cmdname'};
@@ -2007,7 +2007,7 @@ sub _convert($$)
       #warn " end of START\n";
 
 
-    } elsif ($category == $TXI_ELEMENT_END) {
+    } elsif ($category == $TXI_READ_ELEMENT_END) {
       my $cmdname = $element->{'cmdname'};
       if (defined($cmdname)) {
         if ($style_commands_formatting{$cmdname}

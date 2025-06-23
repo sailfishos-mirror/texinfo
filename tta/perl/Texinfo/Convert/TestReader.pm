@@ -46,7 +46,7 @@ sub _convert($$;$$)
       my ($current_nr, $result);
       my $element = $token->{'element'};
       my $category = $token->{'category'};
-      if ($category == Texinfo::Reader::TXI_ELEMENT_END) {
+      if ($category == Texinfo::Reader::TXI_READ_ELEMENT_END) {
         $result
           = Texinfo::ManipulateTree::print_element_base($element,
                           undef, $fname_encoding, $use_filename);

@@ -43,23 +43,23 @@ BEGIN {
 use constant {
   # for elements with contents, a start token is emitted when encountering
   # the element, and an end token after going through the element children.
-  TXI_ELEMENT_START => 0,
-  TXI_ELEMENT_END => 1,
+  TXI_READ_ELEMENT_START => 0,
+  TXI_READ_ELEMENT_END => 1,
   # text
-  TXI_ELEMENT_TEXT => 2,
+  TXI_READ_TEXT => 2,
   # ignorable text
-  TXI_ELEMENT_IGNORABLE_TEXT => 3,
+  TXI_READ_IGNORABLE_TEXT => 3,
   # no text but no content either.  Invalid constructs, such as brace
   # commands without braces may end up in this category.
-  TXI_ELEMENT_EMPTY => 4,
+  TXI_READ_EMPTY => 4,
 };
 
 our %token_category_name = (
-  Texinfo::Reader::TXI_ELEMENT_START => 'START',
-  Texinfo::Reader::TXI_ELEMENT_END => 'END',
-  Texinfo::Reader::TXI_ELEMENT_TEXT => 'TEXT',
-  Texinfo::Reader::TXI_ELEMENT_IGNORABLE_TEXT => 'IGNORABLE_TEXT',
-  Texinfo::Reader::TXI_ELEMENT_EMPTY => 'EMPTY',
+  Texinfo::Reader::TXI_READ_ELEMENT_START => 'ELEMENT_START',
+  Texinfo::Reader::TXI_READ_ELEMENT_END => 'ELEMENT_END',
+  Texinfo::Reader::TXI_READ_TEXT => 'TEXT',
+  Texinfo::Reader::TXI_READ_IGNORABLE_TEXT => 'IGNORABLE_TEXT',
+  Texinfo::Reader::TXI_READ_EMPTY => 'EMPTY',
 );
 
 1;
