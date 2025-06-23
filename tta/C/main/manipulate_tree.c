@@ -1754,9 +1754,9 @@ tree_print_details (ELEMENT *tree, const char *fname_encoding,
 
 
 /* the caller should make sure that the tree is not a text element */
-/* NOTE there is no recursion in modified elements.  If this becomes relevant,
-   OPERATION should be changed such that it becomes possible to signal that
-   a recursion is needed */
+/* TODO there is no recursion in elements_oot, nor in modified elements.
+   Should this be added in modify_tree, or be left to &OPERATION?
+ */
 ELEMENT *
 modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
@@ -1784,6 +1784,9 @@ modify_tree (ELEMENT *tree,
             modify_tree (content, operation, argument);
         }
     }
+  /* this is probably unneeded, the call on each element of the
+     tree just above allows to modify source marks already.
+
   if (tree->source_mark_list != 0)
     {
       size_t i;
@@ -1797,7 +1800,9 @@ modify_tree (ELEMENT *tree,
                                           argument);
               if (new_element)
                 {
+   */
                /* *operation should take care of destroying removed element */
+  /*
                   tree->source_mark_list->list[i]->element
                       = new_element->list[0];
                   destroy_list (new_element);
@@ -1805,6 +1810,7 @@ modify_tree (ELEMENT *tree,
             }
         }
     }
+   */
   return tree;
 }
 

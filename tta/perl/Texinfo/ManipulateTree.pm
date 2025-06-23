@@ -970,6 +970,8 @@ sub tree_print_details($;$$)
 
 # Texinfo tree transformations used in main output formats conversion.
 
+# TODO there is no recursion in elements_oot, nor in modified elements.
+# Should this be added in modify_tree, or be left to &OPERATION?
 sub modify_tree($$;$);
 sub modify_tree($$;$)
 {
@@ -1000,20 +1002,22 @@ sub modify_tree($$;$)
       }
     }
   }
-  if ($tree->{'source_marks'}) {
-    my @source_marks = @{$tree->{'source_marks'}};
-    for (my $i = 0; $i <= $#source_marks; $i++) {
-      if ($source_marks[$i]->{'element'}) {
-        # TODO call Texinfo::TreeElement::new or let the user call.
-        my $new_element
-          = &$operation('source_mark', $source_marks[$i]->{'element'},
-                        $argument);
-        if ($new_element) {
-          $source_marks[$i]->{'element'} = $new_element->[0];
-        }
-      }
-    }
-  }
+  # TODO this is probably unneeded, the call on each element of the
+  # tree just above allows to modify source marks already.
+  #if ($tree->{'source_marks'}) {
+  #  my @source_marks = @{$tree->{'source_marks'}};
+  #  for (my $i = 0; $i <= $#source_marks; $i++) {
+  #    if ($source_marks[$i]->{'element'}) {
+  #      # Return a reference array for consistency with call for contents
+  #      my $new_element
+  #        = &$operation('source_mark', $source_marks[$i]->{'element'},
+  #                      $argument);
+  #      if ($new_element) {
+  #        $source_marks[$i]->{'element'} = $new_element->[0];
+  #      }
+  #    }
+  #  }
+  #}
   return $tree;
 }
 

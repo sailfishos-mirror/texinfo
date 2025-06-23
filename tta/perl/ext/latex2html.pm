@@ -462,7 +462,9 @@ sub l2h_to_html($$$)
   # options we want to be sure of
   $call_start .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
 
-  # FIXME use utf-8 here?
+  # NOTE MESSAGE_ENCODING is the encoding generally used for the command line, it is
+  # a logical choice here.  However since we use a specific encoding for paths
+  # on the command line just below, it could be possible to also use it here
   my $encoding = $self->get_conf('MESSAGE_ENCODING');
   my $encoded_call_start;
   if (defined($encoding)) {
@@ -470,6 +472,7 @@ sub l2h_to_html($$$)
   } else {
     $encoded_call_start = $call_start;
   }
+  # use a specific encoding here, as it seems to be what latex2html expects
   my $l2h_prefix_string = encode('UTF-8', $l2h_prefix);
   # concatenante strings containing already encoded file paths
   my $encoded_call = $encoded_call_start . $encoded_destination_dir_option

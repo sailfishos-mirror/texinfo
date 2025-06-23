@@ -1625,6 +1625,7 @@ sub index_content_element($;$)
 {
   my $element = shift;
   my $prefer_reference_element = shift;
+
   if ($element->{'extra'} and $element->{'extra'}->{'def_command'}) {
     if ($prefer_reference_element
         and $element->{'extra'}->{'def_index_ref_element'}) {
