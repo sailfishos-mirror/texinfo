@@ -1566,99 +1566,115 @@ static const ELEMENT *
 set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
                    const C_HASHMAP *identifiers_target)
 {
-  const ELEMENT *top_node_next = 0;
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
+  const ELEMENT *arguments_line;
+  int automatic_directions;
 
-  size_t i;
-  for (i = 0; i < nodes_list->number; i++)
+  if (!top_node)
+    return 0;
+
+  arguments_line = top_node->e.c->contents.list[0];
+  automatic_directions = (arguments_line->e.c->contents.number <= 1);
+
+  if (automatic_directions)
     {
-      NODE_RELATIONS *node_relations = nodes_list->list[i];
-      const ELEMENT *node = node_relations->element;
-      const ELEMENT *arguments_line = node->e.c->contents.list[0];
-      int automatic_directions = (arguments_line->e.c->contents.number <= 1);
-      const ELEMENT * const *menu_directions = node_relations->menu_directions;
+      int status;
+      const ELEMENT *top_node_next = 0;
+      size_t top_node_number
+        = lookup_extra_integer (top_node, AI_key_node_number, &status);
+      NODE_RELATIONS *node_relations = nodes_list->list[top_node_number -1];
 
-      if (automatic_directions)
+      const SECTION_RELATIONS *associated_relations
+        = node_relations->associated_section;
+      const SECTION_RELATIONS_LIST *section_childs = 0;
+      if (associated_relations)
+        section_childs = associated_relations->section_childs;
+
+      if (section_childs && section_childs->number > 0)
         {
-          if (node == top_node)
+          const SECTION_RELATIONS *section_child_relations
+            = section_childs->list[0];
+          if (section_child_relations->associated_node)
             {
-              const SECTION_RELATIONS *associated_relations
-                = node_relations->associated_section;
-              const SECTION_RELATIONS_LIST *section_childs = 0;
-              if (associated_relations)
-                section_childs = associated_relations->section_childs;
-
-              if (section_childs && section_childs->number > 0)
-                {
-                  const SECTION_RELATIONS *section_child_relations
-                    = section_childs->list[0];
-                  if (section_child_relations->associated_node)
-                    {
-                      if (!node_relations->node_directions)
-                        node_relations->node_directions = new_directions ();
-                      top_node_next
-                        = section_child_relations->associated_node->element;
-                      node_relations->node_directions[D_next]
-                        = top_node_next;
-                      continue;
-                    }
-                }
-
-              if (!node_relations->node_directions
-                       || !node_relations->node_directions[D_next])
-                {
-                  /* use first menu entry if available as next for Top */
-                  const ELEMENT *menu_child
-                     = first_menu_node (node_relations, identifiers_target);
-                  if (menu_child)
-                    {
-                      top_node_next = menu_child;
-                    }
-                  else
-                    {
-                      /* use the first non top node as next for Top */
-                      size_t j;
-                      for (j = 0; j < nodes_list->number; j++)
-                        {
-                          const NODE_RELATIONS *first_non_top_node_relations
-                            = nodes_list->list[j];
-                          const ELEMENT *first_non_top_node
-                            = first_non_top_node_relations->element;
-                          if (first_non_top_node != node)
-                            {
-                              top_node_next = first_non_top_node;
-                              break;
-                            }
-                        }
-                    }
-                  if (top_node_next)
-                    {
-                      if (!node_relations->node_directions)
-                        node_relations->node_directions = new_directions ();
-                      node_relations->node_directions[D_next] = top_node_next;
-                      const ELEMENT *top_node_next_manual_content
-                       = lookup_extra_container (top_node_next,
-                                                 AI_key_manual_content);
-                      if (top_node_next_manual_content)
-                        top_node_next = 0;
-                    }
-                }
-              else
-                break;
+              if (!node_relations->node_directions)
+                node_relations->node_directions = new_directions ();
+              top_node_next
+                = section_child_relations->associated_node->element;
+              node_relations->node_directions[D_next]
+                = top_node_next;
+            }
+        }
+      if (!top_node_next)
+        {
+          /* use first menu entry if available as next for Top */
+          const ELEMENT *menu_child
+             = first_menu_node (node_relations, identifiers_target);
+          if (menu_child)
+            {
+              top_node_next = menu_child;
             }
           else
             {
-              /* prev already defined for the node first Top node menu entry */
-              if (top_node_next && node == top_node_next)
+              /* use the first non top node as next for Top */
+              size_t j;
+              for (j = 0; j < nodes_list->number; j++)
                 {
-                  if (!node_relations->node_directions)
-                    node_relations->node_directions = new_directions ();
-
-                  if (!node_relations->node_directions[D_prev])
-                     node_relations->node_directions[D_prev] = top_node;
-                  break;
+                  const NODE_RELATIONS *first_non_top_node_relations
+                    = nodes_list->list[j];
+                  const ELEMENT *first_non_top_node
+                    = first_non_top_node_relations->element;
+                  if (first_non_top_node != top_node)
+                    {
+                      top_node_next = first_non_top_node;
+                      break;
+                    }
                 }
             }
+          if (top_node_next)
+            {
+              if (!node_relations->node_directions)
+                node_relations->node_directions = new_directions ();
+              node_relations->node_directions[D_next] = top_node_next;
+              /* no prev from top_node_next to Top if not a node */
+              if (top_node_next->e.c->cmd != CM_node)
+                top_node_next = 0;
+              else
+                {
+                  const ELEMENT *top_node_next_manual_content
+                   = lookup_extra_container (top_node_next,
+                                             AI_key_manual_content);
+              /* no prev from top_node_next to Top if not a local node */
+                  if (top_node_next_manual_content)
+                    top_node_next = 0;
+                }
+            }
+        }
+
+      if (top_node_next)
+        {
+          const ELEMENT *next_arguments_line
+            = top_node_next->e.c->contents.list[0];
+          int next_automatic_directions
+            = (next_arguments_line->e.c->contents.number <= 1);
+
+          if (next_automatic_directions)
+            {
+              size_t next_node_number
+                = lookup_extra_integer (top_node_next,
+                                        AI_key_node_number, &status);
+              /* keep if different from Top node and after Top node */
+              if (next_node_number > top_node_number)
+                {
+                  NODE_RELATIONS *next_node_relations
+                    = nodes_list->list[next_node_number -1];
+
+                  if (!next_node_relations->node_directions)
+                    next_node_relations->node_directions = new_directions ();
+
+                  if (!next_node_relations->node_directions[D_prev])
+                     next_node_relations->node_directions[D_prev] = top_node;
+               }
+           }
         }
     }
   return top_node;

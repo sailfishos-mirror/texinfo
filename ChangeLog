@@ -1,5 +1,12 @@
 2025-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (_set_top_node_next),
+	tta/C/structuring_transfo/structuring.c (set_top_node_next): simplify
+	the code, by following the FIXME advice to avoid looping over the
+	nodes directions list.
+
+2025-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/ParserNonXS.pm
 	(_rearrange_tree_beginning, _add_preamble_before_content)
 	(_parse_texi_document): move _rearrange_tree_beginning from Common.pm

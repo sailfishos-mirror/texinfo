@@ -1060,86 +1060,87 @@ sub _set_top_node_next($$)
   my $nodes_list = shift;
   my $identifier_target = shift;
 
-  my $top_node_next;
   my $top_node = $identifier_target->{'Top'};
 
-  # FIXME: use top_node directly rather than looping
-  # through relations list.  Can we get the relations
-  # object from $top_node->{'extra'}->{'node_number'}?
+  return undef if (!$top_node);
 
-  foreach my $node_relations (@{$nodes_list}) {
-    my $node = $node_relations->{'element'};
-    my $arguments_line = $node->{'contents'}->[0];
-    my $automatic_directions
+  my $arguments_line = $top_node->{'contents'}->[0];
+  my $automatic_directions
       = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
-    my $menu_directions = $node_relations->{'menu_directions'};
+  if ($automatic_directions) {
+    my $top_node_next;
+    my $top_node_number = $top_node->{'extra'}->{'node_number'};
+    my $node_relations
+      = $nodes_list->[$top_node_number -1];
 
-    if ($automatic_directions) {
-      my $node_directions = $node_relations->{'node_directions'};
+    my $node_directions = $node_relations->{'node_directions'};
 
-      if ($top_node and $node eq $top_node) {
-        # Special case for Top node, use first section
-        if ($node_relations->{'associated_section'}) {
-          my $associated_relations = $node_relations->{'associated_section'};
-          my $section_childs = $associated_relations->{'section_childs'};
-          if ($section_childs and scalar(@$section_childs)) {
-            my $section_child_relations = $section_childs->[0];
-            if ($section_child_relations->{'associated_node'}) {
-              $top_node_next
-                = $section_child_relations->{'associated_node'}->{'element'};
-              $node_directions = {}
-                  if (! $node_directions);
-              $node_relations->{'node_directions'} = {}
-                  if (!$node_relations->{'node_directions'});
-              $node_relations->{'node_directions'}->{'next'}
-               = $top_node_next;
-              next;
-            }
-          }
-        }
-
-        if (not $node_directions
-                 or not $node_directions->{'next'}) {
-          # use first menu entry if available as next for Top
-          my $menu_child
-             = Texinfo::ManipulateTree::first_menu_node($node_relations,
-                                                        $identifier_target);
-          if ($menu_child) {
-            $top_node_next = $menu_child;
-          } else {
-            # use the first non top node as next for Top
-            foreach my $first_non_top_node_relations (@{$nodes_list}) {
-              my $first_non_top_node
-                = $first_non_top_node_relations->{'element'};
-              if ($first_non_top_node ne $node) {
-                $top_node_next = $first_non_top_node;
-                last;
-              }
-            }
-          }
-          if ($top_node_next) {
-            $node_relations->{'node_directions'} = {}
-               if (!$node_relations->{'node_directions'});
-            $node_relations->{'node_directions'}->{'next'}
-              = $top_node_next;
-            if ($top_node_next->{'extra'}->{'manual_content'}) {
-              $top_node_next = undef;
-            }
-          }
-        } else {
-          last;
-        }
-      } else {
-        # prev defined as first Top node menu entry node
-        if ($top_node_next and $node eq $top_node_next) {
+    # Special case for Top node, use first section
+    if ($node_relations->{'associated_section'}) {
+      my $associated_relations = $node_relations->{'associated_section'};
+      my $section_childs = $associated_relations->{'section_childs'};
+      if ($section_childs and scalar(@$section_childs)) {
+        my $section_child_relations = $section_childs->[0];
+        if ($section_child_relations->{'associated_node'}) {
+          $top_node_next
+            = $section_child_relations->{'associated_node'}->{'element'};
+          $node_directions = {}
+              if (! $node_directions);
           $node_relations->{'node_directions'} = {}
-            if (!$node_relations->{'node_directions'});
-          if (!$node_relations->{'node_directions'}->{'prev'}) {
-            $node_relations->{'node_directions'}->{'prev'}
+              if (!$node_relations->{'node_directions'});
+          $node_relations->{'node_directions'}->{'next'}
+           = $top_node_next;
+        }
+      }
+    }
+
+    if (!$top_node_next) {
+      # use first menu entry if available as next for Top
+      my $menu_child
+         = Texinfo::ManipulateTree::first_menu_node($node_relations,
+                                                    $identifier_target);
+      if ($menu_child) {
+        $top_node_next = $menu_child;
+      } else {
+        # use the first non top node as next for Top
+        foreach my $first_non_top_node_relations (@{$nodes_list}) {
+          my $first_non_top_node
+            = $first_non_top_node_relations->{'element'};
+          if ($first_non_top_node ne $top_node) {
+            $top_node_next = $first_non_top_node;
+            last;
+          }
+        }
+      }
+      if ($top_node_next) {
+        $node_relations->{'node_directions'} = {}
+           if (!$node_relations->{'node_directions'});
+        $node_relations->{'node_directions'}->{'next'}
+          = $top_node_next;
+        if ($top_node_next->{'cmdname'} ne 'node'
+            or $top_node_next->{'extra'}->{'manual_content'}) {
+          $top_node_next = undef;
+        }
+      }
+    }
+    # prev defined as first Top node menu entry node
+    if ($top_node_next) {
+      my $next_arguments_line = $top_node_next->{'contents'}->[0];
+      my $next_automatic_directions
+      = (not (scalar(@{$next_arguments_line->{'contents'}}) > 1));
+      if ($next_automatic_directions) {
+        my $next_node_number = $top_node_next->{'extra'}->{'node_number'};
+        # different from Top node and after Top node
+        if ($next_node_number > $top_node_number) {
+          my $next_node_relations = $nodes_list->[$next_node_number -1];
+
+          $next_node_relations->{'node_directions'} = {}
+            if (!$next_node_relations->{'node_directions'});
+          if (!$next_node_relations->{'node_directions'}->{'prev'}) {
+            $next_node_relations->{'node_directions'}->{'prev'}
               = $top_node;
           }
-          last;
         }
       }
     }
