@@ -1103,9 +1103,8 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
   /* Used to suppress later errors about a node if an error was
      already reported to avoid deluging the user with error
-     messages.  Indexed by 'node_number' extra value. */
-  /* FIXME: where is 'node_number' actually set?  Is it 0- or 1-based? */
-  char *node_errors = calloc (nodes_list->number + 1, 1);
+     messages.  Indexed by 'node_number' extra value (1-based). */
+  char *node_errors = calloc (nodes_list->number, 1);
 
   /* Check for nodes listed in the wrong menu(s). */
   if (!options
@@ -1200,7 +1199,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
                                     const int node_number = lookup_extra_integer
                                       (menu_node, AI_key_node_number, &status);
-                                    node_errors[menu_node_number] = 1;
+                                    node_errors[menu_node_number -1] = 1;
                                   }
                                 else if (section_up_node->element
                                          && section_up_node->element != node)
@@ -1227,7 +1226,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
                                     const int node_number = lookup_extra_integer
                                       (menu_node, AI_key_node_number, &status);
-                                    node_errors[menu_node_number] = 1;
+                                    node_errors[menu_node_number -1] = 1;
                                   }
                               }
                           }
@@ -1323,7 +1322,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                         int status;
                         const int node_number = lookup_extra_integer (node,
                                                  AI_key_node_number, &status);
-                        node_errors[node_number] = 1;
+                        node_errors[node_number -1] = 1;
                         const ELEMENT * const *node_directions
                                          = node_relations->node_directions;
                         if (node_directions
@@ -1356,7 +1355,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
     {
       for (i = 0; i < nodes_list->number; i++)
         {
-          if (node_errors[i+1])
+          if (node_errors[i])
             continue;
           NODE_RELATIONS *node_relations = nodes_list->list[i];
           const ELEMENT *node = node_relations->element;
@@ -1401,7 +1400,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                       const int node_number
                         = lookup_extra_integer (section_target,
                                                 AI_key_node_number, &status);
-                      if (node_errors[node_number])
+                      if (node_errors[node_number -1])
                         continue;
                     }
 
@@ -1414,7 +1413,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                       const int node_number
                         = lookup_extra_integer (menu_target,
                                                 AI_key_node_number, &status);
-                      if (node_errors[node_number])
+                      if (node_errors[node_number -1])
                         continue;
                     }
 
