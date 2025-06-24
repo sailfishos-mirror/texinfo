@@ -145,7 +145,7 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::TreeElement> defines accessors and methods for
-Texinfo tree element obtained from parsing Texinfo code.
+Texinfo tree elements obtained from parsing Texinfo code.
 
 The Texinfo Perl modules can be setup to use Perl XS module extensions in
 native code (written in C) that replace Perl package or methods by native code

@@ -1822,10 +1822,10 @@ The C<Texinfo::Convert::TreeElementConverter> modules helps with
 setting up the link from Perl elements to C, first by providing the
 methods using the TreeElement interface
 since the L<Texinfo::TreeElement> interface automatically sets up this link.
-The module also provides XS interfaces for methods that setup the link from
-Perl elements to C.  Lastly, some methods are also available to create or
-access Texinfo tree elements that also setup Texinfo elements with
-the link from Perl elements to C.
+The module also provides XS interfaces for methods also available in other
+modules that setup the link from Perl elements to C.  Lastly, some methods are
+also available to create or access Texinfo tree elements that also setup
+Texinfo elements with the link from Perl elements to C.
 
 Using the Reader, the TreeElement interface and the methods provided in this
 module with XS to access and create elements also allows to go through the
@@ -1895,10 +1895,10 @@ C<tree_element_index_content_element> method of this module.
 =head2 Related methods from other modules
 
 To associate sectioning commands and nodes tree elements Perl to C data, the
-C<register_document_relations_lists_elements> Document method may be called
-after getting the tree before starting the tree conversion, such that
-sectioning commands and nodes elements accessed through nodes and section
-relations have Perl associated to C data already:
+C<register_document_relations_lists_elements> C<Texinfo::Document>
+method may be called after getting the tree before starting the tree
+conversion, such that sectioning commands and nodes elements accessed through
+nodes and section relations have the association to C data already setup:
 
   $converter->{'document'}->register_document_relations_lists_elements()
 
