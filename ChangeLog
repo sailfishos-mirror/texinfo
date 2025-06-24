@@ -1,5 +1,23 @@
 2025-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Example/ReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm: call
+	table_item_content_tree.  Remove element_table_item_content_tree and
+	element_block_item_line_command.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides):
+	override tree_element_table_item_content_tree.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_item_line_block_line_argument_command)
+	(_tree_element_block_item_line_command): rename
+	tree_element_item_line_block_line_argument_command as
+	_tree_element_item_line_block_line_argument_command and
+	tree_element_block_item_line_command as
+	_tree_element_block_item_line_command.
+
+2025-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/structuring.c
 	(check_node_tree_menu_structure): 'node_number' is 1-based, so use
 	index at position (node_number -1) in nodes_list.

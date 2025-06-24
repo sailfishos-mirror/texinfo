@@ -1665,7 +1665,8 @@ sub table_item_content_tree_noxs($$)
         and $command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
       $command->{'extra'} = {} if (!$command->{'extra'});
-      $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
+      $command->{'extra'}->{'begin'}
+        = $command_as_argument->{'extra'}->{'begin'};
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
       $builtin_cmdname = 'definfoenclose_command';
     } else {

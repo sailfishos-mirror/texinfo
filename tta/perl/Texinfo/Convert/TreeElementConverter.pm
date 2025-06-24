@@ -81,7 +81,7 @@ my %XS_overrides = (
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
   "Texinfo::Convert::TreeElementConverter::tree_element_find_element_authors"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
-  "Texinfo::Convert::TreeElementConverter::element_table_item_content_tree"
+  "Texinfo::Convert::TreeElementConverter::tree_element_table_item_content_tree"
     => "Texinfo::Convert::TreeElementConverterXS::element_table_item_content_tree",
   "Texinfo::Convert::TreeElementConverter::table_item_content_tree"
     => "Texinfo::Convert::TreeElementConverterXS::element_table_item_content_tree",
@@ -708,7 +708,7 @@ sub _tree_element_block_line_argument_command($)
 }
 
 # same as in Texinfo::Common, but with TreeElement interface
-sub tree_element_item_line_block_line_argument_command($)
+sub _tree_element_item_line_block_line_argument_command($)
 {
   my $block_line_arg = shift;
 
@@ -746,22 +746,6 @@ sub tree_element_item_itemize_prepended($)
   }
 }
 
-# same as in Texinfo::Common, but with new_tree_element call
-# TODO it would be more efficient to have a static asis command reused
-sub element_block_item_line_command($$)
-{
-  my $self = shift;
-  my $block_line_arg = shift;
-
-  my $arg
-    = Texinfo::Common::item_line_block_line_argument_command($block_line_arg);
-
-  if (!$arg) {
-    $arg = $self->new_tree_element({'cmdname' => 'asis'});
-  }
-  return $arg;
-}
-
 sub item_itemize_prepended($)
 {
   my $element = shift;
@@ -771,14 +755,13 @@ sub item_itemize_prepended($)
 
 # same as in Texinfo::Common, but with TreeElement interface
 # TODO it would be more efficient to have a static asis command reused
-sub tree_element_block_item_line_command($$)
+sub _tree_element_block_item_line_command($$)
 {
   my $self = shift;
   my $block_line_arg = shift;
 
   my $arg
-    = tree_element_item_line_block_line_argument_command(
-                                                        $block_line_arg);
+    = _tree_element_item_line_block_line_argument_command($block_line_arg);
 
   if (!$arg) {
     $arg = $self->new_tree_element({'cmdname' => 'asis'});
@@ -794,79 +777,6 @@ sub table_item_content_tree($$)
   my $element = shift;
 
   return $self->table_item_content_tree_noxs($element);
-}
-
-# same as table_item_content_tree, using partially the TreeElements interface
-sub element_table_item_content_tree($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $parent = $element->parent();
-  my $parent_type = $parent->{'type'};
-  # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
-  # in @table
-  if (!$parent_type or $parent_type ne 'table_term') {
-    return undef;
-  }
-  my $table_command = $parent->parent()->parent();
-
-  # arguments_line type element
-  my $arguments_line = $table_command->{'contents'}->[0];
-  my $block_line_arg = $arguments_line->{'contents'}->[0];
-
-  my $command_as_argument
-    = element_block_item_line_command($self, $block_line_arg);
-
-  if ($command_as_argument) {
-    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
-    my $command = {'cmdname' => $command_as_argument_cmdname,
-                   'source_info' => $element->source_info(),};
-    if ($table_command->get_attribute('command_as_argument_kbd_code')) {
-      $command->{'extra'} = {'code' => 1};
-    }
-    # command name for the Texinfo::Commands hashes tests
-    my $builtin_cmdname;
-    my $type = $command_as_argument->{'type'};
-    if ($type and $type eq 'definfoenclose_command') {
-      $command->{'type'} = $type;
-      $command->{'extra'} = {} if (!$command->{'extra'});
-      $command->{'extra'}->{'begin'}
-        = $command_as_argument->get_attribute('begin');
-      $command->{'extra'}->{'end'}
-        = $command_as_argument->get_attribute('end');
-      $builtin_cmdname = 'definfoenclose_command';
-    } else {
-      $builtin_cmdname = $command_as_argument_cmdname;
-    }
-    my $arg;
-    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
-      # This corresponds to a bogus @*table line with command line @footnote
-      # or @math.  We do not really care about the formatting of the result
-      # but we want to avoid debug messages, so we setup expected trees
-      # for those @-commands.
-      $arg = {'type' => 'brace_command_context',};
-      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
-        $arg->{'contents'} = [$element->{'contents'}->[0]];
-      } else {
-        my $paragraph = $self->new_tree_element({'type' => 'paragraph',
-                           'contents' => [$element->{'contents'}->[0]],}, 1);
-        $arg->{'contents'} = [$paragraph];
-      }
-    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
-                                                   eq 'arguments') {
-      $arg = {'type' => 'brace_arg',
-              'contents' => [$element->{'contents'}->[0]],};
-    } else {
-      $arg = {'type' => 'brace_container',
-              'contents' => [$element->{'contents'}->[0]],};
-    }
-    my $arg_element = $self->new_tree_element($arg, 1);
-    my $result = $self->new_tree_element($command, 1);
-    $result->add_to_element_contents($arg_element);
-    return $result;
-  }
-  return undef;
 }
 
 # same as table_item_content_tree, but using the TreeElement interface
@@ -889,7 +799,7 @@ sub tree_element_table_item_content_tree($$)
   my $block_line_arg = $arguments_line->get_child(0);
 
   my $command_as_argument
-    = tree_element_block_item_line_command($self, $block_line_arg);
+    = _tree_element_block_item_line_command($self, $block_line_arg);
 
   if ($command_as_argument) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};

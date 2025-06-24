@@ -982,7 +982,7 @@ sub _convert($$)
             }
             if ($element->{'contents'}->[0]->{'contents'}) {
               my $table_item_tree
-                = $self->element_table_item_content_tree($element);
+                = $self->table_item_content_tree($element);
               $table_item_tree = $element->{'contents'}->[0]
                 if (!defined($table_item_tree));
 
