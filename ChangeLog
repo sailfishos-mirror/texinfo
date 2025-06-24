@@ -1,5 +1,22 @@
 2025-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_table_item_content_tree),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides):
+	rename element_table_item_content_tree as
+	tree_element_table_item_content_tree.
+
+	* tta/perl/Texinfo/Example/ReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(table_item_content_tree, tree_element_table_item_content_tree),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_table_item_content_tree): add an argument to
+	tree_element_table_item_content_tree XS interface to determine if the
+	tree has to be built to Perl.  Set the argument only in
+	ReadDocBook.pm.
+
+2025-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Example/ReadDocBook.pm (_convert),
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm: call
 	table_item_content_tree.  Remove element_table_item_content_tree and

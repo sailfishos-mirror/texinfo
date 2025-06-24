@@ -82,9 +82,9 @@ my %XS_overrides = (
   "Texinfo::Convert::TreeElementConverter::tree_element_find_element_authors"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
   "Texinfo::Convert::TreeElementConverter::tree_element_table_item_content_tree"
-    => "Texinfo::Convert::TreeElementConverterXS::element_table_item_content_tree",
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_table_item_content_tree",
   "Texinfo::Convert::TreeElementConverter::table_item_content_tree"
-    => "Texinfo::Convert::TreeElementConverterXS::element_table_item_content_tree",
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_table_item_content_tree",
   "Texinfo::Convert::TreeElementConverter::comment_or_end_line"
     => "Texinfo::Convert::TreeElementConverterXS::comment_or_end_line",
   "Texinfo::Convert::TreeElementConverter::tree_element_comment_or_end_line"
@@ -771,19 +771,21 @@ sub _tree_element_block_item_line_command($$)
 
 # for XS overriding.
 # table_item_content_tree_noxs in Texinfo::Convert::Converter.
-sub table_item_content_tree($$)
+sub table_item_content_tree($$;$)
 {
   my $self = shift;
   my $element = shift;
+  my $build_tree = shift;
 
   return $self->table_item_content_tree_noxs($element);
 }
 
 # same as table_item_content_tree, but using the TreeElement interface
-sub tree_element_table_item_content_tree($$)
+sub tree_element_table_item_content_tree($$;$)
 {
   my $self = shift;
   my $element = shift;
+  my $build_tree = shift;
 
   my $parent = $element->parent();
   my $parent_type = $parent->{'type'};

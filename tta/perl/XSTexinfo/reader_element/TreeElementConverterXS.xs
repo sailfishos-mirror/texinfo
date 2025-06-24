@@ -325,7 +325,7 @@ tree_element_index_content_element (SV *element_sv, int prefer_reference_element
         RETVAL
 
 SV *
-element_table_item_content_tree (SV *, SV *element_sv)
+tree_element_table_item_content_tree (SV *, SV *element_sv, SV *build_tree_sv=0)
       PREINIT:
         DOCUMENT *document;
       CODE:
@@ -338,7 +338,9 @@ element_table_item_content_tree (SV *, SV *element_sv)
             TREE_ADDED_ELEMENTS *tree = table_item_content_tree (0, element);
             if (tree)
               {
-                build_texinfo_tree (tree->tree, 1);
+                if (build_tree_sv && SvOK (build_tree_sv)
+                    && SvIV (build_tree_sv))
+                  build_texinfo_tree (tree->tree, 1);
                 converted_e = tree->tree;
                 if (tree->status == tree_added_status_elements_added)
                   {
