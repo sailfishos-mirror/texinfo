@@ -78,6 +78,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoMarkup.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoXML.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm \
+  $(top_srcdir)/tta/perl/Texinfo/TreeElementNonXS.pm \
   $(top_srcdir)/tta/perl/Texinfo/ReaderNonXS.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TreeElementConverter.pm
 

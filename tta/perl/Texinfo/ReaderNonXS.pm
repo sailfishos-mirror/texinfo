@@ -373,8 +373,8 @@ in native code (written in C) that replace Perl package or methods
 by native code for faster execution.  In general, using pure Perl or XS
 extensions is transparent.  This is not fully the case for C<Texinfo::Reader>.
 The XS interface is designed such that the Texinfo tree actually processed is
-not the Perl tree, but a tree stored in the native code in XS extensions,
-corresponding to compiled C data structures.
+not the Perl elements tree, but a tree stored in native code in XS
+extensions, corresponding to compiled C data structures.
 
 If the C<Texinfo::Reader> XS extension is used, the element used to
 initialize the reader through
@@ -432,6 +432,7 @@ L<Texinfo::Convert::TreeElementConverter> module methods.
 =head1 SEE ALSO
 
 L<Texinfo::Parser>. L<Texinfo::Document>.
+L<Texinfo::Convert::TreeElementConverter>.
 
 =head1 AUTHOR
 

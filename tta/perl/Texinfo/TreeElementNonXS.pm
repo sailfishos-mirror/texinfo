@@ -144,14 +144,111 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-C<Texinfo::TreeElement> offers an interface to a Texinfo tree element obtained
-from parsing Texinfo code.
+C<Texinfo::TreeElement> defines accessors and methods for
+Texinfo tree element obtained from parsing Texinfo code.
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution. If XS extensions are used, it may be important to
+use the C<Texinfo::TreeElement> accessors that return elements instead of using
+hash keys described in L<Texinfo::Parser/TEXINFO TREE>.  Otherwise there is no
+specific advantage of using the accessors.
 
 =head1 METHODS
 
+=over
 
+=item $element = new($element_hash)
+X<C<new>>
+
+Turns the I<$element_hash> element hash into a C<Texinfo::TreeElement> object.
+
+This function is called on all the tree elements created in Texinfo modules
+codes.
+
+=item $type = $element->type()
+X<C<type>>
+
+Return the I<$element> type, or C<undef>.
+
+=item $cmdname = $element->cmdname()
+X<C<cmdname>>
+
+Return the I<$element> command name, if defined, or C<undef>.
+
+=item $text = $element->text()
+X<C<text>>
+
+Return the I<$element> text if the element is a text element, or C<undef>.
+
+=item $number = $element->children_number()
+X<C<children_number>>
+
+Return the number of children elements contained in I<$element>.
+
+=item $child = $element->get_child($index)
+X<C<get_child>>
+
+Return the I<$element> child element at index I<$index>.
+
+=item $children_list = $element->get_children()
+X<C<get_children>>
+
+Return an array reference holding the elements contained in I<$element>.
+
+=item $parent = $element->parent()
+X<C<parent>>
+
+Return the parent element of I<$element>.
+
+=item $source_info = $element->source_info()
+X<C<source_info>>
+
+Return the I<$element> source info, or C<undef> if there is none.
+
+=item $value = $element->get_attribute($attribute_name)
+X<C<get_attribute>>
+
+Return the I<$element> I<$attribute_name> attribute value.  If the
+I<$attribute_name> does not exist or is not set at all, return C<undef>.
+
+=item $element->add_to_element_contents($added_element)
+X<C<add_to_element_contents>>
+
+Insert I<$added_element> at the end of the I<$element> contents
+(ie the element children array).
+
+=back
+
+=head2 C<Texinfo::TreeElement> and XS extensions
+
+The Texinfo modules XS interface is designed such that the Texinfo tree
+actually processed is not the Perl elements tree, but a tree stored in
+native code in XS extensions, corresponding to compiled C data structures.  For
+some Texinfo modules XS extensions, Perl tree elements need to have a link from
+Perl to native code C data registered in the Perl element to find the C tree
+data corresponding to a Perl element.
+
+Using the C<Texinfo::TreeElement> methods may help setting up this link.
+Indeed, if an element has already a link to C data,
+the elements returned by C<Texinfo::TreeElement> methods will also have
+this link setup.
+
+For example, if I<$element> has already a link to C data, I<$element_child> will
+also have a link to C data setup:
+
+  my $element_child = $element->get_child(0)
+
+Note that, even if XS extensions are used, calling
+L<< C<new>|/$element = new($element_hash) >> does not set up a link to C,
+L<< Texinfo::Convert::TreeElementConverter C<new_tree_element>|Texinfo::Convert::TreeElementConverter/$converter->new_tree_element($element, $use_sv) >> should be used for that.
+
+For other ways to setup this link, see L<Texinfo::Convert::TreeElementConverter>
+and L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >>.
 
 =head1 SEE ALSO
+
+L<Texinfo::Parser/TEXINFO TREE>.
 
 =head1 AUTHOR
 

@@ -14,8 +14,7 @@ Texinfo::Convert::TreeElementConverter - Parent class for TreeElement based conv
 
   use Texinfo::Convert::Converter;
   use Texinfo::Convert::TreeElementConverter;
-  our @isa = qw(Texinfo::Convert::Converter
-                Texinfo::Convert::TreeElementConverter);
+  our @ISA = qw(Texinfo::Convert::TreeElementConverter);
 
   sub converter_defaults ($;$) {
     return \%myconverter_defaults;
@@ -91,13 +90,19 @@ Note that this module is not used in @code{texi2any}.
 @section Texinfo::Convert::TreeElementConverter DESCRIPTION
 
 @code{Texinfo::Convert::TreeElementConverter} is a super class that helps
-using the @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface in converters.  It provides
+using the @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface in converters.  It provides
 implementations of methods from other Texinfo Perl modules using the
-TreeElement @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface only.  The original
+TreeElement @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface only.  The original
 methods can be in the @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common},
 @ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils} and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring} modules.
 
-If XS/C is used, finding the C element data from the associated Perl element
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.
+The Texinfo modules XS interface is designed such that the Texinfo tree
+actually processed is not the Perl elements tree, but a tree stored in
+native code in XS extensions, corresponding to compiled C data structures.
+If XS extensions are loaded, finding a Perl element associated C data
 is required in some cases, namely to initialize
 @ref{Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions} with XS
 on an element (except for the tree root) or to find replaced substrings
@@ -106,7 +111,7 @@ elements in translations.
 The @code{Texinfo::Convert::TreeElementConverter} modules helps with
 setting up the link from Perl elements to C, first by providing the
 methods using the TreeElement interface
-since the @url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface automatically sets up this link.
+since the @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface automatically sets up this link.
 The module also provides XS interfaces for methods that setup the link from
 Perl elements to C.  Lastly, some methods are also available to create or
 access Texinfo tree elements that also setup Texinfo elements with
@@ -174,6 +179,17 @@ appearing in the document.
 
 @end table
 
+The other methods are documented in the modules that provide the
+non-TreeElement interface or the methods that do not setup elements with
+link from Perl to C element data.   The method name is either the same
+as in this module, if the method is used as a wrapper around the method
+with the same name, or can be obtained by removing a leading @code{tree_element_}.
+For example, the @code{index_content_element} documentation can be used for the
+@code{tree_element_index_content_element} method of this module.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter Related methods from other modules
+@subsection Related methods from other modules
+
 To associate sectioning commands and nodes tree elements Perl to C data, the
 @code{register_document_relations_lists_elements} Document method may be called
 after getting the tree before starting the tree conversion, such that
@@ -188,14 +204,6 @@ If you use the @ref{Texinfo@asis{::}Reader NAME,, Texinfo::Reader} to go through
 reader methods to associate Perl to C data based on the current element
 being read, @ref{Texinfo@asis{::}Reader $reader->register_token_element(),, Texinfo::Reader @code{register_token_element}}
 and @ref{Texinfo@asis{::}Reader $reader->register_token_element_child($index),, Texinfo::Reader @code{register_token_element_child}}.
-
-The other methods are documented in the modules that provide the
-non-TreeElement interface or the methods that do not setup elements with
-link from Perl to C element data.   The method name is either the same
-as in this module, if the method is used as a wrapper around the method
-with the same name, or can be obtained by removing a leading @code{tree_element_}.
-For example, the @code{index_content_element} documentation can be used for the
-@code{tree_element_index_content_element} method of this module.
 
 @node Texinfo@asis{::}Convert@asis{::}TreeElementConverter SEE ALSO
 @section Texinfo::Convert::TreeElementConverter SEE ALSO

@@ -1727,8 +1727,7 @@ Texinfo::Convert::TreeElementConverter - Parent class for TreeElement based conv
 
   use Texinfo::Convert::Converter;
   use Texinfo::Convert::TreeElementConverter;
-  our @isa = qw(Texinfo::Convert::Converter
-                Texinfo::Convert::TreeElementConverter);
+  our @ISA = qw(Texinfo::Convert::TreeElementConverter);
 
   sub converter_defaults ($;$) {
     return \%myconverter_defaults;
@@ -1807,7 +1806,13 @@ TreeElement L<Texinfo::TreeElement> interface only.  The original
 methods can be in the L<Texinfo::Convert::Converter>, L<Texinfo::Common>,
 L<Texinfo::Convert::Utils> and L<Texinfo::Structuring> modules.
 
-If XS/C is used, finding the C element data from the associated Perl element
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.
+The Texinfo modules XS interface is designed such that the Texinfo tree
+actually processed is not the Perl elements tree, but a tree stored in
+native code in XS extensions, corresponding to compiled C data structures.
+If XS extensions are loaded, finding a Perl element associated C data
 is required in some cases, namely to initialize
 L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >> with XS
 on an element (except for the tree root) or to find replaced substrings
@@ -1879,6 +1884,16 @@ appearing in the document.
 
 =back
 
+The other methods are documented in the modules that provide the
+non-TreeElement interface or the methods that do not setup elements with
+link from Perl to C element data.   The method name is either the same
+as in this module, if the method is used as a wrapper around the method
+with the same name, or can be obtained by removing a leading C<tree_element_>.
+For example, the C<index_content_element> documentation can be used for the
+C<tree_element_index_content_element> method of this module.
+
+=head2 Related methods from other modules
+
 To associate sectioning commands and nodes tree elements Perl to C data, the
 C<register_document_relations_lists_elements> Document method may be called
 after getting the tree before starting the tree conversion, such that
@@ -1891,14 +1906,6 @@ If you use the L<Texinfo::Reader> to go through the tree you can call
 reader methods to associate Perl to C data based on the current element
 being read, L<< Texinfo::Reader C<register_token_element>|Texinfo::Reader/$reader->register_token_element() >>
 and L<< Texinfo::Reader C<register_token_element_child>|Texinfo::Reader/$reader->register_token_element_child($index) >>.
-
-The other methods are documented in the modules that provide the
-non-TreeElement interface or the methods that do not setup elements with
-link from Perl to C element data.   The method name is either the same
-as in this module, if the method is used as a wrapper around the method
-with the same name, or can be obtained by removing a leading C<tree_element_>.
-For example, the C<index_content_element> documentation can be used for the
-C<tree_element_index_content_element> method of this module.
 
 =head1 SEE ALSO
 

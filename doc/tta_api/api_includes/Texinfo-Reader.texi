@@ -159,8 +159,8 @@ in native code (written in C) that replace Perl package or methods
 by native code for faster execution.  In general, using pure Perl or XS
 extensions is transparent.  This is not fully the case for @code{Texinfo::Reader}.
 The XS interface is designed such that the Texinfo tree actually processed is
-not the Perl tree, but a tree stored in the native code in XS extensions,
-corresponding to compiled C data structures.
+not the Perl elements tree, but a tree stored in native code in XS
+extensions, corresponding to compiled C data structures.
 
 If the @code{Texinfo::Reader} XS extension is used, the element used to
 initialize the reader through
@@ -214,7 +214,7 @@ For example, to register all the elements upon reading them:
 
 Calling these two functions is not the only possibility to create
 a link from Perl to C data.  Another possibility is to use the
-@url{https://metacpan.org/pod/Texinfo::TreeElement, Texinfo::TreeElement} interface to access other elements from elements with
+@ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface to access other elements from elements with
 the link to C data already setup, or to use the
 @ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME,, Texinfo::Convert::TreeElementConverter} module methods.
 
@@ -222,6 +222,7 @@ the link to C data already setup, or to use the
 @section Texinfo::Reader SEE ALSO
 
 @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}. @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document}.
+@ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME,, Texinfo::Convert::TreeElementConverter}.
 
 @node Texinfo@asis{::}Reader AUTHOR
 @section Texinfo::Reader AUTHOR
