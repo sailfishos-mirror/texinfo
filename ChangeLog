@@ -1,5 +1,40 @@
 2025-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_utils_tree_element_expand_verbatiminclude)
+	(_utils_expand_verbatiminclude, _element_gdt),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_gdt): rename utils_tree_element_expand_verbatiminclude
+	as _utils_tree_element_expand_verbatiminclude,
+	utils_expand_verbatiminclude as _utils_expand_verbatiminclude.  Rename
+	element_gdt as _element_gdt in TreeElementConverter.pm and as
+	tree_element_gdt in TreeElementConverterXS.xs.  Update callers.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_find_element_authors_internal): rename
+	_element_find_element_authors as
+	_tree_element_find_element_authors_internal.  Update caller.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (_expand_today),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_expand_today): rename element_expand_today as
+	_expand_today in TreeElementConverter.pm and as
+	tree_element_expand_today in TreeElementConverterXS.xs.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm (_expand_today)
+	(tree_element_expand_today),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_expand_today): pass build_tree argument last.
+
+	* tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(tree_element_gdt): rename element_gdt as tree_element_gdt.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (_find_element_authors_internal):
+	rename find_element_authors_internal as
+	_find_element_authors_internal.  Update caller.
+
+2025-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
 	(tree_element_table_item_content_tree),
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm (%XS_overrides):

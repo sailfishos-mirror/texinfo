@@ -468,7 +468,7 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
         RETVAL
 
 SV *
-element_expand_today (SV *build_tree_sv, SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *converter_in)
+tree_element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, SV *converter_in, SV *build_tree_sv)
       PREINIT:
         DOCUMENT *document;
      CODE:
@@ -508,7 +508,7 @@ element_expand_today (SV *build_tree_sv, SV *test_sv, SV *lang_translations_sv, 
         RETVAL
 
 SV *
-element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
+tree_element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
         const char *string = (char *)SvPVutf8_nolen($arg);
       PROTOTYPE: $$$;$$$$
       PREINIT:

@@ -93,18 +93,18 @@ my %XS_overrides = (
     => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
   "Texinfo::Convert::TreeElementConverter::tree_element_argument_comment_end_line"
     => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
-  "Texinfo::Convert::TreeElementConverter::utils_tree_element_expand_verbatiminclude"
+  "Texinfo::Convert::TreeElementConverter::_utils_tree_element_expand_verbatiminclude"
     => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
-  "Texinfo::Convert::TreeElementConverter::utils_expand_verbatiminclude"
+  "Texinfo::Convert::TreeElementConverter::_utils_expand_verbatiminclude"
     => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
-  "Texinfo::Convert::TreeElementConverter::element_expand_today"
-    => "Texinfo::Convert::TreeElementConverterXS::element_expand_today",
+  "Texinfo::Convert::TreeElementConverter::_expand_today"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_expand_today",
   "Texinfo::Convert::TreeElementConverter::index_content_element"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_index_content_element",
   "Texinfo::Convert::TreeElementConverter::tree_element_index_content_element"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_index_content_element",
-  "Texinfo::Convert::TreeElementConverter::element_gdt"
-    => "Texinfo::Convert::TreeElementConverterXS::element_gdt",
+  "Texinfo::Convert::TreeElementConverter::_element_gdt"
+    => "Texinfo::Convert::TreeElementConverterXS::tree_element_gdt",
   "Texinfo::Convert::TreeElementConverter::tree_element_sections_list"
     => "Texinfo::Convert::TreeElementConverterXS::tree_element_sections_list",
   "Texinfo::Convert::TreeElementConverter::tree_element_nodes_list"
@@ -340,7 +340,8 @@ sub global_commands_information_command_list($$)
   return $global_commands->{$global_command};
 }
 
-# using the interface with registered elements, compatible with TreeElements
+# similar to Texinfo::Convert::Utils, but simpler as a converter is always
+# present.  Also calls tree_element_cdt
 sub tree_element_translated_command_tree($$;$)
 {
   my $converter = shift;
@@ -356,7 +357,7 @@ sub tree_element_translated_command_tree($$;$)
   return undef;
 }
 
-# wraper used for XS overriding
+# wrapper used for XS overriding
 sub index_content_element($;$)
 {
   my $element = shift;
@@ -389,9 +390,9 @@ sub tree_element_index_content_element($;$)
 
 # translations
 
-# for XS override, with a simpler interface than element_cdt.  Should
-# not be called directly.
-sub element_gdt($$$;$$$$)
+# for XS override, with a simpler interface to override than tree_element_cdt.
+# Should not be called directly.
+sub _element_gdt($$$;$$$$)
 {
   my ($string, $lang_translations, $document,
       $replaced_substrings, $build_tree, $debug, $translation_context) = @_;
@@ -407,11 +408,11 @@ sub tree_element_cdt($$;$$$)
   my ($self, $string, $replaced_substrings,
       $build_tree, $translation_context) = @_;
 
-  return element_gdt($string, $self->{'current_lang_translations'},
-                              $self->{'document'},
-                              $replaced_substrings, $build_tree,
-                              $self->get_conf('DEBUG'),
-                              $translation_context);
+  return _element_gdt($string, $self->{'current_lang_translations'},
+                               $self->{'document'},
+                               $replaced_substrings, $build_tree,
+                               $self->get_conf('DEBUG'),
+                               $translation_context);
 }
 
 
@@ -537,8 +538,8 @@ sub tree_element_get_global_document_command($$$)
 
   my $element;
   my $commands_list
-      = global_commands_information_command_list ($self->{'document'},
-                                                  $global_command);
+      = global_commands_information_command_list($self->{'document'},
+                                                 $global_command);
 
   if (!$commands_list) {
     return $self->get_global_unique_tree_element($global_command);
@@ -563,7 +564,7 @@ sub tree_element_get_global_document_command($$$)
   return $element;
 }
 
-# sale as above but with the tree element interface
+# same as in Texinfo::Convert::Converter but with the TreeElement interface
 sub tree_element_set_global_document_commands($$$)
 {
   my $self = shift;
@@ -594,10 +595,6 @@ sub tree_element_set_global_document_commands($$$)
       # $init_conf.
     }
   } else {
-    #my $global_commands;
-    #if ($self->{'document'}) {
-    #  $global_commands = $self->{'document'}->global_commands_information();
-    #}
     foreach my $global_command (@{$selected_commands}) {
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global($commands_location) $global_command\n";
@@ -626,7 +623,6 @@ sub tree_element_set_global_document_commands($$$)
 # helper methods for conversion
 
 # for XS overriding
-
 sub find_element_authors($$)
 {
   my ($element, $quotation_authors) = @_;
@@ -635,10 +631,10 @@ sub find_element_authors($$)
                                                        $quotation_authors);
 }
 
-sub _element_find_element_authors($$);
+sub _tree_element_find_element_authors_internal($$);
 
 # same as in Texinfo::Convert::Utils, but using the TreeElement interface
-sub _element_find_element_authors($$)
+sub _tree_element_find_element_authors_internal($$)
 {
   my $element = shift;
   my $quotation_authors = shift;
@@ -667,7 +663,7 @@ sub _element_find_element_authors($$)
   my $contents = $element->get_children();
   if ($contents) {
     foreach my $content (@$contents) {
-      _element_find_element_authors($content, $quotation_authors);
+      _tree_element_find_element_authors_internal($content, $quotation_authors);
     }
   }
 }
@@ -680,7 +676,7 @@ sub tree_element_find_element_authors($$)
 
   my $contents = $element->get_children();
   foreach my $content (@$contents) {
-    _element_find_element_authors($content, $quotation_authors);
+    _tree_element_find_element_authors_internal($content, $quotation_authors);
   }
 }
 
@@ -746,6 +742,7 @@ sub tree_element_item_itemize_prepended($)
   }
 }
 
+# for XS override
 sub item_itemize_prepended($)
 {
   my $element = shift;
@@ -929,7 +926,7 @@ sub tree_element_comment_or_end_line($$)
   return tree_element_comment_or_end_line_nonxs($self, $element);
 }
 
-# for TreeElement interface XS overriding
+# for TreeElement interface and XS overriding
 sub tree_element_argument_comment_end_line($$)
 {
   my $self = shift;
@@ -957,6 +954,7 @@ sub _tree_element_associated_processing_encoding($)
   return Texinfo::Common::processing_output_encoding($encoding);
 }
 
+# same as in Texinfo::Convert::Converter, but with TreeElement interface
 sub tree_element_txt_image_text($$$)
 {
   my ($self, $element, $basefile) = @_;
@@ -1080,7 +1078,7 @@ sub _tree_element_expand_verbatiminclude($$$$$;$$)
 }
 
 # For XS, lower level interface.  Should not be called directly
-sub utils_tree_element_expand_verbatiminclude($$$$$;$$)
+sub _utils_tree_element_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
   my $input_file_name_encoding = shift;
@@ -1113,14 +1111,14 @@ sub tree_element_expand_verbatiminclude($$)
 
   my $document = $converter->{'document'};
 
-  return utils_tree_element_expand_verbatiminclude($current,
+  return _utils_tree_element_expand_verbatiminclude($current,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
 }
 
-# for the XS override
-sub utils_expand_verbatiminclude($$$$$;$$)
+# for the XS override.  Should not be called directly
+sub _utils_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
   my $input_file_name_encoding = shift;
@@ -1154,20 +1152,20 @@ sub expand_verbatiminclude($$)
 
   my $document = $converter->{'document'};
 
-  return utils_expand_verbatiminclude($current,
+  return _utils_expand_verbatiminclude($current,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
 }
 
 # Wrapper used for XS override.  Should not be accessed directly.
-sub element_expand_today($$$$$)
+sub _expand_today($$$$$)
 {
-  my $build_tree = shift;
   my $test = shift;
   my $lang_translations = shift;
   my $debug = shift;
   my $converter = shift;
+  my $build_tree = shift;
 
   return Texinfo::Convert::Utils::expand_today($test,
                                                $lang_translations,
@@ -1184,8 +1182,8 @@ sub tree_element_expand_today($;$)
 
   my $test = $converter->get_conf('TEST');
   my $debug = $converter->get_conf('DEBUG');
-  return element_expand_today($build_tree, $test,
-          $converter->{'current_lang_translations'}, $debug, $converter);
+  return _expand_today($test, $converter->{'current_lang_translations'},
+                       $debug, $converter, $build_tree);
 }
 
 # same as in Texinfo::Common, but for the TreeElement interface

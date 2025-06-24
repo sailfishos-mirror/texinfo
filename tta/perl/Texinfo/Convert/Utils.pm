@@ -585,9 +585,9 @@ sub add_heading_number($$;$$)
   return $result;
 }
 
-sub find_element_authors_internal($$);
+sub _find_element_authors_internal($$);
 
-sub find_element_authors_internal($$)
+sub _find_element_authors_internal($$)
 {
   my $element = shift;
   my $quotation_authors = shift;
@@ -615,7 +615,7 @@ sub find_element_authors_internal($$)
   }
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
-      find_element_authors_internal($content, $quotation_authors);
+      _find_element_authors_internal($content, $quotation_authors);
     }
   }
 }
@@ -628,7 +628,7 @@ sub find_element_authors($$)
   my $quotation_authors = shift;
 
   foreach my $content (@{$element->{'contents'}}) {
-    find_element_authors_internal($content, $quotation_authors);
+    _find_element_authors_internal($content, $quotation_authors);
   }
 }
 
