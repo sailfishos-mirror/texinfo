@@ -223,7 +223,9 @@ comment_or_end_line (SV *, SV *element_sv)
           {
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
+
             COMMENT_OR_END_LINE *end_line_info = comment_or_end_line (element);
+
             if (end_line_info->comment)
               comment_sv = newSVsv ((SV *)end_line_info->comment->sv);
             else
@@ -253,8 +255,10 @@ argument_comment_end_line (SV *, SV *element_sv)
           {
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
+
             ARGUMENT_COMMENT_END_LINE *arg_end_l_info
               = argument_comment_end_line (element);
+
             if (arg_end_l_info->comment_end_line.comment)
               comment_sv = newSVsv ((SV *)
                  arg_end_l_info->comment_end_line.comment->sv);

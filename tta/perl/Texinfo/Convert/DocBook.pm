@@ -517,8 +517,9 @@ sub conversion_output_begin($;$$)
     # arguments_line type element
     my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    $fulltitle_command = $command
-      if ($line_arg->{'contents'});
+    if ($line_arg->{'contents'}) {
+      $fulltitle_command = $arguments_line;
+    }
   }
 
   my $title_info = '';
@@ -732,14 +733,7 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $line_arg;
-  if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-    $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
-  } else {
-    $line_arg = $element->{'contents'}->[0];
-  }
-  my $converted = $self->convert_tree($line_arg);
+  my $converted = $self->convert_tree($element->{'contents'}->[0]);
   my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
@@ -1106,8 +1100,10 @@ sub _convert($$;$)
             }
             push @{$self->{'lang_stack'}}, $language;
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";
+            # argument_line type
+            my $argument_line = $opened_element->{'contents'}->[0];
             my ($arg, $end_line)
-              = _convert_argument_and_end_line($self, $opened_element);
+              = _convert_argument_and_end_line($self, $argument_line);
             $result .= "<title>$arg</title>$end_line";
             chomp ($result);
             $result .= "\n";

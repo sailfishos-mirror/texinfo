@@ -867,14 +867,17 @@ sub argument_comment_end_line($$)
   my $element = shift;
 
   my $line_arg;
+  my $end_line_element;
   my $first_child = $element->{'contents'}->[0];
   my $first_child_type = $first_child->{'type'};
   if ($first_child_type and $first_child_type eq 'arguments_line') {
     $line_arg = $first_child->{'contents'}->[0];
+    $end_line_element = $first_child;
   } else {
     $line_arg = $element->{'contents'}->[0];
+    $end_line_element = $element;
   }
-  my ($comment, $end_line) = $self->comment_or_end_line($element);
+  my ($comment, $end_line) = $self->comment_or_end_line($end_line_element);
   return $line_arg, $comment, $end_line;
 }
 
@@ -885,25 +888,16 @@ sub tree_element_comment_or_end_line_nonxs($$)
 
   my $end_line;
 
-  my $line_arg;
-  my $first_child = $element->get_child(0);
-  if ($first_child) {
-    my $first_child_type = $first_child->{'type'};
-    if ($first_child_type and $first_child_type eq 'arguments_line') {
-      $line_arg = $first_child->get_child(-1);
-    } else {
-      $line_arg = $element->get_child(-1);
-    }
-  }
+  my $last_arg = $element->get_child(-1);
 
-  my $comment = $line_arg->get_attribute('comment_at_end')
-    if ($line_arg);
+  my $comment = $last_arg->get_attribute('comment_at_end')
+    if ($last_arg);
 
   if ($comment) {
     return ($comment, undef);
-  } elsif ($line_arg) {
+  } elsif ($last_arg) {
     my $spaces_after_argument
-      = $line_arg->get_attribute('spaces_after_argument');
+      = $last_arg->get_attribute('spaces_after_argument');
     if (defined($spaces_after_argument)) {
       my $text = $spaces_after_argument->{'text'};
       if (chomp($text)) {
@@ -933,15 +927,18 @@ sub tree_element_argument_comment_end_line($$)
   my $element = shift;
 
   my $line_arg;
+  my $end_line_element;
   my $first_child = $element->get_child(0);
   my $first_child_type = $first_child->{'type'};
   if ($first_child_type and $first_child_type eq 'arguments_line') {
     $line_arg = $first_child->get_child(0);
+    $end_line_element = $first_child;
   } else {
     $line_arg = $element->get_child(0);
+    $end_line_element = $element;
   }
   my ($comment, $end_line)
-    = $self->tree_element_comment_or_end_line($element);
+    = $self->tree_element_comment_or_end_line($end_line_element);
   return $line_arg, $comment, $end_line;
 }
 

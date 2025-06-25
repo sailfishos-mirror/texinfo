@@ -816,26 +816,14 @@ definition_category_tree (const ELEMENT *current,
 static void
 get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
 {
-  const ELEMENT *line_arg = 0;
   const ELEMENT *comment = 0;
+  const ELEMENT *last_arg = 0;
 
-  if (element->e.c->contents.number)
-    {
-      if (element->e.c->contents.list[0]->type == ET_arguments_line)
-        {
-          const ELEMENT *arguments_line = element->e.c->contents.list[0];
-          line_arg = arguments_line->e.c->contents.list[
-                        arguments_line->e.c->contents.number -1];
-        }
-      else
-        {
-          line_arg = element->e.c->contents.list[
+  if (element)
+    last_arg = element->e.c->contents.list[
                         element->e.c->contents.number -1];
-        }
-    }
-
-  if (line_arg && eit_comment_at_end < type_data[line_arg->type].elt_info_number)
-    comment = line_arg->elt_info[eit_comment_at_end];
+  if (last_arg && eit_comment_at_end < type_data[last_arg->type].elt_info_number)
+    comment = last_arg->elt_info[eit_comment_at_end];
 
   if (comment)
     {
@@ -845,12 +833,12 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
     }
   result->comment = 0;
 
-  if (line_arg)
+  if (last_arg)
     {
       const ELEMENT *spaces_after_argument = 0;
-      if (eit_spaces_after_argument < type_data[line_arg->type].elt_info_number)
+      if (eit_spaces_after_argument < type_data[last_arg->type].elt_info_number)
         spaces_after_argument
-          = line_arg->elt_info[eit_spaces_after_argument];
+          = last_arg->elt_info[eit_spaces_after_argument];
       if (spaces_after_argument)
         {
           if (strchr (spaces_after_argument->e.text->text, '\n'))
@@ -881,6 +869,7 @@ argument_comment_end_line (const ELEMENT *element)
 {
   ARGUMENT_COMMENT_END_LINE *result = (ARGUMENT_COMMENT_END_LINE *) malloc
     (sizeof (ARGUMENT_COMMENT_END_LINE));
+  const ELEMENT *end_line_element = 0;
 
   if (element->e.c->contents.number)
     {
@@ -888,14 +877,18 @@ argument_comment_end_line (const ELEMENT *element)
         {
           const ELEMENT *arguments_line = element->e.c->contents.list[0];
           result->argument = arguments_line->e.c->contents.list[0];
+          end_line_element = arguments_line;
         }
       else
-        result->argument = element->e.c->contents.list[0];
+        {
+          result->argument = element->e.c->contents.list[0];
+          end_line_element = element;
+        }
     }
   else
     result->argument = 0;
 
-  get_comment_or_end_line (element, &result->comment_end_line);
+  get_comment_or_end_line (end_line_element, &result->comment_end_line);
 
   return result;
 }

@@ -952,7 +952,7 @@ sub _convert($$;$)
           if (! $self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
             $result .= $self->txi_markup_close_element('node');
           }
-          $result .= $self->format_comment_or_return_end_line($element);
+          $result .= $self->format_comment_or_return_end_line($arguments_line);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces_arg($element)];
@@ -975,7 +975,8 @@ sub _convert($$;$)
           my $argument_line = $element->{'contents'}->[0];
           my $arg = $self->convert_tree($argument_line->{'contents'}->[0]);
           my $end_space = _end_line_spaces($self, $argument_line);
-          my $end_line = $self->format_comment_or_return_end_line($element);
+          my $end_line
+            = $self->format_comment_or_return_end_line($argument_line);
 
           $result .= $self->txi_markup_open_element('sectiontitle')
                     .$arg.$end_space
@@ -1495,7 +1496,7 @@ sub _convert($$;$)
                   $arg = $self->convert_tree($arg_element);
                   $end_space = _end_line_spaces($self, $arguments_line);
                   $end_line
-                    = $self->format_comment_or_return_end_line($element);
+                   = $self->format_comment_or_return_end_line($arguments_line);
 
                   # happens for @-commands interrupted by other commands
                   # incorrectly present on the line
@@ -1571,7 +1572,7 @@ sub _convert($$;$)
                 }
                 my $end_space = _end_line_spaces($self, $arguments_line);
                 $result .= $end_space
-                          .$self->format_comment_or_return_end_line($element);
+                    .$self->format_comment_or_return_end_line($arguments_line);
                 # happens for multitable line with prototypes interrupted
                 # by another @-command
                 $result .= "\n" unless ($result =~ /\n/);
@@ -1581,7 +1582,8 @@ sub _convert($$;$)
               # usually have arguments but with missing or bogus arguments,
               # and from block @-commands without argument.
               $result .= _end_line_spaces($self, $arguments_line);
-              $result .= $self->format_comment_or_return_end_line($element);
+              $result
+                .= $self->format_comment_or_return_end_line($arguments_line);
               # systematic for @(r)macro as _arg_line removes the end of line,
               # also happens for commands interrupted on the line
               $result .= "\n" unless ($result =~ /\n/);

@@ -1439,24 +1439,16 @@ sub comment_or_end_line_nonxs($$)
 
   my $end_line;
 
-  my $line_arg;
-  if ($element->{'contents'}) {
-    if ($element->{'contents'}->[0]->{'type'}
-        and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-      $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
-    } else {
-      $line_arg = $element->{'contents'}->[-1];
-    }
-  }
+  my $last_arg = $element->{'contents'}->[-1];
 
-  my $comment = $line_arg->{'info'}->{'comment_at_end'}
-    if ($line_arg and $line_arg->{'info'});
+  my $comment = $last_arg->{'info'}->{'comment_at_end'}
+    if ($last_arg and $last_arg->{'info'});
 
   if ($comment) {
     return ($comment, undef);
-  } elsif ($line_arg and $line_arg->{'info'}
-      and $line_arg->{'info'}->{'spaces_after_argument'}) {
-    my $text = $line_arg
+  } elsif ($last_arg and $last_arg->{'info'}
+      and $last_arg->{'info'}->{'spaces_after_argument'}) {
+    my $text = $last_arg
                    ->{'info'}->{'spaces_after_argument'}->{'text'};
     if (chomp($text)) {
       $end_line = "\n";
