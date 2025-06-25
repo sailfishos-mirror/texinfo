@@ -454,29 +454,23 @@ sub _leading_spaces_arg($)
 
 # return spaces only, end of line is gathered by calling
 # format_comment_or_return_end_line
-sub _end_line_spaces
+sub _end_line_spaces($$)
 {
   my $self = shift;
   my $element = shift;
 
-  my $end_spaces = '';
-  my $arguments_list;
-  if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-    $arguments_list = $element->{'contents'}->[0]->{'contents'};
-  } else {
-    $arguments_list = $element->{'contents'};
-  }
-  if ($arguments_list->[-1]
-      and $arguments_list->[-1]->{'info'}
-      and $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}) {
+  my $last_arg = $element->{'contents'}->[-1];
+
+  if ($last_arg and $last_arg->{'info'}
+      and $last_arg->{'info'}->{'spaces_after_argument'}) {
     # spaces and form feeds only, protection is needed for form feeds
     my $spaces
-      = $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}->{'text'};
+      = $last_arg->{'info'}->{'spaces_after_argument'}->{'text'};
     chomp $spaces;
-    $end_spaces = $self->txi_markup_protect_text($spaces);
+    my $end_spaces = $self->txi_markup_protect_text($spaces);
+    return $end_spaces;
   }
-  return $end_spaces;
+  return '';
 }
 
 # no end of line
@@ -559,24 +553,6 @@ sub _format_columnfractions($$)
   return $result;
 }
 
-sub _convert_argument_and_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $line_arg;
-  if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
-  } else {
-    $line_arg = $element->{'contents'}->[-1];
-  }
-  my $converted = $self->convert_tree($line_arg);
-  my $end_space = _end_line_spaces($self, $element);
-  my $end_line = $self->format_comment_or_return_end_line($element);
-  return ($converted, $end_space, $end_line);
-}
-
 # used in brace commands
 # NOTE not really needed now that comment_at_end are not generated
 # for brace commands.
@@ -612,7 +588,7 @@ sub _convert_def_line($$)
   $result .= $self->_index_entry($element);
   push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
   my $def_command = $element->{'extra'}->{'def_command'};
-  if ($element->{'contents'} and @{$element->{'contents'}}
+  if ($element->{'contents'}
       and $element->{'contents'}->[0]->{'contents'}) {
     my $main_command;
     my $alias;
@@ -824,8 +800,8 @@ sub _convert($$;$)
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
-        my ($arg, $end_space, $end_line)
-             = $self->_convert_argument_and_end_line($element);
+        my $arg = $self->convert_tree($element->{'contents'}->[0]);
+        my $end_space = _end_line_spaces($self, $element);
 
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
@@ -834,6 +810,7 @@ sub _convert($$;$)
         if ($format_item_command) {
           $line_item_result .= $self->txi_markup_close_element('itemformat');
         }
+        my $end_line = $self->format_comment_or_return_end_line($element);
         $line_item_result
            .= $self->txi_markup_close_element($cmdname).$end_line;
         return $line_item_result;
@@ -890,8 +867,9 @@ sub _convert($$;$)
                   $element->{'extra'}->{'text_arg'}];
           }
         }
-        my ($arg, $end_space, $end_line)
-              = $self->_convert_argument_and_end_line($element);
+        my $arg = $self->convert_tree($element->{'contents'}->[0]);
+        my $end_space = _end_line_spaces($self, $element);
+        my $end_line = $self->format_comment_or_return_end_line($element);
         push @$attribute, _leading_spaces_arg($element);
         return $self->txi_markup_open_element($cmdname, $attribute)
                 .$arg.$end_space
@@ -993,8 +971,12 @@ sub _convert($$;$)
             $closed_section_element = '';
           }
 
-          my ($arg, $end_space, $end_line)
-             = $self->_convert_argument_and_end_line($element);
+          # argument_line type
+          my $argument_line = $element->{'contents'}->[0];
+          my $arg = $self->convert_tree($argument_line->{'contents'}->[0]);
+          my $end_space = _end_line_spaces($self, $argument_line);
+          my $end_line = $self->format_comment_or_return_end_line($element);
+
           $result .= $self->txi_markup_open_element('sectiontitle')
                     .$arg.$end_space
                     .$self->txi_markup_close_element('sectiontitle')
@@ -1008,8 +990,9 @@ sub _convert($$;$)
             unshift @$attribute, ['type',
                                   $element->{'extra'}->{'float_type'}];
           }
-          my ($arg, $end_space, $end_line)
-                = $self->_convert_argument_and_end_line($element);
+          my $arg = $self->convert_tree($element->{'contents'}->[0]);
+          my $end_space = _end_line_spaces($self, $element);
+          my $end_line = $self->format_comment_or_return_end_line($element);
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
@@ -1460,10 +1443,12 @@ sub _convert($$;$)
                                     @end_command_spaces])
                    .${prepended_elements};
         my $arguments_list;
-        if ($element->{'contents'} and scalar(@{$element->{'contents'}})
+        my $arguments_line;
+        if ($element->{'contents'}
             and $element->{'contents'}->[0]->{'type'}
             and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
-          $arguments_list = $element->{'contents'}->[0]->{'contents'};
+          $arguments_line = $element->{'contents'}->[0];
+          $arguments_list = $arguments_line->{'contents'};
         }
         if ($arguments_list) {
           my $variadic_element = undef;
@@ -1507,8 +1492,11 @@ sub _convert($$;$)
                 }
                 if ($arg_index+1 eq scalar(@{$arguments_list})) {
                   # last argument
-                  ($arg, $end_space, $end_line)
-                    = $self->_convert_argument_and_end_line($element);
+                  $arg = $self->convert_tree($arg_element);
+                  $end_space = _end_line_spaces($self, $arguments_line);
+                  $end_line
+                    = $self->format_comment_or_return_end_line($element);
+
                   # happens for @-commands interrupted by other commands
                   # incorrectly present on the line
                   $end_line = "\n" if ($end_line eq '');
@@ -1581,8 +1569,7 @@ sub _convert($$;$)
                   }
                   $result .= $self->txi_markup_close_element('columnprototypes');
                 }
-                my $end_space
-                  = _end_line_spaces($self, $element);
+                my $end_space = _end_line_spaces($self, $arguments_line);
                 $result .= $end_space
                           .$self->format_comment_or_return_end_line($element);
                 # happens for multitable line with prototypes interrupted
@@ -1593,7 +1580,7 @@ sub _convert($$;$)
               # get end of lines from @*table and block @-commands that
               # usually have arguments but with missing or bogus arguments,
               # and from block @-commands without argument.
-              $result .= _end_line_spaces($self, $element);
+              $result .= _end_line_spaces($self, $arguments_line);
               $result .= $self->format_comment_or_return_end_line($element);
               # systematic for @(r)macro as _arg_line removes the end of line,
               # also happens for commands interrupted on the line
@@ -1693,7 +1680,7 @@ sub _convert($$;$)
       and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
     if ($self->{'expanded_formats'}->{$element->{'cmdname'}}) {
     } else {
-      if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
+      if ($element->{'contents'}
           and $element->{'contents'}->[-1]->{'cmdname'}
           and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
         my $end_command = $element->{'contents'}->[-1];
