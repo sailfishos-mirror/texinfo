@@ -453,7 +453,7 @@ sub _leading_spaces_arg($)
 }
 
 # return spaces only, end of line is gathered by calling
-# format_comment_or_return_end_line
+# _format_comment_or_end_line
 sub _end_line_spaces($$)
 {
   my $self = shift;
@@ -473,6 +473,24 @@ sub _end_line_spaces($$)
   return '';
 }
 
+sub _format_comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my ($comment, $end_line)
+   = $self->comment_or_end_line_nonxs($element);
+
+  if ($comment) {
+    return $self->txi_markup_comment(" $comment->{'cmdname'}"
+                         .$comment->{'contents'}->[0]->{'text'});
+  } else {
+    return $end_line;
+  }
+}
+
+
+
 # no end of line
 sub _arg_line($)
 {
@@ -489,7 +507,7 @@ sub _arg_line($)
 }
 
 # without the end of line.  The end of line is usually returned by
-# format_comment_or_return_end_line
+# _format_comment_or_end_line
 sub _trailing_spaces_arg($)
 {
   my $element = shift;
@@ -549,7 +567,7 @@ sub _format_columnfractions($$)
     }
   }
   $result .= $self->txi_markup_close_element('columnfractions');
-  $result .= $self->format_comment_or_return_end_line($element);
+  $result .= _format_comment_or_end_line($self, $element);
   return $result;
 }
 
@@ -810,7 +828,7 @@ sub _convert($$;$)
         if ($format_item_command) {
           $line_item_result .= $self->txi_markup_close_element('itemformat');
         }
-        my $end_line = $self->format_comment_or_return_end_line($element);
+        my $end_line = _format_comment_or_end_line($self, $element);
         $line_item_result
            .= $self->txi_markup_close_element($cmdname).$end_line;
         return $line_item_result;
@@ -849,7 +867,7 @@ sub _convert($$;$)
 
       # this is important to get the spaces before a @subentry
       my $end_line_spaces = _end_line_spaces($self, $element);
-      my $end_line = $self->format_comment_or_return_end_line($element);
+      my $end_line = _format_comment_or_end_line($self, $element);
 
       return $self->txi_markup_open_element($format_element, $attribute)
           .$self->_index_entry($element)
@@ -869,7 +887,7 @@ sub _convert($$;$)
         }
         my $arg = $self->convert_tree($element->{'contents'}->[0]);
         my $end_space = _end_line_spaces($self, $element);
-        my $end_line = $self->format_comment_or_return_end_line($element);
+        my $end_line = _format_comment_or_end_line($self, $element);
         push @$attribute, _leading_spaces_arg($element);
         return $self->txi_markup_open_element($cmdname, $attribute)
                 .$arg.$end_space
@@ -952,7 +970,7 @@ sub _convert($$;$)
           if (! $self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
             $result .= $self->txi_markup_close_element('node');
           }
-          $result .= $self->format_comment_or_return_end_line($arguments_line);
+          $result .= _format_comment_or_end_line($self, $arguments_line);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces_arg($element)];
@@ -971,12 +989,12 @@ sub _convert($$;$)
             $closed_section_element = '';
           }
 
-          # argument_line type
-          my $argument_line = $element->{'contents'}->[0];
-          my $arg = $self->convert_tree($argument_line->{'contents'}->[0]);
-          my $end_space = _end_line_spaces($self, $argument_line);
+          # arguments_line type
+          my $arguments_line = $element->{'contents'}->[0];
+          my $arg = $self->convert_tree($arguments_line->{'contents'}->[0]);
+          my $end_space = _end_line_spaces($self, $arguments_line);
           my $end_line
-            = $self->format_comment_or_return_end_line($argument_line);
+            = _format_comment_or_end_line($self, $arguments_line);
 
           $result .= $self->txi_markup_open_element('sectiontitle')
                     .$arg.$end_space
@@ -993,7 +1011,7 @@ sub _convert($$;$)
           }
           my $arg = $self->convert_tree($element->{'contents'}->[0]);
           my $end_space = _end_line_spaces($self, $element);
-          my $end_line = $self->format_comment_or_return_end_line($element);
+          my $end_line = _format_comment_or_end_line($self, $element);
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
@@ -1089,7 +1107,7 @@ sub _convert($$;$)
             $arg_index++;
           }
         }
-        my $end_line = $self->format_comment_or_return_end_line($element);
+        my $end_line = _format_comment_or_end_line($self, $element);
         # not sure if it may happen
         $end_line = "\n" if ($end_line eq '');
         push @$attribute, $self->_texinfo_line($element);
@@ -1496,7 +1514,7 @@ sub _convert($$;$)
                   $arg = $self->convert_tree($arg_element);
                   $end_space = _end_line_spaces($self, $arguments_line);
                   $end_line
-                   = $self->format_comment_or_return_end_line($arguments_line);
+                   = _format_comment_or_end_line($self, $arguments_line);
 
                   # happens for @-commands interrupted by other commands
                   # incorrectly present on the line
@@ -1572,7 +1590,7 @@ sub _convert($$;$)
                 }
                 my $end_space = _end_line_spaces($self, $arguments_line);
                 $result .= $end_space
-                    .$self->format_comment_or_return_end_line($arguments_line);
+                    ._format_comment_or_end_line($self, $arguments_line);
                 # happens for multitable line with prototypes interrupted
                 # by another @-command
                 $result .= "\n" unless ($result =~ /\n/);
@@ -1583,7 +1601,7 @@ sub _convert($$;$)
               # and from block @-commands without argument.
               $result .= _end_line_spaces($self, $arguments_line);
               $result
-                .= $self->format_comment_or_return_end_line($arguments_line);
+                .= _format_comment_or_end_line($self, $arguments_line);
               # systematic for @(r)macro as _arg_line removes the end of line,
               # also happens for commands interrupted on the line
               $result .= "\n" unless ($result =~ /\n/);
@@ -1687,7 +1705,7 @@ sub _convert($$;$)
           and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
         my $end_command = $element->{'contents'}->[-1];
         $result .= _end_line_spaces($self, $end_command);
-        $result .= $self->format_comment_or_return_end_line($end_command);
+        $result .= _format_comment_or_end_line($self, $end_command);
       } else {
         # missing @end, add an end of line after the closing markup element.
         $result .= "\n";

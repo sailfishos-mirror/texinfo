@@ -1461,19 +1461,6 @@ sub comment_or_end_line_nonxs($$)
   return (undef, $end_line);
 }
 
-sub format_comment_or_return_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-  my ($comment, $end_line) = $self->comment_or_end_line_nonxs($element);
-
-  if ($comment) {
-    return $self->convert_tree($comment);
-  } else {
-    return $end_line;
-  }
-}
-
 
 
 # Specific elements formatting helper functions
@@ -2755,15 +2742,6 @@ X<C<float_type_number>>
 I<$float> is a Texinfo tree C<@float> element.  This function
 returns the type and number of the float as a Texinfo tree with
 translations.
-
-=item $end_line = $converter->format_comment_or_return_end_line($element)
-X<C<format_comment_or_return_end_line>>
-
-Format comment at end of line or return the end of line associated with
-the element.  In many cases, converters ignore comments and output is
-better formatted with new lines added independently of the presence
-of newline or comment in the initial Texinfo line, so most converters
-are better off not using this method.
 
 =item $filename = sub $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>

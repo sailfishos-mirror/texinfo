@@ -684,16 +684,6 @@ of the float.
 returns the type and number of the float as a Texinfo tree with
 translations.
 
-@item $end_line = $converter->format_comment_or_return_end_line($element)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $end_line = $converter->format_comment_or_return_end_line($element)}
-@cindex @code{format_comment_or_return_end_line}
-
-Format comment at end of line or return the end of line associated with
-the element.  In many cases, converters ignore comments and output is
-better formatted with new lines added independently of the presence
-of newline or comment in the initial Texinfo line, so most converters
-are better off not using this method.
-
 @item $filename = sub $converter->node_information_filename($normalized, $label_element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $filename = sub $converter->node_information_filename($normalized@comma{} $label_element)}
 @cindex @code{node_information_filename}

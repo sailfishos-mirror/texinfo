@@ -5,6 +5,18 @@
 
 2025-06-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/DocBook.pm (_format_comment_or_end_line),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm
+	(_format_comment_or_end_line): implement
+	format_comment_or_return_end_line for each converter using the
+	function, to format directly the comment instead of going through a
+	call of convert_tree, for a simpler and more efficient code.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: remove
+	format_comment_or_return_end_line.
+
+2025-06-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (get_comment_or_end_line),
 	tta/perl/Texinfo/Convert/Converter.pm (comment_or_end_line_nonxs),
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm

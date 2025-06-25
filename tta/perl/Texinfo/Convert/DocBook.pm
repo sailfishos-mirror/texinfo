@@ -728,13 +728,29 @@ sub _protect_text($$)
   return $result;
 }
 
+sub _format_comment_or_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my ($comment, $end_line)
+   = $self->comment_or_end_line_nonxs($element);
+
+  if ($comment) {
+    return $self->xml_comment($comment->{'contents'}->[0]->{'text'});
+  } else {
+    return $end_line;
+  }
+}
+
 sub _convert_argument_and_end_line($$)
 {
   my $self = shift;
   my $element = shift;
 
   my $converted = $self->convert_tree($element->{'contents'}->[0]);
-  my $end_line = $self->format_comment_or_return_end_line($element);
+  my $end_line = _format_comment_or_end_line($self, $element);
+
   return ($converted, $end_line);
 }
 
@@ -953,7 +969,7 @@ sub _convert($$;$)
              and $e_type eq 'index_entry_command') {
       my $end_line;
       if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-        $end_line = $self->format_comment_or_return_end_line($element);
+        $end_line = _format_comment_or_end_line($self, $element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
         }

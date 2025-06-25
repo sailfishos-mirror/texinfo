@@ -744,6 +744,10 @@ sub _protect_text($$)
   return $result;
 }
 
+# this is similar to functions used in other converters, but not exactly
+# the same as we want to start with an element that is already registered
+# to C, and so we go through the arguments_line in the
+# argument_comment_end_line function overriden for XS.
 sub _convert_argument_and_end_line($$)
 {
   my $self = shift;
