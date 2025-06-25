@@ -1,3 +1,8 @@
+2025-06-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: remove instruction to inform tug.org of Texinfo
+	releases.  From Karl.
+
 2025-06-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): inline

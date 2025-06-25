@@ -610,12 +610,6 @@ news item at savannah.
 
 -------------------------------------------------------------------------
 
-
-#  Official releases only: Contact root@tug.org to update texinfo at tug.org.
-# If root@tug.org doesn't reply, can try webmaster@tug.org,
-# or (last resort) board@tug.org.
-
-
 #  ... post-release, or when development resumes:
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
 until it's time to do pretests again.
