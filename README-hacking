@@ -616,3 +616,12 @@ until it's time to do pretests again.
 
 check TODO for post-release tasks.  delete this note once done.
 -------------------------------------------------------------------------
+
+Other files are uploaded to ftp.gnu.org as and when they are updated
+and ready for general use:
+
+gnupload --to ftp.gnu.org:texinfo --replace texinfo.tex
+
+# under util/htmlxref.d
+gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace Texinfo_GNU.cnf
+gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace Texinfo_nonGNU.cnf

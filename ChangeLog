@@ -1,3 +1,7 @@
+2025-06-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: show how to do occasional ftp uploads with gnupload
+
 2025-06-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/DocBook.pm (_format_comment_or_end_line),
