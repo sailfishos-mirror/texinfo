@@ -1,5 +1,10 @@
 2025-06-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Xref Configuration): reference new files
+	on ftp.gnu.org.  From Patrice.
+
+2025-06-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: show how to do occasional ftp uploads with gnupload
 
 2025-06-25  Patrice Dumas  <pertusus@free.fr>
