@@ -710,31 +710,32 @@ txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
 }
 
 size_t
-txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
-                                  int use_filename,
-                                  const char *message_encoding)
+txi_handle_parser_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename)
 {
-  return output_error_messages (&document->parser_error_messages, no_warn,
-                                use_filename, message_encoding);
+  return output_error_messages (&document->parser_error_messages,
+                                message_encoding, no_warn,
+                                use_filename);
 }
 
 size_t
-txi_handle_document_error_messages (DOCUMENT *document, int no_warn,
-                                    int use_filename,
-                                    const char *message_encoding)
+txi_handle_document_error_messages (DOCUMENT *document,
+                                    const char *message_encoding,
+                                    int no_warn, int use_filename)
 {
-  return output_error_messages (&document->error_messages, no_warn,
-                                use_filename, message_encoding);
+  return output_error_messages (&document->error_messages, message_encoding,
+                                no_warn, use_filename);
 
 }
 
 size_t
-txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
-                                    int use_filename,
-                                    const char *message_encoding)
+txi_handle_converter_error_messages (CONVERTER *converter,
+                                     const char *message_encoding,
+                                     int no_warn, int use_filename)
 {
-  return output_error_messages (&converter->error_messages, no_warn,
-                         use_filename, message_encoding);
+  return output_error_messages (&converter->error_messages, message_encoding,
+                                no_warn, use_filename);
 }
 
 /* used to show the built-in CSS rules */

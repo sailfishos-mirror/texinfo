@@ -438,8 +438,8 @@ clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
    _output_error_messages.  Used from C only */
 size_t
 output_error_messages (ERROR_MESSAGE_LIST *error_messages,
-                       int no_warn, int use_filename,
-                       const char *message_encoding)
+                       const char *message_encoding,
+                       int no_warn, int use_filename)
 {
   TEXT text;
   ENCODING_CONVERSION *conversion = 0;

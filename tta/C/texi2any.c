@@ -563,13 +563,13 @@ handle_errors (size_t additional_error_count, size_t error_count,
 }
 
 static size_t
-handle_parser_errors (DOCUMENT *document, int no_warn, int test_mode_set,
-                      const char *set_message_encoding, size_t error_count,
+handle_parser_errors (DOCUMENT *document, const char *set_message_encoding,
+                      int no_warn, int test_mode_set, size_t error_count,
                       STRING_LIST *opened_files)
 {
   size_t errors_nr
-        = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                            set_message_encoding);
+        = txi_handle_parser_error_messages (document, set_message_encoding,
+                                            no_warn, test_mode_set);
   return handle_errors (errors_nr, error_count, opened_files);
 }
 
@@ -2673,16 +2673,16 @@ main (int argc, char *argv[], char *env[])
 
       if (status)
         {
-          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
-                                               set_message_encoding,
+          errors_count = handle_parser_errors (document, set_message_encoding,
+                                               no_warn, test_mode_set,
                                                errors_count, &opened_files);
           goto next_input_file;
         }
 
       if (!strcmp (output_format, "parse"))
         {
-          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
-                                               set_message_encoding,
+          errors_count = handle_parser_errors (document, set_message_encoding,
+                                               no_warn, test_mode_set,
                                                errors_count, &opened_files);
           goto next_input_file;
         }
@@ -2691,8 +2691,8 @@ main (int argc, char *argv[], char *env[])
          = GNUT_get_conf (program_options.options->TRACE_INCLUDES.number);
       if (trace_includes_option && trace_includes_option->o.integer > 0)
         {
-          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
-                                               set_message_encoding,
+          errors_count = handle_parser_errors (document, set_message_encoding,
+                                               no_warn, test_mode_set,
                                                errors_count, &opened_files);
           if (document->global_info.included_files.number)
             {
@@ -2786,8 +2786,8 @@ main (int argc, char *argv[], char *env[])
       if ((dump_texi_option && dump_texi_option->o.integer > 0)
           || format_specification->flags & STTF_texi2dvi_format)
         {
-          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
-                                               set_message_encoding,
+          errors_count = handle_parser_errors (document, set_message_encoding,
+                                               no_warn, test_mode_set,
                                                errors_count, &opened_files);
           goto next_input_file;
         }
@@ -2801,9 +2801,8 @@ main (int argc, char *argv[], char *env[])
                                   &document->error_messages);
 
       errors_nr
-        = txi_handle_parser_error_messages (document, no_warn,
-                                            test_mode_set,
-                                            set_message_encoding);
+        = txi_handle_parser_error_messages (document, set_message_encoding,
+                                            no_warn, test_mode_set);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
@@ -2956,8 +2955,9 @@ main (int argc, char *argv[], char *env[])
                               errors_count);
 
       errors_nr
-        = txi_handle_converter_error_messages (converter, no_warn,
-                                       test_mode_set, set_message_encoding);
+        = txi_handle_converter_error_messages (converter,
+                                       set_message_encoding, no_warn,
+                                       test_mode_set);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
