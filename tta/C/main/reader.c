@@ -134,6 +134,8 @@ pop_reader_context (READER *reader)
 static READER_CONTEXT *
 top_reader_context (READER *reader)
 {
+  if (reader->top == 0)
+    return 0;
   return &reader->stack[reader->top -1];
 }
 
@@ -171,6 +173,9 @@ txi_reader_read (READER *reader)
   const ELEMENT *element;
 
   top_context = top_reader_context (reader);
+
+  if (!top_context)
+    return 0;
 
   top_context->index++;
 

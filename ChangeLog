@@ -1,5 +1,11 @@
 2025-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/reader.c (pop_reader_context, txi_reader_read): do not
+	access the stack if top is 0, for instance if a reader is reused after
+	the end of a tree.
+
+2025-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/parser_conf.c (register_conf),
 	tta/perl/XSTexinfo/parser_document/Parsetexi.xs
 	(register_parser_conf): return conf descriptor instead of parser conf.
