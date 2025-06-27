@@ -35,6 +35,11 @@ void setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
                  const char *t2a_builddir, const char *t2a_srcdir);
 
+void setup_txi_paths_information (int texinfo_uninstalled,
+                             const char *converterdatadir,
+                             const char *t2a_builddir,
+                             const char *t2a_srcdir);
+
 DOCUMENT *new_document (void);
 void register_document_options (DOCUMENT *document, OPTIONS *options,
                                 OPTION **sorted_options);

@@ -71,7 +71,7 @@ free_converter_paths_information (PATHS_INFORMATION *paths_info)
     free (paths_info->p.installed.converterdatadir);
 }
 
-static void
+void
 setup_txi_paths_information (int texinfo_uninstalled,
                              const char *converterdatadir,
                              const char *t2a_builddir,
