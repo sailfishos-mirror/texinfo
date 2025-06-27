@@ -138,11 +138,15 @@ void
 reset_parser_conf (void)
 {
   if (global_parser_conf.descriptor)
-   /* it is important to set to 0 for list structures such that the list
+   /* In that case, the configuration is registered elsewhere and can be
+      copied over when needed.  The global_parser_conf is cleared and reused.
+      It is important to set to 0 list structures such that the list
       pointer is set to 0 and not reused. */
     memset (&global_parser_conf, 0, sizeof (PARSER_CONF));
   else
-    /* unset the previous structures if not registered */
+    /* release the previous structures if not registered.  The previous
+       structures are lost, but they were not registered, so it is ok
+       they should not be needed anywhere anymore */
     clear_parser_conf (&global_parser_conf);
 
   global_parser_conf.descriptor = 0;

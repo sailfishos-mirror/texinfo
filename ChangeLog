@@ -1,5 +1,11 @@
 2025-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/parser_conf.c (register_conf),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs
+	(register_parser_conf): return conf descriptor instead of parser conf.
+
+2025-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (setup_txi_paths_information): make
 	setup_txi_paths_information extern.
 

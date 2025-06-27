@@ -55,7 +55,8 @@ retrieve_parser_conf (size_t parser_conf_descriptor)
   return 0;
 }
 
-PARSER_CONF *
+/* PARSER_CONF * */
+size_t
 register_conf (void)
 {
   size_t parser_conf_index;
@@ -94,7 +95,8 @@ register_conf (void)
   fprintf (stderr, "Register parser_conf: %d\n", parser_conf->descriptor);
    */
 
-  return parser_conf;
+  /* return parser_conf; */
+  return parser_conf->descriptor;
 }
 
 void
