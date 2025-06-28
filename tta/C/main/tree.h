@@ -60,7 +60,4 @@ enum ai_key_name find_associated_info_key (const char *attribute);
 
 void setup_ai_key_name_index (void);
 
-#define element_contents_number(e) ((e)->contents.number)
-#define element_text(e) (text_base (&(e)->text))
-
 #endif

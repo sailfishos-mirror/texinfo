@@ -34,5 +34,4 @@ void text_printf (TEXT *t, const char *format, ...);
 void text_alloc (TEXT *t, size_t len);
 void text_reset (TEXT *t);
 
-#define text_base(t) ((t)->space ? (t)->text : (char *) 0)
 #endif

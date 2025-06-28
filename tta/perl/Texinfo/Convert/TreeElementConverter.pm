@@ -363,8 +363,8 @@ sub index_content_element($;$)
   my $element = shift;
   my $prefer_reference_element = shift;
 
-return Texinfo::Common::index_content_element($element,
-                                              $prefer_reference_element);
+  return Texinfo::Common::index_content_element($element,
+                                                $prefer_reference_element);
 }
 
 # same as in Texinfo::Common, but using the TreeElement interface
