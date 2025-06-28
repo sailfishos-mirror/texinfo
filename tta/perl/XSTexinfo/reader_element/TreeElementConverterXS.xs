@@ -353,6 +353,8 @@ tree_element_table_item_content_tree (SV *, SV *element_sv, SV *build_tree_sv=0)
                       {
                         ELEMENT *added_e = tree->added.list[i];
                         register_element_handle_in_sv (added_e, document);
+                        add_to_element_list (&document->additional_elements,
+                                             added_e);
                       }
                   }
                 free (tree->added.list);
