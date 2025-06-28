@@ -1,5 +1,13 @@
 2025-06-27  Patrice Dumas  <pertusus@free.fr>
 
+	Preliminary SWIG interface
+
+	* tta/swig/texinfo.i, tta/swig/tree_element.c: language-independent
+	SWIG interface for C parser, structuring, tree elements, document and
+	reader.
+
+2025-06-27  Patrice Dumas  <pertusus@free.fr>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf, util/htmlxref.d/Texinfo_nonGNU.cnf:
 	update location in comments.
 

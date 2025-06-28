@@ -1,0 +1,15 @@
+https://github.com/roryyorke/swig-python-autotools-example/blob/master/Makefile.am
+
+./build.sh
+
+export LD_LIBRARY_PATH=../C/.libs/
+
+Document: set_document_options: set novalidate, documentlanguage
+and OUTPUT_ENCODING_NAME and possibly other based on OPTIONS_LIST
+arguments, but there is no interface for OPTIONS_LIST
+
+element = skip_to_cmdname(reader, 'node')
+
+element = skip_to_cmdname(reader, 'cindex')
+index_entry = Texinfo.element_index_entry (document, element)
+index_info = Texinfo.index_entry_index (document, index_entry)
