@@ -516,10 +516,10 @@ check up to date copyright years in files relevant to --version calls
 (tta/perl/texi2any.pl, info/info.c, install-info/install-info.c,
 texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi)
 
-Ensure texinfo.tex, htmlxref.cnf are updated on ftp.gnu.org.
+Ensure texinfo.tex, htmlxref.d/Texinfo_*.cnf are updated on ftp.gnu.org.
 Upload texi2dvi, texi2pdf (official releases only)
 
-* For release/* branch only: propagate htmlxref.cnf from master
+* For release/* branch only: propagate htmlxref.d/Texinfo_*.cnf from master
 
 (cd tta/perl ; ../maintain/regenerate_file_lists.pl) # list all test results
 
