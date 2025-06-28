@@ -30,6 +30,8 @@ See the manual for detailed information.
   . HTML output:
       . use last @printindex for the Index direction
       . only output 'accesskey' attributes when splitting by node
+      . you can set FORMAT_MENU to 'menu_no_detailmenu' to omit an
+        automatically generated @detailmenu from the Top node
       . remove the buttons specifications with scalar references, direction
         text or functions references should be used instead
       . change --internal-links file item types names and output more item
