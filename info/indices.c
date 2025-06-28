@@ -48,6 +48,10 @@ static char *index_search = NULL;
 static char *initial_index_filename = NULL;
 static char *initial_index_nodename = NULL;
 
+/* A couple of "globals" describing where the last index was found. */
+static char *last_index_filename = NULL;
+static char *last_index_nodename = NULL;
+
 /* A structure associating index names with index offset ranges. */
 typedef struct {
   char *name;                   /* The nodename of this index. */
@@ -143,12 +147,19 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
   initial_index_filename = NULL;
   initial_index_nodename = NULL;
 
+  /* Reset globals describing where the last index was. */
+  free (last_index_filename);
+  free (last_index_nodename);
+  last_index_filename = NULL;
+  last_index_nodename = NULL;
+
   clear_index_nodenames ();
 
   /* Grovel the names of the nodes found in this file. */
   if (file_buffer->tags)
     {
       TAG *tag;
+      TAG *last_index_tag = 0;
 
       for (i = 0; (tag = file_buffer->tags[i]); i++)
         {
@@ -163,14 +174,18 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
               if (!node)
                 continue;
 
-              if ((node->flags & N_IsIndex) && !initial_index_filename)
+              if (node->flags & N_IsIndex)
                 {
+                  if (!initial_index_filename)
+                    {
                   /* Remember the filename and nodename of this index. */
-                  initial_index_filename = xstrdup (file_buffer->filename);
-                  initial_index_nodename = xstrdup (tag->nodename);
+                      initial_index_filename = xstrdup (file_buffer->filename);
+                      initial_index_nodename = xstrdup (tag->nodename);
 
-                  /* Clear list in case earlier node had "Index" in name. */
-                  clear_index_nodenames ();
+                      /* Clear list in case earlier node had "Index" in name. */
+                      clear_index_nodenames ();
+                    }
+                  last_index_tag = tag;
                 }
 
               menu = node->references;
@@ -190,6 +205,12 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                 }
               free_history_node (node);
             }
+        }
+      if (last_index_tag)
+        {
+          /* Remember the filename and nodename of this index. */
+          last_index_filename = xstrdup (file_buffer->filename);
+          last_index_nodename = xstrdup (last_index_tag->nodename);
         }
     }
 
@@ -238,12 +259,12 @@ DECLARE_INFO_COMMAND (info_index_search,
     {
       free (line);
 
-      if (initial_index_filename && initial_index_nodename)
+      if (last_index_filename && last_index_nodename)
         {
           NODE *node;
 
-          node = info_get_node (initial_index_filename,
-                                initial_index_nodename);
+          node = info_get_node (last_index_filename,
+                                last_index_nodename);
           info_set_node_of_window (window, node);
         }
       return;
