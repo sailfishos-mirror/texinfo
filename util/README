@@ -21,6 +21,9 @@ various jobs:
 The srclist.txt file specifies common source files to keep in sync; see
 the srclist-update script in gnulib.
 
+The swig directory contains an example of interface designed to wrap GNU
+Texinfo tta C code to high-level programming languages.
+
 Finally, the gendocs script and templates (which are not installed) are
 about creating all the usual output formats to be put on web pages.
 For more, see the GNU Maintainers Information:

@@ -10,13 +10,13 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# example of use of th SWIG interface
+# example of use of the SWIG interface
 
 import os
 import Texinfo
 
 #input_file_name = '../../doc/texinfo.texi'
-input_file_name = 'a.texi'
+input_file_name = '../../tta/perl/t/input_files/simplest.texi'
 input_dir = os.path.dirname(input_file_name)
 Texinfo.parser_conf_add_include_directory(input_dir)
 document, status = Texinfo.parse_file(input_file_name)
@@ -31,7 +31,7 @@ reader = Texinfo.txi_reader_new(tree, document)
 
 def skip_to_cmdname(reader, cmdname):
     while True:
-        next_token = Texinfo.txi_reader_read(reader)
+        next_token = Texinfo.reader_read(reader)
         if not next_token:
             return None
         element = next_token.element
@@ -41,7 +41,7 @@ def skip_to_cmdname(reader, cmdname):
 
 if __name__ == '__main__':
     while True:
-        next_token = Texinfo.txi_reader_read(reader)
+        next_token = Texinfo.reader_read(reader)
         if not next_token:
             break
         element = next_token.element

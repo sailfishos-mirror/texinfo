@@ -16,6 +16,7 @@
 %module Texinfo
 
 %{
+/* for CONVERTER_CONFIG */
 #include <config.h>
 
 #include <stddef.h>
@@ -231,10 +232,20 @@ READER *retrieve_reader (size_t reader_descriptor);
 size_t txi_register_new_reader (ELEMENT *tree, DOCUMENT *document);
 
 READER *txi_reader_new (ELEMENT *tree, DOCUMENT *document);
-const READER_TOKEN *txi_reader_read (READER *reader);
+const READER_TOKEN *reader_read (READER *reader);
 const READER_TOKEN *txi_reader_skip_children (READER *reader,
                                               const ELEMENT *element);
 
+%{
+const READER_TOKEN *
+reader_read (READER *reader)
+{
+  if (!reader)
+    return 0;
+
+  return txi_reader_read (reader);
+}
+%}
 
 // Finish
 

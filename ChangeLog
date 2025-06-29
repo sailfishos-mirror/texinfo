@@ -1,5 +1,9 @@
 2025-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* util/README, util/swig: add a build system and a README in util/swig.
+
+2025-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/reader.c (txi_reader_new, txi_register_new_reader):
 	handle NULL tree.
 

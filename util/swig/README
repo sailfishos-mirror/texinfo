@@ -1,0 +1,36 @@
+texinfo/util/swig/README
+ 
+  Copyright 2025 Free Software Foundation, Inc.
+ 
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+ 
+This directory contains a SWIG (https://www.swig.org/) interface designed
+to connect high-level programming language to GNU Texinfo texi2any C code.
+
+A full build system example based on autoconf, automake and libtool is
+provided with Python as a language target.  This build system is not
+independent from GNU Texinfo as header files and libtool archive files
+from the GNU Texinfo tta directory are used to build and link, since the header
+files and associated libraries are not public.
+
+Libtool hides the generated binary objects in the .libs directory.  Therefore
+to find the Python module extensions, you can add the .libs directory to
+PYTHONPATH.  For example, with bash:
+
+$ export PYTHONPATH=.libs
+
+To find the libraries, you should call libtool to run Python codes that
+import the Texinfo module:
+
+$ libtool exec ./test_Texinfo.py
+
+In addition to the build system, this distribution includes the following
+files:
+    README                 This file.
+    texinfo.i              The SWIG interface file.
+    tree_element.c         Wrappers used in texinfo.i.
+    tree_element.h
+    test_Texinfo.py        Example of use of the Python interface
+    

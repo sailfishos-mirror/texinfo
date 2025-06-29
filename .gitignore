@@ -417,6 +417,15 @@ util/texindex
 util/txixml2texi
 util/*.sig
 
+util/swig/__pycache__
+util/swig/*.lo
+util/swig/*.la
+util/swig/.libs
+util/swig/build-aux/**
+util/swig/libtool
+util/swig/python_texinfo_wrap.c
+util/swig/Texinfo.py
+
 util/tests/*.trs
 util/tests/*.log
 

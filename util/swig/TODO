@@ -1,12 +1,20 @@
-https://github.com/roryyorke/swig-python-autotools-example/blob/master/Makefile.am
+Todo list and notes for texi2any/util/swig
 
-./build.sh
+  Copyright 2025 Free Software Foundation.
 
-export LD_LIBRARY_PATH=../C/.libs/
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
 
-Document: set_document_options: set novalidate, documentlanguage
+
+Documentation
+
+set_document_options: set novalidate, documentlanguage
 and OUTPUT_ENCODING_NAME and possibly other based on OPTIONS_LIST
 arguments, but there is no interface for OPTIONS_LIST
+
+
+Example of code to test some functions:
 
 element = skip_to_cmdname(reader, 'node')
 
