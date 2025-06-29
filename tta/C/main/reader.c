@@ -74,7 +74,12 @@ initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
 READER *
 txi_reader_new (ELEMENT *tree, DOCUMENT *document)
 {
-  READER *new_reader = allocate_reader();
+  READER *new_reader;
+
+  if (!tree)
+    return 0;
+
+  new_reader = allocate_reader();
 
   initialize_reader (new_reader, tree, document);
 
@@ -86,6 +91,9 @@ size_t
 txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   size_t i;
+
+  if (!tree)
+    return 0;
 
   for (i = 0; i < reader_number; i++)
     {
