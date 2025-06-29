@@ -1,5 +1,12 @@
 2025-06-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/parser_conf.c (register_conf),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs
+	(register_parser_conf): revert to returning parser conf instead of
+	conf descriptor.  Reverts 2025-06-26 change.
+
+2025-06-28  Patrice Dumas  <pertusus@free.fr>
+
 	If there are index markers, get indices in nodes with index markers only
 
 	* info/indices.c (info_indices_of_file_buffer): if there was a node

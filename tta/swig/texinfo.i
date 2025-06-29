@@ -64,8 +64,8 @@ void parser_conf_reset_values (void);
 void parser_conf_add_value (const char *name, const char *value);
 
 // parser_conf.h
-size_t register_conf (void);
-PARSER_CONF *retrieve_parser_conf (size_t parser_conf_descriptor);
+PARSER_CONF * register_conf (void);
+void apply_conf (PARSER_CONF *parser_conf);
 
 // conf.h
 void parser_conf_set_show_menu (int i);

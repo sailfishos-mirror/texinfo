@@ -71,13 +71,13 @@ register_parser_conf (SV *parser_sv)
     PREINIT:
         HV *parser_hv;
         const char *key = "parser_conf_descriptor";
-        size_t conf_descriptor;
+        PARSER_CONF *parser_conf;
     CODE:
         parser_hv = (HV *)SvRV (parser_sv);
-        conf_descriptor = register_conf ();
+        parser_conf = register_conf ();
         /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
         hv_store (parser_hv, key, strlen (key),
-                  newSViv ((IV) conf_descriptor), 0);
+                  newSViv ((IV) parser_conf->descriptor), 0);
 
 # the file is already a byte string, taken as is from the command line.
 # The encoding was detected as COMMAND_LINE_ENCODING.
