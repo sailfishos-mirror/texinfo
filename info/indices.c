@@ -174,6 +174,10 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
               if (!node)
                 continue;
 
+              /* If there are no nodes with marker all the menus will
+                 be gathered in nodes with "Index" in their name and
+                 initial_index_filename will remain NULL, for old
+                 Info files generated without index markers */
               if (node->flags & N_IsIndex)
                 {
                   if (!initial_index_filename)
@@ -182,10 +186,19 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                       initial_index_filename = xstrdup (file_buffer->filename);
                       initial_index_nodename = xstrdup (tag->nodename);
 
-                      /* Clear list in case earlier node had "Index" in name. */
+                      /* Clear list in case earlier node had "Index" in name,
+                         as we now know that all the nodes with indices
+                         in the Info filebuffer should have markers. */
                       clear_index_nodenames ();
                     }
                   last_index_tag = tag;
+                }
+              else if (initial_index_filename)
+                {
+                  /* if there was a node with index markers, only gather
+                     indices in nodes with index markers. */
+                  free_history_node (node);
+                  continue;
                 }
 
               menu = node->references;
