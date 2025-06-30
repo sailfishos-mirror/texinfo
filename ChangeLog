@@ -1,3 +1,15 @@
+2025-06-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure, complete_node_tree_with_menus):
+	remove unused variables.
+
+	* tta/perl/XSTexinfo/MiscXS.xs (xs_default_format_protect_text):
+	remove first argument name to avoid unused variable warning.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_text): do not use
+	object-oriented call for local function.
+
 2025-06-29  Patrice Dumas  <pertusus@free.fr>
 
 	* util/README, util/swig: add a build system and a README in util/swig.

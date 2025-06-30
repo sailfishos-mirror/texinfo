@@ -7476,7 +7476,7 @@ sub _convert_text($$$$)
   if (in_verbatim($self)) {
     # API info: using the API to allow for customization would be:
     #return &{$self->formatting_function('format_protect_text')}($self, $text);
-    return $self->_default_format_protect_text($text);
+    return _default_format_protect_text($self, $text);
   }
   return $text if (in_raw($self));
 

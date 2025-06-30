@@ -135,9 +135,11 @@ xs_parse_texi_regex (text)
      sv_setpv((SV*)ST(7), new_text);
      SvUTF8_on(ST(7));
 
+# first argument is the converter, which is not used in the function
+# here (nor in Perl), but is present because the user may redefine
+# the function (in Perl) and want to access converter information.
 SV *
-xs_default_format_protect_text (self, text)
-     SV *self
+xs_default_format_protect_text (SV *, text)
      char *text = (char *)SvPVutf8_nolen ($arg);
  PREINIT:
      char *retval;

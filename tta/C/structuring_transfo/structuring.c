@@ -1095,8 +1095,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   size_t i;
-  const ELEMENT *top_node = 0;
-  const ELEMENT *top_node_next = 0;
 
   if (nodes_list->number < 1)
     return;
@@ -1197,8 +1195,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                     free (menu_node_texi);
                                     free (entry_texi);
 
-                                    const int node_number = lookup_extra_integer
-                                      (menu_node, AI_key_node_number, &status);
                                     node_errors[menu_node_number -1] = 1;
                                   }
                                 else if (section_up_node->element
@@ -1224,8 +1220,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                     free (section_up_node_texi);
                                     free (entry_texi);
 
-                                    const int node_number = lookup_extra_integer
-                                      (menu_node, AI_key_node_number, &status);
                                     node_errors[menu_node_number -1] = 1;
                                   }
                               }
@@ -1278,7 +1272,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
              was the main equivalent node */
                 && is_target)
               {
-                int status;
                 const CONST_ELEMENT_LIST *menus = up_node_relations->menus;
                 int found = 0;
                 /* check only if there are menus */
@@ -1686,8 +1679,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
 {
   const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
-  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
-  OPTIONS *options = document->options;
 
   size_t i;
 
