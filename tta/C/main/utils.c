@@ -805,6 +805,114 @@ allocate_file_stream (OUTPUT_FILES_INFORMATION *self, const char *file_path)
 
 
 
+/* Create a new element based on type name and command name.
+
+   The function accepts both
+   - giving types to most elements like in C code
+   - empty types for most @-command elements and normal text as in Perl.
+     Since an empty type can correspond both to normal text and to
+     a container without type, IS_TEXT_ELEMENT should be set with
+     an empty type to get normal text.  The preferred mode of operation
+     to have consistent Texinfo tree description in high-level languages.
+   The distinction between @item as line command in @table and @item in
+   other context cannot be done with the name only, so @item as line
+   command in @table should be specified with the item_LINE command name,
+   as in C code.
+
+   Should only be needed for interfaces to other languages.
+ */
+ELEMENT *
+new_element_from_names (const char *type_name, const char *command_name,
+                        int is_text_element)
+{
+  enum element_type e_type = ET_NONE;
+
+  if (type_name && strlen(type_name))
+    {
+      e_type = find_element_type ((char *)type_name);
+      /* unknown type */
+      if (e_type == ET_NONE)
+        return 0;
+    }
+
+  if ((is_text_element && e_type == ET_NONE)
+      || type_data[e_type].flags & TF_text)
+    {
+      if (command_name && strlen (command_name))
+        return 0;
+
+      if (e_type == ET_NONE)
+        e_type = ET_normal_text;
+
+      return new_text_element (e_type);
+    }
+
+  if (command_name && strlen (command_name))
+    {
+      enum command_id cmd;
+
+      if (e_type == ET_index_entry_command
+          || e_type == ET_definfoenclose_command)
+        {
+          ELEMENT *e = new_command_element (e_type, CM_NONE);
+          e->e.c->string_info[sit_command_name] = strdup (command_name);
+          return e;
+        }
+      else if (type_data[e_type].flags & TF_macro_call)
+        {
+          ELEMENT *e = new_element (e_type);
+          e->e.c->string_info[sit_command_name] = strdup (command_name);
+          return e;
+        }
+
+      cmd = lookup_builtin_command (command_name);
+
+      /* unknown command */
+      if (cmd == CM_NONE)
+        return 0;
+
+      /* determines the type of the command */
+      if (e_type == ET_NONE)
+        {
+          if (builtin_command_data[cmd].flags & CF_nobrace)
+            {
+              if (builtin_command_data[cmd].data != NOBRACE_skipspace)
+                e_type = ET_nobrace_command;
+              else
+                {
+                  if (cmd == CM_item || cmd == CM_tab || cmd == CM_headitem)
+                    e_type = ET_container_command;
+                  else
+                    e_type = ET_nobrace_command;
+                }
+            }
+          else if (builtin_command_data[cmd].flags & CF_line)
+            {
+              if (builtin_command_data[cmd].data == LINE_lineraw)
+                e_type = ET_lineraw_command;
+              else
+                e_type = ET_line_command;
+            }
+          else if (builtin_command_data[cmd].flags & CF_block)
+            e_type = ET_block_command;
+          else if (builtin_command_data[cmd].flags &
+                                            (CF_brace | CF_accent))
+            {
+              if (builtin_command_data[cmd].data == BRACE_context)
+                e_type = ET_context_brace_command;
+              else if (builtin_command_data[cmd].data == BRACE_arguments
+                       || builtin_command_data[cmd].data == BRACE_inline)
+                e_type = ET_brace_args_command;
+              else
+                e_type = ET_brace_command;
+            }
+        }
+      return new_command_element (e_type, cmd);
+    }
+
+  return new_element (e_type);
+}
+
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
 item_line_parent (ELEMENT *current)

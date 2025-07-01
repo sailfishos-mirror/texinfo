@@ -539,8 +539,8 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
   SV **contents_sv;
   SV **source_info_sv;
   enum element_type e_type = ET_NONE;
-  enum command_id cmd = CM_NONE;
   const char *cmdname = 0;
+  const char *type_name = 0;
 
   dTHX;
 
@@ -549,15 +549,14 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
   FETCH(type);
 
   if (type_sv)
-    {
-      const char *type_name = (const char *) SvPVutf8_nolen (*type_sv);
-      e_type = find_element_type ((char *)type_name);
-    }
+    type_name = (const char *) SvPVutf8_nolen (*type_sv);
 
   FETCH(text);
   if (text_sv && SvOK (*text_sv))
     {
       const char *text = (const char *) SvPVutf8_nolen (*text_sv);
+      if (type_name)
+        e_type = find_element_type ((char *)type_name);
       if (e_type == ET_NONE)
         e_type = ET_normal_text;
       e = new_text_element (e_type);
@@ -567,27 +566,15 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
 
   FETCH(cmdname)
   if (cmdname_sv)
-    {
-      cmdname = (const char *) SvPVutf8_nolen (*cmdname_sv);
-      if (e_type != ET_index_entry_command
-          && e_type != ET_definfoenclose_command)
-        {
-          cmd = lookup_builtin_command (cmdname);
-          cmdname = 0;
-        }
-    }
+    cmdname = (const char *) SvPVutf8_nolen (*cmdname_sv);
 
-  if (cmd)
-    e = new_command_element (e_type, cmd);
-  else
+  e = new_element_from_names (type_name, cmdname, 0);
+
+  if (!e)
     {
-      if (cmdname)
-        {
-          e = new_command_element (e_type, cmd);
-          e->e.c->string_info[sit_command_name] = strdup (cmdname);
-        }
-      else
-        e = new_element (e_type);
+      fprintf (stderr, "unknown type %s command %s element\n",
+                       type_name, cmdname);
+      fatal ("error constructing element");
     }
 
   FETCH(contents)

@@ -153,6 +153,10 @@ char *texinfo_input_file_basename (const char *input_basefile);
 char *remove_extension (const char *input_string);
 char *canonpath (const char *input_file);
 char *normalize_encoding_name (const char *text, int *possible_encoding);
+
+/* create a new element based on type and command name */
+ELEMENT *new_element_from_names (const char *type_name,
+                        const char *command_name, int is_text_element);
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
 INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
