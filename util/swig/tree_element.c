@@ -25,6 +25,7 @@
 #include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "text.h"
 #include "tree.h"
 #include "extra.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
@@ -337,6 +338,200 @@ element_misc_args (ELEMENT *element)
 {
   return lookup_extra_misc_args (element, AI_key_misc_args);
 }
+
+
+/* New element and element modification */
+
+ELEMENT *
+store_new_element (DOCUMENT *document, const char *type_name,
+                   const char *command_name, int is_text_element)
+{
+  ELEMENT *e = new_element_from_names (type_name, command_name,
+                                       is_text_element);
+
+  if (e)
+    add_to_element_list (&document->additional_elements, e);
+
+  return e;
+}
+
+void
+element_reset_text (ELEMENT *element)
+{
+  if (type_data[element->type].flags & TF_text)
+    {
+      text_reset (element->e.text);
+      text_append (element->e.text, "");
+    }
+}
+
+void
+element_append_text (ELEMENT *element, const char *text)
+{
+  if (type_data[element->type].flags & TF_text)
+    text_append (element->e.text, text);
+}
+
+int
+set_element_attribute_integer (ELEMENT *element,
+                               const char *attribute, int value)
+{
+  enum ai_key_name key = find_associated_info_key (attribute);
+
+  if (key)
+    {
+      enum extra_type k_type = associated_info_table[key].type;
+
+      switch (k_type)
+        {
+        case extra_integer:
+          {
+          add_extra_integer (element, key, value);
+          return 1;
+          break;
+          }
+        case extra_flag:
+          {
+          if (value == 1)
+            element->flags |= associated_info_table[key].data;
+          else if (value == 0)
+            element->flags &= ~associated_info_table[key].data;
+          return 1;
+          break;
+          }
+        default:
+          break;
+        }
+    }
+  return 0;
+}
+
+int
+set_element_attribute_string (ELEMENT *element, const char *attribute,
+                              const char *value)
+{
+  enum ai_key_name key = find_associated_info_key (attribute);
+
+  if (key)
+    {
+      enum extra_type k_type = associated_info_table[key].type;
+
+      switch (k_type)
+        {
+      case extra_string:
+          {
+          add_extra_string_dup (element, key, value);
+          return 1;
+          break;
+          }
+        case extra_string_info:
+          {
+          int idx = associated_info_table[key].data;
+          switch (key)
+            {
+            case AI_key_command_name:
+              if (element->type == ET_index_entry_command
+                   || element->type == ET_definfoenclose_command
+                   || type_data[element->type].flags & TF_macro_call)
+                {
+                  free (element->e.c->string_info[idx]);
+                  if (value)
+                    element->e.c->string_info[idx] = strdup (value);
+                  else
+                    element->e.c->string_info[idx] = 0;
+                  return 1;
+                }
+              break;
+            case AI_key_arg_line:
+              if (element->type == ET_lineraw_command)
+                {
+                  free (element->e.c->string_info[idx]);
+                  if (value)
+                    element->e.c->string_info[idx] = strdup (value);
+                  else
+                    element->e.c->string_info[idx] = 0;
+                  return 1;
+                }
+              break;
+            case AI_key_delimiter:
+              if (element->e.c->cmd == CM_verb)
+                {
+                  free (element->e.c->string_info[idx]);
+                  if (value)
+                    element->e.c->string_info[idx] = strdup (value);
+                  else
+                    element->e.c->string_info[idx] = 0;
+                  return 1;
+                }
+              break;
+            case AI_key_alias_of:
+              if (element->e.c->cmd
+                  || type_data[element->type].flags & TF_macro_call)
+                {
+                  free (element->e.c->string_info[idx]);
+                  if (value)
+                    element->e.c->string_info[idx] = strdup (value);
+                  else
+                    element->e.c->string_info[idx] = 0;
+                  return 1;
+                }
+              break;
+            default:
+              break;
+            }
+          break;
+          }
+        default:
+          break;
+        }
+    }
+
+  return 0;
+}
+
+int
+set_element_attribute_element (ELEMENT *element, const char *attribute,
+                               ELEMENT *value)
+{
+  enum ai_key_name key = find_associated_info_key (attribute);
+
+  if (key)
+    {
+      enum extra_type k_type = associated_info_table[key].type;
+
+      switch (k_type)
+        {
+        case extra_element_oot:
+          {
+          add_extra_element_oot (element, key, value);
+          return 1;
+          break;
+          }
+        case extra_container:
+          {
+          add_extra_container (element, key, value);
+          return 1;
+          break;
+          }
+        case extra_element_info:
+          {
+          int idx = associated_info_table[key].data;
+          if (idx < type_data[element->type].elt_info_number)
+            {
+              free (element->elt_info[idx]);
+              element->elt_info[idx] = value;
+              return 1;
+            }
+          break;
+          }
+        default:
+          break;
+        }
+    }
+
+  return 0;
+}
+
 
 NODE_RELATIONS *
 get_node_relations (ELEMENT *element, DOCUMENT *document)

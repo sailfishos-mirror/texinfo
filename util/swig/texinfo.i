@@ -59,7 +59,6 @@ DOCUMENT *parse_file (const char *input_file_path, int *OUTPUT);
 DOCUMENT *parse_piece (const char *, int line_nr=1);
 DOCUMENT *parse_string (const char *, int line_nr=1);
 DOCUMENT *parse_text (const char *, int line_nr=1);
-//void reset_parser (int debug_output=0);
 
 void parser_conf_reset_values (void);
 void parser_conf_add_value (const char *name, const char *value);
@@ -210,9 +209,22 @@ INDEX *index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry);
 
 const STRING_LIST *element_misc_args (ELEMENT *element);
 
-// New elements and elements modifications
 
-// TODO
+// New element and element modification
+
+// tree_element.h
+ELEMENT *store_new_element (DOCUMENT *document, const char *type_name,
+                            const char *command_name, int is_text_element);
+
+void element_reset_text (ELEMENT *element);
+void element_append_text (ELEMENT *element, const char *text);
+
+int set_element_attribute_integer (ELEMENT *element,
+                                   const char *attribute, int value);
+int set_element_attribute_string (ELEMENT *element, const char *attribute,
+                                  const char *value);
+int set_element_attribute_element (ELEMENT *element, const char *attribute,
+                                   ELEMENT *value);
 
 // tree.h
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
@@ -224,7 +236,7 @@ typedef struct NODE_RELATIONS {
     ELEMENT *element;
     const SECTION_RELATIONS *associated_section;
     /* it can be associated to an heading or a section relations
-       so we prefer the element although relations structures 
+       so we prefer the element although relations structures
        would have been more consistent */
     const ELEMENT *associated_title_command;
     const SECTION_RELATIONS *node_preceding_part;

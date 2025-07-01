@@ -1,5 +1,10 @@
 2025-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* util/swig: add new element and element text and attributes
+	modifications interfaces.
+
+2025-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* util/swig: add nodes, sections and heading relations
 
 2025-07-01  Patrice Dumas  <pertusus@free.fr>

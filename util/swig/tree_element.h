@@ -35,6 +35,19 @@ const STRING_LIST *element_misc_args (ELEMENT *element);
 INDEX_ENTRY *element_index_entry (DOCUMENT *document, ELEMENT *element);
 INDEX *index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry);
 
+ELEMENT *store_new_element (DOCUMENT *document, const char *type_name,
+                            const char *command_name, int is_text_element);
+
+void element_reset_text (ELEMENT *element);
+void element_append_text (ELEMENT *element, const char *text);
+
+int set_element_attribute_integer (ELEMENT *element,
+                                   const char *attribute, int value);
+int set_element_attribute_string (ELEMENT *element, const char *attribute,
+                                  const char *value);
+int set_element_attribute_element (ELEMENT *element, const char *attribute,
+                                   ELEMENT *value);
+
 NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
 SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
 HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
