@@ -173,6 +173,11 @@ const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
 ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
 int element_list_number (ELEMENT_LIST *element_list);
 
+const ELEMENT *const_element_list_element_by_index (
+                                              CONST_ELEMENT_LIST *element_list,
+                                              int index);
+int const_element_list_number (CONST_ELEMENT_LIST *element_list);
+
 char *string_list_string_by_index (STRING_LIST *string_list, int index);
 int string_list_number (STRING_LIST *string_list);
 
@@ -192,6 +197,7 @@ SOURCE_INFO *element_source_info (ELEMENT *element);
 
 // TODO would be better to return None/NULL if not set and
 // a value otherwise, but may not be portable across languages.
+// if OUTPUT is not 0, the value is undefined.
 int element_attribute_integer (const ELEMENT *element, const char *attribute,
                                int *OUTPUT);
 const char *element_attribute_string (const ELEMENT *element,
@@ -204,8 +210,64 @@ INDEX *index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry);
 
 const STRING_LIST *element_misc_args (ELEMENT *element);
 
+// New elements and elements modifications
+
+// TODO
+
 // tree.h
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
+
+
+// Nodes, sections and heading relations
+
+typedef struct NODE_RELATIONS {
+    ELEMENT *element;
+    const SECTION_RELATIONS *associated_section;
+    /* it can be associated to an heading or a section relations
+       so we prefer the element although relations structures 
+       would have been more consistent */
+    const ELEMENT *associated_title_command;
+    const SECTION_RELATIONS *node_preceding_part;
+    const ELEMENT *node_description;
+    const ELEMENT *node_long_description;
+    CONST_ELEMENT_LIST *menus;
+     /*
+    const struct ELEMENT **menu_directions;
+    const struct ELEMENT **node_directions;
+      */
+} NODE_RELATIONS;
+
+typedef struct HEADING_RELATIONS {
+    const ELEMENT *element;
+    const NODE_RELATIONS *associated_anchor_command;
+} HEADING_RELATIONS;
+
+typedef struct SECTION_RELATIONS {
+    const ELEMENT *element;
+    const NODE_RELATIONS *associated_anchor_command;
+    const NODE_RELATIONS *associated_node;
+    const SECTION_RELATIONS *associated_part;
+    const SECTION_RELATIONS *part_associated_section;
+    const NODE_RELATIONS *part_following_node;
+     /*
+    const struct SECTION_RELATIONS **section_directions;
+    const struct SECTION_RELATIONS **toplevel_directions;
+      */
+    SECTION_RELATIONS_LIST *section_childs;
+} SECTION_RELATIONS;
+
+NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
+SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
+HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
+
+const ELEMENT *node_relation_node_direction (NODE_RELATIONS *node,
+                                              const char *direction);
+const SECTION_RELATIONS *section_relation_section_direction (
+                                              SECTION_RELATIONS *section,
+                                              const char *direction);
+const SECTION_RELATIONS *section_relation_toplevel_direction (
+                                     SECTION_RELATIONS *section,
+                                     const char *direction);
 
 
 // Reader
@@ -254,6 +316,3 @@ reader_read (READER *reader)
 void txi_document_remove (DOCUMENT *document);
 
 
-// New elements interface
-
-// TODO

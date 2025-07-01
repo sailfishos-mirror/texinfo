@@ -1,5 +1,9 @@
 2025-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* util/swig: add nodes, sections and heading relations
+
+2025-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (new_element_from_names): create a new element
 	based on type name and command name.
 

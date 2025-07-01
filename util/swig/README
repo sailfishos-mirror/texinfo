@@ -15,13 +15,21 @@ independent from GNU Texinfo as header files and libtool archive files
 from the GNU Texinfo tta directory are used to build and link, since the header
 files and associated libraries are not public.
 
+The build system uses Python and autoconf-archive related macros
+(http://www.gnu.org/software/autoconf-archive): AX_PYTHON_DEVEL,
+AX_PKG_SWIG, AX_SWIG_PYTHON.  You should make sure that they can be found
+by autoreconf.
+
+The build system can be bootstrapped by calling
+./autogen.sh
+
 Libtool hides the generated binary objects in the .libs directory.  Therefore
 to find the Python module extensions, you can add the .libs directory to
 PYTHONPATH.  For example, with bash:
 
 $ export PYTHONPATH=.libs
 
-To find the libraries, you should call libtool to run Python codes that
+To find the libraries, you can call libtool to run Python codes that
 import the Texinfo module:
 
 $ libtool exec ./test_Texinfo.py
@@ -33,4 +41,4 @@ files:
     tree_element.c         Wrappers used in texinfo.i.
     tree_element.h
     test_Texinfo.py        Example of use of the Python interface
-    
+

@@ -20,6 +20,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "types_data.h"
 #include "tree_types.h"
@@ -83,7 +84,7 @@ element_list_element_by_index (ELEMENT_LIST *element_list, int index)
 
   if (index < 0)
     index = (int) element_list->number  - index;
- 
+
   if (index < 0 || (size_t) index >= element_list->number)
     return 0;
 
@@ -96,18 +97,40 @@ element_list_number (ELEMENT_LIST *element_list)
   return element_list->number;
 }
 
+const ELEMENT *
+const_element_list_element_by_index (CONST_ELEMENT_LIST *element_list,
+                                     int index)
+{
+  if (!element_list || element_list->number == 0)
+    return 0;
+
+  if (index < 0)
+    index = (int) element_list->number  - index;
+
+  if (index < 0 || (size_t) index >= element_list->number)
+    return 0;
+
+  return element_list->list[index];
+}
+
+int
+const_element_list_number (CONST_ELEMENT_LIST *element_list)
+{
+  return element_list->number;
+}
+
 char *
 string_list_string_by_index (STRING_LIST *string_list, int index)
 {
   if (!string_list || string_list->number == 0)
     return 0;
- 
+
   if (index < 0)
     index = (int) string_list->number  - index;
- 
+
   if (index < 0 || (size_t) index >= string_list->number)
     return 0;
- 
+
   return string_list->list[index];
 }
 
@@ -146,11 +169,11 @@ element_attribute_integer (const ELEMENT *element, const char *attribute,
                            int *ret)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
- 
+
   if (key)
     {
       enum extra_type k_type = associated_info_table[key].type;
- 
+
       switch (k_type)
         {
         case extra_integer:
@@ -177,18 +200,18 @@ element_attribute_integer (const ELEMENT *element, const char *attribute,
         }
     }
   *ret = -1;
-  return 0;        
+  return 0;
 }
 
 const char *
 element_attribute_string (const ELEMENT *element, const char *attribute)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
- 
+
   if (key)
     {
       enum extra_type k_type = associated_info_table[key].type;
- 
+
       switch (k_type)
         {
       case extra_string:
@@ -235,7 +258,7 @@ element_attribute_string (const ELEMENT *element, const char *attribute)
           break;
         }
     }
- 
+
   return 0;
 }
 
@@ -243,11 +266,11 @@ ELEMENT *
 element_attribute_element (const ELEMENT *element, const char *attribute)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
- 
+
   if (key)
     {
       enum extra_type k_type = associated_info_table[key].type;
- 
+
       switch (k_type)
         {
         case extra_element_oot:
@@ -263,7 +286,7 @@ element_attribute_element (const ELEMENT *element, const char *attribute)
           int idx = associated_info_table[key].data;
           if (idx < type_data[element->type].elt_info_number
               && element->elt_info[idx])
-            { 
+            {
               ELEMENT *info_element = element->elt_info[idx];
               return info_element;
             }
@@ -273,7 +296,7 @@ element_attribute_element (const ELEMENT *element, const char *attribute)
           break;
         }
     }
- 
+
   return 0;
 }
 
@@ -284,7 +307,7 @@ element_index_entry (DOCUMENT *document, ELEMENT *element)
   const INDEX_ENTRY_LOCATION *index_entry_info
            = lookup_extra_index_entry (element,
                                        AI_key_index_entry);
-  
+
   if (index_entry_info)
     {
       INDEX_ENTRY *result = 0;
@@ -313,6 +336,136 @@ const STRING_LIST *
 element_misc_args (ELEMENT *element)
 {
   return lookup_extra_misc_args (element, AI_key_misc_args);
+}
+
+NODE_RELATIONS *
+get_node_relations (ELEMENT *element, DOCUMENT *document)
+{
+  int status;
+  int node_number;
+  const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
+
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+
+  if (element->e.c->cmd != CM_node)
+    return 0;
+
+  node_number = lookup_extra_integer (element, AI_key_node_number, &status);
+  if (node_number > 0 && node_number <= nodes_list->number)
+    return nodes_list->list[node_number -1];
+
+  return 0;
+}
+
+SECTION_RELATIONS *
+get_section_relations (ELEMENT *element, DOCUMENT *document)
+{
+  int status;
+  int section_number;
+  const SECTION_RELATIONS_LIST *sections_list = &document->sections_list;
+
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+
+  enum command_id data_cmd = element_builtin_data_cmd (element);
+
+  if (!(builtin_command_data[data_cmd].flags & CF_root))
+    return 0;
+
+  section_number
+    = lookup_extra_integer (element, AI_key_section_number, &status);
+  if (section_number > 0 && section_number <= sections_list->number)
+    return sections_list->list[section_number -1];
+
+  return 0;
+}
+
+HEADING_RELATIONS *
+get_heading_relations (ELEMENT *element, DOCUMENT *document)
+{
+  int status;
+  int heading_number;
+  const HEADING_RELATIONS_LIST *headings_list = &document->headings_list;
+
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+
+  if (!element->e.c->cmd)
+    return 0;
+
+  heading_number
+    = lookup_extra_integer (element, AI_key_heading_number, &status);
+  if (heading_number > 0 && heading_number <= headings_list->number)
+    return headings_list->list[heading_number -1];
+
+  return 0;
+}
+
+static size_t
+direction_name_number (const char *direction)
+{
+  size_t d;
+
+  if (!direction)
+    return 0;
+
+  for (d = 0; d < directions_length; d++)
+    {
+      if (!strcmp (direction, direction_names[d]))
+        return d +1;
+    }
+  return 0;
+}
+
+const ELEMENT *
+node_relation_node_direction (NODE_RELATIONS *node, const char *direction)
+{
+  size_t d_number;
+
+  if (!node->node_directions)
+    return 0;
+
+  d_number = direction_name_number (direction);
+
+  if (!d_number)
+    return 0;
+
+  return node->node_directions[d_number -1];
+}
+
+const SECTION_RELATIONS *
+section_relation_section_direction (SECTION_RELATIONS *section,
+                                     const char *direction)
+{
+  size_t d_number;
+
+  if (!section->section_directions)
+    return 0;
+
+  d_number = direction_name_number (direction);
+
+  if (!d_number)
+    return 0;
+
+  return section->section_directions[d_number -1];
+}
+
+const SECTION_RELATIONS *
+section_relation_toplevel_direction (SECTION_RELATIONS *section,
+                                     const char *direction)
+{
+  size_t d_number;
+
+  if (!section->toplevel_directions)
+    return 0;
+
+  d_number = direction_name_number (direction);
+
+  if (!d_number)
+    return 0;
+
+  return section->toplevel_directions[d_number -1];
 }
 
 ELEMENT *
