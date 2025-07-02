@@ -1,3 +1,10 @@
+2025-07-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure)
+	[CHECK_MISSING_MENU_ERROR]: Suppress error if node up pointer for child
+	node is to a different node.
+
 2025-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: mention -c FORMAT_MENU=menu_no_detailmenu.

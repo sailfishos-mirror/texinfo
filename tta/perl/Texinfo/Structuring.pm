@@ -886,25 +886,19 @@ sub check_node_tree_menu_structure($)
                                         $cached_menu_nodes{$up_node});
           }
           if (!$cached_menu_nodes{$up_node}->{$node}) {
-            $registrar->line_warn(sprintf(
-       __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
-               target_element_to_texi_label($up_node),
-               target_element_to_texi_label($node)),
-                              $up_node->{'source_info'}, 0,
-                              $customization_information->get_conf('DEBUG'));
-            $node_errors{$node->{'extra'}->{'node_number'}} = 1;
             my $node_directions = $node_relations->{'node_directions'};
-            if (defined($node_directions)
-                  and defined($node_directions->{'up'})
-                  and $node_directions->{'up'} ne $up_node) {
-              # Issue continuation of warning of give more context for
-              # the problem.
+            # Suppress the error if the node up pointer for the child
+            # node is to a different node.
+            if (!defined($node_directions)
+                  or !defined($node_directions->{'up'})
+                  or $node_directions->{'up'} eq $up_node) {
               $registrar->line_warn(sprintf(
-                 __("node up pointer for `%s' is `%s'"),
-                 target_element_to_texi_label($node),
-                 target_element_to_texi_label($node_directions->{'up'})),
-                                $node->{'source_info'}, 1,
+         __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
+                 target_element_to_texi_label($up_node),
+                 target_element_to_texi_label($node)),
+                                $up_node->{'source_info'}, 0,
                                 $customization_information->get_conf('DEBUG'));
+              $node_errors{$node->{'extra'}->{'node_number'}} = 1;
             }
           }
         }

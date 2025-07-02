@@ -1303,38 +1303,29 @@ check_node_tree_menu_structure (DOCUMENT *document)
                       }
                     if (!found)
                       {
-                        char *up_texi = target_element_to_texi_label (up_node);
-                        char *node_texi = target_element_to_texi_label (node);
-                        message_list_command_warn (error_messages,
-                           (options && options->DEBUG.o.integer > 0),
-                                up_node, 0,
-         "node `%s' lacks menu item for `%s' but is above it in sectioning",
-                                up_texi, node_texi);
-                        free (up_texi);
-                        free (node_texi);
-                        int status;
-                        const int node_number = lookup_extra_integer (node,
-                                                 AI_key_node_number, &status);
-                        node_errors[node_number -1] = 1;
+                        /* Suppress the error if the node up pointer for
+                           the child node is to a different node. */
                         const ELEMENT * const *node_directions
                                          = node_relations->node_directions;
-                        if (node_directions
-                            && node_directions[D_up] != up_node)
+                        if (!node_directions
+                            || node_directions[D_up] == up_node)
                           {
-                            /* Issue continuation of warning to give
-                               more context for the problem. */
+                            char *up_texi
+                              = target_element_to_texi_label (up_node);
                             char *node_texi
                               = target_element_to_texi_label (node);
-                            char *up_ptr_texi
-                              = target_element_to_texi_label
-                                  (node_directions[D_up]);
                             message_list_command_warn (error_messages,
                                (options && options->DEBUG.o.integer > 0),
-                                    node, 1,
-                                    "node up pointer for `%s' is `%s'",
-                                    node_texi, up_ptr_texi);
-                            free (up_ptr_texi);
+                                    up_node, 0,
+           "node `%s' lacks menu item for `%s' but is above it in sectioning",
+                                    up_texi, node_texi);
+                            free (up_texi);
                             free (node_texi);
+                            int status;
+                            const int node_number
+                              = lookup_extra_integer (node, AI_key_node_number,
+                                                      &status);
+                            node_errors[node_number - 1] = 1;
                           }
                       }
                   }
