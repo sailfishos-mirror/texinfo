@@ -526,7 +526,9 @@ get_lang_translations_sv (SV *lang_translations_sv)
   return lang_translations;
 }
 
-
+/* TODO extra/info information not incorporated.  Could use
+   util/swig/tree_element.c set_element_attribute_* functions for that.
+ */
 ELEMENT *
 new_element_from_sv (DOCUMENT *document, const SV *element_hash,
                      CONVERTER *converter)

@@ -65,118 +65,47 @@ converter_customization_options, unique_at_command_options.
 Texinfo tree reader
 ===================
 
-No more extra element, content, direction, all have been put in
-structure information in sections, nodes, headings structure info
-lists.  Should there be a design decision that prevents readding
-references to the tree in the tree, such that the corresponding 
-code can be completly removed?
+There could be a TreeElement interface for element destruction that
+would nullify the corresponding handle in document->element_handles, and
+remove the associated information in Perl element hash.
 
-For Perl/C.
-One option is to keep a list of allocated handles on the C side, and mark the
-list as invalid once the tree is destroyed, for dynamic removal of tree
-elements.  Access to tree elements would go through the handle list and return
-an error if an invalid handle is used (rather than blindly attempting to access
-the memory referenced). There could be an API to relinquish a handle, but also
-automatic relinquishing, for example when reaching a root command @node or
-sectioning command.
+There could be a possibility to relinquish the handles in
+document->element_handles and remove the associated information in Perl element
+hash, even though the elements are not destroyed.  This could even be
+automatic, for example when reaching a root command @node or sectioning command
+through the Reader.
 
-This is implemented, but no memory management, new elements are added,
-sometime with contents in other trees.  Probably need to add more information,
-at least mark differently elements added and elements from the tree.
-Or even put them in different arrays.
-
-Go through misc_args extra as if going through regular arguments and not
-as if it was an attribute?
-
-Treat comments in additional info as tree elements, not as attributes?  This
-cannot be done with the current codes, as these codes expect processing these
-comments only as attributes.  No easy fix.  Maybe these comments should be
-associated to the command and not to the line_arg or block_line_arg such
-that they appear after closing the line container, in which case they may
-be processed as regular elements.  This is not obvious, as in term
-of tree structure they are better in line containers than in commands,
-which should only contain line containers.
-
-Treat info spaces as tree elements not as attributes?  There is a penalty
-in speed for all the formats except TexinfoXML, so it is probably not a
-good idea.
-
-Maybe have verb delimiter being returned by the reader? And also braces of
-types with implicit braces?  Would need to add a specific reader token category
-for that.
+It could also be possible to remove and destroy elements that are stored
+in document->additional_elements, that were added by new_tree_element() but
+it should be made sure that they will not be accessed again, which could
+be difficult to make sure of.
 
 All the Document interfaces lead to rebuilding the tree, and wiping out
-the handles for access through the TreeElement interface.  It works
-because the XS code also process the rebuilt tree, as would perl do.
-Another interface for access to node, section, heading relations information
-is needed [done]. Also probably targets API, indices API. Also API
-for output units, for formats using output units.
+the handles for access through the TreeElement interface.  The TreeElement
+interface may still be used in some cases because the XS code also process
+the rebuilt tree, as would Perl do.  It is not clear whether this is a
+good idea as it may hide bugs.
 
-It could be relevant to have true API for accessing node, section, heading
-relations C data directly through functions.  Also maybe for targets, indices,
-output units.
+Currently the node, section and heading relations information is available
+because all the corresponding Perl elements can be rebuilt preemptively.
+It could be more relevant to have accessors instead such that the
+Perl information can be built on demand.
 
-Part of the API not in TreeElements but in Converter:
- new_tree_element
- get_tree_element_index_entry
- get_global_unique_tree_element
- register_document_relations_lists_elements
- tree_elements_sections_list
- tree_elements_nodes_list
- tree_elements_headings_list
-
-TODO:
-#element_collect_subentries
-#Texinfo::Common::index_content_element
-#Texinfo::Common::section_level
-# Texinfo::Structuring::section_level_adjusted_command_name
-# Texinfo::Common::index_entry_referred_entry
-#    block_line_argument_command
-# Texinfo::Common::itemize_item_prepended_element
-# Texinfo::Common::set_informative_command_value
-#                     informative_command_value
- Texinfo::Convert::Utils::switch_lang_translations => not needed?
-                                           but may need to switch
-                                       current_lang_translations in C?
-                                       probably not.
-# Texinfo::Convert::Utils::find_element_authors
-# Texinfo::Common::element_associated_processing_encoding  only with TreeElement
-# Texinfo::Common::element_is_inline
-# Texinfo::Common::multitable_columnfractions
-#table_item_content_tree
-#txt_image_text   only with TreeElement
- Texinfo::Common::debug_print_element
-# Texinfo::Common::is_content_empty
- expand_today => Texinfo::TreeElement::new and cdt
- expand_verbatiminclude  could be overriden, if error messages,
-        conf and global_information are accessed in C
-  otherwise need to add modification or tree with addition or elements:
-         push @{$verbatiminclude->{'contents'}},
-       check if add_to_element_contents is adequate
+targets API, indices API are missing both in swig and in TreeElementConverter.
+Also maybe an API for output units, for formats using output units.
 
 No extra/info taken into account in new_element_from_sv.
-Some are already set argument, begin and end and code.
-
-cdt/gdt return a tree already built, calling with no_store = 1:
-my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
- cdt => need to have all the substituted_strings elements findable
- + cdt/gdt return should be findable too, possibly through
-   cdt/gdt being overriden
-
-Initialization:
- from a tree
 
 accessors for TreeElements:
- * parent
-     elementParent
+ * parent [OK]
+ * type [OK]
+ * command_name [OK]
  * source marks
     SourceMarksCount
     SourceMark[n]
- * type (elementType)
- * command_name/and or enum (elementCommand)
  * attributes (extra/info)
+     getAttribute (name) [OK]
      attributeCount ()
-     getAttribute (name)
      getAttributeNo (no)
      maybe: moveToFirstAttribute ()
             moveToNextAttribute ()
@@ -184,40 +113,34 @@ accessors for TreeElements:
  * associated_unit? <- output units API
 
 Tree access
- ChildElementCount
- ChildElement[n]
+ ChildElementCount [OK]
+ ChildElement[n] [OK]
 
 Cross references:
  * getTargetById
-
-[Hopefully not needed]
-Recreation of a tree (DOM)
- preserveElement or get_tree? (preserveNode in XML::LibXML::Reader
-   returns a handler on the element
- documentElements (document in XML::LibXML::Reader)
-
 
 
 Delayed bugs/features
 =====================
 
-There is no XS interface for everything and as a consequence, the Perl C
-interface when no XS code is used for structuring works because all the C data
-is built as Perl structure at one point after which C code is not supposed to
-be called anymore to modify the tree or other Document data.  At that point the
-F_DOCM_* flags should all be unset as there is no modification in C data
-needing to be built to Perl.  Therefore all the calls to XS interfaces
+The Perl/C interface when no XS code is used for structuring works because
+all the C data is built as Perl structure at one point after which C code
+is not called anymore to modify the tree or other Document data.  At that
+point the F_DOCM_* flags should remain unset as there is no modification in
+C data needing to be built to Perl.  Therefore all the calls to XS interfaces
 afterwards, mainly on a Document, returns the Perl data.  This is not
 fundamentaly problematic, as it works.  However, the design of the Document XS
 interface was that the Perl structure could be built on demand, and in that
-case, it is not possible.  There is no clear need to rebuild all the document
-data to Perl similarly when the structure code is done in C and conversion is
-done in Perl.  This is probably because there is no Perl code modifying the
-document data without alsomodifying the underlying C code, ie no case of
-missing XS interface in code run in tests at that point, before conversion.
-But it is probably more by chance than by design, if code changing the
-structure of the tree that lack XS to changr the C data was called at that
-point, the same problem would arise.
+case, it is not possible.
+
+When the structure code is done in C and conversion is done in Perl, there
+is no need to rebuild all the document data to Perl.  This is probably
+because there is no Perl code modifying the document data without also
+modifying the underlying C code, ie no case of missing XS interface in
+code run in tests at that point, before conversion.  But it is probably
+more by chance than by design, if code changing the structure of the tree
+that lack XS to change the C data was called at that point, the C and Perl
+data would diverge.
 
 There is disagreement on the strategy to use for libraries versioning.
 For Gavin, the code that can link against libraries should be the code
@@ -678,9 +601,15 @@ Labels in Info (not index entries, in index entries the last : not in
 Interrogations and remarks
 ==========================
 
-For converters in C, agreed with Gavin that it is better not to
-translate a perl tree in input, but access directly the C tree that
-was setup by the XS parser.
+No more extra element, content, direction, all have been put in
+structure information in sections, nodes, headings structure info
+lists.  We keep the corresponding code in case we need those extra
+categories back again.
+
+For converters in C, agreed with Gavin that, in general, it is better not to
+translate a perl tree in input, but access directly the C tree that was setup
+by the XS parser.  When using the TreeElements interface, being able to
+create a C element based on a Perl element is needed, though.
 
 There is no forward looking code anymore, so maybe a lex/yacc parser
 could be used for the main loop.  More simply, a binary tokenizer, at

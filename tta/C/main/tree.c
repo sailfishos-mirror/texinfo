@@ -226,6 +226,13 @@ destroy_element_empty_source_mark_list (ELEMENT *e)
     free_element_source_mark_list (e);
 }
 
+/* NOTE if the XS TreeElement interface is used, the element is not nullified
+   in the document->element_handles, nor are the Perl hash _handle and
+   element_document_descriptor keys removed in this function.  Most likely a
+   TreeElement interface function should be added to do that before calling
+   destroy_element, when/if dynamic removal of elements is added to the
+   TreeElement interface.
+ */
 void
 destroy_element (ELEMENT *e)
 {

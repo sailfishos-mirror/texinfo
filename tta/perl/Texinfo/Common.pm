@@ -1844,6 +1844,8 @@ sub debug_print_element($;$)
   return "$warning$cmd$type$text$args$contents$parent_string";
 }
 
+# TODO next two functions could have implementations using
+# the Tree Element interface only.
 # for debugging
 sub debug_print_element_details($;$)
 {
