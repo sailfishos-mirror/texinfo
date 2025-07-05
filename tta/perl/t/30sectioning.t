@@ -104,7 +104,7 @@ my $two_nodes_between_chapters_text = '@node Top
 * chapter 2::
 @end menu
 
-@node chapter 1, Top, node between chapters, Top
+@node chapter 1, node between chapters, Top, Top
 @chapter chapter c1
 
 @node node between chapters

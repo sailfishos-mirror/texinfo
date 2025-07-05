@@ -233,6 +233,13 @@ $result_errors{'node_part_chapter_after_chapter'} = [
     'line_nr' => 14,
     'text' => '@node precedes @part, but parts may not be associated with nodes',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected node `part chapter node\' in menu
+',
+    'line_nr' => 6,
+    'text' => 'unexpected node `part chapter node\' in menu',
+    'type' => 'warning'
   }
 ];
 

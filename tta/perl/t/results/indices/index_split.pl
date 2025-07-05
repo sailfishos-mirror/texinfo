@@ -1123,11 +1123,27 @@ $result_errors{'index_split'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node next for `section 3\' is `node in section 3\' in menu but not in sectioning
+    'error_line' => 'warning: unexpected node `node in section 3\' in menu
 ',
     'file_name' => 'index_split.texi',
-    'line_nr' => 85,
-    'text' => 'node next for `section 3\' is `node in section 3\' in menu but not in sectioning',
+    'line_nr' => 44,
+    'text' => 'unexpected node `node in section 3\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected node `node 2 in section 3\' in menu
+',
+    'file_name' => 'index_split.texi',
+    'line_nr' => 45,
+    'text' => 'unexpected node `node 2 in section 3\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected node `node 3 in section 3\' in menu
+',
+    'file_name' => 'index_split.texi',
+    'line_nr' => 46,
+    'text' => 'unexpected node `node 3 in section 3\' in menu',
     'type' => 'warning'
   }
 ];

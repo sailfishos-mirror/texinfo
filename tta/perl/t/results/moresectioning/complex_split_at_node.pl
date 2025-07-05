@@ -1093,6 +1093,22 @@ directions and lone node.
 
 $result_errors{'complex_split_at_node'} = [
   {
+    'error_line' => 'warning: node `between node\' in menu where `Second node\' expected
+',
+    'file_name' => 'complex_sectioning_case.texi',
+    'line_nr' => 5,
+    'text' => 'node `between node\' in menu where `Second node\' expected',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected node `Last node no description\' in menu
+',
+    'file_name' => 'complex_sectioning_case.texi',
+    'line_nr' => 9,
+    'text' => 'unexpected node `Last node no description\' in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
 ',
     'file_name' => 'complex_sectioning_case.texi',

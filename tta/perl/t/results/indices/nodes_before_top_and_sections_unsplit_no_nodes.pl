@@ -956,6 +956,14 @@ Text and then index entries
 
 $result_errors{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
   {
+    'error_line' => 'warning: node `first\' in menu where `chapter\' expected
+',
+    'file_name' => 'nodes_before_top_and_sections.texi',
+    'line_nr' => 42,
+    'text' => 'node `first\' in menu where `chapter\' expected',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `first before top\' not in menu
 ',
     'file_name' => 'nodes_before_top_and_sections.texi',

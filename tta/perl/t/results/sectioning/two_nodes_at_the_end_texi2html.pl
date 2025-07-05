@@ -209,7 +209,15 @@ in node after chapter 1
 
 ';
 
-$result_errors{'two_nodes_at_the_end_texi2html'} = [];
+$result_errors{'two_nodes_at_the_end_texi2html'} = [
+  {
+    'error_line' => 'warning: unexpected node `last node in chapter 1\' in menu
+',
+    'line_nr' => 7,
+    'text' => 'unexpected node `last node in chapter 1\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'two_nodes_at_the_end_texi2html'} = '1|Top

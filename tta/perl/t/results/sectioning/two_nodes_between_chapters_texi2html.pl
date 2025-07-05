@@ -103,17 +103,17 @@ $result_tree_text{'two_nodes_between_chapters_texi2html'} = '*document_root C8
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
-   |node_content:{Top}
-   |normalized:{Top}
-    {Top}
+   |node_content:{node between chapters}
+   |normalized:{node-between-chapters}
+    {node between chapters}
    *line_arg C1
    |INFO
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
-   |node_content:{node between chapters}
-   |normalized:{node-between-chapters}
-    {node between chapters}
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -194,7 +194,7 @@ $result_texis{'two_nodes_between_chapters_texi2html'} = '@node Top
 * chapter 2::
 @end menu
 
-@node chapter 1, Top, node between chapters, Top
+@node chapter 1, node between chapters, Top, Top
 @chapter chapter c1
 
 @node node between chapters
@@ -219,22 +219,7 @@ $result_texts{'two_nodes_between_chapters_texi2html'} = 'top
 ************
 ';
 
-$result_errors{'two_nodes_between_chapters_texi2html'} = [
-  {
-    'error_line' => 'warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
-',
-    'line_nr' => 10,
-    'text' => 'node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu
-',
-    'line_nr' => 15,
-    'text' => 'node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'two_nodes_between_chapters_texi2html'} = [];
 
 
 $result_nodes_list{'two_nodes_between_chapters_texi2html'} = '1|Top
@@ -253,8 +238,8 @@ $result_nodes_list{'two_nodes_between_chapters_texi2html'} = '1|Top
   next->node between chapters
   up->Top
  node_directions:
-  next->Top
-  prev->node between chapters
+  next->node between chapters
+  prev->Top
   up->Top
 3|node between chapters
  menu_directions:

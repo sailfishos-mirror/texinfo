@@ -623,13 +623,6 @@ $result_errors{'namedanchor'} = [
     'line_nr' => 13,
     'text' => 'empty argument in @namedanchor',
     'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node next for `secc2\' is `in Top\' in menu but not in sectioning
-',
-    'line_nr' => 55,
-    'text' => 'node next for `secc2\' is `in Top\' in menu but not in sectioning',
-    'type' => 'warning'
   }
 ];
 

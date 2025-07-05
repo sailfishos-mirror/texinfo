@@ -284,7 +284,15 @@ a
 (some_name_inf.inf)aa.
 ';
 
-$result_errors{'check_htmlxref_no_use_nodes'} = [];
+$result_errors{'check_htmlxref_no_use_nodes'} = [
+  {
+    'error_line' => 'warning: node `first\' in menu where `chapter\' expected
+',
+    'line_nr' => 9,
+    'text' => 'node `first\' in menu where `chapter\' expected',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'check_htmlxref_no_use_nodes'} = '1|Top

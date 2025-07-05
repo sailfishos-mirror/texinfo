@@ -845,12 +845,149 @@ sub check_node_tree_menu_structure($)
     }
   }
 
+  # Go through all the menus and check if they match subordinate
+  # nodes.
+  if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+    foreach my $node_relations (@{$nodes_list}) {
+      if ($node_relations->{'menus'}) {
+        next if !$node_relations->{'associated_section'};
+        my $section_childs = $node_relations->{'associated_section'}
+                                            ->{'section_childs'};
+        next if !defined($section_childs) or !@{$section_childs};
+
+        # Find the first subordinate section, which should appear first
+        # in the menu.
+        my $first_child = $section_childs->[0];
+        while (!defined($first_child->{'associated_node'})
+                 and defined($first_child->{'section_directions'})
+                 and defined($first_child->{'section_directions'}->{'next'})) {
+          $first_child = $first_child->{'section_directions'}->{'next'};
+        }
+
+        my $first_child_node_relations = $first_child->{'associated_node'};
+        next if !defined($first_child_node_relations);
+
+        my $section_node = $first_child_node_relations->{'element'};
+        next if !defined($section_node);
+        my $last_menu_node_relations;
+
+        foreach my $menu (@{$node_relations->{'menus'}}) {
+          # Loop through each each entry in the menu and
+          # check if it is the menu entry we were expecting
+          # to see based on what came before.
+          MENU_CONTENT:
+          foreach my $menu_content (@{$menu->{'contents'}}) {
+            next if !defined($menu_content->{'type'})
+              or $menu_content->{'type'} ne 'menu_entry';
+
+            my $menu_node;
+            foreach my $content (@{$menu_content->{'contents'}}) {
+              next if $content->{'type'} ne 'menu_entry_node';
+              if ($content->{'extra'}) {
+                if (!$content->{'extra'}->{'manual_content'}) {
+                  if (defined($content->{'extra'}->{'normalized'})) {
+                    my $menu_node_name = $content->{'extra'}->{'normalized'};
+                    $menu_node = $identifier_target->{$menu_node_name};
+                  }
+                }
+              }
+              last; # menu_entry_node found
+            }
+            next MENU_CONTENT if !defined($menu_node)
+              or !defined($menu_node->{'extra'})
+              or !defined($menu_node->{'extra'}->{'node_number'});
+
+            my $menu_node_element_number = $menu_node->{'extra'}->{'node_number'};
+
+            # If there are explicit node pointers, also allow
+            # the "next" node.
+            my $next_pointer_node;
+            if (!defined($section_node) or $menu_node ne $section_node) {
+              if ($last_menu_node_relations) {
+                my $last_menu_node = $last_menu_node_relations->{'element'};
+                my $arguments_line = $last_menu_node->{'contents'}->[0];
+                my $automatic_directions
+                  = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
+                if (!$automatic_directions) {
+                  my $last_menu_node_directions = $last_menu_node_relations->{'node_directions'};
+                  $next_pointer_node = $last_menu_node_directions->{'next'};
+                }
+              }
+            }
+
+            if ($node_errors{$menu_node_element_number}) {
+            } elsif (defined($section_node) and $menu_node eq $section_node
+                or defined($next_pointer_node) and $menu_node eq $next_pointer_node) {
+              # good
+            } elsif (defined($section_node)) {
+              $registrar->line_warn(
+                sprintf(__("node `%s' in menu where `%s' expected"),
+                  target_element_to_texi_label($menu_node),
+                  target_element_to_texi_label($section_node)),
+                $menu_content->{'source_info'}, 0,
+                $customization_information->get_conf('DEBUG'));
+              $node_errors{$menu_node_element_number} = 1;
+            } else {
+              $registrar->line_warn(
+                sprintf(__("unexpected node `%s' in menu"),
+                  target_element_to_texi_label($menu_node)),
+                $menu_content->{'source_info'}, 0,
+                $customization_information->get_conf('DEBUG'));
+              $node_errors{$menu_node_element_number} = 1;
+            }
+
+            # Now set section_node for the section that is
+            # expected to follow the current menu node.
+
+            $last_menu_node_relations
+              = $nodes_list->[$menu_node_element_number - 1];
+            next MENU_CONTENT if
+              !$last_menu_node_relations
+                or !defined($last_menu_node_relations->{'associated_section'});
+
+            my $menu_section_dirs
+              = $last_menu_node_relations->{'associated_section'}
+                  ->{'section_directions'};
+
+            next MENU_CONTENT
+              if !defined($menu_section_dirs)
+                 or !defined($menu_section_dirs->{'up'})
+                 or !defined($menu_section_dirs->{'up'}->{'associated_node'});
+
+            my $menu_node_up = $menu_section_dirs->{'up'}->{'associated_node'};
+            if ($menu_node_up ne $node_relations) {
+              # Keep the same expected section as the current menu node
+              # is misplaced.
+            } elsif (defined($menu_section_dirs->{'next'})) {
+              my $section_next = $menu_section_dirs->{'next'};
+              while (defined($section_next)
+                     and !defined($section_next->{'associated_node'})
+                     and defined($section_next->{'section_directions'})) {
+                $section_next = $section_next->{'section_directions'}->{'next'};
+              }
+              if (defined($section_next) and defined($section_next->{'associated_node'})) {
+                $section_node = $section_next->{'associated_node'}->{'element'};
+              } else {
+                undef $section_node;
+              }
+            } else {
+              # We reached the last subordinate section so no more menu
+              # entries are expected.
+              undef $section_node;
+            }
+          }
+        }
+      }
+    }
+  }
+
   my %cached_menu_nodes;
 
   # check for node up / menu up mismatch
   if ($customization_information->get_conf('CHECK_MISSING_MENU_ENTRY')) {
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
+      next if $node_errors{$node->{'extra'}->{'node_number'}};
 
       my $section_relations = $node_relations->{'associated_section'};
       next if !defined($section_relations);
@@ -906,6 +1043,54 @@ sub check_node_tree_menu_structure($)
       }
     }
   }
+
+  if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+    foreach my $node_relations (@{$nodes_list}) {
+      my $node = $node_relations->{'element'};
+      next if $node_errors{$node->{'extra'}->{'node_number'}};
+      next if $node->{'extra'}->{'normalized'} eq 'Top';
+
+      my $node_directions = $node_relations->{'node_directions'};
+
+      my $arguments_line = $node->{'contents'}->[0];
+      my $automatic_directions
+        = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
+
+      my $menu_directions = $node_relations->{'menu_directions'};
+      # check consistency between explicit node pointer and
+      # node entries menu order
+      if (!$automatic_directions) {
+        if ($node_directions and $menu_directions) {
+          foreach my $direction (@node_directions_names) {
+            if ($node_directions->{$direction}
+                and not $node_directions->{$direction}
+                      ->{'extra'}->{'manual_content'}
+                and $menu_directions->{$direction}
+                and $menu_directions->{$direction}
+                  ne $node_directions->{$direction}
+                and not $menu_directions->{$direction}
+                              ->{'extra'}->{'manual_content'}) {
+              $registrar->line_warn(
+             sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                    $direction,
+                    target_element_to_texi_label($node),
+                    target_element_to_texi_label(
+                        $node_directions->{$direction}),
+                    $direction,
+                    target_element_to_texi_label(
+                        $menu_directions->{$direction})),
+                                    $node->{'source_info'}, 0,
+                             $customization_information->get_conf('DEBUG'));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return;
+
+  ###################################################################
 
   # Any problems with 'up' direction should have been found by previous code.
   #my @checked_node_directions_names = ('next', 'prev', 'up');

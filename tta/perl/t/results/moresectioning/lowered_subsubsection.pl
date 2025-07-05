@@ -464,13 +464,6 @@ $result_errors{'lowered_subsubsection'} = [
     'line_nr' => 38,
     'text' => 'node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' but is above it in sectioning
-',
-    'line_nr' => 22,
-    'text' => 'node `Subsection\' lacks menu item for `Lowered subsubsection\' but is above it in sectioning',
-    'type' => 'warning'
   }
 ];
 

@@ -406,45 +406,31 @@ $result_texts{'menutextorder'} = '* foo::
 
 $result_errors{'menutextorder'} = [
   {
+    'error_line' => 'warning: node `onesub2\' in menu where `onesub1\' expected
+',
+    'line_nr' => 10,
+    'text' => 'node `onesub2\' in menu where `onesub1\' expected',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `sub3\' in menu where `sub2\' expected
+',
+    'line_nr' => 25,
+    'text' => 'node `sub3\' in menu where `sub2\' expected',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected node `sub2\' in menu
+',
+    'line_nr' => 26,
+    'text' => 'unexpected node `sub2\' in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' but is above it in sectioning
 ',
     'line_nr' => 6,
     'text' => 'node `bar\' lacks menu item for `onesub1\' but is above it in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next for `sub1\' is `sub2\' in sectioning but `sub3\' in menu
-',
-    'line_nr' => 29,
-    'text' => 'node next for `sub1\' is `sub2\' in sectioning but `sub3\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next for `sub2\' is `sub3\' in sectioning but not in menu
-',
-    'line_nr' => 32,
-    'text' => 'node next for `sub2\' is `sub3\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `sub2\' is `sub1\' in sectioning but `sub3\' in menu
-',
-    'line_nr' => 32,
-    'text' => 'node prev for `sub2\' is `sub1\' in sectioning but `sub3\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next for `sub3\' is `sub2\' in menu but not in sectioning
-',
-    'line_nr' => 35,
-    'text' => 'node next for `sub3\' is `sub2\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `sub3\' is `sub2\' in sectioning but `sub1\' in menu
-',
-    'line_nr' => 35,
-    'text' => 'node prev for `sub3\' is `sub2\' in sectioning but `sub1\' in menu',
     'type' => 'warning'
   }
 ];

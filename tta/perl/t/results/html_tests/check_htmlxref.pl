@@ -283,7 +283,15 @@ a
 (some_name_inf.inf)aa.
 ';
 
-$result_errors{'check_htmlxref'} = [];
+$result_errors{'check_htmlxref'} = [
+  {
+    'error_line' => 'warning: node `first\' in menu where `chapter\' expected
+',
+    'line_nr' => 9,
+    'text' => 'node `first\' in menu where `chapter\' expected',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'check_htmlxref'} = '1|Top

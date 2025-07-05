@@ -252,17 +252,10 @@ $result_texts{'semi_auto'} = 'Top
 
 $result_errors{'semi_auto'} = [
   {
-    'error_line' => 'warning: node next for `Chap1\' is `Section non auto\' in menu but not in sectioning
+    'error_line' => 'warning: unexpected node `Section non auto\' in menu
 ',
-    'line_nr' => 9,
-    'text' => 'node next for `Chap1\' is `Section non auto\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu
-',
-    'line_nr' => 16,
-    'text' => 'node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu',
+    'line_nr' => 6,
+    'text' => 'unexpected node `Section non auto\' in menu',
     'type' => 'warning'
   }
 ];

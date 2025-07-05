@@ -13,7 +13,6 @@ Forward: [U1]
 FastForward: [U1]
 NodeNext: [U1]
 NodeForward: [U1]
-NodeBack: [U1]
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
@@ -105,10 +104,10 @@ FastForward: [U2]
 FastBack: [U0]
 Next: [U2]
 Up: [U0]
-NodeNext: [U0]
-NodePrev: [U1]
+NodeNext: [U1]
+NodePrev: [U0]
 NodeUp: [U0]
-NodeForward: [U0]
+NodeForward: [U1]
 NodeBack: [U0]
  *@node C1 l10 {chapter 1}
  |INFO
@@ -126,17 +125,17 @@ NodeBack: [U0]
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
-   |node_content:{Top}
-   |normalized:{Top}
-    {Top}
+   |node_content:{node between chapters}
+   |normalized:{node-between-chapters}
+    {node between chapters}
    *line_arg C1
    |INFO
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
-   |node_content:{node between chapters}
-   |normalized:{node-between-chapters}
-    {node between chapters}
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -227,7 +226,7 @@ $result_texis{'two_nodes_between_chapters'} = '@node Top
 * chapter 2::
 @end menu
 
-@node chapter 1, Top, node between chapters, Top
+@node chapter 1, node between chapters, Top, Top
 @chapter chapter c1
 
 @node node between chapters
@@ -252,22 +251,7 @@ $result_texts{'two_nodes_between_chapters'} = 'top
 ************
 ';
 
-$result_errors{'two_nodes_between_chapters'} = [
-  {
-    'error_line' => 'warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
-',
-    'line_nr' => 10,
-    'text' => 'node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu
-',
-    'line_nr' => 15,
-    'text' => 'node prev for `chapter 2\' is `chapter 1\' in sectioning but `node between chapters\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'two_nodes_between_chapters'} = [];
 
 
 $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
@@ -286,8 +270,8 @@ $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
   next->node between chapters
   up->Top
  node_directions:
-  next->Top
-  prev->node between chapters
+  next->node between chapters
+  prev->Top
   up->Top
 3|node between chapters
  menu_directions:
@@ -399,7 +383,7 @@ Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chapter-1">
 <div class="nav-panel">
 <p>
-Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#node-between-chapters" accesskey="p" rel="prev">node between chapters</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#node-between-chapters" accesskey="n" rel="next">node between chapters</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="chapter-c1"><span>1 chapter c1<a class="copiable-link" href="#chapter-c1"> &para;</a></span></h2>
 
@@ -438,7 +422,7 @@ $result_converted{'xml'}->{'two_nodes_between_chapters'} = '<node identifier="To
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="chapter-1" spaces=" "><nodename>chapter 1</nodename><nodenext spaces=" ">Top</nodenext><nodeprev spaces=" ">node between chapters</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node identifier="chapter-1" spaces=" "><nodename>chapter 1</nodename><nodenext spaces=" ">node between chapters</nodenext><nodeprev spaces=" ">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter c1</sectiontitle>
 
 </chapter>
