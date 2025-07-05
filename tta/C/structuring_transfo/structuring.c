@@ -1246,14 +1246,14 @@ check_node_tree_menu_structure (DOCUMENT *document)
           if (!section_relations)
             continue;
 
-          const SECTION_RELATIONS_LIST *section_childs
-            = section_relations->section_childs;
-          if (!section_childs || section_childs->number == 0)
+          const SECTION_RELATIONS_LIST *section_children
+            = section_relations->section_children;
+          if (!section_children || section_children->number == 0)
             continue;
 
           /* Find the first subordinate section, which
              should appear first in the menu. */
-          const SECTION_RELATIONS *first_child = section_childs->list[0];
+          const SECTION_RELATIONS *first_child = section_children->list[0];
           while (!first_child->associated_node
                  && first_child->section_directions
                  && first_child->section_directions[D_next])

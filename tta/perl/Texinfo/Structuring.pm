@@ -851,13 +851,13 @@ sub check_node_tree_menu_structure($)
     foreach my $node_relations (@{$nodes_list}) {
       if ($node_relations->{'menus'}) {
         next if !$node_relations->{'associated_section'};
-        my $section_childs = $node_relations->{'associated_section'}
-                                            ->{'section_childs'};
-        next if !defined($section_childs) or !@{$section_childs};
+        my $section_children = $node_relations->{'associated_section'}
+                                            ->{'section_children'};
+        next if !defined($section_children) or !@{$section_children};
 
         # Find the first subordinate section, which should appear first
         # in the menu.
-        my $first_child = $section_childs->[0];
+        my $first_child = $section_children->[0];
         while (!defined($first_child->{'associated_node'})
                  and defined($first_child->{'section_directions'})
                  and defined($first_child->{'section_directions'}->{'next'})) {
