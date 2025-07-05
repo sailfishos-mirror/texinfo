@@ -2059,7 +2059,7 @@ $result_sections_list{'macro_in_misc_commands'} = '1|top atext
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: node atext

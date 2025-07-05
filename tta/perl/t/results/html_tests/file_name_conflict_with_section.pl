@@ -88,7 +88,7 @@ $result_sections_list{'file_name_conflict_with_section'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  section_directions:

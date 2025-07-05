@@ -95,7 +95,7 @@ $result_sections_list{'empty_node_in_html_title_no_sec_name'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:

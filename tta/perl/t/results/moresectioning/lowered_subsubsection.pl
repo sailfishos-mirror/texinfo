@@ -547,7 +547,7 @@ $result_sections_list{'lowered_subsubsection'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: Chapter
@@ -557,21 +557,21 @@ $result_sections_list{'lowered_subsubsection'} = '1
  toplevel_directions:
   prev->
   up->
- section_childs:
+ section_children:
   1|Section
 3|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|Subsection
 4|Subsection
  associated_anchor_command: Subsection
  associated_node: Subsection
  section_directions:
   up->Section
- section_childs:
+ section_children:
   1|Subsubsection
   2|Lowered subsec
   3|Lowered subsubsection

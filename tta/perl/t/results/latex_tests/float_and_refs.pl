@@ -647,7 +647,7 @@ $result_sections_list{'float_and_refs'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
   2|refs
   3|lists

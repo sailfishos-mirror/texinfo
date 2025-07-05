@@ -233,7 +233,7 @@ $result_sections_list{'two_footnotes_in_nodes_separate_no_header'} = '1|2 footno
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: chapter

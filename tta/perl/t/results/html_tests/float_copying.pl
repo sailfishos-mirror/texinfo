@@ -563,7 +563,7 @@ $result_sections_list{'float_copying'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Copying and floats
- section_childs:
+ section_children:
   1|Copying and floats
 2|Copying and floats
  associated_anchor_command: Copying and floats

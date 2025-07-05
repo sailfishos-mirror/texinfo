@@ -281,7 +281,7 @@ $result_sections_list{'two_nodes_between_chapters_texi2html'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter c1
- section_childs:
+ section_children:
   1|chapter c1
   2|chapter c2
 2|chapter c1

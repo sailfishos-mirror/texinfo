@@ -1458,7 +1458,7 @@ $result_sections_list{'indices_in_begin_tables_lists_entries_after_item'} = '1|t
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|printindex
 2|chap

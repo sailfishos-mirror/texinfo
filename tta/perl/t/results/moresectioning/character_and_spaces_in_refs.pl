@@ -591,7 +591,7 @@ $result_sections_list{'character_and_spaces_in_refs'} = '1|Test refs
  associated_node: Top
  toplevel_directions:
   next->first chapter
- section_childs:
+ section_children:
   1|first chapter
   2|Chapter with nodes
 2|first chapter

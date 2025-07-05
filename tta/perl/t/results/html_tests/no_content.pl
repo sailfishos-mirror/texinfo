@@ -167,7 +167,7 @@ $result_sections_list{'no_content'} = '1|No ccontent
  associated_node: Top
  toplevel_directions:
   next->Chapter 1
- section_childs:
+ section_children:
   1|Chapter 1
 2|Chapter 1
  associated_anchor_command: chapter

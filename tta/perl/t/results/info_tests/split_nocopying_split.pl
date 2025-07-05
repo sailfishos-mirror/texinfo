@@ -169,7 +169,7 @@ $result_sections_list{'split_nocopying_split'} = '1|Test file used to test split
  associated_node: Top
  toplevel_directions:
   next->Ch1
- section_childs:
+ section_children:
   1|Ch1
 2|Ch1
  associated_anchor_command: Ch1

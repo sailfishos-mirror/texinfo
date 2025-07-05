@@ -127,7 +127,7 @@ $result_nodes_list{'hole_in_sectioning'} = '';
 $result_sections_list{'hole_in_sectioning'} = '1|Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  section_directions:
@@ -135,12 +135,12 @@ $result_sections_list{'hole_in_sectioning'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
- section_childs:
+ section_children:
   1|section
 3|section
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|subsubsection with no subsection above
   2|the subsection
 4|subsubsection with no subsection above

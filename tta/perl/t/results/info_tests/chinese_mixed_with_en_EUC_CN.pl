@@ -241,7 +241,7 @@ $result_sections_list{'chinese_mixed_with_en_EUC_CN'} = '1|Mixed chinese and eng
  associated_node: Top
  toplevel_directions:
   next->Mixed english and chinese
- section_childs:
+ section_children:
   1|Mixed english and chinese
 2|Mixed english and chinese
  associated_anchor_command: Mixed english and chinese

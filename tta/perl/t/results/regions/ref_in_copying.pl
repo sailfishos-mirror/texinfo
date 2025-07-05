@@ -184,7 +184,7 @@ $result_sections_list{'ref_in_copying'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->GFDL
- section_childs:
+ section_children:
   1|GFDL
 2|GFDL
  associated_anchor_command: GFDL

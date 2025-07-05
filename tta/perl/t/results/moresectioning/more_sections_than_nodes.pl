@@ -534,7 +534,7 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->c1
- section_childs:
+ section_children:
   1|c1
   2|c2
   3|c3
@@ -559,7 +559,7 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->c3
   prev->c1
   up->top
- section_childs:
+ section_children:
   1|s1
 4|s1
  section_directions:
@@ -575,7 +575,7 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->c4
   prev->c2
   up->top
- section_childs:
+ section_children:
   1|C3 s1
   2|c3 s2
   3|c3 s3
@@ -603,12 +603,12 @@ $result_sections_list{'more_sections_than_nodes'} = '1|top
   next->appendix
   prev->c3
   up->top
- section_childs:
+ section_children:
   1|c3 s1
 10|c3 s1
  section_directions:
   up->c4
- section_childs:
+ section_children:
   1|c3 s1 s1
   2|c3 s1 s2
 11|c3 s1 s1

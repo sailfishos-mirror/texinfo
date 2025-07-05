@@ -551,7 +551,7 @@ $result_sections_list{'split_chapter_index'} = '1|split indices
  associated_node: Top
  toplevel_directions:
   next->First chapter
- section_childs:
+ section_children:
   1|First chapter
 2|First chapter
  associated_anchor_command: first
@@ -561,14 +561,14 @@ $result_sections_list{'split_chapter_index'} = '1|split indices
  toplevel_directions:
   prev->split indices
   up->split indices
- section_childs:
+ section_children:
   1|Section 1
 3|Section 1
  associated_anchor_command: section 1
  associated_node: section 1
  section_directions:
   up->First chapter
- section_childs:
+ section_children:
   1|Subsection 1
 4|Subsection 1
  associated_anchor_command: subsection 1

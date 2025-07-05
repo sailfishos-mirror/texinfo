@@ -3100,7 +3100,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
       return result.text;
     }
 
-  root_children = &self->document->sectioning_root->section_childs;
+  root_children = &self->document->sectioning_root->section_children;
   min_root_level = lookup_extra_integer (root_children->list[0]->element,
                                          AI_key_section_level,
                                          &status);
@@ -3172,8 +3172,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
          const ELEMENT *section = section_relations->element;
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
-         const SECTION_RELATIONS_LIST *section_childs
-           = section_relations->section_childs;
+         const SECTION_RELATIONS_LIST *section_children
+           = section_relations->section_children;
          if (section->e.c->cmd != CM_top)
             {
               char *text;
@@ -3225,11 +3225,11 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
             }
           else
             {
-              if (section_childs && section_childs->number > 0
+              if (section_children && section_children->number > 0
                   && has_toplevel_contents)
                 text_append_n (&result, "<li>", 4);
             }
-          if (section_childs
+          if (section_children
               && (is_contents || section_level < max_root_level))
             {
               char *attribute_class;
@@ -3246,7 +3246,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
               text_append (&result, attribute_class);
               free (attribute_class);
               text_append_n (&result, ">\n", 2);
-              section_relations = section_childs->list[0];
+              section_relations = section_children->list[0];
             }
           else
             {
@@ -7199,12 +7199,12 @@ mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
                    TEXT *result)
 {
   int entry_index = 0;
-  const SECTION_RELATIONS_LIST *section_childs = 0;
+  const SECTION_RELATIONS_LIST *section_children = 0;
 
   if (section_relations)
-    section_childs = section_relations->section_childs;
+    section_children = section_relations->section_children;
 
-  if (section_childs && section_childs->number > 0)
+  if (section_children && section_children->number > 0)
     {
       char *attribute_class;
       size_t i;
@@ -7215,9 +7215,9 @@ mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
       free (attribute_class);
       text_append_n (result, ">\n", 2);
 
-      for (i = 0; i < section_childs->number; i++)
+      for (i = 0; i < section_children->number; i++)
         {
-          const ELEMENT *section = section_childs->list[i]->element;
+          const ELEMENT *section = section_children->list[i]->element;
      /* using command_text leads to the same HTML formatting, but does not give
         the same result for the other files, as the formatting is done in a
         global context, while taking the tree first and calling convert_tree

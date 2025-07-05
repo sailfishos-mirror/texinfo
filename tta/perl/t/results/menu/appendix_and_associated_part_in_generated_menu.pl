@@ -270,7 +270,7 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
   next->P1
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chapter
@@ -281,7 +281,7 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
   next->Chap 2
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: sec
@@ -294,7 +294,7 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
  section_directions:
   next->Final
   prev->top
- section_childs:
+ section_children:
   1|Chap 2
 5|Chap 2
  associated_anchor_command: chap2
@@ -311,7 +311,7 @@ $result_sections_list{'appendix_and_associated_part_in_generated_menu'} = '1|top
  part_associated_section: A GGG
  section_directions:
   prev->P1
- section_childs:
+ section_children:
   1|GGG
 7|GGG
  associated_anchor_command: app

@@ -122,7 +122,7 @@ $result_nodes_list{'undef_split_and_big_rule'} = '1|chap
 $result_sections_list{'undef_split_and_big_rule'} = '1|top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap
@@ -132,7 +132,7 @@ $result_sections_list{'undef_split_and_big_rule'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: sec

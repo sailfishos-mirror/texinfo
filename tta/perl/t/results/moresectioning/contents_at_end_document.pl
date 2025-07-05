@@ -87,7 +87,7 @@ $result_sections_list{'contents_at_end_document'} = '1|contents at end document
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:

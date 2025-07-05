@@ -28,6 +28,7 @@
 #include "parser_conf.h"
 #include "conf.h"
 #include "tree.h"
+#include "targets.h"
 #include "utils.h"
 #include "document.h"
 #include "tree_element.h"
@@ -165,6 +166,19 @@ typedef struct INDEX_ENTRY {
                                           another element */
 } INDEX_ENTRY;
 
+%inline %{
+ELEMENT *get_element_by_identifier (DOCUMENT *document,
+                                    const char *identifier);
+%}
+
+%{
+ELEMENT *
+get_element_by_identifier (DOCUMENT *document, const char *identifier)
+{
+  return find_identifier_target (&document->identifiers_target, identifier);
+}
+%}
+
 // tree_element.h
 ELEMENT *document_global_unique_command (DOCUMENT *document,
                                          const char *cmdname);
@@ -277,7 +291,7 @@ typedef struct SECTION_RELATIONS {
     const struct SECTION_RELATIONS **section_directions;
     const struct SECTION_RELATIONS **toplevel_directions;
       */
-    SECTION_RELATIONS_LIST *section_childs;
+    SECTION_RELATIONS_LIST *section_children;
 } SECTION_RELATIONS;
 
 NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
@@ -349,3 +363,8 @@ reader_read (READER *reader)
 void txi_destroy_document (DOCUMENT *document);
 
 
+
+// Helper functions.  Not sure that they will be kept
+
+// utils.h
+ELEMENT *get_label_element (const ELEMENT *e);

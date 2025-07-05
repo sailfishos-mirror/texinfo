@@ -139,7 +139,7 @@ $result_sections_list{'error_in_sectioning_command'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->@code{@@error@{@}} (@error{}): Indicating an Error Message
- section_childs:
+ section_children:
   1|@code{@@error@{@}} (@error{}): Indicating an Error Message
 2|@code{@@error@{@}} (@error{}): Indicating an Error Message
  associated_anchor_command: @code{@@error@{@}} (@error{}): Indicating an Error Message

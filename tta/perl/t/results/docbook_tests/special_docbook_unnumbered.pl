@@ -353,7 +353,7 @@ $result_sections_list{'special_docbook_unnumbered'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->a dedication
- section_childs:
+ section_children:
   1|a dedication
   2|The Preface
   3|A colophon

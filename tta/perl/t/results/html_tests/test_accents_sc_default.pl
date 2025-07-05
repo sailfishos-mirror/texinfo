@@ -314,7 +314,7 @@ $result_sections_list{'test_accents_sc_default'} = '1|top section
  associated_node: top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: node chap

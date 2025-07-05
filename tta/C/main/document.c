@@ -553,7 +553,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
   free_heading_relations_list (&document->headings_list);
   if (document->sectioning_root)
     {
-      free (document->sectioning_root->section_childs.list);
+      free (document->sectioning_root->section_children.list);
       free (document->sectioning_root);
     }
   if (document->sorted_options)

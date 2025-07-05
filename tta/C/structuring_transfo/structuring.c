@@ -141,7 +141,7 @@ sectioning_structure (DOCUMENT *document)
                 section_relations->section_directions
                   = new_section_directions ();
 
-              previous_section_relations->section_childs
+              previous_section_relations->section_children
                 = new_section_relations_list ();
 
               if (level - prev_section_level > 1)
@@ -153,7 +153,8 @@ sectioning_structure (DOCUMENT *document)
                   level = prev_section_level + 1;
                 }
               add_to_section_relations_list (
-                 previous_section_relations->section_childs, section_relations);
+                           previous_section_relations->section_children,
+                           section_relations);
               section_relations->section_directions[D_up]
                 = previous_section_relations;
                /*
@@ -183,7 +184,7 @@ sectioning_structure (DOCUMENT *document)
                 = previous_section_relations;
               const SECTION_RELATIONS * const *up_section_directions
                 = previous_section_relations->section_directions;
-              SECTION_RELATIONS_LIST *up_section_childs;
+              SECTION_RELATIONS_LIST *up_section_children;
 
               int up_level;
               while (1)
@@ -202,15 +203,15 @@ sectioning_structure (DOCUMENT *document)
                     break;
                 }
 
-              up_section_childs = up_relations->section_childs;
+              up_section_children = up_relations->section_children;
               /* no up found.  The element is below the sectioning root */
               if (level <= up_level)
                 {
                   up = 0;
                   int sec_root_level
                     = document->sectioning_root->section_root_level;
-                  up_section_childs
-                    = &document->sectioning_root->section_childs;
+                  up_section_children
+                    = &document->sectioning_root->section_children;
 
                   if (level <= sec_root_level)
                  /* in that case, the level of the element is not in line
@@ -248,8 +249,8 @@ sectioning_structure (DOCUMENT *document)
                   && up && up->e.c->cmd == CM_part)
                 {
                   up = 0;
-                  up_section_childs
-                    = &document->sectioning_root->section_childs;
+                  up_section_children
+                    = &document->sectioning_root->section_children;
                 }
               if (new_upper_part_element)
                 {
@@ -258,7 +259,7 @@ sectioning_structure (DOCUMENT *document)
                   first 'part' just appeared, no direction to set.
                    */
                   SECTION_RELATIONS_LIST *sec_root_childs
-                    = &document->sectioning_root->section_childs;
+                    = &document->sectioning_root->section_children;
                   document->sectioning_root->section_root_level = level -1;
                   add_to_section_relations_list (sec_root_childs,
                                                  section_relations);
@@ -269,7 +270,7 @@ sectioning_structure (DOCUMENT *document)
               else
                 {
                   SECTION_RELATIONS *prev_relations
-                    = up_section_childs->list[up_section_childs->number -1];
+                    = up_section_children->list[up_section_children->number -1];
                   if (!prev_relations->section_directions)
                     prev_relations->section_directions
                       = new_section_directions ();
@@ -285,7 +286,7 @@ sectioning_structure (DOCUMENT *document)
                     = prev_relations;
                   prev_relations->section_directions[D_next]
                     = section_relations;
-                  add_to_section_relations_list (up_section_childs,
+                  add_to_section_relations_list (up_section_children,
                                                  section_relations);
                 }
               if (!(command_other_flags (content) & CF_unnumbered))
@@ -308,7 +309,7 @@ sectioning_structure (DOCUMENT *document)
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
           sectioning_root->section_root_level = level -1;
-          add_to_section_relations_list (&sectioning_root->section_childs,
+          add_to_section_relations_list (&sectioning_root->section_children,
                                          section_relations);
           document->modified_information |= F_DOCM_sectioning_root;
           number_top_level = level;
@@ -493,15 +494,15 @@ get_node_node_childs_from_sectioning (const NODE_RELATIONS *node_relations)
       const SECTION_RELATIONS *associated_relations
         = node_relations->associated_section;
 
-      const SECTION_RELATIONS_LIST *section_childs
-        = associated_relations->section_childs;
-      if (section_childs)
+      const SECTION_RELATIONS_LIST *section_children
+        = associated_relations->section_children;
+      if (section_children)
         {
           size_t i;
-          for (i = 0; i < section_childs->number; i++)
+          for (i = 0; i < section_children->number; i++)
             {
               const SECTION_RELATIONS *child_relations
-                = section_childs->list[i];
+                = section_children->list[i];
               if (child_relations->associated_node)
                 add_to_const_node_relations_list (node_childs,
                               child_relations->associated_node);
@@ -521,15 +522,15 @@ get_node_node_childs_from_sectioning (const NODE_RELATIONS *node_relations)
                     = current_relations->section_directions[D_next];
                   if (current_relations->element->e.c->cmd == CM_part)
                     {
-                      const SECTION_RELATIONS_LIST *section_childs
-                       = current_relations->section_childs;
-                      if (section_childs)
+                      const SECTION_RELATIONS_LIST *section_children
+                       = current_relations->section_children;
+                      if (section_children)
                         {
                           size_t i;
-                          for (i = 0; i < section_childs->number; i++)
+                          for (i = 0; i < section_children->number; i++)
                             {
                               const SECTION_RELATIONS *child_relations
-                                = section_childs->list[i];
+                                = section_children->list[i];
                               if (child_relations->associated_node)
                                 add_to_const_node_relations_list (node_childs,
                                       child_relations->associated_node);
@@ -1569,14 +1570,14 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
 
       const SECTION_RELATIONS *associated_relations
         = node_relations->associated_section;
-      const SECTION_RELATIONS_LIST *section_childs = 0;
+      const SECTION_RELATIONS_LIST *section_children = 0;
       if (associated_relations)
-        section_childs = associated_relations->section_childs;
+        section_children = associated_relations->section_children;
 
-      if (section_childs && section_childs->number > 0)
+      if (section_children && section_children->number > 0)
         {
           const SECTION_RELATIONS *section_child_relations
-            = section_childs->list[0];
+            = section_children->list[0];
           if (section_child_relations->associated_node)
             {
               if (!node_relations->node_directions)

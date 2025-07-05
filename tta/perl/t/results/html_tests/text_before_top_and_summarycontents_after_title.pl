@@ -107,7 +107,7 @@ $result_sections_list{'text_before_top_and_summarycontents_after_title'} = '1|to
  associated_node: Top
  toplevel_directions:
   next->the chap
- section_childs:
+ section_children:
   1|the chap
 2|the chap
  section_directions:

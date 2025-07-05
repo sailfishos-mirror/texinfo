@@ -229,7 +229,7 @@ $result_sections_list{'reference_to_only_special_spaces_node'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->EN QUAD| | EM QUAD| | EN SPACE| |
- section_childs:
+ section_children:
   1|EN QUAD| | EM QUAD| | EN SPACE| |
   2|@code{EN QUAD| | EM QUAD| | EN SPACE| |}
 2|EN QUAD| | EM QUAD| | EN SPACE| |

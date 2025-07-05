@@ -215,7 +215,7 @@ $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_node: Chap
@@ -224,19 +224,19 @@ $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Section
 3|Section
  associated_node: Section
  section_directions:
   up->Chap
- section_childs:
+ section_children:
   1|@asis{}
 4|@asis{}
  associated_node: @asis{} 1
  section_directions:
   up->Section
- section_childs:
+ section_children:
   1|There
 5|There
  associated_node: There

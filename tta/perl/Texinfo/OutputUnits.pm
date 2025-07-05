@@ -404,11 +404,11 @@ sub units_directions($$$;$)
         $directions->{'NodeForward'}
           = _label_target_unit_element($menu_child);
       } elsif ($associated_relations
-               and $associated_relations->{'section_childs'}
-               and scalar(@{$associated_relations->{'section_childs'}})) {
+               and $associated_relations->{'section_children'}
+               and scalar(@{$associated_relations->{'section_children'}})) {
         $directions->{'NodeForward'}
           = $associated_relations
-                  ->{'section_childs'}->[0]->{'element'}->{'associated_unit'};
+                  ->{'section_children'}->[0]->{'element'}->{'associated_unit'};
       } elsif ($node_relations->{'node_directions'}
                and $node_relations->{'node_directions'}->{'next'}) {
         $directions->{'NodeForward'}
@@ -516,10 +516,10 @@ sub units_directions($$$;$)
           and defined($up->{'extra'}->{'section_level'})
           and $up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
-          and $up_relations->{'section_childs'}
-          and scalar(@{$up_relations->{'section_childs'}})) {
+          and $up_relations->{'section_children'}
+          and scalar(@{$up_relations->{'section_children'}})) {
         $directions->{'FastForward'}
-           = $up_relations->{'section_childs'}->[0]
+           = $up_relations->{'section_children'}->[0]
                                      ->{'element'}->{'associated_unit'};
       } elsif ($up_relations->{'toplevel_directions'}
                and $up_relations->{'toplevel_directions'}->{'next'}) {

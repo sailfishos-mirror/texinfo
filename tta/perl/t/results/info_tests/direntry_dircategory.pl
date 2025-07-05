@@ -363,7 +363,7 @@ $result_sections_list{'direntry_dircategory'} = '1|Test dircategory and direntry
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: chapter

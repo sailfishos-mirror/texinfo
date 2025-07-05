@@ -506,7 +506,7 @@ $result_sections_list{'missing_detailmenu_on_subnodes'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
   2|chapter 2
 2|chapter
@@ -519,7 +519,7 @@ $result_sections_list{'missing_detailmenu_on_subnodes'} = '1|top
   next->chapter 2
   prev->top
   up->top
- section_childs:
+ section_children:
   1|section
 3|section
  associated_anchor_command: section
@@ -535,7 +535,7 @@ $result_sections_list{'missing_detailmenu_on_subnodes'} = '1|top
  toplevel_directions:
   prev->chapter
   up->top
- section_childs:
+ section_children:
   1|section chap 2
   2|unnumberedsec
 5|section chap 2

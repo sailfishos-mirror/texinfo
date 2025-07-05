@@ -264,7 +264,7 @@ $result_sections_list{'double_contents_separate_element_section'} = '1|Double co
  associated_node: Top
  toplevel_directions:
   next->Chapter 1
- section_childs:
+ section_children:
   1|Chapter 1
 2|Chapter 1
  associated_anchor_command: chapter
@@ -274,7 +274,7 @@ $result_sections_list{'double_contents_separate_element_section'} = '1|Double co
  toplevel_directions:
   prev->Double contents
   up->Double contents
- section_childs:
+ section_children:
   1|section with contents
 3|section with contents
  associated_anchor_command: section

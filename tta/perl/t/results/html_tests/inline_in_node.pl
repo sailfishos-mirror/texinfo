@@ -161,7 +161,7 @@ $result_sections_list{'inline_in_node'} = '1
  associated_node: Top
  toplevel_directions:
   next->@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
- section_childs:
+ section_children:
   1|@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
 2|@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
  associated_anchor_command: @inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}

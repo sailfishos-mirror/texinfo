@@ -413,7 +413,7 @@ $result_sections_list{'navigation_section'} = '1|File used for navigation testin
  associated_node: Top
  toplevel_directions:
   next->First chapter
- section_childs:
+ section_children:
   1|First chapter
 2|First chapter
  associated_anchor_command: chapter
@@ -423,14 +423,14 @@ $result_sections_list{'navigation_section'} = '1|File used for navigation testin
  toplevel_directions:
   prev->File used for navigation testing
   up->File used for navigation testing
- section_childs:
+ section_children:
   1|Section in chapter
 3|Section in chapter
  associated_anchor_command: section
  associated_node: section
  section_directions:
   up->First chapter
- section_childs:
+ section_children:
   1|Sub section in section
 4|Sub section in section
  associated_anchor_command: subsection

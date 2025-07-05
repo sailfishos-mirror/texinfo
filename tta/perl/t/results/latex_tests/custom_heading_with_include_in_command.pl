@@ -948,7 +948,7 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->chap in main
- section_childs:
+ section_children:
   1|chap in main
   2|Chapter in included file
   3|Chapter in included file
@@ -977,14 +977,14 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
   next->Chapter in included file
   prev->chap in main
   up->top sectionning
- section_childs:
+ section_children:
   1|Section
 4|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter in included file
- section_childs:
+ section_children:
   1|Subsection
 5|Subsection
  associated_anchor_command: Subsection
@@ -1000,12 +1000,12 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
   next->Chapter in included file Include
   prev->Chapter in included file
   up->top sectionning
- section_childs:
+ section_children:
   1|Section
 7|Section
  section_directions:
   up->Chapter in included file
- section_childs:
+ section_children:
   1|Subsection
 8|Subsection
  section_directions:
@@ -1019,12 +1019,12 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
   next->Chapter in included file
   prev->Chapter in included file
   up->top sectionning
- section_childs:
+ section_children:
   1|Section Include
 10|Section Include
  section_directions:
   up->Chapter in included file Include
- section_childs:
+ section_children:
   1|Subsection Include
 11|Subsection Include
  section_directions:
@@ -1038,12 +1038,12 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
   next->Chapter in included file
   prev->Chapter in included file Include
   up->top sectionning
- section_childs:
+ section_children:
   1|Section
 13|Section
  section_directions:
   up->Chapter in included file
- section_childs:
+ section_children:
   1|Subsection
 14|Subsection
  section_directions:
@@ -1057,12 +1057,12 @@ $result_sections_list{'custom_heading_with_include_in_command'} = '1|top section
   next->A last
   prev->Chapter in included file
   up->top sectionning
- section_childs:
+ section_children:
   1|Section
 16|Section
  section_directions:
   up->Chapter in included file
- section_childs:
+ section_children:
   1|Subsection
 17|Subsection
  section_directions:

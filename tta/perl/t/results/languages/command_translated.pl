@@ -132,7 +132,7 @@ $result_sections_list{'command_translated'} = '1|top @error{}
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter @error{}

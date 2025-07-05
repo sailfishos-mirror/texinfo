@@ -296,17 +296,17 @@ $result_nodes_list{'sectioning_part_appendix_no_top'} = '';
 $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
  toplevel_directions:
   next->chapter in part
- section_childs:
+ section_children:
   1|section
 2|section
  section_directions:
   up->chapter
- section_childs:
+ section_children:
   1|subsection
 3|subsection
  section_directions:
   up->section
- section_childs:
+ section_children:
   1|subsubsection
 4|subsubsection
  section_directions:
@@ -315,7 +315,7 @@ $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
  part_associated_section: 2 chapter in part
  section_directions:
   next->appendix
- section_childs:
+ section_children:
   1|chapter in part
   2|second chapter in part
   3|unnumbered
@@ -347,7 +347,7 @@ $result_sections_list{'sectioning_part_appendix_no_top'} = '1|chapter
   prev->part
  toplevel_directions:
   prev->unnumbered
- section_childs:
+ section_children:
   1|appendixsec
 10|appendixsec
  section_directions:

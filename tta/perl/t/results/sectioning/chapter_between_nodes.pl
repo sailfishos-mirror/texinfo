@@ -194,7 +194,7 @@ $result_sections_list{'chapter_between_nodes'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  section_directions:
@@ -202,7 +202,7 @@ $result_sections_list{'chapter_between_nodes'} = '1|top section
  toplevel_directions:
   prev->top section
   up->top section
- section_childs:
+ section_children:
   1|section
 3|section
  associated_anchor_command: section node

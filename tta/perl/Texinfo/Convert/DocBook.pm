@@ -1963,8 +1963,8 @@ sub _convert($$;$)
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if (!($section_relations
-          and $section_relations->{'section_childs'}
-          and scalar(@{$section_relations->{'section_childs'}}))
+          and $section_relations->{'section_children'}
+          and scalar(@{$section_relations->{'section_children'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};

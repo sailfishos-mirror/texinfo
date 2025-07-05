@@ -527,7 +527,7 @@ $result_sections_list{'block_commands_in_table'} = '1|Element
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap

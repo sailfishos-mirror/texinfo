@@ -301,7 +301,7 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
  section_directions:
   next->Part II
   prev->top
- section_childs:
+ section_children:
   1|Chap
 3|Chap
  associated_anchor_command: chapter
@@ -319,7 +319,7 @@ $result_sections_list{'documentlanguage_generated_master_menu'} = '1|top
  section_directions:
   next->App
   prev->Part I
- section_childs:
+ section_children:
   1|Other chap
 5|Other chap
  associated_anchor_command: other chap

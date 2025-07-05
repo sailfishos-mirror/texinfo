@@ -1,5 +1,9 @@
 2025-07-05  Patrice Dumas  <pertusus@free.fr>
 
+	Substitute section_childs by section_children everywhere
+
+2025-07-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: update to call destroy_document.
 
 2025-07-05  Patrice Dumas  <pertusus@free.fr>

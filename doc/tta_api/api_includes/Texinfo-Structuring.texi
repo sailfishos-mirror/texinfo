@@ -211,8 +211,8 @@ The sectioning element number.
 The following is set in section relations hashes:
 
 @table @asis
-@item section_childs
-@anchor{Texinfo@asis{::}Structuring section_childs}
+@item section_children
+@anchor{Texinfo@asis{::}Structuring section_children}
 
 An array holding sectioning element children.  The children are also
 section relations.

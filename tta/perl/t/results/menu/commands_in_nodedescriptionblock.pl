@@ -443,7 +443,7 @@ $result_sections_list{'commands_in_nodedescriptionblock'} = '1|test commands in 
  associated_node: Top
  toplevel_directions:
   next->chap1
- section_childs:
+ section_children:
   1|chap1
   2|chap2
 2|chap1

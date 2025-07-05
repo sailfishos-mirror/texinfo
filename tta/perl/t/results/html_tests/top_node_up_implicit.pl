@@ -155,7 +155,7 @@ $result_sections_list{'top_node_up_implicit'} = '1|The top
  associated_node: Top
  toplevel_directions:
   next->A chapter
- section_childs:
+ section_children:
   1|A chapter
 2|A chapter
  associated_anchor_command: Chap

@@ -434,7 +434,7 @@ $result_sections_list{'indices'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->Index
- section_childs:
+ section_children:
   1|Index
 2|Index
  associated_anchor_command: chapter

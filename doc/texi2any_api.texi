@@ -2623,7 +2623,7 @@ For example, the following keys of the @code{extra} sectioning elements hash
 can be interesting in several user-defined formatting and conversion functions:
 
 @table @code
-@item section_childs
+@item section_children
 For sectioning commands elements.  The children of the sectioning element
 in the sectioning tree.
 

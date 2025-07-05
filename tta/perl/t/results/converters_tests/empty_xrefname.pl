@@ -291,7 +291,7 @@ $result_sections_list{'empty_xrefname'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
   2|Chip
 2|Chapter

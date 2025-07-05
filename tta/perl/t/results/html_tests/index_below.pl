@@ -128,7 +128,7 @@ $result_nodes_list{'index_below'} = '';
 $result_sections_list{'index_below'} = '1|top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:
@@ -136,7 +136,7 @@ $result_sections_list{'index_below'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|sec
 3|sec
  section_directions:

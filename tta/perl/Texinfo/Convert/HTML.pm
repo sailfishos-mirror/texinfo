@@ -11510,11 +11510,12 @@ sub _mini_toc($$)
   my $entry_index = 0;
 
   if ($section_relations
-      and $section_relations->{'section_childs'}
-      and scalar(@{$section_relations->{'section_childs'}})) {
+      and $section_relations->{'section_children'}
+      and scalar(@{$section_relations->{'section_children'}})) {
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
-    foreach my $section_relations (@{$section_relations->{'section_childs'}}) {
+    foreach my $section_relations
+                         (@{$section_relations->{'section_children'}}) {
       my $section = $section_relations->{'element'};
       # using command_text leads to the same HTML formatting, but does not give
       # the same result for the other files, as the formatting is done in a
@@ -11576,10 +11577,10 @@ sub _default_format_contents($$;$$)
   my $is_contents;
   $is_contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $sectioning_root->{'section_childs'}->[0]
+  my $min_root_level = $sectioning_root->{'section_children'}->[0]
                                 ->{'element'}->{'extra'}->{'section_level'};
   my $max_root_level = $min_root_level;
-  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+  foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
     my $top_section = $top_relations->{'element'};
     $min_root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $min_root_level);
@@ -11605,7 +11606,7 @@ sub _default_format_contents($$;$$)
   }
 
   my $has_toplevel_contents;
-  if (@{$sectioning_root->{'section_childs'}} > 1) {
+  if (@{$sectioning_root->{'section_children'}} > 1) {
     $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
     $has_toplevel_contents = 1;
   }
@@ -11615,7 +11616,7 @@ sub _default_format_contents($$;$$)
                      and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
                           or $self->_has_contents_or_shortcontents()));
 
-  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+  foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
     my $section_relations = $top_relations;
  SECTION:
     while ($section_relations) {
@@ -11653,13 +11654,13 @@ sub _default_format_contents($$;$$)
             $result .= $text;
           }
         }
-      } elsif ($section_relations->{'section_childs'}
-               and scalar(@{$section_relations->{'section_childs'}})
+      } elsif ($section_relations->{'section_children'}
+               and scalar(@{$section_relations->{'section_children'}})
                and $has_toplevel_contents) {
         $result .= "<li>";
       }
       # for shortcontents don't do child if child is not toplevel
-      if ($section_relations->{'section_childs'}
+      if ($section_relations->{'section_children'}
           and ($is_contents
                or $section->{'extra'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
@@ -11667,7 +11668,7 @@ sub _default_format_contents($$;$$)
          . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             if ($is_contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
-        $section_relations = $section_relations->{'section_childs'}->[0];
+        $section_relations = $section_relations->{'section_children'}->[0];
       } elsif ($section_relations->{'section_directions'}
                and $section_relations->{'section_directions'}->{'next'}
                and $section->{'cmdname'} ne 'top') {
@@ -11705,7 +11706,7 @@ sub _default_format_contents($$;$$)
       }
     }
   }
-  if (scalar(@{$sectioning_root->{'section_childs'}}) > 1) {
+  if (scalar(@{$sectioning_root->{'section_children'}}) > 1) {
     $result .= "\n</ul>";
   }
   if ($is_contents and !defined($self->get_conf('AFTER_TOC_LINES'))

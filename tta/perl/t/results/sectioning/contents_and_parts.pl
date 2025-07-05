@@ -325,7 +325,7 @@ $result_sections_list{'contents_and_parts'} = '1|top
  section_directions:
   next->part2: part2
   prev->top
- section_childs:
+ section_children:
   1|chapter 1
   2|chapter 2
 3|chapter 1
@@ -354,7 +354,7 @@ $result_sections_list{'contents_and_parts'} = '1|top
  part_associated_section: 3 chapter 3
  section_directions:
   prev->part 1: part 1
- section_childs:
+ section_children:
   1|chapter 3
 6|chapter 3
  associated_anchor_command: chapter 3 node

@@ -72,7 +72,7 @@ $result_nodes_list{'no_argument_and_contents'} = '';
 $result_sections_list{'no_argument_and_contents'} = '1|for example
  toplevel_directions:
   next->@asis{}
- section_childs:
+ section_children:
   1|@asis{}
 2|@asis{}
  section_directions:

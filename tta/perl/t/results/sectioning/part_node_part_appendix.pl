@@ -235,7 +235,7 @@ $result_sections_list{'part_node_part_appendix'} = '1|top
  section_directions:
   next->Part Appendix
   prev->top
- section_childs:
+ section_children:
   1|chapter
 3|chapter
  associated_anchor_command: chapter node
@@ -251,7 +251,7 @@ $result_sections_list{'part_node_part_appendix'} = '1|top
  part_associated_section: A Appendix
  section_directions:
   prev->Part 1
- section_childs:
+ section_children:
   1|Appendix
 5|Appendix
  associated_part: Part Appendix

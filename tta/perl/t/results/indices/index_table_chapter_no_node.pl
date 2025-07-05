@@ -2425,7 +2425,7 @@ $result_sections_list{'index_table_chapter_no_node'} = '1|Test for indices
  associated_node: Top
  toplevel_directions:
   next->first node chapter, with ftable and vtable
- section_childs:
+ section_children:
   1|first node chapter, with ftable and vtable
   2|node with printindex
   3|Indices refs
@@ -2459,7 +2459,7 @@ $result_sections_list{'index_table_chapter_no_node'} = '1|Test for indices
  toplevel_directions:
   prev->node with printindex
   up->Test for indices
- section_childs:
+ section_children:
   1|node
 5|node
  associated_anchor_command: node

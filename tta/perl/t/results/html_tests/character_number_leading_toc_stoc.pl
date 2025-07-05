@@ -107,7 +107,7 @@ $result_nodes_list{'character_number_leading_toc_stoc'} = '';
 $result_sections_list{'character_number_leading_toc_stoc'} = '1|top
  toplevel_directions:
   next->0
- section_childs:
+ section_children:
   1|0
   2|_
 2|0
@@ -125,7 +125,7 @@ $result_sections_list{'character_number_leading_toc_stoc'} = '1|top
  toplevel_directions:
   prev->0
   up->top
- section_childs:
+ section_children:
   1|?
 4|?
  section_directions:

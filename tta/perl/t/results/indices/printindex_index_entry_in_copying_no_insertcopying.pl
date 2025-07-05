@@ -347,7 +347,7 @@ $result_sections_list{'printindex_index_entry_in_copying_no_insertcopying'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter

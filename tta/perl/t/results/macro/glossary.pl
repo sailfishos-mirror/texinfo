@@ -665,7 +665,7 @@ $result_sections_list{'glossary'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->glossary
- section_childs:
+ section_children:
   1|glossary
 2|glossary
  associated_anchor_command: glossary

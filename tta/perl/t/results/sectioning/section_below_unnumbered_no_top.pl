@@ -54,7 +54,7 @@ $result_errors{'section_below_unnumbered_no_top'} = [];
 $result_nodes_list{'section_below_unnumbered_no_top'} = '';
 
 $result_sections_list{'section_below_unnumbered_no_top'} = '1|U
- section_childs:
+ section_children:
   1|S
 2|S
  section_directions:

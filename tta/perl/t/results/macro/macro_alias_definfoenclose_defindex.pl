@@ -538,7 +538,7 @@ $result_sections_list{'macro_alias_definfoenclose_defindex'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap

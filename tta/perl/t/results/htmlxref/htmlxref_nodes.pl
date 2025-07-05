@@ -1006,7 +1006,7 @@ $result_sections_list{'htmlxref_nodes'} = '1|Test refs
  associated_node: Top
  toplevel_directions:
   next->Chapter with nodes
- section_childs:
+ section_children:
   1|Chapter with nodes
 2|Chapter with nodes
  associated_anchor_command: other nodes

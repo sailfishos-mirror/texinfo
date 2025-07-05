@@ -635,7 +635,7 @@ $result_sections_list{'sorted_subentries'} = '1
  associated_node: Top
  toplevel_directions:
   next->one
- section_childs:
+ section_children:
   1|one
   2|second
 2|one

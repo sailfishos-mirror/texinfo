@@ -605,7 +605,7 @@ $result_sections_list{'various_vtable_command_as_argument'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
   2|Print the index
 2|Chap

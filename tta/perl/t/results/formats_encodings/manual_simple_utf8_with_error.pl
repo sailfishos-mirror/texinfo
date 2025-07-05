@@ -153,7 +153,7 @@ $result_sections_list{'manual_simple_utf8_with_error'} = '1|Testé
  associated_node: Top
  toplevel_directions:
   next->Chapitré
- section_childs:
+ section_children:
   1|Chapitré
 2|Chapitré
  associated_anchor_command: Chapitré

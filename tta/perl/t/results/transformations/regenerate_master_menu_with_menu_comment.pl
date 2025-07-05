@@ -240,7 +240,7 @@ $result_sections_list{'regenerate_master_menu_with_menu_comment'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap
@@ -250,7 +250,7 @@ $result_sections_list{'regenerate_master_menu_with_menu_comment'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: sec

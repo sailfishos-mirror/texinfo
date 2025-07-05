@@ -586,7 +586,7 @@ $result_sections_list{'sample_utf8'} = '1|Texinfo中文示例
  associated_node: Top
  toplevel_directions:
   next->第一章（First Chapter）
- section_childs:
+ section_children:
   1|第一章（First Chapter）
   2|Chapter 2 AE ĄĘ ae ąę
   3|Index

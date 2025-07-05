@@ -1199,7 +1199,7 @@ $result_sections_list{'complex_float'} = '1|Test floats
  associated_node: Top
  toplevel_directions:
   next->A chapter
- section_childs:
+ section_children:
   1|A chapter
 2|A chapter
  associated_anchor_command: chapter

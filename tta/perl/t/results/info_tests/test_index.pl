@@ -1341,7 +1341,7 @@ $result_sections_list{'test_index'} = '1|Element top
  associated_node: Top
  toplevel_directions:
   next->A chapter
- section_childs:
+ section_children:
   1|A chapter
   2|Index
   3|centerchap
@@ -1367,17 +1367,17 @@ $result_sections_list{'test_index'} = '1|Element top
   next->centerchap
   prev->A chapter
   up->Element top
- section_childs:
+ section_children:
   1|appendixsec
 4|appendixsec
  section_directions:
   up->Index
- section_childs:
+ section_children:
   1|appendixsubsec
 5|appendixsubsec
  section_directions:
   up->appendixsec
- section_childs:
+ section_children:
   1|appendixsubsubsec
 6|appendixsubsubsec
  section_directions:

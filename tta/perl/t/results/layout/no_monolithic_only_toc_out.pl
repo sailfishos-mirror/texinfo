@@ -218,7 +218,7 @@ $result_sections_list{'no_monolithic_only_toc_out'} = '1|Not monolithic
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter

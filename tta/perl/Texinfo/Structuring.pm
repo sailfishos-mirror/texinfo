@@ -128,7 +128,7 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 # set:
 # 'section_level'
 # 'section_heading_number'
-# 'section_childs'
+# 'section_children'
 # 'section_directions'
 # 'toplevel_directions'
 sub sectioning_structure($)
@@ -183,7 +183,8 @@ sub sectioning_structure($)
                 $customization_information->get_conf('DEBUG'));
           $level = $prev_section_level + 1;
         }
-        $previous_section_relations->{'section_childs'} = [$section_relations];
+        $previous_section_relations->{'section_children'}
+          = [$section_relations];
 
         $section_relations->{'section_directions'} = {};
         $section_relations->{'section_directions'}->{'up'}
@@ -254,22 +255,22 @@ sub sectioning_structure($)
           # In that case the root level has to be updated because the first
           # 'part' just appeared, no direction to set.
           $sec_root->{'section_root_level'} = $level - 1;
-          push @{$sec_root->{'section_childs'}}, $section_relations;
+          push @{$sec_root->{'section_children'}}, $section_relations;
           $number_top_level = $level;
           $number_top_level = 1 if (!$number_top_level);
         } else {
           $section_relations->{'section_directions'} = {};
-          # do not set sec_root as up, but always put in section_childs.
+          # do not set sec_root as up, but always put in section_children.
           $section_relations->{'section_directions'}->{'up'} = $up_relations
             if ($up_relations ne $sec_root);
-          my $prev_relations = $up_relations->{'section_childs'}->[-1];
+          my $prev_relations = $up_relations->{'section_children'}->[-1];
           $section_relations->{'section_directions'}->{'prev'}
             = $prev_relations;
           $prev_relations->{'section_directions'} = {}
               if (!$prev_relations->{'section_directions'});
           $prev_relations->{'section_directions'}->{'next'}
             = $section_relations;
-          push @{$up_relations->{'section_childs'}}, $section_relations;
+          push @{$up_relations->{'section_children'}}, $section_relations;
         }
         if (!$unnumbered_commands{$content->{'cmdname'}}) {
           $command_numbers[$level]++;
@@ -281,7 +282,7 @@ sub sectioning_structure($)
     } else {
       # first section determines the level of the root.  It is
       # typically -1 when there is a @top.
-      $sec_root = {'section_childs' => [$section_relations],
+      $sec_root = {'section_children' => [$section_relations],
                    'section_root_level' => $level - 1};
       $document->{'sectioning_root'} = $sec_root;
       $number_top_level = $level;
@@ -371,7 +372,7 @@ sub _print_sectioning_tree($)
   my $current = $current_relations->{'element'};
   my $result = ' ' x $current->{'extra'}->{'section_level'}
    . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
-  foreach my $child_relations (@{$current_relations->{'section_childs'}}) {
+  foreach my $child_relations (@{$current_relations->{'section_children'}}) {
     $result .= _print_sectioning_tree($child_relations);
   }
   return $result;
@@ -474,9 +475,9 @@ sub get_node_node_childs_from_sectioning($)
     my $associated_relations = $node_relations->{'associated_section'};
 
     if ($associated_relations
-        and $associated_relations->{'section_childs'}) {
+        and $associated_relations->{'section_children'}) {
       foreach my $child_relations
-                        (@{$associated_relations->{'section_childs'}}) {
+                        (@{$associated_relations->{'section_children'}}) {
         if ($child_relations->{'associated_node'}) {
           push @node_childs, $child_relations->{'associated_node'};
         }
@@ -491,9 +492,9 @@ sub get_node_node_childs_from_sectioning($)
         $current_relations
           = $current_relations->{'section_directions'}->{'next'};
         if ($current_relations->{'element'}->{'cmdname'} eq 'part') {
-          if ($current_relations->{'section_childs'}) {
+          if ($current_relations->{'section_children'}) {
             foreach my $child_relations
-                         (@{$current_relations->{'section_childs'}}) {
+                         (@{$current_relations->{'section_children'}}) {
               if ($child_relations->{'associated_node'}) {
                 push @node_childs,
                      $child_relations->{'associated_node'};
@@ -1073,9 +1074,9 @@ sub _set_top_node_next($$)
     # Special case for Top node, use first section
     if ($node_relations->{'associated_section'}) {
       my $associated_relations = $node_relations->{'associated_section'};
-      my $section_childs = $associated_relations->{'section_childs'};
-      if ($section_childs and scalar(@$section_childs)) {
-        my $section_child_relations = $section_childs->[0];
+      my $section_children = $associated_relations->{'section_children'};
+      if ($section_children and scalar(@$section_children)) {
+        my $section_child_relations = $section_children->[0];
         if ($section_child_relations->{'associated_node'}) {
           $top_node_next
             = $section_child_relations->{'associated_node'}->{'element'};
@@ -1430,8 +1431,8 @@ sub print_sections_list($)
       }
     }
 
-    if ($section_relations->{'section_childs'}) {
-      my $key = 'section_childs';
+    if ($section_relations->{'section_children'}) {
+      my $key = 'section_children';
       $result .= " $key:\n";
       my $value = $section_relations->{$key};
       my $sec_idx = 1;
@@ -1466,7 +1467,7 @@ sub print_sectioning_root($)
       $sectioning_root->{'section_root_level'}."\n";
     $result .= "list:\n";
     my $sec_idx = 1;
-    foreach my $section_relations (@{$sectioning_root->{'section_childs'}}) {
+    foreach my $section_relations (@{$sectioning_root->{'section_children'}}) {
       $result .= " $sec_idx|";
       my $section = $section_relations->{'element'};
       my $section_texi = _print_root_command($section);
@@ -2431,7 +2432,7 @@ The following is set in section relations hashes:
 
 =over
 
-=item section_childs
+=item section_children
 
 An array holding sectioning element children.  The children are also
 section relations.

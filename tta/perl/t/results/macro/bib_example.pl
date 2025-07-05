@@ -1411,7 +1411,7 @@ $result_sections_list{'bib_example'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Introduction
- section_childs:
+ section_children:
   1|Introduction
   2|References
 2|Introduction

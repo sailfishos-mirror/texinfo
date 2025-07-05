@@ -256,7 +256,7 @@ $result_sections_list{'cartouche_and_paragraph_indentation'} = '1|top
  associated_node: top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|c2
 2|chap

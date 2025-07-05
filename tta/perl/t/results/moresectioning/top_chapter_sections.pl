@@ -281,7 +281,7 @@ $result_nodes_list{'top_chapter_sections'} = '';
 $result_sections_list{'top_chapter_sections'} = '1|top
  toplevel_directions:
   next->unnumbered
- section_childs:
+ section_children:
   1|unnumbered
   2|First chapter
   3|Chapter
@@ -303,7 +303,7 @@ $result_sections_list{'top_chapter_sections'} = '1|top
   next->Chapter
   prev->unnumbered
   up->top
- section_childs:
+ section_children:
   1|second
 4|second
  section_directions:
@@ -317,12 +317,12 @@ $result_sections_list{'top_chapter_sections'} = '1|top
   next->Chapter 2
   prev->First chapter
   up->top
- section_childs:
+ section_children:
   1|Section of chapter
 6|Section of chapter
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|subsection 1
   2|subsection 2
 7|subsection 1

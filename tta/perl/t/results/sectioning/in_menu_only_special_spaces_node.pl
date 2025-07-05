@@ -452,7 +452,7 @@ $result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->EN QUAD| | EM QUAD| | EN SPACE| |
- section_childs:
+ section_children:
   1|EN QUAD| | EM QUAD| | EN SPACE| |
   2|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
   3|CARRIAGE RETURN|'."\r".'|

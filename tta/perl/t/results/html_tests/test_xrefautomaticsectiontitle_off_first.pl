@@ -202,7 +202,7 @@ $result_sections_list{'test_xrefautomaticsectiontitle_off_first'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: chap

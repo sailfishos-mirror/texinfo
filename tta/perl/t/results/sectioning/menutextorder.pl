@@ -519,7 +519,7 @@ $result_sections_list{'menutextorder'} = '1|bar
   next->foo
  toplevel_directions:
   next->foo
- section_childs:
+ section_children:
   1|One sub 1
   2|One sub 2
 2|One sub 1
@@ -541,7 +541,7 @@ $result_sections_list{'menutextorder'} = '1|bar
   prev->bar
  toplevel_directions:
   prev->bar
- section_childs:
+ section_children:
   1|Sub1
   2|Sub2
   3|Sub3

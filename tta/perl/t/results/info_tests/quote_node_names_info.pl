@@ -779,7 +779,7 @@ $result_sections_list{'quote_node_names_info'} = '1
  associated_node: Top
  toplevel_directions:
   next->blah:blah
- section_childs:
+ section_children:
   1|blah:blah
   2|blumpty.fump
   3|normal node

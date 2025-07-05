@@ -311,7 +311,7 @@ $result_sections_list{'fonttextsize'} = '1|section top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter
@@ -321,12 +321,12 @@ $result_sections_list{'fonttextsize'} = '1|section top
  toplevel_directions:
   prev->section top
   up->section top
- section_childs:
+ section_children:
   1|section
 3|section
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|Subsection 10pts
   2|Subsection 11pts
   3|Subsection 8pts

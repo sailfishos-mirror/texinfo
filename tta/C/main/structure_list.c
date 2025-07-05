@@ -284,10 +284,10 @@ free_section_relations_list (SECTION_RELATIONS_LIST *list)
       SECTION_RELATIONS *section_relations = list->list[i];
       free (section_relations->section_directions);
       free (section_relations->toplevel_directions);
-      if (section_relations->section_childs)
+      if (section_relations->section_children)
         {
-          free (section_relations->section_childs->list);
-          free (section_relations->section_childs);
+          free (section_relations->section_children->list);
+          free (section_relations->section_children);
         }
       if (section_relations->hv)
         unregister_perl_data (section_relations->hv);
@@ -398,15 +398,15 @@ print_section_relations_info_internal (const SECTION_RELATIONS *relations,
       text_append_n (result, " toplevel_directions:\n", 22);
       print_sections_directions (result, relations->toplevel_directions);
     }
-  if (relations->section_childs)
+  if (relations->section_children)
     {
       size_t j;
-      const char *key = "section_childs";
+      const char *key = "section_children";
       text_printf (result, " %s:\n", key);
-      for (j = 0; j < relations->section_childs->number; j++)
+      for (j = 0; j < relations->section_children->number; j++)
         {
           const ELEMENT *element
-            = relations->section_childs->list[j]->element;
+            = relations->section_children->list[j]->element;
           char *section_texi = print_root_command (element);
           text_printf (result, "  %zu|", j+1);
           if (section_texi)
@@ -444,7 +444,7 @@ print_sectioning_root (const DOCUMENT *document)
 {
   size_t i;
   const SECTIONING_ROOT *sectioning_root = document->sectioning_root;
-  const SECTION_RELATIONS_LIST *section_childs;
+  const SECTION_RELATIONS_LIST *section_children;
 
   TEXT result;
 
@@ -454,15 +454,15 @@ print_sectioning_root (const DOCUMENT *document)
   if (!sectioning_root)
     return result.text;
 
-  section_childs = &sectioning_root->section_childs;
+  section_children = &sectioning_root->section_children;
 
   text_printf (&result, "level: %d\n", sectioning_root->section_root_level);
 
   text_append_n (&result, "list:\n", 6);
 
-  for (i = 0; i < section_childs->number; i++)
+  for (i = 0; i < section_children->number; i++)
     {
-      const ELEMENT *section = section_childs->list[i]->element;
+      const ELEMENT *section = section_children->list[i]->element;
       char *section_texi = print_root_command (section);
       text_printf (&result, " %zu|", i+1);
       if (section_texi)

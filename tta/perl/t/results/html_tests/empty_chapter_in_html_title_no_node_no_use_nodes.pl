@@ -84,7 +84,7 @@ $result_sections_list{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '1|t
  associated_node: Top
  toplevel_directions:
   next->
- section_childs:
+ section_children:
   1|
 2
  section_directions:

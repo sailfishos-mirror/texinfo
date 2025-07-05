@@ -1560,9 +1560,10 @@ sub index_content_element($;$)
   my $element = shift;
   my $prefer_reference_element = shift;
 
-  if ($element->{'extra'} and $element->{'extra'}->{'def_command'}) {
+  if (defined($element->{'extra'})
+      and defined($element->{'extra'}->{'def_command'})) {
     if ($prefer_reference_element
-        and $element->{'extra'}->{'def_index_ref_element'}) {
+        and defined($element->{'extra'}->{'def_index_ref_element'})) {
       return $element->{'extra'}->{'def_index_ref_element'};
     } else {
       return $element->{'extra'}->{'def_index_element'};
@@ -1626,7 +1627,8 @@ sub find_parent_root_command($$)
                and $Texinfo::Commands::block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying' and $self and $self->{'document'}) {
           my $global_commands = $self->{'document'}->global_commands_information();
-          if ($global_commands and $global_commands->{'insertcopying'}) {
+          if (defined($global_commands)
+              and defined($global_commands->{'insertcopying'})) {
             foreach my $insertcopying(@{$global_commands->{'insertcopying'}}) {
               my $root_command
                 = find_parent_root_command($self, $insertcopying);
@@ -1638,7 +1640,7 @@ sub find_parent_root_command($$)
         }
       }
     }
-    if ($current->{'parent'}) {
+    if (defined($current->{'parent'})) {
       $current = $current->{'parent'};
     } else {
       return undef;

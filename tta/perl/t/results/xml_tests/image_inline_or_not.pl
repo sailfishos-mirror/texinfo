@@ -539,7 +539,7 @@ $result_sections_list{'image_inline_or_not'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->@image{in_chapter_arg}
- section_childs:
+ section_children:
   1|@image{in_chapter_arg}
 2|@image{in_chapter_arg}
  associated_anchor_command: @image{node_image}

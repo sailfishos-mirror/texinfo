@@ -193,7 +193,7 @@ $result_sections_list{'in_menu_only_special_ascii_spaces_node'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->CARRIAGE RETURN|'."\r".'|
- section_childs:
+ section_children:
   1|CARRIAGE RETURN|'."\r".'|
   2|CHARACTER TABULATION|	| FORM FEED||
 2|CARRIAGE RETURN|'."\r".'|

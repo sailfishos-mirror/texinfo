@@ -2167,7 +2167,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
   2|unnumbered
   3|chapter 2
@@ -2183,7 +2183,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->unnumbered
   prev->Test section in unnumbered
   up->Test section in unnumbered
- section_childs:
+ section_children:
   1|section in chapter
 3|section in chapter
  associated_anchor_command: section in chapter
@@ -2201,7 +2201,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->chapter 2
   prev->chapter
   up->Test section in unnumbered
- section_childs:
+ section_children:
   1|section in unnumbered
 5|section in unnumbered
  associated_anchor_command: section in unnumbered
@@ -2219,7 +2219,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->chapter 3
   prev->unnumbered
   up->Test section in unnumbered
- section_childs:
+ section_children:
   1|unnumbered section 2
   2|unnumberedsec 2-1
 7|unnumbered section 2
@@ -2228,7 +2228,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  section_directions:
   next->unnumberedsec 2-1
   up->chapter 2
- section_childs:
+ section_children:
   1|unnumbered subsection 2
   2|numbered subsection 2
   3|unnumbered subsection2 2
@@ -2265,7 +2265,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  section_directions:
   prev->unnumbered section 2
   up->chapter 2
- section_childs:
+ section_children:
   1|numbered subsection 2-1
 13|numbered subsection 2-1
  associated_anchor_command: numbered sub 2-1
@@ -2283,7 +2283,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->unnumbered  4
   prev->chapter 2
   up->Test section in unnumbered
- section_childs:
+ section_children:
   1|unnumbered section 3
   2|section 3-1
   3|unnumberedsec 3-2
@@ -2295,7 +2295,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  section_directions:
   next->section 3-1
   up->chapter 3
- section_childs:
+ section_children:
   1|unnumbered subsection 3
   2|numbered subsection 3
   3|unnumbered subsection2 3
@@ -2340,7 +2340,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->section 3-3
   prev->section 3-1
   up->chapter 3
- section_childs:
+ section_children:
   1|numbered subsection 3-2
 22|numbered subsection 3-2
  associated_anchor_command: numbered sub 3-2
@@ -2354,7 +2354,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
   next->unnumberedsec 3-4
   prev->unnumberedsec 3-2
   up->chapter 3
- section_childs:
+ section_children:
   1|subsection 3-3
 24|subsection 3-3
  associated_anchor_command: subsection 3-3
@@ -2367,7 +2367,7 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  section_directions:
   prev->section 3-3
   up->chapter 3
- section_childs:
+ section_children:
   1|numbered subsection 3-4
 26|numbered subsection 3-4
  associated_anchor_command: numbered sub 3-4
@@ -2383,14 +2383,14 @@ $result_sections_list{'section_in_unnumbered_info'} = '1|Test section in unnumbe
  toplevel_directions:
   prev->chapter 3
   up->Test section in unnumbered
- section_childs:
+ section_children:
   1|unnumbered section 4
 28|unnumbered section 4
  associated_anchor_command: unnumberedsec 4
  associated_node: unnumberedsec 4
  section_directions:
   up->unnumbered  4
- section_childs:
+ section_children:
   1|unnumbered subsection 4
   2|numbered subsection 4
   3|unnumbered subsection2 4

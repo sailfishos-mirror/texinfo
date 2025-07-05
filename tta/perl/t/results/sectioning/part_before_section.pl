@@ -69,7 +69,7 @@ $result_nodes_list{'part_before_section'} = '';
 
 $result_sections_list{'part_before_section'} = '1|part
  part_associated_section: 1 section
- section_childs:
+ section_children:
   1|section
 2|section
  associated_part: part

@@ -1409,11 +1409,11 @@ build_section_relations (SECTION_RELATIONS *relations)
       hv_store (relations_hv, "toplevel_directions",
                 strlen ("toplevel_directions"), sv, 0);
     }
-  if (relations->section_childs)
+  if (relations->section_children)
     {
-      sv = build_perl_section_relations_array (relations->section_childs);
-      hv_store (relations_hv, "section_childs",
-                strlen ("section_childs"), sv, 0);
+      sv = build_perl_section_relations_array (relations->section_children);
+      hv_store (relations_hv, "section_children",
+                strlen ("section_children"), sv, 0);
     }
 }
 
@@ -2429,8 +2429,8 @@ build_sectioning_root (SECTIONING_ROOT *sectioning_root)
   hv = newHV ();
 
   SV *sv = build_perl_section_relations_array (
-                            &sectioning_root->section_childs);
-  hv_store (hv, "section_childs", strlen ("section_childs"), sv, 0);
+                            &sectioning_root->section_children);
+  hv_store (hv, "section_children", strlen ("section_children"), sv, 0);
 
   hv_store (hv, "section_root_level", strlen ("section_root_level"),
             newSViv (sectioning_root->section_root_level), 0);

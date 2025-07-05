@@ -162,7 +162,7 @@ $result_sections_list{'chapter_between_nodes_with_appendix'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->Main
- section_childs:
+ section_children:
   1|Main
   2|Annex
 2|Main

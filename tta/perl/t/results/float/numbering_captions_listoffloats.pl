@@ -1946,7 +1946,7 @@ $result_sections_list{'numbering_captions_listoffloats'} = '1|Test floats
  associated_node: Top
  toplevel_directions:
   next->A chapter
- section_childs:
+ section_children:
   1|A chapter
   2|Unnumbered
   3|Chapter with unnumbsubsec
@@ -1962,7 +1962,7 @@ $result_sections_list{'numbering_captions_listoffloats'} = '1|Test floats
   next->Unnumbered
   prev->Test floats
   up->Test floats
- section_childs:
+ section_children:
   1|A section
 3|A section
  associated_anchor_command: section
@@ -1980,7 +1980,7 @@ $result_sections_list{'numbering_captions_listoffloats'} = '1|Test floats
   next->Chapter with unnumbsubsec
   prev->A chapter
   up->Test floats
- section_childs:
+ section_children:
   1|Section within unnumbered
 5|Section within unnumbered
  associated_anchor_command: Section within unnumbered
@@ -1998,7 +1998,7 @@ $result_sections_list{'numbering_captions_listoffloats'} = '1|Test floats
   next->Appendix for float
   prev->Unnumbered
   up->Test floats
- section_childs:
+ section_children:
   1|unnumbered sec
 7|unnumbered sec
  associated_anchor_command: unnumbered sec

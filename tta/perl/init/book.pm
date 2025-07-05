@@ -190,12 +190,12 @@ sub book_print_sub_toc($$)
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  my $section_childs = $section_relations->{'section_childs'};
-  if ($section_childs and scalar(@{$section_childs})) {
+  my $section_children = $section_relations->{'section_children'};
+  if ($section_children and scalar(@{$section_children})) {
     $result .= '<li>'.$converter->html_attribute_class('ul',
                                              [$toc_numbered_mark_class])
      .">\n". book_print_sub_toc($converter,
-                                $section_childs->[0])
+                                $section_children->[0])
      ."</ul></li>\n";
   }
   if ($section_relations->{'section_directions'}
@@ -289,12 +289,12 @@ sub book_convert_heading_command($$$$$)
       # avoid a double of contents if already after title
       and ($cmdname ne 'top'
            or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')) {
-    my $section_childs = $section_relations->{'section_childs'};
-    if ($section_childs and scalar(@{$section_childs})) {
+    my $section_children = $section_relations->{'section_children'};
+    if ($section_children and scalar(@{$section_children})) {
       $toc_or_mini_toc_or_auto_menu
         .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
       $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self,
-                                                          $section_childs->[0]);
+                                                   $section_children->[0]);
       $toc_or_mini_toc_or_auto_menu .= "</ul>\n";
     }
   }

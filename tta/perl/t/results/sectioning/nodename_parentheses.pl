@@ -345,7 +345,7 @@ $result_sections_list{'nodename_parentheses'} = '1|The top node
  associated_node: Top
  toplevel_directions:
   next->Section (nodename with parentheses)
- section_childs:
+ section_children:
   1|Section (nodename with parentheses)
   2|Section (nodename without parentheses)
   3|(manual)node

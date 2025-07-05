@@ -284,7 +284,7 @@ $result_sections_list{'multiple_documentlanguage'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap no new language
- section_childs:
+ section_children:
   1|Chap no new language
   2|chapter fr
 2|Chap no new language
@@ -306,7 +306,7 @@ $result_sections_list{'multiple_documentlanguage'} = '1|top
  toplevel_directions:
   prev->Chap no new language
   up->top
- section_childs:
+ section_children:
   1|section pt
   2|section fr
 4|section pt

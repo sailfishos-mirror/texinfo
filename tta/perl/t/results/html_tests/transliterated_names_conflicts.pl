@@ -245,7 +245,7 @@ $result_sections_list{'transliterated_names_conflicts'} = '1|Same transliterated
  associated_node: Top
  toplevel_directions:
   next->Prés
- section_childs:
+ section_children:
   1|Prés
   2|Other chapter
 2|Prés

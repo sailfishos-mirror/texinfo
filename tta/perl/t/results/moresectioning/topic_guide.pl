@@ -783,7 +783,7 @@ $result_sections_list{'topic_guide'} = '1|A example quide topic collection
  associated_node: Top
  toplevel_directions:
   next->guide 1
- section_childs:
+ section_children:
   1|guide 1
   2|guide 2
 2|guide 1

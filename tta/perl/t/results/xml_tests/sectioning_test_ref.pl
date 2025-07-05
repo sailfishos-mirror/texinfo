@@ -212,7 +212,7 @@ $result_sections_list{'sectioning_test_ref'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap1
- section_childs:
+ section_children:
   1|Chap1
   2|Chap2
 2|Chap1
@@ -225,7 +225,7 @@ $result_sections_list{'sectioning_test_ref'} = '1|top
   next->Chap2
   prev->top
   up->top
- section_childs:
+ section_children:
   1|sec1
 3|sec1
  associated_anchor_command: sec

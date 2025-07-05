@@ -333,9 +333,9 @@ sub chm_init($)
 
   if ($sections_list and scalar(@$sections_list) > 0) {
     my $sectioning_root = $document->sectioning_root();
-    my $upper_level = $sectioning_root->{'section_childs'}->[0]
+    my $upper_level = $sectioning_root->{'section_children'}->[0]
                                   {'element'}->{'extra'}->{'section_level'};
-    foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+    foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
       my $top_section = $top_relations->{'element'};
       $upper_level = $top_section->{'extra'}->{'section_level'}
         if ($top_section->{'extra'}->{'section_level'} < $upper_level);

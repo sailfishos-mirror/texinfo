@@ -104,7 +104,7 @@ $result_sections_list{'appendix_translated'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->dernier
- section_childs:
+ section_children:
   1|dernier
 2|dernier
  section_directions:

@@ -88,7 +88,7 @@ $result_nodes_list{'no_empty_line_between_headings'} = '';
 $result_sections_list{'no_empty_line_between_headings'} = '1|Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  section_directions:
@@ -96,7 +96,7 @@ $result_sections_list{'no_empty_line_between_headings'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
- section_childs:
+ section_children:
   1|Section
 3|Section
  section_directions:

@@ -626,7 +626,7 @@ $result_sections_list{'frenchspacing_and_code'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap frenchspacing
- section_childs:
+ section_children:
   1|Chap frenchspacing
   2|Chap no
 2|Chap frenchspacing

@@ -325,7 +325,7 @@ $result_sections_list{'next_in_menu_is_below'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: chapter
@@ -335,14 +335,14 @@ $result_sections_list{'next_in_menu_is_below'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|section
 3|section
  associated_anchor_command: section
  associated_node: section
  section_directions:
   up->chapter
- section_childs:
+ section_children:
   1|subsection
 4|subsection
  associated_anchor_command: subsection

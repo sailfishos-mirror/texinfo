@@ -188,7 +188,7 @@ $result_sections_list{'customize_special_element'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|chap fr
 2|chap

@@ -647,7 +647,7 @@ $result_sections_list{'raiselowersections'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
   2|Second chapter
 2|Chapter
@@ -660,21 +660,21 @@ $result_sections_list{'raiselowersections'} = '1
   next->Second chapter
   prev->
   up->
- section_childs:
+ section_children:
   1|Chapter in included file
 3|Chapter in included file
  associated_anchor_command: Chapter in included file
  associated_node: Chapter in included file
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|Section
 4|Section
  associated_anchor_command: Section
  associated_node: Section
  section_directions:
   up->Chapter in included file
- section_childs:
+ section_children:
   1|Subsection
 5|Subsection
  associated_anchor_command: Subsection

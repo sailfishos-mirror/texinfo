@@ -251,7 +251,7 @@ $result_sections_list{'test_insert_nodes_with_empty_headings'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_node: Chap
@@ -260,7 +260,7 @@ $result_sections_list{'test_insert_nodes_with_empty_headings'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|
   2|
   3|@strong{}

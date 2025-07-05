@@ -424,7 +424,7 @@ $result_sections_list{'redirection_same_labels'} = '1|the top
  associated_node: Top
  toplevel_directions:
   next->umlaut
- section_childs:
+ section_children:
   1|umlaut
   2|circumflex
 2|umlaut

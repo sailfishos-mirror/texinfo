@@ -322,7 +322,7 @@ $result_sections_list{'check_htmlxref_ignore_ref_top_up'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter

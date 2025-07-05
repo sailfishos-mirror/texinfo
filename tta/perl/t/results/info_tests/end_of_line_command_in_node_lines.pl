@@ -423,7 +423,7 @@ $result_sections_list{'end_of_line_command_in_node_lines'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
   2|Ochap
 2|Chap

@@ -111,7 +111,7 @@ $result_sections_list{'button_replacement_and_direction_customization'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chapter

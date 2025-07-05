@@ -470,7 +470,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  part_associated_section: 1 chap, @code{a chap}
  section_directions:
   prev->top section
- section_childs:
+ section_children:
   1|chap, @code{a chap}
   2|
 3|chap, @code{a chap}
@@ -483,7 +483,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   next->
   prev->top section
   up->top section
- section_childs:
+ section_children:
   1|section
   2|truc
   3|section
@@ -500,7 +500,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   next->section
   prev->section
   up->chap, @code{a chap}
- section_childs:
+ section_children:
   1|sub1
   2|sub2
 6|sub1
@@ -532,7 +532,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  toplevel_directions:
   prev->chap, @code{a chap}
   up->top section
- section_childs:
+ section_children:
   1|@asis{}
 11|@asis{}
  associated_node: @asis{} 2

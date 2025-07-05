@@ -355,7 +355,7 @@ $result_sections_list{'some_at_commands_in_ref_nodes'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
- section_childs:
+ section_children:
   1|A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 2|A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_anchor_command: A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}

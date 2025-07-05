@@ -151,7 +151,7 @@ $result_nodes_list{'between_node_and_section'} = '1|chap
 $result_sections_list{'between_node_and_section'} = '1|Chap
  associated_anchor_command: chap
  associated_node: chap
- section_childs:
+ section_children:
   1|sec1
   2|sec2
 2|sec1

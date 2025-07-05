@@ -772,7 +772,7 @@ $result_sections_list{'multiple_lang_chapters_latex'} = '1|Multi language file
  associated_node: Top
  toplevel_directions:
   next->ja
- section_childs:
+ section_children:
   1|ja
   2|en
   3|fr_FR

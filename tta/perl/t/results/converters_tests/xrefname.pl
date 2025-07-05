@@ -222,7 +222,7 @@ $result_sections_list{'xrefname'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|app
 2|chap

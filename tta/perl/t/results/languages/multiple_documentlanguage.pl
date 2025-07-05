@@ -432,7 +432,7 @@ $result_sections_list{'multiple_documentlanguage'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chap

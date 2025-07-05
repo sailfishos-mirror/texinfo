@@ -80,7 +80,7 @@ $result_sections_list{'node_sectop_before_chapter_no_node'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:

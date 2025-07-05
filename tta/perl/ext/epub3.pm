@@ -715,10 +715,10 @@ EOT
 
     # similar code as in chm.pm
     my $sectioning_root = $document->sectioning_root();
-    my $upper_level = $sectioning_root->{'section_childs'}->[0]
+    my $upper_level = $sectioning_root->{'section_children'}->[0]
                                ->{'element'}->{'extra'}->{'section_level'};
     foreach my $top_section_relations (
-                       @{$sectioning_root->{'section_childs'}}) {
+                       @{$sectioning_root->{'section_children'}}) {
       my $top_section = $top_section_relations->{'element'};
       $upper_level = $top_section->{'extra'}->{'section_level'}
         if ($top_section->{'extra'}->{'section_level'} < $upper_level);

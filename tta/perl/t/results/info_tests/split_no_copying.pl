@@ -183,7 +183,7 @@ $result_sections_list{'split_no_copying'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Ch1
- section_childs:
+ section_children:
   1|Ch1
 2|Ch1
  associated_anchor_command: Ch1

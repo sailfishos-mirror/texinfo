@@ -302,7 +302,7 @@ $result_sections_list{'comment_space_command_on_line'} = '1|top element@
  associated_node: Top
  toplevel_directions:
   next->Chapter@ 
- section_childs:
+ section_children:
   1|Chapter@ 
 2|Chapter@ 
  associated_anchor_command: chap

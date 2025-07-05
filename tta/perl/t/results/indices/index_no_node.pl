@@ -516,7 +516,7 @@ $result_sections_list{'index_no_node'} = '1|unnumbered
  toplevel_directions:
   next->Chapter
   prev->unnumbered
- section_childs:
+ section_children:
   1|second
 3|second
  section_directions:

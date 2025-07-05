@@ -216,7 +216,7 @@ $result_sections_list{'acronym_in_node_and_section'} = '1|top
  associated_node: top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap
@@ -226,7 +226,7 @@ $result_sections_list{'acronym_in_node_and_section'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|define
   2|here is @acronym{GHJ}
 3|define

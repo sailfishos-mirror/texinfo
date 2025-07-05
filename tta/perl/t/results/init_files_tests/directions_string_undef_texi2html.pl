@@ -269,7 +269,7 @@ $result_sections_list{'directions_string_undef_texi2html'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
   2|Chap 2
 2|Chap
@@ -291,7 +291,7 @@ $result_sections_list{'directions_string_undef_texi2html'} = '1|top
  toplevel_directions:
   prev->Chap
   up->top
- section_childs:
+ section_children:
   1|Sec 1
   2|Sec 2
   3|Sec 3

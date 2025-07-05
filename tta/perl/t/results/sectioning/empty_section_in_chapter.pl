@@ -63,7 +63,7 @@ $result_errors{'empty_section_in_chapter'} = [
 $result_nodes_list{'empty_section_in_chapter'} = '';
 
 $result_sections_list{'empty_section_in_chapter'} = '1|chap
- section_childs:
+ section_children:
   1|
 2
  section_directions:

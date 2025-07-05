@@ -264,7 +264,7 @@ $result_sections_list{'file_name_case_insensitive_conflict_node_no_redirections'
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap
@@ -274,7 +274,7 @@ $result_sections_list{'file_name_case_insensitive_conflict_node_no_redirections'
  toplevel_directions:
   prev->top section
   up->top section
- section_childs:
+ section_children:
   1|Foo
   2|Bar
   3|foo

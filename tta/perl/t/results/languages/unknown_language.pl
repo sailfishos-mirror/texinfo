@@ -185,7 +185,7 @@ $result_sections_list{'unknown_language'} = '1|unknkown language
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter

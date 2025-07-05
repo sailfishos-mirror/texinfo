@@ -1312,7 +1312,7 @@ $result_sections_list{'codequoteundirected_codequotebacktick'} = '1|test quotes
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap

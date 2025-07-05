@@ -285,7 +285,7 @@ $result_sections_list{'anchor_on_vtable_item'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
   2|Idx
 2|Chap

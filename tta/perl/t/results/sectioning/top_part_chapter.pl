@@ -97,7 +97,7 @@ $result_sections_list{'top_part_chapter'} = '1|top
  part_associated_section: 1 chapter
  section_directions:
   prev->top
- section_childs:
+ section_children:
   1|chapter
 3|chapter
  associated_part: part

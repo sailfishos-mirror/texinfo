@@ -220,7 +220,7 @@ $result_sections_list{'char_latin2_latin2_in_refs'} = '1|char latin2 latin2 in r
  associated_node: Top
  toplevel_directions:
   next->Ą ą ˛ Ę ę
- section_childs:
+ section_children:
   1|Ą ą ˛ Ę ę
 2|Ą ą ˛ Ę ę
  associated_anchor_command: Ą ą ˛ Ę ę

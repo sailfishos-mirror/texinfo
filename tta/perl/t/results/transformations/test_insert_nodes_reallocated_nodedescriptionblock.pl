@@ -239,7 +239,7 @@ $result_sections_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chap
@@ -249,13 +249,13 @@ $result_sections_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_node: Sec
  section_directions:
   up->Chap
- section_childs:
+ section_children:
   1|Subsec
 4|Subsec
  associated_node: Subsec

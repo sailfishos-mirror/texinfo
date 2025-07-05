@@ -641,7 +641,7 @@ $result_sections_list{'documentation_examples_texi2html'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
   2|New node
   3|Index

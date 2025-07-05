@@ -226,7 +226,7 @@ $result_sections_list{'custom_headings_and_comments'} = '1|top sectionning
  associated_node: Top
  toplevel_directions:
   next->ch--ap
- section_childs:
+ section_children:
   1|ch--ap
   2|chap 2
 2|ch--ap
@@ -239,7 +239,7 @@ $result_sections_list{'custom_headings_and_comments'} = '1|top sectionning
   next->chap 2
   prev->top sectionning
   up->top sectionning
- section_childs:
+ section_children:
   1|sec1
 3|sec1
  section_directions:

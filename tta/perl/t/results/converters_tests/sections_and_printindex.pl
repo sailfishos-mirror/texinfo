@@ -210,7 +210,7 @@ $result_sections_list{'sections_and_printindex'} = '1|for example
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|App
 2|chap
@@ -223,7 +223,7 @@ $result_sections_list{'sections_and_printindex'} = '1|for example
   next->App
   prev->for example
   up->for example
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: sec

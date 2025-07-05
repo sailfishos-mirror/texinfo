@@ -3933,7 +3933,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->@- @{ @}
- section_childs:
+ section_children:
   1|@- @{ @}
   2|@  @	 @! @* @. @: .@: @? @@
   3|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}

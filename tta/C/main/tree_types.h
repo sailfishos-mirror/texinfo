@@ -373,7 +373,7 @@ typedef struct SECTION_RELATIONS {
     const NODE_RELATIONS *part_following_node;
     const struct SECTION_RELATIONS **section_directions;
     const struct SECTION_RELATIONS **toplevel_directions;
-    struct SECTION_RELATIONS_LIST *section_childs;
+    struct SECTION_RELATIONS_LIST *section_children;
 
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
@@ -389,7 +389,7 @@ typedef struct SECTION_RELATIONS_LIST {
 /* not used in parser */
 typedef struct SECTIONING_ROOT {
     int section_root_level;
-    SECTION_RELATIONS_LIST section_childs;
+    SECTION_RELATIONS_LIST section_children;
 } SECTIONING_ROOT;
 
 typedef struct IGNORED_CHARS {

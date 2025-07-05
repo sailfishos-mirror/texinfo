@@ -219,7 +219,7 @@ $result_sections_list{'external_node_in_menu'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap1
- section_childs:
+ section_children:
   1|chap1
   2|chap2
 2|chap1

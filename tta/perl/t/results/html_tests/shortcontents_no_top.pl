@@ -95,7 +95,7 @@ $result_sections_list{'shortcontents_no_top'} = '1|chap
   prev->chap
  toplevel_directions:
   prev->chap
- section_childs:
+ section_children:
   1|sec
 3|sec
  section_directions:

@@ -252,7 +252,7 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
   next->P1
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chapter
@@ -263,7 +263,7 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
   next->Chap 2
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: sec
@@ -276,7 +276,7 @@ $result_sections_list{'part_appendix_in_generated_menu'} = '1|top
  section_directions:
   next->GGG
   prev->top
- section_childs:
+ section_children:
   1|Chap 2
 5|Chap 2
  associated_anchor_command: chap2

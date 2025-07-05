@@ -130,7 +130,7 @@ $result_nodes_list{'heading_between'} = '1|Chapter
 $result_sections_list{'heading_between'} = '1|Chapter
  associated_anchor_command: Chapter
  associated_node: Chapter
- section_childs:
+ section_children:
   1|Section
 2|Section
  associated_anchor_command: Section

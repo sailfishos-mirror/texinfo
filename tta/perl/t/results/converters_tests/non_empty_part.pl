@@ -546,7 +546,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
  section_directions:
   next->Part II
   prev->top
- section_childs:
+ section_children:
   1|chap in Top node
 4|chap in Top node
  associated_part: part I
@@ -566,7 +566,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
  section_directions:
   next->Part IV
   prev->Part II
- section_childs:
+ section_children:
   1|chapter with part node
 7|chapter with part node
  associated_anchor_command: part chapter node
@@ -587,7 +587,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
  section_directions:
   next->Part VI
   prev->Part IV
- section_childs:
+ section_children:
   1|with part no node
 10|with part no node
  associated_part: Part V
@@ -602,7 +602,7 @@ $result_sections_list{'non_empty_part'} = '1|part before
  part_associated_section: 4 chapter after part node
  section_directions:
   prev->Part V
- section_childs:
+ section_children:
   1|chapter after part node
 12|chapter after part node
  associated_anchor_command: node between part and chapter

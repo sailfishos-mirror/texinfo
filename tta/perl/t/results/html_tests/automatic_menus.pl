@@ -206,7 +206,7 @@ $result_sections_list{'automatic_menus'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chap
@@ -216,7 +216,7 @@ $result_sections_list{'automatic_menus'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|A section
   2|Sec after
 3|A section

@@ -336,7 +336,7 @@ $result_sections_list{'customize_translations'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
   2|chap fr
   3|chap de
@@ -362,7 +362,7 @@ $result_sections_list{'customize_translations'} = '1|top
   next->chap de
   prev->chap
   up->top
- section_childs:
+ section_children:
   1|sec fr
 4|sec fr
  associated_anchor_command: section fr

@@ -151,7 +151,7 @@ $result_nodes_list{'no_empty_line_after_section'} = '';
 $result_sections_list{'no_empty_line_after_section'} = '1|top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:
@@ -159,7 +159,7 @@ $result_sections_list{'no_empty_line_after_section'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|sec
   2|after sp
 3|sec

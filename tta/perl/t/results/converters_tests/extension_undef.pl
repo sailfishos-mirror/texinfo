@@ -82,7 +82,7 @@ $result_nodes_list{'extension_undef'} = '1|chapter
 $result_sections_list{'extension_undef'} = '1|top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chapter

@@ -1641,13 +1641,13 @@ sub format_contents($$$)
 
   # no sections
   return ('', 0) if (!$sectioning_root
-                     or !$sectioning_root->{'section_childs'});
+                     or !$sectioning_root->{'section_children'});
 
   my $sections_list = $self->{'document'}->sections_list();
 
-  my $root_level = $sectioning_root->{'section_childs'}->[0]
+  my $root_level = $sectioning_root->{'section_children'}->[0]
                                 ->{'element'}->{'extra'}->{'section_level'};
-  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+  foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
     my $top_section = $top_relations->{'element'};
     $root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $root_level);
@@ -1656,7 +1656,7 @@ sub format_contents($$$)
   my $lines_count = 0;
   # This is done like that because the tree may not be well formed if
   # there is a @part after a @chapter for example.
-  foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+  foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
     my $section_relations = $top_relations;
  SECTION:
     while ($section_relations) {
@@ -1696,10 +1696,10 @@ sub format_contents($$$)
       $text .= "\n";
       _stream_output($self, $text);
       $lines_count++;
-      if ($section_relations->{'section_childs'}
+      if ($section_relations->{'section_children'}
           and ($contents
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
-        $section_relations = $section_relations->{'section_childs'}->[0];
+        $section_relations = $section_relations->{'section_children'}->[0];
       } elsif ($section_relations->{'section_directions'}
                and $section_relations->{'section_directions'}->{'next'}) {
         last if ($section_relations eq $top_relations);
@@ -2187,7 +2187,7 @@ sub format_ref($$$)
       and !$node_arg->{'extra'}->{'manual_content'}
       # excludes external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
-      # exlude external nodes again, in case internal refs get normalized
+      # exclude external nodes again, in case internal refs get normalized
       and !defined($args[3])
       and !defined($args[4])
       and $identifiers_target

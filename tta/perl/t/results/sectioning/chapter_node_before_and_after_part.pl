@@ -185,7 +185,7 @@ $result_sections_list{'chapter_node_before_and_after_part'} = '1|chapter
 2|part
  part_following_node: after
  part_associated_section: 2 chapter 2
- section_childs:
+ section_children:
   1|chapter 2
 3|chapter 2
  associated_anchor_command: after

@@ -649,19 +649,19 @@ units_directions (const C_HASHMAP *identifiers_target,
             {
               const ELEMENT *argument = node->e.c->contents.list[0];
               int automatic_directions = (argument->e.c->contents.number <= 1);
-              const SECTION_RELATIONS_LIST *section_childs = 0;
+              const SECTION_RELATIONS_LIST *section_children = 0;
               if (node_relations->associated_section)
                 {
                   const SECTION_RELATIONS *associated_relations
                     = node_relations->associated_section;
-                  section_childs = associated_relations->section_childs;
+                  section_children = associated_relations->section_children;
                 }
 
               if (automatic_directions
-                  && section_childs && section_childs->number > 0)
+                  && section_children && section_children->number > 0)
                 {
                   directions[RUD_type_NodeForward]
-                   = section_childs->list[0]->element->e.c->associated_unit;
+                   = section_children->list[0]->element->e.c->associated_unit;
                 }
               else if (node_directions
                        && node_directions[D_next])
@@ -779,7 +779,7 @@ units_directions (const C_HASHMAP *identifiers_target,
           const SECTION_RELATIONS * const *section_directions
                         = section_relations->section_directions;
 
-          const SECTION_RELATIONS_LIST *up_section_childs;
+          const SECTION_RELATIONS_LIST *up_section_children;
           int up_section_level;
           const SECTION_RELATIONS *up_relations
             = section_relations;
@@ -825,13 +825,13 @@ units_directions (const C_HASHMAP *identifiers_target,
                 break;
             }
 
-          up_section_childs = up_relations->section_childs;
+          up_section_children = up_relations->section_children;
           if (status >= 0 && up_section_level < 1
-              && up->e.c->cmd == CM_top && up_section_childs
-              && up_section_childs->number > 0)
+              && up->e.c->cmd == CM_top && up_section_children
+              && up_section_children->number > 0)
             {
               directions[RUD_type_FastForward]
-                = up_section_childs->list[0]->element->e.c->associated_unit;
+                = up_section_children->list[0]->element->e.c->associated_unit;
             }
           else
             {

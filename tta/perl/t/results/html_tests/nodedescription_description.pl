@@ -295,7 +295,7 @@ $result_sections_list{'nodedescription_description'} = '1|test of descriptions w
  associated_node: Top
  toplevel_directions:
   next->Toto
- section_childs:
+ section_children:
   1|Toto
   2|Titi
   3|Other

@@ -257,7 +257,7 @@ $result_sections_list{'contents_and_shortcontents'} = '1|top
   next->part
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  section_directions:
@@ -266,17 +266,17 @@ $result_sections_list{'contents_and_shortcontents'} = '1|top
   next->chapter in part
   prev->top
   up->top
- section_childs:
+ section_children:
   1|section
 3|section
  section_directions:
   up->chapter
- section_childs:
+ section_children:
   1|subsection
 4|subsection
  section_directions:
   up->section
- section_childs:
+ section_children:
   1|subsubsection
 5|subsubsection
  section_directions:
@@ -286,7 +286,7 @@ $result_sections_list{'contents_and_shortcontents'} = '1|top
  section_directions:
   next->appendix
   prev->top
- section_childs:
+ section_children:
   1|chapter in part
   2|second chapter in part
   3|unnumbered
@@ -322,7 +322,7 @@ $result_sections_list{'contents_and_shortcontents'} = '1|top
  toplevel_directions:
   prev->unnumbered
   up->top
- section_childs:
+ section_children:
   1|appendixsec
 11|appendixsec
  section_directions:

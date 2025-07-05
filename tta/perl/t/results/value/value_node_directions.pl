@@ -279,7 +279,7 @@ $result_sections_list{'value_node_directions'} = '1|Var bar
  associated_node: Top
  toplevel_directions:
   next->BarFoo
- section_childs:
+ section_children:
   1|BarFoo
   2|bar
 2|BarFoo

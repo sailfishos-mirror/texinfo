@@ -130,7 +130,7 @@ add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 }
 
 /* Add an extra key that is a reference to an array of other
-   elements (for example, 'section_childs').
+   elements (for example, 'section_children').
    Check if it already exists, unless NO_LOOKUP is set
    if the caller knows that the array has not been set
    already.

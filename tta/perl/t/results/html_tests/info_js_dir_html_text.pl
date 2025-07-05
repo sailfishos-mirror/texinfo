@@ -102,7 +102,7 @@ $result_sections_list{'info_js_dir_html_text'} = '1|top
  associated_node: top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap

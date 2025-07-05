@@ -680,7 +680,7 @@ $result_sections_list{'namedanchor'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter @namedanchor{Not here!, There} after
- section_childs:
+ section_children:
   1|chapter @namedanchor{Not here!, There} after
   2|chap1
 2|chapter @namedanchor{Not here!, There} after
@@ -693,7 +693,7 @@ $result_sections_list{'namedanchor'} = '1|top
   next->chap1
   prev->top
   up->top
- section_childs:
+ section_children:
   1|secc1
 3|secc1
  associated_anchor_command: secc1
@@ -709,7 +709,7 @@ $result_sections_list{'namedanchor'} = '1|top
  toplevel_directions:
   prev->chapter @namedanchor{Not here!, There} after
   up->top
- section_childs:
+ section_children:
   1|Secc2
 5|Secc2
  associated_anchor_command: secc2

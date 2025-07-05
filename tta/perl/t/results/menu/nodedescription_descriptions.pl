@@ -638,7 +638,7 @@ $result_sections_list{'nodedescription_descriptions'} = '1|test of nodedescripti
  associated_node: Top
  toplevel_directions:
   next->Toto
- section_childs:
+ section_children:
   1|Toto
   2|Titi
   3|Other

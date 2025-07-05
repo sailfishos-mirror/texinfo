@@ -563,7 +563,7 @@ $result_sections_list{'char_us_ascii_latin1_in_refs_no_translit_files'} = '1|acc
  associated_node: Top
  toplevel_directions:
   next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
- section_childs:
+ section_children:
   1|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
   2|é
   3|à è ù

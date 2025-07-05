@@ -112,7 +112,7 @@ $result_nodes_list{'top_without_node_sections'} = '1|second
 $result_sections_list{'top_without_node_sections'} = '1|top section
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: second

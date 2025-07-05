@@ -353,7 +353,7 @@ $result_sections_list{'japanese_shift_jis'} = '1|GNU LilyPond --- 学習マニ�
  associated_node: Top
  toplevel_directions:
   next->Preface
- section_childs:
+ section_children:
   1|Preface
   2|Introduction
 2|Preface

@@ -288,7 +288,7 @@ $result_sections_list{'inter_item_commands_in_itemize'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chapter

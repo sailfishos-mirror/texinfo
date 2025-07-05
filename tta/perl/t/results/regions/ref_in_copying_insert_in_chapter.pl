@@ -224,7 +224,7 @@ $result_sections_list{'ref_in_copying_insert_in_chapter'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Introduction
- section_childs:
+ section_children:
   1|Introduction
 2|Introduction
  associated_anchor_command: Intro
@@ -234,7 +234,7 @@ $result_sections_list{'ref_in_copying_insert_in_chapter'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|GFDL
 3|GFDL
  associated_anchor_command: GFDL

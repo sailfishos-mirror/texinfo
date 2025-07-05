@@ -141,7 +141,7 @@ $result_sections_list{'regenerate_master_menu_no_need_for_master_menu'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chap

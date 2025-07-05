@@ -161,7 +161,7 @@ $result_sections_list{'set_add_transliterated_redirection_files'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: Chap
@@ -171,7 +171,7 @@ $result_sections_list{'set_add_transliterated_redirection_files'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|g
 3|g
  associated_anchor_command: s@`{e}c

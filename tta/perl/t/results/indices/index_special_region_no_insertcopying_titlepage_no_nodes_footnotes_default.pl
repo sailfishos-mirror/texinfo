@@ -702,7 +702,7 @@ $result_sections_list{'index_special_region_no_insertcopying_titlepage_no_nodes_
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
   2|Copying and indices
 2|Chapter

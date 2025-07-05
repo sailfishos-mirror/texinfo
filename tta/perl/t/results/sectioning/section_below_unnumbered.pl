@@ -253,7 +253,7 @@ $result_sections_list{'section_below_unnumbered'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Unn
- section_childs:
+ section_children:
   1|Unn
 2|Unn
  associated_anchor_command: Unn
@@ -263,7 +263,7 @@ $result_sections_list{'section_below_unnumbered'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
- section_childs:
+ section_children:
   1|Sec
 3|Sec
  associated_anchor_command: Sec

@@ -610,7 +610,7 @@ sub output_ixin($$)
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($sections_list) {
-    foreach my $top_relations (@{$sectioning_root->{'section_childs'}}) {
+    foreach my $top_relations (@{$sectioning_root->{'section_children'}}) {
       my $section_relations = $top_relations;
  SECTION:
       while ($section_relations) {
@@ -634,8 +634,8 @@ sub output_ixin($$)
         if ($section->{'cmdname'} eq 'top') {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
         }
-        if ($section_relations->{'section_childs'}) {
-          $section_relations = $section_relations->{'section_childs'}->[0];
+        if ($section_relations->{'section_children'}) {
+          $section_relations = $section_relations->{'section_children'}->[0];
         } elsif ($section_relations->{'section_directions'}
                  and $section_relations->{'section_directions'}->{'next'}) {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');

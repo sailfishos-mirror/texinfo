@@ -222,7 +222,7 @@ $result_sections_list{'simple_only_special_spaces_node_test_split_section'} = '1
  associated_node: Top
  toplevel_directions:
   next->EN QUAD| |
- section_childs:
+ section_children:
   1|EN QUAD| |
   2|CARRIAGE RETURN|'."\r".'|
   3|THREE-PER-EM SPACE

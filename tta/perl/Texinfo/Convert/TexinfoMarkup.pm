@@ -1724,8 +1724,8 @@ sub _convert($$;$)
     my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     if (!($section_relations
-          and $section_relations->{'section_childs'}
-          and scalar(@{$section_relations->{'section_childs'}}))
+          and $section_relations->{'section_children'}
+          and scalar(@{$section_relations->{'section_children'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;

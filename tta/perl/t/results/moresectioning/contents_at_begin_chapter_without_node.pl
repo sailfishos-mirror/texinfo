@@ -87,7 +87,7 @@ $result_sections_list{'contents_at_begin_chapter_without_node'} = '1|contents at
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  section_directions:

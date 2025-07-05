@@ -141,7 +141,7 @@ $result_sections_list{'text_before_node'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: chapter node

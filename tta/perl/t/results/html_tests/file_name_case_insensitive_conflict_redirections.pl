@@ -202,7 +202,7 @@ $result_sections_list{'file_name_case_insensitive_conflict_redirections'} = '1|t
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  section_directions:

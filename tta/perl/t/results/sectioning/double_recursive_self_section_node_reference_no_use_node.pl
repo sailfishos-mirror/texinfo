@@ -155,7 +155,7 @@ $result_sections_list{'double_recursive_self_section_node_reference_no_use_node'
  associated_node: Top
  toplevel_directions:
   next->@ref{to node1}
- section_childs:
+ section_children:
   1|@ref{to node1}
 2|@ref{to node1}
  associated_anchor_command: node1

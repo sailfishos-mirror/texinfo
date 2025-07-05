@@ -190,7 +190,7 @@ $result_sections_list{'anchor_in_footnote_separate_split_node'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Chap
- section_childs:
+ section_children:
   1|Chap
 2|Chap
  associated_anchor_command: chapter

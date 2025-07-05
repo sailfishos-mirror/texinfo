@@ -988,7 +988,7 @@ $result_sections_list{'multiple_include_encodings'} = '1|include files with mult
  associated_node: Top
  toplevel_directions:
   next->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
- section_childs:
+ section_children:
   1|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
   2|Preface
   3|Introduction
@@ -1038,7 +1038,7 @@ $result_sections_list{'multiple_include_encodings'} = '1|include files with mult
   next->Mixed english and chinese EUC-CN
   prev->Introduction
   up->include files with multiple encodings
- section_childs:
+ section_children:
   1|Ą ą ˛ Ę ę
 6|Ą ą ˛ Ę ę
  associated_anchor_command: Ą ą ˛ Ę ę

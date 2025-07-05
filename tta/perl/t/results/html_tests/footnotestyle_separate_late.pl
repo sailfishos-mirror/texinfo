@@ -219,7 +219,7 @@ $result_sections_list{'footnotestyle_separate_late'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter f
- section_childs:
+ section_children:
   1|Chapter f
   2|Chapter s
 2|Chapter f

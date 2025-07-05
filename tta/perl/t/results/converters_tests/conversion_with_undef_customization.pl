@@ -276,7 +276,7 @@ $result_sections_list{'conversion_with_undef_customization'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap@^e
- section_childs:
+ section_children:
   1|Chap@^e
 2|Chap@^e
  associated_anchor_command: chap@^e
@@ -286,7 +286,7 @@ $result_sections_list{'conversion_with_undef_customization'} = '1|top
  toplevel_directions:
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Section
 3|Section
  associated_anchor_command: sec

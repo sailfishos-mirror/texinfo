@@ -335,7 +335,7 @@ $result_sections_list{'punctuation_sc_accents_disable_encoding_usascii'} = '1|to
  associated_node: top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: node chap

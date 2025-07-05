@@ -144,7 +144,7 @@ $result_sections_list{'node_sectop_before_lone_node_Top'} = '1|top sectionning
  associated_node: node before
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap

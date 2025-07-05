@@ -312,7 +312,7 @@ $result_sections_list{'semi_auto'} = '1|Top
  associated_node: Top
  toplevel_directions:
   next->Chapter 1
- section_childs:
+ section_children:
   1|Chapter 1
 2|Chapter 1
  associated_anchor_command: Chap1
@@ -322,7 +322,7 @@ $result_sections_list{'semi_auto'} = '1|Top
  toplevel_directions:
   prev->Top
   up->Top
- section_childs:
+ section_children:
   1|Sec in chapter
   2|Section
 3|Sec in chapter

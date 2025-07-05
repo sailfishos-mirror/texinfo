@@ -156,7 +156,7 @@ $result_sections_list{'file_name_conflict_with_user_defined'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chap 1
- section_childs:
+ section_children:
   1|Chap 1
   2|Chap 2
 2|Chap 1

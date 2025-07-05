@@ -178,7 +178,7 @@ $result_sections_list{'split_test_before_first_node_no_empty_line'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap1

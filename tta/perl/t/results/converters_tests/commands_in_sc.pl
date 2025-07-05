@@ -244,7 +244,7 @@ $result_sections_list{'commands_in_sc'} = '1|commands in sc
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap

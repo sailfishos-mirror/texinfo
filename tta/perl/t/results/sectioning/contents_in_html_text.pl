@@ -112,7 +112,7 @@ $result_nodes_list{'contents_in_html_text'} = '';
 $result_sections_list{'contents_in_html_text'} = '1|top
  toplevel_directions:
   next->Chap1
- section_childs:
+ section_children:
   1|Chap1
   2|Chap2
 2|Chap1
@@ -123,7 +123,7 @@ $result_sections_list{'contents_in_html_text'} = '1|top
   next->Chap2
   prev->top
   up->top
- section_childs:
+ section_children:
   1|Sec 1
 3|Sec 1
  section_directions:

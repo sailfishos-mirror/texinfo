@@ -639,7 +639,7 @@ $result_sections_list{'nodedescriptionblock_descriptions'} = '1|test of nodedesc
  associated_node: Top
  toplevel_directions:
   next->Toto
- section_childs:
+ section_children:
   1|Toto
   2|Titi
   3|Other

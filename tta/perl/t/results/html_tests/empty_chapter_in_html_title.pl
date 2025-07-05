@@ -107,7 +107,7 @@ $result_sections_list{'empty_chapter_in_html_title'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->
- section_childs:
+ section_children:
   1|
 2
  associated_anchor_command: chap

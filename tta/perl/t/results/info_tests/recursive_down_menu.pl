@@ -149,7 +149,7 @@ $result_sections_list{'recursive_down_menu'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Intro
- section_childs:
+ section_children:
   1|Intro
 2|Intro
  associated_anchor_command: chapN

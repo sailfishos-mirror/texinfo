@@ -175,7 +175,7 @@ $result_sections_list{'contents_at_document_begin_separate_element'} = '1|Conten
  associated_node: Top
  toplevel_directions:
   next->Chapter 1
- section_childs:
+ section_children:
   1|Chapter 1
 2|Chapter 1
  associated_anchor_command: chapter

@@ -729,7 +729,7 @@ $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{n
  associated_node: Top
  toplevel_directions:
   next->@xref{node,,title, file name, Manual}.
- section_childs:
+ section_children:
   1|@xref{node,,title, file name, Manual}.
   2|@ref{node} just node
 2|@xref{node,,title, file name, Manual}.
@@ -751,7 +751,7 @@ $result_sections_list{'ref_in_sectioning'} = '1|for example @ref{node} (@pxref{n
  toplevel_directions:
   prev->@xref{node,,title, file name, Manual}.
   up->for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
- section_childs:
+ section_children:
   1|for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
   2|@ref{node, cross ref name}  node, crossref arg2
   3|@ref{@code{node},, @samp{title}}  code node, samptitle arg3

@@ -259,7 +259,7 @@ $result_sections_list{'chapter_sections'} = '1|unnumbered
  toplevel_directions:
   next->Chapter
   prev->unnumbered
- section_childs:
+ section_children:
   1|second
 3|second
  section_directions:
@@ -271,12 +271,12 @@ $result_sections_list{'chapter_sections'} = '1|unnumbered
  toplevel_directions:
   next->Chapter 2
   prev->First chapter
- section_childs:
+ section_children:
   1|Section of chapter
 5|Section of chapter
  section_directions:
   up->Chapter
- section_childs:
+ section_children:
   1|subsection 1
   2|subsection 2
 6|subsection 1

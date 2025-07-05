@@ -331,7 +331,7 @@ $result_sections_list{'punctuation_sc_accents_ascii_glyph_latin1'} = '1|top sect
  associated_node: top
  toplevel_directions:
   next->chapter
- section_childs:
+ section_children:
   1|chapter
 2|chapter
  associated_anchor_command: node chap

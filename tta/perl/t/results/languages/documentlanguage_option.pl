@@ -296,7 +296,7 @@ $result_sections_list{'documentlanguage_option'} = '1|top section
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: chapter

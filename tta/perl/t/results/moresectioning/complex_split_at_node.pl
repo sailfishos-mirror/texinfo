@@ -1274,7 +1274,7 @@ $result_sections_list{'complex_split_at_node'} = '1
  associated_node: Top
  toplevel_directions:
   next->first node chapter
- section_childs:
+ section_children:
   1|first node chapter
   2|second node chapter
   3|unnumbered chapter
@@ -1289,7 +1289,7 @@ $result_sections_list{'complex_split_at_node'} = '1
   next->second node chapter
   prev->
   up->
- section_childs:
+ section_children:
   1|unnumbered section
   2|unnumbered section2
   3|numbered section
@@ -1299,7 +1299,7 @@ $result_sections_list{'complex_split_at_node'} = '1
  section_directions:
   next->unnumbered section2
   up->first node chapter
- section_childs:
+ section_children:
   1|unnumbered subsection
   2|numbered subsection
   3|unnumbered subsection2
@@ -1337,7 +1337,7 @@ $result_sections_list{'complex_split_at_node'} = '1
   next->numbered section
   prev->unnumbered section
   up->first node chapter
- section_childs:
+ section_children:
   1|numbered subsection3
 9|numbered subsection3
  associated_anchor_command: numbered sub3

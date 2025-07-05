@@ -152,7 +152,7 @@ $result_sections_list{'automatic_menu_with_heading'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_node: heading or chapter

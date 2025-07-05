@@ -153,7 +153,7 @@ $result_nodes_list{'anchor_in_titlepage'} = '1|Top
 $result_sections_list{'anchor_in_titlepage'} = '1|top
  toplevel_directions:
   next->Chapter
- section_childs:
+ section_children:
   1|Chapter
 2|Chapter
  associated_anchor_command: Top

@@ -295,7 +295,7 @@ $result_sections_list{'master_menu_fr'} = '1|max
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap
@@ -305,7 +305,7 @@ $result_sections_list{'master_menu_fr'} = '1|max
  toplevel_directions:
   prev->max
   up->max
- section_childs:
+ section_children:
   1|sec
 3|sec
  associated_anchor_command: section

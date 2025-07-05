@@ -180,7 +180,7 @@ $result_sections_list{'no_menu'} = '1
  associated_node: Top
  toplevel_directions:
   next->c1
- section_childs:
+ section_children:
   1|c1
   2|c2
   3|c3

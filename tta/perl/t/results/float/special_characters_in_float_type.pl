@@ -191,7 +191,7 @@ $result_sections_list{'special_characters_in_float_type'} = '1|top
  associated_node: Top
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: chap

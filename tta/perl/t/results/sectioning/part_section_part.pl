@@ -96,7 +96,7 @@ $result_sections_list{'part_section_part'} = '1|Part1
  part_associated_section: 1 section 1
  section_directions:
   next->Part 2
- section_childs:
+ section_children:
   1|section 1
 2|section 1
  associated_part: Part1

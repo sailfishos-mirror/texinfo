@@ -155,7 +155,7 @@ $result_sections_list{'space_in_menu'} = '1|Element
  associated_node: Top
  toplevel_directions:
   next->node
- section_childs:
+ section_children:
   1|node
 2|node
  associated_anchor_command: node

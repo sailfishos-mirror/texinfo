@@ -474,7 +474,7 @@ $result_sections_list{'special_spaces_in_nodes'} = '1|top
  associated_node: Top 
  toplevel_directions:
   next->chap
- section_childs:
+ section_children:
   1|chap
 2|chap
  associated_anchor_command: EN QUAD| | EM QUAD| | EN SPACE| |

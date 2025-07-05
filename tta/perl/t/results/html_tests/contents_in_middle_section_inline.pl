@@ -321,7 +321,7 @@ $result_sections_list{'contents_in_middle_section_inline'} = '1|Contents in sect
  associated_node: Top
  toplevel_directions:
   next->Chapter 1
- section_childs:
+ section_children:
   1|Chapter 1
 2|Chapter 1
  associated_anchor_command: chapter
@@ -331,7 +331,7 @@ $result_sections_list{'contents_in_middle_section_inline'} = '1|Contents in sect
  toplevel_directions:
   prev->Contents in section
   up->Contents in section
- section_childs:
+ section_children:
   1|section
   2|section 1
 3|section
