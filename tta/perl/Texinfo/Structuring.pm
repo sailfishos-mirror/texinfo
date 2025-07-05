@@ -1020,33 +1020,35 @@ sub check_node_tree_menu_structure($)
           and $node->{'extra'}->{'is_target'}) {
 
         # check only if there are menus
-        if ($up_node_relations->{'menus'}) {
-          if (!$cached_menu_nodes{$up_node}) {
-            $cached_menu_nodes{$up_node} = {};
-            _register_menu_node_targets($identifier_target, $up_node_relations,
-                                        $cached_menu_nodes{$up_node});
-          }
-          if (!$cached_menu_nodes{$up_node}->{$node}) {
-            my $node_directions = $node_relations->{'node_directions'};
-            # Suppress the error if the node up pointer for the child
-            # node is to a different node.
-            if (!defined($node_directions)
-                  or !defined($node_directions->{'up'})
-                  or $node_directions->{'up'} eq $up_node) {
-              $registrar->line_warn(sprintf(
-       __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
-                 target_element_to_texi_label($up_node),
-                 target_element_to_texi_label($node)),
-                                $up_node->{'source_info'}, 0,
-                                $customization_information->get_conf('DEBUG'));
-              $node_errors{$node->{'extra'}->{'node_number'}} = 1;
-            }
+        next if !$up_node_relations->{'menus'};
+
+        if (!$cached_menu_nodes{$up_node}) {
+          $cached_menu_nodes{$up_node} = {};
+          _register_menu_node_targets($identifier_target, $up_node_relations,
+                                      $cached_menu_nodes{$up_node});
+        }
+        if (!$cached_menu_nodes{$up_node}->{$node}) {
+          my $node_directions = $node_relations->{'node_directions'};
+          # Suppress the error if the node up pointer for the child
+          # node is to a different node.
+          if (!defined($node_directions)
+                or !defined($node_directions->{'up'})
+                or $node_directions->{'up'} eq $up_node) {
+            $registrar->line_warn(sprintf(
+     __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
+               target_element_to_texi_label($up_node),
+               target_element_to_texi_label($node)),
+                              $up_node->{'source_info'}, 0,
+                              $customization_information->get_conf('DEBUG'));
+            $node_errors{$node->{'extra'}->{'node_number'}} = 1;
           }
         }
       }
     }
   }
 
+  # check consistency between explicit node pointer and
+  # node entries menu order
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
@@ -1060,8 +1062,6 @@ sub check_node_tree_menu_structure($)
         = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
       my $menu_directions = $node_relations->{'menu_directions'};
-      # check consistency between explicit node pointer and
-      # node entries menu order
       if (!$automatic_directions) {
         if ($node_directions and $menu_directions) {
           foreach my $direction (@node_directions_names) {
