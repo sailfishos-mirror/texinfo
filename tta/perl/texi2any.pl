@@ -902,6 +902,7 @@ my %formats_table = (
   'plaintexinfo' => {
             'module' => 'Texinfo::Convert::PlainTexinfo'
            },
+  # not documented, only used for testing/development
   'testreader' => {
             'module' => 'Texinfo::Convert::TestReader'
            },

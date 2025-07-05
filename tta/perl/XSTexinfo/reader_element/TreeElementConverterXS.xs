@@ -31,6 +31,7 @@
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
+#include "targets.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "translations.h"
@@ -95,6 +96,33 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
           }
     OUTPUT:
          RETVAL
+
+# NOTE not used not tested
+SV *
+get_tree_element_by_identifier (SV *converter_in, identifier)
+        const char *identifier = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+        DOCUMENT *document;
+        SV *result_sv = 0;
+     CODE:
+        document = get_converter_sv_document (converter_in, 0);
+        if (document)
+          {
+            ELEMENT *element
+              = find_identifier_target (&document->identifiers_target,
+                                        identifier);
+            if (element)
+              {
+                register_element_handle_in_sv (element, document);
+                result_sv = newSVsv ((SV *)element->sv);
+              }
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 SV *
 get_global_unique_tree_element (SV *converter_in, cmdname)

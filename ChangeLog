@@ -1,5 +1,14 @@
 2025-07-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(get_tree_element_by_identifier),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(get_tree_element_by_identifier): add get_tree_element_by_identifier.
+
+	* tta/perl/Texinfo/Convert/TreeElementConverter.pm: use defined more.
+
+2025-07-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_destroy_document)
 	(txi_output_document_error_messages, txi_output_parser_error_messages)
 	(txi_output_converter_error_messages), tta/C/main/document.c

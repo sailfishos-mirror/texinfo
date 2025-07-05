@@ -287,6 +287,21 @@ sub new_tree_element($$;$)
   return Texinfo::TreeElement::new($element_hash);
 }
 
+# NOTE not used, not tested
+sub get_tree_element_by_identifier($$)
+{
+  my $self = shift;
+  my $identifier = shift;
+
+  if ($self->{'document'}) {
+    my $identifiers_target = $self->{'document'}->labels_information();
+    if (defined($identifiers_target->{$identifier})) {
+      return $identifiers_target->{$identifier};
+    }
+  }
+  return undef;
+}
+
 sub get_tree_element_index_entry($$)
 {
   my $self = shift;
@@ -316,7 +331,7 @@ sub get_global_unique_tree_element($$)
 
   if ($self->{'document'}) {
     my $global_commands = $self->{'document'}->global_commands_information();
-    if ($global_commands->{$cmdname}) {
+    if (defined($global_commands->{$cmdname})) {
       return $global_commands->{$cmdname};
     }
   }
@@ -374,9 +389,9 @@ sub tree_element_index_content_element($;$)
   my $prefer_reference_element = shift;
 
   my $def_command = $element->get_attribute('def_command');
-  if ($def_command) {
+  if (defined($def_command)) {
     if ($prefer_reference_element
-        and $element->get_attribute('def_index_ref_element')) {
+        and defined($element->get_attribute('def_index_ref_element'))) {
       return $element->get_attribute('def_index_ref_element');
     } else {
       return $element->get_attribute('def_index_element');
