@@ -31,6 +31,7 @@
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "builtin_commands.h"
+#include "document.h"
 #include "tree_element.h"
 
 const char *
@@ -532,6 +533,27 @@ set_element_attribute_element (ELEMENT *element, const char *attribute,
   return 0;
 }
 
+SECTION_RELATIONS *
+section_relation_list_section_relation_by_index (
+                SECTION_RELATIONS_LIST *section_relation_list, int index)
+{
+  if (!section_relation_list || section_relation_list->number == 0)
+    return 0;
+
+  if (index < 0)
+    index = (int) section_relation_list->number - index;
+
+  if (index < 0 || (size_t) index >= section_relation_list->number)
+    return 0;
+
+  return section_relation_list->list[index];
+}
+
+int section_relation_list_section_relations_number (
+                           SECTION_RELATIONS_LIST *section_relation_list)
+{
+  return section_relation_list->number;
+}
 
 NODE_RELATIONS *
 get_node_relations (ELEMENT *element, DOCUMENT *document)
@@ -689,6 +711,105 @@ document_global_command_list (DOCUMENT *document, const char *cmdname)
       if (command_list && command_list->number)
         {
           return command_list;
+        }
+    }
+  return 0;
+}
+
+
+INDEX_ENTRY *
+sorted_index_entries_by_index (const INDEX_SORTED_BY_INDEX *index_sorted,
+                               int index)
+{
+  if (!index_sorted || index_sorted->entries_number == 0)
+    return 0;
+
+  if (index < 0 || (size_t) index >= index_sorted->entries_number)
+    return 0;
+
+  return index_sorted->entries[index];
+}
+
+int
+sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted)
+{
+  return index_sorted->entries_number;
+}
+
+const INDEX_SORTED_BY_INDEX *
+get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
+                           int use_unicode_collation,
+                           const char *collation_language,
+                           const char *collation_locale)
+{
+  const INDEX_SORTED_BY_INDEX *idx;
+  const INDEX_SORTED_BY_INDEX *index_sorted = 0;
+
+  COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
+    = sorted_indices_by_index (document, &document->error_messages,
+                               document->options, use_unicode_collation,
+                               collation_language, collation_locale);
+
+  INDEX_SORTED_BY_INDEX *indices_sorted_by_index
+    = collation_sorted_indices->sorted_indices;
+
+  if (!indices_sorted_by_index)
+    return 0;
+
+  for (idx = indices_sorted_by_index; idx->name; idx++)
+    {
+      if (!strcmp (idx->name, index_name))
+        {
+          index_sorted = idx;
+          break;
+        }
+    }
+
+  if (!index_sorted || !index_sorted->entries_number)
+    return 0;
+
+  return index_sorted;
+}
+
+FLOAT_INFORMATION *
+float_list_float_by_index (FLOAT_INFORMATION_LIST *float_list, int index)
+{
+  if (!float_list || float_list->number == 0)
+    return 0;
+
+  if (index < 0)
+    index = (int) float_list->number - index;
+
+  if (index < 0 || (size_t) index >= float_list->number)
+    return 0;
+
+  return &float_list->list[index];
+}
+
+int
+float_list_floats_number (FLOAT_INFORMATION_LIST *float_list)
+{
+  return float_list->number;
+}
+
+FLOAT_INFORMATION_LIST *
+get_float_type_floats_information (DOCUMENT *document, const char *float_type)
+{
+  size_t i;
+  const LISTOFFLOATS_TYPE_LIST *listoffloats = &document->listoffloats;
+
+  if (!listoffloats->number)
+    return 0;
+
+  for (i = 0; i < listoffloats->number; i++)
+    {
+      LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+      if (!strcmp (float_types->type, float_type))
+        {
+          if (float_types->float_list.number > 0)
+            return &float_types->float_list;
+          else
+            return 0;
         }
     }
   return 0;

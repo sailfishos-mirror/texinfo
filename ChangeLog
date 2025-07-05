@@ -54,6 +54,19 @@
 
 2025-07-05  Patrice Dumas  <pertusus@free.fr>
 
+	* util/swig/texinfo.i (sectioning_root_children, %init),
+	util/swig/tree_element.c
+	(section_relation_list_section_relation_by_index)
+	(section_relation_list_section_relations_number)
+	(sorted_index_entries_by_index, sorted_index_entries_number)
+	(get_index_sorted_by_index, float_list_float_by_index)
+	(float_list_floats_number, get_float_type_floats_information):
+	add interfaces for listoffloats and indices sorting.
+
+	* util/swig/test_Texinfo.py: more interesting tests.
+
+2025-07-05  Patrice Dumas  <pertusus@free.fr>
+
 	Substitute section_childs by section_children everywhere
 
 2025-07-05  Patrice Dumas  <pertusus@free.fr>

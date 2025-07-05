@@ -31,8 +31,10 @@
 #include "targets.h"
 #include "utils.h"
 #include "document.h"
+#include "manipulate_indices.h"
 #include "tree_element.h"
 #include "reader.h"
+#include "convert_to_texinfo.h"
 #include "texinfo.h"
 %}
 
@@ -40,8 +42,12 @@
 
 %init %{
 const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
-messages_and_encodings_setup ();
-setup_texinfo_main (0, converterdatadir, 0, 0);
+//messages_and_encodings_setup ();
+//setup_texinfo_main (0, converterdatadir, 0, 0);
+
+// Need to setup with information on Perl interpreter loading for
+// index sorting functions.
+txi_setup_main_load_interpreter (0, 0, converterdatadir, 0, 0, 0, 0, 0, 0);
 txi_general_output_strings_setup(0);
 
 reset_parser (0);
@@ -185,6 +191,30 @@ ELEMENT *document_global_unique_command (DOCUMENT *document,
 const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
                                                   const char *cmdname);
 
+// index sorting and associated data
+INDEX_ENTRY *sorted_index_entries_by_index (
+                     const INDEX_SORTED_BY_INDEX *index_sorted, int index);
+int sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted);
+
+const INDEX_SORTED_BY_INDEX *get_index_sorted_by_index (DOCUMENT *document,
+                           const char *index_name,
+                           int use_unicode_collation=1,
+                           const char *collation_language=0,
+                           const char *collation_locale=0);
+
+typedef struct {
+    ELEMENT *float_element;
+    const SECTION_RELATIONS *float_section;
+} FLOAT_INFORMATION;
+
+FLOAT_INFORMATION *float_list_float_by_index (
+                         FLOAT_INFORMATION_LIST *float_list, int index);
+int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
+
+FLOAT_INFORMATION_LIST *get_float_type_floats_information (
+                        DOCUMENT *document, const char *float_type);
+
+
 // Base data structures
 
 // tree_element.h
@@ -258,6 +288,14 @@ void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 
 // Nodes, sections and heading relations
 
+// Data structures
+
+// tree_element.h
+SECTION_RELATIONS *section_relation_list_section_relation_by_index (
+                SECTION_RELATIONS_LIST *section_relation_list, int index);
+int section_relation_list_section_relations_number (
+                           SECTION_RELATIONS_LIST *section_relation_list);
+
 typedef struct NODE_RELATIONS {
     ELEMENT *element;
     const SECTION_RELATIONS *associated_section;
@@ -294,6 +332,8 @@ typedef struct SECTION_RELATIONS {
     SECTION_RELATIONS_LIST *section_children;
 } SECTION_RELATIONS;
 
+// functions
+
 NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
 SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
 HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
@@ -306,6 +346,20 @@ const SECTION_RELATIONS *section_relation_section_direction (
 const SECTION_RELATIONS *section_relation_toplevel_direction (
                                      SECTION_RELATIONS *section,
                                      const char *direction);
+
+%inline %{
+SECTION_RELATIONS_LIST *sectioning_root_children (DOCUMENT *document);
+%}
+
+%{
+SECTION_RELATIONS_LIST *
+sectioning_root_children (DOCUMENT *document)
+{
+  if (!document->sectioning_root)
+    return 0;
+  return &document->sectioning_root->section_children;
+}
+%}
 
 
 // Reader
@@ -364,7 +418,21 @@ void txi_destroy_document (DOCUMENT *document);
 
 
 
-// Helper functions.  Not sure that they will be kept
+// Conversion
+
+// convert_to_texinfo.h
+// FIXME return values are never free'd
+char *convert_to_texinfo (const ELEMENT *e);
+char *convert_contents_to_texinfo (const ELEMENT *e);
+
+
+// Helper functions.  Not sure which ones to keep?
 
 // utils.h
 ELEMENT *get_label_element (const ELEMENT *e);
+
+// manipulate_indices.h
+ELEMENT *index_content_element (const ELEMENT *element,
+                                int prefer_reference_element=0);
+
+// TODO add a wrapper around new_complete_menu_master_menu?

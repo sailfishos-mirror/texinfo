@@ -48,6 +48,11 @@ int set_element_attribute_string (ELEMENT *element, const char *attribute,
 int set_element_attribute_element (ELEMENT *element, const char *attribute,
                                    ELEMENT *value);
 
+SECTION_RELATIONS *section_relation_list_section_relation_by_index (
+                SECTION_RELATIONS_LIST *section_relation_list, int index);
+int section_relation_list_section_relations_number (
+                           SECTION_RELATIONS_LIST *section_relation_list);
+
 NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
 SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
 HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
@@ -65,5 +70,22 @@ ELEMENT *document_global_unique_command (DOCUMENT *document,
                                          const char *cmdname);
 const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
                                                   const char *cmdname);
+
+INDEX_ENTRY *sorted_index_entries_by_index (
+                     const INDEX_SORTED_BY_INDEX *index_sorted, int index);
+int sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted);
+
+const INDEX_SORTED_BY_INDEX *get_index_sorted_by_index (DOCUMENT *document,
+                           const char *index_name,
+                           int use_unicode_collation,
+                           const char *collation_language,
+                           const char *collation_locale);
+
+FLOAT_INFORMATION *float_list_float_by_index (
+                         FLOAT_INFORMATION_LIST *float_list, int index);
+int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
+
+FLOAT_INFORMATION_LIST *get_float_type_floats_information (
+                        DOCUMENT *document, const char *float_type);
 
 #endif
