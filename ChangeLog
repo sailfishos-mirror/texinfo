@@ -1,5 +1,10 @@
 2025-07-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	Remove unused code.
+
+2025-07-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
 	Replace 'section_childs' by 'section_children' as this was changed before
