@@ -1,5 +1,9 @@
 2025-07-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl: update to call destroy_document.
+
+2025-07-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
 	(get_tree_element_by_identifier),
 	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs

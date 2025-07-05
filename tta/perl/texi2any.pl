@@ -2305,7 +2305,7 @@ while(@input_files) {
     # only one input file as the program is about to exit.  Note that
     # this cleanup is only possible while we still have the value of
     # $document.
-    Texinfo::Document::remove_document($document) if defined($document);
+    Texinfo::Document::destroy_document($document) if defined($document);
   }
 }
 
