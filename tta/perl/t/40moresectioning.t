@@ -215,6 +215,23 @@ undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ['more_sections_than_nodes',
 $more_sections_than_nodes_text, {},
 ],
+['lone_chapter_between_nodes',
+'@node Top
+@top Top
+
+@menu
+* 1::
+* 3::
+@end menu
+
+@node 1
+@chapter 1
+
+@chapter 2
+
+@node 3
+@chapter 3
+'],
 ['no_element',
 '@settitle no_element test
 @documentencoding ISO-8859-1
