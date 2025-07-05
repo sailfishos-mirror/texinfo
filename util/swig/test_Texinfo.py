@@ -20,14 +20,14 @@ input_file_name = '../../tta/perl/t/input_files/simplest.texi'
 input_dir = os.path.dirname(input_file_name)
 Texinfo.parser_conf_add_include_directory(input_dir)
 document, status = Texinfo.parse_file(input_file_name)
-Texinfo.txi_handle_parser_error_messages(document)
+Texinfo.output_parser_error_messages(document)
 
 Texinfo.set_document_options(document)
-Texinfo.txi_complete_document(document, Texinfo.STTF_nodes_tree | Texinfo.STTF_floats | Texinfo.STTF_setup_index_entries_sort_strings, 0)
-Texinfo.txi_handle_document_error_messages(document)
+Texinfo.complete_document(document, Texinfo.STTF_nodes_tree | Texinfo.STTF_floats | Texinfo.STTF_setup_index_entries_sort_strings, 0)
+Texinfo.output_document_error_messages(document)
  
 tree = Texinfo.document_tree(document)
-reader = Texinfo.txi_reader_new(tree, document)
+reader = Texinfo.new_reader(tree, document)
 
 def skip_to_cmdname(reader, cmdname):
     while True:
@@ -47,5 +47,5 @@ if __name__ == '__main__':
         element = next_token.element
         print (Texinfo.element_type(element))
  
-    Texinfo.txi_document_remove(document)
+    Texinfo.destroy_document(document)
 

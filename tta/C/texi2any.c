@@ -568,7 +568,7 @@ handle_parser_errors (DOCUMENT *document, const char *set_message_encoding,
                       STRING_LIST *opened_files)
 {
   size_t errors_nr
-        = txi_handle_parser_error_messages (document, set_message_encoding,
+        = txi_output_parser_error_messages (document, set_message_encoding,
                                             no_warn, test_mode_set);
   return handle_errors (errors_nr, error_count, opened_files);
 }
@@ -2801,7 +2801,7 @@ main (int argc, char *argv[], char *env[])
                                   &document->error_messages);
 
       errors_nr
-        = txi_handle_parser_error_messages (document, set_message_encoding,
+        = txi_output_parser_error_messages (document, set_message_encoding,
                                             no_warn, test_mode_set);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
@@ -2955,7 +2955,7 @@ main (int argc, char *argv[], char *env[])
                               errors_count);
 
       errors_nr
-        = txi_handle_converter_error_messages (converter,
+        = txi_output_converter_error_messages (converter,
                                        set_message_encoding, no_warn,
                                        test_mode_set);
 
@@ -3243,7 +3243,7 @@ main (int argc, char *argv[], char *env[])
 
     next_input_file:
       /* destroy document */
-      txi_document_remove (document);
+      txi_destroy_document (document);
 
       free (input_directory);
       free (canon_input_dir);

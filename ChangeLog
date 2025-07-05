@@ -1,3 +1,23 @@
+2025-07-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/texinfo.c (txi_destroy_document)
+	(txi_output_document_error_messages, txi_output_parser_error_messages)
+	(txi_output_converter_error_messages), tta/C/main/document.c
+	(destroy_document), tta/C/main/reader.c (retrieve_reader_descriptor)
+	(txi_new_reader), tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(destroy_document), tta/perl/Texinfo/Document.pm (destroy_document):
+	rename txi_document_remove as txi_destroy_document,
+	txi_handle_parser_error_messages as txi_output_parser_error_messages,
+	txi_handle_document_error_messages as
+	txi_output_document_error_messages,
+	txi_handle_converter_error_messages as
+	txi_output_converter_error_messages, remove_document as
+	destroy_document, retrieve_reader as retrieve_reader_descriptor and
+	txi_reader_new as txi_new_reader.  Update callers.
+
+	* util/swig/texinfo.i: rename to remove txi from names as there is
+	alrady a module name.
+
 2025-07-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),

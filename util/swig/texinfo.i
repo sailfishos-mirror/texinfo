@@ -46,6 +46,8 @@ txi_general_output_strings_setup(0);
 reset_parser (0);
 %}
 
+%rename(setup_paths_information) setup_txi_paths_information;
+
 // document.h
 void setup_txi_paths_information (int texinfo_uninstalled,
                              const char *converterdatadir,
@@ -86,8 +88,9 @@ void parser_conf_set_LOCALE_ENCODING (const char *value);
 void parser_conf_set_COMMAND_LINE_ENCODING (const char *value);
 void parser_conf_set_accept_internalvalue (int value);
 
+%rename(output_parser_error_messages) txi_output_parser_error_messages;
 // texinfo.h
-size_t txi_handle_parser_error_messages (DOCUMENT *document,
+size_t txi_output_parser_error_messages (DOCUMENT *document,
                                   const char *message_encoding=0,
                                   int no_warn=0, int use_filename=0);
 
@@ -120,10 +123,14 @@ void set_document_options (DOCUMENT *document,
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0800
 
+%rename(complete_document) txi_complete_document;
+
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-size_t txi_handle_document_error_messages (DOCUMENT *document,
+%rename(output_document_error_messages) txi_output_document_error_messages;
+
+size_t txi_output_document_error_messages (DOCUMENT *document,
                                     const char *message_encoding=0,
                                     int no_warn=0, int use_filename=0);
 
@@ -164,28 +171,31 @@ ELEMENT *document_global_unique_command (DOCUMENT *document,
 const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
                                                   const char *cmdname);
 
-
-// Tree Element interface
+// Base data structures
 
 // tree_element.h
 
 ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
-int element_list_number (ELEMENT_LIST *element_list);
+int element_list_elements_number (ELEMENT_LIST *element_list);
 
 const ELEMENT *const_element_list_element_by_index (
                                               CONST_ELEMENT_LIST *element_list,
                                               int index);
-int const_element_list_number (CONST_ELEMENT_LIST *element_list);
+int const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
 
 char *string_list_string_by_index (STRING_LIST *string_list, int index);
-int string_list_number (STRING_LIST *string_list);
+int string_list_strings_number (STRING_LIST *string_list);
 
+// tree_types.h
 typedef struct SOURCE_INFO {
     int line_nr;
     char *file_name;
     char *macro;
 } SOURCE_INFO;
 
+// Tree Element interface
+
+// tree_element.h
 const char *element_type (ELEMENT *element);
 const char *element_text (ELEMENT *element);
 const char *element_cmdname (ELEMENT *element);
@@ -213,6 +223,8 @@ const STRING_LIST *element_misc_args (ELEMENT *element);
 // New element and element modification
 
 // tree_element.h
+// is_text_element is used to disambiguate between text element and
+// container element when the type is empty
 ELEMENT *store_new_element (DOCUMENT *document, const char *type_name,
                             const char *command_name, int is_text_element);
 
@@ -273,7 +285,7 @@ SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
 HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
 
 const ELEMENT *node_relation_node_direction (NODE_RELATIONS *node,
-                                              const char *direction);
+                                             const char *direction);
 const SECTION_RELATIONS *section_relation_section_direction (
                                               SECTION_RELATIONS *section,
                                               const char *direction);
@@ -283,6 +295,8 @@ const SECTION_RELATIONS *section_relation_toplevel_direction (
 
 
 // Reader
+
+// reader.h
 
 #define TXI_READER_TOKEN_CAT_LST \
   trt_cat(ELEMENT_START) \
@@ -302,11 +316,16 @@ typedef struct READER_TOKEN {
     enum reader_token_category category;
 } READER_TOKEN;
 
-READER *retrieve_reader (size_t reader_descriptor);
+READER *retrieve_reader_descriptor (size_t reader_descriptor);
+
+%rename(register_new_reader) txi_register_new_reader;
 size_t txi_register_new_reader (ELEMENT *tree, DOCUMENT *document);
 
-READER *txi_reader_new (ELEMENT *tree, DOCUMENT *document);
+%rename(new_reader) txi_new_reader;
+READER *txi_new_reader (ELEMENT *tree, DOCUMENT *document);
 const READER_TOKEN *reader_read (READER *reader);
+
+%rename(reader_skip_children) txi_reader_skip_children;
 const READER_TOKEN *txi_reader_skip_children (READER *reader,
                                               const ELEMENT *element);
 
@@ -323,8 +342,10 @@ reader_read (READER *reader)
 
 // Finish
 
+%rename(destroy_document) txi_destroy_document;
+
 // texinfo.h
 
-void txi_document_remove (DOCUMENT *document);
+void txi_destroy_document (DOCUMENT *document);
 
 

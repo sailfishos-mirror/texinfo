@@ -36,7 +36,7 @@ static size_t reader_number;
 static size_t reader_space;
 
 READER *
-retrieve_reader (size_t reader_descriptor)
+retrieve_reader_descriptor (size_t reader_descriptor)
 {
   if (reader_descriptor <= reader_number
       && reader_list[reader_descriptor -1] != 0)
@@ -72,7 +72,7 @@ initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
 }
 
 READER *
-txi_reader_new (ELEMENT *tree, DOCUMENT *document)
+txi_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   READER *new_reader;
 
@@ -113,7 +113,7 @@ txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
         fatal ("realloc failed");
     }
 
-  reader_list[reader_number] = txi_reader_new (tree, document);
+  reader_list[reader_number] = txi_new_reader (tree, document);
 
   reader_number++;
 
@@ -284,7 +284,7 @@ txi_reader_collect_commands_list (ELEMENT *tree,
 {
   CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
 
-  READER *reader = txi_reader_new (tree, 0);
+  READER *reader = txi_new_reader (tree, 0);
   const READER_TOKEN *next;
 
   while (1)

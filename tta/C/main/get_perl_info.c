@@ -322,7 +322,7 @@ get_sv_reader_reader (SV *sv_in)
   dTHX;
 
   reader_descriptor = (size_t) SvIV (SvRV (sv_in));
-  reader = retrieve_reader (reader_descriptor);
+  reader = retrieve_reader_descriptor (reader_descriptor);
 
   if (! reader)
     {

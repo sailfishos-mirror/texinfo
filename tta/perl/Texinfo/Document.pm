@@ -50,8 +50,8 @@ our $VERSION = '7.2dev';
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
 our %XS_overrides = (
-  "Texinfo::Document::remove_document"
-    => "Texinfo::DocumentXS::remove_document",
+  "Texinfo::Document::destroy_document"
+    => "Texinfo::DocumentXS::destroy_document",
   "Texinfo::Document::set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
   "Texinfo::Document::errors"
@@ -278,7 +278,7 @@ sub get_conf($$)
 }
 
 # do nothing, only the XS override does something.
-sub remove_document($)
+sub destroy_document($)
 {
   my $document = shift;
 }
@@ -1130,8 +1130,8 @@ to a Texinfo parsed document:
 
 =over
 
-=item remove_document($document)
-X<C<remove_document>>
+=item destroy_document($document)
+X<C<destroy_document>>
 
 Release the C data corresponding to I<$document>.
 

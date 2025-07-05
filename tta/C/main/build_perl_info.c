@@ -2534,7 +2534,7 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 #undef STORE
 
   if (no_store)
-    remove_document (document);
+    destroy_document (document);
   else
     {
       hv_store (hv, "document_descriptor", strlen ("document_descriptor"),

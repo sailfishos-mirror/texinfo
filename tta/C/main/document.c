@@ -613,7 +613,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
 }
 
 void
-remove_document (DOCUMENT *document)
+destroy_document (DOCUMENT *document)
 {
   size_t document_descriptor = document->descriptor;
   size_t i;

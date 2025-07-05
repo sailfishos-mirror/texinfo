@@ -105,17 +105,17 @@ CONVERTER_TEXT_INFO *txi_sort_element_counts (const char *external_module,
                                DOCUMENT *document, int use_options,
                                int count_words);
 
-size_t txi_handle_parser_error_messages (DOCUMENT *document,
+size_t txi_output_parser_error_messages (DOCUMENT *document,
                                          const char *message_encoding,
                                          int no_warn, int use_filename);
-size_t txi_handle_document_error_messages (DOCUMENT *document,
+size_t txi_output_document_error_messages (DOCUMENT *document,
                                            const char *message_encoding,
                                            int no_warn, int use_filename);
-size_t txi_handle_converter_error_messages (CONVERTER *converter,
+size_t txi_output_converter_error_messages (CONVERTER *converter,
                                             const char *message_encoding,
                                             int no_warn, int use_filename);
 
-void txi_document_remove (DOCUMENT *document);
+void txi_destroy_document (DOCUMENT *document);
 
 void txi_converter_reset (CONVERTER *converter);
 void txi_converter_destroy (CONVERTER *converter);

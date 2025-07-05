@@ -516,9 +516,9 @@ Some methods allow to release the memory held by C data associated
 to a Texinfo parsed document:
 
 @table @asis
-@item remove_document($document)
-@anchor{Texinfo@asis{::}Document remove_document($document)}
-@cindex @code{remove_document}
+@item destroy_document($document)
+@anchor{Texinfo@asis{::}Document destroy_document($document)}
+@cindex @code{destroy_document}
 
 Release the C data corresponding to @emph{$document}.
 

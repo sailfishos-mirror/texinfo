@@ -93,7 +93,7 @@ element_list_element_by_index (ELEMENT_LIST *element_list, int index)
 }
 
 int
-element_list_number (ELEMENT_LIST *element_list)
+element_list_elements_number (ELEMENT_LIST *element_list)
 {
   return element_list->number;
 }
@@ -115,7 +115,7 @@ const_element_list_element_by_index (CONST_ELEMENT_LIST *element_list,
 }
 
 int
-const_element_list_number (CONST_ELEMENT_LIST *element_list)
+const_element_list_elements_number (CONST_ELEMENT_LIST *element_list)
 {
   return element_list->number;
 }
@@ -136,7 +136,7 @@ string_list_string_by_index (STRING_LIST *string_list, int index)
 }
 
 int
-string_list_number (STRING_LIST *string_list)
+string_list_strings_number (STRING_LIST *string_list)
 {
   return string_list->number;
 }

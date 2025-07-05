@@ -1605,7 +1605,7 @@ sub test($$)
     }
   }
 
-  Texinfo::Document::remove_document($document);
+  Texinfo::Document::destroy_document($document);
 
   return $tests_count;
 }

@@ -72,7 +72,7 @@ COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           const char *collation_language,
                           const char *collation_locale);
 
-void remove_document (DOCUMENT *document);
+void destroy_document (DOCUMENT *document);
 ELEMENT *unregister_document_merge_with_document (DOCUMENT *removed_document,
                                                   DOCUMENT *document);
 

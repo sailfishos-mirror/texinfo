@@ -658,9 +658,9 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 }
 
 void
-txi_document_remove (DOCUMENT *document)
+txi_destroy_document (DOCUMENT *document)
 {
-  remove_document (document);
+  destroy_document (document);
 }
 
 void
@@ -710,7 +710,7 @@ txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
 }
 
 size_t
-txi_handle_parser_error_messages (DOCUMENT *document,
+txi_output_parser_error_messages (DOCUMENT *document,
                                   const char *message_encoding,
                                   int no_warn, int use_filename)
 {
@@ -720,7 +720,7 @@ txi_handle_parser_error_messages (DOCUMENT *document,
 }
 
 size_t
-txi_handle_document_error_messages (DOCUMENT *document,
+txi_output_document_error_messages (DOCUMENT *document,
                                     const char *message_encoding,
                                     int no_warn, int use_filename)
 {
@@ -730,7 +730,7 @@ txi_handle_document_error_messages (DOCUMENT *document,
 }
 
 size_t
-txi_handle_converter_error_messages (CONVERTER *converter,
+txi_output_converter_error_messages (CONVERTER *converter,
                                      const char *message_encoding,
                                      int no_warn, int use_filename)
 {

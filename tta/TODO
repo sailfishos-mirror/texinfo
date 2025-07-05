@@ -92,7 +92,7 @@ It could be more relevant to have accessors instead such that the
 Perl information can be built on demand.
 
 targets API, indices API are missing both in swig and in TreeElementConverter.
-Also maybe an API for output units, for formats using output units.
+Also maybe an API for output units (for formats using output units).
 
 No extra/info taken into account in new_element_from_sv.
 

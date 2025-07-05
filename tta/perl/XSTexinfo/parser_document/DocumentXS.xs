@@ -145,7 +145,7 @@ build_tree (SV *tree_in, ...)
         RETVAL
 
 void
-remove_document (SV *document_in)
+destroy_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -153,7 +153,7 @@ remove_document (SV *document_in)
            document descriptor */
         document = get_sv_document_document (document_in, 0);
         if (document)
-          remove_document (document);
+          destroy_document (document);
 
 void
 document_errors (SV *document_in)

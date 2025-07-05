@@ -7,10 +7,10 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-READER *retrieve_reader (size_t reader_descriptor);
+READER *retrieve_reader_descriptor (size_t reader_descriptor);
 size_t txi_register_new_reader (ELEMENT *tree, DOCUMENT *document);
 
-READER *txi_reader_new (ELEMENT *tree, DOCUMENT *document);
+READER *txi_new_reader (ELEMENT *tree, DOCUMENT *document);
 const READER_TOKEN *txi_reader_read (READER *reader);
 const READER_TOKEN *txi_reader_skip_children (READER *reader,
                                               const ELEMENT *element);
