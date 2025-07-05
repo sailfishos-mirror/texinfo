@@ -1102,7 +1102,8 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
   /* Used to suppress later errors about a node if an error was
      already reported to avoid deluging the user with error
-     messages.  Indexed by 'node_number' extra value (1-based). */
+     messages.  Get the index by subtracting 1 from the 'node_number'
+     extra value. */
   char *node_errors = calloc (nodes_list->number, 1);
 
   /* Check for nodes listed in the wrong menu(s). */
