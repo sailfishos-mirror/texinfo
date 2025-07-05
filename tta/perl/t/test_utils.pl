@@ -1083,8 +1083,6 @@ sub test($$)
 
   Texinfo::Structuring::construct_nodes_tree($document);
 
-  Texinfo::Structuring::set_menus_node_directions($document);
-
   if (not defined($document->get_conf('FORMAT_MENU'))
       or $document->get_conf('FORMAT_MENU') eq 'menu') {
     Texinfo::Structuring::check_node_tree_menu_structure($document);

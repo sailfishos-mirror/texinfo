@@ -68,7 +68,6 @@ our @EXPORT_OK = qw(
   construct_nodes_tree
   number_floats
   sectioning_structure
-  set_menus_node_directions
   warn_non_empty_parts
 );
 
@@ -85,8 +84,6 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::warn_non_empty_parts",
   "Texinfo::Structuring::construct_nodes_tree"
     => "Texinfo::StructTransfXS::construct_nodes_tree",
-  "Texinfo::Structuring::set_menus_node_directions"
-    => "Texinfo::StructTransfXS::set_menus_node_directions",
   "Texinfo::Structuring::complete_node_tree_with_menus"
     => "Texinfo::StructTransfXS::complete_node_tree_with_menus",
   "Texinfo::Structuring::check_node_tree_menu_structure"
@@ -617,8 +614,8 @@ sub check_nodes_are_referenced($)
   }
 }
 
-# set menu_directions
-sub set_menus_node_directions($)
+# Goes through menus and set directions implied by menus.
+sub _set_menus_node_directions($)
 {
   my $document = shift;
 
@@ -767,6 +764,10 @@ sub check_node_tree_menu_structure($)
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
   my $registrar = $document->registrar();
+
+  _set_menus_node_directions($document);
+  # Note: if we stop needing to call _set_menus_node_directions in this
+  # function, we should call it in complete_node_tree_with_menus.
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -2300,9 +2301,8 @@ Texinfo::Structuring - information on Texinfo::Document document structure
   # from the $document by calling the get_conf() method.
   sectioning_structure($document);
   construct_nodes_tree($document);
-  set_menus_node_directions($document);
-  complete_node_tree_with_menus($document);
   check_node_tree_menu_structure($document);
+  complete_node_tree_with_menus($document);
   check_nodes_are_referenced($document);
   associate_internal_references($document);
   number_floats($document->floats_information());
@@ -2315,15 +2315,15 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::Structuring> allows to collect information on a Texinfo
-document structure.  Thanks to C<sectioning_structure> the hierarchy of
-sectioning commands is determined.  The directions implied by menus are
-determined with C<set_menus_node_directions>.  The node tree is analysed
-with C<construct_nodes_tree>.  Nodes directions are completed with
-menu directions with C<complete_node_tree_with_menus>.  Structural checking
-and warning on the consistency of menus and sectioning structure is done
-by C<check_node_tree_menu>.  Floats get their standard numbering with
-C<number_floats> and internal references are matched up with nodes,
-floats or anchors with C<associate_internal_references>.
+document structure.  Thanks to C<sectioning_structure> the hierarchy
+of sectioning commands is determined.  The node tree is analysed
+with C<construct_nodes_tree>.  Structural checking and warning
+on the consistency of menus and sectioning structure is done by
+C<check_node_tree_menu_structure>.  Nodes directions are completed
+with menu directions with C<complete_node_tree_with_menus>.
+Floats get their standard numbering with C<number_floats> and
+internal references are matched up with nodes, floats or anchors
+with C<associate_internal_references>.
 
 =head1 METHODS
 
@@ -2365,7 +2365,16 @@ directions.
 
 =item check_node_tree_menu_structure($document)
 X<C<check_node_tree_menu_structure>>
-Check consistency of menus, sectionning and nodes directions.
+Check consistency of menus, sectioning and nodes directions.
+
+This functions sets, in the node relations hash reference:
+
+=over
+
+=item menu_directions
+
+Hash reference with I<up>, I<next> and I<prev> keys associated to
+elements corresponding to menu directions.
 
 =item @children_nodes = get_node_node_childs_from_sectioning($node_relations)
 X<C<get_node_node_childs_from_sectioning>>
@@ -2498,22 +2507,6 @@ C<@appendix>, not taking into account C<@part> elements.
 
 After calling this function, information on the sectioning tree root
 can be obtained by calling C<< $document->sectioning_root() >>.
-
-=item set_menus_node_directions($document);
-X<C<set_menus_node_directions>>
-
-Goes through menu and set directions implied by menus.
-
-This functions sets, in the node relations hash reference:
-
-=over
-
-=item menu_directions
-
-Hash reference with I<up>, I<next> and I<prev> keys associated to
-elements corresponding to menu directions.
-
-=back
 
 =item warn_non_empty_parts($document)
 X<C<warn_non_empty_parts>>

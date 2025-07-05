@@ -627,8 +627,6 @@ $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  menus:
   subnode
 10|subnode
- menu_directions:
-  up->5 not
 ';
 
 $result_sections_list{'headings_after_lone_nodes'} = '1|top

@@ -1097,6 +1097,10 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
   size_t i;
 
+  set_menus_node_directions (document);
+  /* Note: if we stop needing to call set_menus_node_directions in this
+     function, we should call it in complete_node_tree_with_menus. */
+
   if (nodes_list->number < 1)
     return;
 

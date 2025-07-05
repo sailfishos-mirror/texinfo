@@ -1998,8 +1998,6 @@ while(@input_files) {
     # is never used.
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($document);
-
       Texinfo::Structuring::check_node_tree_menu_structure($document);
       Texinfo::Structuring::complete_node_tree_with_menus($document);
 
