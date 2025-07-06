@@ -636,6 +636,9 @@ check_nodes_are_referenced (DOCUMENT *document)
   else
     referenced_identifiers[0] = "Top";
 
+  /* array of booleans */
+  char *node_in_menu = calloc (1, nodes_list->number);
+
   for (i = 0; i < nodes_list->number; i++)
     {
       const NODE_RELATIONS *node_relations = nodes_list->list[i];
@@ -677,11 +680,22 @@ check_nodes_are_referenced (DOCUMENT *document)
                         = normalized_entry_associated_internal_node (
                                             menu_content, identifiers_target);
                       if (menu_node)
-                        referenced_identifiers =
-                         register_referenced_node (menu_node,
-                                                   referenced_identifiers,
-                                                &referenced_identifier_space,
-                                                &referenced_identifier_number);
+                        {
+                           referenced_identifiers
+                             = register_referenced_node (menu_node,
+                                 referenced_identifiers,
+                                 &referenced_identifier_space,
+                                 &referenced_identifier_number);
+
+                           int status;
+                           size_t menu_node_number
+                            = lookup_extra_integer (menu_node,
+                                AI_key_node_number, &status);
+                           if (status >= 0)
+                             {
+                               node_in_menu[menu_node_number - 1] = 1;
+                             }
+                        }
                     }
                 }
             }
@@ -802,6 +816,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   if (!check_node_in_menu && all_nodes_are_referenced)
     {
       free (referenced_identifiers);
+      free (node_in_menu);
       return;
     }
 
@@ -843,10 +858,8 @@ check_nodes_are_referenced (DOCUMENT *document)
                  = (arguments_line->e.c->contents.number <= 1);
               const SECTION_RELATIONS *associated_section_relations
                 = node_relations->associated_section;
-              const ELEMENT * const *menu_directions
-                = node_relations->menu_directions;
               if (! ((associated_section_relations && automatic_directions)
-                     || (menu_directions && menu_directions[D_up])))
+                     || node_in_menu[i]))
                 {
                   char *node_texi = target_element_to_texi_label (node);
                   message_list_command_warn (error_messages,
@@ -865,6 +878,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                nr_nodes_to_find, referenced_identifier_number, nr_not_found);
     }
   free (referenced_identifiers);
+  free (node_in_menu);
 }
 
 /* set menu_directions */

@@ -1,5 +1,15 @@
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No use of menu_directions in check_nodes_are_referenced
+
+	* tta/C/structuring_transfo/structuring.c (check_nodes_are_referenced),
+	* tta/perl/Texinfo/Structuring.pm (check_nodes_are_referenced):
+	Keep track of what nodes appeared in menus when finding references
+	to nodes.  Then use this for "node `%s' not in menu" message rather
+	than checking "up" in menu_directions.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: new ChangeLog after next release.
 
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>

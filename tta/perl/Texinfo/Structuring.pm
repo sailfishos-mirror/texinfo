@@ -532,6 +532,7 @@ sub check_nodes_are_referenced($)
   $top_node = $nodes_list->[0]->{'element'} if (!$top_node);
 
   my %referenced_nodes = ($top_node => 1);
+  my %referenced_in_menus = ();
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
     # gather referenced nodes based on node pointers
@@ -547,7 +548,8 @@ sub check_nodes_are_referenced($)
     }
     if ($node_relations->{'menus'}) {
       _register_menu_node_targets($identifier_target, $node_relations,
-                                 \%referenced_nodes);
+                                 \%referenced_in_menus);
+      %referenced_nodes = (%referenced_nodes, %referenced_in_menus);
     } else {
       # If an automatic menu can be setup, consider that all
       # the nodes appearing in the automatic menu are referenced.
@@ -600,10 +602,9 @@ sub check_nodes_are_referenced($)
         my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions
           = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-        my $menu_directions = $node_relations->{'menu_directions'};
         if (not (($node_relations->{'associated_section'}
                   and $automatic_directions)
-                 or ($menu_directions and $menu_directions->{'up'}))) {
+                 or $referenced_in_menus{$node})) {
           $registrar->line_warn(sprintf(__("node `%s' not in menu"),
                                         target_element_to_texi_label($node)),
                                $node->{'source_info'}, 0,
