@@ -12,6 +12,8 @@ int element_children_number (ELEMENT *element);
 ELEMENT *element_get_child (ELEMENT *element, int index);
 ELEMENT *element_parent (ELEMENT *element);
 SOURCE_INFO *element_source_info (ELEMENT *element);
+int element_source_marks_number (ELEMENT *element);
+SOURCE_MARK *element_get_source_mark (ELEMENT *element, int index);
 
 ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
 int element_list_elements_number (ELEMENT_LIST *element_list);

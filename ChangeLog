@@ -28,6 +28,13 @@
 
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/swig_interface.c, util/swig/texinfo.i: add source
+	marks.
+
+	Improve util/swig/perl/ distribution.
+
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
 	* util/swig/Makefile.am (BUILT_SOURCES, perl/perl_texinfo_wrap.c),
 	util/swig/perl/Makefile.PL, util/swig/perl/t/01use.t,
 	util/swig/perl/test_Texinfo.pl: preliminary Perl extension module

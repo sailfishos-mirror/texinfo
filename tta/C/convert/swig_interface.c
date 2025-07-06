@@ -74,15 +74,6 @@ element_cmdname (ELEMENT *element)
   return 0;
 }
 
-int
-element_children_number (ELEMENT *element)
-{
-  if (type_data[element->type].flags & TF_text)
-    return 0;
-
-  return element->e.c->contents.number;
-}
-
 ELEMENT *
 element_list_element_by_index (ELEMENT_LIST *element_list, int index)
 {
@@ -147,6 +138,15 @@ string_list_strings_number (STRING_LIST *string_list)
   return string_list->number;
 }
 
+int
+element_children_number (ELEMENT *element)
+{
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+
+  return element->e.c->contents.number;
+}
+
 ELEMENT *
 element_get_child (ELEMENT *element, int index)
 {
@@ -154,6 +154,32 @@ element_get_child (ELEMENT *element, int index)
     return 0;
 
   return element_list_element_by_index (&element->e.c->contents, index);
+}
+
+int
+element_source_marks_number (ELEMENT *element)
+{
+  if (element->source_mark_list)
+    return element->source_mark_list->number;
+
+  return 0;
+}
+
+SOURCE_MARK *
+element_get_source_mark (ELEMENT *element, int index)
+{
+  SOURCE_MARK_LIST *source_mark_list = element->source_mark_list;
+
+  if (source_mark_list && source_mark_list->number == 0)
+    return 0;
+
+  if (index < 0)
+    index = (int) source_mark_list->number - index;
+
+  if (index < 0 || (size_t) index >= source_mark_list->number)
+    return 0;
+
+  return source_mark_list->list[index];
 }
 
 ELEMENT *

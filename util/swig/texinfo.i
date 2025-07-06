@@ -237,6 +237,41 @@ typedef struct SOURCE_INFO {
     char *macro;
 } SOURCE_INFO;
 
+#define SM_TYPES_LIST \
+   sm_type(include) \
+   sm_type(setfilename) \
+   sm_type(delcomment) \
+   sm_type(defline_continuation) \
+   sm_type(macro_expansion) \
+   sm_type(linemacro_expansion) \
+   sm_type(value_expansion) \
+   sm_type(ignored_conditional_block) \
+   sm_type(expanded_conditional_command) \
+
+enum source_mark_type {
+   SM_type_none,
+  #define sm_type(name) SM_type_ ## name,
+   SM_TYPES_LIST
+  #undef sm_type
+};
+
+enum source_mark_status {
+   SM_status_none,
+   SM_status_start,
+   SM_status_end,
+};
+
+typedef struct SOURCE_MARK {
+    enum source_mark_type type;
+    enum source_mark_status status;
+    size_t position;
+    int counter;
+    struct ELEMENT *element; /* needed for elements removed
+                                from the tree */
+    char *line;  /* used when the information is not available as
+                    an element, for DEL comments, for instance */
+} SOURCE_MARK;
+
 // Tree Element interface
 
 // swig_interface.h
@@ -247,6 +282,8 @@ int element_children_number (ELEMENT *element);
 ELEMENT *element_get_child (ELEMENT *element, int index);
 ELEMENT *element_parent (ELEMENT *element);
 SOURCE_INFO *element_source_info (ELEMENT *element);
+int element_source_marks_number (ELEMENT *element);
+SOURCE_MARK *element_get_source_mark (ELEMENT *element, int index);
 
 // TODO would be better to return None/NULL if not set and
 // a value otherwise, but may not be portable across languages.

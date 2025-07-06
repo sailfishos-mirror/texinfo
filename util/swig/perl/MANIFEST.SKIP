@@ -1,0 +1,18 @@
+
+# Begin standard Module::Manifest::Skip list:
+
+# ExtUtils::MakeMaker
+^blib/
+^blibdirs$
+^blibdirs\.ts$
+^bpm_to_blib\.ts$
+^Makefile$
+^Makefile\.old$
+^MakeMaker-\d
+^MANIFEST\.bak$
+^MANIFEST\.SKIP$
+^MYMETA\.
+^pm_to_blib$
+^pod2htm.*
+^perl_texinfo_wrap\.o$
+^Texinfo-.*\.tar\.gz$
