@@ -595,6 +595,29 @@ compare_strings (const void *a, const void *b)
   return strcmp (*str_a, *str_b);
 }
 
+static NODE_RELATIONS *
+node_relations_of_node (const ELEMENT *node,
+                        const NODE_RELATIONS_LIST *nodes_list)
+{
+  int status;
+  size_t node_number = lookup_extra_integer (node,
+       AI_key_node_number, &status);
+  if (status < 0)
+    return NULL;
+  return nodes_list->list[node_number -1];
+}
+
+static size_t
+node_number_of_node (const ELEMENT *node, int *status)
+{
+  int our_status;
+  size_t node_number = lookup_extra_integer (node,
+       AI_key_node_number, &our_status);
+  if (status)
+    *status = our_status;
+  return node_number;
+}
+
 void
 check_nodes_are_referenced (DOCUMENT *document)
 {
@@ -689,12 +712,9 @@ check_nodes_are_referenced (DOCUMENT *document)
 
                            int status;
                            size_t menu_node_number
-                            = lookup_extra_integer (menu_node,
-                                AI_key_node_number, &status);
+                            = node_number_of_node (menu_node, &status);
                            if (status >= 0)
-                             {
-                               node_in_menu[menu_node_number - 1] = 1;
-                             }
+                             node_in_menu[menu_node_number - 1] = 1;
                         }
                     }
                 }
@@ -976,12 +996,9 @@ set_menus_node_directions (DOCUMENT *document)
                                   if (menu_node
                                       && menu_node->e.c->cmd == CM_node)
                                     {
-                                      int status;
-                                      size_t menu_node_number
-                                       = lookup_extra_integer (menu_node,
-                                           AI_key_node_number, &status);
                                       menu_node_relations
-                                        = nodes_list->list[menu_node_number -1];
+                                       = node_relations_of_node
+                                           (menu_node, nodes_list);
 
                                       if (!menu_node_relations->menu_directions)
                                         menu_node_relations->menu_directions
@@ -1173,10 +1190,8 @@ check_node_tree_menu_structure (DOCUMENT *document)
                             if (menu_node
                                 && menu_node->e.c->cmd == CM_node)
                               {
-                                int status;
                                 size_t menu_node_number
-                                 = lookup_extra_integer (menu_node,
-                                     AI_key_node_number, &status);
+                                  = node_number_of_node (menu_node, NULL);
                                 menu_node_relations
                                   = nodes_list->list[menu_node_number -1];
 
@@ -1315,8 +1330,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
                   int status;
                   const int menu_node_element_number
-                    = lookup_extra_integer (menu_node, AI_key_node_number,
-                                            &status);
+                    = node_number_of_node (menu_node, &status);
                   if (status < 0)
                     continue; /* not defined if @anchor or @namedanchor */
 
@@ -1521,10 +1535,8 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                 up_texi, node_texi);
                         free (up_texi);
                         free (node_texi);
-                        int status;
                         const int node_number
-                          = lookup_extra_integer (node, AI_key_node_number,
-                                                  &status);
+                          = node_number_of_node (node, NULL);
                         node_errors[node_number - 1] = 1;
                       }
                   }
@@ -1622,10 +1634,8 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
 
   if (automatic_directions)
     {
-      int status;
       const ELEMENT *top_node_next = 0;
-      size_t top_node_number
-        = lookup_extra_integer (top_node, AI_key_node_number, &status);
+      size_t top_node_number = node_number_of_node (top_node, NULL);
       NODE_RELATIONS *node_relations = nodes_list->list[top_node_number -1];
 
       const SECTION_RELATIONS *associated_relations
@@ -1704,8 +1714,7 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
           if (next_automatic_directions)
             {
               size_t next_node_number
-                = lookup_extra_integer (top_node_next,
-                                        AI_key_node_number, &status);
+                = node_number_of_node (top_node_next, NULL);
               /* keep if different from Top node and after Top node */
               if (next_node_number > top_node_number)
                 {
@@ -2412,8 +2421,6 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 {
   ELEMENT_LIST *master_menu_contents;
   CONST_ELEMENT_LIST *menus;
-  int status;
-  size_t node_number;
   const NODE_RELATIONS *node_relations;
 
   CONST_ELEMENT_LIST *node_menus;
@@ -2426,9 +2433,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 
   master_menu_contents = new_list ();
 
-  node_number
-    = lookup_extra_integer (node, AI_key_node_number, &status);
-  node_relations = nodes_list->list[node_number -1];
+  node_relations = node_relations_of_node (node, nodes_list);
   node_menus = node_relations->menus;
 
   if (node_menus && node_menus->number > 0)
@@ -2481,11 +2486,8 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
     {
       const ELEMENT *node_name_element;
       ELEMENT *node_title_copy;
-      int status;
-      size_t node_number
-       = lookup_extra_integer (node, AI_key_node_number, &status);
       const NODE_RELATIONS *node_relations
-       = nodes_list->list[node_number -1];
+        = node_relations_of_node (node, nodes_list);
       int new_up_nodes = 0;
       if (node_relations->associated_section)
         {

@@ -1,5 +1,14 @@
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/structuring_transfo/structuring.c
+	(node_relations_of_node, node_number_of_node): New functions.
+
+	(check_nodes_are_referenced, set_menus_node_directions)
+	(check_node_tree_menu_structure, set_top_node_next, print_down_menus):
+	Use them.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	No use of menu_directions in check_nodes_are_referenced
 
 	* tta/C/structuring_transfo/structuring.c (check_nodes_are_referenced),
