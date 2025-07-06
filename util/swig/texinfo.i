@@ -185,7 +185,7 @@ get_element_by_identifier (DOCUMENT *document, const char *identifier)
 }
 %}
 
-// tree_element.h
+// swig_interface.h
 ELEMENT *document_global_unique_command (DOCUMENT *document,
                                          const char *cmdname);
 const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
@@ -217,7 +217,7 @@ FLOAT_INFORMATION_LIST *get_float_type_floats_information (
 
 // Base data structures
 
-// tree_element.h
+// swig_interface.h
 
 ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
 int element_list_elements_number (ELEMENT_LIST *element_list);
@@ -239,7 +239,7 @@ typedef struct SOURCE_INFO {
 
 // Tree Element interface
 
-// tree_element.h
+// swig_interface.h
 const char *element_type (ELEMENT *element);
 const char *element_text (ELEMENT *element);
 const char *element_cmdname (ELEMENT *element);
@@ -266,7 +266,7 @@ const STRING_LIST *element_misc_args (ELEMENT *element);
 
 // New element and element modification
 
-// tree_element.h
+// swig_interface.h
 // is_text_element is used to disambiguate between text element and
 // container element when the type is empty
 ELEMENT *store_new_element (DOCUMENT *document, const char *type_name,
@@ -290,7 +290,7 @@ void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 
 // Data structures
 
-// tree_element.h
+// swig_interface.h
 SECTION_RELATIONS *section_relation_list_section_relation_by_index (
                 SECTION_RELATIONS_LIST *section_relation_list, int index);
 int section_relation_list_section_relations_number (

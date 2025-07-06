@@ -1,8 +1,9 @@
-/* tree_element.h - declarations for tree_element.c */
-#ifndef TREE_ELEMENT_H
-#define TREE_ELEMENT_H
+/* swig_interface.h - declarations for swig_interface.c */
+#ifndef SWIG_INTERFACE_H
+#define SWIG_INTERFACE_H
 
 #include "tree_types.h"
+#include "document_types.h"
 
 const char *element_type (ELEMENT *element);
 const char *element_text (ELEMENT *element);

@@ -13,8 +13,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-/* abstractions useful to setup interfaces.  Functions directly useful
-   should not be in this file, but in tree.c or utils.c */
+/* abstractions useful to setup interfaces, in practice the SWIG interface
+   in util/swig/texinfo.i.  The functions defined here should not be used
+   in texi2any.c nor in Perl XS interfaces used in texi2any.  Functions
+   directly useful should not be in this file, but, for example in tree.c
+   or utils.c.  Therefore, if a function here become used in texi2any it
+   should be moved elsewhere.
+ */
 
 #include <config.h>
 
