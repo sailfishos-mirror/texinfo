@@ -17,6 +17,11 @@
 
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
+	* util/swig/texinfo.i: avoid char * memory leaks with %newobject.
+	Add tree_print_details.
+
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/swig_interface.c, util/swig/texinfo.i: add source
 	marks.
 

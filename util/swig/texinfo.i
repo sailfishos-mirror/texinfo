@@ -30,10 +30,11 @@
 #include "tree.h"
 #include "targets.h"
 #include "utils.h"
+#include "convert_to_texinfo.h"
+#include "manipulate_tree.h"
 #include "document.h"
 #include "manipulate_indices.h"
 #include "reader.h"
-#include "convert_to_texinfo.h"
 #include "texinfo.h"
 #include "swig_interface.h"
 %}
@@ -458,8 +459,9 @@ void txi_destroy_document (DOCUMENT *document);
 // Conversion
 
 // convert_to_texinfo.h
-// FIXME return values are never free'd
+%newobject convert_to_texinfo;
 char *convert_to_texinfo (const ELEMENT *e);
+%newobject convert_contents_to_texinfo;
 char *convert_contents_to_texinfo (const ELEMENT *e);
 
 
@@ -471,5 +473,10 @@ ELEMENT *get_label_element (const ELEMENT *e);
 // manipulate_indices.h
 ELEMENT *index_content_element (const ELEMENT *element,
                                 int prefer_reference_element=0);
+
+// manipulate_tree.h
+%newobject tree_print_details;
+char *tree_print_details (ELEMENT *tree, const char *fname_encoding=0,
+                          int use_filename=0);
 
 // TODO add a wrapper around new_complete_menu_master_menu?
