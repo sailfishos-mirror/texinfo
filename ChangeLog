@@ -1,3 +1,10 @@
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/swig_interface.c, util/swig/texinfo.i: add source
+	marks.
+
+	Improve util/swig/perl/ distribution.
+
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/structuring_transfo/structuring.c
@@ -25,13 +32,6 @@
 
 	* tta/C/structuring_transfo/structuring.c (set_menus_node_directions):
 	Declare as static.
-
-2025-07-06 Patrice Dumas  <pertusus@free.fr>
-
-	* tta/C/convert/swig_interface.c, util/swig/texinfo.i: add source
-	marks.
-
-	Improve util/swig/perl/ distribution.
 
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
