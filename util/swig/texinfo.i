@@ -32,10 +32,10 @@
 #include "utils.h"
 #include "document.h"
 #include "manipulate_indices.h"
-#include "tree_element.h"
 #include "reader.h"
 #include "convert_to_texinfo.h"
 #include "texinfo.h"
+#include "swig_interface.h"
 %}
 
 // Initialization

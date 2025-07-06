@@ -1,5 +1,19 @@
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
+	Move SWIG C interface part to libtexinfo-main
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources),
+	tta/C/convert/swig_interface.c, tta/C/convert/swig_interface.h,
+	util/swig/Makefile.am (_Texinfo_la_SOURCES), util/swig/texinfo.i:
+	rename tree_element.c as swig_interface.c, move to tta/C/convert/ and
+	build as part of libtexinfo-main.
+
+	* tta/C/convert/swig_interface.c (get_node_relations)
+	(get_section_relations, get_heading_relations): cast int to size_t
+	before doing a comparison.
+
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm: fix POD.
 
 2025-07-06 Patrice Dumas  <pertusus@free.fr>

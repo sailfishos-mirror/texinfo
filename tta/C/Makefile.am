@@ -476,13 +476,9 @@ libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 #libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS)
 
 
-############################################### main program library
-# loads interpreter and provides a high level API for the main program.
-
-# NOTE libtexinfo-main.la could also be a convenience library or linked
-# statically in the main programs, as there is no shared state among modules.
-# In that case, libperlembed_libtexinfo_main.la would still need to be
-# a convenience library.
+################################ main program and swig interface library
+# loads interpreter and provides a high level API for the main program
+# and SWIG interface.
 
 # NOTE we build libtexinfo-main.la even if PERL_EMBEDDED is not set as some
 # code in libtexinfo-main do not directly need a Perl interpreter.
@@ -530,6 +526,8 @@ endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 C_libtexinfo_main_sources = \
+                       convert/swig_interface.c \
+                       convert/swig_interface.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

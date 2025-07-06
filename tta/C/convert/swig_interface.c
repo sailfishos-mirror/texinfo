@@ -32,7 +32,7 @@
 #include "utils.h"
 #include "builtin_commands.h"
 #include "document.h"
-#include "tree_element.h"
+#include "swig_interface.h"
 
 const char *
 element_type (ELEMENT *element)
@@ -569,7 +569,7 @@ get_node_relations (ELEMENT *element, DOCUMENT *document)
     return 0;
 
   node_number = lookup_extra_integer (element, AI_key_node_number, &status);
-  if (node_number > 0 && node_number <= nodes_list->number)
+  if (node_number > 0 && (size_t) node_number <= nodes_list->number)
     return nodes_list->list[node_number -1];
 
   return 0;
@@ -592,7 +592,7 @@ get_section_relations (ELEMENT *element, DOCUMENT *document)
 
   section_number
     = lookup_extra_integer (element, AI_key_section_number, &status);
-  if (section_number > 0 && section_number <= sections_list->number)
+  if (section_number > 0 && (size_t) section_number <= sections_list->number)
     return sections_list->list[section_number -1];
 
   return 0;
@@ -613,7 +613,7 @@ get_heading_relations (ELEMENT *element, DOCUMENT *document)
 
   heading_number
     = lookup_extra_integer (element, AI_key_heading_number, &status);
-  if (heading_number > 0 && heading_number <= headings_list->number)
+  if (heading_number > 0 && (size_t) heading_number <= headings_list->number)
     return headings_list->list[heading_number -1];
 
   return 0;

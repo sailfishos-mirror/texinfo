@@ -23,20 +23,16 @@ BUILT_SOURCES = Texinfo.py python_texinfo_wrap.c
 $(srcdir)/python_texinfo_wrap.c: $(srcdir)/texinfo.i
 	$(SWIG) $(AX_SWIG_PYTHON_OPT) -o $@ $<
 
+# swig -perl -outdir perl -o perl/perl_texinfo_wrap.c texinfo.i
+
 # Ask autotools to install the generated Python file
 python_PYTHON = Texinfo.py
 # This is the Python module
 pyexec_LTLIBRARIES = _Texinfo.la
-_Texinfo_la_SOURCES = python_texinfo_wrap.c tree_element.c
+_Texinfo_la_SOURCES = python_texinfo_wrap.c
 
-# -module tells libtool we don't need a 'lib' prefix
 _Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
-
-# One point of this example is to have the Python module
-# link to another library
 _Texinfo_la_LIBADD = $(top_builddir)/../../tta/C/libtexinfo.la $(top_builddir)/../../tta/C/libtexinfo-main.la $(platform_PERL_LIBADD)
-
-# -I$(srcdir)/src is for src/example.h
 _Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/../../tta/C/main -I$(srcdir)/../../tta/C/parsetexi -I$(srcdir)/../../tta/C/convert ${PYTHON_CPPFLAGS}
 
 clean-local:

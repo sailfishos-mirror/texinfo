@@ -38,7 +38,5 @@ In addition to the build system, this distribution includes the following
 files:
     README                 This file.
     texinfo.i              The SWIG interface file.
-    tree_element.c         Wrappers used in texinfo.i.
-    tree_element.h
     test_Texinfo.py        Example of use of the Python interface
 
