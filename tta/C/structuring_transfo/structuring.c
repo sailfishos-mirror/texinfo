@@ -1549,15 +1549,15 @@ check_node_tree_menu_structure (DOCUMENT *document)
   if (!options
       || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
     {
+      const ELEMENT *top_node = find_identifier_target (identifiers_target,
+                                                        "Top");
       for (i = 0; i < nodes_list->number; i++)
         {
           if (node_errors[i])
             continue;
           NODE_RELATIONS *node_relations = nodes_list->list[i];
           const ELEMENT *node = node_relations->element;
-          const char *normalized
-            = lookup_extra_string (node, AI_key_normalized);
-          if (!strcmp (normalized, "Top"))
+          if (node == top_node)
             continue;
 
           const ELEMENT * const *node_directions
@@ -1566,47 +1566,48 @@ check_node_tree_menu_structure (DOCUMENT *document)
           const ELEMENT *arguments_line = node->e.c->contents.list[0];
           int automatic_directions
             = (arguments_line->e.c->contents.number <= 1);
+          if (automatic_directions)
+            continue;
           const ELEMENT * const *menu_directions
             = node_relations->menu_directions;
-          if (!automatic_directions)
-            if (node_directions && menu_directions)
-              {
-                size_t d;
-                for (d = 0; d < directions_length; d++)
-                  {
-                    if (node_directions[d]
-                        && menu_directions[d]
-                        && node_directions[d]
-                             != menu_directions[d])
-                      {
-                        const ELEMENT *menu_direction
-                         = menu_directions[d];
-                        const ELEMENT *menu_dir_manual_content
-                         = lookup_extra_container (menu_direction,
-                                                   AI_key_manual_content);
-                        const ELEMENT *node_dir_manual_content
-                         = lookup_extra_container (node_directions[d],
-                                                   AI_key_manual_content);
-                        if (!menu_dir_manual_content && !node_dir_manual_content)
-                          {
-                            char *node_texi = target_element_to_texi_label (node);
-                            char *dir_texi = target_element_to_texi_label
-                                              (node_directions[d]);
-                            char *menu_dir_texi
-                               = target_element_to_texi_label (menu_direction);
-                            message_list_command_warn (error_messages,
-                               (options && options->DEBUG.o.integer > 0),
-                                             node, 0,
-                      "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
-                                             direction_names[d], node_texi,
-                                             dir_texi, direction_names[d],
-                                             menu_dir_texi);
-                            free (node_texi);
-                            free (dir_texi);
-                            free (menu_dir_texi);
-                          }
-                      }
-                  }
+          if (node_directions && menu_directions)
+            {
+              size_t d;
+              for (d = 0; d < directions_length; d++)
+                {
+                  if (node_directions[d]
+                      && menu_directions[d]
+                      && node_directions[d]
+                           != menu_directions[d])
+                    {
+                      const ELEMENT *menu_direction
+                       = menu_directions[d];
+                      const ELEMENT *menu_dir_manual_content
+                       = lookup_extra_container (menu_direction,
+                                                 AI_key_manual_content);
+                      const ELEMENT *node_dir_manual_content
+                       = lookup_extra_container (node_directions[d],
+                                                 AI_key_manual_content);
+                      if (!menu_dir_manual_content && !node_dir_manual_content)
+                        {
+                          char *node_texi = target_element_to_texi_label (node);
+                          char *dir_texi = target_element_to_texi_label
+                                            (node_directions[d]);
+                          char *menu_dir_texi
+                             = target_element_to_texi_label (menu_direction);
+                          message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                                           node, 0,
+                    "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                                           direction_names[d], node_texi,
+                                           dir_texi, direction_names[d],
+                                           menu_dir_texi);
+                          free (node_texi);
+                          free (dir_texi);
+                          free (menu_dir_texi);
+                        }
+                    }
+                }
               }
         }
     }

@@ -1,3 +1,11 @@
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure): Look up "Top" node before
+	iterating over nodes to avoid checking normalized node name
+	every time.  Use a "continue" statement to exdent a conditional block.
+
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/swig_interface.c, util/swig/texinfo.i: add source
