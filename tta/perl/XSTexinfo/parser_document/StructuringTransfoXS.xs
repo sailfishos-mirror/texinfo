@@ -185,16 +185,6 @@ warn_non_empty_parts (SV *document_in)
           warn_non_empty_parts (document);
 
 void
-set_menus_node_directions (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                             "set_menus_node_directions");
-        if (document)
-          set_menus_node_directions (document);
-
-void
 complete_node_tree_with_menus (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
