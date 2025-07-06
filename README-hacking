@@ -614,6 +614,8 @@ news item at savannah.
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
 until it's time to do pretests again.
 
+archive ChangeLog to ChangeLog.73, and delete this note.
+
 see "Post-release:" section in TODO file.  delete this note once done.
 -------------------------------------------------------------------------
 

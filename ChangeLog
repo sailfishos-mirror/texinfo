@@ -1,5 +1,9 @@
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: new ChangeLog after next release.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/structuring_transfo/structuring.c (set_menus_node_directions):
 	Declare as static.
 
