@@ -30,3 +30,5 @@ clean-local:
 	rm -rf __pycache__
 
 EXTRA_DIST = test_Texinfo.py
+
+MAINTAINERCLEANFILES = Texinfo.py
