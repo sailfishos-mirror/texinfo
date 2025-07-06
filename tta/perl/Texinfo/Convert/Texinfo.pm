@@ -244,7 +244,15 @@ sub _convert_to_texinfo($)
                     and $element->{'type'} eq 'arguments_line'));
 
   if (defined($element->{'text'})) {
+    if ($element->{'type'}
+        and $element->{'type'} eq 'bracketed_linemacro_arg') {
+      $result .= '{';
+    }
     $result .= $element->{'text'};
+    if ($element->{'type'}
+        and $element->{'type'} eq 'bracketed_linemacro_arg') {
+      $result .= '}';
+    }
   } else {
     if (defined($element->{'cmdname'})) {
       my $cmdname = $element->{'cmdname'};
@@ -327,8 +335,7 @@ sub _convert_to_texinfo($)
       }
     } else {
       if ($element->{'type'}
-          and ($element->{'type'} eq 'bracketed_arg'
-               or $element->{'type'} eq 'bracketed_linemacro_arg')) {
+          and $element->{'type'} eq 'bracketed_arg') {
         $result .= '{';
       } elsif ($element->{'type'}
                and ($element->{'type'} eq 'macro_call'
@@ -370,8 +377,7 @@ sub _convert_to_texinfo($)
       $result .= _convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if ($element->{'type'}
-                       and ($element->{'type'} eq 'bracketed_arg'
-                            or $element->{'type'} eq 'bracketed_linemacro_arg'));
+                       and $element->{'type'} eq 'bracketed_arg');
   }
   return $result;
 }

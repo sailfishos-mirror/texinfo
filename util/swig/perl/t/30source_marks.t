@@ -17,7 +17,7 @@
 
 use strict;
 
-use Test::More; 
+use Test::More;
 
 plan tests => 2;
 
@@ -35,12 +35,32 @@ then \a\ and \b\.
 OO \gg\
 @end macro
 
+@linemacro lm {one}
+\one\bullet{}
+@end linemacro
+
+@linemacro defbuiltin {symbol, rest}
+@defline \symbol\ f r
+@defline expand Builtin and \rest\
+@end linemacro
+
 View @value{myval}.  And @do {mine, yours } .
 Cmd @code{@value{myval}}, @footnote{@do{ feet , foot}}
 
 @onearg the arg
 
 text before @onearg  another arg@comment am I there?
+
+@lm @
+
+@defblock
+@defbuiltin {my foo} a last {} arg{ument}
+
+@defbuiltin {my foo} {} {}
+
+@defbuiltin {my foo} {second arg} remaining on {line}
+@end defblock
+
 ');
 
 Texinfo::output_parser_error_messages($document);
@@ -69,7 +89,7 @@ foreach my $type ($Texinfo::SM_type_defline_continuation,
  $Texinfo::SM_type_value_expansion,
  $Texinfo::SM_type_ignored_conditional_block,
  $Texinfo::SM_type_expanded_conditional_command) {
-  $expanded_source_mark_types{$type} = 1; 
+  $expanded_source_mark_types{$type} = 1;
 }
 
 #my $v = Texinfo::READER_TOKEN->new();

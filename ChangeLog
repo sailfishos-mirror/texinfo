@@ -18,6 +18,15 @@
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
+	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo): handle
+	bracketed_linemacro_arg type with text elements, as it is a text
+	element.
+
+	* util/swig/perl/t/30source_marks.t: add @linemacro calls test.
+
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
 	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo): output the
 	user-defined macro name, braces and comma when expanding a
 	user-defined macro call (only appearing in source marks).

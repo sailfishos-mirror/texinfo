@@ -70,8 +70,12 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     {}
   else if (type_data[e->type].flags & TF_text)
     {
+      if (e->type == ET_bracketed_linemacro_arg)
+        ADD("{");
       if (e->e.text->end > 0)
         ADD(e->e.text->text);
+      if (e->type == ET_bracketed_linemacro_arg)
+        ADD("}");
     }
   else
     {
@@ -195,8 +199,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
         }
       else
         {
-          if (e->type == ET_bracketed_arg
-              || e->type == ET_bracketed_linemacro_arg)
+          if (e->type == ET_bracketed_arg)
             ADD("{");
           else if (type_data[e->type].flags & TF_macro_call)
             {
@@ -242,7 +245,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             convert_to_texinfo_internal (elt, result);
         }
 
-      if (e->type == ET_bracketed_arg || e->type == ET_bracketed_linemacro_arg)
+      if (e->type == ET_bracketed_arg)
         ADD("}");
     }
 
