@@ -53,8 +53,8 @@ def sectioning_command_output(element):
     return result
 
 if __name__ == '__main__':
-    #input_file_name = '../../doc/texinfo.texi'
-    input_file_name = '../../tta/perl/t/input_files/simplest.texi'
+    input_file_name = '../../../doc/texinfo.texi'
+    #input_file_name = '../../../tta/perl/t/input_files/simplest.texi'
     if len(sys.argv) - 1  > 0:
         input_file_name = sys.argv[1]
     input_dir = os.path.dirname(input_file_name)

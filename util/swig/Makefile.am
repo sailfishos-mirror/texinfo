@@ -10,32 +10,13 @@
 
 ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../../tta/m4
 
-AM_CPPFLAGS = -DDATADIR=\"$(datadir)\"
+SUBDIRS = . python
 
-$(top_builddir)/../tta/C/libtexinfo.la:
-	cd $(top_builddir)/../../tta/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
-
-$(top_builddir)/../tta/C/libtexinfo-main.la:
-	cd $(top_builddir)/../../tta/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
-
-BUILT_SOURCES = Texinfo.py python_texinfo_wrap.c
+BUILT_SOURCES = python/python_texinfo_wrap.c
 # tell Make how to create the generated SWIG files
-$(srcdir)/python_texinfo_wrap.c: $(srcdir)/texinfo.i
-	$(SWIG) $(AX_SWIG_PYTHON_OPT) -o $@ $<
+$(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i
+	$(SWIG) $(AX_SWIG_PYTHON_OPT) -outdir $(srcdir)/python -o $@ $<
 
 # swig -perl -outdir perl -o perl/perl_texinfo_wrap.c texinfo.i
-
-# Ask autotools to install the generated Python file
-python_PYTHON = Texinfo.py
-# This is the Python module
-pyexec_LTLIBRARIES = _Texinfo.la
-_Texinfo_la_SOURCES = python_texinfo_wrap.c
-
-_Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
-_Texinfo_la_LIBADD = $(top_builddir)/../../tta/C/libtexinfo.la $(top_builddir)/../../tta/C/libtexinfo-main.la $(platform_PERL_LIBADD)
-_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/../../tta/C/main -I$(srcdir)/../../tta/C/parsetexi -I$(srcdir)/../../tta/C/convert ${PYTHON_CPPFLAGS}
-
-clean-local:
-	rm -rf __pycache__
 
 EXTRA_DIST = README texinfo.i

@@ -51,5 +51,6 @@ LT_INIT
 AC_PROG_CC
 
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([python/Makefile])
 
 AC_OUTPUT

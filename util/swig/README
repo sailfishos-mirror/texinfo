@@ -24,19 +24,13 @@ The build system can be bootstrapped by calling
 ./autogen.sh
 
 Libtool hides the generated binary objects in the .libs directory.  Therefore
-to find the Python module extensions, you can add the .libs directory to
-PYTHONPATH.  For example, with bash:
+to find the Python module extensions from the python/ subdirectory, you can
+add the .libs directory to PYTHONPATH.  For example, with bash:
 
 $ export PYTHONPATH=.libs
 
-To find the libraries, you can call libtool to run Python codes that
-import the Texinfo module:
-
-$ libtool exec ./test_Texinfo.py
-
 In addition to the build system, this distribution includes the following
 files:
-    README                 This file.
-    texinfo.i              The SWIG interface file.
-    test_Texinfo.py        Example of use of the Python interface
-
+    README                    This file.
+    texinfo.i                 The SWIG interface file.
+    python/test_Texinfo.py    Example of use of the Python interface
