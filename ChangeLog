@@ -1,5 +1,9 @@
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm: fix POD.
+
+2025-07-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs: remove
 	set_menus_node_directions.
 

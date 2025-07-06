@@ -2376,6 +2376,8 @@ This functions sets, in the node relations hash reference:
 Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to menu directions.
 
+=back
+
 =item @children_nodes = get_node_node_childs_from_sectioning($node_relations)
 X<C<get_node_node_childs_from_sectioning>>
 
