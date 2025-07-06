@@ -31,11 +31,19 @@ my $document = Texinfo::parse_text('@set myval toto
 then \a\ and \b\.
 @end macro
 
-View @value{myval}.  And @do {mine, yours } .
-Cmd @code{@value{myval}}, @footnote{@do {feet, foot }}
+@macro onearg {gg}
+OO \gg\
+@end macro
 
-there @do something
+View @value{myval}.  And @do {mine, yours } .
+Cmd @code{@value{myval}}, @footnote{@do{ feet , foot}}
+
+@onearg the arg
+
+text before @onearg  another arg@comment am I there?
 ');
+
+Texinfo::output_parser_error_messages($document);
 
 my $tree = Texinfo::document_tree($document);
 my $descriptor = Texinfo::register_new_reader($tree, $document);
@@ -112,6 +120,7 @@ while (1) {
         }
         my $source_mark_element = $source_mark->swig_element_get();
         if (defined($source_mark_element)) {
+          #print STDERR "!! ".Texinfo::tree_print_details($source_mark_element)."\n";
           $result
             .= '{'.Texinfo::convert_to_texinfo($source_mark_element).'}';
         }
@@ -127,17 +136,20 @@ while (1) {
 my $reference = '[T: View toto.  And then mine and yours . .\\n]|4
  0: c:1; s:1; p:5|(toto){@value{myval}}
  1: c:1; s:2; p:9|
- 2: c:1; s:1; p:16|{mine yours }
+ 2: c:1; s:1; p:16|{@do {mine, yours }}
  3: c:1; s:2; p:37|
 [T: toto]|2
  0: c:2; s:1; p:0|(toto){@value{myval}}
  1: c:2; s:2; p:4|
-[T: then feet and foot .]|2
- 0: c:2; s:1; p:0|{feet foot }
+[T: then feet  and foot.]|2
+ 0: c:2; s:1; p:0|{@do{ feet , foot}}
  1: c:2; s:2; p:20|
-[T: there then  and . something\\n]|2
- 0: c:3; s:1; p:6|{}
- 1: c:3; s:2; p:17|
+[T: OO the arg\\n]|2
+ 0: c:3; s:1; p:0|{@onearg the arg}
+ 1: c:3; s:2; p:10|
+[T: text before OO another arg]|2
+ 0: c:4; s:1; p:12|{@onearg  another arg@comment am I there?}
+ 1: c:4; s:2; p:26|
 '
 ;
 

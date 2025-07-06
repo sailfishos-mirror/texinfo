@@ -18,9 +18,6 @@ document command_name in texi2any HTML customization API
 
 inline contents_child_by_index in C?
 
-No macro name in macro call expansion to Texinfo, see
-util/swig/perl/t/30source_marks.t
-
 SWIG commands classifications.  Index sorted
 by letter?  Iteration over attributes names to discover
 element attributes?

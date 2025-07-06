@@ -198,6 +198,22 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           if (e->type == ET_bracketed_arg
               || e->type == ET_bracketed_linemacro_arg)
             ADD("{");
+          else if (type_data[e->type].flags & TF_macro_call)
+            {
+              const char *cmdname = element_command_name (e);
+              ADD("@");  ADD(cmdname);
+              if (e->type == ET_macro_call || e->type == ET_rmacro_call
+                  && e->e.c->contents.number)
+                {
+                  elt = e->elt_info[eit_spaces_after_cmd_before_arg];
+                  if (elt)
+                    ADD((char *)elt->e.text->text);
+                  ADD("{");
+                  convert_args (e, result);
+                  ADD("}");
+                  return;
+                }
+            }
           if (type_data[e->type].elt_info_number > eit_spaces_before_argument)
             {
               elt = e->elt_info[eit_spaces_before_argument];

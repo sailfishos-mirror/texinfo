@@ -330,6 +330,26 @@ sub _convert_to_texinfo($)
           and ($element->{'type'} eq 'bracketed_arg'
                or $element->{'type'} eq 'bracketed_linemacro_arg')) {
         $result .= '{';
+      } elsif ($element->{'type'}
+               and ($element->{'type'} eq 'macro_call'
+                    or $element->{'type'} eq 'rmacro_call'
+                    or $element->{'type'} eq 'linemacro_call'
+                    or $element->{'type'} eq 'macro_call_line'
+                    or $element->{'type'} eq 'rmacro_call_line')) {
+        $result .= '@'.$element->{'info'}->{'command_name'};
+        if (($element->{'type'} eq 'macro_call'
+             or $element->{'type'} eq 'rmacro_call')
+            and $element->{'contents'}) {
+          if ($element->{'info'}
+              and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+            $result
+              .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
+          }
+          $result .= '{';
+          $result .= _convert_args($element);
+          $result .= '}';
+          return $result;
+        }
       }
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {
