@@ -1,5 +1,14 @@
 2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/structuring_transfo/structuring.c
+	(node_automatic_directions): New helper function.
+
+	(construct_nodes_tree, check_nodes_are_referenced)
+	(complete_node_tree_with_menus, node_number_of_node)
+	(check_node_tree_menu_structure, set_top_node_next): Use it.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
 	* tta/C/structuring_transfo/structuring.c
 	(check_node_tree_menu_structure): Look up "Top" node before

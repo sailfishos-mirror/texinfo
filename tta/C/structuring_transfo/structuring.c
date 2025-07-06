@@ -618,6 +618,14 @@ node_number_of_node (const ELEMENT *node, int *status)
   return node_number;
 }
 
+/* Return non-zero if NODE does not have explicit node pointers. */
+static int
+node_automatic_directions (const ELEMENT *node)
+{
+  const ELEMENT *arguments_line = node->e.c->contents.list[0];
+  return (arguments_line->e.c->contents.number <= 1);
+}
+
 void
 check_nodes_are_referenced (DOCUMENT *document)
 {
@@ -722,14 +730,11 @@ check_nodes_are_referenced (DOCUMENT *document)
         }
       else
         {
-      /* If an automatic menu can be setup, consider that all
-         the nodes appearing in the automatic menu are referenced.
-         Note that the menu may not be actually setup, but
-         it is better not to warn for nothing. */
-          const ELEMENT *arguments_line = node->e.c->contents.list[0];
-          int automatic_directions
-            = (arguments_line->e.c->contents.number <= 1);
-          if (automatic_directions)
+          /* If an automatic menu can be setup, consider that all
+             the nodes appearing in the automatic menu are referenced.
+             Note that the menu may not be actually setup, but
+             it is better not to warn for nothing. */
+          if (node_automatic_directions (node))
             {
               CONST_NODE_RELATIONS_LIST *node_childs
                 = get_node_node_childs_from_sectioning (node_relations);
@@ -873,12 +878,10 @@ check_nodes_are_referenced (DOCUMENT *document)
 
           if (check_node_in_menu && strcmp (normalized, "Top"))
             {
-              const ELEMENT *arguments_line = node->e.c->contents.list[0];
-              int automatic_directions
-                 = (arguments_line->e.c->contents.number <= 1);
               const SECTION_RELATIONS *associated_section_relations
                 = node_relations->associated_section;
-              if (! ((associated_section_relations && automatic_directions)
+              if (! ((associated_section_relations
+                      && node_automatic_directions (node))
                      || node_in_menu[i]))
                 {
                   char *node_texi = target_element_to_texi_label (node);
@@ -1204,11 +1207,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                 if (!menu_section_relations)
                                   continue;
 
-                                const ELEMENT *arguments_line
-                                  = menu_node->e.c->contents.list[0];
-                                int automatic_directions
-                                  = (arguments_line->e.c->contents.number <= 1);
-                                if (!automatic_directions)
+                                if (!node_automatic_directions (menu_node))
                                   continue;
 
                                 const NODE_RELATIONS *section_up_node;
@@ -1343,11 +1342,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                         {
                           const ELEMENT *last_menu_node
                             = last_menu_node_relations->element;
-                          const ELEMENT *arguments_line
-                            = last_menu_node->e.c->contents.list[0];
-                          int automatic_directions
-                            = (arguments_line->e.c->contents.number <= 1);
-                          if (!automatic_directions)
+                          if (!node_automatic_directions (last_menu_node))
                             {
                               const ELEMENT * const *node_directions
                                 = last_menu_node_relations->node_directions;
@@ -1563,10 +1558,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
           const ELEMENT * const *node_directions
                            = node_relations->node_directions;
 
-          const ELEMENT *arguments_line = node->e.c->contents.list[0];
-          int automatic_directions
-            = (arguments_line->e.c->contents.number <= 1);
-          if (automatic_directions)
+          if (node_automatic_directions (node))
             continue;
           const ELEMENT * const *menu_directions
             = node_relations->menu_directions;
@@ -1625,15 +1617,11 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
 {
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const ELEMENT *arguments_line;
-  int automatic_directions;
 
   if (!top_node)
     return 0;
 
-  arguments_line = top_node->e.c->contents.list[0];
-  automatic_directions = (arguments_line->e.c->contents.number <= 1);
-
-  if (automatic_directions)
+  if (node_automatic_directions (top_node))
     {
       const ELEMENT *top_node_next = 0;
       size_t top_node_number = node_number_of_node (top_node, NULL);
@@ -1707,12 +1695,7 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
 
       if (top_node_next)
         {
-          const ELEMENT *next_arguments_line
-            = top_node_next->e.c->contents.list[0];
-          int next_automatic_directions
-            = (next_arguments_line->e.c->contents.number <= 1);
-
-          if (next_automatic_directions)
+          if (node_automatic_directions (top_node_next))
             {
               size_t next_node_number
                 = node_number_of_node (top_node_next, NULL);
@@ -1760,11 +1743,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
       const ELEMENT *node = node_relations->element;
       if (top_node && node == top_node)
         continue;
-      const ELEMENT *arguments_line = node->e.c->contents.list[0];
-      int automatic_directions = (arguments_line->e.c->contents.number <= 1);
       const ELEMENT * const *menu_directions = node_relations->menu_directions;
 
-      if (automatic_directions)
+      if (node_automatic_directions (node))
         {
           size_t d;
           for (d = 0; d < directions_length; d++)
@@ -1804,8 +1785,6 @@ construct_nodes_tree (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
-  const ELEMENT *top_node = 0;
-
   set_top_node_next (&document->nodes_list, identifiers_target);
 
   size_t i;
@@ -1814,23 +1793,17 @@ construct_nodes_tree (DOCUMENT *document)
     {
       NODE_RELATIONS *node_relations = document->nodes_list.list[i];
       ELEMENT *node = (ELEMENT *)node_relations->element;
-      ELEMENT *arguments_line;
-      int automatic_directions;
 
       if (node->e.c->cmd != CM_node)
         continue;
 
       document->modified_information |= F_DOCM_tree;
 
-      top_node = find_identifier_target (identifiers_target,
-                                         "Top");
-
-      arguments_line = node->e.c->contents.list[0];
-      automatic_directions = (arguments_line->e.c->contents.number <= 1);
-
-      if (automatic_directions)
+      if (node_automatic_directions (node))
         {
-          if (!top_node || node != top_node)
+          const ELEMENT *top_node
+            = find_identifier_target (identifiers_target, "Top");
+          if (node != top_node)
             {
               enum directions d;
               for (d = 0; d < directions_length; d++)
@@ -1861,6 +1834,8 @@ construct_nodes_tree (DOCUMENT *document)
         }
       else /* explicit directions */
         {
+          ELEMENT *arguments_line = node->e.c->contents.list[0];
+
           size_t i;
           for (i = 1; i < arguments_line->e.c->contents.number; i++)
             {
