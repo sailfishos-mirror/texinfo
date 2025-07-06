@@ -1,20 +1,3 @@
-2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tta/C/structuring_transfo/structuring.c
-	(node_automatic_directions): New helper function.
-
-	(construct_nodes_tree, check_nodes_are_referenced)
-	(complete_node_tree_with_menus, node_number_of_node)
-	(check_node_tree_menu_structure, set_top_node_next): Use it.
-
-2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
-	* tta/C/structuring_transfo/structuring.c
-	(check_node_tree_menu_structure): Look up "Top" node before
-	iterating over nodes to avoid checking normalized node name
-	every time.  Use a "continue" statement to exdent a conditional block.
-
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
@@ -35,6 +18,23 @@
 
 	* util/swig/texinfo.i: avoid char * memory leaks with %newobject.
 	Add tree_print_details.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/structuring_transfo/structuring.c
+	(node_automatic_directions): New helper function.
+
+	(construct_nodes_tree, check_nodes_are_referenced)
+	(complete_node_tree_with_menus, node_number_of_node)
+	(check_node_tree_menu_structure, set_top_node_next): Use it.
+
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure),
+	* tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure): Look up "Top" node before
+	iterating over nodes to avoid checking normalized node name
+	every time.  Use a "continue" statement to exdent a conditional block.
 
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
