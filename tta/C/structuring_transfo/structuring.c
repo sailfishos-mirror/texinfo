@@ -868,7 +868,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 }
 
 /* set menu_directions */
-void
+static void
 set_menus_node_directions (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;

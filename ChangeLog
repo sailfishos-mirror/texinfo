@@ -1,3 +1,8 @@
+2025-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/structuring_transfo/structuring.c (set_menus_node_directions):
+	Declare as static.
+
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* util/swig/Makefile.am (BUILT_SOURCES, perl/perl_texinfo_wrap.c),
@@ -56,7 +61,6 @@
 	(check_node_tree_menu_structure): Call _set_menus_node_directions.
 
 	* tta/C/structuring_transfo/structuring.c
-	(set_menus_node_directions): Declare as static.
 	(check_node_tree_menu_structure): Call set_menus_node_directions.
 
 2025-07-05  Patrice Dumas  <pertusus@free.fr>
