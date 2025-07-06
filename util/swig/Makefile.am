@@ -12,11 +12,13 @@ ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../../tta/m4
 
 SUBDIRS = . python
 
-BUILT_SOURCES = python/python_texinfo_wrap.c
+BUILT_SOURCES = python/python_texinfo_wrap.c \
+                perl/perl_texinfo_wrap.c
 # tell Make how to create the generated SWIG files
 $(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i
 	$(SWIG) $(AX_SWIG_PYTHON_OPT) -outdir $(srcdir)/python -o $@ $<
 
-# swig -perl -outdir perl -o perl/perl_texinfo_wrap.c texinfo.i
+$(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i
+	$(SWIG) -perl -outdir $(srcdir)/perl -o $@ $<
 
 EXTRA_DIST = README texinfo.i

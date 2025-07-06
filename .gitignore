@@ -419,6 +419,13 @@ util/*.sig
 
 util/swig/build-aux/**
 util/swig/libtool
+util/swig/perl/blib
+util/swig/perl/MYMETA.json
+util/swig/perl/MYMETA.yml
+util/swig/perl/pm_to_blib
+util/swig/perl/perl_texinfo_wrap.c
+util/swig/perl/Texinfo.bs
+util/swig/perl/Texinfo.pm
 util/swig/python/__pycache__
 util/swig/python/*.lo
 util/swig/python/*.la
