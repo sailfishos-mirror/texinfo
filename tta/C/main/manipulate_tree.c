@@ -1894,7 +1894,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                   for (i = 0; i < to_protect_nr; i++)
                     {
                       ELEMENT *comma
-                       = new_command_element (ET_brace_noarg_command,
+                       = new_command_element (ET_brace_command,
                                               CM_comma);
                       ELEMENT *brace_container
                            = new_element (ET_brace_container);

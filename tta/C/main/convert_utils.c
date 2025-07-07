@@ -55,7 +55,7 @@ static const ELEMENT *default_asis_command;
 void
 setup_convert_utils (void)
 {
-  default_bullet_command = new_command_element (ET_brace_noarg_command,
+  default_bullet_command = new_command_element (ET_brace_command,
                                                 CM_bullet);
   default_asis_command = new_command_element (ET_brace_command, CM_asis);
 }

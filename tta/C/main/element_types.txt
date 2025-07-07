@@ -51,7 +51,6 @@ definfoenclose_command                 braces
 # type at the element creation, except maybe to help with the handling
 # of C specific data (case of ET_lineraw_command to check/select string_info)
 nobrace_command                        c_only
-brace_noarg_command                    braces,c_only
 # @item, @tab
 container_command                      c_only
 lineraw_command                        c_only

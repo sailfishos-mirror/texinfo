@@ -1511,7 +1511,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           ELEMENT *leading_spaces
                                = new_text_element (ET_normal_text);
                           ELEMENT *hashchar
-                           = new_command_element (ET_brace_noarg_command,
+                           = new_command_element (ET_brace_command,
                                                   CM_hashchar);
                           ELEMENT *arg = new_element (ET_brace_container);
                           /* count UTF-8 encoded Unicode characters for

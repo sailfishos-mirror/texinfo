@@ -1,5 +1,15 @@
 2025-07-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_default_format_date_in_header)
+	(html_convert_printindex_command), tta/C/main/convert_utils.c
+	(setup_convert_utils), tta/C/main/element_types.txt,
+	tta/C/main/manipulate_tree.c (protect_text),
+	tta/C/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning_internal): replace brace_noarg_command
+	type by brace_command.  Remove brace_noarg_command type.
+
+2025-07-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (teximakehtml_SOURCES): add
 	main/replace_set_perl_interpreter.c.
 

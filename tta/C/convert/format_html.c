@@ -5347,7 +5347,7 @@ format_element_footer (CONVERTER *self,
 void
 html_default_format_date_in_header (CONVERTER *self, TEXT *result)
 {
-  ELEMENT *today_element = new_command_element (ET_brace_noarg_command,
+  ELEMENT *today_element = new_command_element (ET_brace_command,
                                                 CM_today);
   char *today;
 
@@ -10790,7 +10790,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               if (html_commands_data[letter_cmd].upper_case_cmd)
                 {
                    formatted_command
-                     = new_command_element (ET_brace_noarg_command,
+                     = new_command_element (ET_brace_command,
                              html_commands_data[letter_cmd].upper_case_cmd);
                 }
 
