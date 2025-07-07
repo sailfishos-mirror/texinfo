@@ -25,6 +25,10 @@ use Texinfo;
 
 ok(1, 'modules loading');
 
+# TODO the @lm line leads to expected error messages.  Currently the API
+# only allows to print error messages, not to get them, so no way to
+# check errors against a reference
+
 my $document = Texinfo::parse_text('@set myval toto
 
 @macro do {a, b}
@@ -170,8 +174,24 @@ my $reference = '[T: View toto.  And then mine and yours . .\\n]|4
 [T: text before OO another arg]|2
  0: c:4; s:1; p:12|{@onearg  another arg@comment am I there?}
  1: c:4; s:2; p:26|
-'
-;
+empty_line[T: \\n]|1
+ 0: c:1; s:1; p:1|{@lm @
+}
+[T: bullet\\n]|1
+ 0: c:1; s:2; p:6|
+arguments_line[T]|1
+ 0: c:2; s:1; p:0|{@defbuiltin {my foo} a last {} arg{ument}}
+bracketed_arg[T]|1
+ 0: c:2; s:2; p:0|
+empty_line[T: \\n]|1
+ 0: c:3; s:1; p:1|{@defbuiltin {my foo} {} {}}
+bracketed_arg[T]|1
+ 0: c:3; s:2; p:0|
+empty_line[T: \\n]|1
+ 0: c:4; s:1; p:1|{@defbuiltin {my foo} {second arg} remaining on {line}}
+bracketed_arg[T]|1
+ 0: c:4; s:2; p:0|
+';
 
 is($result, $reference, 'source marks representation');
 
