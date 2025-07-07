@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-06-18.21}
+\def\texinfoversion{2025-07-07.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -7078,10 +7078,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %   #3 - level of section (e.g "chap", "sec")
 %   #4 - page number
 
-% Parts, in the main contents.  Replace the part number, which doesn't
-% exist, with an empty box.  Let's hope all the numbers have the same width.
-% Also ignore the page number, which is conventionally not printed.
-\def\numeralbox{\setbox0=\hbox{8}\hbox to \wd0{\hfil}}
+% Parts, in the main contents.  Ignore the page number, which is
+% conventionally not printed.
 \def\partentry#1#2#3#4{%
   % Add stretch and a bonus for breaking the page before the part heading.
   % This reduces the chance of the page being broken immediately after the
@@ -7089,14 +7087,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \vskip 0pt plus 5\baselineskip
   \penalty-300
   \vskip 0pt plus -5\baselineskip
-  \dochapentry{#1}{\numeralbox}{#3}{}%
+  \vskip 2\baselineskip plus .66\baselineskip minus .5\baselineskip
+  \begingroup
+    \secfonts \rm
+    \tocentry{#1}{}{#3}{}%
+  \endgroup
 }
 %
 % Parts, in the short toc.
 \def\shortpartentry#1#2#3#4{%
   \penalty-300
   \vskip.5\baselineskip plus.15\baselineskip minus.1\baselineskip
-  \shortchapentry{{\bf #1}}{\numeralbox}{}{}%
+  \tocentry{{\bf #1}}{}{}{}%
 }
 
 % Chapters, in the main contents.

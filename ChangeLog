@@ -1,3 +1,11 @@
+2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Part line tables of contents formatting
+
+	* doc/texinfo.tex (\partentry): Do not indent part line
+	and increase preceding vertical space.  Suggestion from Werner.
+	(\shortpartentry): No indent.
+
 2025-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
