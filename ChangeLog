@@ -1,3 +1,16 @@
+2025-07-07 Patrice Dumas  <pertusus@free.fr>
+
+	Skip unknown tag in Info tag table
+
+	* info/nodes.c (get_nodes_of_tags_table): skip an unknown tag in tag
+	table instead of considering that this is the end of the tag table.
+	An unknown tag is detected as a line with a colon :.
+
+	Note that previous Info readers will not find the nodes and anchors
+	after an unknown tag, therefore new tags could be introduced
+	in a backawrd compatible way only when all the older Info readers have
+	been replaced.  The Emacs Info reader already skips unknown tags.
+
 2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\raggedbottom): Reduce stretch from 60pt
@@ -14,19 +27,6 @@
 	in table of contents.
 	(\dopartentry): call \entryinternal directly rather than
 	going through \tocentry.
-
-2025-07-07 Patrice Dumas  <pertusus@free.fr>
-
-	Skip unknown tag in Info tag table
-
-	* info/nodes.c (get_nodes_of_tags_table): skip an unknown tag in tag
-	table instead of considering that this is the end of the tag table.
-	An unknown tag is detected as a line with a colon :.
-
-	Note that previous Info readers will not find the nodes and anchors
-	after an unknown tag, therefore new tags could be introduced
-	in a backawrd compatible way only when all the older Info readers have
-	been replaced.  The Emacs Info reader already skips unknown tags.
 
 2025-07-07 Patrice Dumas  <pertusus@free.fr>
 

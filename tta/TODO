@@ -621,7 +621,7 @@ Tree access
  ChildElement[n] [OK]
 
 Cross references:
- * getTargetById
+ * getTargetById [OK, but untested]
 
 
 Interrogations and remarks
