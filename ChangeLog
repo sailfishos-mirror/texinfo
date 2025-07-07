@@ -1,5 +1,11 @@
 2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\raggedbottom): Reduce stretch from 60pt
+	to 30pt to avoid too much space being left at the bottom of
+	pages in the table of contents.  Suggestion from Werner.
+
+2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Part line tables of contents formatting
 
 	* doc/texinfo.tex (\ifafterpartentry): new conditional.

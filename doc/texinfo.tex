@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-07.20}
+\def\texinfoversion{2025-07-07.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -6973,7 +6973,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % \raggedbottom in plain.tex hardcodes \topskip so override it
 \catcode`\@=11
-\def\raggedbottom{\advance\topskip by 0pt plus60pt \r@ggedbottomtrue}
+\def\raggedbottom{\advance\topskip by 0pt plus30pt \r@ggedbottomtrue}
 \catcode`\@=\other
 
 % redefined for the two-volume lispref.  We always output on
