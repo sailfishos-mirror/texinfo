@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-07.11}
+\def\texinfoversion{2025-07-07.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -7090,9 +7090,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \vskip 2\baselineskip plus .66\baselineskip minus .5\baselineskip
   \begingroup
     \secfonts \rm
-    \tocentry{#1}{}{#3}{}%
+    \entryinternal{#1}{}%
   \endgroup
+  \afterpartentrytrue
 }
+\newif\ifafterpartentry
 %
 % Parts, in the short toc.
 \def\shortpartentry#1#2#3#4{%
@@ -7166,7 +7168,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % If the toc has to be broken over pages, we want it to be at chapters
 % if at all possible; hence the \penalty.
 \def\dochapentry#1#2#3#4{%
-   \penalty-300 \vskip1\baselineskip plus.33\baselineskip minus.25\baselineskip
+   \ifafterpartentry
+     \afterpartentryfalse
+     \penalty5000
+   \else
+     \penalty-300
+   \fi
+   \vskip1\baselineskip plus.33\baselineskip minus.25\baselineskip
    \begingroup
      % Move the page numbers slightly to the right
      \advance\entryrightmargin by -0.05em

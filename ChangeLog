@@ -1,3 +1,14 @@
+2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Part line tables of contents formatting
+
+	* doc/texinfo.tex (\ifafterpartentry): new conditional.
+	(\dopartentry, \dochapentry):
+	Discourage page break between part entry and chapter entry
+	in table of contents.
+	(\dopartentry): call \entryinternal directly rather than
+	going through \tocentry.
+
 2025-07-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/format_html.c (html_default_format_date_in_header)
