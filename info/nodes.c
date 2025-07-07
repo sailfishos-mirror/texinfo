@@ -283,10 +283,27 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
             anchor = 1;
         }
 
-      /* If not there, not a defining line, so we must be out of the
-         tags table.  */
+      /* If not there, not a defining line, either there is an unknown tag type
+         or we are out of the tags table.  */
+      /* NOTE: skipping an unknown tag detected as a line with a colon was
+         introduced in the Info reader in 2025.  Previously it was also
+         considered as being out of the tag table.  As a consequence,
+         having unknown tags will lead to following nodes and anchors not found
+         until all the previous release Info readers have been replaced.
+         The Emacs Info reader already skipped unknown tags at that time.
+       */
       if (name_offset == -1)
-        break;
+        {
+          int colon = string_in_line (":", s.buffer + s.start);
+          if (colon == -1)
+            break;
+          else
+            {
+              /* Unknown tag, move past and skip to end of line */
+              s.start += colon + 1;
+              continue;
+            }
+        }
 
       entry = info_create_tag ();
 
