@@ -49,6 +49,12 @@ libperlcall_utils_la_SOURCES = \
 		main/xs_utils.c \
 		main/xs_utils.h
 
+if ! DISABLE_XS
+libperlcall_utils_la_SOURCES += main/set_perl_interpreter.c
+else
+libperlcall_utils_la_SOURCES += main/replace_set_perl_interpreter.c
+endif
+
 libperlcall_utils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 
@@ -201,11 +207,18 @@ noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the libtexinfo code and need to be compiled with Perl headers
 libcallperl_libtexinfo_la_SOURCES = \
+		      main/api_to_perl.h \
+		      main/call_perl_function.h
+
+if ! DISABLE_XS
+libcallperl_libtexinfo_la_SOURCES += \
 		      ppport.h \
 		      main/api_to_perl.c \
-		      main/api_to_perl.h \
-		      main/call_perl_function.c \
-		      main/call_perl_function.h
+		      main/call_perl_function.c
+else
+libcallperl_libtexinfo_la_SOURCES += \
+		      main/replace_perl_api_call.c
+endif
 
 libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(perl_conf_CPPFLAGS)
 libcallperl_libtexinfo_la_CFLAGS = $(perl_conf_CFLAGS)
@@ -366,8 +379,11 @@ MAINTAINERCLEANFILES += $(products_code_convert_data)
 ################################# common Perl C code shared library used
 # to call libtexinfo from Perl XS .xs interfaces and other Perl C codes
 
+if ! DISABLE_XS
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfoxs.la
+libtexinfoxs_la_as_dependency = libtexinfoxs.la
+endif
 endif
 
 libtexinfoxs_la_SOURCES= \
@@ -432,16 +448,23 @@ noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
 endif
 
 libcallperl_libtexinfo_convert_la_SOURCES = \
+                       convert/call_html_perl_function.h \
+                       convert/call_conversion_perl.h
+if ! DISABLE_XS
+libcallperl_libtexinfo_convert_la_SOURCES += \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
-                       convert/call_html_perl_function.h \
                        convert/call_html_perl_function.c \
-                       convert/call_conversion_perl.c \
-                       convert/call_conversion_perl.h
+                       convert/call_conversion_perl.c
+else
+libcallperl_libtexinfo_convert_la_SOURCES += \
+                       convert/replace_perl_call_html_function.c \
+                       convert/replace_call_conversion_perl.c
+endif
 
 libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(perl_conf_CPPFLAGS)
 libcallperl_libtexinfo_convert_la_CFLAGS = $(perl_conf_CFLAGS)
-libcallperl_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+libcallperl_libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 libtexinfo_convert_la_SOURCES = \
@@ -449,7 +472,7 @@ libtexinfo_convert_la_SOURCES = \
 
 # locate include files under out-of-source builds.
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libcallperl_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libcallperl_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -457,8 +480,10 @@ libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS) $(EUIDA
 ################################# common Perl C code shared library used
 # to call libtexinfo-convert from Perl XS *.xs interfaces
 
+if ! DISABLE_XS
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-convertxs.la
+endif
 endif
 
 libtexinfo_convertxs_la_SOURCES = \
@@ -537,7 +562,7 @@ libtexinfo_main_la_SOURCES = \
 # locate include files under out-of-source builds.
 # NOTE not sure that Gnulib is directly used, but it could.
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
+libtexinfo_main_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
 if PERL_EMBEDDED
 # in LIBADD and not LDFLAGS to have the libraries link flags at the end,
 # otherwise the link fails.  There is a duplication with flags in

@@ -1,8 +1,4 @@
-/* xs_utils.h - declarations for xs_utils.c */
-#ifndef XS_UTILS_H
-#define XS_UTILS_H
-
-/* Copyright 2010-2025 Free Software Foundation, Inc.
+/* Copyright 2024-2025 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -17,20 +13,19 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <config.h>
+#include "xs_utils.h"
 
-#include <stdarg.h>
-#include <stddef.h>
+/* to set if Perl code is compiled in, but there is no Perl interpreter */
+static int no_perl_interpreter = 0;
 
-/* in set_perl_interpreter.c */
-void set_no_perl_interpreter (int value);
-int get_no_perl_interpreter (void);
+void
+set_no_perl_interpreter (int value)
+{
+  no_perl_interpreter = value;
+}
 
-void non_perl_free (void *ptr);
-void *non_perl_malloc (size_t size);
-char *non_perl_strdup (const char *s);
-char *non_perl_strndup (const char *s, size_t n);
-int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);
-int non_perl_xasprintf (char **ptr, const char *template, ...);
-
-#endif
+int
+get_no_perl_interpreter (void)
+{
+  return no_perl_interpreter;
+}

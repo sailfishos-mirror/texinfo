@@ -1,3 +1,31 @@
+2025-07-07 Patrice Dumas  <pertusus@free.fr>
+
+	Build the C libraries without Perl C code if XS is disabled
+
+	* tta/C/convert/replace_perl_call_html_function.c
+	(call_latex_convert_to_latex_math),
+	tta/C/main/replace_perl_api_call.c: move
+	call_latex_convert_to_latex_math to replace_perl_call_html_function.c,
+	since it is now in call_html_perl_function.c.
+
+	* tta/C/main/replace_perl_api_call.c, tta/C/Makefile.am
+	(libperlcall_utils_la_SOURCES), tta/C/main/xs_utils.c,
+	tta/C/main/replace_set_perl_interpreter.c,
+	tta/C/main/set_perl_interpreter.c (set_no_perl_interpreter)
+	(get_no_perl_interpreter): move set_no_perl_interpreter and
+	get_no_perl_interpreter to a different file to be able to replace
+	those two functions only, depending on whether there is XS or not.
+
+	* tta/C/Makefile.am (libperlcall_utils_la_SOURCES)
+	(libcallperl_libtexinfo_la_SOURCES, libtexinfoxs_la_as_dependency)
+	(libcallperl_libtexinfo_convert_la_SOURCES)
+	(libcallperl_libtexinfo_convert_la_LIBADD)
+	(libtexinfo_convert_la_LIBADD, libtexinfo_main_la_LIBADD),
+	tta/Makefile.am (SUBDIRS): build the C libraries without the C Perl,
+	ie with replacement functions used in libraries and without building
+	libtexinfoxs.la nor libtexinfo-convertxs.la if HAVE_ICONV and
+	DISABLE_XS are set.
+
 2025-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Part line tables of contents formatting

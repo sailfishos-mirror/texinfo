@@ -36,6 +36,10 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 
 if ! DISABLE_XS
 SUBDIRS += C
+else
+if HAVE_ICONV
+SUBDIRS += C
+endif
 endif
 
 SUBDIRS += . perl tests

@@ -325,6 +325,11 @@ call_button_direction_function (CONVERTER *self,
 }
 
 
+char *
+call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
+{
+  return 0;
+}
 
 int
 call_stage_handler(CONVERTER *self, void *stage_handler_sv,
@@ -333,4 +338,5 @@ call_stage_handler(CONVERTER *self, void *stage_handler_sv,
   *error_status = 0;
   return 0;
 }
+
 

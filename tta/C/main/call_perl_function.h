@@ -2,9 +2,7 @@
 #ifndef CALL_PERL_FUNCTION_H
 #define CALL_PERL_FUNCTION_H
 
-#include "tree_types.h"
 #include "document_types.h"
-#include "converter_types.h"
 
 char *call_nodenamenormalization_unicode_to_transliterate (const char *text,
                                               int in_test, int no_unidecode);

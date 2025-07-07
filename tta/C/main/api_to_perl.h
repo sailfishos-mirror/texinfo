@@ -1,9 +1,6 @@
-/* tree_perl_api.h - API to interact with perl from C code */
-#ifndef TREE_PERL_API_H
-#define TREE_PERL_API_H
-
-#include "tree_types.h"
-#include "converter_types.h"
+/* api_to_perl.h - API to interact with perl from C code */
+#ifndef API_TO_PERL_H
+#define API_TO_PERL_H
 
 int get_refcount (void *sv);
 
