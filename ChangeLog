@@ -1,3 +1,10 @@
+2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\contents): Mark the beginning of the contents
+	with a small \penalty.
+	(\partentry): check for this \penalty and use less space if at the
+	very beginning.
+
 2025-07-07 Patrice Dumas  <pertusus@free.fr>
 
 	Skip unknown tag in Info tag table

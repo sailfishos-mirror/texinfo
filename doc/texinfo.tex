@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-07.21}
+\def\texinfoversion{2025-07-08.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -6986,6 +6986,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\contents{%
   \startcontents{\putwordTOC}{\contentsmkdest}%
     \ifxetex\xetexpreauxfile\fi
+    \penalty2 % mark beginning of contents
     \openin 1 \tocreadfilename\space
     \ifeof 1 \else
       \findsecnowidths
@@ -7081,13 +7082,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Parts, in the main contents.  Ignore the page number, which is
 % conventionally not printed.
 \def\partentry#1#2#3#4{%
+  \ifnum\lastpenalty = 2
+    % use less space if at very first entry of contents
+    \vskip 1\baselineskip plus .33\baselineskip minus .25\baselineskip
+  \else
+    \vskip 2\baselineskip plus .66\baselineskip minus .5\baselineskip
+  \fi
   % Add stretch and a bonus for breaking the page before the part heading.
   % This reduces the chance of the page being broken immediately after the
   % part heading, before a following chapter heading.
-  \vskip 0pt plus 5\baselineskip
+  \vskip 0pt plus 3\baselineskip
   \penalty-300
-  \vskip 0pt plus -5\baselineskip
-  \vskip 2\baselineskip plus .66\baselineskip minus .5\baselineskip
+  \vskip 0pt plus -3\baselineskip
   \begingroup
     \secfonts \rm
     \entryinternal{#1}{}%
