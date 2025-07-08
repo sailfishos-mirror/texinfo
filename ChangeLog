@@ -1,5 +1,10 @@
 2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert, process_printindex):
+	Remove useless non-void return statements.
+
+2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Structuring.pm (_node_automatic_directions):
 	New function to check if a node has automatic directions, matching
 	XS code.

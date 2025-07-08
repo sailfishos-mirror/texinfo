@@ -1836,11 +1836,11 @@ sub process_printindex($$;$)
       and defined($printindex->{'extra'}->{'misc_args'}->[0])) {
     $index_name = $printindex->{'extra'}->{'misc_args'}->[0];
   } else {
-    return '';
+    return;
   }
 
   if (!$self->{'document'}) {
-    return '';
+    return;
   }
 
   my $indices_information = $self->{'document'}->indices_information();
@@ -1850,7 +1850,7 @@ sub process_printindex($$;$)
   }
   if (!$index_entries or !$index_entries->{$index_name}
       or !@{$index_entries->{$index_name}}) {
-    return '';
+    return;
   }
 
   my $identifiers_target = $self->{'document'}->labels_information();
@@ -1925,7 +1925,7 @@ sub process_printindex($$;$)
     $line_nrs{$entry} = $line_nr;
   }
 
-  return '' if (scalar(keys(%line_nrs)) + $reference_entries_nr == 0);
+  return if (scalar(keys(%line_nrs)) + $reference_entries_nr == 0);
 
   _add_newline_if_needed($self);
   if ($in_info) {
@@ -3422,7 +3422,7 @@ sub _convert
             return;
           }
         }
-        return '';
+        return;
       } elsif ($brace_commands{$cmdname} eq 'inline') {
         my $arg_index = 1;
         if ($cmdname eq 'inlinefmtifelse'
@@ -3550,7 +3550,7 @@ sub _convert
     } elsif (defined($nobrace_symbol_text{$cmdname})) {
       if ($cmdname eq ':') {
         remove_end_sentence($formatter->{'container'});
-        return '';
+        return;
       } elsif ($cmdname eq '*') {
         _stream_output($self,
                        add_pending_word($formatter->{'container'}),
@@ -3582,7 +3582,7 @@ sub _convert
       my $format_menu = $self->get_conf('FORMAT_MENU');
       if ($menu_commands{$cmdname}
           and (!$format_menu or $format_menu eq 'nomenu')) {
-        return '';
+        return;
       }
       # includes @verbatim raw block_commands and block_math_commands
       if ($default_preformatted_context_commands{$cmdname}
@@ -3842,7 +3842,7 @@ sub _convert
         pop @{$self->{'count_context'}};
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
-      return $result;
+      return;
     } elsif ($cmdname eq 'exdent') {
       if ($element->{'contents'}->[0]->{'contents'}) {
         if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
@@ -3995,7 +3995,7 @@ sub _convert
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       _add_lines_count($self, $lines_count);
-      return '';
+      return;
     } elsif ($cmdname eq 'sp') {
       _stream_output($self,
                      add_pending_word($formatter->{'container'}),
