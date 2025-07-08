@@ -512,6 +512,14 @@ sub get_node_node_childs_from_sectioning($)
   return @node_childs;
 }
 
+sub _node_automatic_directions ($)
+{
+  my $node = shift;
+
+  my $arguments_line = $node->{'contents'}->[0];
+  return (scalar(@{$arguments_line->{'contents'}}) <= 1);
+}
+
 my @node_directions_names = ('next', 'prev', 'up');
 # In general should be called only after complete_node_tree_with_menus
 # to generate the Top node first node directions automatically when there
@@ -555,10 +563,7 @@ sub check_nodes_are_referenced($)
       # the nodes appearing in the automatic menu are referenced.
       # Note that the menu may not be actually setup, but
       # it is better not to warn for nothing.
-      my $arguments_line = $node->{'contents'}->[0];
-      my $automatic_directions
-        = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-      if ($automatic_directions) {
+      if (_node_automatic_directions($node)) {
         my @node_childs
           = get_node_node_childs_from_sectioning($node_relations);
         foreach my $node_child (@node_childs) {
@@ -599,11 +604,8 @@ sub check_nodes_are_referenced($)
                                              'CHECK_NORMAL_MENU_STRUCTURE')
                and $node->{'extra'}->{'normalized'} ne 'Top'
                and scalar(@{$nodes_list}) > 1) {
-        my $arguments_line = $node->{'contents'}->[0];
-        my $automatic_directions
-          = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
         if (not (($node_relations->{'associated_section'}
-                  and $automatic_directions)
+                  and _node_automatic_directions($node))
                  or $referenced_in_menus{$node})) {
           $registrar->line_warn(sprintf(__("node `%s' not in menu"),
                                         target_element_to_texi_label($node)),
@@ -807,11 +809,7 @@ sub check_node_tree_menu_structure($)
                   # possibly a lone @node that is not part of the
                   # section structure.
                   next if !$section_relations;
-
-                  my $arguments_line = $menu_node->{'contents'}->[0];
-                  my $automatic_directions
-                    = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-                  next if (!$automatic_directions);
+                  next if !_node_automatic_directions($menu_node);
 
                   my $section_up_node
                     = _section_direction_associated_node ($section_relations,
@@ -909,10 +907,7 @@ sub check_node_tree_menu_structure($)
           if (!defined($section_node) or $menu_node ne $section_node) {
             if ($last_menu_node_relations) {
               my $last_menu_node = $last_menu_node_relations->{'element'};
-              my $arguments_line = $last_menu_node->{'contents'}->[0];
-              my $automatic_directions
-                = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-              if (!$automatic_directions) {
+              if (!_node_automatic_directions($last_menu_node)) {
                 my $last_menu_node_directions
                   = $last_menu_node_relations->{'node_directions'};
                 $next_pointer_node = $last_menu_node_directions->{'next'};
@@ -1060,10 +1055,7 @@ sub check_node_tree_menu_structure($)
 
       my $node_directions = $node_relations->{'node_directions'};
 
-      my $arguments_line = $node->{'contents'}->[0];
-      my $automatic_directions
-        = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-      next if ($automatic_directions);
+      next if _node_automatic_directions($node);
 
       my $menu_directions = $node_relations->{'menu_directions'};
 
@@ -1108,11 +1100,7 @@ sub _set_top_node_next($$)
 
   return undef if (!$top_node);
 
-  my $arguments_line = $top_node->{'contents'}->[0];
-  my $automatic_directions
-      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-
-  if ($automatic_directions) {
+  if (_node_automatic_directions($top_node)) {
     my $top_node_next;
     my $top_node_number = $top_node->{'extra'}->{'node_number'};
     my $node_relations
@@ -1170,10 +1158,7 @@ sub _set_top_node_next($$)
     }
     # prev defined as first Top node menu entry node
     if ($top_node_next) {
-      my $next_arguments_line = $top_node_next->{'contents'}->[0];
-      my $next_automatic_directions
-      = (not (scalar(@{$next_arguments_line->{'contents'}}) > 1));
-      if ($next_automatic_directions) {
+      if (_node_automatic_directions($top_node_next)) {
         my $next_node_number = $top_node_next->{'extra'}->{'node_number'};
         # different from Top node and after Top node
         if ($next_node_number > $top_node_number) {
@@ -1212,13 +1197,10 @@ sub complete_node_tree_with_menus($)
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
     next if $top_node and $node eq $top_node;
-    my $arguments_line = $node->{'contents'}->[0];
-    my $automatic_directions
-      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
     my $menu_directions = $node_relations->{'menu_directions'};
 
-    if ($automatic_directions) {
+    if (_node_automatic_directions($node)) {
       my $node_directions = $node_relations->{'node_directions'};
 
       foreach my $direction (@node_directions_names) {
@@ -1258,11 +1240,7 @@ sub construct_nodes_tree($)
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
 
-    my $arguments_line = $node->{'contents'}->[0];
-    my $automatic_directions
-      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
-
-    if ($automatic_directions) {
+    if (_node_automatic_directions($node)) {
       if (!$top_node or $node ne $top_node) {
         foreach my $direction (@node_directions_names) {
           if ($node_relations->{'associated_section'}) {
@@ -1288,6 +1266,7 @@ sub construct_nodes_tree($)
         }
       }
     } else { # explicit directions
+      my $arguments_line = $node->{'contents'}->[0];
       for (my $i = 1; $i < scalar(@{$arguments_line->{'contents'}}); $i++) {
         my $direction_element = $arguments_line->{'contents'}->[$i];
         my $direction = $node_directions_names[$i-1];

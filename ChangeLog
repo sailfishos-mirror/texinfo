@@ -1,5 +1,11 @@
 2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Structuring.pm (_node_automatic_directions):
+	New function to check if a node has automatic directions, matching
+	XS code.
+
+2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\contents): Mark the beginning of the contents
 	with a small \penalty.
 	(\partentry): check for this \penalty and use less space if at the
