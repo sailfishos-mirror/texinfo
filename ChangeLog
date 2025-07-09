@@ -1,3 +1,8 @@
+2025-07-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	Add check if variable defined before checking equality.
+
 2025-07-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert, process_printindex):

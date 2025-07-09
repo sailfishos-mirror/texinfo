@@ -1051,7 +1051,7 @@ sub check_node_tree_menu_structure($)
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
       next if $node_errors{$node->{'extra'}->{'node_number'}};
-      next if $node eq $top_node;
+      next if defined($top_node) and $node eq $top_node;
 
       my $node_directions = $node_relations->{'node_directions'};
 
