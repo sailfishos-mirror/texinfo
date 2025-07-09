@@ -2858,13 +2858,15 @@ Larger Units of Text
 
 @cindex Spaces, in menus
 In a menu, every line that begins with an @w{@samp{* }} is a @dfn{menu
-entry}.  (Note the space after the asterisk.)
+entry}.  (Note the space after the asterisk.)  In the example above,
+the two lines starting with @w{@samp{* }} are menu entries.
 
+@cindex Menu comment
 A line that does not start with an @w{@samp{* }} may also appear in a
 menu.  Such a line is not a menu entry but rather a @dfn{menu comment}
-line that appears in the Info file.  In the example above, the line
-@samp{Larger Units of Text} is such a menu comment line; the two lines
-starting with @w{@samp{* }} are menu entries.
+line.   In the example above, the line @samp{Larger Units of Text}
+is a menu comment line.  Menu comment lines and any empty lines are kept
+in the output.
 
 @cindex Hierarchical documents, and menus
 Technically, menus can carry you to any node, regardless of the
