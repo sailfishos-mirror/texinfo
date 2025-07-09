@@ -47,7 +47,7 @@ use Texinfo::TreeElement;
 
 use Texinfo::Common;
 
-use Texinfo::ManipulateTree;
+use Texinfo::ManipulateTree qw(normalized_entry_associated_internal_node);
 
 # for error messages
 use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
@@ -451,9 +451,8 @@ sub _register_menu_node_targets($$$)
       foreach my $menu_content (@{$menu->{'contents'}}) {
         if ($menu_content->{'type'}
             and $menu_content->{'type'} eq 'menu_entry') {
-          my $menu_node
-       = Texinfo::ManipulateTree::normalized_entry_associated_internal_node(
-                                            $menu_content, $identifier_target);
+          my $menu_node = normalized_entry_associated_internal_node
+                            ($menu_content, $identifier_target);
           $register->{$menu_node} = 1 if ($menu_node);
         }
       }
@@ -789,55 +788,43 @@ sub check_node_tree_menu_structure($)
           foreach my $menu_content (@{$menu->{'contents'}}) {
             next if !$menu_content->{'type'}
               or $menu_content->{'type'} ne 'menu_entry';
-            my $menu_node;
-            my $menu_node_relations;
-            foreach my $content (@{$menu_content->{'contents'}}) {
-              next if $content->{'type'} ne 'menu_entry_node';
-              next if !$content->{'extra'};
-              next if $content->{'extra'}->{'manual_content'};
+            my $menu_node = normalized_entry_associated_internal_node
+                              ($menu_content, $identifier_target);
+            if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
+              my $menu_node_relations = $nodes_list
+                ->[$menu_node->{'extra'}->{'node_number'} -1];
 
-              if (defined($content->{'extra'}->{'normalized'})) {
-                $menu_node = $identifier_target
-                               ->{$content->{'extra'}->{'normalized'}};
-                if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
-                  $menu_node_relations = $nodes_list
-                    ->[$menu_node->{'extra'}->{'node_number'} -1];
+              my $section_relations
+                = $menu_node_relations->{'associated_section'};
 
-                  my $section_relations
-                    = $menu_node_relations->{'associated_section'};
+              # possibly a lone @node that is not part of the
+              # section structure.
+              next if !$section_relations;
+              next if !_node_automatic_directions($menu_node);
 
-                  # possibly a lone @node that is not part of the
-                  # section structure.
-                  next if !$section_relations;
-                  next if !_node_automatic_directions($menu_node);
-
-                  my $section_up_node
-                    = _section_direction_associated_node ($section_relations,
-                                                          'up');
-                  if (!$section_up_node) {
-                    $registrar->line_warn(
+              my $section_up_node
+                = _section_direction_associated_node ($section_relations,'up');
+              if (!$section_up_node) {
+                $registrar->line_warn(
     sprintf(__("node `%s' in menu in `%s' but not under it in sectioning"),
-                                 target_element_to_texi_label($menu_node),
-                                 target_element_to_texi_label($node)),
-                        $menu_content->{'source_info'}, 0,
-                        $customization_information->get_conf('DEBUG'));
-                    $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
-                  } elsif ($section_up_node
-                             and $section_up_node->{'element'}
-                             and $section_up_node->{'element'} ne $node) {
-                    $registrar->line_warn(
+                             target_element_to_texi_label($menu_node),
+                             target_element_to_texi_label($node)),
+                    $menu_content->{'source_info'}, 0,
+                    $customization_information->get_conf('DEBUG'));
+                $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
+              } elsif ($section_up_node
+                         and $section_up_node->{'element'}
+                         and $section_up_node->{'element'} ne $node) {
+                $registrar->line_warn(
     sprintf(__("node `%s' in menu in `%s' but under `%s' in sectioning"),
-                        target_element_to_texi_label($menu_node),
-                        target_element_to_texi_label($node),
-                        target_element_to_texi_label
-                          ($section_up_node->{'element'})),
-                        $menu_content->{'source_info'}, 0,
-                        $customization_information->get_conf('DEBUG'));
-                    $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
-                  }
-                }
+                    target_element_to_texi_label($menu_node),
+                    target_element_to_texi_label($node),
+                    target_element_to_texi_label
+                      ($section_up_node->{'element'})),
+                    $menu_content->{'source_info'}, 0,
+                    $customization_information->get_conf('DEBUG'));
+                $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
               }
-              last; # menu_entry_node found
             }
           }
         }
@@ -880,21 +867,10 @@ sub check_node_tree_menu_structure($)
         foreach my $menu_content (@{$menu->{'contents'}}) {
           next if !defined($menu_content->{'type'})
             or $menu_content->{'type'} ne 'menu_entry';
-
-          my $menu_node;
-          foreach my $content (@{$menu_content->{'contents'}}) {
-            next if $content->{'type'} ne 'menu_entry_node';
-            if ($content->{'extra'}) {
-              if (!$content->{'extra'}->{'manual_content'}) {
-                if (defined($content->{'extra'}->{'normalized'})) {
-                  my $menu_node_name = $content->{'extra'}->{'normalized'};
-                  $menu_node = $identifier_target->{$menu_node_name};
-                }
-              }
-            }
-            last; # menu_entry_node found
-          }
-          next MENU_CONTENT if !defined($menu_node)
+          my $menu_node
+            = Texinfo::ManipulateTree::normalized_entry_associated_internal_node
+                ($menu_content, $identifier_target);
+          next if !defined($menu_node)
             or !defined($menu_node->{'extra'})
             or !defined($menu_node->{'extra'}->{'node_number'});
 
@@ -1044,7 +1020,7 @@ sub check_node_tree_menu_structure($)
     }
   }
 
-  # check consistency between explicit node pointer and
+  # now check consistency between explicit node pointer and
   # node entries menu order
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     my $top_node = $identifier_target->{'Top'};

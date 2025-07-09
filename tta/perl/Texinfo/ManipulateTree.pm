@@ -67,6 +67,7 @@ protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
 protect_node_after_label_in_tree
+normalized_entry_associated_internal_node
 );
 
 our $VERSION = '7.2dev';

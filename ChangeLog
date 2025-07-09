@@ -1,3 +1,14 @@
+2025-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use Texinfo::ManipulateTree::normalized_entry_associated_internal_node
+
+	* tta/perl/Texinfo/Structuring.pm
+	(_register_menu_node_targets, check_node_tree_menu_structure):
+	Call Texinfo::ManipulateTree::normalized_entry_associated_internal_node
+	to avoid using the same logic in multiple places.
+	* tta/perl/Texinfo/ManipulateTree.pm (normalized_entry_associated_internal_node):
+	Add to @EXPORT_OK.
+
 2025-07-09 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/command_data.awk: set data type to other when there is no
