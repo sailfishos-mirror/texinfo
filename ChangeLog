@@ -1,3 +1,23 @@
+2025-07-09 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/command_data.awk: set data type to other when there is no
+	data type, for block commands.
+
+	* tta/C/main/command_data.awk: setup lists of command data type per
+	command category, TXI_CMD_CATEGORY_* in command_ids.h.
+
+	* tta/C/main/builtin_commands.h (enum line_command_type)
+	(enum nobrace_command_type, enum block_command_type)
+	(enum brace_command_type): use enums for command data types, generated
+	based on TXI_CMD_CATEGORY_*.
+
+	* util/swig/Makefile.am, util/swig/texinfo.i,
+	tta/C/convert/swig_command_data.h, tta/C/convert/swig_interface.c
+	(*_command_data_type_name, element_command_data_type)
+	(element_command_is_*): add lists of flags.  Generate element commands
+	classification.  Add names of command data types.  Add
+	element_command_data_type that returns a command element data type.
+
 2025-07-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Writing a Menu): Edit description

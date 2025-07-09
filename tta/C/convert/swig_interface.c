@@ -37,7 +37,82 @@
 #include "utils.h"
 #include "builtin_commands.h"
 #include "document.h"
+#include "swig_command_data.h"
 #include "swig_interface.h"
+
+#define cm_flag(name) \
+int \
+element_command_is_##name (ELEMENT *element) \
+{ \
+  enum command_id cmd; \
+ \
+  if (type_data[element->type].flags & TF_text) \
+    return 0; \
+  cmd = element_builtin_data_cmd (element); \
+  return builtin_command_data[cmd].flags & CF_##name; \
+}
+  TXI_CM_FLAGS_LIST
+#undef cm_flag
+
+#define cm_oflag(name) \
+int \
+element_command_is_##name (ELEMENT *element) \
+{ \
+  enum command_id cmd; \
+ \
+  if (type_data[element->type].flags & TF_text) \
+    return 0; \
+  cmd = element_builtin_data_cmd (element); \
+  return builtin_command_data[cmd].other_flags & CF_##name; \
+}
+  TXI_CM_OTHER_FLAGS_LIST
+#undef cm_oflag
+
+const char *brace_command_data_type_name[] = {
+#define tcc_cmd_category(type, cat, uppercat) #type,
+   TXI_CMD_CATEGORY_BRACE
+#undef tcc_cmd_category
+};
+
+const char *nobrace_command_data_type_name[] = {
+#define tcc_cmd_category(type, cat, uppercat) #type,
+   TXI_CMD_CATEGORY_NOBRACE
+#undef tcc_cmd_category
+};
+
+const char *block_command_data_type_name[] = {
+#define tcc_cmd_category(type, cat, uppercat) #type,
+   TXI_CMD_CATEGORY_BLOCK
+#undef tcc_cmd_category
+};
+
+const char *line_command_data_type_name[] = {
+#define tcc_cmd_category(type, cat, uppercat) #type,
+   TXI_CMD_CATEGORY_LINE
+#undef tcc_cmd_category
+};
+
+const char *
+element_command_data_type (ELEMENT *element)
+{
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+  enum command_id cmd = element_builtin_data_cmd (element);
+  if (cmd)
+    {
+      int cmd_data_type = builtin_command_data[cmd].data;
+      if (builtin_command_data[cmd].flags & CF_brace)
+        return brace_command_data_type_name[cmd_data_type];
+      else if (builtin_command_data[cmd].flags & CF_line)
+        return line_command_data_type_name[cmd_data_type];
+      else if (builtin_command_data[cmd].flags & CF_nobrace)
+        return nobrace_command_data_type_name[cmd_data_type];
+      else if (builtin_command_data[cmd].flags & CF_block)
+        return block_command_data_type_name[cmd_data_type];
+    }
+
+  return 0;
+}
 
 const char *
 element_type (ELEMENT *element)

@@ -169,6 +169,7 @@ END {
               if (flag_idx == 1) {
                 # first flag is always kept, corresponds to the category
                 flags_str = flags_array[flag_idx]
+                main_category = flags_str
                 # all the line and block commands have the no_paragraph flag
                 if (flags_str == "line" || flags_str == "block") {
                   old_str = flags_str
@@ -241,7 +242,25 @@ END {
         if (data[c] != "") {
             command_data = data[c]
         } else {
-            command_data = "0"
+            if (main_category == "block") {
+              command_data = "BLOCK_other"
+            } else {
+              command_data = "0"
+              print "ERROR: missing command data: '" c "'" > "/dev/stderr"
+            }
+        }
+
+        data_type = ""
+        where = match(command_data, /_[a-z_]+$/)
+        if (where == 0) {
+          print "ERROR: non matching "command_data > "/dev/stderr"
+        } else {
+          # internal commands reuse other types of commands
+          if (main_category != "internal") {
+            data_type = substr(command_data, where +1, RLENGTH-1)
+            #print "DATA_TYPE '"data_type"' " c
+            data_types[main_category][data_type] = 1
+          }
         }
 
         if (args_nr[c] != "") {
@@ -269,7 +288,6 @@ END {
     print      > CI
     print "#define BUILTIN_CMD_NUMBER " i > CI
     print                                 > CI
-    print "#endif"                        > CI
 
     print global_unique_commands_struct_str   > GCT
     print "   /* Arrays of elements */"       > GCT
@@ -279,6 +297,16 @@ END {
     print global_multi_commands_struct_str    > GCT
     print "} GLOBAL_COMMANDS;\n"              > GCT
     print "#endif"                            > GCT
+
+    for (main_category in data_types) {
+      upper_case_category = toupper(main_category)
+      print "#define TXI_CMD_CATEGORY_" upper_case_category " \\" > CI
+      for (command_data in data_types[main_category]) {
+        print "  tcc_cmd_category("command_data", "main_category", "upper_case_category") \\"  > CI
+      }
+      print                                 > CI
+    }
+    print "#endif"                        > CI
 }
 
 

@@ -36,6 +36,7 @@
 #include "manipulate_indices.h"
 #include "reader.h"
 #include "texinfo.h"
+#include "swig_command_data.h"
 #include "swig_interface.h"
 %}
 
@@ -61,6 +62,14 @@ void setup_txi_paths_information (int texinfo_uninstalled,
                              const char *converterdatadir,
                              const char *t2a_builddir,
                              const char *t2a_srcdir);
+
+// Information on elements
+
+%include "swig_command_data.h"
+
+// swig_interface.h
+const char *element_command_data_type (ELEMENT *element);
+
 
 // Parser
 

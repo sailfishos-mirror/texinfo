@@ -5,6 +5,8 @@
 #include "tree_types.h"
 #include "document_types.h"
 
+const char *element_command_data_type (ELEMENT *element);
+
 const char *element_type (ELEMENT *element);
 const char *element_text (ELEMENT *element);
 const char *element_cmdname (ELEMENT *element);

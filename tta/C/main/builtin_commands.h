@@ -46,6 +46,8 @@ enum command_id element_builtin_cmd (const ELEMENT *e);
 enum command_id element_builtin_data_cmd (const ELEMENT *e);
 
 /* Base command flags, .flags in COMMAND */
+/* sync with TXI_CM_FLAGS_LIST list in swig_command_data.h, listing
+   there only the flags that are relevant in conversion codes */
 
 #define CF_line			        0x0001
 #define CF_deprecated   	        0x0002
@@ -101,6 +103,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 
 /* Other command flags. .other_flags in COMMAND. Not used in parser, but
    in other codes, or only used in perl */
+/* sync with TXI_CM_OTHER_FLAGS_LIST list in swig_command_data.h */
 #define CF_letter_no_arg		0x0001
 #define CF_inline_format		0x0002
 #define CF_inline_conditional		0x0004
@@ -120,52 +123,80 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 */
 
 /* Types of line command (has CF_line flag).  Values for COMMAND.data. */
-#define LINE_lineraw -1
-#define LINE_specific -2
-#define LINE_text -3
-#define LINE_line -4
+/*
+#define LINE_line 0
+#define LINE_lineraw 1
+#define LINE_specific 2
+#define LINE_text 3
+ */
+enum line_command_type {
+#define tcc_cmd_category(type, cat, uppercat) uppercat ## _ ## type,
+   TXI_CMD_CATEGORY_LINE
+#undef tcc_cmd_category
+};
 
 /* Types of command without brace nor argument on line (has CF_nobrace flag). */
-#define NOBRACE_symbol 0
-#define NOBRACE_skipspace -1
-#define NOBRACE_other -2
+ /*
+#define NOBRACE_other 0
+#define NOBRACE_skipspace 1
+#define NOBRACE_symbol 2
+ */
+enum nobrace_command_type {
+#define tcc_cmd_category(type, cat, uppercat) uppercat ## _ ## type,
+   TXI_CMD_CATEGORY_NOBRACE
+#undef tcc_cmd_category
+};
 
 /* Types of block command (CF_block). */
-#define BLOCK_conditional -1
-#define BLOCK_raw -2
-#define BLOCK_multitable -3
-#define BLOCK_region -4
-#define BLOCK_item_line -5
-/* not used in code but consistent with type in perl hash */
-#define BLOCK_item_container -6
-/* not used in code but consistent with type in perl hash */
-#define BLOCK_quotation -7
-#define BLOCK_float -8
-#define BLOCK_menu -9
-#define BLOCK_format_raw -10
-/* not used in code but consistent with type in perl hash */
-#define BLOCK_def -11
-/* not used in code but consistent with type in perl hash */
-#define BLOCK_preformatted -12
-/* not used in code but consistent with type in perl hash */
-#define BLOCK_math -13
-#define BLOCK_other -14
+ /*
+#define BLOCK_conditional 0
+#define BLOCK_def 1
+#define BLOCK_float 2
+#define BLOCK_format_raw 3
+#define BLOCK_item_container 4
+#define BLOCK_item_line 5
+#define BLOCK_math 6
+#define BLOCK_menu 7
+#define BLOCK_multitable 8
+#define BLOCK_other 9
+#define BLOCK_preformatted 10
+#define BLOCK_quotation 11
+#define BLOCK_raw 12
+#define BLOCK_region 13
+ */
+
+/* some types are not used in parser code or not used at all in C code,
+   such as item_container, quotation, format_raw, def, preformatted
+ */
+
+enum block_command_type {
+#define tcc_cmd_category(type, cat, uppercat) uppercat ## _ ## type,
+   TXI_CMD_CATEGORY_BLOCK
+#undef tcc_cmd_category
+};
 
 /* Types of brace command (CF_brace). */
+/* context can enclose paragraph breaks. */
+/*
+#define BRACE_accent 0
 #define BRACE_arguments 1
-#define BRACE_noarg 0
-#define BRACE_context -1 /* Can enclose paragraph breaks. */
-#define BRACE_accent -2
-#define BRACE_style_other -3
-#define BRACE_style_code -5
-#define BRACE_style_no_code -6
-#define BRACE_other -7
-#define BRACE_special -8
-#define BRACE_inline -9
+#define BRACE_context 2
+#define BRACE_inline 3
+#define BRACE_noarg 4
+#define BRACE_other 5
+#define BRACE_special 6
+#define BRACE_style_code 7
+#define BRACE_style_no_code 8
+#define BRACE_style_other 9
+ */
 
-/* Types of internal commands (CF_internal). */
-#define INTERNAL_brace -1
-#define INTERNAL_line -2
+enum brace_command_type {
+#define tcc_cmd_category(type, cat, uppercat) uppercat ## _ ## type,
+   TXI_CMD_CATEGORY_BRACE
+#undef tcc_cmd_category
+};
+
+/* No types of internal commands (CF_internal), other types are reused. */
 
 /* following related to element types */
 void set_element_type_name_info (void);

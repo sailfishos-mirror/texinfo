@@ -18,9 +18,12 @@ document command_name in texi2any HTML customization API
 
 inline contents_child_by_index in C?
 
-SWIG commands classifications.  Index sorted
-by letter?  Iteration over attributes names to discover
-element attributes?
+SWIG Index sorted by letter?  Iteration over attributes names to discover
+element attributes? changing source marks.
+
+* split/reuse relocate_source_marks, possibly modified to copy
+  the source mark and not remove them.
+ defcondx_Dbar empty_ifset_in_ifset_no_set t/55conditionals.t
 
 
 Bugs

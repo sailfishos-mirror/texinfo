@@ -427,4 +427,43 @@ CM_hex_7e,
 
 #define BUILTIN_CMD_NUMBER 391
 
+#define TXI_CMD_CATEGORY_BLOCK \
+  tcc_cmd_category(conditional, block, BLOCK) \
+  tcc_cmd_category(def, block, BLOCK) \
+  tcc_cmd_category(float, block, BLOCK) \
+  tcc_cmd_category(format_raw, block, BLOCK) \
+  tcc_cmd_category(item_container, block, BLOCK) \
+  tcc_cmd_category(item_line, block, BLOCK) \
+  tcc_cmd_category(math, block, BLOCK) \
+  tcc_cmd_category(menu, block, BLOCK) \
+  tcc_cmd_category(multitable, block, BLOCK) \
+  tcc_cmd_category(other, block, BLOCK) \
+  tcc_cmd_category(preformatted, block, BLOCK) \
+  tcc_cmd_category(quotation, block, BLOCK) \
+  tcc_cmd_category(raw, block, BLOCK) \
+  tcc_cmd_category(region, block, BLOCK) \
+
+#define TXI_CMD_CATEGORY_BRACE \
+  tcc_cmd_category(accent, brace, BRACE) \
+  tcc_cmd_category(arguments, brace, BRACE) \
+  tcc_cmd_category(context, brace, BRACE) \
+  tcc_cmd_category(inline, brace, BRACE) \
+  tcc_cmd_category(noarg, brace, BRACE) \
+  tcc_cmd_category(other, brace, BRACE) \
+  tcc_cmd_category(special, brace, BRACE) \
+  tcc_cmd_category(style_code, brace, BRACE) \
+  tcc_cmd_category(style_no_code, brace, BRACE) \
+  tcc_cmd_category(style_other, brace, BRACE) \
+
+#define TXI_CMD_CATEGORY_LINE \
+  tcc_cmd_category(line, line, LINE) \
+  tcc_cmd_category(lineraw, line, LINE) \
+  tcc_cmd_category(specific, line, LINE) \
+  tcc_cmd_category(text, line, LINE) \
+
+#define TXI_CMD_CATEGORY_NOBRACE \
+  tcc_cmd_category(other, nobrace, NOBRACE) \
+  tcc_cmd_category(skipspace, nobrace, NOBRACE) \
+  tcc_cmd_category(symbol, nobrace, NOBRACE) \
+
 #endif
