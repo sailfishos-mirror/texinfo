@@ -167,11 +167,11 @@ END {
             split(commands[c], flags_array, ",")
             for (flag_idx in flags_array) {
               if (flag_idx == 1) {
-                # first flag is always kept, corresponds to the category
+                # first flag is the category
                 flags_str = flags_array[flag_idx]
                 main_category = flags_str
                 # all the line and block commands have the no_paragraph flag
-                if (flags_str == "line" || flags_str == "block") {
+                if (main_category == "line" || main_category == "block") {
                   old_str = flags_str
                   flags_str = old_str "," "no_paragraph"
                 }
@@ -223,14 +223,21 @@ END {
                 }
               }
             }
+        } else {
+            print "ERROR: missing flags " c > "/dev/stderr"
+            exit 1
         }
 
-        if (flags_str == "") {
-            flags = "0"
-        } else {
-            flags = "CF_" flags_str
-            gsub (/,/, " | CF_", flags)
+        # could check that it is brace, block, nobrace or line, but it is not
+        # too important as an error should appear compiling the C output file
+        # if another category is used
+        if (main_category == "") {
+            print "ERROR: no category " c > "/dev/stderr"
+            exit 1
         }
+
+        flags = "CF_" flags_str
+        gsub (/,/, " | CF_", flags)
 
         if (other_flags_str == "") {
             other_flags = "0"
@@ -247,25 +254,19 @@ END {
 
         data_types[main_category][data_type] = 1
 
-        command_data = toupper(main_category) "_" data_type
-
         if (args_nr[c] != "") {
             args_nr_data = args_nr[c]
         } else {
-            where = 0
-            if (commands[c] != "") {
-              where = match(commands[c], /block/)
-              if (where == 0) {
-                where = match(command_data, /^NOBRACE_/)
-              }
-            }
-            if (where != 0 || command_data == "BRACE_noarg" \
-                           || command_data == "LINE_lineraw" ) {
+            if (main_category == "block" || main_category == "nobrace" \
+                || (main_category == "brace" && data_type == "noarg") \
+                || (main_category == "line" && data_type == "lineraw")) {
               args_nr_data = "0"
             } else {
               args_nr_data = "1"
             }
         }
+
+        command_data = toupper(main_category) "_" data_type
 
         print "{\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data "}," > CD
     }
@@ -287,8 +288,8 @@ END {
     for (main_category in data_types) {
       upper_case_category = toupper(main_category)
       print "#define TXI_CMD_CATEGORY_" upper_case_category " \\" > CI
-      for (command_data in data_types[main_category]) {
-        print "  tcc_cmd_category("command_data", "main_category", "upper_case_category") \\"  > CI
+      for (data_type in data_types[main_category]) {
+        print "  tcc_cmd_category("data_type", "main_category", "upper_case_category") \\"  > CI
       }
       print                                 > CI
     }
