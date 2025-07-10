@@ -8,15 +8,15 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../../tta/m4
+ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../m4
 
 SUBDIRS = . python
 
 BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
 
-SWIG_include_directories = -I$(srcdir)/../../tta/C/convert
-SWIG_header_dependencies = $(srcdir)/../../tta/C/convert/swig_command_data.h
+SWIG_include_directories = -I$(srcdir)/../C/convert
+SWIG_header_dependencies = $(srcdir)/../C/convert/swig_command_data.h
 
 # tell Make how to create the generated SWIG files
 $(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)

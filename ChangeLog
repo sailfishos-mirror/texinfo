@@ -1,5 +1,13 @@
 2025-07-10 Patrice Dumas  <pertusus@free.fr>
 
+	Move back util/swig to tta/swig
+
+	* tta/swig/Makefile.am, tta/swig/perl/Makefile.PL: update paths.
+
+	* ChangeLog: change in spacing.
+
+2025-07-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/command_data.awk: generate command_data only for the
 	output.  Exit if flags or category are missing.
 
@@ -8,7 +16,7 @@
 	* tta/C/main/command_data.awk, tta/data/command_data.txt,
 	tta/maintain/regenerate_commands_perl_info.pl: consider that the first
 	flag is the category of the command.  Remove the uppercased category
-	from command_data.txt, add it automatically in command_data.awk. 
+	from command_data.txt, add it automatically in command_data.awk.
 
 2025-07-10 Patrice Dumas  <pertusus@free.fr>
 
@@ -1072,7 +1080,7 @@
 	XS overrides.
 
 	* tta/perl/Texinfo/Convert/TreeElementReadDocBook.pm (_index_entry):
-	call functions with XS overrides for tree_element_index_content_element 
+	call functions with XS overrides for tree_element_index_content_element
 	tree_element_itemize_item_prepended_element and
 	element_find_element_authors.
 
@@ -1585,7 +1593,7 @@
 	tta/perl/XSTexinfo/parser_document/TreeElementXS.xs
 	(add_to_element_contents): do not push on contents in Perl, but in XS.
 
-	* tta/perl/Texinfo/Convert/TreeReadDocBook.pm (package) 
+	* tta/perl/Texinfo/Convert/TreeReadDocBook.pm (package)
 	(_convert): fix package.  Call multitable_columnfractions instead of
 	element_multitable_columnfractions.
 
@@ -1723,7 +1731,7 @@
 
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/Converter.pm,
 	tta/perl/Texinfo/Convert/ReadDocBook.pm,
-	tta/perl/Texinfo/Convert/Utils.pm, tta/perl/Texinfo/ReaderNonXS.pm: 
+	tta/perl/Texinfo/Convert/Utils.pm, tta/perl/Texinfo/ReaderNonXS.pm:
 	access text through hash key rather than through function.
 
 2025-06-11  Patrice Dumas  <pertusus@free.fr>
@@ -2612,7 +2620,7 @@
 2025-05-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_to_text.c (convert_to_text_internal),
-	tta/C/main/node_name_normalization.c (convert_to_normalized_internal), 
+	tta/C/main/node_name_normalization.c (convert_to_normalized_internal),
 	tta/perl/Texinfo/Convert/NodeNameNormalization.pm (%ignored_types),
 	tta/perl/Texinfo/Convert/Text.pm (%ignored_types)
 	(%ignored_text_types), tta/perl/Texinfo/Convert/TextContent.pm:
@@ -2752,7 +2760,7 @@
 	* tta/C/convert/html_prepare_converter.c
 	(html_initialize_output_state), tta/perl/Texinfo/Convert/HTML.pm
 	(conversion_initialization): set USE_ACCESSKEY automatically if undef
-	only if split at node, as with other split options, there could 
+	only if split at node, as with other split options, there could
 	be accesskey attributes with different targets.
 
 2025-05-23  Patrice Dumas  <pertusus@free.fr>
@@ -2862,7 +2870,7 @@
 2025-05-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
-	(simple_only_special_spaces_node_test_split_section): test split 
+	(simple_only_special_spaces_node_test_split_section): test split
 	at sections with nodes consisting of spaces only.
 
 2025-05-22  Patrice Dumas  <pertusus@free.fr>
@@ -2888,7 +2896,7 @@
 	(build_heading_structure_list), tta/C/main/structure_list.c
 	(SECTION_STRUCT_PRINT_KEY, print_sections_list, print_nodes_list),
 	tta/C/main/tree_types.h (HEADING_STRUCTURE, SECTION_STRUCTURE),
-	tta/C/parsetexi/end_line.c (associate_title_command_anchor), 
+	tta/C/parsetexi/end_line.c (associate_title_command_anchor),
 	tta/perl/Texinfo/ParserNonXS.pm (_associate_title_command_anchor),
 	tta/perl/Texinfo/Structuring.pm (print_sections_list)
 	(print_headings_list): have associated_anchor_command point
