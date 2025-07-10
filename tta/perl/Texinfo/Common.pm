@@ -436,11 +436,11 @@ foreach my $command (
   keys(%Texinfo::Commands::nobrace_commands),
  ) {
   $all_commands{$command} = 1;
-  foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
-    delete $all_commands{$internal_command};
-  }
 }
 
+foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
+  delete $all_commands{$internal_command};
+}
 
 
 # functions used in main program, Parser and/or Texinfo::Structuring.

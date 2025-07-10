@@ -1203,7 +1203,6 @@ our %no_paragraph_commands = (
   "indent"                  => 1,
   "indentedblock"           => 1,
   "index_entry_command"     => 1,
-  "index_entry_command"     => 1,
   "insertcopying"           => 1,
   "item"                    => 1,
   "item_LINE"               => 1,

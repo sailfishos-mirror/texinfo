@@ -61,36 +61,40 @@ while (<STDIN>) {
     } else {
       # note that this depends on the order in the file, a category can
       # only be detected in the flags if it was already seen as data for
-      # another command, so commands without data should be last in their
-      # category in the input file.
+      # another command, so commands without data should not be first
+      # in their category in the input file.
       my @categories = grep {exists($command_categories{$_})} @flags;
       if (scalar(@categories) == 0) {
         die "$command: ".join('|',@flags).": cannot find a category ("
                           .join('|', sort(keys(%command_categories))).")\n";
       } elsif (scalar(@categories) > 1) {
-        warn "$command: ".join('|',@flags)
+        die "$command: ".join('|',@flags)
             .": multiple categories: ".join('|',@categories)."\n";
       }
       $category = $categories[0];
     }
 
-    if (defined($args_nr) and $args_nr ne '') {
-      $command_args_nr{$command} = $args_nr;
+    if ($flags[0] ne $category) {
+      die "$command: ".join('|',@flags).": $category is not the first flag\n";
     }
 
     $command_categories{$category}->{$type} = []
         if not ($command_categories{$category}->{$type});
     push @{$command_categories{$category}->{$type}}, $command;
 
-    # gives the same result as {$_ ne $category} as the
-    # command with multiple categories, txiinternalvalue appears
-    # at the very beginning of the file
-    foreach my $flag (grep {not $command_categories{$_}} @flags) {
+    shift @flags;
+    foreach my $flag (@flags) {
       $flags_hashes{$flag} = [] if (!$flags_hashes{$flag});
       push @{$flags_hashes{$flag}}, $command;
     }
+
+    if (defined($args_nr) and $args_nr ne '') {
+      $command_args_nr{$command} = $args_nr;
+    }
   }
 }
+
+#print STDERR "Categories: ".join('|', sort(keys(%command_categories)))."\n";
 
 my $out_file = $ARGV[0];
 die "Need an output file\n" if (!defined($out_file));
@@ -121,10 +125,6 @@ print OUT "\n";
 print OUT "# flag hashes\n";
 
 foreach my $hash_flag (sort(keys(%flags_hashes))) {
-  # happens for 'txiinternalvalue', which is in internal category but also
-  # has the brace flag set.  This information cannot be kept, this command
-  # will not appear in brace commands.
-  next if ($command_categories{$hash_flag});
   print OUT "our %${hash_flag}_commands = (\n";
   foreach my $command (sort(@{$flags_hashes{$hash_flag}})) {
     print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => 1,\n";
