@@ -1482,9 +1482,9 @@ sub normalized_entry_associated_internal_node($$)
   return undef;
 }
 
-# In $NODE, find the first menu entry node in the first menu.  If the
-# node in menu refers to a target element in the document, return that
-# element
+# In $NODE, find the first menu entry in the first menu.  If the node
+# in the menu refers to a target element in the document, return that
+# element.  Otherwise, return the 'menu_entry_node' element.
 sub first_menu_node($$)
 {
   my $node_relations = shift;

@@ -1126,8 +1126,8 @@ sub _set_top_node_next($$)
            if (!$node_relations->{'node_directions'});
         $node_relations->{'node_directions'}->{'next'}
           = $top_node_next;
-        if ($top_node_next->{'cmdname'} ne 'node'
-            or $top_node_next->{'extra'}->{'manual_content'}) {
+        if (defined($top_node_next->{'extra'}->{'manual_content'})
+              or $top_node_next->{'cmdname'} ne 'node') {
           $top_node_next = undef;
         }
       }
