@@ -240,28 +240,14 @@ END {
         }
 
         if (data[c] != "") {
-            command_data = data[c]
+            data_type = data[c]
         } else {
-            if (main_category == "block") {
-              command_data = "BLOCK_other"
-            } else {
-              command_data = "0"
-              print "ERROR: missing command data: '" c "'" > "/dev/stderr"
-            }
+            data_type = "other"
         }
 
-        data_type = ""
-        where = match(command_data, /_[a-z_]+$/)
-        if (where == 0) {
-          print "ERROR: non matching "command_data > "/dev/stderr"
-        } else {
-          # internal commands reuse other types of commands
-          if (main_category != "internal") {
-            data_type = substr(command_data, where +1, RLENGTH-1)
-            #print "DATA_TYPE '"data_type"' " c
-            data_types[main_category][data_type] = 1
-          }
-        }
+        data_types[main_category][data_type] = 1
+
+        command_data = toupper(main_category) "_" data_type
 
         if (args_nr[c] != "") {
             args_nr_data = args_nr[c]

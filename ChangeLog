@@ -1,5 +1,12 @@
 2025-07-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/command_data.awk, tta/data/command_data.txt,
+	tta/maintain/regenerate_commands_perl_info.pl: consider that the first
+	flag is the category of the command.  Remove the uppercased category
+	from command_data.txt, add it automatically in command_data.awk. 
+
+2025-07-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm: remove internal commands outside of the
 	loop adding commands.
 
