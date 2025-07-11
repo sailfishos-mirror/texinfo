@@ -1,3 +1,9 @@
+2025-07-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/configure.ac, tta/swig/python/Makefile.am: update paths.
+	Add Perl in the Python object link since it needs to be there as there
+	is no Perl executable already.  Still work in progress.
+
 2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No debug argument for line_error or line_warn

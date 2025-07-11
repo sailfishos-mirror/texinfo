@@ -629,7 +629,7 @@ endif
 
 ################################# C only static main program demonstrator
 # The same effect can be obtained with the main program in C with
-# the interpreter disabled at runtime.
+# XS disabled at configure time or the interpreter disabled at runtime.
 # Not really useful nowadays besides making sure that the replacement functions
 # required for linking are provided.
 

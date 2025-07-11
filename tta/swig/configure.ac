@@ -44,6 +44,11 @@ AX_PKG_SWIG([], [], [ AC_MSG_ERROR([SWIG is required to build.]) ])
 # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
 AX_SWIG_PYTHON
 
+AC_PATH_PROG([PERL], [perl])
+
+# setup perl_conf*, XSUBPP* and XS_VERSION variables
+txi_PERL_CONF
+
 # Use libtool to link libraries and modules
 LT_INIT
 

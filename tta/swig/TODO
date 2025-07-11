@@ -23,6 +23,8 @@ index_entry = Texinfo.element_index_entry (document, element)
 index_info = Texinfo.index_entry_index (document, index_entry)
 
 
+Need to link against libperl for the interfaces.
+
 Use automake for perl.
 --enable-perl-install-mode=site/vendor/custom
 custom means using the usual prefixes, with perl5 prepended.
