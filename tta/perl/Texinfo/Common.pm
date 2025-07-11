@@ -1988,7 +1988,15 @@ sub debug_print_tree($)
   local $Data::Dumper::Purity = 1;
   local $Data::Dumper::Indent = 1;
 
-  return Data::Dumper->Dump([$tree]);
+  my $result = Data::Dumper->Dump([$tree]);
+
+  # Tree elements are blessed into the 'Texinfo::TreeElement' class, but
+  # this information is useless clutter for someone reading it.
+  $result =~ s/bless\( //g;
+  $result =~ s/ 'Texinfo::TreeElement' \)//g;
+
+  return $result;
+
 }
 
 

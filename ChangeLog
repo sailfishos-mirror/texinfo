@@ -1,3 +1,8 @@
+2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Common.pm (debug_print_tree):
+	Strip bless (..., 'Texinfo::TreeElement') from output.
+
 2025-07-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/source_marks.c (place_source_mark),
