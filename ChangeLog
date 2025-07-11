@@ -3,6 +3,16 @@
 	Wrappers for line_warn and line_error.
 
 	* tta/perl/Texinfo/Structuring.pm
+	(structuring_line_warn, structuring_line_error): Make $continutation
+	argument optional and set to 0 if not given.
+	(_check_menu_entry): Take Texinfo::Document argument rather
+	than Texinfo::Report.
+
+2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Wrappers for line_warn and line_error.
+
+	* tta/perl/Texinfo/Structuring.pm
 	(structuring_line_warn, structuring_line_error): New functions.
 	Take $document argument and retrieve "DEBUG" setting therefrom.
 	Use throughout module.

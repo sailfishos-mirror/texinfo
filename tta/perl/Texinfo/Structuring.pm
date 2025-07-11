@@ -129,6 +129,8 @@ sub structuring_line_warn($$$;$$)
   my $continuation = shift;
   my $silent = shift;
 
+  $continuation = 0 if !defined($continuation);
+
   my $registrar = $document->registrar();
   my $customization_information = $document;
 
@@ -145,6 +147,8 @@ sub structuring_line_error($$$;$$)
   my $error_location_info = shift;
   my $continuation = shift;
   my $silent = shift;
+
+  $continuation = 0 if !defined($continuation);
 
   my $registrar = $document->registrar();
   my $customization_information = $document;
@@ -208,7 +212,7 @@ sub sectioning_structure($)
         if ($level - $prev_section_level > 1) {
           structuring_line_error($document,
            sprintf(__("raising the section level of \@%s which is too low"),
-              $content->{'cmdname'}), $content->{'source_info'}, 0);
+              $content->{'cmdname'}), $content->{'source_info'});
           $level = $prev_section_level + 1;
         }
         $previous_section_relations->{'section_children'}
@@ -261,12 +265,12 @@ sub sectioning_structure($)
                 # condition means section level > 1, ie below chapter-level.
                 structuring_line_warn($document,
                  sprintf(__("no chapter-level command before \@%s"),
-                         $content->{'cmdname'}), $content->{'source_info'}, 0);
+                         $content->{'cmdname'}), $content->{'source_info'});
               }
             } else {
               structuring_line_warn($document,
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
-                  $content->{'cmdname'}), $content->{'source_info'}, 0);
+                  $content->{'cmdname'}), $content->{'source_info'});
               $level = $sec_root->{'section_root_level'} + 1;
             }
           }
@@ -384,7 +388,7 @@ sub sectioning_structure($)
 
       structuring_line_warn($document,
         sprintf(__("no sectioning command associated with \@%s"),
-                $content->{'cmdname'}), $content->{'source_info'}, 0);
+                $content->{'cmdname'}), $content->{'source_info'});
     }
   }
 }
@@ -416,7 +420,7 @@ sub warn_non_empty_parts($)
       if (!Texinfo::Common::is_content_empty($part)) {
         structuring_line_warn($document,
                      sprintf(__("\@%s not empty"), $part->{'cmdname'}),
-                       $part->{'source_info'}, 0);
+                       $part->{'source_info'});
       }
     }
   }
@@ -431,7 +435,7 @@ my %direction_texts = (
 
 sub _check_menu_entry($$$$$$)
 {
-  my $registrar = shift;
+  my $document = shift;
   my $customization_information = shift;
   my $identifier_target = shift;
   my $command = shift;
@@ -444,22 +448,21 @@ sub _check_menu_entry($$$$$$)
     my $menu_node = $identifier_target->{$normalized_menu_node};
 
     if (!$menu_node) {
-      $registrar->line_error(
+      structuring_line_error($document,
                   sprintf(__("\@%s reference to nonexistent node `%s'"),
                           $command,
                           link_element_to_texi($menu_entry_node)),
-                            $menu_content->{'source_info'}, 0);
+                            $menu_content->{'source_info'});
     } else {
       if (!Texinfo::Convert::Texinfo::check_node_same_texinfo_code($menu_node,
                            $menu_entry_node->{'extra'}->{'node_content'})) {
-        $registrar->line_warn(
+        structuring_line_warn($document,
         sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
                 $command,
                 link_element_to_texi($menu_entry_node),
                 $menu_node->{'cmdname'},
                 target_element_to_texi_label($menu_node)),
-                               $menu_content->{'source_info'}, 0,
-                               $customization_information->get_conf('DEBUG'));
+                               $menu_content->{'source_info'});
       }
     }
   }
@@ -620,7 +623,7 @@ sub check_nodes_are_referenced($)
       if (not exists($referenced_nodes{$node})) {
         structuring_line_warn($document, sprintf(__("node `%s' unreferenced"),
                                       target_element_to_texi_label($node)),
-                              $node->{'source_info'}, 0);
+                              $node->{'source_info'});
       # if the node is referenced, warn if there is no menu up
       } elsif ($customization_information->get_conf(
                                              'CHECK_NORMAL_MENU_STRUCTURE')
@@ -631,7 +634,7 @@ sub check_nodes_are_referenced($)
                  or $referenced_in_menus{$node})) {
           structuring_line_warn($document, sprintf(__("node `%s' not in menu"),
                                         target_element_to_texi_label($node)),
-                               $node->{'source_info'}, 0);
+                               $node->{'source_info'});
         }
       }
     }
@@ -647,7 +650,6 @@ sub _set_menus_node_directions($)
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
-  my $registrar = $document->registrar();
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -670,7 +672,7 @@ sub _set_menus_node_directions($)
       if (scalar(@{$node_relations->{'menus'}}) > 1) {
         foreach my $menu (@{$node_relations->{'menus'}}[1 .. $#{$node_relations->{'menus'}}]) {
           structuring_line_warn($document, sprintf(__("multiple \@%s"),
-                       $menu->{'cmdname'}), $menu->{'source_info'}, 0);
+                       $menu->{'cmdname'}), $menu->{'source_info'});
         }
       }
       foreach my $menu (@{$node_relations->{'menus'}}) {
@@ -686,7 +688,7 @@ sub _set_menus_node_directions($)
                 if ($content->{'extra'}) {
                   if (!$content->{'extra'}->{'manual_content'}) {
                     if ($check_menu_entries) {
-                      _check_menu_entry($registrar, $customization_information,
+                      _check_menu_entry($document, $customization_information,
                                         $identifier_target, 'menu',
                                         $menu_content, $content);
                     }
@@ -740,7 +742,7 @@ sub _set_menus_node_directions($)
             if ($content->{'type'} eq 'menu_entry_node') {
               if (not ($content->{'extra'}
                        and $content->{'extra'}->{'manual_content'})) {
-                _check_menu_entry($registrar, $customization_information,
+                _check_menu_entry($document, $customization_information,
                     $identifier_target, 'detailmenu', $menu_content, $content);
               }
               last;
@@ -829,7 +831,7 @@ sub check_node_tree_menu_structure($)
     sprintf(__("node `%s' in menu in `%s' but not under it in sectioning"),
                              target_element_to_texi_label($menu_node),
                              target_element_to_texi_label($node)),
-                    $menu_content->{'source_info'}, 0);
+                    $menu_content->{'source_info'});
                 $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
               } elsif ($section_up_node
                          and $section_up_node->{'element'}
@@ -840,7 +842,7 @@ sub check_node_tree_menu_structure($)
                     target_element_to_texi_label($node),
                     target_element_to_texi_label
                       ($section_up_node->{'element'})),
-                    $menu_content->{'source_info'}, 0);
+                    $menu_content->{'source_info'});
                 $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
               }
             }
@@ -919,13 +921,13 @@ sub check_node_tree_menu_structure($)
               sprintf(__("node `%s' in menu where `%s' expected"),
                 target_element_to_texi_label($menu_node),
                 target_element_to_texi_label($section_node)),
-              $menu_content->{'source_info'}, 0);
+              $menu_content->{'source_info'});
             $node_errors{$menu_node_element_number} = 1;
           } else {
             structuring_line_warn($document,
               sprintf(__("unexpected node `%s' in menu"),
                 target_element_to_texi_label($menu_node)),
-              $menu_content->{'source_info'}, 0);
+              $menu_content->{'source_info'});
             $node_errors{$menu_node_element_number} = 1;
           }
 
@@ -1027,7 +1029,7 @@ sub check_node_tree_menu_structure($)
      __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
                target_element_to_texi_label($up_node),
                target_element_to_texi_label($node)),
-                              $up_node->{'source_info'}, 0);
+                              $up_node->{'source_info'});
             $node_errors{$node->{'extra'}->{'node_number'}} = 1;
           }
         }
@@ -1069,7 +1071,7 @@ sub check_node_tree_menu_structure($)
                   $direction,
                   target_element_to_texi_label(
                       $menu_directions->{$direction})),
-                                  $node->{'source_info'}, 0);
+                                  $node->{'source_info'});
           }
         }
       }
@@ -1287,7 +1289,7 @@ sub construct_nodes_tree($)
                   target_element_to_texi_label($node),
                                      $node_target->{'cmdname'},
                   target_element_to_texi_label($node_target)),
-                                    $node->{'source_info'}, 0);
+                                    $node->{'source_info'});
             }
           } else {
             if (!$customization_information->get_conf('novalidate')) {
@@ -1295,7 +1297,7 @@ sub construct_nodes_tree($)
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
                       link_element_to_texi($direction_element)),
-                                $node->{'source_info'}, 0);
+                                $node->{'source_info'});
             }
           }
         }
@@ -1658,7 +1660,7 @@ sub associate_internal_referencesNonXS($)
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
                              $ref->{'cmdname'},
                              link_element_to_texi($label_element)),
-                                 $ref->{'source_info'}, 0);
+                                 $ref->{'source_info'});
         }
       } else {
         my $node_target = $identifier_target->{$normalized};
@@ -1672,7 +1674,7 @@ sub associate_internal_referencesNonXS($)
                      link_element_to_texi($label_element),
                      $node_target->{'cmdname'},
                      target_element_to_texi_label($node_target)),
-                                $ref->{'source_info'}, 0);
+                                $ref->{'source_info'});
         }
       }
     }
