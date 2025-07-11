@@ -1722,6 +1722,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/empty_top_node_up.pl \
   t/results/moresectioning/equivalent_nodes_defined_linked.pl \
   t/results/moresectioning/internal_top_node_up.pl \
+  t/results/moresectioning/lone_chapter_between_nodes.pl \
   t/results/moresectioning/lowered_subsubsection.pl \
   t/results/moresectioning/loweredheading.pl \
   t/results/moresectioning/more_sections_than_nodes.pl \
