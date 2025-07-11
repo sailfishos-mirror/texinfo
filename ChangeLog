@@ -11,6 +11,12 @@
 
 2025-07-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_place_source_mark),
+	tta/C/parsetexi/source_marks.c (place_source_mark): find position on
+	mark_element.
+
+2025-07-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/source_marks.c (place_source_mark),
 	tta/perl/Texinfo/ParserNonXS.pm (_place_source_mark): place source
 	mark after the block_line_arg/line_arg and not between the

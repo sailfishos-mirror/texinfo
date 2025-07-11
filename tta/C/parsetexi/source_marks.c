@@ -69,9 +69,9 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
         mark_element = last_child->e.c->contents.list[0];
       else
         mark_element = last_child;
-      if (type_data[last_child->type].flags & TF_text
-          && last_child->e.text->end > 0)
-        source_mark->position = count_multibyte (last_child->e.text->text);
+      if (type_data[mark_element->type].flags & TF_text
+          && mark_element->e.text->end > 0)
+        source_mark->position = count_multibyte (mark_element->e.text->text);
     }
   else if (!(type_data[e->type].flags & TF_text)
            && command_flags(e) & CF_brace)

@@ -1300,8 +1300,8 @@ sub _place_source_mark
     }
     # if there is no text, the source mark is supposed to be
     # at the end of/after the element
-    if (defined($current->{'text'}) and $current->{'text'} ne '') {
-      $source_mark->{'position'} = length($current->{'text'});
+    if (defined($mark_element->{'text'}) and $mark_element->{'text'} ne '') {
+      $source_mark->{'position'} = length($mark_element->{'text'});
     }
   } elsif ($element->{'cmdname'}
            and defined($self->{'brace_commands'}->{$element->{'cmdname'}})) {
