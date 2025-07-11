@@ -639,8 +639,6 @@ sub parser(;$)
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
-  $parser->{'registrar'} = Texinfo::Report::new($parser_conf->{'DEBUG'});
-
   # variables set to the parser initialization values only.  What is
   # found in the document has no effect.  Also used to initialize some
   # parsing state.
@@ -844,6 +842,10 @@ sub parse_texi_line($$;$)
 
   # add the errors to the Parser registrar as there is no document
   # returned to get the errors from.
+  if (!defined($self->{'registrar'})) {
+    $self->{'registrar'}
+       = Texinfo::Report::new($self->{'conf'}->{'DEBUG'});
+  }
   push @{$self->{'registrar'}->{'errors_warnings'}},
       @{$document->{'parser_registrar'}->{'errors_warnings'}};
   $self->{'registrar'}->{'error_nrs'}
