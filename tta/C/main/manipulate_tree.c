@@ -1588,11 +1588,10 @@ print_element_source_info (ELEMENT *element, TEXT *result,
 /* a number is given in argument as out of tree elements may need to be
    numbered too */
 uintptr_t
-print_tree_details (ELEMENT *element, int level, const char *prepended,
+print_element_details (ELEMENT *element, int level, const char *prepended,
                               uintptr_t current_nr, TEXT *result,
                               const char *fname_encoding, int use_filename)
 {
-  size_t i;
   int j;
   enum command_id data_cmd = 0;
 
@@ -1663,12 +1662,27 @@ print_tree_details (ELEMENT *element, int level, const char *prepended,
   current_nr = print_source_marks (element, level, prepended,
                                    current_nr, result, fname_encoding,
                                    use_filename);
+  return current_nr;
+}
 
-  for (i = 0; i < element->e.c->contents.number; i++)
-    current_nr
-      = print_tree_details (element->e.c->contents.list[i], level +1,
+uintptr_t
+print_tree_details (ELEMENT *element, int level, const char *prepended,
+                              uintptr_t current_nr, TEXT *result,
+                              const char *fname_encoding, int use_filename)
+{
+  current_nr = print_element_details (element, level, prepended,
+                      current_nr, result, fname_encoding, use_filename);
+
+  if (!(type_data[element->type].flags & TF_text))
+    {
+      size_t i;
+
+      for (i = 0; i < element->e.c->contents.number; i++)
+        current_nr
+          = print_tree_details (element->e.c->contents.list[i], level +1,
                                 prepended, current_nr, result,
                                 fname_encoding, use_filename);
+    }
 
   return current_nr;
 }

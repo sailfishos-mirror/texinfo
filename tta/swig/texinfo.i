@@ -488,4 +488,24 @@ ELEMENT *index_content_element (const ELEMENT *element,
 char *tree_print_details (ELEMENT *tree, const char *fname_encoding=0,
                           int use_filename=0);
 
+%newobject element_print_details;
+char *element_print_details (ELEMENT *element, const char *fname_encoding=0,
+                             int use_filename=0);
+
+%{
+char *
+element_print_details (ELEMENT *element, const char *fname_encoding,
+                             int use_filename)
+{
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+
+  print_element_details (element, 0, 0, 0, &result, fname_encoding,
+                         use_filename);
+
+  return result.text;
+}
+%}
+
 // TODO add a wrapper around new_complete_menu_master_menu?
