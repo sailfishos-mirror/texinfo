@@ -29,29 +29,29 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
   {empty_line:\\n}
   *@defblock C3 l6
    *arguments_line C1
-   >SOURCEMARKS
-   >linemacro_expansion<start;1>
-    >*linemacro_call C3
-    >|INFO
-    >|command_name:{mylinecommand}
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
-      >{macro_call_arg_text:a@code{b c}d}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{bracketed_linemacro_arg:some arg @\\n   b}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{macro_call_arg_text:{next @\\n   last} line}
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;1>
+     >*linemacro_call C3
+     >|INFO
+     >|command_name:{mylinecommand}
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{macro_call_arg_text:a@code{b c}d}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{bracketed_linemacro_arg:some arg @\\n   b}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{macro_call_arg_text:{next @\\n   last} line}
    *@defline C1 l9:@mylinecommand
    |INFO
    |spaces_before_argument:

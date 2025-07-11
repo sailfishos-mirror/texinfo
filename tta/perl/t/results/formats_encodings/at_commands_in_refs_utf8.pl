@@ -1841,18 +1841,18 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |node_number:{18}
  |normalized:{CCC-CCC-DDD}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1>
-   >*@ifnottex C1 l86
-    >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
    *line_arg C5
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifnottex C1 l86
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{spaces_after_argument:\\n}
     *@abbr C2 l85
      *brace_arg C1
       {CCC}
@@ -1878,23 +1878,23 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |section_level:{1}
  |section_number:{18}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<end;1>
-   >*@end C1 l88
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-   >|EXTRA
-   >|text_arg:{ifnottex}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
-     >{ifnottex}
    *line_arg C5
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1>
+    >*@end C1 l88
+    >|INFO
+    >|spaces_before_argument:
+     >|{spaces_before_argument: }
+    >|EXTRA
+    >|text_arg:{ifnottex}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{spaces_after_argument:\\n}
+      >{ifnottex}
     *@abbr C2 l87
      *brace_arg C1
       {CCC}
@@ -1980,18 +1980,18 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |node_number:{20}
  |normalized:{f_002d_002dile1-f_002d_002dile}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<start;2>
-   >*@ifnottex C1 l94
-    >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
    *line_arg C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;2>
+    >*@ifnottex C1 l94
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{spaces_after_argument:\\n}
     *@image C1 l93
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -2020,23 +2020,23 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |section_level:{1}
  |section_number:{20}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<end;2>
-   >*@end C1 l96
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-   >|EXTRA
-   >|text_arg:{ifnottex}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
-     >{ifnottex}
    *line_arg C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;2>
+    >*@end C1 l96
+    >|INFO
+    >|spaces_before_argument:
+     >|{spaces_before_argument: }
+    >|EXTRA
+    >|text_arg:{ifnottex}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{spaces_after_argument:\\n}
+      >{ifnottex}
     *@image C1 l95
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -2066,18 +2066,18 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |node_number:{21}
  |normalized:{-_0040-_007b_007d-_002e-}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<start;3>
-   >*@ifnottex C1 l99
-    >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;3>
+    >*@ifnottex C1 l99
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{spaces_after_argument:\\n}
     *@verb C1 l98
     |INFO
     |delimiter:{.}
@@ -2092,23 +2092,23 @@ $result_tree_text{'at_commands_in_refs_utf8'} = '*document_root C58
  |section_level:{1}
  |section_number:{21}
   *arguments_line C1
-  >SOURCEMARKS
-  >expanded_conditional_command<end;3>
-   >*@end C1 l101
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-   >|EXTRA
-   >|text_arg:{ifnottex}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
-     >{ifnottex}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;3>
+    >*@end C1 l101
+    >|INFO
+    >|spaces_before_argument:
+     >|{spaces_before_argument: }
+    >|EXTRA
+    >|text_arg:{ifnottex}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{spaces_after_argument:\\n}
+      >{ifnottex}
     *@verb C1 l100
     |INFO
     |delimiter:{.}

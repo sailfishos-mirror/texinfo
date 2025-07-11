@@ -29,24 +29,24 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
   {empty_line:\\n}
   *@defblock C10 l6
    *arguments_line C1
-   >SOURCEMARKS
-   >linemacro_expansion<start;1>
-    >*linemacro_call C2
-    >|INFO
-    >|command_name:{defbuiltin}
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
-      >{bracketed_linemacro_arg:my foo}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{macro_call_arg_text:a last {} arg{ument}}
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;1>
+     >*linemacro_call C2
+     >|INFO
+     >|command_name:{defbuiltin}
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{bracketed_linemacro_arg:my foo}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{macro_call_arg_text:a last {} arg{ument}}
    *@defline C1 l7:@defbuiltin
    |INFO
    |spaces_before_argument:

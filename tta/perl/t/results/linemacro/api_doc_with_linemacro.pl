@@ -143,24 +143,24 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     {empty_line:\\n}
     *@defblock C12 l18
      *arguments_line C1
-     >SOURCEMARKS
-     >linemacro_expansion<start;1>
-      >*linemacro_call C2
-      >|INFO
-      >|command_name:{param}
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
-       >*line_arg C1
-        >{macro_call_arg_text:a}
-       >*line_arg C1
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >{macro_call_arg_text:array_like}
       *block_line_arg
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
+      >SOURCEMARKS
+      >linemacro_expansion<start;1>
+       >*linemacro_call C2
+       >|INFO
+       >|command_name:{param}
+       >|spaces_before_argument:
+        >|{spaces_before_argument: }
+        >*line_arg C1
+         >{macro_call_arg_text:a}
+        >*line_arg C1
+        >|INFO
+        >|spaces_before_argument:
+         >|{spaces_before_argument: }
+         >{macro_call_arg_text:array_like}
      *@defline C1 l19:@param
      |INFO
      |spaces_before_argument:

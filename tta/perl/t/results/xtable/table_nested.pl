@@ -50,16 +50,16 @@ $result_tree_text{'table_nested'} = '*document_root C1
    {Quotation\\n}
   *@quotation C7 l26
    *arguments_line C1
-   >SOURCEMARKS
-   >macro_expansion<start;1>
-    >*macro_call C1
-    >|INFO
-    >|command_name:{myvtable}
-     >*brace_arg
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<start;1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{myvtable}
+      >*brace_arg
    *@vtable C5 l27:@myvtable
    |INFO
    |spaces_before_argument:
@@ -383,16 +383,16 @@ $result_tree_text{'table_nested'} = '*document_root C1
      |{spaces_after_argument:\\n}
    *@quotation C7 l37
     *arguments_line C1
-    >SOURCEMARKS
-    >macro_expansion<start;3>
-     >*macro_call C1
-     >|INFO
-     >|command_name:{myvtable}
-      >*brace_arg
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
+     >SOURCEMARKS
+     >macro_expansion<start;3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{myvtable}
+       >*brace_arg
     *@vtable C5 l38:@myvtable
     |INFO
     |spaces_before_argument:

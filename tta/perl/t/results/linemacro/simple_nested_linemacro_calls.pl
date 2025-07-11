@@ -63,29 +63,29 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
   {empty_line:\\n}
   *@defblock C4 l12
    *arguments_line C1
-   >SOURCEMARKS
-   >linemacro_expansion<start;1>
-    >*linemacro_call C3
-    >|INFO
-    >|command_name:{outside}
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
-      >{bracketed_linemacro_arg:type}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{bracketed_linemacro_arg:a function}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{macro_call_arg_text:@inside {X} {Y} ( remaining, type typed )}
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;1>
+     >*linemacro_call C3
+     >|INFO
+     >|command_name:{outside}
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{bracketed_linemacro_arg:type}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{bracketed_linemacro_arg:a function}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{macro_call_arg_text:@inside {X} {Y} ( remaining, type typed )}
    *@defline C1 l13:@outside
    |INFO
    |spaces_before_argument:

@@ -40,24 +40,24 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
   {empty_line:\\n}
   *@defblock C8 l7
    *arguments_line C1
-   >SOURCEMARKS
-   >linemacro_expansion<start;1>
-    >*linemacro_call C2
-    >|INFO
-    >|command_name:{defbuiltin}
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
-      >{macro_call_arg_text:foo}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{bracketed_linemacro_arg:}
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;1>
+     >*linemacro_call C2
+     >|INFO
+     >|command_name:{defbuiltin}
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{macro_call_arg_text:foo}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{bracketed_linemacro_arg:}
    *before_defline C1
     *index_entry_command@BIindex C1 l8:@defbuiltin
     |INFO

@@ -28,29 +28,29 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
   {empty_line:\\n}
   *@defblock C3 l5
    *arguments_line C1
-   >SOURCEMARKS
-   >linemacro_expansion<start;1>
-    >*linemacro_call C3
-    >|INFO
-    >|command_name:{mymacro}
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
-      >{macro_call_arg_text:text{in paren}}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{macro_call_arg_text:rest{in paren}}
-     >*line_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >{bracketed_linemacro_arg:}
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;1>
+     >*linemacro_call C3
+     >|INFO
+     >|command_name:{mymacro}
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{macro_call_arg_text:text{in paren}}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{macro_call_arg_text:rest{in paren}}
+      >*line_arg C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >{bracketed_linemacro_arg:}
    *@defline C1 l6:@mymacro
    |INFO
    |spaces_before_argument:

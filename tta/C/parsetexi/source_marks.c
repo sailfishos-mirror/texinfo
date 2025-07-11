@@ -65,7 +65,10 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   if (e->e.c->contents.number > 0)
     {
       ELEMENT *last_child = last_contents_child (e);
-      mark_element = last_child;
+      if (last_child->type == ET_arguments_line)
+        mark_element = last_child->e.c->contents.list[0];
+      else
+        mark_element = last_child;
       if (type_data[last_child->type].flags & TF_text
           && last_child->e.text->end > 0)
         source_mark->position = count_multibyte (last_child->e.text->text);

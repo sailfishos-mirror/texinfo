@@ -1293,7 +1293,11 @@ sub _place_source_mark
   my $mark_element;
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
-    $mark_element = $current;
+    if ($current->{'type'} and $current->{'type'} eq 'arguments_line') {
+      $mark_element = $current->{'contents'}->[0];
+    } else {
+      $mark_element = $current;
+    }
     # if there is no text, the source mark is supposed to be
     # at the end of/after the element
     if (defined($current->{'text'}) and $current->{'text'} ne '') {

@@ -28,17 +28,17 @@ $result_tree_text{'macro_in_empty_text'} = '*document_root C1
   {empty_line:\\n}
   *@indentedblock C3 l5
    *arguments_line C1
-   >SOURCEMARKS
-   >macro_expansion<start;1>
-    >*macro_call C1
-    >|INFO
-    >|command_name:{emptystring}
-     >*brace_arg
-   >macro_expansion<end;1>
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<start;1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{emptystring}
+      >*brace_arg
+    >macro_expansion<end;1>
    *paragraph C2
     *@@
     {.\\n}

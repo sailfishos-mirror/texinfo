@@ -28,16 +28,16 @@ $result_tree_text{'complete_macro_for_end'} = '*document_root C1
   {empty_line:\\n}
   *@cartouche C2 l5
    *arguments_line C1
-   >SOURCEMARKS
-   >macro_expansion<start;1>
-    >*macro_call C1
-    >|INFO
-    >|command_name:{theend}
-     >*brace_arg
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<start;1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{theend}
+      >*brace_arg
    *@end C1 l6:@theend
    |INFO
    |spaces_before_argument:

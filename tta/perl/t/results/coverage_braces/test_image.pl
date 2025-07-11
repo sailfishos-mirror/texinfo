@@ -493,13 +493,13 @@ $result_tree_text{'test_image'} = '*document_root C3
   |is_target:{1}
   |normalized:{Image-with-commands}
    *arguments_line C2
-   >SOURCEMARKS
-   >macro_expansion<start;4>
-    >*macro_call C1
-    >|INFO
-    >|command_name:{files-char}
-     >*brace_arg
     *block_line_arg C1
+    >SOURCEMARKS
+    >macro_expansion<start;4>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{files-char}
+      >*brace_arg
      {Image}
     *block_line_arg C1
     |INFO
