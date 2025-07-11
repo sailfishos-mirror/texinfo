@@ -18,6 +18,14 @@ document command_name in texi2any HTML customization API
 
 inline contents_child_by_index in C?
 
+If Gavin changes to Texinfo::Report are kept and he does not do it, add to XS/C
+the debug information at errors registration creation.  It probably means
+adding the corresponding information to document, possibly early, ie before
+register_document_options is called, corresponding to new_document call, the
+corresponding function in C being also called new_document, in document.c,
+called in api.c.  ALso pass to Texinfo::Report created in CS, which means
+adding an argument to new_texinfo_report in build_perl_info.c.
+
 SWIG Index sorted by letter?  Iteration over attributes names to discover
 element attributes? changing source marks.
 
