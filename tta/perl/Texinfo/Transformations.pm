@@ -961,7 +961,8 @@ sub _protect_hashchar_at_line_beginning($$$)
                   $registrar->line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
-                                      $parent_for_warn->{'source_info'}, 0);
+                                        $parent_for_warn->{'source_info'}, 0,
+                                $customization_information->get_conf('DEBUG'));
                 }
                 last;
               }

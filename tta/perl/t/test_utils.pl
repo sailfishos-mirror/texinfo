@@ -398,7 +398,7 @@ sub convert_to_plaintext($$$$$)
   }
 
   my $converter_errors = $converter->get_converter_errors();
-  my $converter_registrar = Texinfo::Report::new($self->{'DEBUG'});
+  my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
     $converter_registrar->add_formatted_message($error);
   }

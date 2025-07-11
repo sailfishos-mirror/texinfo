@@ -660,8 +660,7 @@ sub _initialize_parsing($$)
     $index_names = {};
   }
 
-  my $document = Texinfo::Document::new_document($index_names,
-                   $parser->{'conf'}->{'DEBUG'});
+  my $document = Texinfo::Document::new_document($index_names);
 
   my $parser_state = dclone(\%parser_state_initialization);
   _push_context($parser_state, $context, undef);
@@ -843,8 +842,7 @@ sub parse_texi_line($$;$)
   # add the errors to the Parser registrar as there is no document
   # returned to get the errors from.
   if (!defined($self->{'registrar'})) {
-    $self->{'registrar'}
-       = Texinfo::Report::new($self->{'conf'}->{'DEBUG'});
+    $self->{'registrar'} = Texinfo::Report::new();
   }
   push @{$self->{'registrar'}->{'errors_warnings'}},
       @{$document->{'parser_registrar'}->{'errors_warnings'}};
@@ -1174,7 +1172,8 @@ sub _line_warn
   my $continuation = shift;
   my $debug = shift;
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_warn($text, $error_location_info, $continuation);
+  $registrar->line_warn($text, $error_location_info, $continuation,
+                        $self->{'conf'}->{'DEBUG'});
 }
 
 sub _line_error
@@ -1185,7 +1184,8 @@ sub _line_error
   my $continuation = shift;
 
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_error($text, $error_location_info, $continuation);
+  $registrar->line_error($text, $error_location_info, $continuation,
+                         $self->{'conf'}->{'DEBUG'});
 }
 
 # Format a bug message

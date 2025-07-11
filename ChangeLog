@@ -1,3 +1,7 @@
+2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revert change on 2025-07-11 "No debug argument for line_error or line_warn"
+
 2025-07-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/manipulate_tree.c (print_element_details)
