@@ -1,3 +1,9 @@
+2025-07-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (@documentlanguage): Do not issue a fatal
+	error if txi-en.tex only could not be found.  Report from
+	Sebastian Meyer <seb.meyer@fau.de>.
+
 2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Wrappers for line_warn and line_error.

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-08.12}
+\def\texinfoversion{2025-07-11.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -10074,8 +10074,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \gdef\documentlanguagetrywithoutunderscore#1_#2\finish{%
   \openin 1 txi-#1.tex
   \ifeof 1
-    \errhelp = \nolanghelp
-    \errmessage{Cannot read language file txi-#1.tex}%
+    \def\lang{#1}%
+    \def\enword{en}%
+    \ifx\lang\enword
+      % for English only, keep on going rather than issuing a fatal error
+      % message, as txi-en.tex likely doesn't contain any changes from the
+      % defaults.  note that this is a problem if we already loaded another
+      % language file and want to switch back to English.
+      \message{Cannot read language file txi-#1.tex}%
+    \else
+      \errhelp = \nolanghelp
+      \errmessage{Cannot read language file txi-#1.tex}%
+    \fi
   \else
     \globaldefs = 1  % everything in the txi-LL files needs to persist
     \input txi-#1.tex
