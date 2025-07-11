@@ -47,10 +47,13 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-sub new()
+sub new(;$)
 {
+  my $debug = shift;
+
   my $self = {'errors_warnings' => [],
                'error_nrs' => 0,};
+  $self->{'debug'} = $debug if (defined($debug));
   bless $self;
   return $self;
 }
@@ -134,7 +137,6 @@ sub line_warn($$$;$$$)
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
-  my $debug = shift;
   my $silent = shift;
 
   if (!defined($error_location_info)) {
@@ -142,7 +144,7 @@ sub line_warn($$$;$$$)
     return;
   }
 
-  my $warn = ($debug and not $silent);
+  my $warn = ($self->{'debug'} and not $silent);
 
   my $warning = format_line_message('warning', $text, $error_location_info,
                                     $continuation, $warn);
@@ -155,7 +157,6 @@ sub line_error($$$;$$$)
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
-  my $debug = shift;
   my $silent = shift;
 
   if (!defined($error_location_info)) {
@@ -163,7 +164,7 @@ sub line_error($$$;$$$)
     return;
   }
 
-  my $warn = ($debug and not $silent);
+  my $warn = ($self->{'debug'} and not $silent);
 
   my $error = format_line_message('error', $text, $error_location_info,
                                   $continuation, $warn);
@@ -265,7 +266,10 @@ L<Texinfo::Convert::Converter>.
 
 No method is exported in the default case.
 
-The C<new> method initializes a C<Texinfo::Report> object.
+The C<new> method initializes a C<Texinfo::Report> object.  It may
+be optionally passed a I<$debug> argument, which if non-zero leads errors
+to be printed as they are recorded.
+
 The errors collected are available through the C<errors> method, the other
 methods allow registering errors and warnings.
 
@@ -329,9 +333,9 @@ Register the I<$msg> hash reference corresponding to an error, warning or error
 line continuation.  The I<$msg> hash reference should correspond to the
 structure returned by C<errors>.
 
-=item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
+=item $registrar->line_warn($text, $error_location_info, $continuation, $silent)
 
-=item $registrar->line_error($text, $error_location_info, $continuation, $debug, $silent)
+=item $registrar->line_error($text, $error_location_info, $continuation, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
@@ -345,8 +349,6 @@ binary string.
 
 The I<$continuation> optional arguments, if true, conveys that
 the line is a continuation line of a message.
-
-The I<$debug> optional integer arguments sets the debug level.
 
 The I<$silent> optional arguments, if true, suppresses the output of
 a message that is output immediatly if debugging is set.

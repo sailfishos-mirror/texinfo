@@ -132,9 +132,11 @@ sub import {
 }
 
 # No XS override, only called from Texinfo::ParserNonXS.
-sub new_document($)
+sub new_document($$)
 {
   my $indices_information = shift;
+  my $debug = shift;
+
   my $document = {
     'indices' => $indices_information,
     'listoffloats_list' => {},
@@ -149,9 +151,9 @@ sub new_document($)
     'sections_list' => [],
     'headings_list' => [],
      # error registrar for parsing
-    'parser_registrar' => Texinfo::Report::new(),
+    'parser_registrar' => Texinfo::Report::new($debug),
      # error registrar for the document for structuring, not for parsing
-    'registrar' => Texinfo::Report::new(),
+    'registrar' => Texinfo::Report::new($debug),
   };
 
   bless $document;
@@ -562,11 +564,11 @@ sub _existing_label_error($$;$$)
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
-                              $element->{'source_info'}, 0, $debug);
+                              $element->{'source_info'}, 0);
       $registrar->line_error(
                     sprintf(__("here is the previous definition as \@%s"),
                             $existing_target->{'cmdname'}),
-                             $existing_target->{'source_info'}, 1, $debug);
+                             $existing_target->{'source_info'}, 1);
     }
   }
 }

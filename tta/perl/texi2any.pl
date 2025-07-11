@@ -2108,7 +2108,7 @@ while(@input_files) {
         ->{'converter'}}($converter_options);
   $converter->output($document);
 
-  my $converter_registrar = Texinfo::Report::new();
+  my $converter_registrar = Texinfo::Report::new(get_conf('DEBUG'));
   my $converter_errors = $converter->get_converter_errors();
   if (defined($converter_errors)) {
     foreach my $error (@$converter_errors) {

@@ -1,3 +1,16 @@
+2025-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No debug argument for line_error or line_warn
+
+	* tta/perl/Texinfo/Report.pm (new): Take optional argument
+	to say whether debugging output is on, and save in the
+	Texinfo::Report object.
+	(line_error, line_warn): Remove $debug argument.
+	* tta/perl/Texinfo/Document.pm (new_document): Take additional
+	argument which is propagated to Texinfo::Report::new.
+	
+	All callers updated.
+
 2025-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Prevent use of uninitialized value in string comparison

@@ -639,7 +639,7 @@ sub parser(;$)
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
-  $parser->{'registrar'} = Texinfo::Report::new();
+  $parser->{'registrar'} = Texinfo::Report::new($parser_conf->{'DEBUG'});
 
   # variables set to the parser initialization values only.  What is
   # found in the document has no effect.  Also used to initialize some
@@ -662,7 +662,8 @@ sub _initialize_parsing($$)
     $index_names = {};
   }
 
-  my $document = Texinfo::Document::new_document($index_names);
+  my $document = Texinfo::Document::new_document($index_names,
+                   $parser->{'conf'}->{'DEBUG'});
 
   my $parser_state = dclone(\%parser_state_initialization);
   _push_context($parser_state, $context, undef);
@@ -1171,8 +1172,7 @@ sub _line_warn
   my $continuation = shift;
   my $debug = shift;
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_warn($text, $error_location_info, $continuation,
-                        $self->{'conf'}->{'DEBUG'});
+  $registrar->line_warn($text, $error_location_info, $continuation);
 }
 
 sub _line_error
@@ -1183,8 +1183,7 @@ sub _line_error
   my $continuation = shift;
 
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_error($text, $error_location_info, $continuation,
-                         $self->{'conf'}->{'DEBUG'});
+  $registrar->line_error($text, $error_location_info, $continuation);
 }
 
 # Format a bug message
