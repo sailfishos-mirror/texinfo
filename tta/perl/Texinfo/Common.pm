@@ -1999,6 +1999,13 @@ sub debug_print_tree($)
 
 }
 
+# Export debug_print_tree with a short name as a convenience for
+# working on the program.  With this, you can inspect part of the
+# parse tree with "warn print_tree($root);" rather than
+# "warn Texinfo::Common::debug_print_tree($root);", which is more typing.
+*print_tree = \&debug_print_tree;
+push @EXPORT, 'print_tree';
+
 
 1;
 
