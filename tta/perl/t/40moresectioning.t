@@ -412,9 +412,6 @@ my $top_chapter_sections_text =
 '.$chapter_sections_text;
 
 my @test_cases = (
-# TODO when a node is in multiple menus, the node directions can be consistent
-# with a menu and not another.  This is the case in that test, the node
-# directions are consistent with the first menu a node appears in.
 ['rec_nodes',
 '@node Top
 Top node

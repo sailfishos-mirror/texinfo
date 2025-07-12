@@ -1539,68 +1539,142 @@ check_node_tree_menu_structure (DOCUMENT *document)
           }
       }
 
-  /* check consistency between explicit node pointer and node
-     entries menu order */
+
+  /* loop over all the menus in all the nodes and check for
+     mismatch with any explicit node pointers. */
   if (!options
       || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
     {
-      const ELEMENT *top_node = find_identifier_target (identifiers_target,
-                                                        "Top");
       for (i = 0; i < nodes_list->number; i++)
         {
-          if (node_errors[i])
-            continue;
-          NODE_RELATIONS *node_relations = nodes_list->list[i];
+          const NODE_RELATIONS *node_relations = nodes_list->list[i];
           const ELEMENT *node = node_relations->element;
-          if (node == top_node)
+
+          const CONST_ELEMENT_LIST *menus = node_relations->menus;
+          if (!menus)
             continue;
 
-          const ELEMENT * const *node_directions
-                           = node_relations->node_directions;
-
-          if (node_automatic_directions (node))
-            continue;
-          const ELEMENT * const *menu_directions
-            = node_relations->menu_directions;
-          if (node_directions && menu_directions)
+          const ELEMENT *menu_prev_node = NULL;
+          const ELEMENT **menu_prev_node_directions = NULL;
+          size_t j;
+          for (j = 0; j < menus->number; j++)
             {
-              size_t d;
-              for (d = 0; d < directions_length; d++)
+              const ELEMENT *menu = menus->list[j];
+              size_t k;
+              for (k = 0; k < menu->e.c->contents.number; k++)
                 {
-                  if (node_directions[d]
-                      && menu_directions[d]
-                      && node_directions[d]
-                           != menu_directions[d])
+                  const ELEMENT *menu_content = menu->e.c->contents.list[k];
+                  if (menu_content->type != ET_menu_entry)
+                    continue;
+                  const ELEMENT *menu_node
+                    = normalized_entry_associated_internal_node
+                        (menu_content, identifiers_target);
+                  if (!menu_node)
+                    continue;
+
+                  int status;
+                  const int menu_node_element_number
+                    = node_number_of_node (menu_node, &status);
+                  if (status < 0)
+                    continue;
+                  const NODE_RELATIONS *menu_node_relations
+                    = nodes_list->list[menu_node_element_number - 1];
+                  const ELEMENT **menu_node_directions = NULL;
+
+                  if (!node_automatic_directions (menu_node))
+                    menu_node_directions = menu_node_relations->node_directions;
+
+                  if (menu_node_directions
+                      && menu_node_directions[D_up]
+                      && menu_node_directions[D_up] != node)
                     {
-                      const ELEMENT *menu_direction
-                       = menu_directions[d];
-                      const ELEMENT *menu_dir_manual_content
-                       = lookup_extra_container (menu_direction,
-                                                 AI_key_manual_content);
-                      const ELEMENT *node_dir_manual_content
-                       = lookup_extra_container (node_directions[d],
-                                                 AI_key_manual_content);
-                      if (!menu_dir_manual_content && !node_dir_manual_content)
+                      char *direction = "up";
+                      char *menu_node_texi
+                        = target_element_to_texi_label (menu_node);
+                      char *menu_node_up_texi
+                        = target_element_to_texi_label
+                             (menu_node_directions[D_up]);
+                      char *node_texi
+                        = target_element_to_texi_label (node);
+                      message_list_command_warn (error_messages,
+                         (options && options->DEBUG.o.integer > 0),
+                              menu_node, 0,
+                "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                              direction,
+                              menu_node_texi,
+                              menu_node_up_texi,
+                              direction,
+                              node_texi);
+                      free (menu_node_texi);
+                      free (menu_node_up_texi);
+                      free (node_texi);
+                    }
+
+                  if (menu_prev_node)
+                    {
+                      /* Check menu entries in pairs. next pointer
+                         for menu_prev_node should be menu_node, and prev
+                         pointer for menu_node should be menu_prev_node. */
+                      if (menu_prev_node_directions
+                          && menu_prev_node_directions[D_next]
+                          && menu_prev_node_directions[D_next] != menu_node)
                         {
-                          char *node_texi = target_element_to_texi_label (node);
-                          char *dir_texi = target_element_to_texi_label
-                                            (node_directions[d]);
-                          char *menu_dir_texi
-                             = target_element_to_texi_label (menu_direction);
+                          char *direction = "next";
+                          char *menu_prev_node_texi
+                            = target_element_to_texi_label (menu_prev_node);
+                          char *menu_prev_node_next_texi
+                            = target_element_to_texi_label
+                                 (menu_prev_node_directions[D_next]);
+                          char *menu_node_texi
+                            = target_element_to_texi_label (menu_node);
                           message_list_command_warn (error_messages,
                              (options && options->DEBUG.o.integer > 0),
-                                           node, 0,
+                                  menu_prev_node, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
-                                           direction_names[d], node_texi,
-                                           dir_texi, direction_names[d],
-                                           menu_dir_texi);
-                          free (node_texi);
-                          free (dir_texi);
-                          free (menu_dir_texi);
+                                  direction,
+                                  menu_prev_node_texi,
+                                  menu_prev_node_next_texi,
+                                  direction,
+                                  menu_node_texi);
+                          free (menu_prev_node_texi);
+                          free (menu_prev_node_next_texi);
+                          free (menu_node_texi);
                         }
+
+                      if (menu_node_directions
+                          && menu_node_directions[D_prev]
+                          && menu_node_directions[D_prev] != menu_prev_node)
+                        {
+                          char *direction = "prev";
+                          char *menu_node_texi
+                            = target_element_to_texi_label (menu_node);
+                          char *menu_node_prev_texi
+                            = target_element_to_texi_label
+                                 (menu_node_directions[D_prev]);
+                          char *menu_prev_node_texi
+                            = target_element_to_texi_label (menu_prev_node);
+                          message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                                  menu_node, 0,
+                    "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
+                                  direction,
+                                  menu_node_texi,
+                                  menu_node_prev_texi,
+                                  direction,
+                                  menu_prev_node_texi);
+                          free (menu_node_texi);
+                          free (menu_node_prev_texi);
+                          free (menu_prev_node_texi);
+                        }
+
                     }
+
+
+
+                  menu_prev_node = menu_node;
+                  menu_prev_node_directions = menu_node_directions;
                 }
-              }
+            }
         }
     }
 

@@ -707,6 +707,30 @@ $result_errors{'quote_node_names'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: node up pointer for `normal node\' is `(man_ual)direct::i.on\' but up is `Top\' in menu
+',
+    'file_name' => 'nodequote.texi',
+    'line_nr' => 50,
+    'text' => 'node up pointer for `normal node\' is `(man_ual)direct::i.on\' but up is `Top\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node prev pointer for `normal node\' is `(man_ual)direct@comma{}ion\' but prev is `blumpty.fump\' in menu
+',
+    'file_name' => 'nodequote.texi',
+    'line_nr' => 50,
+    'text' => 'node prev pointer for `normal node\' is `(man_ual)direct@comma{}ion\' but prev is `blumpty.fump\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node next pointer for `normal node\' is `(man@comma{}u:a.l)direction\' but next is `@asis{secret,node}\' in menu
+',
+    'file_name' => 'nodequote.texi',
+    'line_nr' => 50,
+    'text' => 'node next pointer for `normal node\' is `(man@comma{}u:a.l)direction\' but next is `@asis{secret,node}\' in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `top secret node\' unreferenced
 ',
     'file_name' => 'nodequote.texi',

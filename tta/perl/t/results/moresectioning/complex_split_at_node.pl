@@ -1109,19 +1109,19 @@ $result_errors{'complex_split_at_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
-',
-    'file_name' => 'complex_sectioning_case.texi',
-    'line_nr' => 76,
-    'text' => 'node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu
 ',
     'file_name' => 'complex_sectioning_case.texi',
     'line_nr' => 76,
     'text' => 'node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
+',
+    'file_name' => 'complex_sectioning_case.texi',
+    'line_nr' => 76,
+    'text' => 'node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu',
     'type' => 'warning'
   }
 ];

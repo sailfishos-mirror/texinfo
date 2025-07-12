@@ -1037,42 +1037,87 @@ sub check_node_tree_menu_structure($)
     }
   }
 
-  # now check consistency between explicit node pointer and
-  # node entries menu order
+  # loop over all the menus in all the nodes and check for
+  # mismatch with any explicit node pointers.
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
-    my $top_node = $identifier_target->{'Top'};
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
-      next if $node_errors{$node->{'extra'}->{'node_number'}};
-      next if defined($top_node) and $node eq $top_node;
+      next if !$node_relations->{'menus'};
 
-      my $node_directions = $node_relations->{'node_directions'};
+      my ($menu_prev_node, $menu_prev_node_directions);
+      foreach my $menu (@{$node_relations->{'menus'}}) {
+        foreach my $menu_content (@{$menu->{'contents'}}) {
+          next if !defined($menu_content->{'type'})
+            or $menu_content->{'type'} ne 'menu_entry';
+          my $menu_node = normalized_entry_associated_internal_node
+                            ($menu_content, $identifier_target);
+          next if !defined($menu_node)
+            or !defined($menu_node->{'extra'})
+            or !defined($menu_node->{'extra'}->{'node_number'});
+          my $menu_node_element_number
+            = $menu_node->{'extra'}->{'node_number'};
+          my $menu_node_relations
+            = $nodes_list->[$menu_node_element_number - 1];
+          my $menu_node_directions;
 
-      next if _node_automatic_directions($node);
+          if (!_node_automatic_directions($menu_node)) {
+            $menu_node_directions = $menu_node_relations->{'node_directions'};
+          }
 
-      my $menu_directions = $node_relations->{'menu_directions'};
-
-      if ($node_directions and $menu_directions) {
-        foreach my $direction (@node_directions_names) {
-          if ($node_directions->{$direction}
-              and not $node_directions->{$direction}
-                    ->{'extra'}->{'manual_content'}
-              and $menu_directions->{$direction}
-              and $menu_directions->{$direction}
-                ne $node_directions->{$direction}
-              and not $menu_directions->{$direction}
-                            ->{'extra'}->{'manual_content'}) {
+          if ($menu_node_directions
+                and defined($menu_node_directions->{'up'})
+                and $menu_node_directions->{'up'} ne $node) {
+            my $direction = 'up';
             structuring_line_warn($document,
      sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                   $direction,
-                  target_element_to_texi_label($node),
+                  target_element_to_texi_label($menu_node),
                   target_element_to_texi_label(
-                      $node_directions->{$direction}),
+                      $menu_node_directions->{$direction}),
                   $direction,
-                  target_element_to_texi_label(
-                      $menu_directions->{$direction})),
-                                  $node->{'source_info'});
+                  target_element_to_texi_label($node)),
+                                  $menu_node->{'source_info'});
           }
+
+          if (defined($menu_prev_node)) {
+            # Check menu entries in pairs.
+            # next pointer for menu_prev_node should be menu_node, and
+            # prev pointer for menu_node should be menu_prev_node.
+
+            if ($menu_prev_node_directions
+                  and defined($menu_prev_node_directions->{'next'})
+                  and $menu_prev_node_directions->{'next'} ne $menu_node) {
+                my $direction = 'next';
+                structuring_line_warn($document,
+         sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                          $direction,
+                          target_element_to_texi_label($menu_prev_node),
+                          target_element_to_texi_label(
+                              $menu_prev_node_directions->{$direction}),
+                          $direction,
+                          target_element_to_texi_label($menu_node)),
+                                      $menu_prev_node->{'source_info'});
+            }
+
+
+            if ($menu_node_directions
+                  and defined($menu_node_directions->{'prev'})
+                  and $menu_node_directions->{'prev'} ne $menu_prev_node) {
+                my $direction = 'prev';
+                structuring_line_warn($document,
+         sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                          $direction,
+                          target_element_to_texi_label($menu_node),
+                          target_element_to_texi_label(
+                              $menu_node_directions->{$direction}),
+                          $direction,
+                          target_element_to_texi_label($menu_prev_node)),
+                                      $menu_node->{'source_info'});
+            }
+          }
+
+          $menu_prev_node = $menu_node;
+          $menu_prev_node_directions = $menu_node_directions;
         }
       }
     }

@@ -1,3 +1,18 @@
+2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revise node pointer checking
+
+	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
+	* tta/perl/Texinfo/Structuring.pm (check_node_tree_menu_structure):
+	Loop over every menu in every node and check consistency with
+	any explicit node pointers.
+
+	* tta/perl/t/40moresectioning.t (rec_nodes):
+	Remove TODO comment about only one menu being checked.
+	
+	This change also has the effect that warnings will be made
+	about pointers to external nodes.
+
 2025-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (@documentlanguage): Do not issue a fatal

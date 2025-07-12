@@ -161,7 +161,15 @@ $result_texts{'non_automatic_top_node_up_url'} = 'internal top node up
 
 ';
 
-$result_errors{'non_automatic_top_node_up_url'} = [];
+$result_errors{'non_automatic_top_node_up_url'} = [
+  {
+    'error_line' => 'warning: node up pointer for `chap\' is `(dir)\' but up is `Top\' in menu
+',
+    'line_nr' => 8,
+    'text' => 'node up pointer for `chap\' is `(dir)\' but up is `Top\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'non_automatic_top_node_up_url'} = '1|Top
