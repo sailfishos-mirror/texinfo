@@ -351,28 +351,28 @@ $result_errors{'rec_nodes'} = [
   {
     'error_line' => 'warning: node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu
 ',
-    'line_nr' => 29,
+    'line_nr' => 6,
     'text' => 'node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu',
     'type' => 'warning'
   },
   {
     'error_line' => 'warning: node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu
 ',
-    'line_nr' => 9,
+    'line_nr' => 13,
     'text' => 'node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu',
     'type' => 'warning'
   },
   {
     'error_line' => 'warning: node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu
 ',
-    'line_nr' => 9,
+    'line_nr' => 13,
     'text' => 'node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu',
     'type' => 'warning'
   },
   {
     'error_line' => 'warning: node up pointer for `other node\' is `chap node\' but up is `other node\' in menu
 ',
-    'line_nr' => 16,
+    'line_nr' => 19,
     'text' => 'node up pointer for `other node\' is `chap node\' but up is `other node\' in menu',
     'type' => 'warning'
   }

@@ -224,7 +224,7 @@ $result_errors{'loop_nodes'} = [
   {
     'error_line' => 'warning: node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
 ',
-    'line_nr' => 8,
+    'line_nr' => 5,
     'text' => 'node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu',
     'type' => 'warning'
   }

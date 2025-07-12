@@ -1076,7 +1076,7 @@ sub check_node_tree_menu_structure($)
                       $menu_node_directions->{$direction}),
                   $direction,
                   target_element_to_texi_label($node)),
-                                  $menu_node->{'source_info'});
+                                  $menu_content->{'source_info'});
           }
 
           if (defined($menu_prev_node)) {
@@ -1096,7 +1096,7 @@ sub check_node_tree_menu_structure($)
                               $menu_prev_node_directions->{$direction}),
                           $direction,
                           target_element_to_texi_label($menu_node)),
-                                      $menu_prev_node->{'source_info'});
+                                      $menu_content->{'source_info'});
             }
 
 
@@ -1112,7 +1112,7 @@ sub check_node_tree_menu_structure($)
                               $menu_node_directions->{$direction}),
                           $direction,
                           target_element_to_texi_label($menu_prev_node)),
-                                      $menu_node->{'source_info'});
+                                      $menu_content->{'source_info'});
             }
           }
 

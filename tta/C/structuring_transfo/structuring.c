@@ -1598,7 +1598,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                         = target_element_to_texi_label (node);
                       message_list_command_warn (error_messages,
                          (options && options->DEBUG.o.integer > 0),
-                              menu_node, 0,
+                              menu_content, 0,
                 "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                               direction,
                               menu_node_texi,
@@ -1629,7 +1629,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                             = target_element_to_texi_label (menu_node);
                           message_list_command_warn (error_messages,
                              (options && options->DEBUG.o.integer > 0),
-                                  menu_prev_node, 0,
+                                  menu_content, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                   direction,
                                   menu_prev_node_texi,
@@ -1655,7 +1655,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                             = target_element_to_texi_label (menu_prev_node);
                           message_list_command_warn (error_messages,
                              (options && options->DEBUG.o.integer > 0),
-                                  menu_node, 0,
+                                  menu_content, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                   direction,
                                   menu_node_texi,

@@ -294,14 +294,14 @@ $result_errors{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu
 ',
-    'line_nr' => 14,
+    'line_nr' => 11,
     'text' => 'node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu',
     'type' => 'warning'
   },
   {
     'error_line' => 'warning: node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu
 ',
-    'line_nr' => 16,
+    'line_nr' => 11,
     'text' => 'node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu',
     'type' => 'warning'
   }

@@ -132,7 +132,7 @@ $result_errors{'node_up_external_node'} = [
   {
     'error_line' => 'warning: node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu
 ',
-    'line_nr' => 7,
+    'line_nr' => 4,
     'text' => 'node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu',
     'type' => 'warning'
   }
