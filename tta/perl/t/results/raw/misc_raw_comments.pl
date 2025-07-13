@@ -24,7 +24,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment space}
+       |{rawline_text:comment space}
    *rawpreformatted C1
     {in html }
    *@end C1 l3
@@ -44,7 +44,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment no space}
+       |{rawline_text:comment no space}
      {html}
   {empty_line:\\n}
   *@tex C2 l5
@@ -74,7 +74,7 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment after end tex}
+       |{rawline_text:comment after end tex}
     |spaces_after_argument:
      |{spaces_after_argument:    }
      {tex}

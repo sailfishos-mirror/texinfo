@@ -59,7 +59,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {@node Top is ignored in TeX and LaTeX, so switch here}
+     {rawline_text:@node Top is ignored in TeX and LaTeX, so switch here}
    *@documentlanguage C1 l9
    |INFO
    |spaces_before_argument:

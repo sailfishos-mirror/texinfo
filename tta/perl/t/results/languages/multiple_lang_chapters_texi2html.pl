@@ -71,7 +71,7 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {@node Top is ignored in TeX and LaTeX, so switch here}
+     {rawline_text:@node Top is ignored in TeX and LaTeX, so switch here}
    {empty_line:\\n}
  *@node C1 l12 {Top}
  |INFO

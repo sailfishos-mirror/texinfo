@@ -17,7 +17,7 @@ $result_tree_text{'not_only_characters'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {-e_\'::; hh}
+    {rawline_text:-e_\'::; hh}
   {empty_line:\\n}
   *paragraph C1
    {Say hh.\\n}

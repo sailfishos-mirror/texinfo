@@ -17,7 +17,7 @@ $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {comma ,}
+    {rawline_text:comma ,}
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA

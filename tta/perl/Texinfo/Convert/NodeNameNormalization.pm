@@ -300,8 +300,7 @@ sub _convert($)
                  # here ignore the 'regular' line commands
                  or ($element->{'contents'} and $element->{'contents'}->[0]
                      and $element->{'contents'}->[0]->{'type'}
-                     and ($element->{'contents'}->[0]->{'type'} eq 'line_arg'
-                         or $element->{'contents'}->[0]->{'type'} eq 'rawline_arg')
+                     and $element->{'contents'}->[0]->{'type'} eq 'line_arg')
                  # here ignore the root-level line commands, @node and
                  # sectioning commands
                  or ($element->{'contents'}
@@ -309,7 +308,7 @@ sub _convert($)
                      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line'
                      and $element->{'contents'}->[0]->{'contents'}
              and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
-   and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg')))));
+   and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg'))));
   if ($element->{'cmdname'}) {
     my $cmdname = $element->{'cmdname'};
     if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {

@@ -230,7 +230,7 @@ $result_tree_text{'index_special_region'} = '*document_root C7
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{note this chapter is not associated to a node}
+      |{rawline_text:note this chapter is not associated to a node}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {Chapter}

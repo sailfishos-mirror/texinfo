@@ -37,7 +37,7 @@ $result_tree_text{'characters_and_commands_in_var'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {]}
+       {rawline_text:]}
      {vvar}
    {.\\n}
   {empty_line:\\n}

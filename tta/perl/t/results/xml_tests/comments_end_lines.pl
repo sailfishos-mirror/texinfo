@@ -36,7 +36,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment itemize}
+       |{rawline_text:comment itemize}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      {itemize}
@@ -66,7 +66,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {enumerate}
@@ -109,7 +109,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{table}
+       |{rawline_text:table}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {table}
@@ -139,7 +139,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{quot no arg}
+       |{rawline_text:quot no arg}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {quotation}
@@ -169,7 +169,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {group}
@@ -199,7 +199,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {example}
@@ -256,7 +256,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {multitable}
@@ -298,7 +298,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      {float}
@@ -328,7 +328,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {flushright}
@@ -358,7 +358,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comm}
+       |{rawline_text:comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {raggedright}

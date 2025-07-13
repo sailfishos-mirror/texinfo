@@ -135,7 +135,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {comment}
+    {rawline_text:comment}
   {empty_line:\\n}
   *@contents C1 l20
   |EXTRA

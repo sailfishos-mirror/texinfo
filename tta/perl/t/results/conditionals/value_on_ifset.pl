@@ -17,7 +17,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {xval x}
+    {rawline_text:xval x}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {x 1}
+    {rawline_text:x 1}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>

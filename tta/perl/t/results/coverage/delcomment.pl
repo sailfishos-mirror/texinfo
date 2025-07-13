@@ -19,7 +19,7 @@ $result_tree_text{'delcomment'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {this tests both the del comment and a file without}
+     {rawline_text:this tests both the del comment and a file without}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'delcomment'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {element.}
+     {rawline_text:element.}
    {empty_line:\\n}
    {empty_line:\\n}
    >SOURCEMARKS

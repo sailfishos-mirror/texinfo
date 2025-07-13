@@ -17,7 +17,7 @@ $result_tree_text{'empty_set_in_ifset'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a}
+    {rawline_text:a}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>

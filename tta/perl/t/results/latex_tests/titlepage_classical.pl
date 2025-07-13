@@ -101,7 +101,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {The following two commands start the copyright page.}
+      {rawline_text:The following two commands start the copyright page.}
     *@page C1
      *line_arg
      |INFO
@@ -115,7 +115,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {0pt plus 1filll}
+      {rawline_text:0pt plus 1filll}
     *@insertcopying C1 l16
     |EXTRA
     |global_command_number:{1}

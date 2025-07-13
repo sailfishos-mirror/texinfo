@@ -118,7 +118,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {hash #}
+    {rawline_text:hash #}
   {empty_line:\\n}
   *paragraph C3
    {}

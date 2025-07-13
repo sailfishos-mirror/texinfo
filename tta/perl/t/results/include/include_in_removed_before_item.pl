@@ -40,7 +40,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {source mark holder comment}
+       {rawline_text:source mark holder comment}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -51,7 +51,7 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {in here}
+       {rawline_text:in here}
      *@item C1 l4
      |INFO
      |spaces_before_argument:

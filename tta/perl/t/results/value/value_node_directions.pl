@@ -17,7 +17,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a--foo bar}
+    {rawline_text:a--foo bar}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO

@@ -47,7 +47,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {comment}
+    {rawline_text:comment}
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
@@ -59,7 +59,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {c}
+     {rawline_text:c}
  *@section C4 l10 {sec}
  |INFO
  |spaces_before_argument:

@@ -83,7 +83,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment before first item in enumerate}
+      {rawline_text:comment before first item in enumerate}
    *@item C2 l10
    |EXTRA
    |item_number:{1}
@@ -298,7 +298,7 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
     *index_entry_command@cindex C1 l41
     |INFO
     |command_name:{cindex}

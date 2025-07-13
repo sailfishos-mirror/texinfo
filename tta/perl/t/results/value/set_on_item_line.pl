@@ -38,8 +38,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
           ||INFO
           ||spaces_after_argument:
            ||{spaces_after_argument:\\n}
-           |{}
-         {ca b}
+           |{rawline_text:}
+         {rawline_text:ca b}
     *table_definition C1
      *paragraph C2
       {item text\\n}
@@ -66,8 +66,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
           ||INFO
           ||spaces_after_argument:
            ||{spaces_after_argument:\\n}
-           |{}
-         {cj}
+           |{rawline_text:}
+         {rawline_text:cj}
     *table_definition C1
      *paragraph C1
       {line\\n}
@@ -93,8 +93,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
           ||INFO
           ||spaces_after_argument:
            ||{spaces_after_argument:\\n}
-           |{}
-         {cg}
+           |{rawline_text:}
+         {rawline_text:cg}
    *@end C1 l8
    |INFO
    |spaces_before_argument:
@@ -134,7 +134,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
         |INFO
         |spaces_after_argument:
          |{spaces_after_argument:\\n}
-         {a b}
+         {rawline_text:a b}
     *table_definition C1
      *paragraph C2
       {item text\\n}
@@ -157,7 +157,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
         |INFO
         |spaces_after_argument:
          |{spaces_after_argument:\\n}
-         {j}
+         {rawline_text:j}
     *table_definition C1
      *paragraph C1
       {line\\n}
@@ -179,7 +179,7 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
         |INFO
         |spaces_after_argument:
          |{spaces_after_argument:\\n}
-         {g}
+         {rawline_text:g}
    *@end C1 l17
    |INFO
    |spaces_before_argument:

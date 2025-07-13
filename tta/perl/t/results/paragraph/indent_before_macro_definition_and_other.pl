@@ -35,7 +35,7 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {0pt plus 1filll}
+    {rawline_text:0pt plus 1filll}
   *@html C3 l6
   >SOURCEMARKS
   >ignored_conditional_block<1>

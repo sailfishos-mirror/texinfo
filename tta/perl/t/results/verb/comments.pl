@@ -22,7 +22,7 @@ $result_tree_text{'comments'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
   {empty_line:\\n}
   *paragraph C4
    {something }
@@ -37,7 +37,7 @@ $result_tree_text{'comments'} = '*document_root C1
    |spaces_before_argument:
     |{spaces_before_argument: }
     *line_arg C1
-     {other comment}
+     {rawline_text:other comment}
 ';
 
 

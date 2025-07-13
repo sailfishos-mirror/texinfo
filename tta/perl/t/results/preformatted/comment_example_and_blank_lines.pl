@@ -26,7 +26,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@end C1 l5
    |INFO
    |spaces_before_argument:
@@ -58,7 +58,7 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@end C1 l11
    |INFO
    |spaces_before_argument:

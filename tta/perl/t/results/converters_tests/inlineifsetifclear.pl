@@ -41,7 +41,7 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {aaa}
+    {rawline_text:aaa}
   {empty_line:\\n}
   *paragraph C2
    *@inlineifclear C2 l7

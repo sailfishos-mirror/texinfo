@@ -19,7 +19,7 @@ $result_tree_text{'cond_ifhtml_ifinfo_iftex'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {test conditions}
+     {rawline_text:test conditions}
    {empty_line:\\n}
    *@html C3 cond.texi:l5
     *arguments_line C1

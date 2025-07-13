@@ -59,7 +59,7 @@ NodeForward: [U1]
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {* @"i::}
+       {rawline_text:* @"i::}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -68,7 +68,7 @@ NodeForward: [U1]
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {* @~{@dotless{i}}::}
+       {rawline_text:* @~{@dotless{i}}::}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -77,7 +77,7 @@ NodeForward: [U1]
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {* @^i::}
+       {rawline_text:* @^i::}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1

@@ -17,7 +17,7 @@ $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {badvalue bad}
+    {rawline_text:badvalue bad}
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:

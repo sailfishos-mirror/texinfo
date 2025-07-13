@@ -26,7 +26,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {?}
+    {rawline_text:?}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -35,7 +35,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {:-/ hey!}
+    {rawline_text::-/ hey!}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -44,7 +44,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a@b}
+    {rawline_text:a@b}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -53,7 +53,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {:-" bad}
+    {rawline_text::-" bad}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -62,7 +62,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {} no}
+    {rawline_text:} no}
   {empty_line:\\n}
   *@clear C1
   |INFO
@@ -72,7 +72,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {aaa ggg}
+    {rawline_text:aaa ggg}
   *@clear C1
   |INFO
   |spaces_before_argument:
@@ -81,7 +81,7 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {and{other}
+    {rawline_text:and{other}
   {empty_line:\\n}
   *paragraph C1
    {gurgl\\n}

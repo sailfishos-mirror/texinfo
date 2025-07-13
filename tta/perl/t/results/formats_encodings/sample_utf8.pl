@@ -18,7 +18,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%**start of header}
+     {rawline_text:%**start of header}
   *preamble_before_content C12
    *@setfilename C1 sample_utf8.texi:l3
    |INFO
@@ -61,7 +61,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%**end of header}
+     {rawline_text:%**end of header}
    {empty_line:\\n}
    *@copying C5 sample_utf8.texi:l8
     *arguments_line C1
@@ -117,7 +117,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {0pt plus 1filll}
+       {rawline_text:0pt plus 1filll}
     *@insertcopying C1 sample_utf8.texi:l20
     |EXTRA
     |global_command_number:{1}
@@ -145,7 +145,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {Output the table of the contents at the beginning.}
+     {rawline_text:Output the table of the contents at the beginning.}
    *@contents C1 sample_utf8.texi:l24
    |EXTRA
    |global_command_number:{1}

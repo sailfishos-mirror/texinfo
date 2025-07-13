@@ -20,7 +20,7 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{}
+       |{rawline_text:}
      *@~ l1
    *@item C2 l2
    |EXTRA

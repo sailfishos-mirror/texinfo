@@ -15,7 +15,7 @@ $result_tree_text{'clickstyle_no_end_of_line'} = '*document_root C1
   |global_command_number:{1}
   |misc_args:A{@result}
    *line_arg C1
-    {@result}
+    {rawline_text:@result}
 ';
 
 

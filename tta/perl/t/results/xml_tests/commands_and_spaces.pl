@@ -17,7 +17,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {foo   some @value}
+    {rawline_text:foo   some @value}
   {empty_line:\\n}
   *@setfilename C1 l3
   |INFO
@@ -41,7 +41,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {ggg}
+    {rawline_text:ggg}
   {empty_line:\\n}
   *@clickstyle C1 l7
   |INFO
@@ -54,7 +54,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@arrow}
+    {rawline_text:@arrow}
   {empty_line:\\n}
  *@node C46 l9 {a}
  |INFO

@@ -17,7 +17,7 @@ $result_tree_text{'comment_between_text'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
    {end para}
 ';
 

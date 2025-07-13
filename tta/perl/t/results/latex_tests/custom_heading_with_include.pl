@@ -125,7 +125,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {do-top}
+    {rawline_text:do-top}
   *paragraph C2
    {\\input texinfo }
    *@c C1
@@ -136,7 +136,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {-*-texinfo-*-}
+     {rawline_text:-*-texinfo-*-}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>

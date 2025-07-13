@@ -17,7 +17,7 @@ $result_tree_text{'ignored_value_definition'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {aa outside}
+    {rawline_text:aa outside}
   {empty_line:\\n}
   *paragraph C2
    *@inlinefmt C2 l3

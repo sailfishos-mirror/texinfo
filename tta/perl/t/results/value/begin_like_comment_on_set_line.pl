@@ -15,7 +15,7 @@ $result_tree_text{'begin_like_comment_on_set_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {x@come with me}
+    {rawline_text:x@come with me}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -26,7 +26,7 @@ $result_tree_text{'begin_like_comment_on_set_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {y some thing @commentary is it}
+    {rawline_text:y some thing @commentary is it}
   {empty_line:\\n}
   *paragraph C3
    {!}

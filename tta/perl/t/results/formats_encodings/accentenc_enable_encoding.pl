@@ -389,7 +389,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {arg is command -- @dotless{i} is special-cased for HTML}
+    {rawline_text:arg is command -- @dotless{i} is special-cased for HTML}
   *paragraph C3
    {should be dotless i`: }
    *@` C1 l65
@@ -434,7 +434,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {arg is command -- @dotless{j}}
+    {rawline_text:arg is command -- @dotless{j}}
   *paragraph C3
    {should be dotless j`: }
    *@` C1 l74

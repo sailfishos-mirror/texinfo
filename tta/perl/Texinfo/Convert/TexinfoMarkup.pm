@@ -513,22 +513,6 @@ sub _format_comment_or_end_line($$)
 }
 
 
-
-# no end of line
-sub _arg_line($)
-{
-  my $self = shift;
-  my $element = shift;
-  if ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
-    my $line = $element->{'info'}->{'arg_line'};
-    chomp($line);
-    if ($line ne '') {
-      return ['line', $line];
-    }
-  }
-  return ();
-}
-
 # without the end of line.  The end of line is usually returned by
 # _format_comment_or_end_line
 sub _trailing_spaces_arg($)
@@ -1624,8 +1608,7 @@ sub _convert($$;$)
               $result .= _end_line_spaces($self, $arguments_line);
               $result
                 .= _format_comment_or_end_line($self, $arguments_line);
-              # systematic for @(r)macro as _arg_line removes the end of line,
-              # also happens for commands interrupted on the line
+              # happens for commands interrupted on the line
               $result .= "\n" unless ($result =~ /\n/);
             }
           }

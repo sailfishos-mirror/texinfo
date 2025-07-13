@@ -32,7 +32,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {UPDATED 28 March 2002}
+     {rawline_text:UPDATED 28 March 2002}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -43,7 +43,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {UPDATED-MONTH March 2002}
+     {rawline_text:UPDATED-MONTH March 2002}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -54,7 +54,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {EDITION 4.2}
+     {rawline_text:EDITION 4.2}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -65,7 +65,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {VERSION 4.2}
+     {rawline_text:VERSION 4.2}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {VERSION_DATE October 2002}
+    {rawline_text:VERSION_DATE October 2002}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {SHORT_VERSION 2-0}
+    {rawline_text:SHORT_VERSION 2-0}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -101,7 +101,7 @@ $result_tree_text{'test_two_include'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {RPM_VERSION 2.0.4}
+    {rawline_text:RPM_VERSION 2.0.4}
   {empty_line:\\n}
   *paragraph C2
    {include inc_file\\n}

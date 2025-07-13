@@ -659,9 +659,6 @@ sub _print_element_associated_info($$$$$;$$)
     my $ref = ref($value);
     $result .= (' ' x $level) . $info_prepended . "$key:";
     if ($ref eq '') {
-      if ($key eq 'arg_line') {
-        $value = _debug_protect_eol($value);
-      }
       if (!defined(${value})) {
         $result .= ' UNDEF';
       } else {
@@ -1076,7 +1073,7 @@ sub _protect_text($$)
   if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
       and !(defined($current->{'type'})
             and ($current->{'type'} eq 'raw'
-                 or $current->{'type'} eq 'rawline_arg'))) {
+                 or $current->{'type'} eq 'rawline_text'))) {
     my @result = ();
     my $remaining_text = $current->{'text'};
 

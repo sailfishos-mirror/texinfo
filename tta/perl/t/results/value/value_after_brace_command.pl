@@ -17,7 +17,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {bracedletter {a}}
+    {rawline_text:bracedletter {a}}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'value_after_brace_command'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {unknowncmd @unknown}
+    {rawline_text:unknowncmd @unknown}
   {empty_line:\\n}
   *paragraph C12
    *@ringaccent C1 l4

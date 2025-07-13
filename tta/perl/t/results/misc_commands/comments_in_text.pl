@@ -16,7 +16,7 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {lone comment}
+    {rawline_text:lone comment}
   {empty_line:\\n}
   *paragraph C6
    {Text line followed by a comment on the same line and another below }
@@ -28,7 +28,7 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -37,7 +37,7 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
    {Text line after the comment followed by a comment }
    *@comment C1
    |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {c}
+     {rawline_text:c}
    {Text line after the text line followed by the comment.\\n}
   {empty_line:\\n}
   *paragraph C2
@@ -60,7 +60,7 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
 ';
 
 

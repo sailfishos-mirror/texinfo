@@ -291,15 +291,6 @@ sub _convert_to_texinfo($)
         # root commands and block commands that are not def commands
         $result .= $spc_before_arg;
         $result .= _convert_args($element->{'contents'}->[0]);
-     # arg_line set for line_commands with type lineraw that have
-     # arguments and for @macro.
-     # if there is no arg_line, the end of line is in rawline_arg in contents
-     # so the lineraw command should be processed along with other
-     # line commands below
-      } elsif ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
-        $result .= $spc_before_arg;
-        $result .= $element->{'info'}->{'arg_line'};
-        return $result;
       } elsif (exists($brace_commands{$cmdname})
                or ($element->{'type'}
                    and $element->{'type'} eq 'definfoenclose_command')) {

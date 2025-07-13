@@ -17,7 +17,7 @@ $result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root 
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {closebrace }}
+    {rawline_text:closebrace }}
   {empty_line:\\n}
   *paragraph C3
    *@inlinefmt C2 l3

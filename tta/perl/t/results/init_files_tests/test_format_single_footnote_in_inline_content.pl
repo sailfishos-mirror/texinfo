@@ -89,7 +89,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {an example in the footnote}
+       {rawline_text:an example in the footnote}
      {empty_line:\\n}
      *@example C3 l11
       *arguments_line C1

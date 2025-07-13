@@ -659,7 +659,7 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
   enum command_id cmd;
   ELEMENT *comment_e;
   ELEMENT *comment_line_args = new_element (ET_line_arg);
-  ELEMENT *comment_text_element = new_text_element (ET_normal_text);
+  ELEMENT *comment_text_element = new_text_element (ET_rawline_text);
   const char *q;
   char *comment_text = strndup (input_comment_text, comment_byte_len);
   if (comment_text[comment_byte_len -1] == '\n')
@@ -776,7 +776,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
     {
       STRING_LIST *args = 0;
       ELEMENT *line_args = new_element (ET_line_arg);
-      ELEMENT *text_element = new_text_element (ET_normal_text);
+      ELEMENT *text_element = new_text_element (ET_rawline_text);
       enum command_id equivalent_cmd = 0;
       const char *comment_text = 0;
       int special_arg = 0;
@@ -884,7 +884,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
       else if (!ignored)
         {
-          command_e = new_command_element (ET_lineraw_command, cmd);
+          command_e = new_command_element (ET_line_command, cmd);
           add_to_element_contents (current, command_e);
 
           add_to_element_contents (command_e, line_args);

@@ -630,11 +630,6 @@ build_element_attribute (const ELEMENT *element, const char *attribute,
                   && element->e.c->string_info[idx])
                 return newSVpv_utf8 (element->e.c->string_info[idx], 0);
               break;
-            case AI_key_arg_line:
-              if (element->type == ET_lineraw_command
-                  && element->e.c->string_info[idx])
-                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
-              break;
             case AI_key_delimiter:
               if (element->e.c->cmd == CM_verb
                   && element->e.c->string_info[idx])
@@ -1049,11 +1044,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         {
           store_info_string (e, e->e.c->string_info[sit_command_name],
                             "command_name", &info_hv);
-        }
-      else if (e->type == ET_lineraw_command)
-        {
-          store_info_string (e, e->e.c->string_info[sit_arg_line],
-                            "arg_line", &info_hv);
         } /* verb is a brace command type and so cannot be confused
              with the preceding types */
       else if (e->e.c->cmd == CM_verb && e->e.c->contents.number > 0)

@@ -18,7 +18,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Copyright (C) 2004  Aaron S. Hawley}
+     {rawline_text:% Copyright (C) 2004  Aaron S. Hawley}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -28,7 +28,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
+     {rawline_text:% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -37,7 +37,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Keywords: docs, texinfo, extensions, bib}
+     {rawline_text:% Keywords: docs, texinfo, extensions, bib}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -47,7 +47,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% This file is free software; you can redistribute it and/or modify}
+     {rawline_text:% This file is free software; you can redistribute it and/or modify}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -56,7 +56,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% it under the terms of the GNU General Public License as published by}
+     {rawline_text:% it under the terms of the GNU General Public License as published by}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -65,7 +65,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% the Free Software Foundation; either version 2, or (at your option)}
+     {rawline_text:% the Free Software Foundation; either version 2, or (at your option)}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -74,7 +74,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% any later version.}
+     {rawline_text:% any later version.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -84,7 +84,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% This file is distributed in the hope that it will be useful,}
+     {rawline_text:% This file is distributed in the hope that it will be useful,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -93,7 +93,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% but WITHOUT ANY WARRANTY; without even the implied warranty of}
+     {rawline_text:% but WITHOUT ANY WARRANTY; without even the implied warranty of}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -102,7 +102,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+     {rawline_text:% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -111,7 +111,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% GNU General Public License for more details.}
+     {rawline_text:% GNU General Public License for more details.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -121,7 +121,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% You should have received a copy of the GNU General Public License}
+     {rawline_text:% You should have received a copy of the GNU General Public License}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -130,7 +130,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% along with texi2html; see the file COPYING.  If not, write to}
+     {rawline_text:% along with texi2html; see the file COPYING.  If not, write to}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -139,7 +139,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
+     {rawline_text:% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -148,7 +148,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Boston, MA 02111-1307, USA.}
+     {rawline_text:% Boston, MA 02111-1307, USA.}
    {empty_line:\\n}
    *@comment C1
    |INFO
@@ -158,7 +158,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%**start of header}
+     {rawline_text:%**start of header}
    *@settitle C1 bib-example.texi:l23
    |INFO
    |spaces_before_argument:
@@ -190,7 +190,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {\\input texinfo   @c -*-texinfo-*-}
+     {rawline_text:\\input texinfo   @c -*-texinfo-*-}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -199,7 +199,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% my-bib-macros.texi --- Texinfo macros providing a crude}
+     {rawline_text:%% my-bib-macros.texi --- Texinfo macros providing a crude}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -208,7 +208,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% bibliography and citation capability.}
+     {rawline_text:%% bibliography and citation capability.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -218,7 +218,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Copyright (C) 2004  Aaron S. Hawley}
+     {rawline_text:% Copyright (C) 2004  Aaron S. Hawley}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -228,7 +228,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
+     {rawline_text:% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -237,7 +237,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Keywords: docs, texinfo, extensions, bib}
+     {rawline_text:% Keywords: docs, texinfo, extensions, bib}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -247,7 +247,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% This file is free software; you can redistribute it and/or modify}
+     {rawline_text:% This file is free software; you can redistribute it and/or modify}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -256,7 +256,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% it under the terms of the GNU General Public License as published by}
+     {rawline_text:% it under the terms of the GNU General Public License as published by}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -265,7 +265,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% the Free Software Foundation; either version 2, or (at your option)}
+     {rawline_text:% the Free Software Foundation; either version 2, or (at your option)}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -274,7 +274,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% any later version.}
+     {rawline_text:% any later version.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -284,7 +284,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% This file is distributed in the hope that it will be useful,}
+     {rawline_text:% This file is distributed in the hope that it will be useful,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -293,7 +293,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% but WITHOUT ANY WARRANTY; without even the implied warranty of}
+     {rawline_text:% but WITHOUT ANY WARRANTY; without even the implied warranty of}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -302,7 +302,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+     {rawline_text:% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -311,7 +311,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% GNU General Public License for more details.}
+     {rawline_text:% GNU General Public License for more details.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -321,7 +321,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% You should have received a copy of the GNU General Public License}
+     {rawline_text:% You should have received a copy of the GNU General Public License}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -330,7 +330,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% along with texi2html; see the file COPYING.  If not, write to}
+     {rawline_text:% along with texi2html; see the file COPYING.  If not, write to}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -339,7 +339,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
+     {rawline_text:% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -348,7 +348,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Boston, MA 02111-1307, USA.}
+     {rawline_text:% Boston, MA 02111-1307, USA.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -358,7 +358,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Commentary:}
+     {rawline_text:%% Commentary:}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -368,7 +368,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%% Introduction}
+     {rawline_text:%%% Introduction}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -378,7 +378,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Creates references to a ``Bibliography\'\' or ``References\'\'}
+     {rawline_text:%% Creates references to a ``Bibliography\'\' or ``References\'\'}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -387,7 +387,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% section of a Texinfo document, using Texinfo\'s}
+     {rawline_text:%% section of a Texinfo document, using Texinfo\'s}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -396,7 +396,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% macro system.  Although not as terse a way to cite systems as is}
+     {rawline_text:%% macro system.  Although not as terse a way to cite systems as is}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -405,7 +405,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% found in document systems like TeX, the format is simpler and}
+     {rawline_text:%% found in document systems like TeX, the format is simpler and}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -414,7 +414,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% the rendering  is easier for non-academic readers.}
+     {rawline_text:%% the rendering  is easier for non-academic readers.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -424,7 +424,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%}
+     {rawline_text:%}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -434,7 +434,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%% Usage}
+     {rawline_text:%%% Usage}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -444,7 +444,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% References to cited works can be put in any section of a document.}
+     {rawline_text:%% References to cited works can be put in any section of a document.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -453,7 +453,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% The cited works must be put in either a Texinfo table (for}
+     {rawline_text:%% The cited works must be put in either a Texinfo table (for}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -462,7 +462,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% instance with ``@table @asis ... @end table\'\') or within a}
+     {rawline_text:%% instance with ``@table @asis ... @end table\'\') or within a}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -471,7 +471,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Texinfo list (something like ``@enumerate ... @end enumerate\'\'}
+     {rawline_text:%% Texinfo list (something like ``@enumerate ... @end enumerate\'\'}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -480,7 +480,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% or ``@itemize @bullet ... @end itemize\'\').  They are created}
+     {rawline_text:%% or ``@itemize @bullet ... @end itemize\'\').  They are created}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -489,7 +489,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference}
+     {rawline_text:%% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -498,7 +498,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.}
+     {rawline_text:%% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -508,7 +508,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% The beginning of a document must include (using the @include}
+     {rawline_text:%% The beginning of a document must include (using the @include}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -517,7 +517,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% command) the file my-bib-macros.texi, which should be made}
+     {rawline_text:%% command) the file my-bib-macros.texi, which should be made}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -526,7 +526,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% available in the current directory of the parent file.  A single}
+     {rawline_text:%% available in the current directory of the parent file.  A single}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -535,7 +535,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% call should be made to choose to use a list or a table.  The}
+     {rawline_text:%% call should be made to choose to use a list or a table.  The}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -544,7 +544,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% command to chose is called @mybibuselist{NODE}, where NODE is}
+     {rawline_text:%% command to chose is called @mybibuselist{NODE}, where NODE is}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -553,7 +553,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% the node containing the location where the references are listed.}
+     {rawline_text:%% the node containing the location where the references are listed.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -563,7 +563,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%}
+     {rawline_text:%}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -573,7 +573,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%% Example}
+     {rawline_text:%%% Example}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -583,7 +583,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% \\input texinfo   @c -*-texinfo-*-}
+     {rawline_text:%% \\input texinfo   @c -*-texinfo-*-}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -592,7 +592,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @comment %**start of header}
+     {rawline_text:%% @comment %**start of header}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -601,7 +601,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @setfilename my-file-with-bib.info}
+     {rawline_text:%% @setfilename my-file-with-bib.info}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -610,7 +610,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @settitle Texinfo with a Bibliography and References}
+     {rawline_text:%% @settitle Texinfo with a Bibliography and References}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -619,7 +619,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -628,7 +628,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @include my-bib-macros.texi}
+     {rawline_text:%% @include my-bib-macros.texi}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -637,7 +637,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibuselist{References}}
+     {rawline_text:%% @mybibuselist{References}}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -646,7 +646,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -655,7 +655,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @comment %**end of header}
+     {rawline_text:%% @comment %**end of header}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -664,7 +664,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -673,7 +673,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @node Top}
+     {rawline_text:%% @node Top}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -682,7 +682,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @top Top}
+     {rawline_text:%% @top Top}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -691,7 +691,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -700,7 +700,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @menu}
+     {rawline_text:%% @menu}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -709,7 +709,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% * Introduction::}
+     {rawline_text:%% * Introduction::}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -718,7 +718,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% * @mybibnode{}::}
+     {rawline_text:%% * @mybibnode{}::}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -727,7 +727,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -736,7 +736,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @end menu}
+     {rawline_text:%% @end menu}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -745,7 +745,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -754,7 +754,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @node Introduction}
+     {rawline_text:%% @node Introduction}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -763,7 +763,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @chapter Introduction}
+     {rawline_text:%% @chapter Introduction}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -772,7 +772,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -781,7 +781,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% The ability of a documentation format to make cross references to a}
+     {rawline_text:%% The ability of a documentation format to make cross references to a}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -790,7 +790,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t}
+     {rawline_text:%% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -799,7 +799,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% currently supported in Texinfo.}
+     {rawline_text:%% currently supported in Texinfo.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -808,7 +808,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -817,7 +817,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @node @mybibnode{}}
+     {rawline_text:%% @node @mybibnode{}}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -826,7 +826,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @chapter References}
+     {rawline_text:%% @chapter References}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -835,7 +835,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -844,7 +844,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @itemize @asis}
+     {rawline_text:%% @itemize @asis}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -853,7 +853,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -862,7 +862,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and}
+     {rawline_text:%% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -871,7 +871,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Reference Manual, 2nd edition, Addison-Wesley, Reading,}
+     {rawline_text:%% Reference Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -880,7 +880,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Massachusetts, 1994.}
+     {rawline_text:%% Massachusetts, 1994.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -889,7 +889,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -898,7 +898,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @end itemize}
+     {rawline_text:%% @end itemize}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -907,7 +907,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -916,7 +916,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @bye}
+     {rawline_text:%% @bye}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -926,7 +926,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -936,7 +936,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% This example produces (in Info):}
+     {rawline_text:%% This example produces (in Info):}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -946,7 +946,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       1 Introduction}
+     {rawline_text:%%       1 Introduction}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -955,7 +955,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       **************}
+     {rawline_text:%%       **************}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -964,7 +964,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -973,7 +973,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       The ability of a documentation format to make cross}
+     {rawline_text:%%       The ability of a documentation format to make cross}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -982,7 +982,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       references to a bibliography, a feature of LaTeX (See item}
+     {rawline_text:%%       references to a bibliography, a feature of LaTeX (See item}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -991,7 +991,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently}
+     {rawline_text:%%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1000,7 +1000,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       supported in Texinfo.}
+     {rawline_text:%%       supported in Texinfo.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1009,7 +1009,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1018,7 +1018,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1027,7 +1027,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       2 References}
+     {rawline_text:%%       2 References}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1036,7 +1036,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       ************}
+     {rawline_text:%%       ************}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1045,7 +1045,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1054,7 +1054,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
+     {rawline_text:%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1063,7 +1063,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       Manual, 2nd edition, Addison-Wesley, Reading,}
+     {rawline_text:%%       Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1072,7 +1072,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       Massachusetts, 1994.}
+     {rawline_text:%%       Massachusetts, 1994.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1082,7 +1082,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% and (in printed output):}
+     {rawline_text:%% and (in printed output):}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1092,7 +1092,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       1 Introduction}
+     {rawline_text:%%       1 Introduction}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1101,7 +1101,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       **************}
+     {rawline_text:%%       **************}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1110,7 +1110,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1119,7 +1119,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       The ability of a documentation format to make cross}
+     {rawline_text:%%       The ability of a documentation format to make cross}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1128,7 +1128,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       references to a bibliography, a feature of LaTeX (See item}
+     {rawline_text:%%       references to a bibliography, a feature of LaTeX (See item}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1137,7 +1137,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       [LaTeX2e] in Chapter 2 [References], page 3.), is not}
+     {rawline_text:%%       [LaTeX2e] in Chapter 2 [References], page 3.), is not}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1146,7 +1146,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       currently supported in Texinfo.}
+     {rawline_text:%%       currently supported in Texinfo.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1155,7 +1155,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1164,7 +1164,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1173,7 +1173,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       2 References}
+     {rawline_text:%%       2 References}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1182,7 +1182,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       ************}
+     {rawline_text:%%       ************}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1191,7 +1191,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%}
+     {rawline_text:%%}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1200,7 +1200,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
+     {rawline_text:%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1209,7 +1209,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       Manual, 2nd edition, Addison-Wesley, Reading,}
+     {rawline_text:%%       Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1218,7 +1218,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%       Massachusetts, 1994.}
+     {rawline_text:%%       Massachusetts, 1994.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1228,7 +1228,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%}
+     {rawline_text:%}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1238,7 +1238,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%%% Notes}
+     {rawline_text:%%% Notes}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1248,7 +1248,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% The pointers to references will be functional in hypertext}
+     {rawline_text:%% The pointers to references will be functional in hypertext}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1257,7 +1257,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% documentation (info, HTML, XML and others) and properly rendered}
+     {rawline_text:%% documentation (info, HTML, XML and others) and properly rendered}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1266,7 +1266,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% in print documents, because they are implemented with Texinfo\'s}
+     {rawline_text:%% in print documents, because they are implemented with Texinfo\'s}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1275,7 +1275,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% cross referencing capabilities (using @anchor and @ref).  Failures}
+     {rawline_text:%% cross referencing capabilities (using @anchor and @ref).  Failures}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1284,7 +1284,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% by an author to make proper references with ``my-bib-macros\'\' in}
+     {rawline_text:%% by an author to make proper references with ``my-bib-macros\'\' in}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1293,7 +1293,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% their document will give cross referencing errors by Texinfo}
+     {rawline_text:%% their document will give cross referencing errors by Texinfo}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1302,7 +1302,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% conversion tools.}
+     {rawline_text:%% conversion tools.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1312,7 +1312,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Only one ``Reference\'\' section is allowed per document.}
+     {rawline_text:%% Only one ``Reference\'\' section is allowed per document.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1322,7 +1322,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% An improvement of this system would create cross references}
+     {rawline_text:%% An improvement of this system would create cross references}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1331,7 +1331,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% (with @xref) at each cited work to all the originating cross}
+     {rawline_text:%% (with @xref) at each cited work to all the originating cross}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1340,7 +1340,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% refererences.}
+     {rawline_text:%% refererences.}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1350,7 +1350,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%}
+     {rawline_text:%}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1360,7 +1360,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% Code:}
+     {rawline_text:%% Code:}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1370,7 +1370,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {% Configuration Options}
+     {rawline_text:% Configuration Options}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -1380,7 +1380,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibsetrefnode : Defines the name of the node to contain}
+     {rawline_text:%% @mybibsetrefnode : Defines the name of the node to contain}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1389,7 +1389,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% references.}
+     {rawline_text:%% references.}
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l162
    |EXTRA
@@ -1418,7 +1418,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibnode{} : Macro to be placed at node containing references}
+     {rawline_text:%% @mybibnode{} : Macro to be placed at node containing references}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1427,7 +1427,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% and calls to @mybibcite{}}
+     {rawline_text:%% and calls to @mybibcite{}}
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l169
    |EXTRA
@@ -1456,7 +1456,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibusetable : Whether each @mybibitem will be put in a}
+     {rawline_text:%% @mybibusetable : Whether each @mybibitem will be put in a}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1465,7 +1465,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% table.}
+     {rawline_text:%% table.}
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l176
    |EXTRA
@@ -1498,7 +1498,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibuselist : Whether each @mybibitem will be put in a}
+     {rawline_text:%% @mybibuselist : Whether each @mybibitem will be put in a}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -1507,7 +1507,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% list.}
+     {rawline_text:%% list.}
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l187
    |EXTRA
@@ -1541,7 +1541,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibcite{REF} : Cites the cross reference REF.}
+     {rawline_text:%% @mybibcite{REF} : Cites the cross reference REF.}
    {empty_line:\\n}
    *@macro C10 my-bib-macros.texi:l198
    |EXTRA
@@ -1596,7 +1596,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% @mybibcite{REF} : Creates a cross referenced citation REF.}
+     {rawline_text:%% @mybibcite{REF} : Creates a cross referenced citation REF.}
    {empty_line:\\n}
    *@macro C16 my-bib-macros.texi:l215
    |EXTRA
@@ -1646,7 +1646,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%% my-bib-macros.texi ends here}
+     {rawline_text:%% my-bib-macros.texi ends here}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -1687,7 +1687,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {mybiblist true}
+     {rawline_text:mybiblist true}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -1698,7 +1698,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {mybibrefnode References}
+     {rawline_text:mybibrefnode References}
      >SOURCEMARKS
      >macro_expansion<end;2><p:23>
      >macro_expansion<end;1><p:23>
@@ -1711,7 +1711,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%**end of header}
+     {rawline_text:%**end of header}
    {empty_line:\\n}
  *@node C1 bib-example.texi:l30 {Top}
  |INFO
@@ -1878,7 +1878,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {%**else if}
+     {rawline_text:%**else if}
    {(See item [LaTeX2e] in }
    >SOURCEMARKS
    >macro_expansion<start;5>
@@ -2090,7 +2090,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {%**else if}
+       {rawline_text:%**else if}
      { Leslie Lamport, LaTeX User\'s Guide and\\n}
      {Reference Manual, 2nd edition, Addison-Wesley, Reading,\\n}
      {Massachusetts, 1994.\\n}

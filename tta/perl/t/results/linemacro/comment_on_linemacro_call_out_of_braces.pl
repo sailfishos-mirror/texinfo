@@ -56,7 +56,7 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment {in braces}}
+     {rawline_text:comment {in braces}}
   {empty_line:\\n}
   *paragraph C4
    {first ||\\n}
@@ -79,7 +79,7 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment early n l m}
+     {rawline_text:comment early n l m}
   {empty_line:\\n}
   *paragraph C5
    {first |aaa\\n}
@@ -115,7 +115,7 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on second {line comment}}
+     {rawline_text:on second {line comment}}
 ';
 
 

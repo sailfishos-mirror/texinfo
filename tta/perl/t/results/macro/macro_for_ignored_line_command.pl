@@ -42,7 +42,7 @@ $result_tree_text{'macro_for_ignored_line_command'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {on the line}
+    {rawline_text:on the line}
 ';
 
 

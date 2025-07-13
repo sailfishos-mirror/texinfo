@@ -20,7 +20,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {txiindexbackslashignore}
+     {rawline_text:txiindexbackslashignore}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |INFO
@@ -293,7 +293,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {txiindexbackslashignore}
+    {rawline_text:txiindexbackslashignore}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l23
   |INFO
@@ -314,7 +314,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{comment}
+      |{rawline_text:comment}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {\\some\\command for }

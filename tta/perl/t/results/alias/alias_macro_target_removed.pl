@@ -60,7 +60,7 @@ $result_tree_text{'alias_macro_target_removed'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {mystrong}
+    {rawline_text:mystrong}
   {empty_line:\\n}
   *paragraph C1
    {bb\\n}

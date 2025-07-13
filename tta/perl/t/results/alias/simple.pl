@@ -36,7 +36,7 @@ $result_tree_text{'simple'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{comment}
+      |{rawline_text:comment}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {o-theralias=verb}

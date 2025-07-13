@@ -37,7 +37,7 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
    *menu_entry C5 l3
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -63,7 +63,7 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
    *menu_entry C6 l4
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -89,7 +89,7 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -115,7 +115,7 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
    *menu_entry C6 l6
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -142,7 +142,7 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
    *@end C1 l7
    |INFO
    |spaces_before_argument:

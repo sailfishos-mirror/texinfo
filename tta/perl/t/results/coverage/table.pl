@@ -70,7 +70,7 @@ $result_tree_text{'table'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{samp}
+       |{rawline_text:samp}
      *@samp l9
    *before_item C3
     *@c C1
@@ -81,7 +81,7 @@ $result_tree_text{'table'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {after vtable}
+      {rawline_text:after vtable}
     *index_entry_command@cindex C1 l11
     |INFO
     |command_name:{cindex}
@@ -117,7 +117,7 @@ $result_tree_text{'table'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {after item}
+        {rawline_text:after item}
      *index_entry_command@kindex C1 l15
      |INFO
      |command_name:{kindex}
@@ -147,7 +147,7 @@ $result_tree_text{'table'} = '*document_root C1
         ||INFO
         ||spaces_after_argument:
          ||{spaces_after_argument:\\n}
-         |{comment in itemx line}
+         |{rawline_text:comment in itemx line}
       |spaces_after_argument:
        |{spaces_after_argument: }
        {itemx vtable}

@@ -19,7 +19,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@result on the same line}
+    {rawline_text:@result on the same line}
   {empty_line:\\n}
   *paragraph C3
    {A }
@@ -40,7 +40,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@nocmd}
+    {rawline_text:@nocmd}
   {empty_line:\\n}
   *paragraph C1
    {A  (nocmd).\\n}
@@ -55,7 +55,7 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {something}
+    {rawline_text:something}
   {empty_line:\\n}
   *paragraph C1
    {A  (something).\\n}

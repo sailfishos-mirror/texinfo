@@ -23,7 +23,7 @@ $result_tree_text{'table_command_comment'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{in comment}
+       |{rawline_text:in comment}
      *@code l1
    *table_entry C1
     *table_term C1

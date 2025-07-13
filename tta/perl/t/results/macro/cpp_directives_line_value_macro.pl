@@ -108,7 +108,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {hash #}
+    {rawline_text:hash #}
   {empty_line:\\n}
   *paragraph C1
    {#line 71 "example.c"\\n}

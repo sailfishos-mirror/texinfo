@@ -233,7 +233,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {expandglossary}
+     {rawline_text:expandglossary}
    *@macro C8 glossary.texi:l42:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -276,7 +276,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {glossarytext}
+     {rawline_text:glossarytext}
    *@macro C5 glossary.texi:l42:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}
@@ -377,7 +377,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {expandglossary}
+     {rawline_text:expandglossary}
    *@macro C8 glossary.texi:l43:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -420,7 +420,7 @@ $result_tree_text{'glossary'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {glossarytext}
+     {rawline_text:glossarytext}
    *@macro C5 glossary.texi:l43:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}

@@ -29,7 +29,7 @@ $result_tree_text{'empty_label_with_space_comment'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
     |spaces_before_argument:
      |{spaces_before_argument: }
    *@end C1 l2

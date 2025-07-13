@@ -23,7 +23,7 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {a comment}
+      {rawline_text:a comment}
     *index_entry_command@cindex C1 l3
     |INFO
     |command_name:{cindex}
@@ -44,7 +44,7 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {another}
+      {rawline_text:another}
     {empty_line:\\n}
    *@defline C1 l6
    |INFO

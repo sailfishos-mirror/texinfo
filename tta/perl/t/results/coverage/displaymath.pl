@@ -124,7 +124,7 @@ $result_tree_text{'displaymath'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment in displaymath}
+     {rawline_text:comment in displaymath}
    {a/2\\n}
    *@end C1 l20
    |INFO

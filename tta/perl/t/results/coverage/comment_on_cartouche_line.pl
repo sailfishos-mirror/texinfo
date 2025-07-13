@@ -23,7 +23,7 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3
@@ -54,7 +54,7 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
     |spaces_after_argument:
      |{spaces_after_argument: }
      *@emph C1 l5

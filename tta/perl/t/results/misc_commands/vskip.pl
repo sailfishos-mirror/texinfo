@@ -15,7 +15,7 @@ $result_tree_text{'vskip'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {0pt plus 1filll}
+    {rawline_text:0pt plus 1filll}
 ';
 
 

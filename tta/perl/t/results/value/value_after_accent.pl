@@ -17,7 +17,7 @@ $result_tree_text{'value_after_accent'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a_letter a}
+    {rawline_text:a_letter a}
   *paragraph C3
    *@ringaccent C1 l2
    |INFO

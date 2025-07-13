@@ -17,7 +17,7 @@ $result_tree_text{'set_form_feed'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {gg \\f a\\a\\f\\\\}
+    {rawline_text:gg \\f a\\a\\f\\\\}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'set_form_feed'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {hh\\f}
+    {rawline_text:hh\\f}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -39,7 +39,7 @@ $result_tree_text{'set_form_feed'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {ll \\f}
+    {rawline_text:ll \\f}
   {empty_line:\\n}
   *paragraph C2
    *@code C1 l5

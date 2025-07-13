@@ -17,7 +17,7 @@ $result_tree_text{'empty_set_in_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a}
+    {rawline_text:a}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>

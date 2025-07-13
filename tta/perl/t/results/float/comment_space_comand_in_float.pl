@@ -62,7 +62,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{float}
+       |{rawline_text:float}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label }
@@ -99,7 +99,7 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{listoffloats}
+      |{rawline_text:listoffloats}
     {Text }
     *@ 
 ';

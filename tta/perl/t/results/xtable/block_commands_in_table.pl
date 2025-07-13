@@ -256,7 +256,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment}
+        {rawline_text:comment}
      *index_entry_command@vindex C1 l37
      |INFO
      |command_name:{vindex}

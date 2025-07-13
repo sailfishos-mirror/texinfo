@@ -25,7 +25,7 @@ $result_tree_text{'prototype_brace_no_brace_comment'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{cc}
+       |{rawline_text:cc}
      *bracketed_arg C1 l1
       {aa}
      { bb}

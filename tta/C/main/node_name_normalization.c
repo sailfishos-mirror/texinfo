@@ -102,8 +102,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                || e->e.c->cmd == CM_seeentry)
              /* here ignore the 'regular' line commands */
               || (e->e.c->contents.number > 0
-                  && (e->e.c->contents.list[0]->type == ET_line_arg
-                      || e->e.c->contents.list[0]->type == ET_rawline_arg))
+                  && e->e.c->contents.list[0]->type == ET_line_arg)
              /* here ignore the root-level line commands, @node and
                 sectioning commands */
               || (e->e.c->contents.number > 0

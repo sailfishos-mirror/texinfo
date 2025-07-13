@@ -211,7 +211,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{comment}
+      |{rawline_text:comment}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {sub2}

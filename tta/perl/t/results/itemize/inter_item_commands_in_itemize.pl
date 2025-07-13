@@ -84,7 +84,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment in itemize}
+      {rawline_text:comment in itemize}
     *index_entry_command@cindex C1 l9
     |INFO
     |command_name:{cindex}
@@ -194,7 +194,7 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment in itemize}
+      {rawline_text:comment in itemize}
     *paragraph C2
      {T--ext before items.\\n}
      *index_entry_command@cindex C1 l23

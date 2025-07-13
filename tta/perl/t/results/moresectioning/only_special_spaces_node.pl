@@ -204,7 +204,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {Perl and XS code give different width.}
+    {rawline_text:Perl and XS code give different width.}
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -213,7 +213,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@node   }
+    {rawline_text:@node   }
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -222,7 +222,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
+    {rawline_text:@chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
   {empty_line:\\n}
  *@bye C1
   *line_arg

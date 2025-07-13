@@ -159,12 +159,14 @@ correct_level (const ELEMENT *section, ELEMENT *parent, int modifier)
       remaining_level = abs (level_to_remove);
       while (remaining_level > 0)
         {
-          ELEMENT *element = new_command_element (ET_lineraw_command, cmd);
-          ELEMENT *rawline_arg = new_text_element (ET_rawline_arg);
+          ELEMENT *element = new_command_element (ET_line_command, cmd);
+          ELEMENT *line_args = new_element (ET_line_arg);
+          ELEMENT *spaces_after = new_element (ET_spaces_after_argument);
 
           add_to_element_contents (parent, element);
-          text_append (rawline_arg->e.text, "\n");
-          add_to_element_contents (element, rawline_arg);
+          text_append (spaces_after->e.text, "\n");
+          add_to_element_contents (element, line_args);
+          line_args->elt_info[eit_spaces_after_argument] = spaces_after;
           remaining_level--;
         }
     }

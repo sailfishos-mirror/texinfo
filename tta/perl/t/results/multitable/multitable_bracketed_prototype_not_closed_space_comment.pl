@@ -26,7 +26,7 @@ $result_tree_text{'multitable_bracketed_prototype_not_closed_space_comment'} = '
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment}
+        {rawline_text:comment}
    *@end C1 l3
    |INFO
    |spaces_before_argument:

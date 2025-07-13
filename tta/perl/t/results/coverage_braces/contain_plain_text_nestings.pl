@@ -120,7 +120,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {no warning for @ref in @w}
+    {rawline_text:no warning for @ref in @w}
   *paragraph C8
    {Text }
    *@w C1 l13

@@ -59,7 +59,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {comment }}
+       {rawline_text:comment }}
    {\\n}
    {after\\n}
   {empty_line:\\n}

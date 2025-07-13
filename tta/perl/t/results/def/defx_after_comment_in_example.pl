@@ -59,7 +59,7 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment}
+        {rawline_text:comment}
     *@deffnx C1 l4
     |INFO
     |spaces_before_argument:

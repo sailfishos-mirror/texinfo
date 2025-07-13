@@ -18,7 +18,7 @@ $result_tree_text{'clickstyle'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@result}
+    {rawline_text:@result}
   {empty_line:\\n}
   *paragraph C3
    {A }
@@ -36,7 +36,7 @@ $result_tree_text{'clickstyle'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@equiv}
+    {rawline_text:@equiv}
   {empty_line:\\n}
   *paragraph C3
    {A }

@@ -115,7 +115,7 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{}
+       |{rawline_text:}
      *@~ l11
    *table_entry C1
     *table_term C1

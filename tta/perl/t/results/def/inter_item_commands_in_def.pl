@@ -52,7 +52,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment before first deffnx}
+      {rawline_text:comment before first deffnx}
     {empty_line:\\n}
    *@deffnx C1 l4
    |INFO

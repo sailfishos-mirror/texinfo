@@ -19,7 +19,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {this document is setup to detect when the documentlanguage was not}
+     {rawline_text:this document is setup to detect when the documentlanguage was not}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {set according to command line, but according to document.  This}
+     {rawline_text:set according to command line, but according to document.  This}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -37,7 +37,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {is important to test that in the Parser, as converters initialized with}
+     {rawline_text:is important to test that in the Parser, as converters initialized with}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -46,7 +46,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {Texinfo::Convert::Converter converter() and with values accessed by}
+     {rawline_text:Texinfo::Convert::Converter converter() and with values accessed by}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -55,7 +55,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {get_conf() will use the command line.}
+     {rawline_text:get_conf() will use the command line.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -64,7 +64,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {This is tricky to demonstrate, as documentlanguage is not used much}
+     {rawline_text:This is tricky to demonstrate, as documentlanguage is not used much}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -73,7 +73,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {in Parser.  It is used in two places to set the documentlanguage extra}
+     {rawline_text:in Parser.  It is used in two places to set the documentlanguage extra}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -82,7 +82,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {value, }
+     {rawline_text:value, }
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -91,7 +91,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {1) for the untranslated type, for the prefix of @def* and }
+     {rawline_text:1) for the untranslated type, for the prefix of @def* and }
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -100,7 +100,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {2) for the @def* line commands with added index entries that need to }
+     {rawline_text:2) for the @def* line commands with added index entries that need to }
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -109,7 +109,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {be translated, like \'{name} of {class}\'.}
+     {rawline_text:be translated, like \'{name} of {class}\'.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -118,7 +118,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {The untranslated type is in general translated in the converters}
+     {rawline_text:The untranslated type is in general translated in the converters}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -127,7 +127,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {without using the extra documentlanguage key value, so getting it }
+     {rawline_text:without using the extra documentlanguage key value, so getting it }
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -136,7 +136,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {wrong does not have any consequence.}
+     {rawline_text:wrong does not have any consequence.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -145,7 +145,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {The @def* translated added indices are translated relatively early,}
+     {rawline_text:The @def* translated added indices are translated relatively early,}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -154,7 +154,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {before the converter, and the extra documentlanguage key is used to}
+     {rawline_text:before the converter, and the extra documentlanguage key is used to}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -163,7 +163,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {get the language, so if the wrong language is set, it will show up}
+     {rawline_text:get the language, so if the wrong language is set, it will show up}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -172,7 +172,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {in the index generated by @printindex.}
+     {rawline_text:in the index generated by @printindex.}
    {empty_line:\\n}
    *@documentlanguage C1 documentlanguage.texi:l22
    |INFO

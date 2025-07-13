@@ -32,7 +32,7 @@ $result_tree_text{'good_comment'} = '*document_root C1
         ||INFO
         ||spaces_after_argument:
          ||{spaces_after_argument:\\n}
-         |{comment}
+         |{rawline_text:comment}
        {0.4 .6 5.}
    *@end C1 l2
    |INFO

@@ -149,7 +149,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {makeinfo --docbook segfaults}
+     {rawline_text:makeinfo --docbook segfaults}
    {empty_line:\\n}
    *paragraph C2
     {An index entry\\n}

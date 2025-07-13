@@ -36,7 +36,7 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {flag 1}
+    {rawline_text:flag 1}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>

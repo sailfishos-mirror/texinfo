@@ -32,7 +32,7 @@ $result_tree_text{'good_space_comment'} = '*document_root C1
         ||INFO
         ||spaces_after_argument:
          ||{spaces_after_argument:\\n}
-         |{space comment}
+         |{rawline_text:space comment}
       |spaces_after_argument:
        |{spaces_after_argument:  }
        {0 1}

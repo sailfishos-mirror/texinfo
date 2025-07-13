@@ -96,7 +96,7 @@ new_command_element (enum element_type type, enum command_id cmd)
   e->e.c->cmd = cmd;
 
   if (type == ET_definfoenclose_command || type == ET_index_entry_command
-      || type == ET_lineraw_command || cmd == CM_verb)
+      || cmd == CM_verb)
     string_info_nr = 2;
 
   e->e.c->string_info = (char **) malloc (string_info_nr * sizeof (char *));
@@ -269,7 +269,7 @@ destroy_element (ELEMENT *e)
 
       if (e->type == ET_definfoenclose_command
           || e->type == ET_index_entry_command
-          || e->type == ET_lineraw_command || e->e.c->cmd == CM_verb
+          || e->e.c->cmd == CM_verb
           || type_data[e->type].flags & TF_macro_call)
         {
           string_info_nr = 2;

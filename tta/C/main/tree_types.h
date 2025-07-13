@@ -116,8 +116,7 @@ enum elt_info_type {
 /* indices in ELEMENT string_info */
 enum string_info_type {
    sit_alias_of,  /* every @-command + macro_call */
-   sit_arg_line, /* ET_lineraw_command, including @macro and similar */
-   sit_delimiter = 1, /* CM_verb */
+   sit_delimiter, /* CM_verb */
    sit_command_name = 1, /* ET_definfoenclose_command, ET_index_entry_command
                             and macro_call */
 };
@@ -187,7 +186,6 @@ enum string_info_type {
   ai_key(comment_at_end, element_info, eit_comment_at_end) \
   \
   ai_key(alias_of, string_info, sit_alias_of) \
-  ai_key(arg_line, string_info, sit_arg_line) \
   ai_key(delimiter, string_info, sit_delimiter) \
   ai_key(command_name, string_info, sit_command_name) \
 

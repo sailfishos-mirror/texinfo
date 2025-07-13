@@ -29,7 +29,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following afourpaper}
+     {rawline_text:on line following afourpaper}
    {smallbook }
    *@smallbook C1 l3
    |INFO
@@ -39,7 +39,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following smallbook}
+     {rawline_text:on line following smallbook}
    {headings }
    *@headings C1 l4
    |INFO
@@ -155,7 +155,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following raisesections}
+     {rawline_text:on line following raisesections}
    {lowersections }
    *@lowersections C1
    |INFO
@@ -165,7 +165,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following lowersections}
+     {rawline_text:on line following lowersections}
    {kbdinputstyle code }
    *@kbdinputstyle C1 l16
    |INFO
@@ -187,7 +187,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following afourpaper}
+     {rawline_text:on line following afourpaper}
    {afourlatex }
    *@afourlatex C1 l18
    |INFO
@@ -197,7 +197,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following afourlatex}
+     {rawline_text:on line following afourlatex}
    {afourwide }
    *@afourwide C1 l19
    |INFO
@@ -207,7 +207,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {on line following afourwide}
+     {rawline_text:on line following afourwide}
    {paragraphindent asis }
    *@paragraphindent C1 l20
    |INFO
@@ -463,7 +463,7 @@ $result_tree_text{'many_lines'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {a word after finalout}
+     {rawline_text:a word after finalout}
    {Line after finalout\\n}
 ';
 

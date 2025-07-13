@@ -17,7 +17,7 @@ $result_tree_text{'recursive_expansion_in_set'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {V @value{V}}
+    {rawline_text:V @value{V}}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;1>{@value{V}}

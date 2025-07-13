@@ -23,7 +23,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
    *rawpreformatted C1
     {in <tex>\\n}
    *@end C1 l3
@@ -43,7 +43,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{other comment}
+       |{rawline_text:other comment}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      {tex}
@@ -66,7 +66,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
        ||INFO
        ||spaces_after_argument:
         ||{spaces_after_argument:\\n}
-        |{in xml comment}
+        |{rawline_text:in xml comment}
     *rawpreformatted C1
      {<in />\\n}
     *@end C1 l8
@@ -86,7 +86,7 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
        ||INFO
        ||spaces_after_argument:
         ||{spaces_after_argument:\\n}
-        |{end xml comment}
+        |{rawline_text:end xml comment}
      |spaces_after_argument:
       |{spaces_after_argument:  }
       {xml}

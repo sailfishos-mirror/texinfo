@@ -21,7 +21,7 @@ $result_tree_text{'comment_in_quotation'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {}
+      {rawline_text:}
    *@end C1 l4
    |INFO
    |spaces_before_argument:
@@ -47,7 +47,7 @@ $result_tree_text{'comment_in_quotation'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {}
+      {rawline_text:}
    *@end C1 l8
    |INFO
    |spaces_before_argument:

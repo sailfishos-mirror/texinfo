@@ -17,7 +17,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {cp cp}
+    {rawline_text:cp cp}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {fn fn}
+    {rawline_text:fn fn}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -39,7 +39,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {syncodeindex_command @syncodeindex}
+    {rawline_text:syncodeindex_command @syncodeindex}
   {empty_line:\\n}
   *@syncodeindex C1 l5
   |INFO
@@ -93,7 +93,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {truc truc}
+    {rawline_text:truc truc}
   {empty_line:\\n}
   *paragraph C3
    {definedx truc\\n}
@@ -127,7 +127,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {trucindex_command @trucindex}
+    {rawline_text:trucindex_command @trucindex}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -139,7 +139,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {codeidx codeidx}
+    {rawline_text:codeidx codeidx}
   {empty_line:\\n}
   *@defcodeindex C1 l18
   |INFO
@@ -170,7 +170,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}}
+    {rawline_text:defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}}
   {empty_line:\\n}
  *@node C1 l22 {Top}
  |INFO

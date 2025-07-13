@@ -230,7 +230,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{note this chapter is not associated to a node}
+      |{rawline_text:note this chapter is not associated to a node}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {Chapter}

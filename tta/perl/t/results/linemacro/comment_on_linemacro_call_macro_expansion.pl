@@ -85,7 +85,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {in comment text}
+     {rawline_text:in comment text}
    {after arg\\n}
    >SOURCEMARKS
    >macro_expansion<end;1><p:9>

@@ -17,7 +17,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {node1 Node 1}
+    {rawline_text:node1 Node 1}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO
@@ -171,7 +171,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {sec1 Section 1.1}
+    {rawline_text:sec1 Section 1.1}
   {empty_line:\\n}
   *@menu C3 l15
    *arguments_line C1

@@ -117,7 +117,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment @text{}}
+     {rawline_text:comment @text{}}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -126,7 +126,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment @text{}}
+     {rawline_text:comment @text{}}
   {empty_line:\\n}
   *@macro C3 l16
   |EXTRA
@@ -1059,7 +1059,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {accepts 10 or 11}
+    {rawline_text:accepts 10 or 11}
   *@macro C3 l137
   |EXTRA
   |macro_name:{ten}
@@ -1105,7 +1105,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {accept false or true}
+    {rawline_text:accept false or true}
   *@macro C3 l142
   |EXTRA
   |macro_name:{falsearg}
@@ -1258,7 +1258,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {on page line}
+    {rawline_text:on page line}
   *paragraph C8
    *@@
    {noindent }
@@ -1344,7 +1344,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {page at beginning of line}
+    {rawline_text:page at beginning of line}
   *@page C1
    *line_arg
    |INFO
@@ -1440,7 +1440,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@atext{}}
+    {rawline_text:@atext{}}
   {empty_line:\\n}
   *@macro C3 l183
   |EXTRA
@@ -1546,7 +1546,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@resultmacro{}}
+    {rawline_text:@resultmacro{}}
   {empty_line:\\n}
   *@menu C3 l199
    *arguments_line C1

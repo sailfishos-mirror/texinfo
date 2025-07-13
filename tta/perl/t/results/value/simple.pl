@@ -24,8 +24,8 @@ $result_tree_text{'simple'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{comment}
-    {a-_5b the value @b{b} }
+      |{rawline_text:comment}
+    {rawline_text:a-_5b the value @b{b} }
   {empty_line:\\n}
   *paragraph C3
    {the value }

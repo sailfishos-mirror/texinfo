@@ -87,7 +87,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment in itemize}
+      {rawline_text:comment in itemize}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l11
     |INFO
     |command_name:{cindex}
@@ -197,7 +197,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment in itemize}
+      {rawline_text:comment in itemize}
     *paragraph C2
      {T--ext before items.\\n}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l25
@@ -249,7 +249,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment before first item in enumerate}
+      {rawline_text:comment before first item in enumerate}
    *@item C2 indices_in_begin_tables_lists.texi:l32
    |EXTRA
    |item_number:{1}
@@ -464,7 +464,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l63
     |INFO
     |command_name:{cindex}
@@ -529,7 +529,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {comment in table}
+       {rawline_text:comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l70
      |INFO
      |spaces_before_argument:
@@ -590,7 +590,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment between item and itemx}
+        {rawline_text:comment between item and itemx}
      *@itemx C1 indices_in_begin_tables_lists.texi:l77
      |INFO
      |spaces_before_argument:
@@ -664,7 +664,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {and a comment}
+        {rawline_text:and a comment}
       *@comment C1
       |INFO
       |spaces_before_argument:
@@ -673,7 +673,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {and another comment}
+        {rawline_text:and another comment}
      *@itemx C1 indices_in_begin_tables_lists.texi:l86
      |INFO
      |spaces_before_argument:
@@ -713,7 +713,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment between lines}
+        {rawline_text:comment between lines}
       {empty_line:\\n}
      *@itemx C1 indices_in_begin_tables_lists.texi:l92
      |INFO
@@ -737,7 +737,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {comment at end}
+       {rawline_text:comment at end}
    *@end C1 indices_in_begin_tables_lists.texi:l95
    |INFO
    |spaces_before_argument:
@@ -783,7 +783,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {comment in table}
+       {rawline_text:comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l100
      |INFO
      |spaces_before_argument:
@@ -890,7 +890,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {samp comment in table}
+       {rawline_text:samp comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l113
      |INFO
      |spaces_before_argument:
@@ -1142,7 +1142,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {commant}
+       {rawline_text:commant}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l145
      |INFO
      |command_name:{cindex}

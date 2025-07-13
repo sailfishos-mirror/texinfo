@@ -23,7 +23,7 @@ $result_tree_text{'only_comment_on_quotation_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
    *paragraph C1
     {In quotation\\n}
    *@end C1 l3

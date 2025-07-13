@@ -341,11 +341,6 @@ element_attribute_string (const ELEMENT *element, const char *attribute)
                   && element->e.c->string_info[idx])
                 return element->e.c->string_info[idx];
               break;
-            case AI_key_arg_line:
-              if (element->type == ET_lineraw_command
-                  && element->e.c->string_info[idx])
-                return element->e.c->string_info[idx];
-              break;
             case AI_key_delimiter:
               if (element->e.c->cmd == CM_verb
                   && element->e.c->string_info[idx])
@@ -540,17 +535,6 @@ set_element_attribute_string (ELEMENT *element, const char *attribute,
               if (element->type == ET_index_entry_command
                    || element->type == ET_definfoenclose_command
                    || type_data[element->type].flags & TF_macro_call)
-                {
-                  free (element->e.c->string_info[idx]);
-                  if (value)
-                    element->e.c->string_info[idx] = strdup (value);
-                  else
-                    element->e.c->string_info[idx] = 0;
-                  return 1;
-                }
-              break;
-            case AI_key_arg_line:
-              if (element->type == ET_lineraw_command)
                 {
                   free (element->e.c->string_info[idx]);
                   if (value)

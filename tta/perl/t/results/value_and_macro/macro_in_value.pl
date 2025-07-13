@@ -38,7 +38,7 @@ $result_tree_text{'macro_in_value'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {flagab @ab}
+    {rawline_text:flagab @ab}
   {empty_line:\\n}
   *paragraph C1
    {flagab: a\\n}

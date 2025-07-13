@@ -86,7 +86,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {aaa}
+       {rawline_text:aaa}
      { }
      *@ 
      {\\n}
@@ -98,7 +98,7 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {ggg}
+       {rawline_text:ggg}
     *brace_arg C2
     |INFO
     |spaces_before_argument:
@@ -111,13 +111,13 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {fff}
+       {rawline_text:fff}
      *@c C1
       *line_arg C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {}
+       {rawline_text:}
    {\\n}
 ';
 

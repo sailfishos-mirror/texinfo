@@ -17,7 +17,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {-*-texinfo-*-}
+     {rawline_text:-*-texinfo-*-}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO
@@ -176,7 +176,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {do-top}
+    {rawline_text:do-top}
   {empty_line:\\n}
   *@lowersections C1
    *line_arg
@@ -218,7 +218,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {-*-texinfo-*-}
+     {rawline_text:-*-texinfo-*-}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
@@ -482,7 +482,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {do-top}
+    {rawline_text:do-top}
   {empty_line:\\n}
  *@node C1 l30 {Second chapter}
  |INFO

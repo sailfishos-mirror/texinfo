@@ -17,7 +17,7 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {bodyarg \\arg\\ }
+    {rawline_text:bodyarg \\arg\\ }
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA

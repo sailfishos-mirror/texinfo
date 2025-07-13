@@ -48,7 +48,7 @@ $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {in} out d}
+       {rawline_text:in} out d}
        >SOURCEMARKS
        >linemacro_expansion<end;1><p:9>
    {\\n}

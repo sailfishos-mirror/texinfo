@@ -61,7 +61,7 @@ $result_tree_text{'enumerate_argument_item'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
      {A}
    *@item C2 l7
    |EXTRA
@@ -105,7 +105,7 @@ $result_tree_text{'enumerate_argument_item'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {z}

@@ -887,12 +887,7 @@ new_element_from_names (const char *type_name, const char *command_name,
                 }
             }
           else if (builtin_command_data[cmd].flags & CF_line)
-            {
-              if (builtin_command_data[cmd].data == LINE_lineraw)
-                e_type = ET_lineraw_command;
-              else
-                e_type = ET_line_command;
-            }
+            e_type = ET_line_command;
           else if (builtin_command_data[cmd].flags & CF_block)
             e_type = ET_block_command;
           else if (builtin_command_data[cmd].flags &

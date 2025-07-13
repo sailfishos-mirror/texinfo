@@ -116,11 +116,13 @@ sub _correct_level($$;$)
        = Texinfo::TreeElement::new({'cmdname' => $cmdname,
                                     'parent' => $parent});
       push @{$parent->{'contents'}}, $element;
-      my $rawline_arg
-        = Texinfo::TreeElement::new(
-                        {'type' => 'rawline_arg', 'text' => "\n",
+      my $line_args
+        = Texinfo::TreeElement::new({'type' => 'line_arg',
+           'info' => {'spaces_after_argument'
+             => Texinfo::TreeElement::new(
+                 {'type' => 'spaces_after_argument', 'text' => "\n"})},
                          'parent' => $element});
-      push @{$element->{'contents'}}, $rawline_arg;
+      push @{$element->{'contents'}}, $line_args;
       $remaining_level--;
     }
   }

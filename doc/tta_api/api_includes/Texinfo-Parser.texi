@@ -1053,12 +1053,6 @@ and @code{@@itemx}, in a @emph{table_term}.
 @subsection Information available in the @code{info} key
 
 @table @asis
-@item arg_line
-@anchor{Texinfo@asis{::}Parser arg_line}
-
-The string correspond to the line after the @@-command
-for @@-commands that have special arguments on their line.
-
 @item command_name
 @anchor{Texinfo@asis{::}Parser command_name}
 
@@ -1332,7 +1326,7 @@ should be formatted as code, the @emph{command_as_argument_kbd_code}
 @anchor{Texinfo@asis{::}Parser @code{@@macro}}
 
 @emph{invalid_syntax} is set if there was an error on the @code{@@macro}
-line.  @code{info} key hash @emph{arg_line} holds the line after @code{@@macro}.
+line.
 
 @item @code{menu_entry_node}
 @anchor{Texinfo@asis{::}Parser @code{menu_entry_node} 1}

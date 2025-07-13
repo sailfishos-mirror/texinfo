@@ -17,7 +17,7 @@ $result_tree_text{'value_zero'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {zero 0}
+    {rawline_text:zero 0}
   *paragraph C2
    {Value\\n}
    {0}

@@ -25,7 +25,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
     {second line }
     *@c C1
     |INFO
@@ -35,7 +35,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@end C1 l5
    |INFO
    |spaces_before_argument:
@@ -66,7 +66,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@end C1 l10
    |INFO
    |spaces_before_argument:
@@ -97,7 +97,7 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
     {empty_line:\\n}
     {second line\\n}
    *@end C1 l17

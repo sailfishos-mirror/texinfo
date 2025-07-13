@@ -45,7 +45,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {page at beginning of line}
+    {rawline_text:page at beginning of line}
   *@page C1
    *line_arg
    |INFO
@@ -77,7 +77,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {something}
+     {rawline_text:something}
   {empty_line:\\n}
   *@subheading C1 l18
   |INFO

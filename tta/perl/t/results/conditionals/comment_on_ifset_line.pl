@@ -17,7 +17,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {x}
+    {rawline_text:x}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -34,7 +34,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
        >||INFO
        >||spaces_after_argument:
         >||{spaces_after_argument:\\n}
-        >|{}
+        >|{rawline_text:}
       >{x}
   *paragraph C6
    {Y1\\n}
@@ -68,7 +68,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
         >||INFO
         >||spaces_after_argument:
          >||{spaces_after_argument:\\n}
-         >|{comm}
+         >|{rawline_text:comm}
        >{x}
    {Y2\\n}
    >SOURCEMARKS
@@ -98,7 +98,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
         >||INFO
         >||spaces_after_argument:
          >||{spaces_after_argument:\\n}
-         >|{@ggg}
+         >|{rawline_text:@ggg}
        >{x}
    {Y3\\n}
    >SOURCEMARKS
@@ -128,7 +128,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
         >||INFO
         >||spaces_after_argument:
          >||{spaces_after_argument:\\n}
-         >|{}
+         >|{rawline_text:}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}
@@ -163,7 +163,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
         >||INFO
         >||spaces_after_argument:
          >||{spaces_after_argument:\\n}
-         >|{comm}
+         >|{rawline_text:comm}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}
@@ -195,7 +195,7 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
         >||INFO
         >||spaces_after_argument:
          >||{spaces_after_argument:\\n}
-         >|{@ggg}
+         >|{rawline_text:@ggg}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}

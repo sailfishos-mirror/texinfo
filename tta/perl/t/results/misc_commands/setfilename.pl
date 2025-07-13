@@ -25,7 +25,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
      {file_comment}
    *@setfilename C1 l2
    |INFO
@@ -55,7 +55,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {file_space_comment}

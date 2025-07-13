@@ -124,21 +124,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               only argument, there is no separation by commas */
               convert_args (arguments, result);
             }
-      /* arg_line set for line_commands with type lineraw that have
-         arguments and for @macro. */
-      /* if there is no arg_line, the end of line is in rawline_arg in contents
-         so the ET_lineraw_command should be processed along with other
-         line commands below */
-          else if (e->type == ET_lineraw_command
-                   && e->e.c->string_info[sit_arg_line])
-            {
-              const char *arg_line = e->e.c->string_info[sit_arg_line];
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
-
-              ADD(arg_line);
-              return;
-            }
           else if (builtin_command_data[cmd].flags & CF_brace
                    || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
             {

@@ -23,7 +23,7 @@ $result_tree_text{'comment_on_quotation_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{quotation }
+       |{rawline_text:quotation }
      {truc}
      *@ 
    *paragraph C1

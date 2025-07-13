@@ -19,7 +19,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {test footnotes with nodes only}
+     {rawline_text:test footnotes with nodes only}
    {empty_line:\\n}
  *@node C4 node_footnote.texi:l5 {Top}
  |INFO

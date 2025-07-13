@@ -67,7 +67,7 @@ $result_tree_text{'multitable'} = '*document_root C1
         |INFO
         |spaces_after_argument:
          |{spaces_after_argument:\\n}
-         {comment in multitable}
+         {rawline_text:comment in multitable}
     *row C2
     |EXTRA
     |row_number:{3}

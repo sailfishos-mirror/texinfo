@@ -44,7 +44,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {somevar}
+    {rawline_text:somevar}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -83,7 +83,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {anothervar}
+    {rawline_text:anothervar}
   *paragraph C1
    {Both somevar and anothervar are set.\\n}
    >SOURCEMARKS
@@ -147,7 +147,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {somevar}
+    {rawline_text:somevar}
   *@clear C1
   |INFO
   |spaces_before_argument:
@@ -209,7 +209,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {anothervar}
+    {rawline_text:anothervar}
   *paragraph C1
    {Somevar is set, anothervar is not.\\n}
    >SOURCEMARKS
@@ -250,7 +250,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {somevar}
+    {rawline_text:somevar}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -297,7 +297,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {anothervar}
+    {rawline_text:anothervar}
   {empty_line:\\n}
   *@clear C1
   |INFO
@@ -309,7 +309,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {somevar}
+    {rawline_text:somevar}
   *@clear C1
   |INFO
   |spaces_before_argument:
@@ -356,7 +356,7 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {anothervar}
+    {rawline_text:anothervar}
 ';
 
 

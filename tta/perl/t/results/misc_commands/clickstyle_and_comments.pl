@@ -15,7 +15,7 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@comment a}
+    {rawline_text:@comment a}
   *@clickstyle C1 l2
   |INFO
   |spaces_before_argument:
@@ -27,7 +27,7 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@comment b}
+    {rawline_text:@comment b}
   *@clickstyle C1 l3
   |INFO
   |spaces_before_argument:
@@ -38,7 +38,7 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {nocmd@comment c}
+    {rawline_text:nocmd@comment c}
   *@clickstyle C1 l4
   |INFO
   |spaces_before_argument:
@@ -49,7 +49,7 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {more than one word @comment d}
+    {rawline_text:more than one word @comment d}
   *@clickstyle C1 l5
   |INFO
   |spaces_before_argument:
@@ -68,8 +68,8 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{e}
-    {@result}
+      |{rawline_text:e}
+    {rawline_text:@result}
   *@clickstyle C1 l6
   |INFO
   |spaces_before_argument:
@@ -88,8 +88,8 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{f}
-    {@result   }
+      |{rawline_text:f}
+    {rawline_text:@result   }
   *@clickstyle C1 l7
   |INFO
   |spaces_before_argument:
@@ -101,7 +101,7 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@result on the same line @comment g}
+    {rawline_text:@result on the same line @comment g}
 ';
 
 

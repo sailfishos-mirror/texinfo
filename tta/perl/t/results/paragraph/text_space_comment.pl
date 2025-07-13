@@ -15,7 +15,7 @@ $result_tree_text{'text_space_comment'} = '*document_root C1
    |spaces_before_argument:
     |{spaces_before_argument: }
     *line_arg C1
-     {space comment}
+     {rawline_text:space comment}
 ';
 
 

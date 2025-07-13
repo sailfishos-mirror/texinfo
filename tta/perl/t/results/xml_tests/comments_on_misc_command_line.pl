@@ -24,7 +24,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{setfilename (text)}
+      |{rawline_text:setfilename (text)}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {comments_on_misc_command_line.info}
@@ -45,7 +45,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{definfoenclose (number)}
+      |{rawline_text:definfoenclose (number)}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {phoo,;,:}
@@ -67,7 +67,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{c (number)}
+      |{rawline_text:c (number)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {none}
@@ -86,7 +86,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{raisesections (skipline)}
+      |{rawline_text:raisesections (skipline)}
   *@insertcopying C1 l5
   |INFO
   |spaces_before_argument:
@@ -104,7 +104,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{(noarg)}
+      |{rawline_text:(noarg)}
   *@pagesizes C1 l6
   |INFO
   |spaces_before_argument:
@@ -120,7 +120,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{pagesizes  (line)}
+      |{rawline_text:pagesizes  (line)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {200mm}
@@ -139,7 +139,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{everyheading (lineraw)}
+      |{rawline_text:everyheading (lineraw)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     *@thispage
@@ -157,7 +157,7 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {indent (skipspace)}
+    {rawline_text:indent (skipspace)}
   *paragraph C1
   |EXTRA
   |indent:{1}

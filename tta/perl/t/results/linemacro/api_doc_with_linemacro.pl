@@ -72,7 +72,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {txidefnamenospace}
+    {rawline_text:txidefnamenospace}
   *@clear C1
   |INFO
   |spaces_before_argument:
@@ -83,7 +83,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {txicodevaristt}
+    {rawline_text:txicodevaristt}
   {empty_line:\\n}
   *@defblock C4 l14
    *arguments_line C1

@@ -5984,6 +5984,7 @@ sub _add_comment_at_end($$$)
      = Texinfo::TreeElement::new(
                       # do not keep the leading @c/@comment
                       {'text' => substr($comment_text, $command_len),
+                                  'type' => 'rawline_text',
                                   'parent' => $comment_line_args});
   $comment_line_args->{'contents'} = [$comment_text_element];
 
@@ -6087,6 +6088,7 @@ sub _handle_line_command($$$$$$)
     my $misc_line_args
         = Texinfo::TreeElement::new({'type' => 'line_arg',});
     my $text_element = Texinfo::TreeElement::new({'text' => $line,
+                                            'type' => 'rawline_text',
                                             'parent' => $misc_line_args});
     $text_element->{'parent'} = $misc_line_args;
     $misc_line_args->{'contents'} = [$text_element];
@@ -9628,11 +9630,6 @@ and C<@itemx>, in a I<table_term>.
 
 =over
 
-=item arg_line
-
-The string correspond to the line after the @-command
-for @-commands that have special arguments on their line.
-
 =item command_name
 
 Name of commands that can be defined dynamically.
@@ -9864,7 +9861,7 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 =item C<@macro>
 
 I<invalid_syntax> is set if there was an error on the C<@macro>
-line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
+line.
 
 =item C<menu_entry_node>
 

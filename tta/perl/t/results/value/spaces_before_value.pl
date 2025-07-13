@@ -17,7 +17,7 @@ $result_tree_text{'spaces_before_value'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {var val}
+    {rawline_text:var val}
   {empty_line:\\n}
   *paragraph C1
    {val\\n}

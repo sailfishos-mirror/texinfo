@@ -18,7 +18,7 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a}
+    {rawline_text:a}
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
@@ -61,7 +61,7 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {truc}
+    {rawline_text:truc}
   *@macro C3 l10
   |EXTRA
   |macro_name:{truc}

@@ -19,7 +19,7 @@ $result_tree_text{'accent_no_closed_comment'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {comment}
+       {rawline_text:comment}
 ';
 
 

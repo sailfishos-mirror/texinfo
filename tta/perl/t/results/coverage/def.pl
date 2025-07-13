@@ -444,7 +444,7 @@ $result_tree_text{'def'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@deffnx C1 l23
    |INFO
    |spaces_before_argument:
@@ -489,7 +489,7 @@ $result_tree_text{'def'} = '*document_root C1
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
-      {comment}
+      {rawline_text:comment}
    *@deffnx C1 l25
    |INFO
    |spaces_before_argument:

@@ -21,8 +21,8 @@ $result_tree_text{'comment_on_set_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{}
-    {x}
+      |{rawline_text:}
+    {rawline_text:x}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -37,8 +37,8 @@ $result_tree_text{'comment_on_set_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{}
-    {y }
+      |{rawline_text:}
+    {rawline_text:y }
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -53,8 +53,8 @@ $result_tree_text{'comment_on_set_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{}
-    {z g}
+      |{rawline_text:}
+    {rawline_text:z g}
   *@set C1
   |INFO
   |spaces_before_argument:
@@ -69,8 +69,8 @@ $result_tree_text{'comment_on_set_line'} = '*document_root C1
      ||INFO
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
-      |{@ggg}
-    {t a vv }
+      |{rawline_text:@ggg}
+    {rawline_text:t a vv }
   {empty_line:\\n}
   *paragraph C1
    {!!, !!, !g!, !a vv!\\n}

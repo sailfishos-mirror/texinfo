@@ -26,7 +26,7 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {c}
+       {rawline_text:c}
      {* a2c:  }
      *@c C1
      |INFO
@@ -36,7 +36,7 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {c}
+       {rawline_text:c}
      {* a4}
      *@b C1 l6
       *brace_container C1
@@ -55,7 +55,7 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {c}
+       {rawline_text:c}
    *@end C1 l8
    |INFO
    |spaces_before_argument:

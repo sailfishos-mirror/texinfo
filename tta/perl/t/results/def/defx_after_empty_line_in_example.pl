@@ -60,7 +60,7 @@ $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {c}
+        {rawline_text:c}
       *@comment C1
       |INFO
       |spaces_before_argument:
@@ -69,7 +69,7 @@ $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
        |INFO
        |spaces_after_argument:
         |{spaces_after_argument:\\n}
-        {comment}
+        {rawline_text:comment}
       {empty_line:\\n}
     *@deffnx C1 l7
     |INFO

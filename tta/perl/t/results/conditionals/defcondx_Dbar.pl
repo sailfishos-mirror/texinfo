@@ -19,7 +19,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {test def*x in a conditional}
+     {rawline_text:test def*x in a conditional}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -29,7 +29,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {set this from the command line.}
+     {rawline_text:set this from the command line.}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -38,7 +38,7 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {set bar}
+     {rawline_text:set bar}
    {empty_line:\\n}
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
  |INFO

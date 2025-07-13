@@ -18,7 +18,7 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {a}
+    {rawline_text:a}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -49,7 +49,7 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
        >||INFO
        >||spaces_after_argument:
         >||{spaces_after_argument:\\n}
-        >|{- ok, ignored}
+        >|{rawline_text:- ok, ignored}
      >|spaces_after_argument:
       >|{spaces_after_argument: }
       >{ok}
@@ -72,7 +72,7 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {WRONG - missing @end ifset.}
+    {rawline_text:WRONG - missing @end ifset.}
 ';
 
 

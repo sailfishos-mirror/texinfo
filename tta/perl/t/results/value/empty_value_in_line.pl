@@ -17,7 +17,7 @@ $result_tree_text{'empty_value_in_line'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {myspace}
+    {rawline_text:myspace}
   {empty_line:\\n}
   *paragraph C1
    {1 \\n}

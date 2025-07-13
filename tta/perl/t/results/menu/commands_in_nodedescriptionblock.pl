@@ -278,7 +278,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {node1 again to test two nodescription expansions}
+    {rawline_text:node1 again to test two nodescription expansions}
   *@menu C3 l35
    *arguments_line C1
     *block_line_arg

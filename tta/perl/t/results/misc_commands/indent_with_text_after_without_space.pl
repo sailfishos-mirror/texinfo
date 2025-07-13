@@ -17,7 +17,7 @@ $result_tree_text{'indent_with_text_after_without_space'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {myvalue a}
+    {rawline_text:myvalue a}
   {empty_line:\\n}
   *@indent l3
   *paragraph C1

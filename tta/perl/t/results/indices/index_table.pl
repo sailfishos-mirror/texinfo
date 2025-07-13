@@ -2067,7 +2067,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@printindex fn}
+    {rawline_text:@printindex fn}
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -2076,7 +2076,7 @@ $result_tree_text{'index_table'} = '*document_root C12
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@printindex vr}
+    {rawline_text:@printindex vr}
   {empty_line:\\n}
   *@printindex C1 index_table.texi:l179
   |INFO

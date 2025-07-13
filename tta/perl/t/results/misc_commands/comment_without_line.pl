@@ -9,7 +9,7 @@ $result_tree_text{'comment_without_line'} = '*document_root C1
  *before_node_section C1
   *@comment C1
    *line_arg C1
-    {}
+    {rawline_text:}
 ';
 
 

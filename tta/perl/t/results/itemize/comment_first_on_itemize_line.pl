@@ -23,7 +23,7 @@ $result_tree_text{'comment_first_on_itemize_line'} = '*document_root C1
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment on itemize line}
+       |{rawline_text:comment on itemize line}
    *@item C2 l2
    |EXTRA
    |item_number:{1}

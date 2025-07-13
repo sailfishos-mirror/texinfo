@@ -20,7 +20,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {comment}
+     {rawline_text:comment}
    {empty_line:\\n}
  *@node C1 empty_lines_at_beginning_no_setfilename.texi:l6 {Top}
  |INFO

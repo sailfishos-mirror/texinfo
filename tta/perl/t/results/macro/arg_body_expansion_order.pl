@@ -67,7 +67,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {othermacro}
+    {rawline_text:othermacro}
   *@macro C3 l14:@redefineothermacro
   |EXTRA
   |macro_name:{othermacro}

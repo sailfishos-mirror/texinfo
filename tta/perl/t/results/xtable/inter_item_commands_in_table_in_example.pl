@@ -57,7 +57,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
          |INFO
          |spaces_after_argument:
           |{spaces_after_argument:\\n}
-          {and a comment}
+          {rawline_text:and a comment}
         *@comment C1
         |INFO
         |spaces_before_argument:
@@ -66,7 +66,7 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
          |INFO
          |spaces_after_argument:
           |{spaces_after_argument:\\n}
-          {and another comment}
+          {rawline_text:and another comment}
       *@itemx C1 l7
       |INFO
       |spaces_before_argument:

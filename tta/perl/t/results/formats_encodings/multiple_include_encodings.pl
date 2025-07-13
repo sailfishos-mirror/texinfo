@@ -380,7 +380,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
+    {rawline_text:Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
   *@menu C3 chapter_char_latin2_latin2_in_refs.texi:l11
    *arguments_line C1
     *block_line_arg
@@ -558,7 +558,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {need to finish with an encoding that can accept all the}
+    {rawline_text:need to finish with an encoding that can accept all the}
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -567,7 +567,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {codepoints used in the other encodings}
+    {rawline_text:codepoints used in the other encodings}
   {empty_line:\\n}
   >SOURCEMARKS
   >include<start;6><p:1>

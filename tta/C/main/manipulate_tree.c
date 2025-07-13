@@ -254,7 +254,6 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
       int string_info_nr = 1;
       if (current->type == ET_definfoenclose_command
           || current->type == ET_index_entry_command
-          || current->type == ET_lineraw_command
           || current->e.c->cmd == CM_verb)
         string_info_nr = 2;
       for (j = 0; j < string_info_nr; j++)
@@ -1250,14 +1249,6 @@ print_element_info (ELEMENT *element, int level,
           && element->e.c->string_info[sit_command_name])
         add_info_name_string_value (&info_strings, "command_name",
                      element->e.c->string_info[sit_command_name]);
-      else if (element->type == ET_lineraw_command
-          && element->e.c->string_info[sit_arg_line])
-        {
-          char *arg_line
-            = debug_protect_eol (element->e.c->string_info[sit_arg_line]);
-          add_info_name_string_value (&info_strings, "arg_line", arg_line);
-          free (arg_line);
-        }
       else if (element->e.c->cmd == CM_verb
                && element->e.c->contents.number > 0
                && element->e.c->string_info[sit_delimiter])
@@ -1849,7 +1840,7 @@ protect_text (ELEMENT *current, const char *to_protect)
      only text elements */
   if (type_data[current->type].flags & TF_text
       && current->e.text->end > 0 && !(current->type == ET_raw
-                                    || current->type == ET_rawline_arg)
+                                    || current->type == ET_rawline_text)
       && strpbrk (current->e.text->text, to_protect))
     {
       ELEMENT_LIST *container = new_list ();

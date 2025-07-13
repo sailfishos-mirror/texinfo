@@ -46,7 +46,7 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
       ||INFO
       ||spaces_after_argument:
        ||{spaces_after_argument:\\n}
-       |{comment}
+       |{rawline_text:comment}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      *@thischapter

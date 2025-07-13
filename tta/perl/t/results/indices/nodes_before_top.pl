@@ -19,7 +19,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-     {test nodes before Top node}
+     {rawline_text:test nodes before Top node}
    {empty_line:\\n}
    {empty_line:\\n}
  *@node C6 nodes_before_top.texi:l6 {first before top}

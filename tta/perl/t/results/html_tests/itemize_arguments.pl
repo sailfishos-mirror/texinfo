@@ -1101,7 +1101,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {@result}
+    {rawline_text:@result}
   {empty_line:\\n}
   *@itemize C3 l124
   |INFO

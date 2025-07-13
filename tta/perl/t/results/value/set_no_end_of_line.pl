@@ -14,7 +14,7 @@ $result_tree_text{'set_no_end_of_line'} = '*document_root C1
   |EXTRA
   |misc_args:A{arg|}
    *line_arg C1
-    {arg}
+    {rawline_text:arg}
 ';
 
 
