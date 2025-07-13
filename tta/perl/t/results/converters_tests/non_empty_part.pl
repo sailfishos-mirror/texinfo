@@ -478,18 +478,18 @@ $result_errors{'non_empty_part'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => '@menu reference to nonexistent node `chapter node\'
-',
-    'line_nr' => 9,
-    'text' => '@menu reference to nonexistent node `chapter node\'',
-    'type' => 'error'
-  },
-  {
     'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning
 ',
     'line_nr' => 5,
     'text' => 'node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning',
     'type' => 'warning'
+  },
+  {
+    'error_line' => '@menu reference to nonexistent node `chapter node\'
+',
+    'line_nr' => 9,
+    'text' => '@menu reference to nonexistent node `chapter node\'',
+    'type' => 'error'
   },
   {
     'error_line' => 'warning: node `node between part and chapter\' unreferenced

@@ -789,10 +789,6 @@ sub check_node_tree_menu_structure($)
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
 
-  _set_menus_node_directions($document);
-  # Note: if we stop needing to call _set_menus_node_directions in this
-  # function, we should call it in complete_node_tree_with_menus.
-
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
   # Used to suppress later errors about a node if an error was
@@ -1225,6 +1221,8 @@ sub complete_node_tree_with_menus($)
   my $identifier_target = $document->labels_information();
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
+
+  _set_menus_node_directions($document);
 
   my $top_node = $identifier_target->{'Top'};
 
@@ -2373,10 +2371,6 @@ X<C<complete_node_tree_with_menus>>
 Complete nodes directions with menu directions and I<Top> node first node
 directions.
 
-=item check_node_tree_menu_structure($document)
-X<C<check_node_tree_menu_structure>>
-Check consistency of menus, sectioning and nodes directions.
-
 This functions sets, in the node relations hash reference:
 
 =over
@@ -2387,6 +2381,10 @@ Hash reference with I<up>, I<next> and I<prev> keys associated to
 elements corresponding to menu directions.
 
 =back
+
+=item check_node_tree_menu_structure($document)
+X<C<check_node_tree_menu_structure>>
+Check consistency of menus, sectioning and nodes directions.
 
 =item @children_nodes = get_node_node_childs_from_sectioning($node_relations)
 X<C<get_node_node_childs_from_sectioning>>

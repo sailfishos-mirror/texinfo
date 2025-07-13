@@ -1,5 +1,16 @@
 2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move set_menus_node_directions call
+
+	* tta/perl/Texinfo/Structuring.pm,
+	* tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus, check_node_tree_menu_structure):
+	Call set_menus_node_directions in complete_node_tree_with_menus
+	rather than check_node_tree_menu_structure as 'menu_directions'
+	are no longer used in the latter.
+
+2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Save condition in variable
 
 	* tta/C/structuring_transfo/structuring.c

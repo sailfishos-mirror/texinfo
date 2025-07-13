@@ -1126,10 +1126,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
   size_t i;
 
-  set_menus_node_directions (document);
-  /* Note: if we stop needing to call set_menus_node_directions in this
-     function, we should call it in complete_node_tree_with_menus. */
-
   if (nodes_list->number < 1)
     return;
 
@@ -1785,10 +1781,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
   const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
 
-  size_t i;
-
   if (nodes_list->number < 1)
     return;
+
+  set_menus_node_directions (document);
 
   document->modified_information |= F_DOCM_tree;
 
@@ -1797,6 +1793,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   /* Go through all the nodes and complete any gaps in the directions
      using the menus. */
 
+  size_t i;
   for (i = 0; i < nodes_list->number; i++)
     {
       NODE_RELATIONS *node_relations = nodes_list->list[i];
