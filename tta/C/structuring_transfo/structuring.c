@@ -88,6 +88,7 @@ sectioning_structure (DOCUMENT *document)
 {
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int warn_debug =  (options && options->DEBUG.o.integer > 0);
 
   SECTION_RELATIONS *previous_section_relations = 0;
   SECTION_RELATIONS *previous_toplevel_relations = 0;
@@ -146,8 +147,8 @@ sectioning_structure (DOCUMENT *document)
 
               if (level - prev_section_level > 1)
                 {
-                  message_list_command_error (error_messages,
-                        (options && options->DEBUG.o.integer > 0), content,
+                  message_list_command_error (error_messages, warn_debug,
+                        content,
                         "raising the section level of @%s which is too low",
                                  builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
@@ -229,15 +230,14 @@ sectioning_structure (DOCUMENT *document)
                    condition means section level > 1, ie below chapter-level.
                  */
                             message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
-                              content, 0, "no chapter-level command before @%s",
+                                warn_debug, content, 0,
+                                "no chapter-level command before @%s",
                                    builtin_command_name (content->e.c->cmd));
                         }
                       else
                         {
                           message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
-                                 content, 0,
+                                 warn_debug, content, 0,
           "lowering the section level of @%s appearing after a lower element",
                                  builtin_command_name (content->e.c->cmd));
                           level = sec_root_level +1;
@@ -408,9 +408,7 @@ sectioning_structure (DOCUMENT *document)
       else if (content->e.c->cmd == CM_part
                && !section_relations->part_associated_section)
         {
-          message_list_command_warn (error_messages,
-                            (options && options->DEBUG.o.integer > 0),
-                         content,
+          message_list_command_warn (error_messages, warn_debug, content,
                         0, "no sectioning command associated with @%s",
                                builtin_command_name (content->e.c->cmd));
         }
@@ -447,6 +445,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   C_HASHMAP *identifiers_target = &document->identifiers_target;
   OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
 
   const char *normalized_menu_node = lookup_extra_string (menu_entry_node,
                                                     AI_key_normalized);
@@ -457,8 +456,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
       if (!menu_node)
         {
           char *entry_node_texi = link_element_to_texi (menu_entry_node);
-          message_list_command_error (error_messages,
-                        (options && options->DEBUG.o.integer > 0), menu_content,
+          message_list_command_error (error_messages, warn_debug, menu_content,
                          "@%s reference to nonexistent node `%s'",
                          builtin_command_name (cmd), entry_node_texi);
           free (entry_node_texi);
@@ -471,8 +469,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
             {
               char *entry_node_texi = link_element_to_texi (menu_entry_node);
               char *menu_node_texi = target_element_to_texi_label (menu_node);
-              message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
+              message_list_command_warn (error_messages, warn_debug,
                   menu_content, 0,
                   "@%s entry node name `%s' different from %s name `%s'",
                   builtin_command_name (cmd), entry_node_texi,
@@ -634,6 +631,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
   int check_node_in_menu;
   int all_nodes_are_referenced;
 
@@ -866,10 +864,8 @@ check_nodes_are_referenced (DOCUMENT *document)
                 {
                   char *node_texi = target_element_to_texi_label (node);
                   nr_not_found++;
-                  message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
-                                   node, 0, "node `%s' unreferenced",
-                                              node_texi);
+                  message_list_command_warn (error_messages, warn_debug,
+                               node, 0, "node `%s' unreferenced", node_texi);
                   free (node_texi);
                   /* do not check if in menu if not referenced */
                   continue;
@@ -885,10 +881,8 @@ check_nodes_are_referenced (DOCUMENT *document)
                      || node_in_menu[i]))
                 {
                   char *node_texi = target_element_to_texi_label (node);
-                  message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
-                                  node, 0, "node `%s' not in menu",
-                                             node_texi);
+                  message_list_command_warn (error_messages, warn_debug,
+                               node, 0, "node `%s' not in menu", node_texi);
                   free (node_texi);
                 }
             }
@@ -1128,6 +1122,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
 
   size_t i;
 
@@ -1221,7 +1216,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                       = target_element_to_texi_label (node);
 
                                     message_list_command_warn (error_messages,
-                                      (options && options->DEBUG.o.integer > 0),
+                                      warn_debug,
                                       menu_content, 0,
                                       "node `%s' in menu in `%s' but "
                                       "not under it in sectioning",
@@ -1243,7 +1238,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                           (section_up_node->element);
 
                                     message_list_command_warn (error_messages,
-                                      (options && options->DEBUG.o.integer > 0),
+                                      warn_debug,
                                       menu_content, 0,
                                       "node `%s' in menu in `%s' but "
                                       "under `%s' in sectioning",
@@ -1365,8 +1360,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                         = target_element_to_texi_label (menu_node);
                       char *section_node_texi
                         = target_element_to_texi_label (section_node);
-                      message_list_command_warn (error_messages,
-                         (options && options->DEBUG.o.integer > 0),
+                      message_list_command_warn (error_messages, warn_debug,
                               menu_content, 0,
                               "node `%s' in menu where `%s' expected",
                               menu_node_texi,
@@ -1379,8 +1373,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                     {
                       char *menu_node_texi
                         = target_element_to_texi_label (menu_node);
-                      message_list_command_warn (error_messages,
-                         (options && options->DEBUG.o.integer > 0),
+                      message_list_command_warn (error_messages, warn_debug,
                               menu_content, 0,
                               "unexpected node `%s' in menu",
                               menu_node_texi);
@@ -1523,8 +1516,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                           = target_element_to_texi_label (up_node);
                         char *node_texi
                           = target_element_to_texi_label (node);
-                        message_list_command_warn (error_messages,
-                           (options && options->DEBUG.o.integer > 0),
+                        message_list_command_warn (error_messages, warn_debug,
                                 up_node, 0,
        "node `%s' lacks menu item for `%s' but is above it in sectioning",
                                 up_texi, node_texi);
@@ -1596,8 +1588,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                              (menu_node_directions[D_up]);
                       char *node_texi
                         = target_element_to_texi_label (node);
-                      message_list_command_warn (error_messages,
-                         (options && options->DEBUG.o.integer > 0),
+                      message_list_command_warn (error_messages, warn_debug,
                               menu_content, 0,
                 "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                               direction,
@@ -1627,8 +1618,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                  (menu_prev_node_directions[D_next]);
                           char *menu_node_texi
                             = target_element_to_texi_label (menu_node);
-                          message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
+                          message_list_command_warn (error_messages, warn_debug,
                                   menu_content, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                   direction,
@@ -1653,8 +1643,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                                  (menu_node_directions[D_prev]);
                           char *menu_prev_node_texi
                             = target_element_to_texi_label (menu_prev_node);
-                          message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
+                          message_list_command_warn (error_messages, warn_debug,
                                   menu_content, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                   direction,
@@ -1666,10 +1655,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
                           free (menu_node_prev_texi);
                           free (menu_prev_node_texi);
                         }
-
                     }
-
-
 
                   menu_prev_node = menu_node;
                   menu_prev_node_directions = menu_node_directions;
@@ -1858,6 +1844,7 @@ construct_nodes_tree (DOCUMENT *document)
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
 
   set_top_node_next (&document->nodes_list, identifiers_target);
 
@@ -1957,8 +1944,7 @@ construct_nodes_tree (DOCUMENT *document)
                                    char *node_target_texi
                                     = target_element_to_texi_label (node_target);
                                    message_list_command_warn (error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                       node, 0,
+                                       warn_debug, node, 0,
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
                                        direction_texts[direction],
                                        direction_texi, node_texi,
@@ -1978,9 +1964,8 @@ construct_nodes_tree (DOCUMENT *document)
                             {
                               char *direction_texi
                                  = link_element_to_texi (direction_element);
-                              message_list_command_error (
-                                     error_messages,
-                        (options && options->DEBUG.o.integer > 0), node,
+                              message_list_command_error (error_messages,
+                                     warn_debug, node,
                                      "%s reference to nonexistent `%s'",
                                      direction_texts[direction],
                                      direction_texi);
@@ -2003,6 +1988,7 @@ associate_internal_references (DOCUMENT *document)
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
 
   size_t i;
 
@@ -2061,8 +2047,7 @@ associate_internal_references (DOCUMENT *document)
                   || options->novalidate.o.integer <= 0)
                 {
                   char *label_texi = link_element_to_texi (label_element);
-                  message_list_command_error (error_messages,
-                        (options && options->DEBUG.o.integer > 0),
+                  message_list_command_error (error_messages, warn_debug,
                              ref, "@%s reference to nonexistent node `%s'",
                              builtin_command_name (ref->e.c->cmd), label_texi);
                   free (label_texi);
@@ -2081,8 +2066,7 @@ associate_internal_references (DOCUMENT *document)
                       char *label_texi = link_element_to_texi (label_element);
                       char *target_texi
                          = target_element_to_texi_label (node_target);
-                       message_list_command_warn (error_messages,
-                                (options && options->DEBUG.o.integer > 0),
+                       message_list_command_warn (error_messages, warn_debug,
                                 ref, 0,
                                 "@%s to `%s', different from %s name `%s'",
                                 builtin_command_name (ref->e.c->cmd), label_texi,

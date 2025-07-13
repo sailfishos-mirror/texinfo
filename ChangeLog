@@ -1,5 +1,16 @@
 2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Save condition in variable
+
+	* tta/C/structuring_transfo/structuring.c
+	(check_nodes_are_referenced, sectioning_structure, check_menu_entry)
+	(construct_nodes_tree, check_node_tree_menu_structure)
+	(associate_internal_references): Set variable for checking DEBUG
+	in options for passing to message_list_command_warn rather than
+	repeating the condition.  This helps to shorten the code.
+
+2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revise node pointer checking
 
 	* tta/C/structuring_transfo/structuring.c (check_node_tree_menu_structure),
