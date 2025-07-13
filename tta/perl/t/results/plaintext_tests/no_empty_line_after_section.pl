@@ -40,12 +40,26 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
     |{spaces_after_argument:\\n}
     {chap}
   *@c C1
-   {rawline_arg: comment\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {comment}
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
    *@comment C1
-    {rawline_arg: c\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {c}
  *@section C4 l10 {sec}
  |INFO
  |spaces_before_argument:

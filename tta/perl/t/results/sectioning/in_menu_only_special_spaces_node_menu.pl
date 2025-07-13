@@ -103,7 +103,14 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
      *preformatted C2
       {\\n}
       *@c C1
-       {rawline_arg: *   ::\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {*   ::}
    *@end C1 in_menu_only_special_spaces_node.texi:l13
    |INFO
    |spaces_before_argument:
@@ -276,14 +283,38 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
     {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: Perl and XS code give different width.\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {Perl and XS code give different width.}
   *@c C1
-   {rawline_arg: @node   \\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@node   }
   *@c C1
-   {rawline_arg: @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

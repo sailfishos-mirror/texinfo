@@ -30,7 +30,14 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C5 l3
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -49,7 +56,14 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C6 l4
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -68,7 +82,14 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -87,7 +108,14 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C6 l6
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -107,7 +135,14 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
      *preformatted C2
       {d}
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *@end C1 l7
    |INFO
    |spaces_before_argument:

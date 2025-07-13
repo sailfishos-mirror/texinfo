@@ -253,7 +253,10 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    {In chapter\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

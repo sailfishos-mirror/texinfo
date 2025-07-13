@@ -113,7 +113,10 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
   *@contents C1 l14
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

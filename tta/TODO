@@ -26,6 +26,8 @@ corresponding function in C being also called new_document, in document.c,
 called in api.c.  ALso pass to Texinfo::Report created in CS, which means
 adding an argument to new_texinfo_report in build_perl_info.c.
 
+Remove Texinfo::Report use as object, keep only the use as a library.
+
 SWIG Index sorted by letter?  Iteration over attributes names to discover
 element attributes? changing source marks.
 

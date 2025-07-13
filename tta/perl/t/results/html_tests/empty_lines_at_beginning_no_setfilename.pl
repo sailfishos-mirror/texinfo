@@ -13,7 +13,14 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@c C1
-    {rawline_arg: comment\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment}
    {empty_line:\\n}
  *@node C1 empty_lines_at_beginning_no_setfilename.texi:l6 {Top}
  |INFO
@@ -44,7 +51,10 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
     {top}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'value_in_node'} = '*document_root C6
  *before_node_section C2
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ node1 Node 1\\n}
-   {rawline_arg:node1}
-   {rawline_arg:Node 1}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{node1|Node 1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {node1 Node 1}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO
@@ -155,11 +161,17 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     |{spaces_after_argument:\\n}
     {Chapter 1}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ sec1 Section 1.1\\n}
-   {rawline_arg:sec1}
-   {rawline_arg:Section 1.1}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{sec1|Section 1.1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {sec1 Section 1.1}
   {empty_line:\\n}
   *@menu C3 l15
    *arguments_line C1

@@ -25,6 +25,9 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
      {utf-8}
    {empty_line:\\n}
    *@c C1
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
    >SOURCEMARKS
    >ignored_conditional_block<1>
     >*@iftex C3 l5
@@ -64,7 +67,11 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
       >|spaces_after_argument:
        >|{spaces_after_argument:\\n}
        >{iflatex}
-    {rawline_arg: @node Top is ignored in TeX and LaTeX, so switch here\\n}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {@node Top is ignored in TeX and LaTeX, so switch here}
    {empty_line:\\n}
  *@node C1 l12 {Top}
  |INFO

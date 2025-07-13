@@ -7,14 +7,26 @@ use utf8;
 
 $result_tree_text{'begin_like_comment_on_set_line'} = '*document_root C1
  *before_node_section C4
-  *@set
+  *@set C1
   |INFO
-  |arg_line:{ x@come with me\\n}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {x@come with me}
+  *@set C1
   |INFO
-  |arg_line:{ y some thing @commentary is it\\n}
-   {rawline_arg:y}
-   {rawline_arg:some thing @commentary is it}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{y|some thing @commentary is it}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {y some thing @commentary is it}
   {empty_line:\\n}
   *paragraph C3
    {!}

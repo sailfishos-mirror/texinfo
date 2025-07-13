@@ -32,7 +32,10 @@ $result_tree_text{'insert_copying_and_paragraph'} = '*document_root C1
   *@insertcopying C1 l6
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

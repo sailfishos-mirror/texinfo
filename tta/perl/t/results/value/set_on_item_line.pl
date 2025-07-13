@@ -24,11 +24,22 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      |spaces_before_argument:
       |{spaces_before_argument: }
       *line_arg C1
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ ca b@c\\n}
-        {rawline_arg:ca}
-        {rawline_arg:b}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{ca|b}
+        *line_arg C1
+        |INFO
+        |comment_at_end:
+         |*@c C1
+          |*line_arg C1
+          ||INFO
+          ||spaces_after_argument:
+           ||{spaces_after_argument:\\n}
+           |{}
+         {ca b}
     *table_definition C1
      *paragraph C2
       {item text\\n}
@@ -41,11 +52,22 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
       |{spaces_before_argument: }
       *line_arg C2
        {cjj }
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ cj@c\\n}
-        {rawline_arg:cj}
-        {rawline_arg:}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{cj|}
+        *line_arg C1
+        |INFO
+        |comment_at_end:
+         |*@c C1
+          |*line_arg C1
+          ||INFO
+          ||spaces_after_argument:
+           ||{spaces_after_argument:\\n}
+           |{}
+         {cj}
     *table_definition C1
      *paragraph C1
       {line\\n}
@@ -57,11 +79,22 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
       |{spaces_before_argument: }
       *line_arg C2
        {cvvv }
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ cg@c\\n}
-        {rawline_arg:cg}
-        {rawline_arg:}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{cg|}
+        *line_arg C1
+        |INFO
+        |comment_at_end:
+         |*@c C1
+          |*line_arg C1
+          ||INFO
+          ||spaces_after_argument:
+           ||{spaces_after_argument:\\n}
+           |{}
+         {cg}
    *@end C1 l8
    |INFO
    |spaces_before_argument:
@@ -91,11 +124,17 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
      |spaces_before_argument:
       |{spaces_before_argument: }
       *line_arg C1
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ a b\\n}
-        {rawline_arg:a}
-        {rawline_arg:b}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{a|b}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{spaces_after_argument:\\n}
+         {a b}
     *table_definition C1
      *paragraph C2
       {item text\\n}
@@ -108,11 +147,17 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
       |{spaces_before_argument: }
       *line_arg C2
        {jj }
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ j\\n}
-        {rawline_arg:j}
-        {rawline_arg:}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{j|}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{spaces_after_argument:\\n}
+         {j}
     *table_definition C1
      *paragraph C1
       {line\\n}
@@ -124,11 +169,17 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
       |{spaces_before_argument: }
       *line_arg C2
        {vvv }
-       *@set C2
+       *@set C1
        |INFO
-       |arg_line:{ g\\n}
-        {rawline_arg:g}
-        {rawline_arg:}
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+       |EXTRA
+       |misc_args:A{g|}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{spaces_after_argument:\\n}
+         {g}
    *@end C1 l17
    |INFO
    |spaces_before_argument:

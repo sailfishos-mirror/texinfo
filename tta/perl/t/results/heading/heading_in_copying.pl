@@ -106,7 +106,10 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
   *@insertcopying C1 l12
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

@@ -57,7 +57,10 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
   *@contents C1 l6
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l8
    *arguments_line C1

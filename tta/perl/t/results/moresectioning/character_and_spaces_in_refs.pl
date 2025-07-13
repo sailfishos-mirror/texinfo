@@ -438,7 +438,10 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
     {other nodes}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

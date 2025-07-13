@@ -160,7 +160,11 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |INFO
    |comment_at_end:
     |*@comment C1
-     |{rawline_arg:\\n}
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {comment}
@@ -194,7 +198,14 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: comma , end\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{comma , end}
    |spaces_after_argument:
     |{spaces_after_argument: }
    |spaces_before_argument:

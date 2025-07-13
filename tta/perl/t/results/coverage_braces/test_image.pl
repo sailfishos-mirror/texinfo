@@ -335,7 +335,10 @@ $result_tree_text{'test_image'} = '*document_root C3
   *@insertcopying C1 l18
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l20
    *arguments_line C1

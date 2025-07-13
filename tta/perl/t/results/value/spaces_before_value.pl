@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'spaces_before_value'} = '*document_root C1
  *before_node_section C3
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ var val\\n}
-   {rawline_arg:var}
-   {rawline_arg:val}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{var|val}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {var val}
   {empty_line:\\n}
   *paragraph C1
    {val\\n}

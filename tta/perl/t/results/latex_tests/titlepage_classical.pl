@@ -89,17 +89,40 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
       {Second author}
     {empty_line:\\n}
     *@page C1
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@c C1
-     {rawline_arg: The following two commands start the copyright page.\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {The following two commands start the copyright page.}
     *@page C1
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@vskip C1
-     {rawline_arg: 0pt plus 1filll\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {0pt plus 1filll}
     *@insertcopying C1 l16
     |EXTRA
     |global_command_number:{1}
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@end C1 l17
     |INFO
     |spaces_before_argument:

@@ -12,7 +12,10 @@ $result_tree_text{'also_not_line'} = '*document_root C1
   *paragraph C1
    {page }
   *@page C1
-   {rawline_arg: \\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument: \\n}
   *paragraph C6
    {noindent }
    *@noindent l4
@@ -35,16 +38,29 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    {ignorable_spaces_after_command:    }
    {noindent after space at beginning of line\\n}
   *@page C1
-   {rawline_arg:         page at beginning of line\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument:         }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {page at beginning of line}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   *paragraph C1
    {After page on its own line.\\n}
   {empty_line:\\n}
   *paragraph C1
    {page }
   *@page C1
-   {rawline_arg:   \\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:   \\n}
   *paragraph C8
    {noindent }
    *@noindent l15
@@ -54,7 +70,14 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    { \\n}
    {novalidate }
    *@novalidate C1 l16
-    {rawline_arg: something\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {something}
   {empty_line:\\n}
   *@subheading C1 l18
   |INFO
@@ -73,7 +96,10 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    {Only valid between iftex:\\n}
    {vskip }
    *@vskip C1
-    {rawline_arg: \\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument: \\n}
   {empty_line:\\n}
   *paragraph C1
    {exdent }

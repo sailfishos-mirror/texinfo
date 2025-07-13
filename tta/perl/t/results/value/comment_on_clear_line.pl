@@ -7,41 +7,106 @@ use utf8;
 
 $result_tree_text{'comment_on_clear_line'} = '*document_root C1
  *before_node_section C11
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ x\\n}
-   {rawline_arg:x}
-   {rawline_arg:}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{x|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {x}
+  *@set C1
   |INFO
-  |arg_line:{ y\\n}
-   {rawline_arg:y}
-   {rawline_arg:}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{y|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {y}
+  *@set C1
   |INFO
-  |arg_line:{ z g\\n}
-   {rawline_arg:z}
-   {rawline_arg:g}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{z|g}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {z g}
+  *@set C1
   |INFO
-  |arg_line:{ t a vv @comment@ggg\\n}
-   {rawline_arg:t}
-   {rawline_arg:a vv}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{t|a vv}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@comment C1
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{@ggg}
+    {t a vv }
   {empty_line:\\n}
   *@clear C1
   |INFO
-  |arg_line:{ x@c\\n}
-   {rawline_arg:x}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{x}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{}
+    {x}
   *@clear C1
   |INFO
-  |arg_line:{ y @c\\n}
-   {rawline_arg:y}
-  *@clear
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{y}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{}
+    {y }
+  *@clear C1
   |INFO
-  |arg_line:{ z g@c\\n}
-  *@clear
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {z g@c}
+  *@clear C1
   |INFO
-  |arg_line:{ t a vv @comment@ggg\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {t a vv @comment@ggg}
   {empty_line:\\n}
   *paragraph C5
    {!}

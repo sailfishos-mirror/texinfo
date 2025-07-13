@@ -54,11 +54,17 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
       {Manual}
     {empty_line:\\n}
     *@page C1
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@insertcopying C1 l9
     |EXTRA
     |global_command_number:{1}
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@end C1 l10
     |INFO
     |spaces_before_argument:
@@ -140,7 +146,10 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
   *@insertcopying C1 l20
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@pxref C1 l22

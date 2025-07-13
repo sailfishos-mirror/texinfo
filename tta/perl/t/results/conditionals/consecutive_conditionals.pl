@@ -48,11 +48,17 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
       >|{spaces_after_argument:\\n}
       >{iftex}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ b\\n}
-   {rawline_arg:b}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{b|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {b}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<3><p:1>

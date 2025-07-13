@@ -16,7 +16,14 @@ $result_tree_text{'table_command_comment'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: in comment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{in comment}
      *@code l1
    *table_entry C1
     *table_term C1

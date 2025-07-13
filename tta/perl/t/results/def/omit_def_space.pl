@@ -37,11 +37,17 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
     |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ txidefnamenospace\\n}
-   {rawline_arg:txidefnamenospace}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{txidefnamenospace|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {txidefnamenospace}
   {empty_line:\\n}
   *@defun C4 l7
   |INFO

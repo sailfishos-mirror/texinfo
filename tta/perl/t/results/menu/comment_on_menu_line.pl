@@ -31,7 +31,11 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg:\\n}
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1

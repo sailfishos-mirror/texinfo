@@ -9,10 +9,13 @@ $result_tree_text{'clickstyle_no_end_of_line'} = '*document_root C1
  *before_node_section C1
   *@clickstyle C1 l1
   |INFO
-  |arg_line:{ @result}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+    {@result}
 ';
 
 

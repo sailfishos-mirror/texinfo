@@ -49,7 +49,14 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >SOURCEMARKS
    >linemacro_expansion<end;1><p:8>
    *@c C1
-    {rawline_arg: comment {in braces}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment {in braces}}
   {empty_line:\\n}
   *paragraph C4
    {first ||\\n}
@@ -65,7 +72,14 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >SOURCEMARKS
    >linemacro_expansion<end;2><p:8>
    *@c C1
-    {rawline_arg: comment early n l m\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment early n l m}
   {empty_line:\\n}
   *paragraph C5
    {first |aaa\\n}
@@ -94,7 +108,14 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >SOURCEMARKS
    >linemacro_expansion<end;3><p:8>
    *@comment C1
-    {rawline_arg: on second {line comment}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {on second {line comment}}
 ';
 
 

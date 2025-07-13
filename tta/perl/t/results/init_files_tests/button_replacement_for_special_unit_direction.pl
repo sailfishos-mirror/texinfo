@@ -11,7 +11,10 @@ $result_tree_text{'button_replacement_for_special_unit_direction'} = '*document_
    *@contents C1 l1
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO

@@ -53,7 +53,10 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
   *@contents C1 l6
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

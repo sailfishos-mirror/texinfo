@@ -192,7 +192,10 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes'} = 
     *@insertcopying C1 index_special_region_no_insertcopying.texi:l33
     |EXTRA
     |global_command_number:{1}
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@end C1 index_special_region_no_insertcopying.texi:l34
     |INFO
     |spaces_before_argument:
@@ -245,13 +248,27 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes'} = 
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: note this chapter is not associated to a node\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{note this chapter is not associated to a node}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {Chapter}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: @insertcopying\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@insertcopying}
   {empty_line:\\n}
   *paragraph C6
    {This test demonstrates }
@@ -497,14 +514,27 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes'} = 
    { for reference on the titlepage.\\n}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: @insertcopying\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@insertcopying}
   {empty_line:\\n}
   *@contents C1 index_special_region_no_insertcopying.texi:l79
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

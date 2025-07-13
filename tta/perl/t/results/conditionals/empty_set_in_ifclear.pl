@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'empty_set_in_ifclear'} = '*document_root C1
  *before_node_section C2
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ a\\n}
-   {rawline_arg:a}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{a|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {a}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>

@@ -8,7 +8,7 @@ TYPE_DATA type_data[] = {
 {"definfoenclose_command", 0, 2},
 {"nobrace_command", TF_c_only, 0},
 {"container_command", TF_c_only, 0},
-{"lineraw_command", TF_c_only, 0},
+{"lineraw_command", TF_c_only, 1},
 {"line_command", TF_c_only, 1},
 {"block_command", TF_c_only, 1},
 {"brace_command", TF_c_only, 2},

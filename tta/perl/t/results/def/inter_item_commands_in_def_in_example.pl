@@ -52,7 +52,14 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *inter_def_item C1
      *preformatted C2
       *@c C1
-       {rawline_arg: comment before first deffnx\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment before first deffnx}
       {empty_line:\\n}
     *@deffnx C1 l5
     |INFO

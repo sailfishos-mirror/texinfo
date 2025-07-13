@@ -17,7 +17,14 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: comment\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{comment}
   {empty_line:\\n}
  *@node C1 l4 {@
 }

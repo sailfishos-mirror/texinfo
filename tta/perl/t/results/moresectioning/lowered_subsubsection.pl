@@ -275,7 +275,10 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
     {Subsubsection}
   {empty_line:\\n}
   *@lowersections C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@node C1 l34 {Lowered subsec}
  |INFO
  |spaces_before_argument:
@@ -365,14 +368,23 @@ $result_tree_text{'lowered_subsubsection'} = '*document_root C16
     |{spaces_after_argument:\\n}
     {Lowered subsubsection}
   *@raisesections C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 l45
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

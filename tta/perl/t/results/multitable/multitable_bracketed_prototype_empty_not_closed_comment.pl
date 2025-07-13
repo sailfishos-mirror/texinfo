@@ -18,7 +18,14 @@ $result_tree_text{'multitable_bracketed_prototype_empty_not_closed_comment'} = '
     *block_line_arg C1
      *bracketed_arg C1 l2
       *@comment C1
-       {rawline_arg: comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment}
    *@end C1 l3
    |INFO
    |spaces_before_argument:

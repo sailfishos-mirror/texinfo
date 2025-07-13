@@ -7,21 +7,39 @@ use utf8;
 
 $result_tree_text{'set_form_feed'} = '*document_root C1
  *before_node_section C5
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ gg \\f a\\a\\f\\\\\\n}
-   {rawline_arg:gg}
-   {rawline_arg:a\\a\\f\\\\}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{gg|a\\a\\f\\\\}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {gg \\f a\\a\\f\\\\}
+  *@set C1
   |INFO
-  |arg_line:{ hh\\f\\n}
-   {rawline_arg:hh}
-   {rawline_arg:}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{hh|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {hh\\f}
+  *@set C1
   |INFO
-  |arg_line:{ ll \\f\\n}
-   {rawline_arg:ll}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{ll|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {ll \\f}
   {empty_line:\\n}
   *paragraph C2
    *@code C1 l5
@@ -71,9 +89,9 @@ $result_sectioning_root{'set_form_feed'} = '';
 $result_headings_list{'set_form_feed'} = '';
 
 
-$result_converted{'xml'}->{'set_form_feed'} = '<set name="gg" line=" gg &attrformfeed; a\\\\a\\\\f\\\\\\\\">a\\a\\f\\\\</set>
-<set name="hh" line=" hh&attrformfeed;"></set>
-<set name="ll" line=" ll &attrformfeed;"></set>
+$result_converted{'xml'}->{'set_form_feed'} = '<set name="gg" spaces=" ">gg &formfeed; a\\a\\f\\\\</set>
+<set name="hh" spaces=" ">hh&formfeed;</set>
+<set name="ll" spaces=" ">ll &formfeed;</set>
 
 <para><code>a\\a\\f\\\\. . </code>.
 </para>';

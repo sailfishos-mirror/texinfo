@@ -30,7 +30,10 @@ $result_tree_text{'simplest_no_node_section'} = '*document_root C2
    { <>.\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

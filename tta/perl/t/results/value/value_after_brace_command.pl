@@ -7,16 +7,28 @@ use utf8;
 
 $result_tree_text{'value_after_brace_command'} = '*document_root C1
  *before_node_section C4
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ bracedletter {a}\\n}
-   {rawline_arg:bracedletter}
-   {rawline_arg:{a}}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{bracedletter|{a}}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {bracedletter {a}}
+  *@set C1
   |INFO
-  |arg_line:{ unknowncmd @unknown\\n}
-   {rawline_arg:unknowncmd}
-   {rawline_arg:@unknown}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{unknowncmd|@unknown}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {unknowncmd @unknown}
   {empty_line:\\n}
   *paragraph C12
    *@ringaccent C1 l4

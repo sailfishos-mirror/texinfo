@@ -242,7 +242,10 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@insertcopying C1 float_copying.texi:l39
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 float_copying.texi:l41
    *arguments_line C1
@@ -344,11 +347,17 @@ $result_tree_text{'float_copying'} = '*document_root C6
   *@insertcopying C1 float_copying.texi:l57
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   *@insertcopying C1 float_copying.texi:l58
   |EXTRA
   |global_command_number:{3}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@subheading C1 float_copying.texi:l60
   |INFO
@@ -413,7 +422,10 @@ $result_tree_text{'float_copying'} = '*document_root C6
     {fn}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

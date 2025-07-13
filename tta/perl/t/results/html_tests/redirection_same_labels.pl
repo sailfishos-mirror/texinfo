@@ -52,11 +52,32 @@ NodeForward: [U1]
    *menu_comment C1
     *preformatted C3
      *@c C1
-      {rawline_arg: * @"i::\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {* @"i::}
      *@c C1
-      {rawline_arg: * @~{@dotless{i}}::\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {* @~{@dotless{i}}::}
      *@c C1
-      {rawline_arg: * @^i::\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {* @^i::}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1

@@ -8,11 +8,17 @@ use utf8;
 $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ notset\\n}
-   {rawline_arg:notset}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{notset|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {notset}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>

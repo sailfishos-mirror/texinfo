@@ -13,42 +13,80 @@ $result_tree_text{'contents'} = '*document_root C1
    *@@
    {contents }
   *@contents C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg: line following first content\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {line following first content}
   *paragraph C3
    {second }
    *@@
    {contents }
   *@contents C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg: line following second content\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {line following second content}
   *paragraph C1
    {Third content on the following line on his own\\n}
   *@contents C1 l5
   |EXTRA
   |global_command_number:{3}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   *paragraph C2
    {Line following contents\\n}
    {shortcontents }
   *@shortcontents C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg: eol\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {eol}
   *paragraph C1
    {shortcontents }
   *@shortcontents C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg: eol\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {eol}
   *paragraph C1
    {summarycontents }
   *@summarycontents C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
-   {rawline_arg: line following summarycontents\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {line following summarycontents}
 ';
 
 

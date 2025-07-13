@@ -473,6 +473,30 @@ sub _end_line_spaces($$)
   return '';
 }
 
+sub _format_comment($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $command_text = '';
+  if (defined($element->{'info'})
+      and defined($element->{'info'}->{'spaces_before_argument'})) {
+    $command_text .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
+  }
+  if ($element->{'contents'}) {
+    my $line_arg = $element->{'contents'}->[0];
+    if ($line_arg->{'contents'}) {
+      $command_text .= $line_arg->{'contents'}->[0]->{'text'};
+    }
+    if (defined($line_arg->{'info'})
+        and defined($line_arg->{'info'}->{'spaces_after_argument'})) {
+      $command_text
+        .= $line_arg->{'info'}->{'spaces_after_argument'}->{'text'};
+    }
+  }
+  return $self->txi_markup_comment(" $element->{'cmdname'}" .$command_text);
+}
+
 sub _format_comment_or_end_line($$)
 {
   my $self = shift;
@@ -482,8 +506,7 @@ sub _format_comment_or_end_line($$)
    = $self->comment_or_end_line_nonxs($element);
 
   if ($comment) {
-    return $self->txi_markup_comment(" $comment->{'cmdname'}"
-                         .$comment->{'contents'}->[0]->{'text'});
+    return _format_comment($self, $comment);
   } else {
     return $end_line;
   }
@@ -1018,69 +1041,68 @@ sub _convert($$;$)
         }
       } elsif ($type eq 'lineraw') {
         if ($cmdname eq 'c' or $cmdname eq 'comment') {
-          return $self->txi_markup_comment(
-                         " $cmdname".$element->{'contents'}->[0]->{'text'})
-        } elsif ($cmdname eq 'clear' or $cmdname eq 'set') {
-          my $attribute = [];
-          if ($element->{'contents'} and $element->{'contents'}->[0]
-              and defined($element->{'contents'}->[0]->{'text'})) {
-            push @$attribute, ['name', $element->{'contents'}->[0]->{'text'}];
+          return _format_comment($self, $element);
+        } elsif ($cmdname eq 'clear' or $cmdname eq 'set'
+                 or $cmdname eq 'clickstyle' or $cmdname eq 'unmacro') {
+          my $attribute = [_leading_spaces_arg($element)];
+          my $misc_args;
+          if (defined($element->{'extra'})
+              and defined($element->{'extra'}->{'misc_args'})) {
+            $misc_args = $element->{'extra'}->{'misc_args'};
           }
-          my $value = '';
-          if ($cmdname eq 'set' and $element->{'contents'}
-              and $element->{'contents'}->[1]
-              and defined($element->{'contents'}->[1]->{'text'})) {
-            $value
-              = $self->txi_markup_protect_text(
-                                $element->{'contents'}->[1]->{'text'});
+          if (defined($misc_args) and scalar(@$misc_args)) {
+            if ($cmdname eq 'clear' or $cmdname eq 'set'
+                or $cmdname eq 'unmacro') {
+              unshift @$attribute, ['name', $misc_args->[0]];
+            } elsif ($cmdname eq 'clickstyle') {
+              my $click_command = $misc_args->[0];
+              $click_command =~ s/^\@//;
+              unshift @$attribute, ['command', $click_command];
+            } elsif ($cmdname eq 'unmacro') {
+            }
           }
-          push @$attribute, $self->_arg_line($element);
+          my $arg = $self->convert_tree($element->{'contents'}->[0]);
+          my $end_space = _end_line_spaces($self, $element);
+          my $end_line = _format_comment_or_end_line($self, $element);
           return $self->txi_markup_open_element($cmdname, $attribute)
-                      .$value.$self->txi_markup_close_element($cmdname)."\n";
-        } elsif ($cmdname eq 'clickstyle') {
-          my $attribute = [$self->_arg_line($element)];
-          my $value = '';
-          if ($element->{'contents'} and $element->{'contents'}->[0]
-              and defined($element->{'contents'}->[0]->{'text'})) {
-            my $click_command = $element->{'contents'}->[0]->{'text'};
-            $click_command =~ s/^\@//;
-            unshift @$attribute, ['command', $click_command];
-            $value
-              = $self->txi_markup_protect_text(
-                                     $element->{'contents'}->[0]->{'text'});
-          };
-          return $self->txi_markup_open_element($cmdname, $attribute)
-                         .$value.$self->txi_markup_close_element($cmdname)."\n";
-        } elsif ($cmdname eq 'unmacro') {
-          my $attribute = [$self->_arg_line($element)];
-          if ($element->{'contents'} and $element->{'contents'}->[0]
-              and defined($element->{'contents'}->[0]->{'text'})) {
-            unshift @$attribute, ['name', $element->{'contents'}->[0]->{'text'}];
-          }
-          return $self->txi_markup_open_element($cmdname, $attribute)
-                    .$self->txi_markup_close_element($cmdname)."\n";
+               .$arg.$end_space
+               .$self->txi_markup_close_element($cmdname).$end_line;
         } elsif ($Texinfo::Commands::commands_args_number{$cmdname}) {
-          my $value = '';
-          if ($element->{'contents'} and $element->{'contents'}->[0]
-              and defined($element->{'contents'}->[0]->{'text'})) {
-            $value
-             = $self->txi_markup_protect_text(
-                                  $element->{'contents'}->[0]->{'text'});
+          my $attribute = [_leading_spaces_arg($element)];
+          my $arg = '';
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            $arg = $self->txi_markup_protect_text(
+              $element->{'contents'}->[0]->{'contents'}->[0]->{'text'})
+          } else {
+            $arg = '';
           }
-          chomp ($value);
-          return $self->txi_markup_open_element($cmdname).$value
-                    .$self->txi_markup_close_element($cmdname)."\n";
+          my $end_space = _end_line_spaces($self, $element);
+          my $end_line = _format_comment_or_end_line($self, $element);
+          return $self->txi_markup_open_element($cmdname, $attribute)
+               .$arg.$end_space
+               .$self->txi_markup_close_element($cmdname).$end_line;
         } else {
+          # FIXME use explicit spaces or space attributes but not line
           my $attribute = [];
-          if ($element->{'contents'} and $element->{'contents'}->[0]
-              and defined($element->{'contents'}->[0]->{'text'})) {
-            my $line = $element->{'contents'}->[0]->{'text'};
-            chomp($line);
-            $attribute = [['line', $line]]
-               if ($line ne '');
+          my $end_line = _format_comment_or_end_line($self, $element);
+          $end_line = "\n" if ($end_line eq '');
+          my $line;
+          if (defined($element->{'info'})
+              and defined($element->{'info'}->{'spaces_before_argument'})
+              and $element->{'info'}->{'spaces_before_argument'} ne '') {
+            $line = $element->{'info'}->{'spaces_before_argument'}->{'text'};
+          }
+          # bogus text argument, keep it as is
+          if (defined($element->{'contents'})
+              and defined($element->{'contents'}->[0]->{'contents'})) {
+            $line = '' if (!defined($line));
+            $line .= $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
+          }
+          if (defined($line) and $line ne '') {
+            $attribute = [['line', $line]];
           }
           my $result = $self->txi_markup_open_element($cmdname, $attribute)
-                   .$self->txi_markup_close_element($cmdname)."\n";
+                   .$self->txi_markup_close_element($cmdname).$end_line;
           return $result;
         }
       } else {

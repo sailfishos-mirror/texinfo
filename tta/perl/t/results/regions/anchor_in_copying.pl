@@ -74,12 +74,18 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
   *@insertcopying C1 l13
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 l15
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l17

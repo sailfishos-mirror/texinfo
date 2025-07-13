@@ -8,11 +8,17 @@ use utf8;
 $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ a\\n}
-   {rawline_arg:a}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{a|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {a}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -36,7 +42,14 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
      >|INFO
      >|comment_at_end:
       >|*@c C1
-       >|{rawline_arg: - ok, ignored\\n}
+      >||INFO
+      >||spaces_before_argument:
+       >||{spaces_before_argument: }
+       >|*line_arg C1
+       >||INFO
+       >||spaces_after_argument:
+        >||{spaces_after_argument:\\n}
+        >|{- ok, ignored}
      >|spaces_after_argument:
       >|{spaces_after_argument: }
       >{ok}
@@ -52,7 +65,14 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
     |{spaces_after_argument:\\n}
     {junky   - ok, ignored}
   *@c C1
-   {rawline_arg: WRONG - missing @end ifset.\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {WRONG - missing @end ifset.}
 ';
 
 

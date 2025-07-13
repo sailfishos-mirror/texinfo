@@ -17,7 +17,11 @@ $result_tree_text{'comment_in_quotation'} = '*document_root C1
    *paragraph C2
     {Quotation }
     *@c C1
-     {rawline_arg:\\n}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {}
    *@end C1 l4
    |INFO
    |spaces_before_argument:
@@ -39,7 +43,11 @@ $result_tree_text{'comment_in_quotation'} = '*document_root C1
    *paragraph C2
     {Quotation no space}
     *@c C1
-     {rawline_arg:\\n}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {}
    *@end C1 l8
    |INFO
    |spaces_before_argument:

@@ -9,8 +9,12 @@ $result_tree_text{'clear_no_end_of_line'} = '*document_root C1
  *before_node_section C1
   *@clear C1
   |INFO
-  |arg_line:{ jj}
-   {rawline_arg:jj}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{jj}
+   *line_arg C1
+    {jj}
 ';
 
 

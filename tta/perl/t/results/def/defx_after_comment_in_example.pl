@@ -52,7 +52,14 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
     *inter_def_item C1
      *preformatted C1
       *@c C1
-       {rawline_arg: comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment}
     *@deffnx C1 l4
     |INFO
     |spaces_before_argument:

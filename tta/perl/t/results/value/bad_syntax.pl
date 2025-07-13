@@ -8,34 +8,80 @@ use utf8;
 $result_tree_text{'bad_syntax'} = '*document_root C1
  *before_node_section C16
   {empty_line:\\n}
-  *@set
+  *@set C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+  *@set C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument: \\n}
+  *@set C1
   |INFO
-  |arg_line:{\\n}
-  *@set
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {?}
+  *@set C1
   |INFO
-  |arg_line:{ \\n}
-  *@set
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {:-/ hey!}
+  *@set C1
   |INFO
-  |arg_line:{ ?\\n}
-  *@set
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {a@b}
+  *@set C1
   |INFO
-  |arg_line:{ :-/ hey!\\n}
-  *@set
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {:-" bad}
+  *@set C1
   |INFO
-  |arg_line:{ a@b\\n}
-  *@set
-  |INFO
-  |arg_line:{ :-" bad\\n}
-  *@set
-  |INFO
-  |arg_line:{ } no\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {} no}
   {empty_line:\\n}
-  *@clear
+  *@clear C1
   |INFO
-  |arg_line:{ aaa ggg\\n}
-  *@clear
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {aaa ggg}
+  *@clear C1
   |INFO
-  |arg_line:{ and{other\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {and{other}
   {empty_line:\\n}
   *paragraph C1
    {gurgl\\n}

@@ -54,7 +54,14 @@ $result_tree_text{'enumerate_argument_item'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comment}
      {A}
    *@item C2 l7
    |EXTRA
@@ -91,7 +98,14 @@ $result_tree_text{'enumerate_argument_item'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comment}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {z}

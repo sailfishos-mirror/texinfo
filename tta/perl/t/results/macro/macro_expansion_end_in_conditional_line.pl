@@ -26,11 +26,17 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
      |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ flag 1\\n}
-   {rawline_arg:flag}
-   {rawline_arg:1}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{flag|1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {flag 1}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>

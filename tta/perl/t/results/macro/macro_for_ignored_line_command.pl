@@ -32,9 +32,17 @@ $result_tree_text{'macro_for_ignored_line_command'} = '*document_root C1
    >|INFO
    >|command_name:{pagemacro}
     >*brace_arg
-  >macro_expansion<end;1><p:1>
   *@page C1
-   {rawline_arg: on the line\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   |>SOURCEMARKS
+   |>macro_expansion<end;1>
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {on the line}
 ';
 
 

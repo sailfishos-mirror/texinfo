@@ -252,7 +252,10 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
   *@insertcopying C1 l21
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l23
   |INFO
@@ -340,7 +343,10 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
   *@insertcopying C1 l29
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l31
   |INFO

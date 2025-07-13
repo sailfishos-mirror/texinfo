@@ -12,7 +12,10 @@ $result_tree_text{'minimal_empty_with_bye'} = '*document_root C2
    {text_before_beginning:\\n}
   *preamble_before_content
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

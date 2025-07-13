@@ -28,7 +28,14 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     {my_image}
   {\\n}
   *@vskip C1
-   {rawline_arg: 0pt plus 1filll\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {0pt plus 1filll}
   *@html C3 l6
   >SOURCEMARKS
   >ignored_conditional_block<1>

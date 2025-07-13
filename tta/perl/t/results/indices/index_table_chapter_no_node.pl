@@ -2060,9 +2060,23 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     |{spaces_after_argument:\\n}
     {concept}
   *@c C1
-   {rawline_arg: @printindex fn\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@printindex fn}
   *@c C1
-   {rawline_arg: @printindex vr\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@printindex vr}
   {empty_line:\\n}
   *@printindex C1 index_table.texi:l179
   |INFO
@@ -2115,9 +2129,15 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   *@contents C1 index_table.texi:l186
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

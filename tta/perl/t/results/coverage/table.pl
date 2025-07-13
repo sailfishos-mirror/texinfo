@@ -63,11 +63,25 @@ $result_tree_text{'table'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: samp\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{samp}
      *@samp l9
    *before_item C3
     *@c C1
-     {rawline_arg: after vtable\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {after vtable}
     *index_entry_command@cindex C1 l11
     |INFO
     |command_name:{cindex}
@@ -96,7 +110,14 @@ $result_tree_text{'table'} = '*document_root C1
        {vtable item}
      *inter_item C1
       *@c C1
-       {rawline_arg: after item\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {after item}
      *index_entry_command@kindex C1 l15
      |INFO
      |command_name:{kindex}
@@ -119,7 +140,14 @@ $result_tree_text{'table'} = '*document_root C1
       |INFO
       |comment_at_end:
        |*@comment C1
-        |{rawline_arg: comment in itemx line\\n}
+       ||INFO
+       ||spaces_before_argument:
+        ||{spaces_before_argument: }
+        |*line_arg C1
+        ||INFO
+        ||spaces_after_argument:
+         ||{spaces_after_argument:\\n}
+         |{comment in itemx line}
       |spaces_after_argument:
        |{spaces_after_argument: }
        {itemx vtable}

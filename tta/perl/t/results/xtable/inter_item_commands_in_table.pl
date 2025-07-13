@@ -78,7 +78,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
    *table_entry C2
     *table_term C2
      *@c C1
-      {rawline_arg: comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment in table}
      *@item C1 l9
      |INFO
      |spaces_before_argument:
@@ -132,7 +139,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        {aasis--b}
      *inter_item C1
       *@c C1
-       {rawline_arg: comment between item and itemx\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment between item and itemx}
      *@itemx C1 l16
      |INFO
      |spaces_before_argument:
@@ -199,9 +213,23 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
         |{spaces_after_argument:\\n}
         {index entry between item and itemx}
       *@c C1
-       {rawline_arg: and a comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {and a comment}
       *@comment C1
-       {rawline_arg: and another comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {and another comment}
      *@itemx C1 l25
      |INFO
      |spaces_before_argument:
@@ -234,7 +262,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
      *inter_item C3
       {empty_line:\\n}
       *@c C1
-       {rawline_arg: comment between lines\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment between lines}
       {empty_line:\\n}
      *@itemx C1 l31
      |INFO
@@ -251,7 +286,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
     *table_definition C2
      {empty_line:\\n}
      *@c C1
-      {rawline_arg: comment at end\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment at end}
    *@end C1 l34
    |INFO
    |spaces_before_argument:
@@ -355,7 +397,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument: \\n}
        {cindex in table}
      *@c C1
-      {rawline_arg: comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment in table}
      *@item C1 l46
      |INFO
      |spaces_before_argument:
@@ -455,7 +504,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument: \\n}
        {samp cindex in table}
      *@c C1
-      {rawline_arg: samp comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {samp comment in table}
      *@item C1 l59
      |INFO
      |spaces_before_argument:
@@ -700,7 +756,14 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {cindex first}
      *@c C1
-      {rawline_arg: commant\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {commant}
      *index_entry_command@cindex C1 l91
      |INFO
      |command_name:{cindex}

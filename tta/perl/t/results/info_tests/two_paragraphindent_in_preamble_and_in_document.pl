@@ -113,7 +113,10 @@ $result_tree_text{'two_paragraphindent_in_preamble_and_in_document'} = '*documen
    {Third para after third paragraphindent.\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
  *postamble_after_end C1
   {text_after_end:\\n}
 ';

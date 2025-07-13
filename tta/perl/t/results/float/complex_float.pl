@@ -109,6 +109,9 @@ $result_tree_text{'complex_float'} = '*document_root C5
     {\\n}
    {empty_line:\\n}
    *@c C1
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
    >SOURCEMARKS
    >ignored_conditional_block<1>
     >*@ifset C12 l16
@@ -142,7 +145,11 @@ $result_tree_text{'complex_float'} = '*document_root C5
       >|spaces_after_argument:
        >|{spaces_after_argument:\\n}
        >{ifset}
-    {rawline_arg: makeinfo --docbook segfaults\\n}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {makeinfo --docbook segfaults}
    {empty_line:\\n}
    *paragraph C2
     {An index entry\\n}

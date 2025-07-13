@@ -77,7 +77,10 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
   *@insertcopying C1 l7
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefnnewline C1 l9
   |INFO
@@ -95,7 +98,10 @@ $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
   *@insertcopying C1 l11
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l13 {Top}
  |INFO

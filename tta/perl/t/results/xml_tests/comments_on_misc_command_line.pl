@@ -17,7 +17,14 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: setfilename (text)\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{setfilename (text)}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {comments_on_misc_command_line.info}
@@ -31,7 +38,14 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: definfoenclose (number)\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{definfoenclose (number)}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {phoo,;,:}
@@ -46,16 +60,51 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: c (number)\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{c (number)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {none}
   *@raisesections C1
-   {rawline_arg: @c raisesections (skipline)\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg
+   |INFO
+   |comment_at_end:
+    |*@c C1
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{raisesections (skipline)}
   *@insertcopying C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument:  }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:  @comment  (noarg)\\n}
+   *line_arg
+   |INFO
+   |comment_at_end:
+    |*@comment C1
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument:  }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{(noarg)}
   *@pagesizes C1 l6
   |INFO
   |spaces_before_argument:
@@ -64,7 +113,14 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: pagesizes  (line)\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{pagesizes  (line)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     {200mm}
@@ -76,7 +132,14 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: everyheading (lineraw)\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{everyheading (lineraw)}
    |spaces_after_argument:
     |{spaces_after_argument: }
     *@thispage
@@ -87,7 +150,14 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
   *@indent l9
   {ignorable_spaces_after_command: }
   *@c C1
-   {rawline_arg: indent (skipspace)\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {indent (skipspace)}
   *paragraph C1
   |EXTRA
   |indent:{1}
@@ -135,8 +205,8 @@ $result_headings_list{'comments_on_misc_command_line'} = '';
 $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info" spaces="  ">comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->
 <definfoenclose spaces=" " command="phoo" open=";" close=":" line="phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
 <firstparagraphindent spaces=" " value="none" line="none @c c (number)"></firstparagraphindent><!-- c c (number) -->
-<raisesections line=" @c raisesections (skipline)"></raisesections>
-<insertcopying line="  @comment  (noarg)"></insertcopying>
+<raisesections line=" "></raisesections><!-- c raisesections (skipline) -->
+<insertcopying line="  "></insertcopying><!-- comment  (noarg) -->
 <pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->
 <everyheading spaces=" "><thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
 

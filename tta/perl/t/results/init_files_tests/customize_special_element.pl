@@ -13,11 +13,17 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
    *@contents C1 l2
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    *@shortcontents C1 l3
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l5 {Top}
  |INFO

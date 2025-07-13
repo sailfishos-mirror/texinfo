@@ -25,7 +25,14 @@ $result_tree_text{'good_space_comment'} = '*document_root C1
       |INFO
       |comment_at_end:
        |*@c C1
-        |{rawline_arg: space comment\\n}
+       ||INFO
+       ||spaces_before_argument:
+        ||{spaces_before_argument: }
+        |*line_arg C1
+        ||INFO
+        ||spaces_after_argument:
+         ||{spaces_after_argument:\\n}
+         |{space comment}
       |spaces_after_argument:
        |{spaces_after_argument:  }
        {0 1}

@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'value_node_directions'} = '*document_root C7
  *before_node_section C2
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ a--foo bar\\n}
-   {rawline_arg:a--foo}
-   {rawline_arg:bar}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{a--foo|bar}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {a--foo bar}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO

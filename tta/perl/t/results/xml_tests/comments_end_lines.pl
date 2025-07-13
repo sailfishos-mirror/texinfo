@@ -29,7 +29,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comment itemize\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comment itemize}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      {itemize}
@@ -52,7 +59,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {enumerate}
@@ -88,7 +102,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: table\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{table}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {table}
@@ -111,7 +132,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: quot no arg\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{quot no arg}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {quotation}
@@ -134,7 +162,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {group}
@@ -157,7 +192,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {example}
@@ -207,7 +249,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {multitable}
@@ -242,7 +291,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      {float}
@@ -265,7 +321,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {flushright}
@@ -288,7 +351,14 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comm\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comm}
     |spaces_after_argument:
      |{spaces_after_argument: }
      {raggedright}

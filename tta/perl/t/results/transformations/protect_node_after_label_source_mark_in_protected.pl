@@ -26,11 +26,20 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
      |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ punct ,.\\n}
-   {rawline_arg:punct}
-   {rawline_arg:,.}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{punct|,.}
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {punct }
+    *@asis C1
+     *brace_container C1
+      {,.}
   {empty_line:\\n}
   *paragraph C5
    {There is some text }
@@ -62,7 +71,7 @@ $result_texis{'protect_node_after_label_source_mark_in_protected'} = '@macro vvv
 some text .,
 @end macro
 
-@set punct ,.
+@set punct @asis{,.}
 
 There is some text @asis{.,,,..} and after@asis{.}
 ';

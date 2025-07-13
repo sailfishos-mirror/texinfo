@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  *before_node_section C2
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ text atext\\n}
-   {rawline_arg:text}
-   {rawline_arg:atext}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{text|atext}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {text atext}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO
@@ -55,8 +61,6 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  |is_target:{1}
  |node_number:{2}
  |normalized:{chap}
- >SOURCEMARKS
- >value_expansion<end;43>
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -86,20 +90,46 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *paragraph C3
    {Text line followed by a comment on the same line and another below }
    *@c C1
-    {rawline_arg: comment @value{text}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment @value{text}}
    *@c C1
-    {rawline_arg: comment @value{text}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment @value{text}}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ pagesizes_arg 200mm,150mm\\n}
-   {rawline_arg:pagesizes_arg}
-   {rawline_arg:200mm,150mm}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{pagesizes_arg|200mm,150mm}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {pagesizes_arg 200mm,150mm}
+  *@set C1
   |INFO
-  |arg_line:{ afourpaper_macro @afourpaper\\n}
-   {rawline_arg:afourpaper_macro}
-   {rawline_arg:@afourpaper}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{afourpaper_macro|@afourpaper}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {afourpaper_macro @afourpaper}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -135,7 +165,6 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    >*@value C1
     >*brace_container C1
      >{afourpaper_macro}
-  >value_expansion<end;4>
    *line_arg C1
    |INFO
    |spaces_after_argument:
@@ -144,7 +173,12 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;3><p:11>
   *@afourpaper C1 l19
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;4>
   *@headings C1 l20
   |INFO
   |spaces_before_argument:
@@ -193,11 +227,17 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
        >{text}
     >value_expansion<end;7><p:36>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ need_arg 0.1\\n}
-   {rawline_arg:need_arg}
-   {rawline_arg:0.1}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{need_arg|0.1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {need_arg 0.1}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;2><p:1>
@@ -239,34 +279,57 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;8><p:3>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ raisesections_macro @raisesections\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{raisesections_macro|@raisesections}
   >SOURCEMARKS
   >value_expansion<start;9>{@raisesections}
    >*@value C1
     >*brace_container C1
      >{raisesections_macro}
-  >value_expansion<end;9>
-   {rawline_arg:raisesections_macro}
-   {rawline_arg:@raisesections}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {raisesections_macro @raisesections}
   *@raisesections C1
-   {rawline_arg:\\n}
-  *@set C2
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;9>
+  *@set C1
   |INFO
-  |arg_line:{ lowersections_macro @lowersections\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{lowersections_macro|@lowersections}
   >SOURCEMARKS
   >value_expansion<start;10>{@lowersections}
    >*@value C1
     >*brace_container C1
      >{lowersections_macro}
-  >value_expansion<end;10>
-   {rawline_arg:lowersections_macro}
-   {rawline_arg:@lowersections}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {lowersections_macro @lowersections}
   *@lowersections C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;10>
   {empty_line:\\n}
   *@c C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   >SOURCEMARKS
   >expanded_conditional_command<start;3>
    >*@ifnottex C1 l36
@@ -275,7 +338,11 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >|INFO
      >|spaces_after_argument:
       >|{spaces_after_argument:\\n}
-   {rawline_arg: tex error: Use of \\ doesn\'t match its definition.\\n}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {tex error: Use of \\ doesn\'t match its definition.}
   *paragraph C3
    *@@
    {definfoenclose phoo,//,\\\\  }
@@ -315,11 +382,17 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
       >|{spaces_after_argument:\\n}
       >{ifnottex}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ definfoenclose_name phi\\n}
-   {rawline_arg:definfoenclose_name}
-   {rawline_arg:phi}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{definfoenclose_name|phi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {definfoenclose_name phi}
   *@definfoenclose C1 l43
   |INFO
   |spaces_before_argument:
@@ -350,16 +423,28 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      {bar}
    {\\n}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ strong_macro @strong\\n}
-   {rawline_arg:strong_macro}
-   {rawline_arg:@strong}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{strong_macro|@strong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {strong_macro @strong}
+  *@set C1
   |INFO
-  |arg_line:{ strong_name strong\\n}
-   {rawline_arg:strong_name}
-   {rawline_arg:strong}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{strong_name|strong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {strong_name strong}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;12><p:1>{@strong}
@@ -427,11 +512,17 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      {something before kbdinputstyle}
    {\\n}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ kbdinputstyle_arg code\\n}
-   {rawline_arg:kbdinputstyle_arg}
-   {rawline_arg:code}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{kbdinputstyle_arg|code}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {kbdinputstyle_arg code}
   *@kbdinputstyle C1 l59
   |INFO
   |spaces_before_argument:
@@ -485,31 +576,61 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      |{spaces_after_argument:\\n}
      {example}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ asis_arg asis\\n}
-   {rawline_arg:asis_arg}
-   {rawline_arg:asis}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{asis_arg|asis}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {asis_arg asis}
+  *@set C1
   |INFO
-  |arg_line:{ zero 0\\n}
-   {rawline_arg:zero}
-   {rawline_arg:0}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{zero|0}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {zero 0}
+  *@set C1
   |INFO
-  |arg_line:{ none_arg none\\n}
-   {rawline_arg:none_arg}
-   {rawline_arg:none}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{none_arg|none}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {none_arg none}
+  *@set C1
   |INFO
-  |arg_line:{ four 4\\n}
-   {rawline_arg:four}
-   {rawline_arg:4}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{four|4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {four 4}
+  *@set C1
   |INFO
-  |arg_line:{ six 6\\n}
-   {rawline_arg:six}
-   {rawline_arg:6}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{six|6}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {six 6}
   {empty_line:\\n}
   *@paragraphindent C1 l73
   |INFO
@@ -626,16 +747,28 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;22><p:1>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ end_arg end\\n}
-   {rawline_arg:end_arg}
-   {rawline_arg:end}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{end_arg|end}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {end_arg end}
+  *@set C1
   |INFO
-  |arg_line:{ separate_arg separate \\n}
-   {rawline_arg:separate_arg}
-   {rawline_arg:separate}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{separate_arg|separate}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {separate_arg separate }
   *@footnotestyle C1 l82
   |INFO
   |spaces_before_argument:
@@ -673,11 +806,17 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;24><p:8>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ latin1 ISO-8859-1\\n}
-   {rawline_arg:latin1}
-   {rawline_arg:ISO-8859-1}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{latin1|ISO-8859-1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {latin1 ISO-8859-1}
   *@documentencoding C1 l86
   |INFO
   |spaces_before_argument:
@@ -699,16 +838,28 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;25><p:10>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ en en\\n}
-   {rawline_arg:en}
-   {rawline_arg:en}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{en|en}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {en en}
+  *@set C1
   |INFO
-  |arg_line:{ documentlanguage_command @documentlanguage\\n}
-   {rawline_arg:documentlanguage_command}
-   {rawline_arg:@documentlanguage}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{documentlanguage_command|@documentlanguage}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {documentlanguage_command @documentlanguage}
   {empty_line:\\n}
   *paragraph C2
    {documentlanguage }
@@ -755,16 +906,28 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      {en}
    {line following documentlanguage\\n}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ on_arg on\\n}
-   {rawline_arg:on_arg}
-   {rawline_arg:on}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{on_arg|on}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {on_arg on}
+  *@set C1
   |INFO
-  |arg_line:{ off_arg off\\n}
-   {rawline_arg:off_arg}
-   {rawline_arg:off}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{off_arg|off}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {off_arg off}
   *@frenchspacing C1 l99
   |INFO
   |spaces_before_argument:
@@ -805,12 +968,25 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;29><p:3>
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: accepts 10 or 11\\n}
-  *@set C2
   |INFO
-  |arg_line:{ ten 10\\n}
-   {rawline_arg:ten}
-   {rawline_arg:10}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {accepts 10 or 11}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{ten|10}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {ten 10}
   *@fonttextsize C1 l104
   |INFO
   |spaces_before_argument:
@@ -831,19 +1007,45 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;30><p:2>
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: accept false or true\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {accept false or true}
   *@c C1
-   {rawline_arg: makeinfo don\'t care about the arg and remove the remaining of the line\\n}
-  *@set C2
   |INFO
-  |arg_line:{ false_arg false\\n}
-   {rawline_arg:false_arg}
-   {rawline_arg:false}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {makeinfo don\'t care about the arg and remove the remaining of the line}
+  *@set C1
   |INFO
-  |arg_line:{ true_arg true\\n}
-   {rawline_arg:true_arg}
-   {rawline_arg:true}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{false_arg|false}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {false_arg false}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{true_arg|true}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {true_arg true}
   *@allowcodebreaks C1 l110
   |INFO
   |spaces_before_argument:
@@ -884,25 +1086,41 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;32><p:4>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ page_macro @page\\n}
-   {rawline_arg:page_macro}
-   {rawline_arg:@page}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{page_macro|@page}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {page_macro @page}
+  *@set C1
   |INFO
-  |arg_line:{ noindent_macro @noindent\\n}
-   {rawline_arg:noindent_macro}
-   {rawline_arg:@noindent}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{noindent_macro|@noindent}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {noindent_macro @noindent}
+  *@set C1
   |INFO
-  |arg_line:{ refill_macro @refill\\n}
-   {rawline_arg:refill_macro}
-   {rawline_arg:@refill}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{refill_macro|@refill}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {refill_macro @refill}
   {empty_line:\\n}
   *paragraph C2
-  >SOURCEMARKS
-  >value_expansion<end;33>
    *@@
    {page }
    >SOURCEMARKS
@@ -911,7 +1129,16 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*brace_container C1
       >{page_macro}
   *@page C1
-   {rawline_arg: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   |>SOURCEMARKS
+   |>value_expansion<end;33>
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@@noindent @value{noindent_macro} @@refill @value{refill_macro} something}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;34><p:1>{@noindent}
@@ -948,15 +1175,23 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
    >value_expansion<end;36>
    {noindent after space at beginning of line\\n}
   *@page C1
-   {rawline_arg:         page at beginning of line\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument:         }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {page at beginning of line}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   *paragraph C1
    {After page on it\'s own line.\\n}
   {empty_line:\\n}
   *paragraph C2
-  >SOURCEMARKS
-  >value_expansion<end;37>
    *@@
    {page }
    >SOURCEMARKS
@@ -965,37 +1200,69 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >*brace_container C1
       >{page_macro}
   *@page C1
-   {rawline_arg:   @@noindent @value{noindent_macro}    @@refill @value{refill_macro}\\n}
-  {empty_line:\\n}
-  *@set C2
   |INFO
-  |arg_line:{ contents_macro @contents\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument:   }
+   |>SOURCEMARKS
+   |>value_expansion<end;37>
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@@noindent @value{noindent_macro}    @@refill @value{refill_macro}}
+  {empty_line:\\n}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{contents_macro|@contents}
   >SOURCEMARKS
   >value_expansion<start;38>{@contents}
    >*@value C1
     >*brace_container C1
      >{contents_macro}
-  >value_expansion<end;38>
-   {rawline_arg:contents_macro}
-   {rawline_arg:@contents}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {contents_macro @contents}
   *@contents C1 l131
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;38>
   {empty_line:\\n}
   *@vskip C1
-   {rawline_arg: @value{text}\\n}
-  {empty_line:\\n}
-  *@set C2
   |INFO
-  |arg_line:{ exdent_macro @exdent\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@value{text}}
+  {empty_line:\\n}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{exdent_macro|@exdent}
   >SOURCEMARKS
   >value_expansion<start;39>{@exdent}
    >*@value C1
     >*brace_container C1
      >{exdent_macro}
-   {rawline_arg:exdent_macro}
-   {rawline_arg:@exdent}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {exdent_macro @exdent}
   *@exdent C1 l136
   |INFO
   |spaces_before_argument:
@@ -1008,11 +1275,17 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     |{spaces_after_argument:\\n}
     {line after exdent}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ two 2\\n}
-   {rawline_arg:two}
-   {rawline_arg:2}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{two|2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {two 2}
   *@sp C1 l139
   |INFO
   |spaces_before_argument:
@@ -1032,51 +1305,83 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >SOURCEMARKS
     >value_expansion<end;40><p:1>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ result_macro @result\\n}
-   {rawline_arg:result_macro}
-   {rawline_arg:@result}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{result_macro|@result}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {result_macro @result}
   {empty_line:\\n}
   *@clickstyle C1 l143
   |INFO
-  |arg_line:{ @value{result_macro}\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@value}
+  |misc_args:A{@value}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@value{result_macro}}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;41><p:1>{@contents}
    >*@value C1
     >*brace_container C1
      >{contents_macro}
-  >value_expansion<end;41><p:1>
   *@contents C1 l145
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;41>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ shortcontents_macro @shortcontents\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{shortcontents_macro|@shortcontents}
   >SOURCEMARKS
   >value_expansion<start;42>{@shortcontents}
    >*@value C1
     >*brace_container C1
      >{shortcontents_macro}
-  >value_expansion<end;42>
-   {rawline_arg:shortcontents_macro}
-   {rawline_arg:@shortcontents}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {shortcontents_macro @shortcontents}
   *@shortcontents C1 l148
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    |>SOURCEMARKS
+    |>value_expansion<end;42>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ bye_macro @bye\\n}
-   {rawline_arg:bye_macro}
-   {rawline_arg:@bye}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{bye_macro|@bye}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {bye_macro @bye}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;43><p:1>{@bye}
@@ -1084,7 +1389,12 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >*brace_container C1
      >{bye_macro}
  *@bye C1
-  {rawline_arg:}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:}
+   |>SOURCEMARKS
+   |>value_expansion<end;43>
 ';
 
 

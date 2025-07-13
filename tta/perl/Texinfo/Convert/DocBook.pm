@@ -728,6 +728,31 @@ sub _protect_text($$)
   return $result;
 }
 
+sub _format_comment($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  # TODO simplify, use only the text, not the spaces 
+  my $command_text = '';
+  if (defined($element->{'info'})
+      and defined($element->{'info'}->{'spaces_before_argument'})) {
+    $command_text .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
+  }
+  if ($element->{'contents'}) {
+    my $line_arg = $element->{'contents'}->[0];
+    if ($line_arg->{'contents'}) {
+      $command_text .= $line_arg->{'contents'}->[0]->{'text'};
+    }
+    if (defined($line_arg->{'info'})
+        and defined($line_arg->{'info'}->{'spaces_after_argument'})) {
+      $command_text
+        .= $line_arg->{'info'}->{'spaces_after_argument'}->{'text'};
+    }
+  }
+  return $self->xml_comment($command_text);
+}
+
 sub _format_comment_or_end_line($$)
 {
   my $self = shift;
@@ -737,7 +762,7 @@ sub _format_comment_or_end_line($$)
    = $self->comment_or_end_line_nonxs($element);
 
   if ($comment) {
-    return $self->xml_comment($comment->{'contents'}->[0]->{'text'});
+    return _format_comment($self, $comment);
   } else {
     return $end_line;
   }
@@ -1137,7 +1162,7 @@ sub _convert($$;$)
           }
         }
       } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-        return $self->xml_comment($element->{'contents'}->[0]->{'text'})
+        return _format_comment($self, $element);
       } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
         if (!$Texinfo::Commands::root_commands{$cmdname}) {
           my ($arg, $end_line)

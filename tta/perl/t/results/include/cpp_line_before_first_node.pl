@@ -18,7 +18,10 @@ $result_tree_text{'cpp_line_before_first_node'} = '*document_root C2
    {aaa\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

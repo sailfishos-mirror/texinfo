@@ -77,7 +77,14 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     {cp}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
   *@menu C3 char_latin2_latin2_in_refs.texi:l13
    *arguments_line C1
     *block_line_arg
@@ -151,7 +158,10 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

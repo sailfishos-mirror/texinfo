@@ -20,7 +20,14 @@ $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
    *table_entry C1
     *table_term C2
      *@c C1
-      {rawline_arg: comment\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment}
      *@itemx C1 l3
      |INFO
      |spaces_before_argument:

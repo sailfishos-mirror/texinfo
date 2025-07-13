@@ -4380,10 +4380,9 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'vskip') {
-      if ($element->{'contents'}) {
-        # no need for space in front and end of line they are in the
-        # argument
-        $result .= "\\vskip$element->{'contents'}->[0]->{'text'}";
+      if ($element->{'contents'}->[0]->{'contents'}) {
+        $result .= "\\vskip "
+          .$element->{'contents'}->[0]->{'contents'}->[0]->{'text'}."\n";
       }
       return $result;
     } elsif ($cmdname eq 'contents') {

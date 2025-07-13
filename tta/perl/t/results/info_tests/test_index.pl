@@ -832,7 +832,10 @@ $result_tree_text{'test_index'} = '*document_root C13
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

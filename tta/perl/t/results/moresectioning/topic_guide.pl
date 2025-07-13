@@ -542,7 +542,10 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      {menu}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

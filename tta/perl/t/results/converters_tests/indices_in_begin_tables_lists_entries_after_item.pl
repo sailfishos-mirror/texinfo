@@ -80,7 +80,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      *@minus indices_in_begin_tables_lists.texi:l9
    *before_item C1
     *@c C1
-     {rawline_arg: comment in itemize\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment in itemize}
    *@item C3 indices_in_begin_tables_lists.texi:l12
    |EXTRA
    |item_number:{1}
@@ -183,7 +190,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-     {rawline_arg: comment in itemize\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment in itemize}
     *paragraph C1
      {T--ext before items.\\n}
    *@item C3 indices_in_begin_tables_lists.texi:l26
@@ -228,7 +242,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    *before_item C2
     {empty_line:\\n}
     *@comment C1
-     {rawline_arg: comment before first item in enumerate\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment before first item in enumerate}
    *@item C2 indices_in_begin_tables_lists.texi:l32
    |EXTRA
    |item_number:{1}
@@ -440,7 +461,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
       |{spaces_after_argument:\\n}
       {first idx}
     *@comment C1
-     {rawline_arg: comment\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l63
     |INFO
     |command_name:{cindex}
@@ -494,7 +522,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    *table_entry C2
     *table_term C2
      *@c C1
-      {rawline_arg: comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l70
      |INFO
      |spaces_before_argument:
@@ -548,7 +583,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        {aasis--b}
      *inter_item C1
       *@c C1
-       {rawline_arg: comment between item and itemx\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment between item and itemx}
      *@itemx C1 indices_in_begin_tables_lists.texi:l77
      |INFO
      |spaces_before_argument:
@@ -615,9 +657,23 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
         |{spaces_after_argument:\\n}
         {index entry between item and itemx}
       *@c C1
-       {rawline_arg: and a comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {and a comment}
       *@comment C1
-       {rawline_arg: and another comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {and another comment}
      *@itemx C1 indices_in_begin_tables_lists.texi:l86
      |INFO
      |spaces_before_argument:
@@ -650,7 +706,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      *inter_item C3
       {empty_line:\\n}
       *@c C1
-       {rawline_arg: comment between lines\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment between lines}
       {empty_line:\\n}
      *@itemx C1 indices_in_begin_tables_lists.texi:l92
      |INFO
@@ -667,7 +730,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
     *table_definition C2
      {empty_line:\\n}
      *@c C1
-      {rawline_arg: comment at end\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment at end}
    *@end C1 indices_in_begin_tables_lists.texi:l95
    |INFO
    |spaces_before_argument:
@@ -706,7 +776,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        |{spaces_after_argument: \\n}
        {cindex in table}
      *@c C1
-      {rawline_arg: comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l100
      |INFO
      |spaces_before_argument:
@@ -806,7 +883,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        |{spaces_after_argument: \\n}
        {samp cindex in table}
      *@c C1
-      {rawline_arg: samp comment in table\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {samp comment in table}
      *@item C1 indices_in_begin_tables_lists.texi:l113
      |INFO
      |spaces_before_argument:
@@ -1051,7 +1135,14 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        |{spaces_after_argument:\\n}
        {cindex first}
      *@c C1
-      {rawline_arg: commant\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {commant}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l145
      |INFO
      |command_name:{cindex}
@@ -1169,7 +1260,10 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
     {fn}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

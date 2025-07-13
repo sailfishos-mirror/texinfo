@@ -98,7 +98,14 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
      |INFO
      |comment_at_end:
       |*@c C1
-       |{rawline_arg: comment\\n}
+      ||INFO
+      ||spaces_before_argument:
+       ||{spaces_before_argument: }
+       |*line_arg C1
+       ||INFO
+       ||spaces_after_argument:
+        ||{spaces_after_argument:\\n}
+        |{comment}
      |spaces_after_argument:
       |{spaces_after_argument: }
       {other}

@@ -31,11 +31,17 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
      {raw: ifset first }
    {.\\n}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ aaa\\n}
-   {rawline_arg:aaa}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{aaa|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {aaa}
   {empty_line:\\n}
   *paragraph C2
    *@inlineifclear C2 l7
@@ -122,7 +128,7 @@ $result_converted{'xml'}->{'inlineifsetifclear'} = '<para><inlineifclear><inline
 </para>
 <para><inlineifset><inlineifsetformat>aaa</inlineifsetformat><inlineifsetcontent> ifset first </inlineifsetcontent></inlineifset>.
 </para>
-<set name="aaa" line=" aaa"></set>
+<set name="aaa" spaces=" ">aaa</set>
 
 <para><inlineifclear><inlineifclearformat>aaa</inlineifclearformat><inlineifclearcontent> ifclear second </inlineifclearcontent></inlineifclear>.
 </para>

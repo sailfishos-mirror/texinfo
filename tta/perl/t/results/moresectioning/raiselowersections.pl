@@ -10,7 +10,14 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   *paragraph C2
    {\\input texinfo }
    *@c C1
-    {rawline_arg: -*-texinfo-*-\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {-*-texinfo-*-}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |INFO
@@ -159,14 +166,23 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{spaces_after_argument:\\n}
      {menu}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ do-top\\n}
-   {rawline_arg:do-top}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{do-top|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {do-top}
   {empty_line:\\n}
   *@lowersections C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;2><p:1>
@@ -195,7 +211,14 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   *paragraph C2
    {\\input texinfo }
    *@c C1
-    {rawline_arg: -*-texinfo-*-\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {-*-texinfo-*-}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
@@ -444,12 +467,22 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      >|{spaces_after_argument:\\n}
      >{ifclear}
   *@raisesections C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clear C1
   |INFO
-  |arg_line:{ do-top\\n}
-   {rawline_arg:do-top}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{do-top}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {do-top}
   {empty_line:\\n}
  *@node C1 l30 {Second chapter}
  |INFO
@@ -486,9 +519,15 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   *@contents C1 l35
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

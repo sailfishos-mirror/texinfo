@@ -105,7 +105,10 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
   *@contents C1 contents_in_middle_chapter.texi:l16
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 contents_in_middle_chapter.texi:l18
    *arguments_line C1
@@ -169,7 +172,10 @@ $result_tree_text{'contents_in_middle_chapter'} = '*document_root C8
    {Section.\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

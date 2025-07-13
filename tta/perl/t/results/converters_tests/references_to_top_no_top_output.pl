@@ -119,7 +119,10 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   *@insertcopying C1 l20
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l22
   |INFO

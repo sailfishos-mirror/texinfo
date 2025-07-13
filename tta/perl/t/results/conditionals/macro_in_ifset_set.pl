@@ -8,11 +8,17 @@ use utf8;
 $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
  *before_node_section C9
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ a\\n}
-   {rawline_arg:a}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{a|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {a}
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
@@ -47,8 +53,15 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
       >{a}
   *@unmacro C1
   |INFO
-  |arg_line:{ truc\\n}
-   {rawline_arg:truc}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{truc}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {truc}
   *@macro C3 l10
   |EXTRA
   |macro_name:{truc}

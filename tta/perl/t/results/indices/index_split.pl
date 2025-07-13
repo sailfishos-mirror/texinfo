@@ -907,7 +907,10 @@ $result_tree_text{'index_split'} = '*document_root C21
    {Second chapter\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

@@ -12,41 +12,167 @@ $result_tree_text{'documentlanguage_option'} = '*document_root C6
    {text_before_beginning:\\n}
   *preamble_before_content C21
    *@c C1
-    {rawline_arg: this document is setup to detect when the documentlanguage was not\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {this document is setup to detect when the documentlanguage was not}
    *@c C1
-    {rawline_arg: set according to command line, but according to document.  This\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {set according to command line, but according to document.  This}
    *@c C1
-    {rawline_arg: is important to test that in the Parser, as converters initialized with\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {is important to test that in the Parser, as converters initialized with}
    *@c C1
-    {rawline_arg: Texinfo::Convert::Converter converter() and with values accessed by\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {Texinfo::Convert::Converter converter() and with values accessed by}
    *@c C1
-    {rawline_arg: get_conf() will use the command line.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {get_conf() will use the command line.}
    *@c C1
-    {rawline_arg: This is tricky to demonstrate, as documentlanguage is not used much\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {This is tricky to demonstrate, as documentlanguage is not used much}
    *@c C1
-    {rawline_arg: in Parser.  It is used in two places to set the documentlanguage extra\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {in Parser.  It is used in two places to set the documentlanguage extra}
    *@c C1
-    {rawline_arg: value, \\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {value, }
    *@c C1
-    {rawline_arg: 1) for the untranslated type, for the prefix of @def* and \\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {1) for the untranslated type, for the prefix of @def* and }
    *@c C1
-    {rawline_arg: 2) for the @def* line commands with added index entries that need to \\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {2) for the @def* line commands with added index entries that need to }
    *@c C1
-    {rawline_arg:    be translated, like \'{name} of {class}\'.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument:    }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {be translated, like \'{name} of {class}\'.}
    *@c C1
-    {rawline_arg: The untranslated type is in general translated in the converters\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {The untranslated type is in general translated in the converters}
    *@c C1
-    {rawline_arg: without using the extra documentlanguage key value, so getting it \\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {without using the extra documentlanguage key value, so getting it }
    *@c C1
-    {rawline_arg: wrong does not have any consequence.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {wrong does not have any consequence.}
    *@c C1
-    {rawline_arg: The @def* translated added indices are translated relatively early,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {The @def* translated added indices are translated relatively early,}
    *@c C1
-    {rawline_arg: before the converter, and the extra documentlanguage key is used to\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {before the converter, and the extra documentlanguage key is used to}
    *@c C1
-    {rawline_arg: get the language, so if the wrong language is set, it will show up\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {get the language, so if the wrong language is set, it will show up}
    *@c C1
-    {rawline_arg: in the index generated by @printindex.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {in the index generated by @printindex.}
    {empty_line:\\n}
    *@documentlanguage C1 documentlanguage.texi:l22
    |INFO
@@ -214,7 +340,10 @@ $result_tree_text{'documentlanguage_option'} = '*document_root C6
     {fn}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

@@ -369,7 +369,14 @@ $result_tree_text{'accent'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: arg is command -- @dotless{i} is special-cased for HTML\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {arg is command -- @dotless{i} is special-cased for HTML}
   *paragraph C3
    {should be dotless i`: }
    *@` C1 l63
@@ -407,7 +414,14 @@ $result_tree_text{'accent'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: arg is command -- @dotless{j}\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {arg is command -- @dotless{j}}
   *paragraph C3
    {should be dotless j`: }
    *@` C1 l72

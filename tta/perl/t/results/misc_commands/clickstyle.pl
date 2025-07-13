@@ -9,10 +9,16 @@ $result_tree_text{'clickstyle'} = '*document_root C1
  *before_node_section C8
   *@clickstyle C1 l1
   |INFO
-  |arg_line:{ @result\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@result}
   {empty_line:\\n}
   *paragraph C3
    {A }
@@ -23,11 +29,14 @@ $result_tree_text{'clickstyle'} = '*document_root C1
    { (result).\\n}
   {empty_line:\\n}
   *@clickstyle C1 l5
-  |INFO
-  |arg_line:{@equiv\\n}
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:@equiv}
+  |misc_args:A{@equiv}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@equiv}
   {empty_line:\\n}
   *paragraph C3
    {A }

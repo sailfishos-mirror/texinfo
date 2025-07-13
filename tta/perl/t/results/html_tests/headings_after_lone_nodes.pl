@@ -128,12 +128,22 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
     {Describe Other}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: comment\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {comment}
   {empty_line:\\n}
   *@contents C1 l20
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@frenchspacing C1 l22
   |INFO

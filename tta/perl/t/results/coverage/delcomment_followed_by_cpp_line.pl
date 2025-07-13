@@ -12,9 +12,23 @@ $result_tree_text{'delcomment_followed_by_cpp_line'} = '*document_root C2
    {text_before_beginning:\\n}
   *preamble_before_content C3
    *@c C1
-    {rawline_arg: this tests both the del comment and a file without\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {this tests both the del comment and a file without}
    *@c C1
-    {rawline_arg: element.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {element.}
    {empty_line:\\n}
   *paragraph C1
    {#line 46 "a_file_after_del_comment"\\n}
@@ -40,7 +54,10 @@ $result_tree_text{'delcomment_followed_by_cpp_line'} = '*document_root C2
   {empty_line:\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

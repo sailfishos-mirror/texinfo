@@ -8,7 +8,10 @@ use utf8;
 $result_tree_text{'unknown_node_in_menu_novalidate'} = '*document_root C2
  *before_node_section C2
   *@novalidate C1 l1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C3 l3 {first}
  |INFO

@@ -33,6 +33,7 @@
 #include "builtin_commands.h"
 /* for whitespace_chars read_flag_len item_line_parent */
 #include "utils.h"
+#include "manipulate_tree.h"
 #include "command_stack.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
@@ -126,7 +127,7 @@ in_paragraph (ELEMENT *current)
 }
 
 /* Return end of argument before comment and whitespace. */
-const char *
+static const char *
 skip_to_comment (const char *text, int *has_comment)
 {
   const char *q = text;
@@ -153,6 +154,15 @@ skip_to_comment (const char *text, int *has_comment)
         }
     }
 
+  return q;
+}
+
+/* Return end of argument before comment and whitespace. */
+static const char *
+skip_to_argument_end (const char *text, int *has_comment)
+{
+  const char *q = skip_to_comment (text, has_comment);
+
   /* q is now either at the end of the string, or at the start of a comment.
      Find the start of any trailing whitespace. */
   while (strchr (whitespace_chars, q[-1]))
@@ -167,7 +177,7 @@ const char *
 skip_to_comment_if_comment_or_spaces (const char *after_argument,
                                       int *has_comment)
 {
-  const char *r = skip_to_comment (after_argument, has_comment);
+  const char *r = skip_to_argument_end (after_argument, has_comment);
 
   if (!strchr (whitespace_chars, *after_argument)
       && *after_argument != '@')
@@ -183,23 +193,25 @@ skip_to_comment_if_comment_or_spaces (const char *after_argument,
 }
 
 /* Process argument to raw line command. */
-static ELEMENT_LIST *
+static STRING_LIST *
 parse_rawline_command (const char *line, enum command_id cmd,
-                       int *has_comment, int *special_arg)
+                       const char **comment_text, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
-  ELEMENT *E = new_text_element (ET_rawline_arg); \
-  text_append_n (E->e.text, string, len); \
-  add_to_element_list (args, E); \
+  tmp_string = strndup (string, len); \
+  add_string (tmp_string, args); \
+  free (tmp_string); \
 } while (0)
-
-  ELEMENT_LIST *args = new_list ();
+  char *tmp_string;
+  STRING_LIST *args = 0;
   const char *p = 0;
   const char *q = 0;
   const char *r = 0;
   char *value = 0;
 
   *special_arg = 1;
+  *comment_text = 0;
+  int has_comment = 0;
 
   switch (cmd)
     {
@@ -217,7 +229,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
       if (q)
         {
         /* see also read_flag_len function in utils.c */
-          r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+          r = skip_to_comment_if_comment_or_spaces (q, &has_comment);
           if (!r)
             goto set_invalid;
         }
@@ -226,6 +238,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
               without new line */
         q = p + strlen (p);
 
+      args = new_string_list ();
       ADD_ARG(p, q - p); /* name */
 
       p = q + strspn (q, whitespace_chars);
@@ -236,8 +249,11 @@ parse_rawline_command (const char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_parser_value_parsed_document (args->list[0]->e.text->text,
-                                          args->list[1]->e.text->text);
+      store_parser_value_parsed_document (args->list[0],
+                                          args->list[1]);
+
+      if (has_comment)
+        *comment_text = r + strspn(r, whitespace_chars);
 
       break;
     set_no_name:
@@ -260,14 +276,18 @@ parse_rawline_command (const char *line, enum command_id cmd,
       if (!flag_len)
         goto clear_invalid;
       q = p + flag_len;
-      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      r = skip_to_comment_if_comment_or_spaces (q, &has_comment);
       if (!r || r != q)
         goto clear_invalid; /* Trailing argument. */
 
+      args = new_string_list ();
       ADD_ARG (p, flag_len);
       flag = strndup (p, flag_len);
       clear_parser_value_parsed_document (flag);
       free (flag);
+
+      if (has_comment)
+        *comment_text = r + strspn(r, whitespace_chars);
 
       break;
     clear_no_name:
@@ -287,13 +307,18 @@ parse_rawline_command (const char *line, enum command_id cmd,
       value = read_command_name (&q);
       if (!value)
         goto unmacro_badname;
-      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      r = skip_to_comment_if_comment_or_spaces (q, &has_comment);
       if (!r || r != q)
         goto unmacro_badname; /* Trailing argument. */
       delete_macro (value);
+      args = new_string_list ();
       ADD_ARG(value, q - p);
       debug ("UNMACRO %s", value);
       free (value);
+
+      if (has_comment)
+        *comment_text = r + strspn(r, whitespace_chars);
+
       break;
     unmacro_noname:
       line_error ("@unmacro requires a name");
@@ -310,6 +335,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
       value = read_command_name (&q);
       if (!value)
         goto clickstyle_invalid;
+      args = new_string_list ();
       ADD_ARG (p - 1, q - p + 1);
       /* handle as if @alias click=value had been given */
       if (!global_parser_conf.no_user_commands)
@@ -347,7 +373,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
          unallocated */
       if (strlen (q) >= 2 && !memcmp (q, "{}", 2))
         q += 2;
-      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      r = skip_to_comment_if_comment_or_spaces (q, &has_comment);
       if (!r || r != q)
         {
           char *end_line;
@@ -362,6 +388,9 @@ parse_rawline_command (const char *line, enum command_id cmd,
                      command_name(cmd), line_nonl);
           free (line_nonl);
         }
+      else if (has_comment)
+        *comment_text = r + strspn(r, whitespace_chars);
+
       break;
     clickstyle_invalid:
       line_error ("@clickstyle should only accept an @-command as argument, "
@@ -370,7 +399,6 @@ parse_rawline_command (const char *line, enum command_id cmd,
       break;
     default:
       *special_arg = 0;
-      ADD_ARG (line, strlen (line));
     }
 
   return args;
@@ -564,6 +592,146 @@ handle_other_command (ELEMENT *current, const char **line_inout,
   return current;
 }
 
+static ELEMENT *
+new_element_at_begin_reloc (ELEMENT *text_element, size_t leading_len,
+                            enum element_type type)
+{
+  ELEMENT *new_e = new_text_element (type);
+  char *text_text = strdup (text_element->e.text->text);
+  size_t text_len = text_element->e.text->end;
+
+  text_reset (text_element->e.text);
+  text_append_n (text_element->e.text, text_text + leading_len,
+                 text_len - leading_len);
+
+  text_append_n (new_e->e.text, text_text, leading_len);
+
+  free (text_text);
+
+  if (text_element->source_mark_list)
+    {
+      size_t i;
+      size_t leading_len = count_multibyte (new_e->e.text->text);
+      relocate_source_marks (text_element->source_mark_list, new_e,
+                             0, leading_len);
+      if (text_element->source_mark_list->number > 0)
+        {
+          for (i = 0; i < text_element->source_mark_list->number; i++)
+            text_element->source_mark_list->list[i]->position -= leading_len;
+        }
+      else
+        destroy_element_empty_source_mark_list (text_element);
+    }
+  return new_e;
+}
+
+static void
+raw_line_command_arg_spaces (ELEMENT *command_e, ELEMENT *text_element,
+                             ELEMENT *line_args)
+{
+  size_t spaces_len;
+  if (text_element->e.text->text[text_element->e.text->end -1] == '\n')
+    {
+      ELEMENT *spaces_after = new_text_element (ET_spaces_after_argument);
+
+      text_element->e.text->text[text_element->e.text->end -1] = '\0';
+      text_element->e.text->end--;
+
+      text_append_n (spaces_after->e.text, "\n", 1);
+      line_args->elt_info[eit_spaces_after_argument] = spaces_after;
+    }
+  spaces_len = strspn (text_element->e.text->text, whitespace_chars);
+  if (spaces_len > 0)
+    {
+      ELEMENT *spaces_before = new_element_at_begin_reloc (text_element,
+                                 spaces_len, ET_spaces_before_argument);
+      command_e->elt_info[eit_spaces_before_argument] = spaces_before;
+    }
+}
+
+static void
+add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
+                    const char *input_comment_text)
+{
+  size_t comment_byte_len = strlen (input_comment_text);
+  size_t command_len;
+  int has_comment = 0;
+  enum command_id cmd;
+  ELEMENT *comment_e;
+  ELEMENT *comment_line_args = new_element (ET_line_arg);
+  ELEMENT *comment_text_element = new_text_element (ET_normal_text);
+  const char *q;
+  char *comment_text = strndup (input_comment_text, comment_byte_len);
+  if (comment_text[comment_byte_len -1] == '\n')
+    {
+      comment_text[comment_byte_len -1] = '\0';
+      comment_byte_len--;
+    }
+  if (text_element->e.text->text[text_element->e.text->end -1] == '\n')
+    {
+      char *tmp_str;
+
+      text_element->e.text->text[text_element->e.text->end -1] = '\0';
+      text_element->e.text->end--;
+
+      xasprintf (&tmp_str, "%s\n", comment_text);
+      free (comment_text);
+      comment_text = tmp_str;
+    }
+  q = read_comment (comment_text, &has_comment);
+
+  if (!has_comment)
+    bug ("add_comment_at_end: unexpected no comment\n");
+
+  command_len = q - comment_text;
+  if (command_len < 4)
+    cmd = CM_c;
+  else
+    cmd = CM_comment;
+
+  comment_e = new_command_element (ET_line_command, cmd);
+  add_to_element_contents (comment_e, comment_line_args);
+  add_to_element_contents (comment_line_args, comment_text_element);
+
+  text_append (comment_text_element->e.text, q);
+
+  /* remove comment text from initial text and relocate source marks */
+  if (text_element->source_mark_list)
+    {
+      /* the source marks are first relocated with the leading
+         @c/@comment string */
+      size_t comment_len = count_multibyte (comment_text);
+      size_t text_len = count_multibyte (text_element->e.text->text);
+      relocate_source_marks (text_element->source_mark_list,
+                             comment_text_element,
+                             text_len - comment_len, comment_len);
+      destroy_element_empty_source_mark_list (text_element);
+
+      /* now remove the leading comment @-command to keep only comment
+         command argument */
+      if (comment_text_element->source_mark_list)
+        {
+          size_t i;
+          for (i = 0; i < comment_text_element->source_mark_list->number; i++)
+            {
+              SOURCE_MARK *s_mark = text_element->source_mark_list->list[i];
+              if (s_mark->position < command_len)
+                s_mark->position = 0;
+              else
+                s_mark->position -= command_len;
+            }
+        }
+    }
+  text_element->e.text->text[
+      text_element->e.text->end - comment_byte_len] = '\0';
+  text_element->e.text->end -= comment_byte_len;
+
+  raw_line_command_arg_spaces (comment_e, comment_text_element,
+                               comment_line_args);
+
+  line_args->elt_info[eit_comment_at_end] = comment_e;
+}
+
 /* STATUS is set to GET_A_NEW_LINE if we should get a new line after this,
    to FINISHED_TOTALLY if we should stop processing completely. */
 /* data_cmd (used for the information on the command) and cmd (for the
@@ -606,12 +774,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
    */
   if (arg_spec == LINE_lineraw)
     {
-      ELEMENT_LIST *args = 0;
+      STRING_LIST *args = 0;
+      ELEMENT *line_args = new_element (ET_line_arg);
+      ELEMENT *text_element = new_text_element (ET_normal_text);
       enum command_id equivalent_cmd = 0;
-      int has_comment = 0;
+      const char *comment_text = 0;
       int special_arg = 0;
       int ignored = 0;
-      size_t i;
 
       if (cmd == CM_insertcopying)
         {
@@ -628,6 +797,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               p = p->parent;
             }
         }
+      /* prepare tree to gather source marks */
+      add_to_element_contents (line_args, text_element);
+      text_append (text_element->e.text, line);
 
       /* If the current input is the result of a macro expansion,
          it may not be a complete line.  Check for this and acquire the rest
@@ -640,35 +812,29 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
 
           save_src_info = current_source_info;
-          /* REMARK the source marks (mostly end of macro/value expansion) will
-             be associated to the previous element in current, as the command being
-             considered has not been added already, although the end of macro
-             expansion is located after the command opening.  Wrongly placed
-             mark sources are unavoidable, as the line is not parsed as usual
-             and macro/value expansion happen here in advance and not while
-             the remaining of the line is parsed. */
 
-          line2 = new_line (current);
+          line2 = new_line (line_args);
           if (line2)
             {
               line = line2;
               current_source_info = save_src_info;
             }
+          text_reset (text_element->e.text);
+          text_append (text_element->e.text, line);
         }
-
       args = parse_rawline_command (line, cmd,
-                                    &has_comment, &special_arg);
+                                    &comment_text, &special_arg);
 
       /* Handle @set txicodequoteundirected as an
          alternative to @codequoteundirected. */
       if ((cmd == CM_set || cmd == CM_clear)
-          && args->number > 0
-          && args->list[0]->e.text->end > 0)
+          && args && args->number > 0
+          && strlen(args->list[0]) > 0)
         {
-          if (!strcmp (args->list[0]->e.text->text,
+          if (!strcmp (args->list[0],
                        "txicodequoteundirected"))
             equivalent_cmd = CM_codequoteundirected;
-          else if (!strcmp (args->list[0]->e.text->text,
+          else if (!strcmp (args->list[0],
                             "txicodequotebacktick"))
             equivalent_cmd = CM_codequotebacktick;
         }
@@ -676,7 +842,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       if (equivalent_cmd)
         {
           char *arg = 0;
-          ELEMENT *line_args;
+          ELEMENT *removed_text_element;
           ELEMENT *e;
           ELEMENT *spaces_before
             = new_text_element (ET_spaces_before_argument);
@@ -684,6 +850,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           /* put in extra "misc_args" */
           STRING_LIST *args_list = new_string_list ();
           command_e = new_command_element (ET_line_command, equivalent_cmd);
+
+          destroy_strings_list (args);
 
           if (cmd == CM_set)
             arg = "on";
@@ -697,7 +865,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           command_e->e.c->source_info = current_source_info;
 
-          line_args = new_element (ET_line_arg);
           add_to_element_contents (command_e, line_args);
           add_extra_misc_args (command_e, AI_key_misc_args, args_list);
           text_append (spaces_before->e.text, " ");
@@ -705,6 +872,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           text_append (spaces_after->e.text, "\n");
           line_args->elt_info[eit_spaces_after_argument] = spaces_after;
+
+          removed_text_element = pop_element_from_contents (line_args);
+          destroy_element (removed_text_element);
 
           e = new_text_element (ET_normal_text);
           text_append (e->e.text, arg);
@@ -714,25 +884,73 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
       else if (!ignored)
         {
-          size_t i;
-          size_t args_nr = args->number;
           command_e = new_command_element (ET_lineraw_command, cmd);
-
-          if (special_arg)
-            command_e->e.c->string_info[sit_arg_line] = strdup (line);
-
           add_to_element_contents (current, command_e);
-          for (i = 0; i < args_nr; i++)
+
+          add_to_element_contents (command_e, line_args);
+
+          if (cmd != CM_c && cmd != CM_comment
+              && !text_element->e.text->text[strspn
+                        (text_element->e.text->text, whitespace_chars)])
             {
-              args->list[i]->parent = command_e;
+  /* nothing else than spaces.  Reuse the text element as space element. */
+              pop_element_from_contents (line_args);
+              text_element->parent = 0;
+              text_element->type = ET_spaces_after_argument;
+              line_args->elt_info[eit_spaces_after_argument] = text_element;
             }
-          insert_list_slice_into_contents (command_e, 0, args, 0, args_nr);
-          args->number = 0;
+          else
+            {
+              if (!comment_text && command_data (data_cmd).args_number == 0)
+                {
+                  int has_comment = 0;
+                  const char *q
+                    = skip_to_comment (text_element->e.text->text,
+                                       &has_comment);
+                  if (has_comment)
+                    comment_text = q;
+                }
+
+              if (comment_text)
+                {
+                  add_comment_at_end (line_args, text_element, comment_text);
+
+                  if (!text_element->e.text->text[strspn
+                            (text_element->e.text->text, whitespace_chars)])
+                    {
+         /* nothing else than spaces after removing the comment.  Reuse the
+            text element as space element kept in info */
+                      pop_element_from_contents (line_args);
+                      text_element->parent = 0;
+                      text_element->type = ET_spaces_before_argument;
+                      command_e->elt_info[eit_spaces_before_argument]
+                        = text_element;
+                    }
+                  else
+                    {
+                      size_t spaces_len
+                        = strspn (text_element->e.text->text, whitespace_chars);
+                      if (spaces_len > 0)
+                        {
+                          ELEMENT *spaces_before
+                             = new_element_at_begin_reloc (text_element,
+                                     spaces_len, ET_spaces_before_argument);
+                          command_e->elt_info[eit_spaces_before_argument]
+                            = spaces_before;
+                        }
+                    }
+                }
+              else
+                {
+                  raw_line_command_arg_spaces (command_e, text_element,
+                                               line_args);
+                }
+            }
+
+          if (args)
+            add_extra_misc_args (command_e, AI_key_misc_args, args);
         }
 
-      for (i = 0; i < args->number; i++)
-        destroy_element (args->list[i]);
-      destroy_list (args);
 
       if (cmd == CM_raisesections)
         {

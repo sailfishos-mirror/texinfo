@@ -234,7 +234,10 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    {この章では読者に LilyPond とこのドキュメントについての紹介を行います。\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

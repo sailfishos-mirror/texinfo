@@ -26,11 +26,21 @@ $result_tree_text{'protect_comma_source_mark'} = '*document_root C1
      |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ punct ,,\\n}
-   {rawline_arg:punct}
-   {rawline_arg:,,}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{punct|,,}
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {punct }
+    *@comma C1
+     *brace_container
+    *@comma C1
+     *brace_container
   {empty_line:\\n}
   *paragraph C8
    {There is some text }
@@ -69,7 +79,7 @@ $result_texis{'protect_comma_source_mark'} = '@macro vvv {}
 some text ,,
 @end macro
 
-@set punct ,,
+@set punct @comma{}@comma{}
 
 There is some text @comma{}@comma{}@comma{}@comma{}@comma{}@comma{} and after.
 ';

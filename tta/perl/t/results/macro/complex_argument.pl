@@ -83,7 +83,14 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      {raw: @macrotwo }
    {\\n}
    *@c C1
-    {rawline_arg: @macrofour\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {@macrofour}
    *@pagesizes C1 l38:@macrothree
    |INFO
    |spaces_before_argument:

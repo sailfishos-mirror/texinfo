@@ -52,8 +52,15 @@ $result_tree_text{'alias_macro_target_removed'} = '*document_root C1
   {empty_line:\\n}
   *@unmacro C1
   |INFO
-  |arg_line:{ mystrong\\n}
-   {rawline_arg:mystrong}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{mystrong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {mystrong}
   {empty_line:\\n}
   *paragraph C1
    {bb\\n}

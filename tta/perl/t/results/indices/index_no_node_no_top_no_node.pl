@@ -358,7 +358,10 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
    {In chapter 2\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

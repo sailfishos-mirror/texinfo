@@ -8,7 +8,10 @@ use utf8;
 $result_tree_text{'ref_in_multitable'} = '*document_root C1
  *before_node_section C7
   *@novalidate C1 l1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l3

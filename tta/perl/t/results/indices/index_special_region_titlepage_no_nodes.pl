@@ -167,7 +167,10 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
     *@insertcopying C1 index_special_region.texi:l30
     |EXTRA
     |global_command_number:{1}
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@end C1 index_special_region.texi:l31
     |INFO
     |spaces_before_argument:
@@ -220,7 +223,14 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: note this chapter is not associated to a node\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{note this chapter is not associated to a node}
    |spaces_after_argument:
     |{spaces_after_argument:  }
     {Chapter}
@@ -228,7 +238,10 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   *@insertcopying C1 index_special_region.texi:l37
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {This test demonstrates }
@@ -477,7 +490,10 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   *@insertcopying C1 index_special_region.texi:l74
   |EXTRA
   |global_command_number:{3}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_special_region.texi:l76
   |INFO
@@ -507,9 +523,15 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   *@contents C1 index_special_region.texi:l79
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

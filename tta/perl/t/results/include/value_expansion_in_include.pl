@@ -7,27 +7,59 @@ use utf8;
 
 $result_tree_text{'value_expansion_in_include'} = '*document_root C3
  *before_node_section C9
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ testvar incl-incl.txi\\n}
-   {rawline_arg:testvar}
-   {rawline_arg:incl-incl.txi}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{testvar|incl-incl.txi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {testvar incl-incl.txi}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: test - in the variable name, and concatenation of text after.\\n}
-  *@set C2
   |INFO
-  |arg_line:{ test-var incl-incl.tx\\n}
-   {rawline_arg:test-var}
-   {rawline_arg:incl-incl.tx}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {test - in the variable name, and concatenation of text after.}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{test-var|incl-incl.tx}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {test-var incl-incl.tx}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: test - in the variable name, and concatenation of text before and after.\\n}
-  *@set C2
   |INFO
-  |arg_line:{ test_var ncl-incl.tx\\n}
-   {rawline_arg:test_var}
-   {rawline_arg:ncl-incl.tx}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {test - in the variable name, and concatenation of text before and after.}
+  *@set C1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{test_var|ncl-incl.tx}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {test_var ncl-incl.tx}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 l10 {Top}

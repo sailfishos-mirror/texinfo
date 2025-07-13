@@ -152,7 +152,10 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    *@contents C1 things_before_setfilename_no_element.texi:l32
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
    *@menu C3 things_before_setfilename_no_element.texi:l34
     *arguments_line C1

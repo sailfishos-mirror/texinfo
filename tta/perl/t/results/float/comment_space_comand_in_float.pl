@@ -55,7 +55,14 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: float\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{float}
     |spaces_before_argument:
      |{spaces_before_argument: }
      {label }
@@ -85,7 +92,14 @@ $result_tree_text{'comment_space_comand_in_float'} = '*document_root C3
    |INFO
    |comment_at_end:
     |*@c C1
-     |{rawline_arg: listoffloats\\n}
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{listoffloats}
     {Text }
     *@ 
 ';

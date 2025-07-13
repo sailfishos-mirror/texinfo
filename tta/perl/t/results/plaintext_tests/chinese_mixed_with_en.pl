@@ -128,7 +128,10 @@ $result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
   {empty_line:\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

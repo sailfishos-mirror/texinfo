@@ -34,7 +34,14 @@ $result_tree_text{'ifclear_in_ifset'} = '*document_root C1
       >|{spaces_after_argument:\\n}
       >{ifset}
   *@c C1
-   {rawline_arg: WRONG - missing @end ifset.\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {WRONG - missing @end ifset.}
 ';
 
 

@@ -13,7 +13,14 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: Hcomment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{Hcomment}
    *elided_rawpreformatted C1
     {raw:In HTML\\n}
    *@end C1 l3
@@ -26,7 +33,14 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: Hafter end\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{Hafter end}
      {html}
   {empty_line:\\n}
   *@tex C3 l5
@@ -35,7 +49,14 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: Tcomment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{Tcomment}
    *rawpreformatted C1
     {In TeX\\n}
    *@end C1 l7
@@ -48,7 +69,14 @@ $result_tree_text{'comments_on_raw_block_line'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: Tafter end\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{Tafter end}
      {tex}
 ';
 

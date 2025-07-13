@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'empty_value_in_line'} = '*document_root C1
  *before_node_section C5
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ myspace\\n}
-   {rawline_arg:myspace}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{myspace|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {myspace}
   {empty_line:\\n}
   *paragraph C1
    {1 \\n}

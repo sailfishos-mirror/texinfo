@@ -113,13 +113,19 @@ $result_tree_text{'custom_headings'} = '*document_root C8
     {ch--ap}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap first page\\n}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap second page\\n}
@@ -167,13 +173,19 @@ $result_tree_text{'custom_headings'} = '*document_root C8
     { titi}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after everyheading before chap 3 first page\\n}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after everyheading before chap 3 second page\\n}
@@ -194,7 +206,10 @@ $result_tree_text{'custom_headings'} = '*document_root C8
     {chap 3}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@everyfooting C1 l37
   |INFO

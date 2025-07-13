@@ -6,8 +6,10 @@ sub convert_comment_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($command->{'contents'} and $command->{'contents'}->[0]) {
-    return $self->xml_comment($command->{'contents'}->[0]->{'text'});
+  if (defined($command->{'contents'})
+      and defined($command->{'contents'}->[0]->{'contents'})) {
+    return $self->xml_comment(' '.
+             $command->{'contents'}->[0]->{'contents'}->[0]->{'text'});
   } else {
     return '';
   }

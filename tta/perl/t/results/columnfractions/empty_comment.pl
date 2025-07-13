@@ -23,7 +23,11 @@ $result_tree_text{'empty_comment'} = '*document_root C1
       |INFO
       |comment_at_end:
        |*@c C1
-        |{rawline_arg:\\n}
+        |*line_arg C1
+        ||INFO
+        ||spaces_after_argument:
+         ||{spaces_after_argument:\\n}
+         |{}
    *@end C1 l2
    |INFO
    |spaces_before_argument:

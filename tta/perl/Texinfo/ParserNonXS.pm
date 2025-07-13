@@ -5908,6 +5908,118 @@ sub _handle_other_command($$$$$)
   return ($current, $line, $retval, $command_e);
 }
 
+sub _new_element_at_begin_reloc($$;$)
+{
+  my ($text_element, $spaces_text, $type) = @_;
+  my $remaining_source_marks = $text_element->{'source_marks'};
+  my $new_e;
+  if (defined($type)) {
+    $new_e = Texinfo::TreeElement::new({'text' => $spaces_text,
+                                        'type' => $type});
+  } else {
+    $new_e = Texinfo::TreeElement::new({'text' => $spaces_text});
+  }
+  if (defined($remaining_source_marks)) {
+    my $text_len = length($spaces_text);
+    my $current_position
+      = Texinfo::Common::relocate_source_marks($remaining_source_marks,
+                                          $new_e, 0, $text_len);
+    if (scalar(@$remaining_source_marks)) {
+      foreach my $source_mark (@$remaining_source_marks) {
+        $source_mark->{'position'} -= $text_len;
+      }
+    } else {
+      delete $text_element->{'source_marks'};
+    }
+  }
+  return $new_e;
+}
+
+sub _raw_line_command_arg_spaces($$$)
+{
+  my ($command_e, $text_element, $line_args) = @_;
+  if (chomp($text_element->{'text'})) {
+    $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+    $line_args->{'info'}->{'spaces_after_argument'}
+                    = Texinfo::TreeElement::new({'text' => "\n",
+                                'type' => 'spaces_after_argument'});
+  }
+  if ($text_element->{'text'} =~ s/^(\s+)//) {
+    $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+    my $spaces_text = $1;
+    my $spaces_before
+      = _new_element_at_begin_reloc($text_element, $spaces_text,
+                                    'spaces_before_argument');
+
+    $command_e->{'info'}->{'spaces_before_argument'} = $spaces_before;
+  }
+}
+
+sub _add_comment_at_end($$$)
+{
+  my ($line_args, $text_element, $comment_text) = @_;
+  chomp($comment_text);
+  my $comment_len = length($comment_text);
+  my $text_len;
+  if (chomp($text_element->{'text'})) {
+    $text_len = length($text_element->{'text'});
+    $comment_text .= "\n";
+  } else {
+    $text_len = length($text_element->{'text'});
+  }
+
+  # determine the comment command name and length before the
+  # comment argument.
+  $comment_text =~ /^(\@(comment|c))((\@|\s+).*)?/;
+  my $cmdname = $2;
+  my $command_len = length($1);
+
+  my $comment = Texinfo::TreeElement::new({'cmdname' => $cmdname});
+  my $comment_line_args
+        = Texinfo::TreeElement::new({'type' => 'line_arg',
+                            'parent' => $comment,});
+  $comment->{'contents'} = [$comment_line_args];
+
+  my $comment_text_element
+     = Texinfo::TreeElement::new(
+                      # do not keep the leading @c/@comment
+                      {'text' => substr($comment_text, $command_len),
+                                  'parent' => $comment_line_args});
+  $comment_line_args->{'contents'} = [$comment_text_element];
+
+  # remove comment text from initial text and relocate source marks
+  $text_element->{'text'} = substr($text_element->{'text'},
+                               0, $text_len - $comment_len);
+  # TODO untested situation of these source marks relocations
+  my $remaining_source_marks = $text_element->{'source_marks'};
+  if ($remaining_source_marks) {
+    # the source marks are first relocated with the leading
+    # @c/@comment string
+    Texinfo::Common::relocate_source_marks($remaining_source_marks,
+            $comment_text_element, $text_len - $comment_len, $comment_len);
+    if (!scalar(@$remaining_source_marks)) {
+      delete $text_element->{'source_marks'};
+    }
+    # now remove the leading comment @-command to keep only comment
+    # command argument
+    my $source_marks = $comment_text_element->{'source_marks'};
+    if ($source_marks) {
+      foreach my $source_mark (@$source_marks) {
+        $source_mark->{'position'} -= $command_len;
+        # should be for source marks within the @-command name
+        $source_mark->{'position'} = 0 if ($source_mark->{'position'} < 0);
+      }
+    }
+  }
+
+  # TODO untested situation of the source marks in leading text relocations
+  _raw_line_command_arg_spaces($comment, $comment_text_element,
+                               $comment_line_args);
+
+  $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+  $line_args->{'info'}->{'comment_at_end'} = $comment;
+}
+
 sub _handle_line_command($$$$$$)
 {
   my $self = shift;
@@ -5971,28 +6083,28 @@ sub _handle_line_command($$$$$$)
       }
     }
 
-    # Complete the line if there was a user macro expansion.
-    # NOTE the source marks (mostly end of macro/value expansion) will
-    # be associated to the previous element in $current, as the command being
-    # considered has not been added already, although the end of macro
-    # expansion is located after the command opening.  Wrongly placed
-    # mark sources are unavoidable, as the line is not parsed as usual
-    # and macro/value expansion happen here in advance and not while
-    # the remaining of the line is parsed.
-    # TODO add information on the mark source to communicate that the
-    # placement of mark sources is approximate?
-    if ($line !~ /\n/) {
-      my ($new_line, $new_line_source_info)
-                 = _new_line($self, $current);
-      $line .= $new_line if (defined($new_line));
-    }
-    $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
-                                            'parent' => $current});
+    # prepare tree to gather source marks
+    my $misc_line_args
+        = Texinfo::TreeElement::new({'type' => 'line_arg',});
+    my $text_element = Texinfo::TreeElement::new({'text' => $line,
+                                            'parent' => $misc_line_args});
+    $text_element->{'parent'} = $misc_line_args;
+    $misc_line_args->{'contents'} = [$text_element];
 
-    my ($args, $has_comment, $special_arg)
-      = _parse_rawline_command($self, $line, $command, $source_info);
-    $command_e->{'info'} = {'arg_line' => $line}
-      if ($special_arg);
+    # Complete the line if there was a user macro expansion.
+    if ($line !~ /\n/) {
+      # FIXME if there may be several source marks, the text should be
+      # merged while the source marks are collected
+      my ($new_line, $new_line_source_info)
+                 = _new_line($self, $misc_line_args);
+      if (defined($new_line)) {
+        $text_element->{'text'} .= $new_line;
+      }
+    }
+
+    my ($args, $comment_text, $special_arg)
+      = _parse_rawline_command($self, $text_element->{'text'}, $command,
+                               $source_info);
 
     # if using the @set txi* instead of a proper @-command, replace
     # by the tree obtained with the @-command.  Even though
@@ -6000,7 +6112,7 @@ sub _handle_line_command($$$$$$)
     # there should not be anything done in addition than what is
     # done for @clear or @set.
     if (($command eq 'set' or $command eq 'clear')
-         and scalar(@$args) >= 1
+         and $args and scalar(@$args) >= 1
          and $set_flag_command_equivalent{$args->[0]}) {
       my $arg;
       if ($command eq 'set') {
@@ -6017,44 +6129,95 @@ sub _handle_line_command($$$$$$)
                     'info' => {'spaces_before_argument'
                         => Texinfo::TreeElement::new({'text' => ' ',
                                 'type' => 'spaces_before_argument'})}});
-      my $misc_line_args
-        = Texinfo::TreeElement::new({'type' => 'line_arg',
-                            'parent' => $command_e,
-                            'info' => {'spaces_after_argument'
+      $misc_line_args->{'parent'} = $command_e;
+      $misc_line_args->{'info'} = {'spaces_after_argument'
                     => Texinfo::TreeElement::new({'text' => "\n",
-                                'type' => 'spaces_after_argument'})}});
+                                'type' => 'spaces_after_argument'})};
       $command_e->{'contents'} = [$misc_line_args];
+      # FIXME could forget about source marks here.  Maybe do a dynamic
+      # replacement of @set?
+      $text_element = undef;
       $misc_line_args->{'contents'} = [
         Texinfo::TreeElement::new({ 'text' => $arg,
                                     'parent' => $misc_line_args, }),
       ];
       push @{$current->{'contents'}}, $command_e;
-    } else {
-      if (!$ignored) {
-        push @{$current->{'contents'}}, $command_e;
-        if (scalar(@$args)) {
-          $command_e->{'contents'} = [];
-          foreach my $arg (@$args) {
-            push @{$command_e->{'contents'}},
-              Texinfo::TreeElement::new({ 'type' => 'rawline_arg',
-                                   'text' => $arg,
-                         'parent' => $current->{'contents'}->[-1] });
-          }
+    } elsif (!$ignored) {
+      $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
+                                              'parent' => $current});
+
+      $misc_line_args->{'parent'} = $command_e;
+      $command_e->{'contents'} = [$misc_line_args];
+
+      if ($command ne 'c' and $command ne 'comment'
+          and $text_element->{'text'} !~ /\S/) {
+        # nothing else than spaces.  Reuse the text element as space element.
+        pop @{$misc_line_args->{'contents'}};
+        delete $misc_line_args->{'contents'};
+        delete $text_element->{'parent'};
+        $text_element->{'type'} = 'spaces_after_argument';
+        $misc_line_args->{'info'} = {'spaces_after_argument'
+                                          => $text_element};
+      # note the condition on command args number, as we do not
+      # want lineraw commands with argument that did not have a
+      # comment detected by _parse_rawline_command to contain comments.
+      # Currently excludes c/comment and vfill.
+      } elsif ((!$commands_args_number{$command}
+                and $text_element->{'text'} =~ /(\@(comment|c)((\@|\s+).*)?)$/)
+               or (defined($comment_text))) {
+        $comment_text = $1 if (!defined($comment_text));
+        _add_comment_at_end($misc_line_args, $text_element, $comment_text);
+        if ($text_element->{'text'} !~ /\S/) {
+          # nothing else than spaces after removing the comment.  Reuse the
+          # text element as space element kept in info
+          pop @{$misc_line_args->{'contents'}};
+          delete $misc_line_args->{'contents'};
+          delete $text_element->{'parent'};
+          $text_element->{'type'} = 'spaces_before_argument';
+          $command_e->{'info'} = {}
+               if (!defined($command_e->{'info'}));
+          $command_e->{'info'}->{'spaces_before_argument'}
+                                            = $text_element;
+        } elsif ($text_element->{'text'} =~ s/^(\s+)//) {
+          # TODO untested situation of these source marks relocations
+          my $spaces_text = $1;
+          my $spaces_before =
+            _new_element_at_begin_reloc($text_element, $spaces_text,
+                                           'spaces_before_argument');
+
+          $misc_line_args->{'info'} = {}
+               if (!defined($misc_line_args->{'info'}));
+          $command_e->{'info'}->{'spaces_before_argument'}
+                         = $spaces_before;
+          # note that for commands without argument, a bogus argument
+          # is kept in text_element here.
+          # TODO warn if it is so?
         }
-      } else {
-        $command_e = undef;
+      } else { # no comment or with an argument, possibly bogus
+               # for commands without argument
+        _raw_line_command_arg_spaces($command_e, $text_element,
+                                     $misc_line_args);
+        # TODO warn about bogus arguments for commands without arg?
       }
+
+      if (defined($args)) {
+         $command_e->{'extra'} = {'misc_args' => $args,};
+      }
+      push @{$current->{'contents'}}, $command_e;
     }
+    $line = '';
+
     if ($command eq 'raisesections') {
       $self->{'sections_level_modifier'}++;
     } elsif ($command eq 'lowersections') {
       $self->{'sections_level_modifier'}--;
     }
     _register_global_command($self, $command_e, $source_info)
-      if $command_e;
+      if defined($command_e);
 
     # This does nothing for the command being processed, as there is
-    # no line context setup nor line_args, but it closes a line or block
+    # no line context setup and current is not a line_args, but it
+    # closes a line or block
     # line @-commands the raw line command is on.  For c/comment
     # this corresponds to legitimate constructs, not for other raw
     # line commands.
@@ -6064,8 +6227,8 @@ sub _handle_line_command($$$$$$)
       return ($current, $line, $FINISHED_TOTALLY);
       # goto funexit;  # used in XS code
     }
-    # Even if _end_line is called, it is not done since there is
-    # no line_arg
+    # Even if _end_line is called, it is not done since current is
+    # not line_arg
     $current = _begin_preformatted($self, $current)
       if ($close_preformatted_commands{$command});
     return ($current, $line, $GET_A_NEW_LINE);
@@ -8087,16 +8250,16 @@ sub _parse_rawline_command($$$$)
 {
   my ($self, $line, $command, $source_info) = @_;
 
-  my $args = [];
+  my $args;
 
   my $special_arg = 1;
-  my $has_comment = 0;
+  my $comment_text;
 
   if ($command eq 'set') {
     # REVALUE
     if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(comment|c)((\@|\s+).*)?|\s+(.*?))?\s*$/) {
-      if ($line =~ s/\@(comment|c)((\@|\s+).*)?$//) {
-        $has_comment = 1;
+      if ($line =~ s/(\@(comment|c)((\@|\s+).*)?)$//) {
+        $comment_text = $1;
       }
       $line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\s+(.*?))?\s*$/;
       my $name = $1;
@@ -8113,9 +8276,10 @@ sub _parse_rawline_command($$$$)
   } elsif ($command eq 'clear') {
     # REVALUE
     if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(comment|c)((\@|\s+).*)?)?$/) {
-      $args = [$1];
-      delete $self->{'values'}->{$1};
-      $has_comment = 1 if (defined($3));
+      my $arg = $1;
+      $args = [$arg];
+      delete $self->{'values'}->{$arg};
+      $comment_text = $2 if (defined($3));
     } elsif ($line !~ /\S/) {
       $self->_line_error(__("\@clear requires a name"), $source_info);
     } else {
@@ -8125,10 +8289,11 @@ sub _parse_rawline_command($$$$)
   } elsif ($command eq 'unmacro') {
     # REMACRO
     if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(comment|c)((\@|\s+).*)?)?$/) {
-      $args = [$1];
+      my $arg = $1;
+      $args = [$arg];
       delete $self->{'macros'}->{$1};
-      $has_comment = 1 if (defined($3));
-      print STDERR "UNMACRO $1\n" if ($self->{'conf'}->{'DEBUG'});
+      $comment_text = $2 if (defined($3));
+      print STDERR "UNMACRO $arg\n" if ($self->{'conf'}->{'DEBUG'});
     } elsif ($line !~ /\S/) {
       $self->_line_error(__("\@unmacro requires a name"), $source_info);
     } else {
@@ -8148,7 +8313,7 @@ sub _parse_rawline_command($$$$)
       $self->{'aliases'}->{'click'} = $as_existing_command;
       my $remaining = $line;
       $remaining =~ s/^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(comment|c)((\@|\s+).*)?)?//;
-      $has_comment = 1 if (defined($4));
+      $comment_text = $3 if (defined($4));
       if (defined($remaining)) {
         chomp($remaining);
         if ($remaining ne '') {
@@ -8163,10 +8328,9 @@ sub _parse_rawline_command($$$$)
                                  $line), $source_info);
     }
   } else {
-    $args = [ $line ];
     $special_arg = 0;
   }
-  return ($args, $has_comment, $special_arg);
+  return ($args, $comment_text, $special_arg);
 }
 
 # at the end of an @-command line with arguments, parse the resulting

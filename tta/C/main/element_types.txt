@@ -53,7 +53,8 @@ definfoenclose_command                 braces
 nobrace_command                        c_only
 # @item, @tab
 container_command                      c_only
-lineraw_command                        c_only
+# FIXME can probably merge lineraw_command and line_command now
+lineraw_command                        spaces_before,c_only
 line_command                           spaces_before,c_only
 block_command                          spaces_before,c_only
 brace_command                          braces,c_only

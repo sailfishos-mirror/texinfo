@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'commands_and_spaces'} = '*document_root C2
  *before_node_section C8
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{  foo   some @value\\n}
-   {rawline_arg:foo}
-   {rawline_arg:some @value}
+  |spaces_before_argument:
+   |{spaces_before_argument:  }
+  |EXTRA
+  |misc_args:A{foo|some @value}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {foo   some @value}
   {empty_line:\\n}
   *@setfilename C1 l3
   |INFO
@@ -27,15 +33,28 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *@unmacro C1
   |INFO
-  |arg_line:{  ggg\\n}
-   {rawline_arg:ggg}
+  |spaces_before_argument:
+   |{spaces_before_argument:  }
+  |EXTRA
+  |misc_args:A{ggg}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {ggg}
   {empty_line:\\n}
   *@clickstyle C1 l7
   |INFO
-  |arg_line:{  @arrow\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument:  }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@arrow}
+  |misc_args:A{@arrow}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@arrow}
   {empty_line:\\n}
  *@node C46 l9 {a}
  |INFO
@@ -682,13 +701,13 @@ $result_indices_sort_strings{'commands_and_spaces'} = 'fn:
 ';
 
 
-$result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" line="  foo   some @value">some @value</set>
+$result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" spaces="  ">foo   some @value</set>
 
 <setfilename file="commands_and_spaces.info" spaces="  ">commands_and_spaces.info  </setfilename>
 
-<unmacro name="ggg" line="  ggg"></unmacro>
+<unmacro name="ggg" spaces="  ">ggg</unmacro>
 
-<clickstyle command="arrow" line="  @arrow">@arrow</clickstyle>
+<clickstyle command="arrow" spaces="  ">@arrow</clickstyle>
 
 <node identifier="a" spaces=" "><nodename trailingspaces=" ">a</nodename><nodenext>(b)</nodenext><nodeprev trailingspaces=" ">(c)</nodeprev><nodeup spaces=" " trailingspaces="   ">(d)</nodeup></node>
 

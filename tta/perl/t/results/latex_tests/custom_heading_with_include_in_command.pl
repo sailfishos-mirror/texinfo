@@ -70,7 +70,10 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   *@contents C1 l7
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l9 {in main}
  |INFO
@@ -101,9 +104,12 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
     |{spaces_after_argument:\\n}
     {chap in main}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ do-top\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{do-top|}
   >SOURCEMARKS
   >include<start;1>
    >*@include C1 l13
@@ -117,12 +123,22 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
     >|spaces_after_argument:
      >|{spaces_after_argument:\\n}
      >{section_file.texi}
-   {rawline_arg:do-top}
-   {rawline_arg:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {do-top}
   *paragraph C2
    {\\input texinfo }
    *@c C1
-    {rawline_arg: -*-texinfo-*-\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {-*-texinfo-*-}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>

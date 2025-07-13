@@ -19,7 +19,14 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
    *preformatted C2
     {comment, blank after }
     *@c C1
-     {rawline_arg: comment\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment}
    *@end C1 l5
    |INFO
    |spaces_before_argument:
@@ -44,7 +51,14 @@ $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
    *preformatted C2
     {comment, no blank after }
     *@c C1
-     {rawline_arg: comment\\n}
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {comment}
    *@end C1 l11
    |INFO
    |spaces_before_argument:

@@ -14,7 +14,10 @@ $result_tree_text{'double_contents_after_title_show_title'} = '*document_root C8
    *@contents C1 double_contents.texi:l3
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 double_contents.texi:l5 {Top}
  |INFO
@@ -108,7 +111,10 @@ $result_tree_text{'double_contents_after_title_show_title'} = '*document_root C8
   *@contents C1 double_contents.texi:l17
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   *paragraph C1
    {The chapter\\n}
   {empty_line:\\n}
@@ -172,10 +178,16 @@ $result_tree_text{'double_contents_after_title_show_title'} = '*document_root C8
   *@contents C1 double_contents.texi:l26
   |EXTRA
   |global_command_number:{3}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

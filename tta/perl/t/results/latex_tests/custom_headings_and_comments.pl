@@ -39,7 +39,14 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comment}
     |spaces_after_argument:
      |{spaces_after_argument:  }
      *@thischapter
@@ -114,13 +121,19 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
     {ch--ap}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap first page\\n}
   {empty_line:\\n}
   *@page C1
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap second page\\n}

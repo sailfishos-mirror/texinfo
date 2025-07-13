@@ -60,7 +60,10 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
   *@summarycontents C1 l11
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

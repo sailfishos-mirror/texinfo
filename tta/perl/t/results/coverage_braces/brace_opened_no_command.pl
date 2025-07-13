@@ -19,7 +19,10 @@ $result_tree_text{'brace_opened_no_command'} = '*document_root C2
      {truc}
    {.\\n}
  *@bye C1
-  {rawline_arg:}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:}
 ';
 
 

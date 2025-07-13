@@ -8,45 +8,100 @@ use utf8;
 $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
  *before_node_section C7
   *@clickstyle C1 l1
-  |INFO
-  |arg_line:{@comment a\\n}
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@comment}
+  |misc_args:A{@comment}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@comment a}
   *@clickstyle C1 l2
   |INFO
-  |arg_line:{ @comment b\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:@comment}
-  *@clickstyle l3
+  |misc_args:A{@comment}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@comment b}
+  *@clickstyle C1 l3
   |INFO
-  |arg_line:{ nocmd@comment c\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
-  *@clickstyle l4
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {nocmd@comment c}
+  *@clickstyle C1 l4
   |INFO
-  |arg_line:{ more than one word @comment d\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {more than one word @comment d}
   *@clickstyle C1 l5
   |INFO
-  |arg_line:{ @result@comment e\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@comment C1
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{e}
+    {@result}
   *@clickstyle C1 l6
   |INFO
-  |arg_line:{ @result   @comment f\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@comment C1
+    ||INFO
+    ||spaces_before_argument:
+     ||{spaces_before_argument: }
+     |*line_arg C1
+     ||INFO
+     ||spaces_after_argument:
+      ||{spaces_after_argument:\\n}
+      |{f}
+    {@result   }
   *@clickstyle C1 l7
   |INFO
-  |arg_line:{ @result on the same line @comment g\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@result on the same line @comment g}
 ';
 
 

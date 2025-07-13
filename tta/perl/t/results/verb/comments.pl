@@ -15,7 +15,14 @@ $result_tree_text{'comments'} = '*document_root C1
      {raw: comment @c comment\\n}
      {raw:in a verb }
    *@c C1
-    {rawline_arg: comment\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {comment}
   {empty_line:\\n}
   *paragraph C4
    {something }
@@ -26,7 +33,11 @@ $result_tree_text{'comments'} = '*document_root C1
      {raw: in verb}
    { }
    *@c C1
-    {rawline_arg: other comment}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+     {other comment}
 ';
 
 

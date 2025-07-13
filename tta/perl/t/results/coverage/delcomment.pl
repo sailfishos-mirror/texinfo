@@ -12,9 +12,23 @@ $result_tree_text{'delcomment'} = '*document_root C2
    {text_before_beginning:\\n}
   *preamble_before_content C4
    *@c C1
-    {rawline_arg: this tests both the del comment and a file without\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {this tests both the del comment and a file without}
    *@c C1
-    {rawline_arg: element.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {element.}
    {empty_line:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
@@ -23,7 +37,10 @@ $result_tree_text{'delcomment'} = '*document_root C2
    {This line is the only output.\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

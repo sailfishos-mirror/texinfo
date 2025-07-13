@@ -14,7 +14,10 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    *@contents C1 contents_at_document_begin.texi:l3
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 contents_at_document_begin.texi:l5 {Top}
  |INFO
@@ -109,7 +112,10 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    {The chapter\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

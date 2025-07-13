@@ -18,7 +18,14 @@ $result_tree_text{'comment_first_on_enumerate_line'} = '*document_root C1
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: comment on enumerate line\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{comment on enumerate line}
    *@item C2 l2
    |EXTRA
    |item_number:{1}

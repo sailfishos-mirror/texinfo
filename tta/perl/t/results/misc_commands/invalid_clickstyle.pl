@@ -10,10 +10,16 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *@clickstyle C1 l2
   |INFO
-  |arg_line:{ @result on the same line\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:@result}
+  |misc_args:A{@result}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@result on the same line}
   {empty_line:\\n}
   *paragraph C3
    {A }
@@ -25,19 +31,31 @@ $result_tree_text{'invalid_clickstyle'} = '*document_root C1
   {empty_line:\\n}
   *@clickstyle C1 l6
   |INFO
-  |arg_line:{ @nocmd\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:@nocmd}
+  |misc_args:A{@nocmd}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {@nocmd}
   {empty_line:\\n}
   *paragraph C1
    {A  (nocmd).\\n}
   {empty_line:\\n}
-  *@clickstyle l10
+  *@clickstyle C1 l10
   |INFO
-  |arg_line:{ something\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {something}
   {empty_line:\\n}
   *paragraph C1
    {A  (something).\\n}

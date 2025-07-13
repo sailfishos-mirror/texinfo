@@ -8,7 +8,14 @@ use utf8;
 $result_tree_text{'invalid_documentencoding'} = '*document_root C1
  *before_node_section C6
   *@c C1
-   {rawline_arg: this one is valid\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {this one is valid}
   *@documentencoding C1 l2
   |INFO
   |spaces_before_argument:

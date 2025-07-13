@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root C1
  *before_node_section C5
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ closebrace }\\n}
-   {rawline_arg:closebrace}
-   {rawline_arg:}}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{closebrace|}}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {closebrace }}
   {empty_line:\\n}
   *paragraph C3
    *@inlinefmt C2 l3

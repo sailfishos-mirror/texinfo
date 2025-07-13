@@ -9,7 +9,10 @@ $result_tree_text{'novalidate_empty_refs'} = '*document_root C5
  *before_node_section C3
   {empty_line:\\n}
   *@novalidate C1 l2
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l4 {Top}
  |INFO

@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'not_only_characters'} = '*document_root C1
  *before_node_section C3
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ -e_\'::; hh\\n}
-   {rawline_arg:-e_\'::;}
-   {rawline_arg:hh}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{-e_\'::;|hh}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {-e_\'::; hh}
   {empty_line:\\n}
   *paragraph C1
    {Say hh.\\n}

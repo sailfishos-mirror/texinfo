@@ -271,7 +271,14 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *@c C1
-   {rawline_arg: node1 again to test two nodescription expansions\\n}
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {node1 again to test two nodescription expansions}
   *@menu C3 l35
    *arguments_line C1
     *block_line_arg

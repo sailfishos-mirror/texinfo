@@ -53,9 +53,23 @@ $result_tree_text{'defx_after_empty_line_in_example'} = '*document_root C1
      *preformatted C4
       {empty_line:\\n}
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
       *@comment C1
-       {rawline_arg: comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment}
       {empty_line:\\n}
     *@deffnx C1 l7
     |INFO

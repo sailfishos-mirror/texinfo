@@ -22,44 +22,86 @@ $result_tree_text{'test_two_include'} = '*document_root C1
      >|spaces_after_argument:
       >|{spaces_after_argument:\\n}
       >{version.texi}
-   *@set C2
+   *@set C1
    |INFO
-   |arg_line:{ UPDATED 28 March 2002\\n}
-    {rawline_arg:UPDATED}
-    {rawline_arg:28 March 2002}
-   *@set C2
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{UPDATED|28 March 2002}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {UPDATED 28 March 2002}
+   *@set C1
    |INFO
-   |arg_line:{ UPDATED-MONTH March 2002\\n}
-    {rawline_arg:UPDATED-MONTH}
-    {rawline_arg:March 2002}
-   *@set C2
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{UPDATED-MONTH|March 2002}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {UPDATED-MONTH March 2002}
+   *@set C1
    |INFO
-   |arg_line:{ EDITION 4.2\\n}
-    {rawline_arg:EDITION}
-    {rawline_arg:4.2}
-   *@set C2
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{EDITION|4.2}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {EDITION 4.2}
+   *@set C1
    |INFO
-   |arg_line:{ VERSION 4.2\\n}
-    {rawline_arg:VERSION}
-    {rawline_arg:4.2}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{VERSION|4.2}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {VERSION 4.2}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ VERSION_DATE October 2002\\n}
-   {rawline_arg:VERSION_DATE}
-   {rawline_arg:October 2002}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{VERSION_DATE|October 2002}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {VERSION_DATE October 2002}
+  *@set C1
   |INFO
-  |arg_line:{ SHORT_VERSION 2-0\\n}
-   {rawline_arg:SHORT_VERSION}
-   {rawline_arg:2-0}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{SHORT_VERSION|2-0}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {SHORT_VERSION 2-0}
+  *@set C1
   |INFO
-  |arg_line:{ RPM_VERSION 2.0.4\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{RPM_VERSION|2.0.4}
   >SOURCEMARKS
   >include<end;1>
-   {rawline_arg:RPM_VERSION}
-   {rawline_arg:2.0.4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {RPM_VERSION 2.0.4}
   {empty_line:\\n}
   *paragraph C2
    {include inc_file\\n}

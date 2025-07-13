@@ -98,11 +98,17 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
       >{macro_call_arg_text:900}
    >macro_expansion<end;3><p:17>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ hash #\\n}
-   {rawline_arg:hash}
-   {rawline_arg:#}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{hash|#}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {hash #}
   {empty_line:\\n}
   *paragraph C1
    {#line 71 "example.c"\\n}

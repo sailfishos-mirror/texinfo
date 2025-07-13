@@ -211,7 +211,10 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
   *@insertcopying C1 l23
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l25
    *arguments_line C1
@@ -275,7 +278,10 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
   *@insertcopying C1 l32
   |EXTRA
   |global_command_number:{2}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l34
   |INFO

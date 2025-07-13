@@ -104,7 +104,10 @@ $result_tree_text{'no_content'} = '*document_root C6
    {The chapter\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

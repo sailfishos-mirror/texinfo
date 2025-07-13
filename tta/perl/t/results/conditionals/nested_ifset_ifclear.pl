@@ -34,14 +34,23 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
      |{spaces_after_argument:\\n}
      {macro}
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ somevar\\n}
-   {rawline_arg:somevar}
-   {rawline_arg:}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{somevar|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {somevar}
+  *@set C1
   |INFO
-  |arg_line:{ anothervar\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{anothervar|}
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call C1
@@ -70,8 +79,11 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
      >|spaces_after_argument:
       >|{spaces_after_argument:\\n}
       >{anothervar}
-   {rawline_arg:anothervar}
-   {rawline_arg:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {anothervar}
   *paragraph C1
    {Both somevar and anothervar are set.\\n}
    >SOURCEMARKS
@@ -125,14 +137,23 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:5>
   {empty_line:\\n}
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ somevar\\n}
-   {rawline_arg:somevar}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{somevar|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {somevar}
   *@clear C1
   |INFO
-  |arg_line:{ anothervar\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{anothervar}
   >SOURCEMARKS
   >macro_expansion<start;2>
    >*macro_call C1
@@ -184,7 +205,11 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
      >|spaces_after_argument:
       >|{spaces_after_argument:\\n}
       >{anothervar}
-   {rawline_arg:anothervar}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {anothervar}
   *paragraph C1
    {Somevar is set, anothervar is not.\\n}
    >SOURCEMARKS
@@ -217,11 +242,21 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   {empty_line:\\n}
   *@clear C1
   |INFO
-  |arg_line:{ somevar\\n}
-   {rawline_arg:somevar}
-  *@set C2
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{somevar}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {somevar}
+  *@set C1
   |INFO
-  |arg_line:{ anothervar\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{anothervar|}
   >SOURCEMARKS
   >macro_expansion<start;3>
    >*macro_call C1
@@ -258,16 +293,29 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
       >{ifset}
       >>SOURCEMARKS
       >>macro_expansion<end;3><p:5>
-   {rawline_arg:anothervar}
-   {rawline_arg:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {anothervar}
   {empty_line:\\n}
   *@clear C1
   |INFO
-  |arg_line:{ somevar\\n}
-   {rawline_arg:somevar}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{somevar}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {somevar}
   *@clear C1
   |INFO
-  |arg_line:{ anothervar\\n}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{anothervar}
   >SOURCEMARKS
   >macro_expansion<start;4>
    >*macro_call C1
@@ -304,7 +352,11 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
       >{ifset}
       >>SOURCEMARKS
       >>macro_expansion<end;4><p:5>
-   {rawline_arg:anothervar}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {anothervar}
 ';
 
 

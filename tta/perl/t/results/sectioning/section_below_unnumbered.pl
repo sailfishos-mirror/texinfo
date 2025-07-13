@@ -13,7 +13,10 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    *@contents C1 l2
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |INFO
@@ -165,7 +168,10 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    {Should be unnumbered.\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

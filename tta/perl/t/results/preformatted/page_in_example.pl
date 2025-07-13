@@ -14,7 +14,10 @@ $result_tree_text{'page_in_example'} = '*document_root C1
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
    *@page C1
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
    *preformatted C1
     {text\\n}
    *@end C1 l4

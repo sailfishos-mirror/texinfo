@@ -54,7 +54,10 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
       {Manual}
     {empty_line:\\n}
     *@page C1
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@anchor C1 l9
     |EXTRA
     |is_target:{1}
@@ -67,7 +70,10 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage'} = '*document_root
     *@insertcopying C1 l10
     |EXTRA
     |global_command_number:{1}
-     {rawline_arg:\\n}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
     *@end C1 l11
     |INFO
     |spaces_before_argument:

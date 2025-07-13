@@ -38,7 +38,10 @@ $result_tree_text{'contents_in_document'} = '*document_root C4
   *@contents C1 l4
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C1 l6 {chap}
  |INFO

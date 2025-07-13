@@ -41,7 +41,10 @@ $result_tree_text{'section_before_part'} = '*document_root C3
   *@contents C1 l5
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

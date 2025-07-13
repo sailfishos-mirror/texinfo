@@ -76,7 +76,10 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
   *@insertcopying C1 l10
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

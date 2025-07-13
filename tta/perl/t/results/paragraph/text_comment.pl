@@ -10,7 +10,11 @@ $result_tree_text{'text_comment'} = '*document_root C1
   *paragraph C2
    {text}
    *@c C1
-    {rawline_arg: comment}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+     {comment}
 ';
 
 

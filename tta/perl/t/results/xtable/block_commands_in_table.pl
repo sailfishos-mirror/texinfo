@@ -249,7 +249,14 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        {item before ignored lines}
      *inter_item C1
       *@c C1
-       {rawline_arg: comment\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {comment}
      *index_entry_command@vindex C1 l37
      |INFO
      |command_name:{vindex}

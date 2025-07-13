@@ -165,7 +165,14 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     |INFO
     |comment_at_end:
      |*@c C1
-      |{rawline_arg: in comment\\n}
+     ||INFO
+     ||spaces_before_argument:
+      ||{spaces_before_argument: }
+      |*line_arg C1
+      ||INFO
+      ||spaces_after_argument:
+       ||{spaces_after_argument:\\n}
+       |{in comment}
      {es}
    *@documentlanguage C1 l15
    |INFO

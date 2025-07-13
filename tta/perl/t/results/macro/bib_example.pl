@@ -11,42 +11,154 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {text_before_beginning:\\input texinfo   @c -*-texinfo-*-\\n}
   *preamble_before_content C218
    *@c C1
-    {rawline_arg: % Copyright (C) 2004  Aaron S. Hawley\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Copyright (C) 2004  Aaron S. Hawley}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
    *@c C1
-    {rawline_arg: % Keywords: docs, texinfo, extensions, bib\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Keywords: docs, texinfo, extensions, bib}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % This file is free software; you can redistribute it and/or modify\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% This file is free software; you can redistribute it and/or modify}
    *@c C1
-    {rawline_arg: % it under the terms of the GNU General Public License as published by\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% it under the terms of the GNU General Public License as published by}
    *@c C1
-    {rawline_arg: % the Free Software Foundation; either version 2, or (at your option)\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% the Free Software Foundation; either version 2, or (at your option)}
    *@c C1
-    {rawline_arg: % any later version.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% any later version.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % This file is distributed in the hope that it will be useful,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% This file is distributed in the hope that it will be useful,}
    *@c C1
-    {rawline_arg: % but WITHOUT ANY WARRANTY; without even the implied warranty of\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% but WITHOUT ANY WARRANTY; without even the implied warranty of}
    *@c C1
-    {rawline_arg: % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
    *@c C1
-    {rawline_arg: % GNU General Public License for more details.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% GNU General Public License for more details.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % You should have received a copy of the GNU General Public License\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% You should have received a copy of the GNU General Public License}
    *@c C1
-    {rawline_arg: % along with texi2html; see the file COPYING.  If not, write to\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% along with texi2html; see the file COPYING.  If not, write to}
    *@c C1
-    {rawline_arg: % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
    *@c C1
-    {rawline_arg: % Boston, MA 02111-1307, USA.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Boston, MA 02111-1307, USA.}
    {empty_line:\\n}
    *@comment C1
-    {rawline_arg: %**start of header\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%**start of header}
    *@settitle C1 bib-example.texi:l23
    |INFO
    |spaces_before_argument:
@@ -71,296 +183,1213 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >|{spaces_after_argument:\\n}
       >{my-bib-macros.texi}
    *@c C1
-    {rawline_arg: \\input texinfo   @c -*-texinfo-*-\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {\\input texinfo   @c -*-texinfo-*-}
    *@c C1
-    {rawline_arg: %% my-bib-macros.texi --- Texinfo macros providing a crude\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% my-bib-macros.texi --- Texinfo macros providing a crude}
    *@c C1
-    {rawline_arg: %% bibliography and citation capability.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% bibliography and citation capability.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % Copyright (C) 2004  Aaron S. Hawley\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Copyright (C) 2004  Aaron S. Hawley}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>}
    *@c C1
-    {rawline_arg: % Keywords: docs, texinfo, extensions, bib\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Keywords: docs, texinfo, extensions, bib}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % This file is free software; you can redistribute it and/or modify\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% This file is free software; you can redistribute it and/or modify}
    *@c C1
-    {rawline_arg: % it under the terms of the GNU General Public License as published by\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% it under the terms of the GNU General Public License as published by}
    *@c C1
-    {rawline_arg: % the Free Software Foundation; either version 2, or (at your option)\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% the Free Software Foundation; either version 2, or (at your option)}
    *@c C1
-    {rawline_arg: % any later version.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% any later version.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % This file is distributed in the hope that it will be useful,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% This file is distributed in the hope that it will be useful,}
    *@c C1
-    {rawline_arg: % but WITHOUT ANY WARRANTY; without even the implied warranty of\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% but WITHOUT ANY WARRANTY; without even the implied warranty of}
    *@c C1
-    {rawline_arg: % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
    *@c C1
-    {rawline_arg: % GNU General Public License for more details.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% GNU General Public License for more details.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % You should have received a copy of the GNU General Public License\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% You should have received a copy of the GNU General Public License}
    *@c C1
-    {rawline_arg: % along with texi2html; see the file COPYING.  If not, write to\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% along with texi2html; see the file COPYING.  If not, write to}
    *@c C1
-    {rawline_arg: % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,}
    *@c C1
-    {rawline_arg: % Boston, MA 02111-1307, USA.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Boston, MA 02111-1307, USA.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% Commentary:\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Commentary:}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%% Introduction\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%% Introduction}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% Creates references to a ``Bibliography\'\' or ``References\'\'\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Creates references to a ``Bibliography\'\' or ``References\'\'}
    *@c C1
-    {rawline_arg: %% section of a Texinfo document, using Texinfo\'s\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% section of a Texinfo document, using Texinfo\'s}
    *@c C1
-    {rawline_arg: %% macro system.  Although not as terse a way to cite systems as is\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% macro system.  Although not as terse a way to cite systems as is}
    *@c C1
-    {rawline_arg: %% found in document systems like TeX, the format is simpler and\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% found in document systems like TeX, the format is simpler and}
    *@c C1
-    {rawline_arg: %% the rendering  is easier for non-academic readers.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% the rendering  is easier for non-academic readers.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%% Usage\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%% Usage}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% References to cited works can be put in any section of a document.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% References to cited works can be put in any section of a document.}
    *@c C1
-    {rawline_arg: %% The cited works must be put in either a Texinfo table (for\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% The cited works must be put in either a Texinfo table (for}
    *@c C1
-    {rawline_arg: %% instance with ``@table @asis ... @end table\'\') or within a\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% instance with ``@table @asis ... @end table\'\') or within a}
    *@c C1
-    {rawline_arg: %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Texinfo list (something like ``@enumerate ... @end enumerate\'\'}
    *@c C1
-    {rawline_arg: %% or ``@itemize @bullet ... @end itemize\'\').  They are created\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% or ``@itemize @bullet ... @end itemize\'\').  They are created}
    *@c C1
-    {rawline_arg: %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference}
    *@c C1
-    {rawline_arg: %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% The beginning of a document must include (using the @include\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% The beginning of a document must include (using the @include}
    *@c C1
-    {rawline_arg: %% command) the file my-bib-macros.texi, which should be made\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% command) the file my-bib-macros.texi, which should be made}
    *@c C1
-    {rawline_arg: %% available in the current directory of the parent file.  A single\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% available in the current directory of the parent file.  A single}
    *@c C1
-    {rawline_arg: %% call should be made to choose to use a list or a table.  The\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% call should be made to choose to use a list or a table.  The}
    *@c C1
-    {rawline_arg: %% command to chose is called @mybibuselist{NODE}, where NODE is\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% command to chose is called @mybibuselist{NODE}, where NODE is}
    *@c C1
-    {rawline_arg: %% the node containing the location where the references are listed.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% the node containing the location where the references are listed.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%% Example\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%% Example}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% \\input texinfo   @c -*-texinfo-*-\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% \\input texinfo   @c -*-texinfo-*-}
    *@c C1
-    {rawline_arg: %% @comment %**start of header\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @comment %**start of header}
    *@c C1
-    {rawline_arg: %% @setfilename my-file-with-bib.info\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @setfilename my-file-with-bib.info}
    *@c C1
-    {rawline_arg: %% @settitle Texinfo with a Bibliography and References\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @settitle Texinfo with a Bibliography and References}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @include my-bib-macros.texi\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @include my-bib-macros.texi}
    *@c C1
-    {rawline_arg: %% @mybibuselist{References}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibuselist{References}}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @comment %**end of header\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @comment %**end of header}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @node Top\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @node Top}
    *@c C1
-    {rawline_arg: %% @top Top\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @top Top}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @menu\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @menu}
    *@c C1
-    {rawline_arg: %% * Introduction::\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% * Introduction::}
    *@c C1
-    {rawline_arg: %% * @mybibnode{}::\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% * @mybibnode{}::}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @end menu\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @end menu}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @node Introduction\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @node Introduction}
    *@c C1
-    {rawline_arg: %% @chapter Introduction\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @chapter Introduction}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% The ability of a documentation format to make cross references to a\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% The ability of a documentation format to make cross references to a}
    *@c C1
-    {rawline_arg: %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t}
    *@c C1
-    {rawline_arg: %% currently supported in Texinfo.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% currently supported in Texinfo.}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @node @mybibnode{}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @node @mybibnode{}}
    *@c C1
-    {rawline_arg: %% @chapter References\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @chapter References}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @itemize @asis\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @itemize @asis}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and}
    *@c C1
-    {rawline_arg: %% Reference Manual, 2nd edition, Addison-Wesley, Reading,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Reference Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
-    {rawline_arg: %% Massachusetts, 1994.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Massachusetts, 1994.}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @end itemize\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @end itemize}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %% @bye\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @bye}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% This example produces (in Info):\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% This example produces (in Info):}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%       1 Introduction\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       1 Introduction}
    *@c C1
-    {rawline_arg: %%       **************\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       **************}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       The ability of a documentation format to make cross\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       The ability of a documentation format to make cross}
    *@c C1
-    {rawline_arg: %%       references to a bibliography, a feature of LaTeX (See item\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       references to a bibliography, a feature of LaTeX (See item}
    *@c C1
-    {rawline_arg: %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently}
    *@c C1
-    {rawline_arg: %%       supported in Texinfo.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       supported in Texinfo.}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       2 References\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       2 References}
    *@c C1
-    {rawline_arg: %%       ************\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       ************}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
    *@c C1
-    {rawline_arg: %%       Manual, 2nd edition, Addison-Wesley, Reading,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
-    {rawline_arg: %%       Massachusetts, 1994.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       Massachusetts, 1994.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% and (in printed output):\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% and (in printed output):}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%       1 Introduction\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       1 Introduction}
    *@c C1
-    {rawline_arg: %%       **************\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       **************}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       The ability of a documentation format to make cross\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       The ability of a documentation format to make cross}
    *@c C1
-    {rawline_arg: %%       references to a bibliography, a feature of LaTeX (See item\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       references to a bibliography, a feature of LaTeX (See item}
    *@c C1
-    {rawline_arg: %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       [LaTeX2e] in Chapter 2 [References], page 3.), is not}
    *@c C1
-    {rawline_arg: %%       currently supported in Texinfo.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       currently supported in Texinfo.}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       2 References\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       2 References}
    *@c C1
-    {rawline_arg: %%       ************\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       ************}
    *@c C1
-    {rawline_arg: %%\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%}
    *@c C1
-    {rawline_arg: %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference}
    *@c C1
-    {rawline_arg: %%       Manual, 2nd edition, Addison-Wesley, Reading,\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       Manual, 2nd edition, Addison-Wesley, Reading,}
    *@c C1
-    {rawline_arg: %%       Massachusetts, 1994.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%       Massachusetts, 1994.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %%% Notes\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%%% Notes}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% The pointers to references will be functional in hypertext\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% The pointers to references will be functional in hypertext}
    *@c C1
-    {rawline_arg: %% documentation (info, HTML, XML and others) and properly rendered\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% documentation (info, HTML, XML and others) and properly rendered}
    *@c C1
-    {rawline_arg: %% in print documents, because they are implemented with Texinfo\'s\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% in print documents, because they are implemented with Texinfo\'s}
    *@c C1
-    {rawline_arg: %% cross referencing capabilities (using @anchor and @ref).  Failures\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% cross referencing capabilities (using @anchor and @ref).  Failures}
    *@c C1
-    {rawline_arg: %% by an author to make proper references with ``my-bib-macros\'\' in\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% by an author to make proper references with ``my-bib-macros\'\' in}
    *@c C1
-    {rawline_arg: %% their document will give cross referencing errors by Texinfo\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% their document will give cross referencing errors by Texinfo}
    *@c C1
-    {rawline_arg: %% conversion tools.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% conversion tools.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% Only one ``Reference\'\' section is allowed per document.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Only one ``Reference\'\' section is allowed per document.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% An improvement of this system would create cross references\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% An improvement of this system would create cross references}
    *@c C1
-    {rawline_arg: %% (with @xref) at each cited work to all the originating cross\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% (with @xref) at each cited work to all the originating cross}
    *@c C1
-    {rawline_arg: %% refererences.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% refererences.}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% Code:\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% Code:}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: % Configuration Options\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {% Configuration Options}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibsetrefnode : Defines the name of the node to contain\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibsetrefnode : Defines the name of the node to contain}
    *@c C1
-    {rawline_arg: %% references.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% references.}
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l162
    |EXTRA
@@ -382,9 +1411,23 @@ $result_tree_text{'bib_example'} = '*document_root C9
       {macro}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibnode{} : Macro to be placed at node containing references\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibnode{} : Macro to be placed at node containing references}
    *@c C1
-    {rawline_arg: %% and calls to @mybibcite{}\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% and calls to @mybibcite{}}
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l169
    |EXTRA
@@ -406,9 +1449,23 @@ $result_tree_text{'bib_example'} = '*document_root C9
       {macro}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibusetable : Whether each @mybibitem will be put in a\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibusetable : Whether each @mybibitem will be put in a}
    *@c C1
-    {rawline_arg: %% table.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% table.}
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l176
    |EXTRA
@@ -434,9 +1491,23 @@ $result_tree_text{'bib_example'} = '*document_root C9
       {macro}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibuselist : Whether each @mybibitem will be put in a\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibuselist : Whether each @mybibitem will be put in a}
    *@c C1
-    {rawline_arg: %% list.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% list.}
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l187
    |EXTRA
@@ -463,7 +1534,14 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibcite{REF} : Cites the cross reference REF.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibcite{REF} : Cites the cross reference REF.}
    {empty_line:\\n}
    *@macro C10 my-bib-macros.texi:l198
    |EXTRA
@@ -511,7 +1589,14 @@ $result_tree_text{'bib_example'} = '*document_root C9
       {macro}
    {empty_line:\\n}
    *@c C1
-    {rawline_arg: %% @mybibcite{REF} : Creates a cross referenced citation REF.\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% @mybibcite{REF} : Creates a cross referenced citation REF.}
    {empty_line:\\n}
    *@macro C16 my-bib-macros.texi:l215
    |EXTRA
@@ -546,6 +1631,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
       {macro}
    {empty_line:\\n}
    *@c C1
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
    >SOURCEMARKS
    >include<end;1>
    >macro_expansion<start;1>
@@ -554,10 +1642,17 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|command_name:{mybibuselist}
      >*brace_arg C1
       >{macro_call_arg_text:References}
-    {rawline_arg: %% my-bib-macros.texi ends here\\n}
-   *@set C2
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%% my-bib-macros.texi ends here}
+   *@set C1
    |INFO
-   |arg_line:{ mybiblist true\\n}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{mybiblist|true}
    >SOURCEMARKS
    >ignored_conditional_block<1>
     >*@ifset C3 bib-example.texi:l26:@mybibuselist
@@ -588,18 +1683,35 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >|command_name:{mybibsetrefnode}
      >*brace_arg C1
       >{macro_call_arg_text:References}
-   >macro_expansion<end;2>
-   >macro_expansion<end;1>
-    {rawline_arg:mybiblist}
-    {rawline_arg:true}
-   *@set C2
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {mybiblist true}
+   *@set C1
    |INFO
-   |arg_line:{ mybibrefnode References\\n}
-    {rawline_arg:mybibrefnode}
-    {rawline_arg:References}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{mybibrefnode|References}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {mybibrefnode References}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:23>
+     >macro_expansion<end;1><p:23>
    {empty_line:\\n}
    *@comment C1
-    {rawline_arg: %**end of header\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%**end of header}
    {empty_line:\\n}
  *@node C1 bib-example.texi:l30 {Top}
  |INFO
@@ -747,6 +1859,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >|{spaces_after_argument:\\n}
        >{ifclear}
    *@c C1
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
    >SOURCEMARKS
    >expanded_conditional_command<start;1>
     >*@ifset C1 bib-example.texi:l43:@mybibcite
@@ -759,7 +1874,11 @@ $result_tree_text{'bib_example'} = '*document_root C9
       >|spaces_after_argument:
        >|{spaces_after_argument:\\n}
        >{mybibrefnode}
-    {rawline_arg: %**else if\\n}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {%**else if}
    {(See item [LaTeX2e] in }
    >SOURCEMARKS
    >macro_expansion<start;5>
@@ -939,6 +2058,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
         >|{spaces_after_argument:\\n}
         >{ifset}
      *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
      >SOURCEMARKS
      >ignored_conditional_block<4>
       >*@ifset C3 bib-example.texi:l51:@mybibitem
@@ -964,7 +2086,11 @@ $result_tree_text{'bib_example'} = '*document_root C9
          >|{spaces_after_argument:\\n}
          >{ifset}
      >macro_expansion<end;8>
-      {rawline_arg: %**else if\\n}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {%**else if}
      { Leslie Lamport, LaTeX User\'s Guide and\\n}
      {Reference Manual, 2nd edition, Addison-Wesley, Reading,\\n}
      {Massachusetts, 1994.\\n}
@@ -982,7 +2108,10 @@ $result_tree_text{'bib_example'} = '*document_root C9
      {itemize}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
  *postamble_after_end C1
   {text_after_end:\\n}
 ';

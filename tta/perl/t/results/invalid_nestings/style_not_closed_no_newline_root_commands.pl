@@ -102,7 +102,10 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
     *brace_container C1
      {still not closed\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

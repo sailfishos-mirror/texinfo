@@ -20,6 +20,9 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
    *table_entry C1
     *table_term C3
      *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
      >SOURCEMARKS
      >include<start;1>
       >*@include C1 l3
@@ -33,11 +36,22 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
        >|spaces_after_argument:
         >|{spaces_after_argument:\\n}
         >{only_comment.texi}
-      {rawline_arg: source mark holder comment\\n}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {source mark holder comment}
      *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
      >SOURCEMARKS
      >include<end;1>
-      {rawline_arg: in here\\n}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {in here}
      *@item C1 l4
      |INFO
      |spaces_before_argument:

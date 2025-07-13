@@ -126,7 +126,10 @@ $result_tree_text{'chapter_between_nodes_texi2html'} = '*document_root C6
   *@contents C1 l18
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
 ';
 
 

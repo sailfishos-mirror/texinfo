@@ -12,7 +12,14 @@ $result_tree_text{'cond_ifhtml_ifinfo_iftex'} = '*document_root C5
    {text_before_beginning:\\n}
   *preamble_before_content C4
    *@c C1
-    {rawline_arg: test conditions\\n}
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {test conditions}
    {empty_line:\\n}
    *@html C3 cond.texi:l5
     *arguments_line C1
@@ -235,7 +242,10 @@ $result_tree_text{'cond_ifhtml_ifinfo_iftex'} = '*document_root C5
       >{ifnottex}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

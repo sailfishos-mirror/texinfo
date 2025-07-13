@@ -34,7 +34,14 @@ $result_tree_text{'anchor_in_command'} = '*document_root C2
        {in emph}
      { after \\n}
      *@c C1
-      {rawline_arg: emph @emph{emph2 @anchor{anchor in emph} }}.\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {emph @emph{emph2 @anchor{anchor in emph} }}.}
      {emph }
      *@emph C1 l5
       *brace_container C2

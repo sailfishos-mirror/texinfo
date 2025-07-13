@@ -225,8 +225,15 @@ $result_tree_text{'glossary'} = '*document_root C5
        >{ifnothtml}
    *@unmacro C1
    |INFO
-   |arg_line:{ expandglossary\\n}
-    {rawline_arg:expandglossary}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{expandglossary}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {expandglossary}
    *@macro C8 glossary.texi:l42:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -261,8 +268,15 @@ $result_tree_text{'glossary'} = '*document_root C5
       {macro}
    *@unmacro C1
    |INFO
-   |arg_line:{ glossarytext\\n}
-    {rawline_arg:glossarytext}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{glossarytext}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {glossarytext}
    *@macro C5 glossary.texi:l42:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}
@@ -355,8 +369,15 @@ $result_tree_text{'glossary'} = '*document_root C5
        >{ifnothtml}
    *@unmacro C1
    |INFO
-   |arg_line:{ expandglossary\\n}
-    {rawline_arg:expandglossary}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{expandglossary}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {expandglossary}
    *@macro C8 glossary.texi:l43:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -391,8 +412,15 @@ $result_tree_text{'glossary'} = '*document_root C5
       {macro}
    *@unmacro C1
    |INFO
-   |arg_line:{ glossarytext\\n}
-    {rawline_arg:glossarytext}
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |misc_args:A{glossarytext}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {glossarytext}
    *@macro C5 glossary.texi:l43:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}

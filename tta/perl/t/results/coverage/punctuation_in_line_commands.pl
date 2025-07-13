@@ -254,7 +254,10 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   *@contents C1 l36
   |EXTRA
   |global_command_number:{1}
-   {rawline_arg:\\n}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

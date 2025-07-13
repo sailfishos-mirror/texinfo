@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'value_in_macro_formal_arg'} = '*document_root C1
  *before_node_section C5
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ argument arg \\n}
-   {rawline_arg:argument}
-   {rawline_arg:arg}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{argument|arg}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {argument arg }
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA

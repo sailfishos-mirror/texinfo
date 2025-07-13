@@ -12,7 +12,14 @@ $result_tree_text{'accent_no_closed_comment'} = '*document_root C1
     *brace_container C2
      {e }
      *@c C1
-      {rawline_arg: comment\\n}
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {comment}
 ';
 
 

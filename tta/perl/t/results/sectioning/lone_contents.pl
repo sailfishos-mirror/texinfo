@@ -11,7 +11,10 @@ $result_tree_text{'lone_contents'} = '*document_root C1
    *@contents C1 l1
    |EXTRA
    |global_command_number:{1}
-    {rawline_arg:\\n}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
 ';
 
 

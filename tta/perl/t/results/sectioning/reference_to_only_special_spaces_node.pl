@@ -136,7 +136,10 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   {empty_line:\\n}
   {empty_line:\\n}
  *@bye C1
-  {rawline_arg:\\n}
+  *line_arg
+  |INFO
+  |spaces_after_argument:
+   |{spaces_after_argument:\\n}
 ';
 
 

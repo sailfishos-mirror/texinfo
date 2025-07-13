@@ -1,3 +1,39 @@
+2025-07-13 Patrice Dumas  <pertusus@free.fr>
+
+	Same tree elements for lineraw as for other line commands
+
+	* tta/C/parsetexi/handle_commands.c (skip_to_argument_end): rename
+	skip_to_comment as skip_to_argument_end, and extract skip_to_comment
+	from skip_to_argument_end, in which the pointer is not going back for
+	whitespaces.
+
+	* tta/C/parsetexi/handle_commands.c (parse_rawline_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_rawline_command): return
+	args as strings, return the comment text instead of an indicator.  Do
+	not return anything for non special arg commands.  Update caller.
+
+	* tta/C/main/element_types.txt, tta/C/parsetexi/handle_commands.c
+	(new_element_at_begin_reloc, raw_line_command_arg_spaces) 
+	(add_comment_at_end, handle_line_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_new_element_at_begin_reloc)
+	(_raw_line_command_arg_spaces, _add_comment_at_end)
+	(_handle_line_command): change the representation of lineraw commands
+	arguments, setting up a line args, text argument and info spaces
+	elements.  This allows to place correctly the source marks, and
+	relocate them.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_format_comment)
+	(_format_comment_or_end_line, _convert),
+	tta/perl/t/init/ignore_and_comments_output.init: update for change in
+	comment tree element.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): update for change in
+	vskip.
+
+	* tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_format_comment)
+	(_format_comment_or_end_line, _convert): update for changes in lineraw
+	tree commands.
+
 2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Move set_menus_node_directions call

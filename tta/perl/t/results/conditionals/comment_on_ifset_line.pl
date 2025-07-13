@@ -7,11 +7,17 @@ use utf8;
 
 $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
  *before_node_section C3
-  *@set C2
+  *@set C1
   |INFO
-  |arg_line:{ x\\n}
-   {rawline_arg:x}
-   {rawline_arg:}
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |misc_args:A{x|}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {x}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -24,7 +30,11 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
      >|INFO
      >|comment_at_end:
       >|*@c C1
-       >|{rawline_arg:\\n}
+       >|*line_arg C1
+       >||INFO
+       >||spaces_after_argument:
+        >||{spaces_after_argument:\\n}
+        >|{}
       >{x}
   *paragraph C6
    {Y1\\n}
@@ -51,7 +61,14 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
       >|INFO
       >|comment_at_end:
        >|*@c C1
-        >|{rawline_arg: comm\\n}
+       >||INFO
+       >||spaces_before_argument:
+        >||{spaces_before_argument: }
+        >|*line_arg C1
+        >||INFO
+        >||spaces_after_argument:
+         >||{spaces_after_argument:\\n}
+         >|{comm}
        >{x}
    {Y2\\n}
    >SOURCEMARKS
@@ -77,7 +94,11 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
       >|INFO
       >|comment_at_end:
        >|*@c C1
-        >|{rawline_arg:@ggg\\n}
+        >|*line_arg C1
+        >||INFO
+        >||spaces_after_argument:
+         >||{spaces_after_argument:\\n}
+         >|{@ggg}
        >{x}
    {Y3\\n}
    >SOURCEMARKS
@@ -103,7 +124,11 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
       >|INFO
       >|comment_at_end:
        >|*@c C1
-        >|{rawline_arg:\\n}
+        >|*line_arg C1
+        >||INFO
+        >||spaces_after_argument:
+         >||{spaces_after_argument:\\n}
+         >|{}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}
@@ -131,7 +156,14 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
       >|INFO
       >|comment_at_end:
        >|*@c C1
-        >|{rawline_arg: comm\\n}
+       >||INFO
+       >||spaces_before_argument:
+        >||{spaces_before_argument: }
+        >|*line_arg C1
+        >||INFO
+        >||spaces_after_argument:
+         >||{spaces_after_argument:\\n}
+         >|{comm}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}
@@ -159,7 +191,11 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
       >|INFO
       >|comment_at_end:
        >|*@c C1
-        >|{rawline_arg:@ggg\\n}
+        >|*line_arg C1
+        >||INFO
+        >||spaces_after_argument:
+         >||{spaces_after_argument:\\n}
+         >|{@ggg}
       >|spaces_after_argument:
        >|{spaces_after_argument: }
        >{x}

@@ -28,7 +28,14 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C4 l3
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -44,7 +51,14 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -61,7 +75,14 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
      *preformatted C2
       {d}
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C6
@@ -79,7 +100,14 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-       {rawline_arg: c\\n}
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {c}
    *@end C1 l6
    |INFO
    |spaces_before_argument:
