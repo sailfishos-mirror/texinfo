@@ -205,8 +205,8 @@ $result_headings_list{'comments_on_misc_command_line'} = '';
 $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info" spaces="  ">comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->
 <definfoenclose spaces=" " command="phoo" open=";" close=":" line="phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
 <firstparagraphindent spaces=" " value="none" line="none @c c (number)"></firstparagraphindent><!-- c c (number) -->
-<raisesections line=" "></raisesections><!-- c raisesections (skipline) -->
-<insertcopying line="  "></insertcopying><!-- comment  (noarg) -->
+<raisesections spaces=" "></raisesections><!-- c raisesections (skipline) -->
+<insertcopying spaces="  "></insertcopying><!-- comment  (noarg) -->
 <pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->
 <everyheading spaces=" "><thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
 

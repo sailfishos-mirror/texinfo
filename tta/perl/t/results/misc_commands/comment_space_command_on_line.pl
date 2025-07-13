@@ -663,7 +663,7 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 <listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
 
 </chapter>
-<bye line=" "></bye><!-- c bye -->
+<bye spaces=" "></bye><!-- c bye -->
 ';
 
 1;

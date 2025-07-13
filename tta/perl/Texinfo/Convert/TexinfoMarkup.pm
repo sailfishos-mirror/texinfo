@@ -1051,9 +1051,9 @@ sub _convert($$;$)
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
-        } elsif ($Texinfo::Commands::commands_args_number{$cmdname}) {
+        } else {
           my $attribute = [_leading_spaces_arg($element)];
-          my $arg = '';
+          my $arg;
           if ($element->{'contents'}->[0]->{'contents'}) {
             $arg = $self->txi_markup_protect_text(
               $element->{'contents'}->[0]->{'contents'}->[0]->{'text'})
@@ -1065,29 +1065,6 @@ sub _convert($$;$)
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
-        } else {
-          # FIXME use explicit spaces or space attributes but not line
-          my $attribute = [];
-          my $end_line = _format_comment_or_end_line($self, $element);
-          $end_line = "\n" if ($end_line eq '');
-          my $line;
-          if (defined($element->{'info'})
-              and defined($element->{'info'}->{'spaces_before_argument'})
-              and $element->{'info'}->{'spaces_before_argument'} ne '') {
-            $line = $element->{'info'}->{'spaces_before_argument'}->{'text'};
-          }
-          # bogus text argument, keep it as is
-          if (defined($element->{'contents'})
-              and defined($element->{'contents'}->[0]->{'contents'})) {
-            $line = '' if (!defined($line));
-            $line .= $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
-          }
-          if (defined($line) and $line ne '') {
-            $attribute = [['line', $line]];
-          }
-          my $result = $self->txi_markup_open_element($cmdname, $attribute)
-                   .$self->txi_markup_close_element($cmdname).$end_line;
-          return $result;
         }
       } else {
         print STDERR "BUG: unknown line_command style $type\n"
