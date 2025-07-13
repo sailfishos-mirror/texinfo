@@ -1773,8 +1773,7 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
   return top_node;
 }
 
-/* Complete automatic directions with menus (and first node
-   for Top node). */
+/* Complete automatic directions with menus. */
 void
 complete_node_tree_with_menus (DOCUMENT *document)
 {

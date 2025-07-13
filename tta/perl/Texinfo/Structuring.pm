@@ -1210,7 +1210,6 @@ sub _set_top_node_next($$)
   return $top_node;
 }
 
-# Set first node/Top node directions.
 # Complete automatic directions with menus.
 sub complete_node_tree_with_menus($)
 {
