@@ -308,6 +308,7 @@ tta/build-aux/depcomp
 tta/build-aux/install-sh
 tta/build-aux/ltmain.sh
 tta/build-aux/missing
+tta/build-aux/py-compile
 tta/build-aux/tap-driver.sh
 tta/build-aux/test-driver
 
@@ -417,8 +418,6 @@ util/texindex
 util/txixml2texi
 util/*.sig
 
-tta/swig/build-aux/**
-tta/swig/libtool
 tta/swig/perl/blib
 tta/swig/perl/Makefile.old
 tta/swig/perl/MANIFEST.bak

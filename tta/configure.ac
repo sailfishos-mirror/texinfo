@@ -541,6 +541,54 @@ fi
 AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 
+# SWIG interfaces
+
+# FIXME if enable_xs=yes check link against libperl.  It is needed 
+# for python in that case.  And libperl may not be installed even if
+# enable_xs=yes.
+
+with_swig=check
+AC_ARG_WITH([swig],
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]),
+   [ with_swig='yes' ],
+   [ with_swig='no' ])
+
+if test $with_swig != 'no' ; then
+  # Find swig executable
+  # http://www.gnu.org/software/autoconf-archive/ax_pkg_swig.html
+  AX_PKG_SWIG([], [ with_swig='yes' ],
+  [if test $with_swig = 'yes' ; then
+     AC_MSG_ERROR([SWIG not found'])
+     # should never go there, but in case, set
+     with_swig=no
+   fi
+  ])
+fi
+
+AM_CONDITIONAL([SWIG_INTERFACES], [test "x$with_swig" = "xyes"])
+
+# TODO add --enable-swig-python?
+
+with_swig_python=no
+if test $with_swig = 'yes' ; then
+  # python executable and installation paths
+  AM_PATH_PYTHON
+
+  # Get CPPFLAGS, etc., for Python module compilation
+  # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
+  AX_PYTHON_DEVEL([], [true])
+
+  if test z$ax_python_devel_found = 'zyes' ; then
+    # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
+    # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
+    AX_SWIG_PYTHON
+    with_swig_python=yes
+  fi
+fi
+
+AM_CONDITIONAL([SWIG_PYTHON_INTERFACE], [test "x$with_swig_python" = "xyes"])
+
+
 AC_CONFIG_FILES([
   Makefile
   tests/Makefile
@@ -558,6 +606,8 @@ AC_CONFIG_FILES([
   C/Makefile
   perl/Makefile
   perl/XSTexinfo/Makefile
+  swig/Makefile
+  swig/python/Makefile
   gnulib/lib/Makefile
 ])
 

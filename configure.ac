@@ -316,6 +316,9 @@ AC_ARG_ENABLE([perl-xs],
 AC_ARG_ENABLE([c-texi2any],
     AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]))
 
+AC_ARG_WITH([swig],
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]))
+
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.  In 2024 this is
 # the case of the musl libc libintl implementation, for example.

@@ -1,5 +1,24 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
+	Integrate swig and Python interface in the tta build system
+
+	* configure.ac (AC_ARG_WITH swig), tta/Makefile.am (SUBDIRS)
+	(DIST_SUBDIRS), tta/configure.ac (with_swig, SWIG_INTERFACES)
+	(with_swig_python, SWIG_PYTHON_INTERFACE, AC_CONFIG_FILES)
+	(AC_ARG_WITH swig): add --with-swig options to configure.  Set
+	automake conditionals based on SWIG and Python macros results.
+	Add swig directory to tta/Makefile.am, conditionally. 
+
+	* tta/swig/Makefile.am (SUBDIRS, DIST_SUBDIRS): build python interface
+	only if SWIG_PYTHON_INTERFACE is set.
+
+	* tta/swig/python/Makefile.am (_Texinfo_la_LIBADD): update paths.
+
+	* tta/swig/python/Makefile.am (_Texinfo_la_LIBADD): add perl libraries
+	only if XS is not disabled.
+
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/ax_pkg_swig.m4, tta/m4/ax_python_devel.m4: update to git
 	latest.
 

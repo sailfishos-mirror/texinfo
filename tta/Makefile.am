@@ -44,7 +44,11 @@ endif
 
 SUBDIRS += . perl tests
 
-DIST_SUBDIRS = gnulib/lib C perl tests
+if SWIG_INTERFACES
+SUBDIRS += swig
+endif
+
+DIST_SUBDIRS = gnulib/lib C perl tests swig
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

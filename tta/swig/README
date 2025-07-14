@@ -7,15 +7,9 @@ texinfo/util/swig/README
   notice and this notice are preserved.
  
 This directory contains a SWIG (https://www.swig.org/) interface designed
-to connect high-level programming language to GNU Texinfo texi2any C code.
+to connect high-level programming languages to GNU Texinfo texi2any C code.
 
-A full build system example based on autoconf, automake and libtool is
-provided for Python as a language target.  This build system is not
-independent from GNU Texinfo as header files and libtool archive files
-from the GNU Texinfo tta directory are used to build and link, since the header
-files and associated libraries are not public.
-
-A preliminary build system for a Perl extension is also available in the perl
+A preliminary build system for a Perl extension is available in the perl
 directory.  This build system is not fully integrated.  First you should build
 in the main directory to generate files with SWIG.  Then you should go to the
 perl directory to build the Perl module using Makefile.PL:
@@ -28,14 +22,6 @@ $ make test
 
 Note also that the Perl module will not be functional if installed as
 it finds the Texinfo libraries in the source directory.
-
-The build system uses Python and SWIG autoconf-archive related macros
-(http://www.gnu.org/software/autoconf-archive): AX_PYTHON_DEVEL,
-AX_PKG_SWIG, AX_SWIG_PYTHON.  You should make sure that they can be found
-by autoreconf.
-
-The build system can be bootstrapped by calling
-./autogen.sh
 
 Libtool hides the generated binary objects in the .libs directory.  Therefore
 to find the Python module extensions from the python/ subdirectory, you can

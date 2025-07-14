@@ -8,9 +8,13 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../m4
+SUBDIRS = .
 
-SUBDIRS = . python
+if SWIG_PYTHON_INTERFACE
+SUBDIRS += python
+endif
+
+DIST_SUBDIRS = python
 
 BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
