@@ -387,6 +387,13 @@ check at latest automake/autoconf/gettext/help2man version:
       make -C man maintainer-clean ; ./config.status man/Makefile ; make -C man
   . mention new versions in NEWS
 
+  . copy newer versions of the autoconf archive macros used for SWIG and Python.
+    For example:
+     for file in ax_pkg_swig.m4 ax_python_devel.m4 ax_swig_python.m4 ; do
+       cp -p /usr/share/aclocal/$file tta/m4
+     done
+    Check changes before committing.
+
 Update gnulib:
   # Under the top level, and also under tta/, which uses
   # a separate gnulib import.
