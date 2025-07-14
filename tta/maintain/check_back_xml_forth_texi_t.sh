@@ -121,3 +121,8 @@ diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_t
 # encoding for Texinfo in the past.  The XML parser, however does not accept
 # ISO-8859-1 characters if the XML encoding is US-ASCII, therefore there are
 # parsing errors if there are ISO-8859-1 characters in US-ASCII generated XML.
+
+# Some differences may appear because the generated Texinfo files have a Top
+# node added when there is none.  However, if there is a value or macro that
+# is expanded on the Top node, the Top node will not be detected and a
+# second one will be added leading to doubly defined node error.
