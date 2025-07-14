@@ -709,9 +709,6 @@ sub complete_node_tree_with_menus($)
                           }
 
                         }
-                        $menu_node_relations->{'menu_directions'} = {}
-                          if (!$menu_node_relations->{'menu_directions'});
-                        $menu_node_relations->{'menu_directions'}->{'up'} = $node;
                       }
                     }
                   } else {
@@ -733,10 +730,6 @@ sub complete_node_tree_with_menus($)
                   $previous_node_directions->{'next'} = $menu_node;
                 }
               }
-              $previous_node_relations->{'menu_directions'} = {}
-                if (!$previous_node_relations->{'menu_directions'});
-              $previous_node_relations->{'menu_directions'}->{'next'}
-                = $menu_node;
             }
             if ($menu_node_relations and $previous_node
                 and !$menu_node->{'extra'}->{'manual_content'}) {
@@ -749,10 +742,6 @@ sub complete_node_tree_with_menus($)
                   $menu_node_directions->{'prev'} = $previous_node;
                 }
               }
-              $menu_node_relations->{'menu_directions'} = {}
-                if (!$menu_node_relations->{'menu_directions'});
-              $menu_node_relations->{'menu_directions'}->{'prev'}
-                 = $previous_node;
             }
             $previous_node = $menu_node;
             $previous_node_relations = $menu_node_relations;
@@ -1624,16 +1613,14 @@ sub print_nodes_list($)
       }
     }
 
-    foreach my $directions_key (('menu_directions', 'node_directions')) {
-      if ($node_relations->{$directions_key}) {
-        my $value = $node_relations->{$directions_key};
-        $result .= " $directions_key:\n";
-        foreach my $d_key (@node_directions_names) {
-          if ($value->{$d_key}) {
-            my $e = $value->{$d_key};
-            my $node_direction_texi = _print_menu_node($e);
-            $result .= "  ${d_key}->$node_direction_texi\n";
-          }
+    if ($node_relations->{'node_directions'}) {
+      my $value = $node_relations->{'node_directions'};
+      $result .= " node_directions:\n";
+      foreach my $d_key (@node_directions_names) {
+        if ($value->{$d_key}) {
+          my $e = $value->{$d_key};
+          my $node_direction_texi = _print_menu_node($e);
+          $result .= "  ${d_key}->$node_direction_texi\n";
         }
       }
     }
@@ -2353,17 +2340,6 @@ X<C<complete_node_tree_with_menus>>
 
 Complete nodes directions with menu directions and I<Top> node first node
 directions.
-
-This functions sets, in the node relations hash reference:
-
-=over
-
-=item menu_directions
-
-Hash reference with I<up>, I<next> and I<prev> keys associated to
-elements corresponding to menu directions.
-
-=back
 
 =item check_node_tree_menu_structure($document)
 X<C<check_node_tree_menu_structure>>

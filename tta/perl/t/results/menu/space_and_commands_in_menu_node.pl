@@ -316,10 +316,6 @@ $result_nodes_list{'space_and_commands_in_menu_node'} = '1|Top
 2|chap @: b
  associated_section: 1 Chap
  associated_title_command: 1 Chap
- menu_directions:
-  next->chap @: b
-  prev->chap @: b
-  up->Top
  node_directions:
   next->chap @: b
   prev->Top

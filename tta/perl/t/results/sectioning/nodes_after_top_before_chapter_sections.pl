@@ -182,9 +182,6 @@ $result_nodes_list{'nodes_after_top_before_chapter_sections'} = '1|Top
  node_directions:
   next->second node
 2|second node
- menu_directions:
-  next->third node
-  up->Top
  node_directions:
   next->third node
   prev->Top
@@ -192,9 +189,6 @@ $result_nodes_list{'nodes_after_top_before_chapter_sections'} = '1|Top
 3|third node
  associated_section: 1 chapter
  associated_title_command: 1 chapter
- menu_directions:
-  prev->second node
-  up->Top
  node_directions:
   prev->second node
   up->Top

@@ -241,9 +241,6 @@ $result_nodes_list{'part_node_chapter_after_top'} = '1|Top
   next->a node after part
 2|a node after part
  node_preceding_part: part
- menu_directions:
-  next->chapter
-  up->Top
  node_directions:
   next->chapter
   prev->Top
@@ -252,9 +249,6 @@ $result_nodes_list{'part_node_chapter_after_top'} = '1|Top
  associated_section: 1 chapter
  node_preceding_part: part
  associated_title_command: 1 chapter
- menu_directions:
-  prev->a node after part
-  up->Top
  node_directions:
   next->a node after part
   up->Top

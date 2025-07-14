@@ -124,8 +124,6 @@ $result_nodes_list{'lone_Top_node'} = '1|Top
 2|First
  associated_section: 1 chap
  associated_title_command: 1 chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

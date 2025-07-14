@@ -165,8 +165,6 @@ $result_nodes_list{'anchor_in_footnote'} = '1|Top
 2|chapter
  associated_section: 1 Chap
  associated_title_command: 1 Chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

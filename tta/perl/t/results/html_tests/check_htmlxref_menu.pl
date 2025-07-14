@@ -322,18 +322,12 @@ $result_nodes_list{'check_htmlxref_menu'} = '1|Top
   up-> (dir)
 
 2|first
- menu_directions:
-  next->(other_no_existing_no_manual)
-  up->Top
  node_directions:
   next-> (no_existing_no_manual.info)
 
 3|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
- menu_directions:
-  prev->(other_no_existing_no_manual)
-  up->Top
  node_directions:
   next-> (chap_not_existing)
   prev-> (dir)node in dir

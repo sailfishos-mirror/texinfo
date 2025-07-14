@@ -354,18 +354,11 @@ $result_nodes_list{'node_footnote_use_node'} = '1|Top
  node_directions:
   next->@\'a
 2|@\'a
- menu_directions:
-  next->@^a
-  up->Top
  node_directions:
   next->@^a
   prev->Top
   up->Top
 3|@^a
- menu_directions:
-  next->chapter
-  prev->@\'a
-  up->Top
  node_directions:
   next->chapter
   prev->@\'a
@@ -375,18 +368,11 @@ $result_nodes_list{'node_footnote_use_node'} = '1|Top
  associated_title_command: 1 chapter
  menus:
   @`a
- menu_directions:
-  next->@`a
-  prev->@^a
-  up->Top
  node_directions:
   next->@`a
   prev->@^a
   up->Top
 5|@`a
- menu_directions:
-  prev->chapter
-  up->chapter
  node_directions:
   prev->chapter
   up->Top

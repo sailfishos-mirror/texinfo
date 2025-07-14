@@ -179,9 +179,6 @@ $result_nodes_list{'nodes_after_top_before_section_texi2html_use_nodes_chapter'}
  node_directions:
   next->chap node
 2|chap node
- menu_directions:
-  next->third node
-  up->Top
  node_directions:
   next->third node
   prev->Top
@@ -189,9 +186,6 @@ $result_nodes_list{'nodes_after_top_before_section_texi2html_use_nodes_chapter'}
 3|third node
  associated_section: 1 subsection
  associated_title_command: 1 subsection
- menu_directions:
-  prev->chap node
-  up->Top
  node_directions:
   prev->chap node
   up->Top

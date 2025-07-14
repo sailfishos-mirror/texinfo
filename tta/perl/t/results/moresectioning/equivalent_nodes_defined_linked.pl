@@ -238,8 +238,6 @@ $result_nodes_list{'equivalent_nodes_defined_linked'} = '1|Top
  node_directions:
   next->chap
 2|chap
- menu_directions:
-  up->Top
  node_directions:
   up->Top
 ';

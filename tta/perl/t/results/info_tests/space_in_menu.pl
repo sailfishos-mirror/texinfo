@@ -143,8 +143,6 @@ $result_nodes_list{'space_in_menu'} = '1|Top
 2|node
  associated_section: 1 node
  associated_title_command: 1 node
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

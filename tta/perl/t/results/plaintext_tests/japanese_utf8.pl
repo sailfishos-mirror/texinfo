@@ -324,9 +324,6 @@ $result_nodes_list{'japanese_utf8'} = '1|Top
 2|Preface
  associated_section: 1 Preface
  associated_title_command: 1 Preface
- menu_directions:
-  next->Introduction
-  up->Top
  node_directions:
   next->Introduction
   prev->Top
@@ -334,9 +331,6 @@ $result_nodes_list{'japanese_utf8'} = '1|Top
 3|Introduction
  associated_section: 2 Introduction
  associated_title_command: 2 Introduction
- menu_directions:
-  prev->Preface
-  up->Top
  node_directions:
   prev->Preface
   up->Top

@@ -276,16 +276,12 @@ $result_nodes_list{'master_menu_fr'} = '1|Top
  associated_title_command: 1 chap
  menus:
   section
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|section
  associated_section: 1.1 sec
  associated_title_command: 1.1 sec
- menu_directions:
-  up->chap
  node_directions:
   up->chap
 ';

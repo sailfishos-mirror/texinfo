@@ -131,9 +131,6 @@ $result_nodes_list{'empty_menu_entry_name'} = '1|first
   (vvv)
   aaa
 2|aaa
- menu_directions:
-  prev->(vvv)
-  up->first
  node_directions:
   prev->(vvv)
   up->first

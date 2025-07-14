@@ -227,26 +227,16 @@ $result_nodes_list{'invalid_node_name_no_warning'} = '1|Top
  node_directions:
   next->@asis{nodename. a}
 2|@asis{nodename. a}
- menu_directions:
-  next->node@comma{}comma
-  up->Top
  node_directions:
   next->node@comma{}comma
   prev->Top
   up->Top
 3|node@comma{}comma
- menu_directions:
-  next->@asis{bidule:}
-  prev->@asis{nodename. a}
-  up->Top
  node_directions:
   next->@asis{bidule:}
   prev->@asis{nodename. a}
   up->Top
 4|@asis{bidule:}
- menu_directions:
-  prev->node@comma{}comma
-  up->Top
  node_directions:
   prev->node@comma{}comma
   up->Top

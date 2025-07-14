@@ -230,8 +230,6 @@ $result_nodes_list{'double_part'} = '1|Top
  associated_section: 1 chapter after 2 parts
  node_preceding_part: part second
  associated_title_command: 1 chapter after 2 parts
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

@@ -216,8 +216,6 @@ $result_nodes_list{'ref_in_copying_insert_in_chapter'} = '1|Top
 3|GFDL
  associated_section: 1.1 GFDL
  associated_title_command: 1.1 GFDL
- menu_directions:
-  up->Intro
  node_directions:
   up->Intro
 ';

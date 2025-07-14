@@ -786,8 +786,6 @@ $result_nodes_list{'nodes_before_top_split_chapter_no_nodes'} = '1|first before 
   up->(dir)
 
 2|node in menu before top
- menu_directions:
-  up->first before top
  node_directions:
   up->first before top
 3|Top
@@ -798,8 +796,6 @@ $result_nodes_list{'nodes_before_top_split_chapter_no_nodes'} = '1|first before 
 4|chap first
  menus:
   second
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -807,21 +803,13 @@ $result_nodes_list{'nodes_before_top_split_chapter_no_nodes'} = '1|first before 
  menus:
   a node
   another
- menu_directions:
-  up->chap first
  node_directions:
   up->chap first
 6|another
- menu_directions:
-  prev->a node
-  up->second
  node_directions:
   prev->a node
   up->second
 7|a node
- menu_directions:
-  next->another
-  up->second
  node_directions:
   next->another
   up->second

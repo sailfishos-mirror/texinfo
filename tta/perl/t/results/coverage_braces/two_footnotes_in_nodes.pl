@@ -209,8 +209,6 @@ $result_nodes_list{'two_footnotes_in_nodes'} = '1|Top
 2|chapter
  associated_section: 1 chapter
  associated_title_command: 1 chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

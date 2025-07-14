@@ -145,8 +145,6 @@ $result_nodes_list{'node_up_external_node'} = '1|Top
  node_directions:
   next->chap first
 2|chap first
- menu_directions:
-  up->Top
  node_directions:
   next-> (manual1)
   prev-> (manual2) 

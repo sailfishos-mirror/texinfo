@@ -492,8 +492,6 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_title_command: 1 Chapter
  menus:
   Section
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -502,8 +500,6 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_title_command: 1.1 Section
  menus:
   Subsection
- menu_directions:
-  up->Chapter
  node_directions:
   up->Chapter
 4|Subsection
@@ -512,16 +508,11 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  menus:
   Subsubsection
   Lowered subsec
- menu_directions:
-  up->Section
  node_directions:
   up->Section
 5|Subsubsection
  associated_section: 1.1.1.1 Subsubsection
  associated_title_command: 1.1.1.1 Subsubsection
- menu_directions:
-  next->Lowered subsec
-  up->Subsection
  node_directions:
   next->Lowered subsec
   up->Subsection
@@ -530,9 +521,6 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_title_command: 1.1.1.2 Lowered subsec
  menus:
   Lowered subsubsection
- menu_directions:
-  prev->Subsubsection
-  up->Subsection
  node_directions:
   next->Lowered subsubsection
   prev->Subsubsection
@@ -540,8 +528,6 @@ $result_nodes_list{'lowered_subsubsection'} = '1|Top
 7|Lowered subsubsection
  associated_section: 1.1.1.3 Lowered subsubsection
  associated_title_command: 1.1.1.3 Lowered subsubsection
- menu_directions:
-  up->Lowered subsec
  node_directions:
   prev->Lowered subsec
   up->Subsection

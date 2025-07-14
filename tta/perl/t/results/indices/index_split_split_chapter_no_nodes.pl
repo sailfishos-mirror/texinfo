@@ -1159,9 +1159,6 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
   Top
   first
   second chapter
- menu_directions:
-  next->first
-  up->Top
  node_directions:
   next->first
 2|first
@@ -1174,10 +1171,6 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
   node in section 3
   node 2 in section 3
   node 3 in section 3
- menu_directions:
-  next->second chapter
-  prev->Top
-  up->Top
  node_directions:
   next->second chapter
   prev->Top
@@ -1188,37 +1181,24 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
  menus:
   subsection 1
   subsection 2
- menu_directions:
-  next->section 2
-  up->first
  node_directions:
   next->section 2
   up->first
 4|subsection 1
  associated_section: 1.1.1 Subsection 1
  associated_title_command: 1.1.1 Subsection 1
- menu_directions:
-  next->subsection 2
-  up->section 1
  node_directions:
   next->subsection 2
   up->section 1
 5|subsection 2
  associated_section: 1.1.2 Subsection 2
  associated_title_command: 1.1.2 Subsection 2
- menu_directions:
-  prev->subsection 1
-  up->section 1
  node_directions:
   prev->subsection 1
   up->section 1
 6|section 2
  associated_section: 1.2 Section 2
  associated_title_command: 1.2 Section 2
- menu_directions:
-  next->section 3
-  prev->section 1
-  up->first
  node_directions:
   next->section 3
   prev->section 1
@@ -1226,41 +1206,23 @@ $result_nodes_list{'index_split_split_chapter_no_nodes'} = '1|Top
 7|section 3
  associated_section: 1.3 Section 3
  associated_title_command: 1.3 Section 3
- menu_directions:
-  next->node in section 3
-  prev->section 2
-  up->first
  node_directions:
   next->node in section 3
   prev->section 2
   up->first
 8|node in section 3
- menu_directions:
-  next->node 2 in section 3
-  prev->section 3
-  up->first
  node_directions:
   prev->section 3
   up->first
 9|node 2 in section 3
- menu_directions:
-  next->node 3 in section 3
-  prev->node in section 3
-  up->first
  node_directions:
   up->first
 10|node 3 in section 3
- menu_directions:
-  prev->node 2 in section 3
-  up->first
  node_directions:
   up->first
 11|second chapter
  associated_section: 2 Second chapter
  associated_title_command: 2 Second chapter
- menu_directions:
-  prev->first
-  up->Top
  node_directions:
   prev->first
   up->Top

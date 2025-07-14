@@ -142,8 +142,6 @@ $result_nodes_list{'nodes_no_node_top_explicit_directions'} = '1|first
   up->(dir)
 
 2|second node
- menu_directions:
-  up->first
  node_directions:
   prev->first
   up->first

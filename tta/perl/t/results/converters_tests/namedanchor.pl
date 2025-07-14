@@ -660,9 +660,6 @@ $result_nodes_list{'namedanchor'} = '1|Top
 5|secc2
  associated_section: 2.1 Secc2
  associated_title_command: 2.1 Secc2
- menu_directions:
-  next->in Top
-  up->chap1
  node_directions:
   next->in Top
   up->chap1

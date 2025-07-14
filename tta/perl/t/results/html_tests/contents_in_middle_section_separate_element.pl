@@ -297,26 +297,18 @@ $result_nodes_list{'contents_in_middle_section_separate_element'} = '1|Top
  menus:
   section
   section1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
- menu_directions:
-  next->section1
-  up->chapter
  node_directions:
   next->section1
   up->chapter
 4|section1
  associated_section: 1.2 section 1
  associated_title_command: 1.2 section 1
- menu_directions:
-  prev->section
-  up->chapter
  node_directions:
   prev->section
   up->chapter

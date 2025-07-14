@@ -681,8 +681,6 @@ $result_nodes_list{'glossary'} = '1|Top
 2|glossary
  associated_section: 1 glossary
  associated_title_command: 1 glossary
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

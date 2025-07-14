@@ -135,8 +135,6 @@ $result_nodes_list{'equivalent_nodes_novalidate'} = '1|first
  node_directions:
   next->@samp{node}
 2|@samp{node}
- menu_directions:
-  up->first
  node_directions:
   up->first
 ';

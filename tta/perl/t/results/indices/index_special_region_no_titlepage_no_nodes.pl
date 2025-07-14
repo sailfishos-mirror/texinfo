@@ -718,8 +718,6 @@ $result_nodes_list{'index_special_region_no_titlepage_no_nodes'} = '1|Top
 2|Copying and indices
  associated_section: A Copying and indices
  associated_title_command: A Copying and indices
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

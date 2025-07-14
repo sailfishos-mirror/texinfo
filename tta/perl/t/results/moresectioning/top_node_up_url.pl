@@ -125,8 +125,6 @@ $result_nodes_list{'top_node_up_url'} = '1|Top
  node_directions:
   next->chap
 2|chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

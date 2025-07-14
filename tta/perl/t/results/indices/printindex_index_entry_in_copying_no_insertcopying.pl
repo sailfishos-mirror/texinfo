@@ -335,8 +335,6 @@ $result_nodes_list{'printindex_index_entry_in_copying_no_insertcopying'} = '1|To
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

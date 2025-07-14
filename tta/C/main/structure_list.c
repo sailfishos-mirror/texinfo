@@ -259,7 +259,6 @@ free_node_relations_list (NODE_RELATIONS_LIST *list)
       NODE_RELATIONS *node_relations = list->list[i];
       if (node_relations->menus)
         destroy_const_element_list (node_relations->menus);
-      free (node_relations->menu_directions);
       free (node_relations->node_directions);
       if (node_relations->hv)
         unregister_perl_data (node_relations->hv);
@@ -624,11 +623,6 @@ print_node_relations_info_internal (const NODE_RELATIONS *relations,
                 }
             }
         }
-    }
-  if (relations->menu_directions)
-    {
-      text_append_n (result, " menu_directions:\n", 18);
-      print_nodes_directions (result, relations->menu_directions);
     }
   if (relations->node_directions)
     {

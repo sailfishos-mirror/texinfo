@@ -563,8 +563,6 @@ $result_nodes_list{'float_copying'} = '1|Top
 2|Copying and floats
  associated_section: A Copying and floats
  associated_title_command: A Copying and floats
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

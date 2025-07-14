@@ -196,9 +196,6 @@ $result_nodes_list{'external_node_in_menu'} = '1|Top
 2|nchapter1
  associated_section: 1 chap1
  associated_title_command: 1 chap1
- menu_directions:
-  next->(aaa)other
-  up->Top
  node_directions:
   next->nchapter2
   prev->Top
@@ -206,9 +203,6 @@ $result_nodes_list{'external_node_in_menu'} = '1|Top
 3|nchapter2
  associated_section: 2 chap2
  associated_title_command: 2 chap2
- menu_directions:
-  prev->(aaa)other
-  up->Top
  node_directions:
   prev->nchapter1
   up->Top

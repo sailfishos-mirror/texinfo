@@ -401,24 +401,15 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  menus:
   @"i
   @~{@dotless{i}}
- menu_directions:
-  next->circumflex
-  up->Top
  node_directions:
   next->circumflex
   prev->Top
   up->Top
 3|@"i
- menu_directions:
-  next->@~{@dotless{i}}
-  up->umlaut
  node_directions:
   next->@~{@dotless{i}}
   up->umlaut
 4|@~{@dotless{i}}
- menu_directions:
-  prev->@"i
-  up->umlaut
  node_directions:
   prev->@"i
   up->umlaut
@@ -427,15 +418,10 @@ $result_nodes_list{'redirection_same_labels'} = '1|Top
  associated_title_command: 2 circumflex
  menus:
   @^i
- menu_directions:
-  prev->umlaut
-  up->Top
  node_directions:
   prev->umlaut
   up->Top
 6|@^i
- menu_directions:
-  up->circumflex
  node_directions:
   up->circumflex
 ';

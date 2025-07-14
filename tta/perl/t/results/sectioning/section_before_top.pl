@@ -137,8 +137,6 @@ $result_errors{'section_before_top'} = [
 $result_nodes_list{'section_before_top'} = '1|section node
  associated_section: 1 section
  associated_title_command: 1 section
- menu_directions:
-  up->Top
  node_directions:
   up->Top
 2|Top

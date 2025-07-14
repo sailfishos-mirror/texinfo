@@ -266,18 +266,11 @@ $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
 2|chapter 1
  associated_section: 1 chapter c1
  associated_title_command: 1 chapter c1
- menu_directions:
-  next->node between chapters
-  up->Top
  node_directions:
   next->node between chapters
   prev->Top
   up->Top
 3|node between chapters
- menu_directions:
-  next->chapter 2
-  prev->chapter 1
-  up->Top
  node_directions:
   next->chapter 2
   prev->chapter 1
@@ -285,9 +278,6 @@ $result_nodes_list{'two_nodes_between_chapters'} = '1|Top
 4|chapter 2
  associated_section: 2 chapter c2
  associated_title_command: 2 chapter c2
- menu_directions:
-  prev->node between chapters
-  up->Top
  node_directions:
   prev->chapter 1
   up->Top

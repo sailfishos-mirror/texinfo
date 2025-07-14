@@ -225,8 +225,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
 $result_nodes_list{'section_chapter_before_top_nodes'} = '1|section node
  associated_section: 1 section
  associated_title_command: 1 section
- menu_directions:
-  up->chapter node
  node_directions:
   next->chapter node
   up->chapter node
@@ -235,8 +233,6 @@ $result_nodes_list{'section_chapter_before_top_nodes'} = '1|section node
  associated_title_command: 2 chapter
  menus:
   section node
- menu_directions:
-  up->Top
  node_directions:
   next->Top
   prev->section node

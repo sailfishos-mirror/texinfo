@@ -129,8 +129,6 @@ $result_nodes_list{'regenerate_master_menu_no_need_for_master_menu'} = '1|Top
 2|chap
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

@@ -1194,8 +1194,6 @@ $result_nodes_list{'complex_float'} = '1|Top
 2|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

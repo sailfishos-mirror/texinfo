@@ -709,9 +709,6 @@ $result_nodes_list{'ref_in_sectioning'} = '1|Top
 2|node
  associated_section: 1 @xref{node,,title, file name, Manual}.
  associated_title_command: 1 @xref{node,,title, file name, Manual}.
- menu_directions:
-  next->chap
-  up->Top
  node_directions:
   next->chap
   prev->Top
@@ -719,9 +716,6 @@ $result_nodes_list{'ref_in_sectioning'} = '1|Top
 3|chap
  associated_section: 2 @ref{node} just node
  associated_title_command: 2 @ref{node} just node
- menu_directions:
-  prev->node
-  up->Top
  node_directions:
   prev->node
   up->Top

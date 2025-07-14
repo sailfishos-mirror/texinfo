@@ -756,9 +756,6 @@ $result_nodes_list{'quote_node_names'} = '1|Top
 2|blah:blah
  associated_section: 1 blah:blah
  associated_title_command: 1 blah:blah
- menu_directions:
-  next->blumpty.fump
-  up->Top
  node_directions:
   next->blumpty.fump
   prev->Top
@@ -766,10 +763,6 @@ $result_nodes_list{'quote_node_names'} = '1|Top
 3|blumpty.fump
  associated_section: 2 blumpty.fump
  associated_title_command: 2 blumpty.fump
- menu_directions:
-  next->normal node
-  prev->blah:blah
-  up->Top
  node_directions:
   next->normal node
   prev->blah:blah
@@ -777,10 +770,6 @@ $result_nodes_list{'quote_node_names'} = '1|Top
 4|normal node
  associated_section: 3 normal node
  associated_title_command: 3 normal node
- menu_directions:
-  next->@asis{secret,node}
-  prev->blumpty.fump
-  up->Top
  node_directions:
   next-> (man@comma{}u:a.l)direction
   prev-> (man_ual)direct@comma{}ion
@@ -789,9 +778,6 @@ $result_nodes_list{'quote_node_names'} = '1|Top
 5|@asis{secret,node}
  associated_section: 4 @asis{secret,node}
  associated_title_command: 4 @asis{secret,node}
- menu_directions:
-  prev->normal node
-  up->Top
  node_directions:
   prev->normal node
   up->Top

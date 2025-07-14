@@ -260,8 +260,6 @@ $result_nodes_list{'sc_in_menu'} = '1|first
  menus:
   @sc{node}
 2|@sc{node}
- menu_directions:
-  up->first
  node_directions:
   up->first
 ';

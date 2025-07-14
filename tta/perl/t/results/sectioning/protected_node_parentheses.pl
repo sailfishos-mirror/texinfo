@@ -147,8 +147,6 @@ $result_nodes_list{'protected_node_parentheses'} = '1|first
  menus:
   @asis{(}manual) name
 2|@asis{(}manual) name
- menu_directions:
-  up->first
  node_directions:
   up->first
 ';

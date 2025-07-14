@@ -542,9 +542,6 @@ $result_nodes_list{'character_and_spaces_in_refs'} = '1|Top
 2|node to avoid DocBook or LaTeX ignored
  associated_section: 1 first chapter
  associated_title_command: 1 first chapter
- menu_directions:
-  next->other nodes
-  up->Top
  node_directions:
   next->other nodes
   prev->Top
@@ -556,34 +553,21 @@ $result_nodes_list{'character_and_spaces_in_refs'} = '1|Top
   !_"#$%&\'()*+-.
   /;<=>?[\\]^_`|~
   local node
- menu_directions:
-  prev->node to avoid DocBook or LaTeX ignored
-  up->Top
  node_directions:
   next->!_"#$%&\'()*+-.
   prev->node to avoid DocBook or LaTeX ignored
   up->Top
 4|!_"#$%&\'()*+-.
- menu_directions:
-  next->/;<=>?[\\]^_`|~
-  up->other nodes
  node_directions:
   next->/;<=>?[\\]^_`|~
   prev->other nodes
   up->other nodes
 5|/;<=>?[\\]^_`|~
- menu_directions:
-  next->local   node
-  prev->!_"#$%&\'()*+-.
-  up->other nodes
  node_directions:
   next->local   node
   prev->!_"#$%&\'()*+-.
   up->other nodes
 6|local   node
- menu_directions:
-  prev->/;<=>?[\\]^_`|~
-  up->other nodes
  node_directions:
   prev->/;<=>?[\\]^_`|~
   up->other nodes

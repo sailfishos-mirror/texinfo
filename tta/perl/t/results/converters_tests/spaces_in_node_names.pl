@@ -245,26 +245,16 @@ $result_nodes_list{'spaces_in_node_names'} = '1|Top
  node_directions:
   next->chap@ @ 
 2|chap@ @ 
- menu_directions:
-  next->b@verb{:  :}
-  up->Top
  node_directions:
   next->b@verb{:  :}
   prev->Top
   up->Top
 3|b@verb{:  :}
- menu_directions:
-  next->c@w{  }
-  prev->chap@ @ 
-  up->Top
  node_directions:
   next->c@w{  }
   prev->chap@ @ 
   up->Top
 4|c@w{  }
- menu_directions:
-  prev->b@verb{:  :}
-  up->Top
  node_directions:
   prev->b@verb{:  :}
   up->Top

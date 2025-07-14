@@ -186,17 +186,11 @@ $result_nodes_list{'explicit_node_directions'} = '1|Top
  node_directions:
   next->chap node
 2|chap node
- menu_directions:
-  next->third node
-  up->Top
  node_directions:
   next->third node
   prev->Top
   up->Top
 3|third node
- menu_directions:
-  prev->chap node
-  up->Top
  node_directions:
   prev->chap node
   up->Top

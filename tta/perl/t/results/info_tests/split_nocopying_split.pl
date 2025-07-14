@@ -160,8 +160,6 @@ $result_nodes_list{'split_nocopying_split'} = '1|Top
 2|Ch1
  associated_section: 1 Ch1
  associated_title_command: 1 Ch1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

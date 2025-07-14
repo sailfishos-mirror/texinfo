@@ -391,8 +391,6 @@ $result_nodes_list{'navigation_no_header'} = '1|Top
  associated_title_command: 1 First chapter
  menus:
   section
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -401,15 +399,11 @@ $result_nodes_list{'navigation_no_header'} = '1|Top
  associated_title_command: 1.1 Section in chapter
  menus:
   subsection
- menu_directions:
-  up->chapter
  node_directions:
   up->chapter
 4|subsection
  associated_section: 1.1.1 Sub section in section
  associated_title_command: 1.1.1 Sub section in section
- menu_directions:
-  up->section
  node_directions:
   up->section
 ';

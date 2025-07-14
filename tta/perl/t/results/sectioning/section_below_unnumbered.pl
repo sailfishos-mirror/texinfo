@@ -240,16 +240,12 @@ $result_nodes_list{'section_below_unnumbered'} = '1|Top
  associated_title_command: Unn
  menus:
   Sec
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|Sec
  associated_section: Sec
  associated_title_command: Sec
- menu_directions:
-  up->Unn
  node_directions:
   up->Unn
 ';

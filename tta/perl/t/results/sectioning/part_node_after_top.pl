@@ -158,8 +158,6 @@ $result_nodes_list{'part_node_after_top'} = '1|Top
  node_directions:
   next->chap part node after top
 2|chap part node after top
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

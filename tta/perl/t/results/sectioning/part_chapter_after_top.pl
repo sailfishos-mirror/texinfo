@@ -167,8 +167,6 @@ $result_nodes_list{'part_chapter_after_top'} = '1|Top
  associated_section: 1 chapter
  node_preceding_part: part
  associated_title_command: 1 chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

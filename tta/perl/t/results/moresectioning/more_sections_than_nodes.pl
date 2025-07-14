@@ -491,9 +491,6 @@ $result_nodes_list{'more_sections_than_nodes'} = '1|Top
 2|n c2
  associated_section: 2 c2
  associated_title_command: 2 c2
- menu_directions:
-  next->n c3
-  up->Top
  node_directions:
   next->n c3
   prev->Top
@@ -503,10 +500,6 @@ $result_nodes_list{'more_sections_than_nodes'} = '1|Top
  associated_title_command: 3 c3
  menus:
   n c3 s 2
- menu_directions:
-  next->n c3 s1 s2
-  prev->n c2
-  up->Top
  node_directions:
   next->n c3 s1 s2
   prev->n c2
@@ -514,16 +507,11 @@ $result_nodes_list{'more_sections_than_nodes'} = '1|Top
 4|n c3 s 2
  associated_section: 3.2 c3 s2
  associated_title_command: 3.2 c3 s2
- menu_directions:
-  up->n c3
  node_directions:
   up->n c3
 5|n c3 s1 s2
  associated_section: 4.1.2 c3 s1 s2
  associated_title_command: 4.1.2 c3 s1 s2
- menu_directions:
-  prev->n c3
-  up->Top
  node_directions:
   prev->n c3
   up->Top

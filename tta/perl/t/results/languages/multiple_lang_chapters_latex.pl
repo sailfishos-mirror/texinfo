@@ -723,9 +723,6 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
 2|chapter ja
  associated_section: 1 ja
  associated_title_command: 1 ja
- menu_directions:
-  next->chapter en
-  up->Top
  node_directions:
   next->chapter en
   prev->Top
@@ -733,10 +730,6 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
 3|chapter en
  associated_section: 2 en
  associated_title_command: 2 en
- menu_directions:
-  next->chapter fr_FR
-  prev->chapter ja
-  up->Top
  node_directions:
   next->chapter fr_FR
   prev->chapter ja
@@ -744,10 +737,6 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
 4|chapter fr_FR
  associated_section: 3 fr_FR
  associated_title_command: 3 fr_FR
- menu_directions:
-  next->chapter de
-  prev->chapter en
-  up->Top
  node_directions:
   next->chapter de
   prev->chapter en
@@ -755,10 +744,6 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
 5|chapter de
  associated_section: 4 de
  associated_title_command: 4 de
- menu_directions:
-  next->chapter pt_BR
-  prev->chapter fr_FR
-  up->Top
  node_directions:
   next->chapter pt_BR
   prev->chapter fr_FR
@@ -766,9 +751,6 @@ $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
 6|chapter pt_BR
  associated_section: 5 pt_bR
  associated_title_command: 5 pt_bR
- menu_directions:
-  prev->chapter de
-  up->Top
  node_directions:
   prev->chapter de
   up->Top

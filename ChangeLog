@@ -1,5 +1,30 @@
 2025-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Eliminate menu_directions
+
+	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus)
+	(print_nodes_list): Remove any code setting or reading
+	'menu_directions'.
+
+	* tta/C/main/tree_types.h (NODE_RELATIONS): Remove field
+	"const struct ELEMENT **menu_directions".
+
+	* tta/C/structuring_transfo/structuring.c
+	(complete_node_tree_with_menus),
+	* tta/C/main/structure_list.c
+	(free_node_relations_list, print_node_relations_info_internal),
+	* tta/C/main/build_perl_info.c (build_node_relations):
+	Remove any use of 'menu_directions' field of NODE_RELATIONS.
+
+	* tta/C/main/build_perl_info.c (build_section_relations):
+	Use STORE_RELS_INFO_NODE_RELATIONS instead of
+	STORE_RELS_INFO_SECTION_RELATIONS to store 'part_following_node'.
+	The latter was erroneous but the error was hidden due to
+	the NODE_RELATIONS and SECTION_RELATIONS objects having the same
+	size by sheer chance.
+
+2025-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Combine complete_node_tree_with_menus and set_menus_node_directions
 
 	* tta/perl/Texinfo/Structuring.pm,

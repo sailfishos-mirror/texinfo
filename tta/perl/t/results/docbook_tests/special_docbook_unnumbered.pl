@@ -308,9 +308,6 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 2|Dedication
  associated_section: a dedication
  associated_title_command: a dedication
- menu_directions:
-  next->preface
-  up->Top
  node_directions:
   next->preface
   prev->Top
@@ -318,10 +315,6 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 3|preface
  associated_section: The Preface
  associated_title_command: The Preface
- menu_directions:
-  next->colophon
-  prev->Dedication
-  up->Top
  node_directions:
   next->colophon
   prev->Dedication
@@ -329,10 +322,6 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 4|colophon
  associated_section: A colophon
  associated_title_command: A colophon
- menu_directions:
-  next->acknowledgements
-  prev->preface
-  up->Top
  node_directions:
   next->acknowledgements
   prev->preface
@@ -340,9 +329,6 @@ $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
 5|acknowledgements
  associated_section: 1 A chapter Acnkowledgements
  associated_title_command: 1 A chapter Acnkowledgements
- menu_directions:
-  prev->colophon
-  up->Top
  node_directions:
   prev->colophon
   up->Top

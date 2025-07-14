@@ -97,8 +97,6 @@ $result_nodes_list{'menu_title_before_entries'} = '1|Top
  node_directions:
   next->chap subnode
 2|chap subnode
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

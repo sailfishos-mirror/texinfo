@@ -718,9 +718,6 @@ $result_nodes_list{'topic_guide'} = '1|Top
   topic1
   topic2
   topic5
- menu_directions:
-  next->guide2
-  up->topic5
  node_directions:
   next->guide2
   prev->Top
@@ -728,18 +725,11 @@ $result_nodes_list{'topic_guide'} = '1|Top
 3|topic1
  menus:
   guide1
- menu_directions:
-  next->topic2
-  up->guide1
  node_directions:
   next->topic2
 4|topic2
  menus:
   guide1
- menu_directions:
-  next->topic5
-  prev->topic1
-  up->guide1
  node_directions:
   next->topic3
   prev->topic1
@@ -751,9 +741,6 @@ $result_nodes_list{'topic_guide'} = '1|Top
 6|topic4
  menus:
   guide2
- menu_directions:
-  prev->topic5
-  up->guide2
  node_directions:
   prev->topic5
   up->guide2
@@ -761,10 +748,6 @@ $result_nodes_list{'topic_guide'} = '1|Top
  menus:
   guide1
   guide2
- menu_directions:
-  next->topic4
-  prev->topic2
-  up->guide2
  node_directions:
   prev->topic3
 8|guide2
@@ -773,9 +756,6 @@ $result_nodes_list{'topic_guide'} = '1|Top
  menus:
   topic5
   topic4
- menu_directions:
-  prev->guide1
-  up->topic5
  node_directions:
   prev->guide1
   up->Top

@@ -232,26 +232,16 @@ $result_nodes_list{'two_nodes_at_the_end_texi2html'} = '1|Top
 2|chapter 1
  associated_section: 1 chapter c1
  associated_title_command: 1 chapter c1
- menu_directions:
-  next->node after chapter 1
-  up->Top
  node_directions:
   next->node after chapter 1
   prev->Top
   up->Top
 3|node after chapter 1
- menu_directions:
-  next->last node in chapter 1
-  prev->chapter 1
-  up->Top
  node_directions:
   next->last node in chapter 1
   prev->chapter 1
   up->Top
 4|last node in chapter 1
- menu_directions:
-  prev->node after chapter 1
-  up->Top
  node_directions:
   prev->node after chapter 1
   up->Top

@@ -988,8 +988,6 @@ $result_nodes_list{'multiple_include_encodings'} = '1|Top
 6|Ą ą ˛ Ę ę
  associated_section: 4.1 Ą ą ˛ Ę ę
  associated_title_command: 4.1 Ą ą ˛ Ę ę
- menu_directions:
-  up->char latin2 latin2
  node_directions:
   up->char latin2 latin2
 7|Mixed english and chinese EUC-CN

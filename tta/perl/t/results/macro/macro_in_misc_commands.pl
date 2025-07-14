@@ -2136,8 +2136,6 @@ $result_nodes_list{'macro_in_misc_commands'} = '1|Top
 2|node atext
  associated_section: 1 chapter
  associated_title_command: 1 chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

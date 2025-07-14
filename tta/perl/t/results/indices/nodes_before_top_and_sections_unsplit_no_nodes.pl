@@ -985,8 +985,6 @@ $result_nodes_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '1|first 
   up->(dir)
 
 2|node in menu before top
- menu_directions:
-  up->first before top
  node_directions:
   up->first before top
 3|Top
@@ -1001,9 +999,6 @@ $result_nodes_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '1|first 
 4|first
  menus:
   second
- menu_directions:
-  next->chapter
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -1011,38 +1006,23 @@ $result_nodes_list{'nodes_before_top_and_sections_unsplit_no_nodes'} = '1|first 
  menus:
   a node
   another
- menu_directions:
-  up->first
  node_directions:
   up->first
 6|another
- menu_directions:
-  prev->a node
-  up->second
  node_directions:
   prev->a node
   up->second
 7|a node
- menu_directions:
-  next->another
-  up->second
  node_directions:
   next->another
   up->second
 8|chapter
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
- menu_directions:
-  next->node in chapter
-  prev->first
-  up->Top
  node_directions:
   next->node in chapter
   up->Top
 9|node in chapter
- menu_directions:
-  prev->chapter
-  up->Top
  node_directions:
   prev->chapter
   up->Top

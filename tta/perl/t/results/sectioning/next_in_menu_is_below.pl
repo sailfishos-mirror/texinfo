@@ -293,8 +293,6 @@ $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  menus:
   section
   subsection
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -303,18 +301,12 @@ $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  associated_title_command: 1.1 section
  menus:
   subsection
- menu_directions:
-  next->subsection
-  up->chapter
  node_directions:
   next->subsection
   up->chapter
 4|subsection
  associated_section: 1.1.1 subsection
  associated_title_command: 1.1.1 subsection
- menu_directions:
-  prev->section
-  up->section
  node_directions:
   prev->section
   up->section

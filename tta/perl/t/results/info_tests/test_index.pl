@@ -1321,9 +1321,6 @@ $result_nodes_list{'test_index'} = '1|Top
 2|name
  associated_section: 1 A chapter
  associated_title_command: 1 A chapter
- menu_directions:
-  next->name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
-  up->Top
  node_directions:
   next->name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
   prev->Top
@@ -1331,9 +1328,6 @@ $result_nodes_list{'test_index'} = '1|Top
 3|name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
  associated_section: A Index
  associated_title_command: A Index
- menu_directions:
-  prev->name
-  up->Top
  node_directions:
   prev->name
   up->Top

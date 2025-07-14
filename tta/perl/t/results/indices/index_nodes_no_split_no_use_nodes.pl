@@ -586,8 +586,6 @@ $result_nodes_list{'index_nodes_no_split_no_use_nodes'} = '1|Top
 2|chap first
  menus:
   second
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -595,21 +593,13 @@ $result_nodes_list{'index_nodes_no_split_no_use_nodes'} = '1|Top
  menus:
   a node
   another
- menu_directions:
-  up->chap first
  node_directions:
   up->chap first
 4|another
- menu_directions:
-  prev->a node
-  up->second
  node_directions:
   prev->a node
   up->second
 5|a node
- menu_directions:
-  next->another
-  up->second
  node_directions:
   next->another
   up->second

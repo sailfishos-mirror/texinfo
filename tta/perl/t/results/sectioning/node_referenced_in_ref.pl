@@ -131,8 +131,6 @@ $result_nodes_list{'node_referenced_in_ref'} = '1|Top
  node_directions:
   next->chap first level node
 2|chap first level node
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

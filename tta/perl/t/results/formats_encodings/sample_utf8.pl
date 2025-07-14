@@ -595,9 +595,6 @@ $result_nodes_list{'sample_utf8'} = '1|Top
 2|第一章（First Chapter）
  associated_section: 1 第一章（First Chapter）
  associated_title_command: 1 第一章（First Chapter）
- menu_directions:
-  next->Second Chapter AE ĄĘ ae ąę
-  up->Top
  node_directions:
   next->Second Chapter AE ĄĘ ae ąę
   prev->Top
@@ -605,10 +602,6 @@ $result_nodes_list{'sample_utf8'} = '1|Top
 3|Second Chapter AE ĄĘ ae ąę
  associated_section: 2 Chapter 2 AE ĄĘ ae ąę
  associated_title_command: 2 Chapter 2 AE ĄĘ ae ąę
- menu_directions:
-  next->Index node
-  prev->第一章（First Chapter）
-  up->Top
  node_directions:
   next->Index node
   prev->第一章（First Chapter）
@@ -616,9 +609,6 @@ $result_nodes_list{'sample_utf8'} = '1|Top
 4|Index node
  associated_section: Index
  associated_title_command: Index
- menu_directions:
-  prev->Second Chapter AE ĄĘ ae ąę
-  up->Top
  node_directions:
   prev->Second Chapter AE ĄĘ ae ąę
   up->Top

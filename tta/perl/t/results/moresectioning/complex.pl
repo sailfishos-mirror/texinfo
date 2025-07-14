@@ -1136,9 +1136,6 @@ $result_nodes_list{'complex'} = '1|Top
   unnumbered
   unnumbered2
   numbered
- menu_directions:
-  next->between node
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -1150,28 +1147,18 @@ $result_nodes_list{'complex'} = '1|Top
   numbered sub
   unnumbered sub2
   numbered sub2
- menu_directions:
-  next->unnumbered2
-  up->First node
  node_directions:
   next->unnumbered2
   up->First node
 4|unnumbered sub
  associated_section: unnumbered subsection
  associated_title_command: unnumbered subsection
- menu_directions:
-  next->numbered sub
-  up->unnumbered
  node_directions:
   next->numbered sub
   up->unnumbered
 5|numbered sub
  associated_section: numbered subsection
  associated_title_command: numbered subsection
- menu_directions:
-  next->unnumbered sub2
-  prev->unnumbered sub
-  up->unnumbered
  node_directions:
   next->unnumbered sub2
   prev->unnumbered sub
@@ -1179,10 +1166,6 @@ $result_nodes_list{'complex'} = '1|Top
 6|unnumbered sub2
  associated_section: unnumbered subsection2
  associated_title_command: unnumbered subsection2
- menu_directions:
-  next->numbered sub2
-  prev->numbered sub
-  up->unnumbered
  node_directions:
   next->numbered sub2
   prev->numbered sub
@@ -1190,9 +1173,6 @@ $result_nodes_list{'complex'} = '1|Top
 7|numbered sub2
  associated_section: numbered subsection2
  associated_title_command: numbered subsection2
- menu_directions:
-  prev->unnumbered sub2
-  up->unnumbered
  node_directions:
   prev->unnumbered sub2
   up->unnumbered
@@ -1201,10 +1181,6 @@ $result_nodes_list{'complex'} = '1|Top
  associated_title_command: unnumbered section2
  menus:
   numbered sub3
- menu_directions:
-  next->numbered
-  prev->unnumbered
-  up->First node
  node_directions:
   next->numbered
   prev->unnumbered
@@ -1212,43 +1188,26 @@ $result_nodes_list{'complex'} = '1|Top
 9|numbered sub3
  associated_section: numbered subsection3
  associated_title_command: numbered subsection3
- menu_directions:
-  up->unnumbered2
  node_directions:
   up->unnumbered2
 10|numbered
  associated_section: 1.1 numbered section
  associated_title_command: 1.1 numbered section
- menu_directions:
-  prev->unnumbered2
-  up->First node
  node_directions:
   prev->unnumbered2
   up->First node
 11|between node
- menu_directions:
-  next->Second node
-  prev->First node
-  up->Top
  node_directions:
   up->Top
 12|Second node
  associated_section: 2 second node chapter
  associated_title_command: 2 second node chapter
- menu_directions:
-  next->Third node unnumbered
-  prev->between node
-  up->Top
  node_directions:
   next->Third node unnumbered
   up->Top
 13|Third node unnumbered
  associated_section: unnumbered chapter
  associated_title_command: unnumbered chapter
- menu_directions:
-  next->continuity
-  prev->Second node
-  up->Top
  node_directions:
   next->continuity
   prev->Second node
@@ -1256,18 +1215,11 @@ $result_nodes_list{'complex'} = '1|Top
 14|continuity
  associated_section: unnumbered continuity
  associated_title_command: unnumbered continuity
- menu_directions:
-  next->Last node no description
-  prev->Third node unnumbered
-  up->Top
  node_directions:
   next->Third node unnumbered
   prev->Last node no description
   up->Top
 15|Last node no description
- menu_directions:
-  prev->continuity
-  up->Top
  node_directions:
   prev->continuity
   up->Top

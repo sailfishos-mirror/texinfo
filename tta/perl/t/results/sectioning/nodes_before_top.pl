@@ -238,8 +238,6 @@ $result_nodes_list{'nodes_before_top'} = '1|first
   up->(dir)
 
 2|node in menu before top
- menu_directions:
-  up->first
  node_directions:
   up->first
 3|Top
@@ -252,8 +250,6 @@ $result_nodes_list{'nodes_before_top'} = '1|first
 4|second node
  associated_section: 1 a chapter
  associated_title_command: 1 a chapter
- menu_directions:
-  up->Top
  node_directions:
   up->Top
 ';

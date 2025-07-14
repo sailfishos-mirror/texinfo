@@ -1840,9 +1840,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: 1 chapter
  menus:
   section in chapter
- menu_directions:
-  next->unnumbered
-  up->Top
  node_directions:
   next->unnumbered
   prev->Top
@@ -1850,8 +1847,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 3|section in chapter
  associated_section: 1.1 section in chapter
  associated_title_command: 1.1 section in chapter
- menu_directions:
-  up->chapter
  node_directions:
   up->chapter
 4|unnumbered
@@ -1859,10 +1854,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: unnumbered
  menus:
   section in unnumbered
- menu_directions:
-  next->chapter 2
-  prev->chapter
-  up->Top
  node_directions:
   next->chapter 2
   prev->chapter
@@ -1870,8 +1861,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 5|section in unnumbered
  associated_section: section in unnumbered
  associated_title_command: section in unnumbered
- menu_directions:
-  up->unnumbered
  node_directions:
   up->unnumbered
 6|chapter 2
@@ -1880,10 +1869,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  menus:
   unnumberedsec 2
   unnumberedsec 2-1
- menu_directions:
-  next->chapter 3
-  prev->unnumbered
-  up->Top
  node_directions:
   next->chapter 3
   prev->unnumbered
@@ -1896,28 +1881,18 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
   numbered sub 2
   unnumbered sub2 2
   numbered sub2 2
- menu_directions:
-  next->unnumberedsec 2-1
-  up->chapter 2
  node_directions:
   next->unnumberedsec 2-1
   up->chapter 2
 8|unnumbered sub 2
  associated_section: unnumbered subsection 2
  associated_title_command: unnumbered subsection 2
- menu_directions:
-  next->numbered sub 2
-  up->unnumberedsec 2
  node_directions:
   next->numbered sub 2
   up->unnumberedsec 2
 9|numbered sub 2
  associated_section: numbered subsection 2
  associated_title_command: numbered subsection 2
- menu_directions:
-  next->unnumbered sub2 2
-  prev->unnumbered sub 2
-  up->unnumberedsec 2
  node_directions:
   next->unnumbered sub2 2
   prev->unnumbered sub 2
@@ -1925,10 +1900,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 10|unnumbered sub2 2
  associated_section: unnumbered subsection2 2
  associated_title_command: unnumbered subsection2 2
- menu_directions:
-  next->numbered sub2 2
-  prev->numbered sub 2
-  up->unnumberedsec 2
  node_directions:
   next->numbered sub2 2
   prev->numbered sub 2
@@ -1936,9 +1907,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 11|numbered sub2 2
  associated_section: numbered subsection2 2
  associated_title_command: numbered subsection2 2
- menu_directions:
-  prev->unnumbered sub2 2
-  up->unnumberedsec 2
  node_directions:
   prev->unnumbered sub2 2
   up->unnumberedsec 2
@@ -1947,17 +1915,12 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: unnumberedsec 2-1
  menus:
   numbered sub 2-1
- menu_directions:
-  prev->unnumberedsec 2
-  up->chapter 2
  node_directions:
   prev->unnumberedsec 2
   up->chapter 2
 13|numbered sub 2-1
  associated_section: numbered subsection 2-1
  associated_title_command: numbered subsection 2-1
- menu_directions:
-  up->unnumberedsec 2-1
  node_directions:
   up->unnumberedsec 2-1
 14|chapter 3
@@ -1969,10 +1932,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
   unnumberedsec 3-2
   section 3-3
   unnumberedsec 3-4
- menu_directions:
-  next->unnumbered 4
-  prev->chapter 2
-  up->Top
  node_directions:
   next->unnumbered 4
   prev->chapter 2
@@ -1985,28 +1944,18 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
   numbered sub 3
   unnumbered sub2 3
   numbered sub2 3
- menu_directions:
-  next->section 3-1
-  up->chapter 3
  node_directions:
   next->section 3-1
   up->chapter 3
 16|unnumbered sub 3
  associated_section: unnumbered subsection 3
  associated_title_command: unnumbered subsection 3
- menu_directions:
-  next->numbered sub 3
-  up->unnumberedsec 3
  node_directions:
   next->numbered sub 3
   up->unnumberedsec 3
 17|numbered sub 3
  associated_section: numbered subsection 3
  associated_title_command: numbered subsection 3
- menu_directions:
-  next->unnumbered sub2 3
-  prev->unnumbered sub 3
-  up->unnumberedsec 3
  node_directions:
   next->unnumbered sub2 3
   prev->unnumbered sub 3
@@ -2014,10 +1963,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 18|unnumbered sub2 3
  associated_section: unnumbered subsection2 3
  associated_title_command: unnumbered subsection2 3
- menu_directions:
-  next->numbered sub2 3
-  prev->numbered sub 3
-  up->unnumberedsec 3
  node_directions:
   next->numbered sub2 3
   prev->numbered sub 3
@@ -2025,19 +1970,12 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 19|numbered sub2 3
  associated_section: numbered subsection2 3
  associated_title_command: numbered subsection2 3
- menu_directions:
-  prev->unnumbered sub2 3
-  up->unnumberedsec 3
  node_directions:
   prev->unnumbered sub2 3
   up->unnumberedsec 3
 20|section 3-1
  associated_section: 3.1 section 3-1
  associated_title_command: 3.1 section 3-1
- menu_directions:
-  next->unnumberedsec 3-2
-  prev->unnumberedsec 3
-  up->chapter 3
  node_directions:
   next->unnumberedsec 3-2
   prev->unnumberedsec 3
@@ -2047,10 +1985,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: unnumberedsec 3-2
  menus:
   numbered sub 3-2
- menu_directions:
-  next->section 3-3
-  prev->section 3-1
-  up->chapter 3
  node_directions:
   next->section 3-3
   prev->section 3-1
@@ -2058,8 +1992,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 22|numbered sub 3-2
  associated_section: numbered subsection 3-2
  associated_title_command: numbered subsection 3-2
- menu_directions:
-  up->unnumberedsec 3-2
  node_directions:
   up->unnumberedsec 3-2
 23|section 3-3
@@ -2067,10 +1999,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: 3.2 section 3-3
  menus:
   subsection 3-3
- menu_directions:
-  next->unnumberedsec 3-4
-  prev->unnumberedsec 3-2
-  up->chapter 3
  node_directions:
   next->unnumberedsec 3-4
   prev->unnumberedsec 3-2
@@ -2078,8 +2006,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 24|subsection 3-3
  associated_section: 3.2.1 subsection 3-3
  associated_title_command: 3.2.1 subsection 3-3
- menu_directions:
-  up->section 3-3
  node_directions:
   up->section 3-3
 25|unnumberedsec 3-4
@@ -2087,17 +2013,12 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: unnumberedsec 3-4
  menus:
   numbered sub 3-4
- menu_directions:
-  prev->section 3-3
-  up->chapter 3
  node_directions:
   prev->section 3-3
   up->chapter 3
 26|numbered sub 3-4
  associated_section: numbered subsection 3-4
  associated_title_command: numbered subsection 3-4
- menu_directions:
-  up->unnumberedsec 3-4
  node_directions:
   up->unnumberedsec 3-4
 27|unnumbered 4
@@ -2105,9 +2026,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_title_command: unnumbered  4
  menus:
   unnumberedsec 4
- menu_directions:
-  prev->chapter 3
-  up->Top
  node_directions:
   prev->chapter 3
   up->Top
@@ -2119,26 +2037,17 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
   numbered sub 4
   unnumbered sub2 4
   numbered sub2 4
- menu_directions:
-  up->unnumbered 4
  node_directions:
   up->unnumbered 4
 29|unnumbered sub 4
  associated_section: unnumbered subsection 4
  associated_title_command: unnumbered subsection 4
- menu_directions:
-  next->numbered sub 4
-  up->unnumberedsec 4
  node_directions:
   next->numbered sub 4
   up->unnumberedsec 4
 30|numbered sub 4
  associated_section: numbered subsection 4
  associated_title_command: numbered subsection 4
- menu_directions:
-  next->unnumbered sub2 4
-  prev->unnumbered sub 4
-  up->unnumberedsec 4
  node_directions:
   next->unnumbered sub2 4
   prev->unnumbered sub 4
@@ -2146,10 +2055,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 31|unnumbered sub2 4
  associated_section: unnumbered subsection2 4
  associated_title_command: unnumbered subsection2 4
- menu_directions:
-  next->numbered sub2 4
-  prev->numbered sub 4
-  up->unnumberedsec 4
  node_directions:
   next->numbered sub2 4
   prev->numbered sub 4
@@ -2157,9 +2062,6 @@ $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
 32|numbered sub2 4
  associated_section: numbered subsection2 4
  associated_title_command: numbered subsection2 4
- menu_directions:
-  prev->unnumbered sub2 4
-  up->unnumberedsec 4
  node_directions:
   prev->unnumbered sub2 4
   up->unnumberedsec 4

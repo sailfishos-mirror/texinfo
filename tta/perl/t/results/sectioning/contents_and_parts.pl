@@ -288,9 +288,6 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
  associated_section: 1 chapter 1
  node_preceding_part: part 1: part 1
  associated_title_command: 1 chapter 1
- menu_directions:
-  next->chapter 2 node
-  up->Top
  node_directions:
   next->chapter 2 node
   prev->Top
@@ -298,10 +295,6 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
 3|chapter 2 node
  associated_section: 2 chapter 2
  associated_title_command: 2 chapter 2
- menu_directions:
-  next->chapter 3 node
-  prev->chapter 1 node
-  up->Top
  node_directions:
   next->chapter 3 node
   prev->chapter 1 node
@@ -310,9 +303,6 @@ $result_nodes_list{'contents_and_parts'} = '1|Top
  associated_section: 3 chapter 3
  node_preceding_part: part2: part2
  associated_title_command: 3 chapter 3
- menu_directions:
-  prev->chapter 2 node
-  up->Top
  node_directions:
   prev->chapter 2 node
   up->Top

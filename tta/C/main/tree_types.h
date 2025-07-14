@@ -327,7 +327,6 @@ typedef struct NODE_RELATIONS {
     const ELEMENT *node_description;
     const ELEMENT *node_long_description;
     CONST_ELEMENT_LIST *menus;
-    const struct ELEMENT **menu_directions;
     const struct ELEMENT **node_directions;
 
     /* Used when building Perl tree only. This should be HV *hv,

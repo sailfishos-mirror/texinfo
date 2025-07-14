@@ -396,9 +396,6 @@ $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
 2|chap @* f     nl Something? @* After punct
  associated_section: 1 Chap
  associated_title_command: 1 Chap
- menu_directions:
-  next->new n
-  up->Top
  node_directions:
   next->new n
   prev->Top
@@ -410,9 +407,6 @@ $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
   ankh @* p
   ankh @* p
   ankh p
- menu_directions:
-  prev->chap @* f     nl Something? @* After punct
-  up->Top
  node_directions:
   prev->chap @* f     nl Something? @* After punct
   up->Top

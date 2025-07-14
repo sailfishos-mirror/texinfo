@@ -137,8 +137,6 @@ $result_nodes_list{'recursive_down_menu'} = '1|Top
  associated_title_command: 1 Intro
  menus:
   chapN
- menu_directions:
-  up->chapN
  node_directions:
   prev->Top
   up->Top

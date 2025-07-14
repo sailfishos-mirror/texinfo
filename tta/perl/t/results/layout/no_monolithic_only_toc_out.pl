@@ -215,8 +215,6 @@ $result_nodes_list{'no_monolithic_only_toc_out'} = '1|Top
 2|chapter
  associated_section: 1 Chapter
  associated_title_command: 1 Chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

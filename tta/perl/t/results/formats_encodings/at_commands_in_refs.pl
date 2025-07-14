@@ -3638,9 +3638,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 2|@- @{ @}
  associated_section: 1 @- @{ @}
  associated_title_command: 1 @- @{ @}
- menu_directions:
-  next->@  @	 @! @* @. @: .@: @? @@
-  up->Top
  node_directions:
   next->@  @	 @! @* @. @: .@: @? @@
   prev->Top
@@ -3648,10 +3645,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 3|@  @	 @! @* @. @: .@: @? @@
  associated_section: 2 @  @	 @! @* @. @: .@: @? @@
  associated_title_command: 2 @  @	 @! @* @. @: .@: @? @@
- menu_directions:
-  next->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
-  prev->@- @{ @}
-  up->Top
  node_directions:
   next->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   prev->@- @{ @}
@@ -3659,10 +3652,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 4|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_section: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_title_command: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
- menu_directions:
-  next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-  prev->@  @	 @! @* @. @: .@: @? @@
-  up->Top
  node_directions:
   next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
   prev->@  @	 @! @* @. @: .@: @? @@
@@ -3670,10 +3659,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
  associated_section: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
  associated_title_command: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
- menu_directions:
-  next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-  prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
-  up->Top
  node_directions:
   next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
   prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
@@ -3681,10 +3666,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
  associated_section: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
  associated_title_command: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
- menu_directions:
-  next->@geq{} @leq{} @arrow{}
-  prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-  up->Top
  node_directions:
   next->@geq{} @leq{} @arrow{}
   prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
@@ -3692,10 +3673,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 7|@geq{} @leq{} @arrow{}
  associated_section: 6 @geq{} @leq{} @arrow{}
  associated_title_command: 6 @geq{} @leq{} @arrow{}
- menu_directions:
-  next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-  up->Top
  node_directions:
   next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
   prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
@@ -3703,10 +3680,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
  associated_section: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
  associated_title_command: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
- menu_directions:
-  next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  prev->@geq{} @leq{} @arrow{}
-  up->Top
  node_directions:
   next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
   prev->@geq{} @leq{} @arrow{}
@@ -3714,10 +3687,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
  associated_section: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
  associated_title_command: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
- menu_directions:
-  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  up->Top
  node_directions:
   next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
   prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
@@ -3725,10 +3694,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
  associated_section: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
  associated_title_command: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
- menu_directions:
-  next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  up->Top
  node_directions:
   next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
   prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
@@ -3736,10 +3701,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_section: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_title_command: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
- menu_directions:
-  next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  up->Top
  node_directions:
   next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
   prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
@@ -3747,10 +3708,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_section: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_title_command: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
- menu_directions:
-  next->@dotless{i} @`{@=E} @,{@\'C}
-  prev->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  up->Top
  node_directions:
   next->@dotless{i} @`{@=E} @,{@\'C}
   prev->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
@@ -3758,10 +3715,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 13|@dotless{i} @`{@=E} @,{@\'C}
  associated_section: 12 @dotless{i} @`{@=E} @,{@\'C}
  associated_title_command: 12 @dotless{i} @`{@=E} @,{@\'C}
- menu_directions:
-  next->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
-  prev->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  up->Top
  node_directions:
   next->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
   prev->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
@@ -3769,10 +3722,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_section: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_title_command: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
- menu_directions:
-  next->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
-  prev->@dotless{i} @`{@=E} @,{@\'C}
-  up->Top
  node_directions:
   next->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
   prev->@dotless{i} @`{@=E} @,{@\'C}
@@ -3780,10 +3729,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_section: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_title_command: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
- menu_directions:
-  next->`` \'\' --- -- ` \'
-  prev->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
-  up->Top
  node_directions:
   next->`` \'\' --- -- ` \'
   prev->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
@@ -3791,10 +3736,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 16|`` \'\' --- -- ` \'
  associated_section: 15 `` \'\' --- -- ` \'
  associated_title_command: 15 `` \'\' --- -- ` \'
- menu_directions:
-  next->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
-  prev->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
-  up->Top
  node_directions:
   next->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
   prev->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
@@ -3802,10 +3743,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_section: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_title_command: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
- menu_directions:
-  next->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
-  prev->`` \'\' --- -- ` \'
-  up->Top
  node_directions:
   next->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
   prev->`` \'\' --- -- ` \'
@@ -3813,10 +3750,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_section: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_title_command: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
- menu_directions:
-  next->@email{someone@@somewher, the someone} @email{no_explain@@there}
-  prev->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
-  up->Top
  node_directions:
   next->@email{someone@@somewher, the someone} @email{no_explain@@there}
   prev->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
@@ -3824,10 +3757,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 19|@email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_section: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_title_command: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
- menu_directions:
-  next->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
-  prev->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
-  up->Top
  node_directions:
   next->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
   prev->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
@@ -3835,10 +3764,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_section: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_title_command: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
- menu_directions:
-  next->@verb{. @ {} . .}
-  prev->@email{someone@@somewher, the someone} @email{no_explain@@there}
-  up->Top
  node_directions:
   next->@verb{. @ {} . .}
   prev->@email{someone@@somewher, the someone} @email{no_explain@@there}
@@ -3846,10 +3771,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 21|@verb{. @ {} . .}
  associated_section: 20 @verb{. @ {} . .}
  associated_title_command: 20 @verb{. @ {} . .}
- menu_directions:
-  next->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
-  prev->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
-  up->Top
  node_directions:
   next->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
   prev->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
@@ -3857,10 +3778,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_section: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_title_command: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
- menu_directions:
-  next->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
-  prev->@verb{. @ {} . .}
-  up->Top
  node_directions:
   next->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
   prev->@verb{. @ {} . .}
@@ -3868,10 +3785,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_section: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_title_command: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
- menu_directions:
-  next->8.27@dmn{in}
-  prev->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
-  up->Top
  node_directions:
   next->8.27@dmn{in}
   prev->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
@@ -3879,10 +3792,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 24|8.27@dmn{in}
  associated_section: 23 8.27@dmn{in}
  associated_title_command: 23 8.27@dmn{in}
- menu_directions:
-  next->@sansserif{sansserif} @slanted{slanted}
-  prev->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
-  up->Top
  node_directions:
   next->@sansserif{sansserif} @slanted{slanted}
   prev->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
@@ -3890,10 +3799,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 25|@sansserif{sansserif} @slanted{slanted}
  associated_section: 24 @sansserif{sansserif} @slanted{slanted}
  associated_title_command: 24 @sansserif{sansserif} @slanted{slanted}
- menu_directions:
-  next->@indicateurl{indicateurl}
-  prev->8.27@dmn{in}
-  up->Top
  node_directions:
   next->@indicateurl{indicateurl}
   prev->8.27@dmn{in}
@@ -3901,10 +3806,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 26|@indicateurl{indicateurl}
  associated_section: 25 @indicateurl{indicateurl}
  associated_title_command: 25 @indicateurl{indicateurl}
- menu_directions:
-  next->@sub{g}H 3@sup{rd}
-  prev->@sansserif{sansserif} @slanted{slanted}
-  up->Top
  node_directions:
   next->@sub{g}H 3@sup{rd}
   prev->@sansserif{sansserif} @slanted{slanted}
@@ -3912,10 +3813,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 27|@sub{g}H 3@sup{rd}
  associated_section: 26 @sub{g}H 3@sup{rd}
  associated_title_command: 26 @sub{g}H 3@sup{rd}
- menu_directions:
-  next->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
-  prev->@indicateurl{indicateurl}
-  up->Top
  node_directions:
   next->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
   prev->@indicateurl{indicateurl}
@@ -3923,9 +3820,6 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
 28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_section: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_title_command: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
- menu_directions:
-  prev->@sub{g}H 3@sup{rd}
-  up->Top
  node_directions:
   prev->@sub{g}H 3@sup{rd}
   up->Top

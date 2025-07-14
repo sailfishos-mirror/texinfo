@@ -154,8 +154,6 @@ $result_errors{'part_node_before_top'} = [
 
 
 $result_nodes_list{'part_node_before_top'} = '1|part node before top
- menu_directions:
-  up->Top
  node_directions:
   next->Top
   up->Top

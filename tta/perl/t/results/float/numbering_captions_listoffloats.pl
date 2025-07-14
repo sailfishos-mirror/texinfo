@@ -1868,9 +1868,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
  associated_title_command: 1 A chapter
  menus:
   section
- menu_directions:
-  next->Unnumbered
-  up->Top
  node_directions:
   next->Unnumbered
   prev->Top
@@ -1878,8 +1875,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
 3|section
  associated_section: 1.1 A section
  associated_title_command: 1.1 A section
- menu_directions:
-  up->chapter
  node_directions:
   up->chapter
 4|Unnumbered
@@ -1887,10 +1882,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
  associated_title_command: Unnumbered
  menus:
   Section within unnumbered
- menu_directions:
-  next->Chapter with unnumbsubsec
-  prev->chapter
-  up->Top
  node_directions:
   next->Chapter with unnumbsubsec
   prev->chapter
@@ -1898,8 +1889,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
 5|Section within unnumbered
  associated_section: Section within unnumbered
  associated_title_command: Section within unnumbered
- menu_directions:
-  up->Unnumbered
  node_directions:
   up->Unnumbered
 6|Chapter with unnumbsubsec
@@ -1907,10 +1896,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
  associated_title_command: 2 Chapter with unnumbsubsec
  menus:
   unnumbered sec
- menu_directions:
-  next->Appendix for float
-  prev->Unnumbered
-  up->Top
  node_directions:
   next->Appendix for float
   prev->Unnumbered
@@ -1918,17 +1903,11 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
 7|unnumbered sec
  associated_section: unnumbered sec
  associated_title_command: unnumbered sec
- menu_directions:
-  up->Chapter with unnumbsubsec
  node_directions:
   up->Chapter with unnumbsubsec
 8|Appendix for float
  associated_section: A Appendix for float
  associated_title_command: A Appendix for float
- menu_directions:
-  next->list of floats
-  prev->Chapter with unnumbsubsec
-  up->Top
  node_directions:
   next->list of floats
   prev->Chapter with unnumbsubsec
@@ -1936,9 +1915,6 @@ $result_nodes_list{'numbering_captions_listoffloats'} = '1|Top
 9|list of floats
  associated_section: list of floats
  associated_title_command: list of floats
- menu_directions:
-  prev->Appendix for float
-  up->Top
  node_directions:
   prev->Appendix for float
   up->Top

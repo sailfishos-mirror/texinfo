@@ -514,8 +514,6 @@ $result_nodes_list{'non_empty_part_no_top_node_output'} = '1|Top
  associated_section: 2 chapter with part node
  node_preceding_part: Part II
  associated_title_command: 2 chapter with part node
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

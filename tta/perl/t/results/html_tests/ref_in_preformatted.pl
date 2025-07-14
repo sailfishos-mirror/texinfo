@@ -128,8 +128,6 @@ $result_nodes_list{'ref_in_preformatted'} = '1|Top
  node_directions:
   next->chap nnn the node name
 2|chap nnn the node name
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

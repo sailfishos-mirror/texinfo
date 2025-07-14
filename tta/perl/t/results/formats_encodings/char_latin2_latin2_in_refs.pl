@@ -218,8 +218,6 @@ $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
 2|Ą ą ˛ Ę ę
  associated_section: 1 Ą ą ˛ Ę ę
  associated_title_command: 1 Ą ą ˛ Ę ę
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

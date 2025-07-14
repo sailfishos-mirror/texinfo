@@ -186,8 +186,6 @@ $result_nodes_list{'chapter_between_nodes'} = '1|Top
 2|section node
  associated_section: 1.1 section
  associated_title_command: 1.1 section
- menu_directions:
-  up->Top
  node_directions:
   up->Top
 ';

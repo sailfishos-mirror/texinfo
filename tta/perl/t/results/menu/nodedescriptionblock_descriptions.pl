@@ -578,9 +578,6 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_title_command: 1 Toto
  node_description: @nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
  node_long_description: @nodedescriptionblock
- menu_directions:
-  next->titi
-  up->Top
  node_directions:
   next->titi
   prev->Top
@@ -589,10 +586,6 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: 2 Titi
  associated_title_command: 2 Titi
  node_long_description: @nodedescriptionblock
- menu_directions:
-  next->other
-  prev->toto
-  up->Top
  node_directions:
   next->other
   prev->toto
@@ -601,10 +594,6 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: 3 Other
  associated_title_command: 3 Other
  node_long_description: @nodedescriptionblock
- menu_directions:
-  next->a somewhat long node without description nor following space
-  prev->titi
-  up->Top
  node_directions:
   next->a somewhat long node without description nor following space
   prev->titi
@@ -614,10 +603,6 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_title_command: 4 Somewhat long
  node_description: @nodedescription not as long as the node
  node_long_description: @nodedescriptionblock
- menu_directions:
-  next->node double nodedescriptionblock
-  prev->other
-  up->Top
  node_directions:
   next->node double nodedescriptionblock
   prev->other
@@ -626,9 +611,6 @@ $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: 5 test double
  associated_title_command: 5 test double
  node_long_description: @nodedescriptionblock
- menu_directions:
-  prev->a somewhat long node without description nor following space
-  up->Top
  node_directions:
   prev->a somewhat long node without description nor following space
   up->Top

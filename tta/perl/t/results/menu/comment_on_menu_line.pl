@@ -119,8 +119,6 @@ $result_nodes_list{'comment_on_menu_line'} = '1|Top
  node_directions:
   next->first
 2|first
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

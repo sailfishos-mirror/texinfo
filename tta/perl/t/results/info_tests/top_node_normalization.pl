@@ -113,8 +113,6 @@ $result_errors{'top_node_normalization'} = [
 $result_nodes_list{'top_node_normalization'} = '1|ToP
  menus:
   tOP
- menu_directions:
-  up->ToP
  node_directions:
   next->ToP
 ';

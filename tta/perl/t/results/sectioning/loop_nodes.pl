@@ -241,20 +241,14 @@ $result_nodes_list{'loop_nodes'} = '1|Top
 2|chap node up
  menus:
   node middle
- menu_directions:
-  up->Top
  node_directions:
   up->node down
 3|node middle
  menus:
   node down
- menu_directions:
-  up->chap node up
  node_directions:
   up->chap node up
 4|node down
- menu_directions:
-  up->node middle
  node_directions:
   up->node middle
 ';

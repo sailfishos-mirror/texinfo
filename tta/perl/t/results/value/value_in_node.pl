@@ -317,14 +317,10 @@ $result_nodes_list{'value_in_node'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   Section 1.1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|Section 1.1
- menu_directions:
-  up->Node 1
  node_directions:
   prev->Node 1
   up->Node 1

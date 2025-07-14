@@ -442,27 +442,18 @@ $result_nodes_list{'in_menu_only_special_spaces_node_menu'} = '1|Top
 2|   
  associated_section: 1 EN QUAD| | EM QUAD| | EN SPACE| |
  associated_title_command: 1 EN QUAD| | EM QUAD| | EN SPACE| |
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|  
  associated_section: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
  associated_title_command: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
- menu_directions:
-  next->᠎ 
-  up->Top
  node_directions:
   next->᠎ 
   up->Top
 4|᠎ 
  associated_section: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
  associated_title_command: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
- menu_directions:
-  next->         　
-  prev->  
-  up->Top
  node_directions:
   next->         　
   prev->  
@@ -470,9 +461,6 @@ $result_nodes_list{'in_menu_only_special_spaces_node_menu'} = '1|Top
 5|         　
  associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
  associated_title_command: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
- menu_directions:
-  prev->᠎ 
-  up->Top
  node_directions:
   prev->᠎ 
   up->Top

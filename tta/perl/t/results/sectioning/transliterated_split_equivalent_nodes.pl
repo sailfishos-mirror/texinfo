@@ -231,26 +231,16 @@ $result_nodes_list{'transliterated_split_equivalent_nodes'} = '1|top
 2|@~a
  associated_section: @~a
  associated_title_command: @~a
- menu_directions:
-  next->n
-  up->top
  node_directions:
   next->n
   prev->top
   up->top
 3|n
- menu_directions:
-  next->@^a
-  prev->@~a
-  up->top
  node_directions:
   next->@^a
   prev->@~a
   up->top
 4|@^a
- menu_directions:
-  prev->n
-  up->top
  node_directions:
   prev->n
   up->top

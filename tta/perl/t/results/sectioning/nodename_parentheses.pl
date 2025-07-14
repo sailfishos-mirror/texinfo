@@ -314,9 +314,6 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
 2|Node (with parentheses)
  associated_section: 1 Section (nodename with parentheses)
  associated_title_command: 1 Section (nodename with parentheses)
- menu_directions:
-  next->Other node
-  up->Top
  node_directions:
   next->Other node
   prev->Top
@@ -324,10 +321,6 @@ $result_nodes_list{'nodename_parentheses'} = '1|Top
 3|Other node
  associated_section: 2 Section (nodename without parentheses)
  associated_title_command: 2 Section (nodename without parentheses)
- menu_directions:
-  next->(manual)node
-  prev->Node (with parentheses)
-  up->Top
  node_directions:
   next->(manual)node
   prev->Node (with parentheses)

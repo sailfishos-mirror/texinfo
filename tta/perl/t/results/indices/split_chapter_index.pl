@@ -526,8 +526,6 @@ $result_nodes_list{'split_chapter_index'} = '1|Top
  associated_title_command: 1 First chapter
  menus:
   section 1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
@@ -536,15 +534,11 @@ $result_nodes_list{'split_chapter_index'} = '1|Top
  associated_title_command: 1.1 Section 1
  menus:
   subsection 1
- menu_directions:
-  up->first
  node_directions:
   up->first
 4|subsection 1
  associated_section: 1.1.1 Subsection 1
  associated_title_command: 1.1.1 Subsection 1
- menu_directions:
-  up->section 1
  node_directions:
   up->section 1
 ';

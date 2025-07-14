@@ -205,17 +205,11 @@ $result_nodes_list{'entry_after_detailmenu'} = '1|Top
  node_directions:
   next->chap first
 2|chap first
- menu_directions:
-  next->second
-  up->Top
  node_directions:
   next->second
   prev->Top
   up->Top
 3|second
- menu_directions:
-  prev->chap first
-  up->Top
  node_directions:
   prev->chap first
   up->Top

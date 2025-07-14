@@ -274,8 +274,6 @@ $result_nodes_list{'empty_xrefname'} = '1|Top
   up->Top
 3|entiti
  associated_title_command
- menu_directions:
-  up->Chap
  node_directions:
   up->Chap
 4|chip

@@ -526,9 +526,6 @@ $result_nodes_list{'image_inline_or_not'} = '1|Top
 2|@image{node_image}
  associated_section: 1 @image{in_chapter_arg}
  associated_title_command: 1 @image{in_chapter_arg}
- menu_directions:
-  next->(somewhere)@image{extnode}
-  up->Top
  node_directions:
   next->(somewhere)@image{extnode}
   prev->Top

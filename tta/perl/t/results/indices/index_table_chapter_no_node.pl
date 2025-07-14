@@ -2404,9 +2404,6 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
 2|node with ftable and vtable
  associated_section: 1 first node chapter, with ftable and vtable
  associated_title_command: 1 first node chapter, with ftable and vtable
- menu_directions:
-  next->node with printindex
-  up->Top
  node_directions:
   next->node with printindex
   prev->Top
@@ -2414,10 +2411,6 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
 3|node with printindex
  associated_section: 2 node with printindex
  associated_title_command: 2 node with printindex
- menu_directions:
-  next->indices refs
-  prev->node with ftable and vtable
-  up->Top
  node_directions:
   next->indices refs
   prev->node with ftable and vtable
@@ -2427,17 +2420,12 @@ $result_nodes_list{'index_table_chapter_no_node'} = '1|Top
  associated_title_command: 3 Indices refs
  menus:
   node
- menu_directions:
-  prev->node with printindex
-  up->Top
  node_directions:
   prev->node with printindex
   up->Top
 5|node
  associated_section: 3.1 node
  associated_title_command: 3.1 node
- menu_directions:
-  up->indices refs
 ';
 
 $result_sections_list{'index_table_chapter_no_node'} = '1|Test for indices

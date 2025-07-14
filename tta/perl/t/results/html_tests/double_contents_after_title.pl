@@ -257,16 +257,12 @@ $result_nodes_list{'double_contents_after_title'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   section
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
 3|section
  associated_section: 1.1 section with contents
  associated_title_command: 1.1 section with contents
- menu_directions:
-  up->chapter
  node_directions:
   up->chapter
 ';

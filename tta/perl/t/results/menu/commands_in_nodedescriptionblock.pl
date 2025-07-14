@@ -425,9 +425,6 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  associated_section: 1 chap1
  associated_title_command: 1 chap1
  node_long_description: @nodedescriptionblock
- menu_directions:
-  next->node2
-  up->node2
  node_directions:
   next->node2
   prev->Top
@@ -437,9 +434,6 @@ $result_nodes_list{'commands_in_nodedescriptionblock'} = '1|Top
  associated_title_command: 2 chap2
  menus:
   node1
- menu_directions:
-  prev->node1
-  up->Top
  node_directions:
   prev->node1
   up->Top

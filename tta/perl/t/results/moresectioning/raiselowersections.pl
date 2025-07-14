@@ -638,9 +638,6 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  associated_title_command: 1 Chapter
  menus:
   Chapter in included file
- menu_directions:
-  next->Second chapter
-  up->Top
  node_directions:
   next->Second chapter
   prev->Top
@@ -650,8 +647,6 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  associated_title_command: 1.1 Chapter in included file
  menus:
   Section
- menu_directions:
-  up->Chapter
  node_directions:
   up->Chapter
 4|Section
@@ -659,23 +654,16 @@ $result_nodes_list{'raiselowersections'} = '1|Top
  associated_title_command: 1.1.1 Section
  menus:
   Subsection
- menu_directions:
-  up->Chapter in included file
  node_directions:
   up->Chapter in included file
 5|Subsection
  associated_section: 1.1.1.1 Subsection
  associated_title_command: 1.1.1.1 Subsection
- menu_directions:
-  up->Section
  node_directions:
   up->Section
 6|Second chapter
  associated_section: 2 Second chapter
  associated_title_command: 2 Second chapter
- menu_directions:
-  prev->Chapter
-  up->Top
  node_directions:
   prev->Chapter
   up->Top

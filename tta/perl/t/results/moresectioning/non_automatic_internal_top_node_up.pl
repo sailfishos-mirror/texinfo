@@ -221,8 +221,6 @@ $result_nodes_list{'non_automatic_internal_top_node_up'} = '1|Top
  node_directions:
   next->chap
 2|chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
 ';

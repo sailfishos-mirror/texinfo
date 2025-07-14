@@ -282,17 +282,11 @@ $result_nodes_list{'colons_in_index_entries_and_node'} = '1|Top
  node_directions:
   next->One@asis{::}node@comma{} with entries.
 2|One@asis{::}node@comma{} with entries.
- menu_directions:
-  next->Concept Index
-  up->Top
  node_directions:
   next->Concept Index
   prev->Top
   up->Top
 3|Concept Index
- menu_directions:
-  prev->One@asis{::}node@comma{} with entries.
-  up->Top
  node_directions:
   prev->One@asis{::}node@comma{} with entries.
   up->Top

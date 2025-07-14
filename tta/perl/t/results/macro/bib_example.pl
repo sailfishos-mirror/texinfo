@@ -2517,9 +2517,6 @@ $result_nodes_list{'bib_example'} = '1|Top
 2|Introduction
  associated_section: 1 Introduction
  associated_title_command: 1 Introduction
- menu_directions:
-  next->References
-  up->Top
  node_directions:
   next->References
   prev->Top
@@ -2527,9 +2524,6 @@ $result_nodes_list{'bib_example'} = '1|Top
 3|References
  associated_section: 2 References
  associated_title_command: 2 References
- menu_directions:
-  prev->Introduction
-  up->Top
  node_directions:
   prev->Introduction
   up->Top

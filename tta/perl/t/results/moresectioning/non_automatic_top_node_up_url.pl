@@ -183,8 +183,6 @@ $result_nodes_list{'non_automatic_top_node_up_url'} = '1|Top
   up-> (dir)
 
 2|chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up-> (dir)

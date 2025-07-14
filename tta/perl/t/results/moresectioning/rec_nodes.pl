@@ -389,34 +389,22 @@ $result_nodes_list{'rec_nodes'} = '1|Top
  menus:
   other node
   chap node
- menu_directions:
-  next->node following second
-  prev->other node
-  up->chap node
  node_directions:
   prev->Top
   up->Top
 3|other node
  menus:
   other node
- menu_directions:
-  next->chap node
-  up->other node
  node_directions:
   up->chap node
 4|node up node following second
  menus:
   node following second
- menu_directions:
-  up->node following second
  node_directions:
   up->node following second
 5|node following second
  menus:
   node up node following second
- menu_directions:
-  prev->chap node
-  up->node up node following second
  node_directions:
   up->node up node following second
 ';

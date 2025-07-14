@@ -941,15 +941,11 @@ $result_nodes_list{'custom_heading_with_include_in_command'} = '1|Top
  associated_title_command: 2.1 Section
  menus:
   Subsection
- menu_directions:
-  up->Chapter in included file
  node_directions:
   up->Chapter in included file
 5|Subsection
  associated_section: 2.1.1 Subsection
  associated_title_command: 2.1.1 Subsection
- menu_directions:
-  up->Section
  node_directions:
   up->Section
 6|last chap

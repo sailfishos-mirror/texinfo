@@ -1273,12 +1273,6 @@ build_node_relations (NODE_RELATIONS *relations)
       sv = build_perl_const_element_array (relations->menus, 0);
       hv_store (relations_hv, "menus", strlen ("menus"), sv, 0);
     }
-  if (relations->menu_directions)
-    {
-      sv = build_perl_directions (relations->menu_directions, 0);
-      hv_store (relations_hv, "menu_directions",
-                strlen ("menu_directions"), sv, 0);
-    }
   if (relations->node_directions)
     {
       sv = build_perl_directions (relations->node_directions, 0);
@@ -1386,7 +1380,7 @@ build_section_relations (SECTION_RELATIONS *relations)
   STORE_RELS_INFO_NODE_RELATIONS(associated_anchor_command)
   STORE_RELS_INFO_SECTION_RELATIONS(associated_part)
   STORE_RELS_INFO_SECTION_RELATIONS(part_associated_section)
-  STORE_RELS_INFO_SECTION_RELATIONS(part_following_node)
+  STORE_RELS_INFO_NODE_RELATIONS(part_following_node)
   if (relations->section_directions)
     {
       sv = build_perl_section_directions (relations->section_directions);

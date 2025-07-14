@@ -172,10 +172,6 @@ $result_nodes_list{'double_top_in_menu'} = '1|ToP
  menus:
   top
   TOP
- menu_directions:
-  next->ToP
-  prev->ToP
-  up->ToP
  node_directions:
   next->ToP
 2|top

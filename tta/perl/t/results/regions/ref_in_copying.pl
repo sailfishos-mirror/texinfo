@@ -175,8 +175,6 @@ $result_nodes_list{'ref_in_copying'} = '1|Top
 2|GFDL
  associated_section: 1 GFDL
  associated_title_command: 1 GFDL
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

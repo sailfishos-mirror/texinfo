@@ -166,8 +166,6 @@ $result_nodes_list{'split_test_before_first_node_no_empty_line'} = '1|Top
 2|chap1
  associated_section: 1 chap
  associated_title_command: 1 chap
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

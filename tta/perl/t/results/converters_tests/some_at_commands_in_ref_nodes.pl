@@ -343,8 +343,6 @@ $result_nodes_list{'some_at_commands_in_ref_nodes'} = '1|Top
 2|A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_section: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
  associated_title_command: 1 A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

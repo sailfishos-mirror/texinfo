@@ -148,8 +148,6 @@ $result_nodes_list{'contents_at_end_document_after_node'} = '1|Top
  node_directions:
   next->a node
 2|a node
- menu_directions:
-  up->Top
  node_directions:
   up->Top
 ';

@@ -215,8 +215,6 @@ $result_nodes_list{'part_node_part_appendix'} = '1|Top
  associated_section: 1 chapter
  node_preceding_part: Part 1
  associated_title_command: 1 chapter
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

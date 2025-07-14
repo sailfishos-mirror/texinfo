@@ -215,17 +215,11 @@ $result_errors{'headings_nodes_before_chapter'} = [];
 
 $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
  associated_title_command: @heading Topic One
- menu_directions:
-  next->Node 2
-  up->Cap 1
  node_directions:
   next->Node 2
   up->Cap 1
 2|Node 2
  associated_title_command: @heading Topic Two
- menu_directions:
-  prev->Node 1
-  up->Cap 1
  node_directions:
   prev->Node 1
   up->Cap 1

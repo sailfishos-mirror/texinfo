@@ -510,9 +510,6 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 2|ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_section: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
  associated_title_command: 1 ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
- menu_directions:
-  next->é
-  up->Top
  node_directions:
   next->é
   prev->Top
@@ -520,10 +517,6 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 3|é
  associated_section: 2 é
  associated_title_command: 2 é
- menu_directions:
-  next->à è ù
-  prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
-  up->Top
  node_directions:
   next->à è ù
   prev->ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
@@ -531,10 +524,6 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 4|à è ù
  associated_section: 3 à è ù
  associated_title_command: 3 à è ù
- menu_directions:
-  next->â ê î ô û Â Ê Î Ô Û
-  prev->é
-  up->Top
  node_directions:
   next->â ê î ô û Â Ê Î Ô Û
   prev->é
@@ -542,10 +531,6 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 5|â ê î ô û Â Ê Î Ô Û
  associated_section: 4 â ê î ô û Â Ê Î Ô Û
  associated_title_command: 4 â ê î ô û Â Ê Î Ô Û
- menu_directions:
-  next->ç
-  prev->à è ù
-  up->Top
  node_directions:
   next->ç
   prev->à è ù
@@ -553,9 +538,6 @@ $result_nodes_list{'char_us_ascii_latin1_in_refs'} = '1|Top
 6|ç
  associated_section: 5 ç
  associated_title_command: 5 ç
- menu_directions:
-  prev->â ê î ô û Â Ê Î Ô Û
-  up->Top
  node_directions:
   prev->â ê î ô û Â Ê Î Ô Û
   up->Top

@@ -136,15 +136,9 @@ $result_nodes_list{'top_node_no_menu_direction'} = '1|Top
  menus:
   chap node
   TOP
- menu_directions:
-  prev->chap node
-  up->Top
  node_directions:
   next->chap node
 2|chap node
- menu_directions:
-  next->Top
-  up->Top
  node_directions:
   prev->Top
   up->Top

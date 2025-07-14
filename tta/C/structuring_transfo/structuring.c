@@ -1011,12 +1011,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                           if (!menu_node_directions[D_up])
                                             menu_node_directions[D_up] = node;
                                         }
-
-                                      if (!menu_node_relations->menu_directions)
-                                        menu_node_relations->menu_directions
-                                          = new_directions ();
-                                      menu_node_relations->menu_directions[D_up]
-                                        = node;
                                     }
                                 }
                             }
@@ -1045,12 +1039,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               if (!previous_node_directions[D_next])
                                 previous_node_directions[D_next] = menu_node;
                             }
-                          if (!previous_node_relations->menu_directions)
-                            previous_node_relations->menu_directions
-                              = new_directions ();
-
-                          previous_node_relations->menu_directions[D_next]
-                            = menu_node;
                         }
                     }
                   if (menu_node_relations && previous_node)
@@ -1072,12 +1060,6 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               if (!menu_node_directions[D_prev])
                                 menu_node_directions[D_prev] = previous_node;
                             }
-                          if (!menu_node_relations->menu_directions)
-                            menu_node_relations->menu_directions
-                              = new_directions ();
-
-                          menu_node_relations->menu_directions[D_prev]
-                            = previous_node;
                         }
                     }
                     previous_node = menu_node;

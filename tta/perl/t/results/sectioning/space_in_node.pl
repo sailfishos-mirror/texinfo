@@ -163,26 +163,16 @@ $result_nodes_list{'space_in_node'} = '1|Top
  node_directions:
   next->Chap first  here
 2|Chap first  here
- menu_directions:
-  next->Test               title
-  up->Top
  node_directions:
   next->Test               title
   prev->Top
   up->Top
 3|Test               title
- menu_directions:
-  next->Last with spaces
-  prev->Chap first  here
-  up->Top
  node_directions:
   next->Last with spaces
   prev->Chap first  here
   up->Top
 4|Last with spaces
- menu_directions:
-  prev->Test               title
-  up->Top
  node_directions:
   prev->Test               title
   up->Top

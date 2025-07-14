@@ -447,9 +447,6 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
  associated_title_command: 1 chapter
  menus:
   section
- menu_directions:
-  next->chapter 2
-  up->Top
  node_directions:
   next->chapter 2
   prev->Top
@@ -457,10 +454,6 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
 3|section
  associated_section: 1.1 section
  associated_title_command: 1.1 section
- menu_directions:
-  next->section chap 2
-  prev->chapter 2
-  up->chapter
  node_directions:
   next->section chap 2
   prev->chapter 2
@@ -471,10 +464,6 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
  menus:
   section chap 2
   unnumberedsec
- menu_directions:
-  next->section
-  prev->chapter
-  up->Top
  node_directions:
   next->section
   prev->chapter
@@ -482,10 +471,6 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
 5|section chap 2
  associated_section: 2.1 section chap 2
  associated_title_command: 2.1 section chap 2
- menu_directions:
-  next->unnumberedsec
-  prev->section
-  up->chapter 2
  node_directions:
   next->unnumberedsec
   prev->section
@@ -493,9 +478,6 @@ $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
 6|unnumberedsec
  associated_section: unnumberedsec
  associated_title_command: unnumberedsec
- menu_directions:
-  prev->section chap 2
-  up->chapter 2
  node_directions:
   prev->section chap 2
   up->chapter 2

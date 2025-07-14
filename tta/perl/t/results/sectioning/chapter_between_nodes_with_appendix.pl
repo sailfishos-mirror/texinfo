@@ -150,8 +150,6 @@ $result_nodes_list{'chapter_between_nodes_with_appendix'} = '1|Top
 2|Additional
  associated_section: A Annex
  associated_title_command: A Annex
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

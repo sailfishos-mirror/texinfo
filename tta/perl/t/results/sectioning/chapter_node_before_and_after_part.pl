@@ -173,8 +173,6 @@ $result_nodes_list{'chapter_node_before_and_after_part'} = '1|Top
  associated_section: 2 chapter 2
  node_preceding_part: part
  associated_title_command: 2 chapter 2
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

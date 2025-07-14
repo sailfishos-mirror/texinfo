@@ -274,9 +274,6 @@ $result_nodes_list{'semi_auto'} = '1|Top
  associated_title_command: 1 Chapter 1
  menus:
   Sec in chapter
- menu_directions:
-  next->Section non auto
-  up->Top
  node_directions:
   next->Section non auto
   prev->Top
@@ -284,17 +281,12 @@ $result_nodes_list{'semi_auto'} = '1|Top
 3|Sec in chapter
  associated_section: 1.1 Sec in chapter
  associated_title_command: 1.1 Sec in chapter
- menu_directions:
-  up->Chap1
  node_directions:
   next->Section non auto
   up->Chap1
 4|Section non auto
  associated_section: 1.2 Section
  associated_title_command: 1.2 Section
- menu_directions:
-  prev->Chap1
-  up->Top
  node_directions:
   prev->Chap1
   up->Top

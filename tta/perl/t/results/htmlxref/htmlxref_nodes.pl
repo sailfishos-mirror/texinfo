@@ -972,33 +972,21 @@ $result_nodes_list{'htmlxref_nodes'} = '1|Top
   !_"#$%&\'()*+-.
   /;<=>?[\\]^_`|~
   local node
- menu_directions:
-  up->Top
  node_directions:
   next->!_"#$%&\'()*+-.
   prev->Top
   up->Top
 3|!_"#$%&\'()*+-.
- menu_directions:
-  next->/;<=>?[\\]^_`|~
-  up->other nodes
  node_directions:
   next->/;<=>?[\\]^_`|~
   prev->other nodes
   up->other nodes
 4|/;<=>?[\\]^_`|~
- menu_directions:
-  next->local   node
-  prev->!_"#$%&\'()*+-.
-  up->other nodes
  node_directions:
   next->local   node
   prev->!_"#$%&\'()*+-.
   up->other nodes
 5|local   node
- menu_directions:
-  prev->/;<=>?[\\]^_`|~
-  up->other nodes
  node_directions:
   prev->/;<=>?[\\]^_`|~
   up->other nodes

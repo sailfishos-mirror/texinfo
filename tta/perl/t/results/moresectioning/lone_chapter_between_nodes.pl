@@ -198,9 +198,6 @@ $result_nodes_list{'lone_chapter_between_nodes'} = '1|Top
 2|1
  associated_section: 1 1
  associated_title_command: 1 1
- menu_directions:
-  next->3
-  up->Top
  node_directions:
   next->3
   prev->Top
@@ -208,9 +205,6 @@ $result_nodes_list{'lone_chapter_between_nodes'} = '1|Top
 3|3
  associated_section: 3 3
  associated_title_command: 3 3
- menu_directions:
-  prev->1
-  up->Top
  node_directions:
   prev->1
   up->Top

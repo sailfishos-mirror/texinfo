@@ -158,8 +158,6 @@ $result_nodes_list{'no_content_do_contents'} = '1|Top
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top

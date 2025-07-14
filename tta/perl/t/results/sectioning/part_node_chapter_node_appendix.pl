@@ -230,9 +230,6 @@ $result_nodes_list{'part_node_chapter_node_appendix'} = '1|Top
  associated_section: 1 chapter
  node_preceding_part: Part 1
  associated_title_command: 1 chapter
- menu_directions:
-  next->appendix node
-  up->Top
  node_directions:
   next->appendix node
   prev->Top
@@ -240,9 +237,6 @@ $result_nodes_list{'part_node_chapter_node_appendix'} = '1|Top
 3|appendix node
  associated_section: A Appendix
  associated_title_command: A Appendix
- menu_directions:
-  prev->chapter node
-  up->Top
  node_directions:
   prev->chapter node
   up->Top

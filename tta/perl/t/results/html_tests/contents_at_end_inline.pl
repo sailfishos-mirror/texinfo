@@ -166,8 +166,6 @@ $result_nodes_list{'contents_at_end_inline'} = '1|Top
 2|chapter
  associated_section: 1 Chapter 1
  associated_title_command: 1 Chapter 1
- menu_directions:
-  up->Top
  node_directions:
   prev->Top
   up->Top
