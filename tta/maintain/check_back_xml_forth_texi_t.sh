@@ -1,12 +1,12 @@
 #! /bin/sh
 #
 # check_back_xml_forth_texi_t.sh: convert all the Texinfo code contained in
-# the tta/t/*.t tests to Texinfo XML and convert back the XML to Texinfo using
-# util/txixml2texi.  Compare with the Texinfo code generated with expansion
-# of macros and @value.  The objective here is not to test the conversion to XML,
-# which is better tested directly in the tta/t/*.t tests, but to check that
-# the resulting XML can be parsed and contain the same information as in the
-# corresponding Texinfo code.
+# the tta/perl/t/*.t tests to Texinfo XML and convert back the XML to
+# Texinfo using util/txixml2texi.  Compare with the Texinfo code generated
+# with expansion of macros and @value.  The objective here is not to test
+# the conversion to XML, which is better tested directly in the tta/perl/t/*.t
+# tests, but to check that the resulting XML can be parsed and contain the
+# same information as in the corresponding Texinfo code.
 #
 # Copyright 2022-2025 Free Software Foundation, Inc.
 #

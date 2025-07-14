@@ -415,8 +415,7 @@ while ($reader->read) {
       }
       my $specific_line = (defined($Texinfo::Commands::line_commands{$name})
                 and $Texinfo::Commands::line_commands{$name} eq 'specific');
-      if ($name eq 'set' or $name eq 'clickstyle' or $name eq 'columnfractions'
-          or $specific_line) {
+      if ($name eq 'columnfractions' or $specific_line) {
         skip_until_end($reader, $name);
         if ($name eq 'columnfractions' or $specific_line) {
           # specific line commands have a line argument obtained by converting

@@ -21,7 +21,7 @@
 <!-- copying | titlepage could be there too -->
 <!ENTITY % metainformation "setfilename | settitle | dircategory | direntry
                             | hyphenation
-                            | documentdescription 
+                            | documentdescription
                             | shorttitlepage">
 <!ENTITY % variable.cmds "set | clear">
 
@@ -31,16 +31,15 @@
                         | unmacro | defindex | defcodeindex">
 
 <!-- Unique options -->
-<!ENTITY % unique.option.cmds "novalidate | setcontentsaftertitlepage 
-   | setshortcontentsaftertitlepage | documentencoding 
+<!ENTITY % unique.option.cmds "novalidate | documentencoding
    | everyheadingmarks | everyfootingmarks | evenheadingmarks | oddheadingmarks
    | evenfootingmarks | oddfootingmarks | fonttextsize | pagesizes
    | setchapternewpage | footnotestyle | finalout
 
-   | allowcodebreaks | exampleindent | afourpaper 
+   | allowcodebreaks | exampleindent | afourpaper
    | afivepaper | afourlatex | afourwide | headings
    | everyheading | everyfooting | evenheading | evenfooting | oddheading
-   | oddfooting | smallbook | cropmarks">
+   | oddfooting | smallbook">
 
 <!-- Options -->
 <!ENTITY % multiple.option.cmds "frenchspacing | documentlanguage 
@@ -270,15 +269,15 @@
 
 <!ELEMENT set    (#PCDATA)>
 <!ATTLIST set
-          %lineattr;
+          %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT clear  EMPTY>
+<!ELEMENT clear  (#PCDATA)>
 <!ATTLIST clear
-          %lineattr;
+          %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT unmacro  EMPTY>
+<!ELEMENT unmacro  (#PCDATA)>
 <!ATTLIST unmacro
-          %lineattr;
+          %spacesattr;
           name CDATA #REQUIRED>
 <!ELEMENT definfoenclose EMPTY>
 <!ATTLIST definfoenclose
@@ -293,7 +292,7 @@
           existing  NMTOKEN #REQUIRED>
 <!ELEMENT clickstyle  (#PCDATA)>
 <!ATTLIST clickstyle
-          %lineattr;
+          %spacesattr;
           command  NMTOKEN #REQUIRED>
 
 <!-- preamble before texinfo code beginning (empty lines and \input) -->
@@ -304,24 +303,18 @@
 <!-- ToC -->
 <!ELEMENT contents      EMPTY>
 <!ATTLIST contents
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT shortcontents EMPTY>
 <!ATTLIST shortcontents
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT summarycontents EMPTY>
 <!ATTLIST summarycontents
-          %lineattr;>
+          %spacesattr;>
 
 <!-- Global unique options -->
 <!ELEMENT novalidate EMPTY>
 <!ATTLIST novalidate
-          %lineattr;>
-<!ELEMENT setcontentsaftertitlepage EMPTY>
-<!ATTLIST setcontentsaftertitlepage
-          %lineattr;>
-<!ELEMENT setshortcontentsaftertitlepage EMPTY>
-<!ATTLIST setshortcontentsaftertitlepage
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT documentencoding (#PCDATA)>
 <!ATTLIST documentencoding
           %spacesattr;
@@ -379,19 +372,19 @@
           value CDATA #REQUIRED>
 <!ELEMENT afourpaper      EMPTY>
 <!ATTLIST afourpaper
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT afivepaper      EMPTY>
 <!ATTLIST afivepaper
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT afourlatex      EMPTY>
 <!ATTLIST afourlatex
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT afourwide       EMPTY>
 <!ATTLIST afourwide
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT finalout        EMPTY>
 <!ATTLIST finalout
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT headings        EMPTY>
 <!-- "off|on|single|double|singleafter|doubleafter" -->
 <!ATTLIST headings
@@ -416,12 +409,11 @@
 <!ATTLIST oddfooting
           %spacesattr;>
 <!ELEMENT vskip (#PCDATA)>
+<!ATTLIST vskip
+          %spacesattr;>
 <!ELEMENT smallbook       EMPTY>
 <!ATTLIST smallbook
-          %lineattr;>
-<!ELEMENT cropmarks       EMPTY>
-<!ATTLIST cropmarks
-          %lineattr;>
+          %spacesattr;>
 
 <!-- Global options -->
 <!ELEMENT documentlanguage (#PCDATA)>
@@ -473,10 +465,10 @@
           value (%onoff;) #REQUIRED>
 <!ELEMENT raisesections   EMPTY>
 <!ATTLIST raisesections
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT lowersections   EMPTY>
 <!ATTLIST lowersections
-          %lineattr;>
+          %spacesattr;>
 
 <!-- Titlepage and copying -->
 <!ELEMENT copying    (%block;)*>
@@ -504,7 +496,7 @@
           value CDATA #IMPLIED>
 <!ELEMENT page EMPTY>
 <!ATTLIST page
-          %lineattr;>
+          %spacesattr;>
 <!ELEMENT need EMPTY>
 <!ATTLIST need
           %linespaceattr;

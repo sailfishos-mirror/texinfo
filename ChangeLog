@@ -1,3 +1,12 @@
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
+	* util/texinfo.dtd: remove cropmarks, setcontentsaftertitlepage and
+	setshortcontentsaftertitlepage.
+
+	* util/texinfo.dtd: update for rawline commands changes.
+
+	* util/txixml2texi.pl: do not treat set nor clickstyle especially.
+
 2025-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Eliminate menu_directions
