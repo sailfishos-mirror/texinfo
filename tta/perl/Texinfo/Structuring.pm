@@ -641,8 +641,8 @@ sub check_nodes_are_referenced($)
   }
 }
 
-# Goes through menus and set directions implied by menus.
-sub _set_menus_node_directions($)
+# Set node_directions and complete automatic directions with menus.
+sub complete_node_tree_with_menus($)
 {
   my $document = shift;
 
@@ -658,6 +658,7 @@ sub _set_menus_node_directions($)
   my $check_menu_entries = (!$customization_information->get_conf('novalidate')
       and (!defined($format_menu) or $format_menu eq 'menu'
            or $format_menu eq 'menu_no_detailmenu'));
+  my $top_node = $identifier_target->{'Top'};
 
   # First go through all the menus and set menu up, menu next and menu prev,
   # and warn for unknown nodes.
@@ -698,6 +699,16 @@ sub _set_menus_node_directions($)
                       if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
                         $menu_node_relations
                           = $nodes_list->[$menu_node->{'extra'}->{'node_number'} -1];
+                        if ((!$top_node or $menu_node ne $top_node)
+                            and _node_automatic_directions($menu_node)) {
+                          $menu_node_relations->{'node_directions'} = {}
+                            if !defined($menu_node_relations->{'node_directions'});
+                          my $menu_node_directions = $menu_node_relations->{'node_directions'};
+                          if (!$menu_node_directions or !$menu_node_directions->{'up'}) {
+                            $menu_node_directions->{'up'} = $node;
+                          }
+
+                        }
                         $menu_node_relations->{'menu_directions'} = {}
                           if (!$menu_node_relations->{'menu_directions'});
                         $menu_node_relations->{'menu_directions'}->{'up'} = $node;
@@ -713,6 +724,15 @@ sub _set_menus_node_directions($)
             if ($menu_node and $previous_node_relations
                 and !$previous_node_relations->{'element'}
                                     ->{'extra'}->{'manual_content'}) {
+              if ((!$top_node or $previous_node ne $top_node)
+                  and _node_automatic_directions($previous_node)) {
+                $previous_node_relations->{'node_directions'} = {}
+                  if !defined($previous_node_relations->{'node_directions'});
+                my $previous_node_directions = $previous_node_relations->{'node_directions'};
+                if (!$previous_node_directions or !$previous_node_directions->{'next'}) {
+                  $previous_node_directions->{'next'} = $menu_node;
+                }
+              }
               $previous_node_relations->{'menu_directions'} = {}
                 if (!$previous_node_relations->{'menu_directions'});
               $previous_node_relations->{'menu_directions'}->{'next'}
@@ -720,6 +740,15 @@ sub _set_menus_node_directions($)
             }
             if ($menu_node_relations and $previous_node
                 and !$menu_node->{'extra'}->{'manual_content'}) {
+              if ((!$top_node or $menu_node ne $top_node)
+                  and _node_automatic_directions($menu_node)) {
+                $menu_node_relations->{'node_directions'} = {}
+                  if !defined($menu_node_relations->{'node_directions'});
+                my $menu_node_directions = $menu_node_relations->{'node_directions'};
+                if (!$menu_node_directions or !$menu_node_directions->{'prev'}) {
+                  $menu_node_directions->{'prev'} = $previous_node;
+                }
+              }
               $menu_node_relations->{'menu_directions'} = {}
                 if (!$menu_node_relations->{'menu_directions'});
               $menu_node_relations->{'menu_directions'}->{'prev'}
@@ -1208,51 +1237,6 @@ sub _set_top_node_next($$)
     }
   }
   return $top_node;
-}
-
-# Complete automatic directions with menus.
-sub complete_node_tree_with_menus($)
-{
-  my $document = shift;
-
-  my $customization_information = $document;
-  my $nodes_list = $document->nodes_list();
-  my $identifier_target = $document->labels_information();
-
-  return unless ($nodes_list and scalar(@{$nodes_list}));
-
-  _set_menus_node_directions($document);
-
-  my $top_node = $identifier_target->{'Top'};
-
-  # Go through all the nodes and complete any gaps in the directions
-  # using the menus.
-  foreach my $node_relations (@{$nodes_list}) {
-    my $node = $node_relations->{'element'};
-    next if $top_node and $node eq $top_node;
-
-    my $menu_directions = $node_relations->{'menu_directions'};
-
-    if (_node_automatic_directions($node)) {
-      my $node_directions = $node_relations->{'node_directions'};
-
-      foreach my $direction (@node_directions_names) {
-        # Direction was not set with sections, use menus.  This allows
-        # using only automatic direction for manuals without sectioning
-        # commands but with explicit menus.
-        if ((!$node_directions or !$node_directions->{$direction})
-            and $menu_directions
-            and $menu_directions->{$direction}
-            and !$menu_directions->{$direction}
-                                        ->{'extra'}->{'manual_content'}) {
-          $node_relations->{'node_directions'} = {}
-             if (!$node_relations->{'node_directions'});
-          $node_relations->{'node_directions'}->{$direction}
-             = $menu_directions->{$direction};
-        }
-      }
-    }
-  }
 }
 
 # set node directions based on sectioning and @node explicit directions

@@ -1,3 +1,17 @@
+2025-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Combine complete_node_tree_with_menus and set_menus_node_directions
+
+	* tta/perl/Texinfo/Structuring.pm,
+	* tta/perl/t/results/html_tests/node_footnote_use_node.pl
+	(complete_node_tree_with_menus, set_menus_node_directions):
+	Rename set_menus_node_directions to complete_node_tree_with_menus
+	and extend to perform the task of this function.
+	
+	This change means that directions will be determined from
+	the first menu a node is listed in rather than the last.
+	Next and prev directions can also be set to external nodes.
+
 2025-07-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Structuring.pm (complete_node_tree_with_menus),

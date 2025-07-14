@@ -398,7 +398,7 @@ $result_nodes_list{'node_footnote_end'} = '1|Top
   up->chapter
  node_directions:
   prev->chapter
-  up->chapter
+  up->Top
 ';
 
 $result_sections_list{'node_footnote_end'} = '1|chapter

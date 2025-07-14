@@ -530,6 +530,7 @@ $result_nodes_list{'image_inline_or_not'} = '1|Top
   next->(somewhere)@image{extnode}
   up->Top
  node_directions:
+  next->(somewhere)@image{extnode}
   prev->Top
   up->Top
 ';
@@ -600,7 +601,7 @@ T
 </pre></menucomment></menu>
 
 </top>
-<node identifier="node_005fimage" spaces=" "><nodename><image where="inline"><imagefile>node_image</imagefile></image></nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node_005fimage" spaces=" "><nodename><image where="inline"><imagefile>node_image</imagefile></image></nodename><nodenext automatic="on"></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><image where="inline"><imagefile>in_chapter_arg</imagefile></image></sectiontitle>
 
 

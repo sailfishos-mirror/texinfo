@@ -898,9 +898,9 @@ check_nodes_are_referenced (DOCUMENT *document)
   free (node_in_menu);
 }
 
-/* set menu_directions */
-static void
-set_menus_node_directions (DOCUMENT *document)
+/* Set node_directions and complete automatic directions with menus. */
+void
+complete_node_tree_with_menus (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;
   const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
@@ -914,10 +914,14 @@ set_menus_node_directions (DOCUMENT *document)
   if (nodes_list->number < 1)
     return;
 
+  document->modified_information |= F_DOCM_tree;
+
   if (options && (options->novalidate.o.integer > 0
                   || !options->FORMAT_MENU.o.string
                   || strcmp (options->FORMAT_MENU.o.string, "menu")))
     check_menu_entries = 0;
+
+  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
 
   /*
   First go through all the menus and set menu up, menu next and menu prev,
@@ -996,6 +1000,17 @@ set_menus_node_directions (DOCUMENT *document)
                                       menu_node_relations
                                        = node_relations_of_node
                                            (menu_node, nodes_list);
+                                      if (menu_node != top_node
+                                          && node_automatic_directions (menu_node))
+                                        {
+                                          if (!menu_node_relations->node_directions)
+                                            menu_node_relations->node_directions
+                                              = new_directions ();
+                                          const ELEMENT **menu_node_directions
+                                            = menu_node_relations->node_directions;
+                                          if (!menu_node_directions[D_up])
+                                            menu_node_directions[D_up] = node;
+                                        }
 
                                       if (!menu_node_relations->menu_directions)
                                         menu_node_relations->menu_directions
@@ -1019,6 +1034,17 @@ set_menus_node_directions (DOCUMENT *document)
                                                   AI_key_manual_content);
                       if (!prev_manual_content)
                         {
+                          if (previous_node != top_node
+                              && node_automatic_directions (previous_node))
+                            {
+                              if (!previous_node_relations->node_directions)
+                                previous_node_relations->node_directions
+                                  = new_directions ();
+                              const ELEMENT **previous_node_directions
+                                = previous_node_relations->node_directions;
+                              if (!previous_node_directions[D_next])
+                                previous_node_directions[D_next] = menu_node;
+                            }
                           if (!previous_node_relations->menu_directions)
                             previous_node_relations->menu_directions
                               = new_directions ();
@@ -1035,6 +1061,17 @@ set_menus_node_directions (DOCUMENT *document)
 
                       if (!manual_content)
                         {
+                          if (menu_node != top_node
+                              && node_automatic_directions (menu_node))
+                            {
+                              if (!menu_node_relations->node_directions)
+                                menu_node_relations->node_directions
+                                  = new_directions ();
+                              const ELEMENT **menu_node_directions
+                                = menu_node_relations->node_directions;
+                              if (!menu_node_directions[D_prev])
+                                menu_node_directions[D_prev] = previous_node;
+                            }
                           if (!menu_node_relations->menu_directions)
                             menu_node_relations->menu_directions
                               = new_directions ();
@@ -1771,66 +1808,6 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
         }
     }
   return top_node;
-}
-
-/* Complete automatic directions with menus. */
-void
-complete_node_tree_with_menus (DOCUMENT *document)
-{
-  const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
-  const C_HASHMAP *identifiers_target = &document->identifiers_target;
-
-  if (nodes_list->number < 1)
-    return;
-
-  set_menus_node_directions (document);
-
-  document->modified_information |= F_DOCM_tree;
-
-  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
-
-  /* Go through all the nodes and complete any gaps in the directions
-     using the menus. */
-
-  size_t i;
-  for (i = 0; i < nodes_list->number; i++)
-    {
-      NODE_RELATIONS *node_relations = nodes_list->list[i];
-      const ELEMENT *node = node_relations->element;
-      if (top_node && node == top_node)
-        continue;
-      const ELEMENT * const *menu_directions = node_relations->menu_directions;
-
-      if (node_automatic_directions (node))
-        {
-          size_t d;
-          for (d = 0; d < directions_length; d++)
-            {
-              /* Direction was not set with sections, use menus.  This allows
-                 using only automatic direction for manuals without sectioning
-                 commands but with explicit menus. */
-              if ((!node_relations->node_directions
-                   || !node_relations->node_directions[d])
-                  && menu_directions
-                  && menu_directions[d])
-                {
-                  const ELEMENT *elt_menu_direction
-                   = menu_directions[d];
-                  const ELEMENT *menu_direction_manual_content
-                    = lookup_extra_container (elt_menu_direction,
-                                            AI_key_manual_content);
-                  if (!menu_direction_manual_content)
-                    {
-                      if (!node_relations->node_directions)
-                        node_relations->node_directions = new_directions ();
-
-                      node_relations->node_directions[d]
-                         = elt_menu_direction;
-                    }
-                }
-            }
-        }
-    }
 }
 
 /* set node directions based on sectioning and @node explicit directions */

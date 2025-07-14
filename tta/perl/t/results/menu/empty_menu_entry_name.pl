@@ -135,6 +135,7 @@ $result_nodes_list{'empty_menu_entry_name'} = '1|first
   prev->(vvv)
   up->first
  node_directions:
+  prev->(vvv)
   up->first
 ';
 
