@@ -76,10 +76,11 @@ $result_tree_text{'double_macro_expansion_in_set_arg_comment'} = '*document_root
      ||spaces_after_argument:
       ||{spaces_after_argument:\\n}
       |{rawline_text:in after}
+      |>SOURCEMARKS
+      |>macro_expansion<end;1><p:2>
     {rawline_text:flag value alsov }
     >SOURCEMARKS
     >macro_expansion<end;2><p:10>
-    >macro_expansion<end;1><p:10>
 ';
 
 

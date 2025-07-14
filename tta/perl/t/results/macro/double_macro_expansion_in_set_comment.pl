@@ -78,7 +78,7 @@ $result_tree_text{'double_macro_expansion_in_set_comment'} = '*document_root C1
       |{rawline_text:in  here after }
       |>SOURCEMARKS
       |>macro_expansion<end;2><p:3>
-      |>macro_expansion<end;1><p:3>
+      |>macro_expansion<end;1><p:8>
     {rawline_text:flag vv }
 ';
 

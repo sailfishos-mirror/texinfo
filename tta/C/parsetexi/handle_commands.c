@@ -785,6 +785,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       const char *comment_text = 0;
       int special_arg = 0;
       int ignored = 0;
+      SOURCE_INFO next_source_info;
 
       if (cmd == CM_insertcopying)
         {
@@ -807,26 +808,40 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       /* If the current input is the result of a macro expansion,
          it may not be a complete line.  Check for this and acquire the rest
-         of the line if necessary. */
+         of the line if necessary in text_element.  It is better to
+         use text_element text to hold the line because it also makes
+         sure that the source marks are well positioned.
+       */
       if (!strchr (line, '\n'))
         {
-          char *line2;
-          SOURCE_INFO save_src_info;
-
-          input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
-
-          save_src_info = current_source_info;
-
-          line2 = new_line (line_args);
-          if (line2)
+          char *new;
+          TEXT *t = text_element->e.text;
+      /* if the line is completed, the source info is not the source info
+         of the command anymore, so reset the current source info after
+         getting the end of the line and use next_source_info to register
+         the source info for the end of the command line.
+       */
+          SOURCE_INFO save_src_info = current_source_info;
+          while (1)
             {
-              line = line2;
-              current_source_info = save_src_info;
+              new = next_text (line_args);
+              if (!new)
+                break;
+
+              text_append (t, new);
+              free (new);
+
+              if (t->text[t->end - 1] == '\n')
+                break;
             }
-          text_reset (text_element->e.text);
-          text_append (text_element->e.text, line);
+
+          next_source_info = current_source_info;
+          current_source_info = save_src_info;
         }
-      args = parse_rawline_command (line, cmd,
+      else
+        next_source_info = current_source_info;
+
+      args = parse_rawline_command (text_element->e.text->text, cmd,
                                     &comment_text, &special_arg);
 
       /* Handle @set txicodequoteundirected as an
@@ -967,6 +982,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       if (command_e)
         register_global_command (command_e);
+
+      current_source_info = next_source_info;
+
+      /* NOTE at this point, the line should be at the end of the line,
+         and empty string, for instance, but it is not the case.
+         This is not an error because the returned status are such
+         that the returned line is ignored. */
 
       /* This does nothing for the command being processed, as there is
          no line context setup nor line_args, but it closes a line or block

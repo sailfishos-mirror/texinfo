@@ -6091,15 +6091,25 @@ sub _handle_line_command($$$$$$)
     $text_element->{'parent'} = $misc_line_args;
     $misc_line_args->{'contents'} = [$text_element];
 
-    # Complete the line if there was a user macro expansion.
+    # if the line is completed, the source info is not the source info
+    # of the command anymore, so use another one for the end of the
+    # command line.
+    my $next_source_info;
+    # Complete the line if there was a user macro expansion.  Use
+    # text_element text to hold the line because it also makes
+    # sure that the source marks are well positioned.
     if ($line !~ /\n/) {
-      # FIXME if there may be several source marks, the text should be
-      # merged while the source marks are collected
-      my ($new_line, $new_line_source_info)
-                 = _new_line($self, $misc_line_args);
-      if (defined($new_line)) {
-        $text_element->{'text'} .= $new_line;
+      while (1) {
+        my $new_text;
+        ($new_text, $next_source_info) = _next_text($self, $misc_line_args);
+        if (!defined($new_text)) {
+          last;
+        }
+        $text_element->{'text'} .= $new_text;
+        last if ($new_text =~ /\n/);
       }
+    } else {
+      $next_source_info = $source_info;
     }
 
     my ($args, $comment_text, $special_arg)
@@ -6204,7 +6214,6 @@ sub _handle_line_command($$$$$$)
       }
       push @{$current->{'contents'}}, $command_e;
     }
-    $line = '';
 
     if ($command eq 'raisesections') {
       $self->{'sections_level_modifier'}++;
@@ -6213,6 +6222,9 @@ sub _handle_line_command($$$$$$)
     }
     _register_global_command($self, $command_e, $source_info)
       if defined($command_e);
+
+    $line = '';
+    $source_info = $next_source_info;
 
     # This does nothing for the command being processed, as there is
     # no line context setup and current is not a line_args, but it
