@@ -1,5 +1,12 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac (CC, CFLAGS, CPPFLAGS, LDFLAGS): set CC, CFLAGS,
+	CPPFLAGS and LDFLAGS to PERL_EXT_* values only if enable_xs is not no.
+	That way, a 'pure C' build of the libraries does not use the
+	PERL_EXT_* variables but the regular C variables.
+
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac: use enable_xs instead of disable_xs, as disable_xs
 	does not exist.
 

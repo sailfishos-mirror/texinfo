@@ -1067,3 +1067,5 @@ our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses 
 ./configure --enable-c-texi2any --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
+# test non-XS build
+./configure --disable-perl-xs --enable-additional-checks "CFLAGS=$our_CFLAGS" PERL_EXT_CFLAGS=fail

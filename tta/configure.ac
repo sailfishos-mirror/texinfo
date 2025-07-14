@@ -172,35 +172,35 @@ AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
 # Override these variables set by configure at the top level, because
 # the compiler used in this subdirectory might be different.
-# Change these now so they are used in the checks that follow so that
-# we are using the same flags for the checks as for the build.
-
-if test -n "$PERL_EXT_CC" ; then
-  CC=$PERL_EXT_CC
-else
-  if test x$enable_xs != xno; then
+# Change these now if C Perl is used in build so they are used in
+# the checks that follow so that we are using the same flags for the
+# checks as for the build.
+if test x$enable_xs != xno; then
+  if test -n "$PERL_EXT_CC" ; then
+    CC=$PERL_EXT_CC
+  else
     # It's essential that we use the same compiler that was used to build
     # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
     # the check in AC_PROG_CC below.
     CC=$PERL_CONF_cc
   fi
+
+  # The usual configure checks use the Autoconf/Gnulib includes, but do not
+  # compile nor link against Perl.  The result of those checks are used for
+  # code never compiled with the Perl flags.  Therefore we do not set the Perl
+  # more specific flags, but use the user-defined.
+  CFLAGS=$PERL_EXT_CFLAGS
+  CPPFLAGS=$PERL_EXT_CPPFLAGS
+  LDFLAGS=$PERL_EXT_LDFLAGS
+  # Specific checks against Perl should not have the Autoconf/Gnulib includes
+  # but could set the following:
+  #CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+  #LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 fi
 
 # Wipe cache values in case -C was given at the top level
 ac_cv_prog_CC= ; unset ac_cv_prog_CC
 ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
-
-# The usual configure checks use the Autoconf/Gnulib includes, but do not
-# compile nor link against Perl.  The result of those checks are used for
-# code never compiled with the Perl flags.  Therefore we do not set the Perl
-# flags.
-CFLAGS=$PERL_EXT_CFLAGS
-CPPFLAGS=$PERL_EXT_CPPFLAGS
-LDFLAGS=$PERL_EXT_LDFLAGS
-# Specific checks against Perl should not have the Autoconf/Gnulib includes
-# but could set the following:
-#CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
-#LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 
 AC_PROG_CC
 
@@ -465,16 +465,18 @@ if test z$prefer_c_t2a = 'zyes' ; then
 fi
 AC_SUBST([TESTS_MAIN_COMMAND])
 
-# Do not include Perl configuration values when outputting these variables,
-# as advised in the automake manual for CFLAGS and LDFLAGS, which could be
-# reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the
-# same role as CFLAGS and LDFLAGS.  The Perl configuration values are then
-# readded in Makefile.am.
-# For CPPFLAGS we do not follow the same rule because we want to keep the
-# flags added by gnulib macros, as for libunistring there is no separate
-# CPPFLAGS-like variable, the main CPPFLAGS is modified.
-CFLAGS=$PERL_EXT_CFLAGS
-LDFLAGS=$PERL_EXT_LDFLAGS
+if test x$enable_xs != xno; then
+  # Do not include Perl configuration values when outputting these variables,
+  # as advised in the automake manual for CFLAGS and LDFLAGS, which could be
+  # reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the
+  # same role as CFLAGS and LDFLAGS when Perl C is used in the build.
+  # The Perl configuration values are then readded in Makefile.am.
+  # For CPPFLAGS we do not follow the same rule because we want to keep the
+  # flags added by gnulib macros, as for libunistring there is no separate
+  # CPPFLAGS-like variable, the main CPPFLAGS is modified.
+  CFLAGS=$PERL_EXT_CFLAGS
+  LDFLAGS=$PERL_EXT_LDFLAGS
+fi
 
 # Output these with the _CONFIG suffix as we use the originals as names
 # of customization variables.
