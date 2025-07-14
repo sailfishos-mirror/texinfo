@@ -267,18 +267,22 @@
 <!ATTLIST dircategory
           %spacesattr;>
 
-<!ELEMENT set    (#PCDATA)>
+<!ELEMENT set    (#PCDATA | %Spaces.elements;)>
 <!ATTLIST set
           %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT clear  (#PCDATA)>
+<!ELEMENT clear  (#PCDATA | %Spaces.elements;)>
 <!ATTLIST clear
           %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT unmacro  (#PCDATA)>
+<!ELEMENT unmacro  (#PCDATA | %Spaces.elements;)>
 <!ATTLIST unmacro
           %spacesattr;
           name CDATA #REQUIRED>
+<!ELEMENT clickstyle  (#PCDATA | %Spaces.elements;)>
+<!ATTLIST clickstyle
+          %spacesattr;
+          command  NMTOKEN #REQUIRED>
 <!ELEMENT definfoenclose EMPTY>
 <!ATTLIST definfoenclose
           %linespaceattr;
@@ -290,10 +294,6 @@
           %linespaceattr;
           new       NMTOKEN #REQUIRED
           existing  NMTOKEN #REQUIRED>
-<!ELEMENT clickstyle  (#PCDATA)>
-<!ATTLIST clickstyle
-          %spacesattr;
-          command  NMTOKEN #REQUIRED>
 
 <!-- preamble before texinfo code beginning (empty lines and \input) -->
 <!ELEMENT preamblebeforebeginning (#PCDATA)>
