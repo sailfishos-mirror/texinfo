@@ -325,7 +325,7 @@ fi
 
 embedded_perl=no
 
-if test x$disable_xs != xyes -a $extutils_embed = yes ; then
+if test x$enable_xs != xno -a $extutils_embed = yes ; then
   # having XS enabled, the Perl headers corresponding to libperl and
   # ExtUtils::Embed installed do not ensure
   # that the Perl library .so/.a file needed for linking against libperl

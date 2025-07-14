@@ -1,5 +1,10 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac: use enable_xs instead of disable_xs, as disable_xs
+	does not exist.
+
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ReaderNonXS.pm (read), tta/C/main/reader.c
 	(txi_reader_read): remove the commented out code that put spaces
 	after/before commands and comment at ends in the Reader flow.  It is

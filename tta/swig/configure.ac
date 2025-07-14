@@ -34,11 +34,12 @@ AM_PATH_PYTHON
 
 # Get CPPFLAGS, etc., for Python module compilation
 # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
-AX_PYTHON_DEVEL
+AX_PYTHON_DEVEL([], [true])
 
 # Find swig executable
 # http://www.gnu.org/software/autoconf-archive/ax_pkg_swig.html
 AX_PKG_SWIG([], [], [ AC_MSG_ERROR([SWIG is required to build.]) ])
+dnl AX_PKG_SWIG([], [], [])
 
 # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
 # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
