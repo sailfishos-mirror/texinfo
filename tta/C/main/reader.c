@@ -208,35 +208,6 @@ txi_reader_read (READER *reader)
         {
           push_reader_context (reader);
           top_context = top_reader_context (reader);
-       /*
-          || (type_data[element->type].elt_info_number > eit_spaces_after_cmd_before_arg
-              && element->elt_info[eit_spaces_after_cmd_before_arg])
-          || (type_data[element->type].elt_info_number > eit_spaces_before_argument
-              && element->elt_info[eit_spaces_before_argument])
-          || (type_data[element->type].elt_info_number > eit_spaces_after_argument
-              && element->elt_info[eit_spaces_after_argument]))
-        {
-          push_reader_context (reader);
-          top_context = top_reader_context (reader);
-          CONST_ELEMENT_LIST *array = &top_context->sequence;
-
-          if (type_data[element->type].elt_info_number > eit_spaces_after_cmd_before_arg
-              && element->elt_info[eit_spaces_after_cmd_before_arg])
-            add_to_const_element_list (array,
-                 element->elt_info[eit_spaces_after_cmd_before_arg]);
-          if (type_data[element->type].elt_info_number > eit_spaces_before_argument
-              && element->elt_info[eit_spaces_before_argument])
-            add_to_const_element_list (array,
-                 element->elt_info[eit_spaces_before_argument]);
-          if (element->e.c->contents.number)
-            insert_list_slice_into_const_list (array, array->number,
-                                         &element->e.c->contents,
-                                         0, element->e.c->contents.number);
-          if (type_data[element->type].elt_info_number > eit_spaces_after_argument
-              && element->elt_info[eit_spaces_after_argument])
-            add_to_const_element_list (array,
-                 element->elt_info[eit_spaces_after_argument]);
-        */
           top_context->sequence = &element->e.c->contents;
           token->category = TXI_READ_ELEMENT_START;
         }

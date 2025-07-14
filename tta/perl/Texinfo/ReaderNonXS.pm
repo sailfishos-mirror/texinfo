@@ -145,31 +145,7 @@ sub read($)
       $token->{'category'} = Texinfo::Reader->TXI_READ_TEXT;
     }
   } else {
-    #my $array = [];
-
-    #foreach my $info ('spaces_after_cmd_before_arg',
-    #                  'spaces_before_argument') {
-    #  my $info_element = $element->get_attribute($info);
-    #  if ($info_element) {
-    #    push @$array, $info_element;
-    #  }
-    #}
-    #my $contents = $element->get_children();
     my $contents = $element->{'contents'};
-    #if ($contents) {
-    #  push @$array, @$contents;
-    #}
-    # TODO handle comment_at_end.  This should be part of a reflexion on
-    # comment_at_end in the tree to avoid all the code that handle
-    # comment_at_end right now
-    #foreach my $info ('spaces_after_argument',) {# 'comment_at_end') {
-    #  my $info_element = $element->get_attribute($info);
-    #  if ($info_element) {
-    #    push @$array, $info_element;
-    #  }
-    #}
-    #if (scalar(@$array)) {
-    #  push @{$reader->{'stack'}}, [-1, $array];
     if ($contents) {
       push @{$reader->{'stack'}}, [-1, $contents];
       $token->{'category'} = Texinfo::Reader->TXI_READ_ELEMENT_START;

@@ -6200,13 +6200,13 @@ sub _handle_line_command($$$$$$)
                          = $spaces_before;
           # note that for commands without argument, a bogus argument
           # is kept in text_element here.
-          # TODO warn if it is so?
+          # TODO warn about bogus arguments for command without arg?
         }
       } else { # no comment or with an argument, possibly bogus
                # for commands without argument
         _raw_line_command_arg_spaces($command_e, $text_element,
                                      $misc_line_args);
-        # TODO warn about bogus arguments for commands without arg?
+        # TODO warn about bogus arguments for command without arg?
       }
 
       if (defined($args)) {
