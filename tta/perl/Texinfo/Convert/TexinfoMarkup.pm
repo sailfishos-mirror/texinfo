@@ -946,12 +946,16 @@ sub _convert($$;$)
                                                      ->{'extra'}->{'normalized'})))) {
                 push @$attributes, ['automatic', 'on'];
 
+                # TODO since we call get_label_element, we only use internal
+                # nodes for directions, external nodes could be used too.
                 if (defined($node_direction->{'extra'}->{'normalized'})) {
                   my $label_element
                     = Texinfo::Common::get_label_element($node_direction);
-                  $node_name .= Texinfo::Common::normalize_top_node_name(
-                    $self->_convert({'contents'
-                             => $label_element->{'contents'}}));
+                  if (defined($label_element)) {
+                    $node_name .= Texinfo::Common::normalize_top_node_name(
+                      $self->_convert({'contents'
+                               => $label_element->{'contents'}}));
+                  }
                 }
               } else {
                 $node_name

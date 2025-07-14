@@ -5951,6 +5951,7 @@ sub _raw_line_command_arg_spaces($$$)
       = _new_element_at_begin_reloc($text_element, $spaces_text,
                                     'spaces_before_argument');
 
+    $command_e->{'info'} = {} if (!defined($command_e->{'info'}));
     $command_e->{'info'}->{'spaces_before_argument'} = $spaces_before;
   }
 }
@@ -6194,8 +6195,8 @@ sub _handle_line_command($$$$$$)
             _new_element_at_begin_reloc($text_element, $spaces_text,
                                            'spaces_before_argument');
 
-          $misc_line_args->{'info'} = {}
-               if (!defined($misc_line_args->{'info'}));
+          $command_e->{'info'} = {}
+               if (!defined($command_e->{'info'}));
           $command_e->{'info'}->{'spaces_before_argument'}
                          = $spaces_before;
           # note that for commands without argument, a bogus argument

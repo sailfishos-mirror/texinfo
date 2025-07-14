@@ -1,5 +1,13 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): check that
+	get_label_element returns something for a node direction.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_raw_line_command_arg_spaces)
+	(_handle_line_command): avoid autovivification.
+
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac (CC, CFLAGS, CPPFLAGS, LDFLAGS): set CC, CFLAGS,
 	CPPFLAGS and LDFLAGS to PERL_EXT_* values only if enable_xs is not no.
 	That way, a 'pure C' build of the libraries does not use the
