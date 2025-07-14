@@ -1489,6 +1489,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/cpp_directives_line_value_macro.pl \
   t/results/macro/definfoenclose_replaced_by_macro.pl \
   t/results/macro/double_macro_definition.pl \
+  t/results/macro/double_macro_expansion_in_set_arg_comment.pl \
+  t/results/macro/double_macro_expansion_in_set_comment.pl \
   t/results/macro/double_recursive_macro_call.pl \
   t/results/macro/empty_end.pl \
   t/results/macro/empty_macro_argument.pl \
@@ -1530,6 +1532,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_expansion_end_in_ignored_nested_conditional.pl \
   t/results/macro/macro_expansion_end_in_ignored_nested_different_conditional.pl \
   t/results/macro/macro_expansion_in_multitable_prototype.pl \
+  t/results/macro/macro_expansion_in_raw_line_leading_spaces.pl \
+  t/results/macro/macro_expansion_in_set_comment.pl \
+  t/results/macro/macro_expansion_in_set_comment_command.pl \
+  t/results/macro/macro_expansion_in_set_comment_leading_spaces.pl \
   t/results/macro/macro_for_dot_in_menu_not_separator.pl \
   t/results/macro/macro_for_end.pl \
   t/results/macro/macro_for_ignored_line_command.pl \

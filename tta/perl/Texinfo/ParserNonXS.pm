@@ -5991,7 +5991,6 @@ sub _add_comment_at_end($$$)
   # remove comment text from initial text and relocate source marks
   $text_element->{'text'} = substr($text_element->{'text'},
                                0, $text_len - $comment_len);
-  # TODO untested situation of these source marks relocations
   my $remaining_source_marks = $text_element->{'source_marks'};
   if ($remaining_source_marks) {
     # the source marks are first relocated with the leading
@@ -6007,13 +6006,12 @@ sub _add_comment_at_end($$$)
     if ($source_marks) {
       foreach my $source_mark (@$source_marks) {
         $source_mark->{'position'} -= $command_len;
-        # should be for source marks within the @-command name
-        $source_mark->{'position'} = 0 if ($source_mark->{'position'} < 0);
+        # < 0 should be for source marks within the @-command name
+        delete $source_mark->{'position'} if ($source_mark->{'position'} <= 0);
       }
     }
   }
 
-  # TODO untested situation of the source marks in leading text relocations
   _raw_line_command_arg_spaces($comment, $comment_text_element,
                                $comment_line_args);
 
@@ -6181,7 +6179,6 @@ sub _handle_line_command($$$$$$)
           $command_e->{'info'}->{'spaces_before_argument'}
                                             = $text_element;
         } elsif ($text_element->{'text'} =~ s/^(\s+)//) {
-          # TODO untested situation of these source marks relocations
           my $spaces_text = $1;
           my $spaces_before =
             _new_element_at_begin_reloc($text_element, $spaces_text,

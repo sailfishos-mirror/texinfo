@@ -1,5 +1,25 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/handle_commands.c (add_comment_at_end): determine
+	comment text length early, before possibly adding an end of line. 
+
+	* tta/C/parsetexi/handle_commands.c (add_comment_at_end): use
+	comment_text_element for this element source marks.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_add_comment_at_end): delete
+	source mark position instead of setting it to 0.
+
+	* tta/perl/t/60macro.t (macro_expansion_in_raw_line_leading_spaces)
+	(macro_expansion_in_set_comment)
+	(double_macro_expansion_in_set_comment)
+	(double_macro_expansion_in_set_arg_comment)
+	(macro_expansion_in_set_comment_command)
+	(macro_expansion_in_set_comment_leading_spaces),
+	tta/perl/Makefile.tres: add tests of source marks positions associated
+	to end of macro expansion in raw line command (@set).
+
+2025-07-14 Patrice Dumas  <pertusus@free.fr>
+
 	* util/texinfo.dtd: allow %Spaces.elements; in lineraw commands
 	special arguments.
 

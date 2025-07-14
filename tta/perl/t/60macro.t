@@ -1510,6 +1510,69 @@ X\arg\X
 
 @phoo{aa}
 ', {'test_formats' => ['plaintext'],}],
+['macro_expansion_in_raw_line_leading_spaces',
+'@macro mymac {a}
+@set 
+@end macro
+
+@mymac{} b c
+
+@macro mycontents {} 
+@contents
+@end macro
+
+@mycontents{}  @c
+'],
+['macro_expansion_in_set_comment',
+'@macro mymac {a}
+@set flag \a\ @comment in  
+@end macro
+
+@mymac{v} here
+
+'],
+['double_macro_expansion_in_set_comment',
+'@macro mymac {a}
+@set flag \a\ @comment in 
+@end macro
+
+@macro callmymac {b}
+@mymac{\b\} here
+@end macro
+
+@callmymac{vv} after 
+'],
+['double_macro_expansion_in_set_arg_comment',
+'@macro mymac {a}
+@set \a\ value
+@end macro
+
+@macro callmymac {b}
+@mymac{\b\} alsov @comment in
+@end macro
+
+@callmymac{flag} after
+'],
+# this is invalid, @-command names are not supposed to be split across 
+# macro expansions.  However it works fine in texi2any, and this test
+# is more for the source marks, to verify that the source mark that is
+# inside the command do not end up with a negative position
+['macro_expansion_in_set_comment_command',
+'@macro mymac {a}
+@set flag \a\ @com
+@end macro
+
+@mymac{v}ment here
+
+'],
+['macro_expansion_in_set_comment_leading_spaces',
+'@macro mymac {a}
+@set flag \a\ @comment 
+@end macro
+
+@mymac{v} here
+
+'],
 ['macro_alias_definfoenclose_defindex',
 '@node Top
 @top top

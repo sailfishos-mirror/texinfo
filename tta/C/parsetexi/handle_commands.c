@@ -655,6 +655,7 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
 {
   size_t comment_byte_len = strlen (input_comment_text);
   size_t command_len;
+  size_t comment_len;
   int has_comment = 0;
   enum command_id cmd;
   ELEMENT *comment_e;
@@ -667,6 +668,9 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
       comment_text[comment_byte_len -1] = '\0';
       comment_byte_len--;
     }
+  if (text_element->source_mark_list)
+    comment_len = count_multibyte (comment_text);
+
   if (text_element->e.text->text[text_element->e.text->end -1] == '\n')
     {
       char *tmp_str;
@@ -700,7 +704,6 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
     {
       /* the source marks are first relocated with the leading
          @c/@comment string */
-      size_t comment_len = count_multibyte (comment_text);
       size_t text_len = count_multibyte (text_element->e.text->text);
       relocate_source_marks (text_element->source_mark_list,
                              comment_text_element,
@@ -714,7 +717,8 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
           size_t i;
           for (i = 0; i < comment_text_element->source_mark_list->number; i++)
             {
-              SOURCE_MARK *s_mark = text_element->source_mark_list->list[i];
+              SOURCE_MARK *s_mark
+                 = comment_text_element->source_mark_list->list[i];
               if (s_mark->position < command_len)
                 s_mark->position = 0;
               else
