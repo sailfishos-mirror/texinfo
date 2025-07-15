@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-11.23}
+\def\texinfoversion{2025-07-15.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -3888,7 +3888,8 @@ $$%
 }
 
 \def\finishtitlepage{%
-  \vskip4pt \hrule height 2pt width \hsize
+  \ifseenauthor \vskip4pt \else \vskip 0pt plus 1filll \fi
+  \hrule height 2pt width \hsize
   \vskip\titlepagebottomglue
   \finishedtitlepagetrue
 }
