@@ -27,6 +27,8 @@ Uses pTHX_
  */
 #include "ppport.h"
 
+#include <stdio.h>
+
 /* could also be in other libraries */
 void
 call_eval_use_module (const char *module_name)

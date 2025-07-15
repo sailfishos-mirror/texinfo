@@ -20,6 +20,9 @@
 #include <config.h>
 
 #include <stddef.h>
+#include <stdlib.h>
+/* not necessarly used, but could be for debugging */
+#include <stdio.h>
 
 #include "element_types.h"
 #include "types_data.h"
@@ -43,25 +46,86 @@
 // Initialization
 
 %init %{
-const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
-//messages_and_encodings_setup ();
-//setup_texinfo_main (0, converterdatadir, 0, 0);
-
-// Need to setup with information on Perl interpreter loading for
-// index sorting functions.
-txi_setup_main_load_interpreter (0, 0, converterdatadir, 0, 0, 0, 0, 0, 0);
 txi_general_output_strings_setup(0);
 
 reset_parser (0);
 %}
 
-%rename(setup_paths_information) setup_txi_paths_information;
+void
+setup (int texinfo_uninstalled=0, const char *converterdatadir_in=0,
+                                  const char *t2a_builddir_in=0,
+                                  const char *t2a_srcdir_in=0);
+
+%{
+void
+setup (int texinfo_uninstalled, const char *converterdatadir_in,
+                                const char *t2a_builddir_in,
+                                const char *t2a_srcdir_in)
+{
+  const char *version_for_embedded_interpreter_check;
+  char *t2a_srcdir = 0;
+  char *t2a_builddir = 0;
+  const char *converterdatadir;
+
+  if (texinfo_uninstalled)
+    {
+      if (t2a_srcdir_in)
+        t2a_srcdir = strdup (t2a_srcdir_in);
+      else
+        {
+          t2a_srcdir = getenv ("t2a_srcdir");
+          if (t2a_srcdir)
+            t2a_srcdir = strdup (t2a_srcdir);
+          else
+            /* swig/somelanguage */
+            t2a_srcdir = strdup ("../../");
+        }
+      if (t2a_builddir_in)
+        t2a_builddir = strdup (t2a_builddir_in);
+      else
+        {
+          t2a_builddir = getenv ("t2a_builddir");
+          if (!t2a_builddir)
+            /* this is correct for in-source builds only. */
+            t2a_builddir = strdup (t2a_srcdir);
+          else
+            t2a_builddir = strdup (t2a_builddir);
+        }
+    }
+  else
+    {
+      if (converterdatadir_in)
+        converterdatadir = converterdatadir_in;
+      else
+        converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+    }
+
+#ifdef HAVE_EMBEDDED_PERL
+  if (texinfo_uninstalled)
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
+  else
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
+
+  txi_setup_main_load_interpreter (1, texinfo_uninstalled, converterdatadir,
+                                   t2a_builddir, t2a_srcdir, 0, 0, 0,
+                                   version_for_embedded_interpreter_check);
+#else
+  txi_setup_main_load_interpreter (0, texinfo_uninstalled,
+                                   converterdatadir, t2a_builddir, t2a_srcdir,
+                                   0, 0, 0, 0);
+#endif
+  free (t2a_builddir);
+  free (t2a_srcdir);
+}
+%}
+
+//%rename(setup_paths_information) setup_txi_paths_information;
 
 // document.h
-void setup_txi_paths_information (int texinfo_uninstalled,
-                             const char *converterdatadir,
-                             const char *t2a_builddir,
-                             const char *t2a_srcdir);
+//void setup_txi_paths_information (int texinfo_uninstalled,
+//                             const char *converterdatadir,
+//                             const char *t2a_builddir,
+//                             const char *t2a_srcdir);
 
 // Information on elements
 

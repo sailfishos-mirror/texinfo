@@ -449,6 +449,11 @@ fi
 
 AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
 
+if test $embedded_perl = yes ; then
+  AC_DEFINE([HAVE_EMBEDDED_PERL], [1],
+            [Define to 1 if Perl can be embedded])
+fi
+
 AC_ARG_ENABLE([c-texi2any],
     AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]),
     [ prefer_c_t2a=$enableval],

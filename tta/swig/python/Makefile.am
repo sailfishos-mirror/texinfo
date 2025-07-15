@@ -23,13 +23,21 @@ pyexec_LTLIBRARIES = _Texinfo.la
 _Texinfo_la_SOURCES = python_texinfo_wrap.c
 
 _Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
-# in contrast with XS extensions, here we need an explicit link against
-# libperl as there is no Perl process involved.
-if ! DISABLE_XS
-_Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la $(perl_conf_LIBS)
-else
 _Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la
+if PERL_EMBEDDED
+_Texinfo_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
+else
+# in contrast with XS extensions, here we need an explicit link against
+# libperl as there is no Perl process involved.  This is needed for linking,
+# even though no C Perl code is used at all in that case.
+# Note that this case is unlikely, as in general, if liberl is present,
+# PERL_EMBEDDED is set.
+if ! DISABLE_XS
+_Texinfo_la_LIBADD += $(perl_conf_LIBS)
 endif
+endif
+# TODO same as ctexi2any, not sure whether it is needed or not
+_Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 _Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I.. -I$(srcdir)/../../C/main -I$(srcdir)/../../C/parsetexi -I$(srcdir)/../../C/convert ${PYTHON_CPPFLAGS}
 
 clean-local:

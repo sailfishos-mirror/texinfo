@@ -53,6 +53,9 @@ def sectioning_command_output(element):
     return result
 
 if __name__ == '__main__':
+    sys.stderr.write("Starting\n")
+    Texinfo.setup(1)
+    sys.stderr.write("Texinfo interface is now setup\n")
     input_file_name = '../../../doc/texinfo.texi'
     #input_file_name = '../../../tta/perl/t/input_files/simplest.texi'
     if len(sys.argv) - 1  > 0:

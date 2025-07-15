@@ -1,3 +1,17 @@
+2025-07-15 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac (HAVE_EMBEDDED_PERL): add define
+	HAVE_EMBEDDED_PERL.
+
+	* tta/swig/python/Makefile.am (_Texinfo_la_LIBADD): add PERL_EMBEDDED
+	case linking flags.
+
+	* tta/swig/texinfo.i (setup): setup paths and call
+	txi_setup_main_load_interpreter, remove from %init such that
+	texinfo_uninstalled can be passed in argument.
+
+	* tta/swig/python/test_Texinfo.py: call Texinfo.setup.
+
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
 	Integrate swig and Python interface in the tta build system
