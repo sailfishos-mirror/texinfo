@@ -1,5 +1,20 @@
 2025-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Add @documentinfo, @publication, @maketitle.
+
+	* doc/texinfo.tex
+	(@documentinfo): Define environment.
+	(@title, @subtitle, @author): If inside @documentinfo environment,
+	save argument.
+	(@publication): Add command, working like @copying.
+	(@maketitle): Output title page and title page verso, depending
+	on what information is available from @documentinfo, @publication
+	and @copying.
+	
+	Suggestions from Patrice.
+
+2025-07-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\finishtitlepage): Put bottom rule at the
 	bottom of the title page even if no @author line was given.
 
