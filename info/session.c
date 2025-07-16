@@ -26,6 +26,7 @@
 #include "footnotes.h"
 #include "man.h"
 #include "variables.h"
+#include "configfiles.h"
 
 #ifdef HAVE_SYS_IOCTL_H
 #include <sys/ioctl.h>
@@ -2056,6 +2057,11 @@ DECLARE_INFO_COMMAND (info_toggle_wrap,
 /*                                                                  */
 /* **************************************************************** */
 
+/* We store any nodes created by hooks in here. */
+static NODE **hook_nodes = 0;
+size_t hook_node_index = 0;
+size_t hook_node_slots = 0;
+
 /* Using WINDOW for various defaults, select the node referenced by ENTRY
    in it.  If the node is selected, the window and node are remembered.
    Display an error message if reference couldn't be selected and return 0. */
@@ -2091,6 +2097,38 @@ info_select_reference (WINDOW *window, REFERENCE *entry)
           node = info_get_node (label, "Top");
           if (!node && info_recent_file_error)
             file_system_error = xstrdup (info_recent_file_error);
+        }
+    }
+
+  if (!node && filename)
+    {
+      char *hook_output = 0;
+      char *hook_name = "node-not-found-interactive";
+      char *hook_argv[3];
+      hook_argv[0] = hook_name;
+      hook_argv[1] = filename;
+      hook_argv[2] = 0;
+      int status = run_info_hook (hook_name, hook_argv, &hook_output);
+      if (status == 0)
+        {
+          struct text_buffer buf;
+          text_buffer_init (&buf);
+          text_buffer_printf (&buf,
+                              "Node: %s output <%d>,\tUp: (dir)\n\n",
+                              hook_name, hook_node_index + 1);
+          text_buffer_printf (&buf, "%s", hook_output);
+          free (hook_output);
+
+          node = text_buffer_to_node (&buf);
+          char *node_name;
+          xasprintf (&node_name, "%s output", hook_name);
+          name_internal_node (node, node_name);
+          scan_node_contents (node, 0, 0);
+
+          /* Save this node. */
+          add_pointer_to_array (node, hook_node_index,
+                                hook_nodes,
+                                hook_node_slots, 100);
         }
     }
 

@@ -1,5 +1,13 @@
 2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	'node-not-found-interactive' hook
+
+	* info/session.c (info_select_reference):
+	Run 'node-not-found-interactive' and create a node with the
+	results.
+
+2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/run-external.c (get_output_from_program): Return exit
 	status of program or 127 if there was an error.  Add a parameter
 	to save output from the program.  All callers updated.
