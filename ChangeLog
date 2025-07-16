@@ -1,8 +1,3 @@
-2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/info-stnd.texi (Hooks): New chapter to document new Info
-	hooks feature.
-
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl: improve MakeMaker based build system.
@@ -14,6 +9,11 @@
 
 	* tta/swig/perl/Makefile.am (test_files, EXTRA_DIST): remove t/01use.t
 	and test_Texinfo.pl that are not useful.
+
+2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Hooks): New chapter to document new Info
+	hooks feature.
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
