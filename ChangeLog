@@ -1,3 +1,17 @@
+2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info/run-external.c
+	
+	* info/run-external.c: New file.
+	* info/run-external.c (get_output_from_program): Move code for running
+	and capturing the output of an external program here from man.c.
+	* info/man.c (get_manpage_from_formatter):
+	Call get_output_from_program.
+	* info/man.c (fd_set_cast) [hpux, !hpux]: Remove definiton which
+	appears to accommodate a system where fd_set does not exist.
+	* info/run-external.c, info/man.c (read_from_fd):
+	Move to run-external.c.
+
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl: improve MakeMaker based build system.

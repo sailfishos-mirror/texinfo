@@ -55,7 +55,7 @@ ginfo_SOURCES = configfiles.c configfiles.h dir.c display.c display.h \
   filesys.c filesys.h footnotes.c footnotes.h indices.c indices.h \
   info.c info.h infodoc.c infokey.c \
   infomap.c infomap.h infopath.c m-x.c man.c man.h nodemenu.c \
-  nodes.c nodes.h scan.c scan.h \
+  nodes.c nodes.h run-external.c run-external.h scan.c scan.h \
   search.c search.h session.c session.h signals.c signals.h \
   tag.c tag.h termdep.h terminal.c terminal.h tilde.c tilde.h \
   util.c util.h variables.c variables.h window.c window.h

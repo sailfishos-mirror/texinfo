@@ -32,18 +32,11 @@
 #include "man.h"
 #include "variables.h"
 #include "util.h"
+#include "run-external.h"
 
 #if !defined (_POSIX_VERSION)
 #define pid_t int
 #endif
-
-#if defined (FD_SET)
-#  if defined (hpux)
-#    define fd_set_cast(x) (int *)(x)
-#  else
-#    define fd_set_cast(x) (fd_set *)(x)
-#  endif /* !hpux */
-#endif /* FD_SET */
 
 #if STRIP_DOT_EXE
 static char const * const exec_extensions[] = {
@@ -54,7 +47,6 @@ static char const * const exec_extensions[] = { "", NULL };
 #endif
 
 static REFERENCE **xrefs_of_manpage (NODE *node);
-static char *read_from_fd (int fd);
 static char *get_manpage_contents (char *pagename);
 static char *find_man_formatter (void);
 
@@ -371,83 +363,12 @@ static char *
 get_manpage_from_formatter (char *formatter_args[])
 {
   char *formatted_page = NULL;
-  int pipes[2];
-  pid_t child;
-  int formatter_status = 0;
 
   putenv ("MAN_KEEP_FORMATTING=1"); /* Get codes for bold etc. */
   putenv ("GROFF_SGR=1"); /* for Debian whose man outputs
                              'overstrike' sequences without this */
 
-  /* Open a pipe to this program, read the output, and save it away
-     in FORMATTED_PAGE.  The reader end of the pipe is pipes[0]; the
-     writer end is pipes[1]. */
-#if PIPE_USE_FORK
-  if (pipe (pipes) == -1)
-    return 0; /* Creating pipe failed. */
-
-  child = fork ();
-  if (child == -1)
-    return NULL;
-
-  if (child != 0)
-    {
-      /* In the parent, close the writing end of the pipe, and read from
-         the exec'd child. */
-      close (pipes[1]);
-      formatted_page = read_from_fd (pipes[0]);
-      close (pipes[0]);
-      wait (&formatter_status); /* Wait for child process to exit. */
-    }
-  else
-    { /* In the child, close the read end of the pipe, make the write end
-         of the pipe be stdout, and execute the man page formatter. */
-      close (pipes[0]);
-      (void)! freopen (NULL_DEVICE, "w", stderr);
-      (void)! freopen (NULL_DEVICE, "r", stdin);
-      /* avoid "unused result" warning with ! operator */
-      dup2 (pipes[1], fileno (stdout));
-
-      execv (formatter_args[0], formatter_args);
-
-      /* If we get here, we couldn't exec, so close out the pipe and
-         exit. */
-      close (pipes[1]);
-      exit (EXIT_SUCCESS);
-    }
-#else  /* !PIPE_USE_FORK */
-  /* Cannot fork/exec, but can popen/pclose.  */
-  {
-    FILE *fpipe;
-    char *cmdline;
-    size_t cmdlen = 0;
-    int save_stderr = dup (fileno (stderr));
-    int fd_err = open (NULL_DEVICE, O_WRONLY, 0666);
-    int i;
-
-    for (i = 0; formatter_args[i]; i++)
-      cmdlen += strlen (formatter_args[i]);
-    /* Add-ons: 2 blanks, 2 quotes for the formatter program, 1
-       terminating null character.  */
-    cmdlen += 2 + 2 + 1;
-    cmdline = xmalloc (cmdlen);
-
-    if (fd_err > 2)
-      dup2 (fd_err, fileno (stderr)); /* Don't print errors. */
-    sprintf (cmdline, "\"%s\" %s %s",
-             formatter_args[0], formatter_args[1], formatter_args[2]);
-    fpipe = popen (cmdline, "r");
-    free (cmdline);
-    if (fd_err > 2)
-      close (fd_err);
-    dup2 (save_stderr, fileno (stderr));
-    if (fpipe == 0)
-      return NULL;
-    formatted_page = read_from_fd (fileno (fpipe));
-    formatter_status = pclose (fpipe);
-  }
-#endif /* !PIPE_USE_FORK */
-
+  formatted_page = get_output_from_program (formatter_args);
   if (!formatted_page)
     return 0;
 
@@ -481,73 +402,6 @@ get_manpage_from_formatter (char *formatter_args[])
   clean_manpage (formatted_page);
 
   return formatted_page;
-}
-
-/* Return pointer to bytes read from file descriptor FD.  Return value to be
-   freed by caller. */
-static char *
-read_from_fd (int fd)
-{
-  struct timeval timeout;
-  char *buffer = NULL;
-  int bsize = 0;
-  int bindex = 0;
-  int select_result;
-#if defined (FD_SET)
-  fd_set read_fds;
-
-  timeout.tv_sec = 15;
-  timeout.tv_usec = 0;
-
-  FD_ZERO (&read_fds);
-  FD_SET (fd, &read_fds);
-
-  select_result = select (fd + 1, fd_set_cast (&read_fds), 0, 0, &timeout);
-#else /* !FD_SET */
-  select_result = 1;
-#endif /* !FD_SET */
-
-  switch (select_result)
-    {
-    case 0:
-    case -1:
-      break;
-
-    default:
-      {
-        int amount_read;
-        int done = 0;
-
-        while (!done)
-          {
-            while ((bindex + 1024) > (bsize))
-              buffer = xrealloc (buffer, (bsize += 1024));
-            buffer[bindex] = '\0';
-
-            amount_read = read (fd, buffer + bindex, 1023);
-
-            if (amount_read < 0)
-              {
-                done = 1;
-              }
-            else
-              {
-                bindex += amount_read;
-                buffer[bindex] = '\0';
-                if (amount_read == 0)
-                  done = 1;
-              }
-          }
-      }
-    }
-
-  if ((buffer != NULL) && (*buffer == '\0'))
-    {
-      free (buffer);
-      buffer = NULL;
-    }
-
-  return buffer;
 }
 
 static REFERENCE **
