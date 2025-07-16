@@ -5,6 +5,11 @@
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (test_files, EXTRA_DIST): remove t/01use.t
+	and test_Texinfo.pl that are not useful.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac (perl_install*): substitute Perl conf siteprefix or
 	vendorprefix with ${prefix} to follow the GNU Standards and have
 	make distcheck work.

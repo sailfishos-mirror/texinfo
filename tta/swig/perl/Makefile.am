@@ -65,14 +65,13 @@ AM_T_LOG_FLAGS = -w
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
-test_files = t/01use.t \
-             t/30source_marks.t
+test_files = t/30source_marks.t
 
 if SWIG_PERL_TESTS
 TESTS = $(test_files)
 endif
 
-EXTRA_DIST = test_Texinfo.pl $(test_files)
+EXTRA_DIST = $(test_files)
 
 MAINTAINERCLEANFILES = Texinfo.pm
 
